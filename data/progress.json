@@ -1,0 +1,190 @@
+{
+  "schema": "chemrmbench-public-progress-v1",
+  "updated_at_utc": "2026-10-10T09:46:45.403492+00:00",
+  "snapshot_id": "Paper-A / V41 / initial public report",
+  "title": "ChemRMBench",
+  "benchmark_complete": false,
+  "conference_ready": false,
+  "contribution_gate": "CON03 MAJOR_OPEN",
+  "qualified_expert_demonstrations": {
+    "actual": 0,
+    "required": 700
+  },
+  "matched_native_VLA_fits": {
+    "actual": 0,
+    "required": 15
+  },
+  "reference_hardware_protocol": {
+    "actual": 0,
+    "required": 200
+  },
+  "external_calibration_cells": {
+    "collected": 0,
+    "planned": 18
+  },
+  "fresh_unknown_observation_admission": "OPEN",
+  "paper": {
+    "draft_pages": 54,
+    "format": "ICML-style research draft",
+    "submitted": false,
+    "draft_pdf_sha256": "4fcdcaf8dc6b257a683d172c981e9572fa433faf49143bf5fe3bde19d1f31fd5"
+  },
+  "evidence": [
+    {
+      "id": "V24",
+      "kind": "native",
+      "status": "limited",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Eight-condition reference harness",
+        "zh": "八条件参考执行框架"
+      },
+      "detail": {
+        "en": "45 saved episodes in one seen geometry: 40 scripted Track C references and 5 faults. Narrow-window signed median error +0.333336 s fails the 0.1 s requirement.",
+        "zh": "一个已见几何中保存 45 回合：40 个手写 Track C reference、5 个故障回合。窄窗 signed median error 为 +0.333336 s，未达 0.1 s 要求。"
+      },
+      "denominator": {
+        "en": "One geometry · scripted tools · no learned VLA",
+        "zh": "一个几何 · 手写工具 · 无学习型 VLA"
+      }
+    },
+    {
+      "id": "V26",
+      "kind": "native",
+      "status": "limited",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Seen timing control",
+        "zh": "已见场景计时控制"
+      },
+      "detail": {
+        "en": "Four fixed seen cases meet the per-case 0.1 s timing bound; maximum absolute error 0.016668233 s. Different banks prevent a matched performance-improvement claim.",
+        "zh": "四个固定已见案例逐例满足 0.1 s 计时界限；最大绝对误差 0.016668233 s。与旧实验 bank 不同，不作匹配性能提升推断。"
+      },
+      "denominator": {
+        "en": "4 cases · 1 seed / geometry · no population admission",
+        "zh": "4 案例 · 1 seed / geometry · 非群体准入"
+      }
+    },
+    {
+      "id": "V28",
+      "kind": "native",
+      "status": "limited",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Matched A/B observation fields",
+        "zh": "A/B 匹配观察字段"
+      },
+      "detail": {
+        "en": "Two seen previews, 120 frames each. A has RGBD, proprioception and language; B adds only a timestamp. Static depth arrays do not establish dynamic depth freshness or the information gate.",
+        "zh": "两个已见预览，每个 120 帧。A 为 RGBD、本体状态和语言，B 仅增加时间戳。静态 depth 数组不能证明动态深度新鲜度或信息门通过。"
+      },
+      "denominator": {
+        "en": "240 frames · 2 previews · 0 policy fits",
+        "zh": "240 帧 · 2 预览 · 0 策略训练"
+      }
+    },
+    {
+      "id": "V34",
+      "kind": "native",
+      "status": "limited",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Camera and particle observability",
+        "zh": "相机与粒子可观测性"
+      },
+      "detail": {
+        "en": "20 development captures. Diagnostic marker counts are 3 / 5 / 5 across lens settings; maximum projection disagreement 0.889 px. Saved row motion is not calibrated volume or verified particle identity.",
+        "zh": "20 张开发捕获。不同 lens 设置下诊断 marker 数为 3 / 5 / 5，最大投影偏差 0.889 px。保存行的移动不是标定体积或已验证粒子身份。"
+      },
+      "denominator": {
+        "en": "20 captures · diagnostic markers excluded from benchmark",
+        "zh": "20 张捕获 · 诊断 marker 不进入 benchmark"
+      }
+    },
+    {
+      "id": "V35",
+      "kind": "native",
+      "status": "limited",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Actual Franka drive trace",
+        "zh": "实际 Franka 驱动轨迹"
+      },
+      "detail": {
+        "en": "360 physics states and 60 nine-dimensional drive targets. Joint 1 moves 0.079997 rad and the fingers about 0.005 m. This is a limited actuator diagnostic, not a grasp or pouring evaluation.",
+        "zh": "360 个物理状态、60 次九维驱动 target。joint 1 移动 0.079997 rad、finger 约 0.005 m。这是限定执行器诊断，不是抓取或倒液评测。"
+      },
+      "denominator": {
+        "en": "1 diagnostic run · 360 states · 60 targets",
+        "zh": "1 次诊断 · 360 状态 · 60 targets"
+      }
+    },
+    {
+      "id": "V37-R3",
+      "kind": "native",
+      "status": "fail",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Shared-fluid transfer diagnostic",
+        "zh": "共享流体转移诊断"
+      },
+      "detail": {
+        "en": "420 states, 70 captures and 71 target calls. The capacity error is cleared; maximum actual cup tilt is 89.627012° (<90°). Workspace containment also fails.",
+        "zh": "420 状态、70 张捕获、71 次 target calls。容量错误已消除；实际最大杯倾角 89.627012°（小于 90°）。工作区留存同样失败。"
+      },
+      "denominator": {
+        "en": "1 fixed seen diagnostic · engineering FAIL",
+        "zh": "1 次固定已见诊断 · 工程 FAIL"
+      },
+      "artifact": "data/evidence/v37-r3.json"
+    },
+    {
+      "id": "V39",
+      "kind": "cpu",
+      "status": "limited",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Common-home trajectory feasibility",
+        "zh": "共同 home 轨迹可行性"
+      },
+      "detail": {
+        "en": "Five planned target trajectories pass independent CPU kinematics and limit checks, with an identical start/end home. No native run, actual home tracking, collision clearance or three-second liquid cue is established.",
+        "zh": "五条规划目标轨迹通过独立 CPU 运动学与限位检查，起止为同一 home。尚无 native 运行、实际 home 跟踪、碰撞净空或三秒液体 cue 证明。"
+      },
+      "denominator": {
+        "en": "5 CPU trajectories · 0 physical Pour events",
+        "zh": "5 条 CPU 轨迹 · 0 实际 Pour 事件"
+      }
+    },
+    {
+      "id": "V40",
+      "kind": "cpu",
+      "status": "pending",
+      "date": "2026-10-10",
+      "title": {
+        "en": "Dynamics observation probe",
+        "zh": "动力学观测诊断"
+      },
+      "detail": {
+        "en": "45 legal-first archive and analytic CPU checks pass. The new trace will compare joint positions/velocities, projected body angular motion and receiver poses. Native preflight and acquisition remain pending.",
+        "zh": "45 项先合法档案、解析 CPU 检查通过。新 trace 将对比关节位置/速度、刚体角运动投影与接收杯位姿。native 预检与实采尚待完成。"
+      },
+      "denominator": {
+        "en": "CPU checks only · 0 new scientific samples",
+        "zh": "仅 CPU 检查 · 0 新科学样本"
+      }
+    }
+  ],
+  "source_hashes": {
+    "V37-R3 audit": "079a24d4fa47dbc8b668dfa4138337c50963751abfe0845e9b1c276f8e8dd8da",
+    "V37-R3 scope config": "35ef5f27f439ac509876744d7be7e806638756001e988bc7661d7c2d2236b397",
+    "V39 independent CPU review": "411500e3b596a1096367652ca0f5e61baa31977cfac9412ae50b44ca588e4f76",
+    "V40 root CPU archive checks": "f33db9201904bda79d3db33c2c666253b9635cb3dc808517f6560b2ccbc8dbbb"
+  },
+  "notes": [
+    "Development diagnostics and CPU controls are excluded from scientific denominators.",
+    "The public subset omits credentials, private paths, licensed simulator assets and unpublished manuscript files.",
+    "This is a versioned snapshot, not a live measurement stream."
+  ]
+}
