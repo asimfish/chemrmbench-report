@@ -53,7 +53,7 @@ const copy = {
     'audit-resource':'V37-R3 audit subset','audit-resource-text':'Ten physical diagnostic gates, actual tilt and bounded region counts.',
     'repo-resource':'Public report source','repo-resource-text':'Page source, owned vector figures, snapshot history and disclosure policy.',
     'updates-title':'Recent research updates','u1-title':'Public report / V41','u1':'Bilingual protocol, interactive mechanism, actual figures, failure comparison and acceptance roadmap. Curated evidence only.',
-    'u2-title':'V40 observation probe / CPU checks','u2':'45 archive/analytic checks passed; launch-binding failure was preserved and corrected before freezing. Native acquisition pending.',
+    'u2-title':'V40 dynamics diagnosis','u2':'The versioned progress snapshot records the latest preflight, CPU and native diagnostic status. Open the progress JSON if the snapshot cannot load.',
     'u3-title':'V39 common-home feasibility','u3':'Independent CPU review of five trajectories passed. Earlier inverse-kinematics and speed-limit failures remain archived. Physical execution is untested.',
     'u4-title':'V37-R3 shared-fluid diagnostic / FAIL','u4':'Backend capacity errors removed; actual ≥90° tilt and workspace containment still fail. The audit has not been promoted to a benchmark success.',
     'u5-title':'V38 manuscript candidate 11','u5':'54-page ICML-style draft with two new diagnostic appendix pages. Methods and presentation reviews are limited passes; contribution review remains Major Revision.',
@@ -109,7 +109,7 @@ const copy = {
     'audit-resource':'V37-R3 审计公开子集','audit-resource-text':'十项物理诊断门、实际倾角与有限区域计数。',
     'repo-resource':'公开报告源码','repo-resource-text':'页面源码、自有矢量图、快照历史与披露规则。',
     'updates-title':'近期研究进展','u1-title':'公开报告 / V41','u1':'中英方案、交互机制示意、实际实验图、失败对比与验收路线，仅包含经过整理的公开证据。',
-    'u2-title':'V40 观测诊断 / CPU 检查','u2':'45 项 archive / analytic 检查通过。launch 绑定失败已保留，并于冻结前修正，native 实采待完成。',
+    'u2-title':'V40 动力学诊断','u2':'版本化进展快照记录最新的预检、CPU 和 native 诊断状态。若快照不能加载，请查看进展 JSON。',
     'u3-title':'V39 共同 home 可行性','u3':'五条轨迹的独立 CPU 审阅通过；之前的 IK 与速度门失败继续存档。物理执行尚未验证。',
     'u4-title':'V37-R3 共享流体诊断 / FAIL','u4':'backend 容量错误消除，实际 ≥90° 倾角和工作区留存仍失败，没有将审计升级为 benchmark 成功。',
     'u5-title':'V38 论文 candidate 11','u5':'54 页 ICML 格式草稿，新增两页诊断附录。方法与展示审阅限定通过，贡献审阅仍为 Major Revision。',
@@ -132,7 +132,11 @@ function renderText(){
   const toggle=document.getElementById('language-toggle');toggle.textContent=lang==='en'?'中文':'English';toggle.setAttribute('aria-label',lang==='en'?'Switch to Chinese':'切换至英文');
   document.querySelector('.hero-subtitle').style.whiteSpace='pre-line';
   renderMechanism();renderEvidence();
-  if(snapshot){const date=snapshot.updated_at_utc.slice(0,10);document.getElementById('snapshot-date').textContent=date+' · UTC';document.getElementById('footer-snapshot').textContent=(lang==='en'?'Snapshot ':'快照 ')+date;}
+  if(snapshot){
+    const date=snapshot.updated_at_utc.slice(0,10);document.getElementById('snapshot-date').textContent=date+' · UTC';document.getElementById('footer-snapshot').textContent=(lang==='en'?'Snapshot ':'快照 ')+date;
+    const dynamics=snapshot.evidence.find(row=>row.id==='V40');
+    if(dynamics){document.querySelector('[data-i18n="u2-title"]').textContent=dynamics.title[lang];document.querySelector('[data-i18n="u2"]').textContent=dynamics.detail[lang];}
+  }
 }
 const svgNS='http://www.w3.org/2000/svg';
 function svgElement(tag,attrs){const el=document.createElementNS(svgNS,tag);for(const [k,v]of Object.entries(attrs))el.setAttribute(k,v);return el;}

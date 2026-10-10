@@ -1,7 +1,7 @@
 {
   "schema": "chemrmbench-public-progress-v1",
-  "updated_at_utc": "2026-10-10T10:03:19.239430+00:00",
-  "snapshot_id": "Paper-A / V41 / public report r2",
+  "updated_at_utc": "2026-10-10T11:16:53.607064+00:00",
+  "snapshot_id": "Paper-A / V41 / public report r3",
   "title": "ChemRMBench",
   "benchmark_complete": false,
   "conference_ready": false,
@@ -159,28 +159,32 @@
     },
     {
       "id": "V40",
-      "kind": "cpu",
-      "status": "pending",
+      "kind": "native",
+      "status": "fail",
       "date": "2026-10-10",
       "title": {
-        "en": "Dynamics observation probe",
-        "zh": "动力学观测诊断"
+        "en": "Partial dynamics acquisition — failed",
+        "zh": "动力学部分采集：失败"
       },
       "detail": {
-        "en": "45 legal-first archive and analytic CPU checks pass. The new trace will compare joint positions/velocities, projected body angular motion and receiver poses. Native preflight and acquisition remain pending.",
-        "zh": "45 项先合法档案、解析 CPU 检查通过。新 trace 将对比关节位置/速度、刚体角运动投影与接收杯位姿。native 预检与实采尚待完成。"
+        "en": "R1 preflight FAIL is preserved; R2 passes 59 CPU checks. Actual saved records: 18/420 states, 18 dynamics rows and 2/70 captures. The third capture was rejected because its render timestamp did not advance; its payload was not saved. Parent exit 1; the full stored-data audit was not run. Frame semantics remain unresolved; no scientific admission.",
+        "zh": "R1 预检 FAIL 保留；R2 通过 59 项 CPU 检查。实际保存 18/420 状态、18 条动力学记录和 2/70 次捕获。第三次采集因渲染时间戳未推进而被拒绝，该次 payload 未保存。真实 parent exit 1；完整保存数据审计未运行。坐标语义仍未决，未构成科学准入。"
       },
       "denominator": {
-        "en": "CPU checks only · 0 new scientific samples",
-        "zh": "仅 CPU 检查 · 0 新科学样本"
-      }
+        "en": "1 partial seen diagnostic · 0 scientific samples",
+        "zh": "1 次部分已见诊断 · 0 科学样本"
+      },
+      "artifact": "data/evidence/v40-r2.json"
     }
   ],
   "source_hashes": {
     "V37-R3 audit": "079a24d4fa47dbc8b668dfa4138337c50963751abfe0845e9b1c276f8e8dd8da",
     "V37-R3 scope config": "35ef5f27f439ac509876744d7be7e806638756001e988bc7661d7c2d2236b397",
     "V39 independent CPU review": "411500e3b596a1096367652ca0f5e61baa31977cfac9412ae50b44ca588e4f76",
-    "V40 root CPU archive checks": "f33db9201904bda79d3db33c2c666253b9635cb3dc808517f6560b2ccbc8dbbb"
+    "V40 root CPU archive checks": "f33db9201904bda79d3db33c2c666253b9635cb3dc808517f6560b2ccbc8dbbb",
+    "V40 R1 independent preflight": "2ef260c8d329f5c793fc580ccb6908d48cd5b0c8910c02e31738c1aa98607534",
+    "V40 R2 CPU checks": "e1c0a4a99030c3b41881655a02f7b09fdc4597a63db5f65465ae76e11e3cbb36",
+    "V40 R2 actual parent receipt": "73c267c235522623f17f1f8a79ad410ad8b9bef95c51e65120f588ccead7e465"
   },
   "notes": [
     "Development diagnostics and CPU controls are excluded from scientific denominators.",
