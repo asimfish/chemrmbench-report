@@ -205,6 +205,25 @@
         "en": "Bounded rendering / actual result",
         "zh": "有界渲染 / 实际结果"
       }
+    },
+    {
+      "artifact": "data/evidence/v51-r2.json",
+      "date": "2026-10-11",
+      "denominator": {
+        "en": "Seen development evidence · 0 scientific samples",
+        "zh": "已见开发证据 · 0 科学样本"
+      },
+      "detail": {
+        "en": "420 states, 70 captures and 71 target calls; original physical gates: 6/11 pass, 5 fail. After-reset arm home error is 0.087 rad and hand home position error is 9.76 mm, compared descriptively with 2.706 rad and 740.29 mm in the separate V50 trace. Receiver fluid loss before control and failed tilt/retention/workspace/floor gates remain unresolved. Zero public render calls: recovery and live clock/joint/hand conservation remain NOT_TESTED. These sequential single seen traces are not matched causal replicates and add zero qualified experts.",
+        "zh": "420 状态、70 次捕获、71 次 target calls；原物理门 6/11 通过、5 项失败。reset 后关节 home 误差为 0.087 rad、手部位置误差为 9.76 mm；作为描述性对照，独立 V50 记录对应为 2.706 rad 和 740.29 mm。控制前接收杯液体损失及倾角、供液杯保留、接收杯保留、工作区、地板门失败仍未解决。实际公开渲染调用为零，恢复分支和现场时钟、关节、手部守恒仍未测试（NOT_TESTED）。连续的单次已见记录不是匹配因果复现，新增合格专家为零。"
+      },
+      "id": "V51-R2",
+      "kind": "native",
+      "status": "fail",
+      "title": {
+        "en": "Initial joint state / complete physical failure",
+        "zh": "初始关节状态 / 完整物理验收失败"
+      }
     }
   ],
   "external_calibration_cells": {
@@ -212,7 +231,7 @@
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "latest_evidence_id": "V50-R6",
+  "latest_evidence_id": "V51-R2",
   "matched_native_VLA_fits": {
     "actual": 0,
     "required": 15
@@ -223,9 +242,13 @@
     "This is a versioned snapshot, not a live measurement stream."
   ],
   "paper": {
-    "draft_pages": 54,
-    "draft_pdf_sha256": "4fcdcaf8dc6b257a683d172c981e9572fa433faf49143bf5fe3bde19d1f31fd5",
+    "current_candidate": 13,
+    "draft_pages": 57,
+    "draft_pdf_sha256": "26104c4d25ead58525c17b1f8a50df849ab60cb7d6c5b0465c015d004c8dc872",
+    "final_writing_audit_exit": 0,
     "format": "ICML-style research draft",
+    "independent_local_reviews": "Methods, contribution and clarity: Major Revision",
+    "lexical_panel_validator_exit": 1,
     "submitted": false
   },
   "qualified_expert_demonstrations": {
@@ -237,8 +260,12 @@
     "required": 200
   },
   "schema": "chemrmbench-public-progress-v1",
-  "snapshot_id": "Paper-A / V41 / public report r6",
+  "snapshot_id": "Paper-A / V41 / public report r7",
   "source_hashes": {
+    "C13 clarity closed review": "2cc4325a43142ab5e9fa254b814b202c0c5336194664fd24fe0223a38a76dc16",
+    "C13 contribution closed review": "8598f41f9e8cdd7564a8ee04fd3591c080d33fe8ed31779a68acf86fef1c668e",
+    "C13 manuscript archive": "f4671da30103765d3771cef7a817cda710989e1231baacd026693b92d9f321c0",
+    "C13 methods closed review": "2cd8626da8bb0c8a97191b741c32da74e387611b45bf72adc7ffe5be32d41404",
     "V37-R3 audit": "079a24d4fa47dbc8b668dfa4138337c50963751abfe0845e9b1c276f8e8dd8da",
     "V37-R3 scope config": "35ef5f27f439ac509876744d7be7e806638756001e988bc7661d7c2d2236b397",
     "V39 independent CPU review": "411500e3b596a1096367652ca0f5e61baa31977cfac9412ae50b44ca588e4f76",
@@ -254,8 +281,11 @@
     "V49 actual boundary analysis": "e5f8e99432aeeff468ded28f495453af30160b2895cf76fd5e4ccd562a6b564d",
     "V49 closed root verification": "39c17be98d5124d5e71d0b43c513f8f5b558b9f6a8cf88070ddbf51447886450",
     "V50 actual rendering analysis": "b8d489b8fa31f3064cca5cea9b7dfc0bc87d4130bf4bfb837376cb5e58ec5eda",
-    "V50 closed root verification": "2c14020176e31927cf0d9c951bd395cb53e597ca34a41c1347fb42b4b2ee48b2"
+    "V50 closed root verification": "2c14020176e31927cf0d9c951bd395cb53e597ca34a41c1347fb42b4b2ee48b2",
+    "V51 closed actual verification": "c04dbf11f4408673bfac83a502b4982a41fa1a327c05f0bd09d3fc0ac558343e",
+    "V51 initialization analysis": "ffb58a506c19de710b49a7ef68e6bb1e65c4d41980701e1dd5dc555522c193e7",
+    "V51 verified physical archive": "4456c6f955f6ffe9188207384922c438f2e7e3eefce87f97aa8858e2631182f1"
   },
   "title": "ChemRMBench",
-  "updated_at_utc": "2026-10-10T19:46:04.620301+00:00"
+  "updated_at_utc": "2026-10-10T20:50:42.333952+00:00"
 }

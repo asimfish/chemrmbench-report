@@ -1,0 +1,60 @@
+{
+  "acquisition_complete": true,
+  "benchmark_complete": false,
+  "bounded_rendering": {
+    "actual_capture_boundaries": 70,
+    "actual_public_render_calls": 0,
+    "boundaries_with_public_render": 0,
+    "particle_and_internal_solver_conservation": "NOT_TESTED",
+    "protocol_status": "PASS",
+    "recorded_clock_joint_hand_conservation": "NOT_TESTED_NO_RENDER_CALLS",
+    "recovery_branch": "NOT_TESTED_NO_RENDER_CALLS",
+    "snapshot_atomicity": "NOT_ESTABLISHED"
+  },
+  "callback_drops": 0,
+  "callback_invocations": 857,
+  "callback_root_cause": "NOT_ESTABLISHED",
+  "conference_ready": false,
+  "initialization_alignment": {
+    "baseline": {
+      "hand_home_position_error_m": 0.7402941151417429,
+      "max_arm_home_error_rad": 2.7058786152978818
+    },
+    "comparison": "SEQUENTIAL_SINGLE_SEEN_TRACES_NOT_MATCHED_CAUSAL_REPLICATES",
+    "current": {
+      "hand_home_position_error_m": 0.009758526504961286,
+      "max_arm_home_error_rad": 0.08700073417995291
+    },
+    "improvement_is_not_fluid_repair": true,
+    "qualified_experts": 0
+  },
+  "native": {
+    "exit_code": 0,
+    "seconds": 138.36924835690297,
+    "timed_out": false
+  },
+  "new_scientific_samples": 0,
+  "original_eleven_checks": {
+    "FK_orientation_consistency": true,
+    "FK_position_consistency": true,
+    "USD_joint_positions_match_tensor": true,
+    "actual_center_receiver_entry": true,
+    "actual_cup_over_ninety_degrees": false,
+    "actual_source_outflow": true,
+    "all_captured_particles_above_floor": false,
+    "all_captured_particles_in_workspace": false,
+    "runtime_physics_valid": true,
+    "settle_donor_retained": false,
+    "settle_receivers_retained": false
+  },
+  "original_physical_status": "ACTUAL_REAL_DRIVE_OR_FLUID_TRANSFER_ENGINEERING_FAIL",
+  "parent": {
+    "exit_code": 1,
+    "seconds": 188.92623337102123,
+    "timeout_status": "NOT_RECORDED_BY_PARENT_SUPERVISOR"
+  },
+  "saved_captures": 70,
+  "saved_states": 420,
+  "schema": "papera-public-closed-physical-observation-v1",
+  "target_calls": 71
+}
