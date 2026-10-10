@@ -7,3 +7,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 /* html owns the sticky-header offset; applying both offsets leaves an excessive gap. */
 .section{scroll-margin-top:0}
+.replay-grid{display:grid;grid-template-columns:minmax(0,280px) 1fr;gap:29px;padding:22px;background:var(--white);border:1px solid var(--line);border-radius:5px;margin-top:22px}.replay-grid video{display:block;width:100%;height:auto;border-radius:4px;background:#e5e6e7}.replay-details h3{font-size:15px;margin:12px 0 8px}.replay-details p{font-size:11px;color:var(--muted);line-height:1.9;margin:0 0 12px}.replay-details .download{font-size:10px}
+@media(max-width:700px){.replay-grid{grid-template-columns:1fr;gap:17px;padding:17px}.replay-grid video{max-width:320px;margin:0 auto}}

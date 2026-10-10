@@ -37,6 +37,10 @@ const copy = {
     observed:'OBSERVED','observed-title':'Motion and containment are not certified.','observed-text':'Particles with very low world-z had left the finite floor footprint; low z alone is not proof of floor penetration. Fixed world-cylinder counts also do not establish liquid inside a moving receiver cup.',
     'next-test':'NEXT TEST','next-test-title':'Observe before changing the controller.','next-test-text':'V40 adds same-tick joint/body angular motion and receiver-pose traces. It keeps the drive and physics plan fixed, to distinguish tracking, velocity readout and receiver-motion hypotheses. This is a diagnostic, not a calibrated independent sensor.',
     'failure-note':'Original failed runs, warnings and frozen thresholds are retained. Engineering validity is not full dynamics or chemical calibration.',
+    'replay-label':'Replay of actual V37-R3 failed development diagnostic','replay-title':'Watch the actual diagnostic.',
+    'replay-description':'A fixed supply tool on the Franka hand moves above five receivers. This replay uses all 70 saved RGB captures at 10 fps, without added cue markers or annotations. It is a lossy presentation derivative of the closed captures.',
+    'replay-scope':'One seen development run. The replay does not validate dye readability, a real three-second M1 cue, grasping or calibrated liquid transfer. Tilt and workspace containment fail.',
+    'replay-download':'Download 7 s replay ↓',
     'roadmap-title':'What must close before the main claim.','roadmap-lead':'A formatted paper and reproducible diagnostics do not replace scientific admission. The original requirements remain the acceptance criteria.',
     'in-progress':'IN PROGRESS',pending:'PENDING',
     'r1-title':'Physical cue & control',r1:'Five-slot visibility, persistent M0 dye, real three-second M1 A-pour, common stationary home, liquid containment and calibrated quantity.',
@@ -90,6 +94,10 @@ const copy = {
     observed:'已观察','observed-title':'运动与留存尚未认证。','observed-text':'world-z 很低的粒子已离开有限地板的 XY 范围，低 z 本身不能证明穿透地板。固定世界圆柱内的粒子计数，也不能证明液体位于实际移动烧杯内。',
     'next-test':'下一验证','next-test-title':'先增加观测，再改变控制器。','next-test-text':'V40 增加同 tick 的关节 / 刚体角运动与接收杯位姿 trace，保持驱动和物理计划不变，用于区分跟踪、速度读数和接收杯运动假设。它是诊断，不是标定的独立传感器。',
     'failure-note':'保留原失败、警告与冻结阈值。工程有效性不等于完整动力学或化学校准。',
+    'replay-label':'V37-R3 实际失败开发诊断的回放','replay-title':'直接查看实际诊断。',
+    'replay-description':'Franka 手部固定的供液工具在五个接收杯上方运动。使用全部 70 张已保存 RGB，以 10 fps 回放，不添加 cue marker 或标注。视频是闭合捕获的有损展示衍生产物。',
+    'replay-scope':'仅一次已见开发运行。不验证染料可读性、真实三秒 M1 cue、抓取或标定液体转移。倾角与工作区留存仍失败。',
+    'replay-download':'下载 7 秒回放 ↓',
     'roadmap-title':'主结论成立前，仍须完成什么。','roadmap-lead':'论文格式与可复现诊断不能替代科学准入。最初要求继续作为验收标准。','in-progress':'进行中',pending:'待完成',
     'r1-title':'物理 cue 与控制',r1:'五槽可见、M0 持久染料、M1 真实三秒 A 倒液、共同静止 home、液体留存与标定量。',
     'r2-title':'冻结观察后，验证全新未知场景',r2:'whole-scene 五折 elapsed-time ridge R² ≤0.05（G8）；cue presence / identity ≥0.95 与 scene 可靠性（G9），含 post-ID、paused、timestamp、oracle 正控。不将开发场景复用作 fresh confirmation。',
@@ -120,6 +128,7 @@ function renderText(){
   document.title=lang==='zh'?'ChemRMBench — 研究进展与方案':'ChemRMBench — Research progress & protocol';
   document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n);});
   document.querySelectorAll('[data-alt]').forEach(el=>el.alt=t(el.dataset.alt));
+  document.querySelectorAll('[data-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.aria)));
   const toggle=document.getElementById('language-toggle');toggle.textContent=lang==='en'?'中文':'English';toggle.setAttribute('aria-label',lang==='en'?'Switch to Chinese':'切换至英文');
   document.querySelector('.hero-subtitle').style.whiteSpace='pre-line';
   renderMechanism();renderEvidence();

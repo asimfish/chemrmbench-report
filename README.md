@@ -2,7 +2,7 @@
 
 Public report: **https://asimfish.github.io/chemrmbench-report/**
 
-This repository hosts a bilingual, buildless research report: benchmark design, an explicitly illustrative mechanism, actual development figures, failed diagnostics and the scientific acceptance roadmap. English is the default; `?lang=zh&view=method` selects a language and section.
+This repository hosts a bilingual, buildless research report: benchmark design, an explicitly illustrative mechanism, actual development figures and a failed diagnostic replay, and the scientific acceptance roadmap. English is the default; `?lang=zh&view=method` selects a language and section.
 
 ## Evidence and scope
 
@@ -11,6 +11,7 @@ This repository hosts a bilingual, buildless research report: benchmark design, 
 - Failed trials, open gates and unrun experiments retain their status. A limited engineering pass is not benchmark or conference acceptance.
 - The qualified 700-demonstration dataset and 15 matched native VLA fits are not yet complete. Current development diagnostics are excluded from these counts.
 - Region particle counts are not calibrated liquid volume, and diagnostic markers are not benchmark cues.
+- The V37-R3 video is a lossy presentation derivative: all 70 saved RGB captures replayed at 10 fps, without added cue markers or annotations. It is a failed development diagnostic, not a formal M1 benchmark result or raw sensor archive.
 - The full unpublished manuscript, private raw data, credentials, filesystem paths and licensed simulator assets are not part of this public subset.
 - SHA-256 digests identify underlying research artifacts. This subset is not a standalone reproduction capsule.
 
