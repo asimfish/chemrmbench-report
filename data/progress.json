@@ -1,194 +1,197 @@
 {
-  "schema": "chemrmbench-public-progress-v1",
-  "updated_at_utc": "2026-10-10T11:16:53.607064+00:00",
-  "snapshot_id": "Paper-A / V41 / public report r3",
-  "title": "ChemRMBench",
   "benchmark_complete": false,
   "conference_ready": false,
   "contribution_gate": "CON03 MAJOR_OPEN",
-  "qualified_expert_demonstrations": {
-    "actual": 0,
-    "required": 700
-  },
-  "matched_native_VLA_fits": {
-    "actual": 0,
-    "required": 15
-  },
-  "reference_hardware_protocol": {
-    "actual": 0,
-    "required": 200
-  },
+  "evidence": [
+    {
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "One geometry \u00b7 scripted tools \u00b7 no learned VLA",
+        "zh": "\u4e00\u4e2a\u51e0\u4f55 \u00b7 \u624b\u5199\u5de5\u5177 \u00b7 \u65e0\u5b66\u4e60\u578b VLA"
+      },
+      "detail": {
+        "en": "45 saved episodes in one seen geometry: 40 scripted Track C references and 5 faults. Narrow-window signed median error +0.333336 s fails the 0.1 s requirement.",
+        "zh": "\u4e00\u4e2a\u5df2\u89c1\u51e0\u4f55\u4e2d\u4fdd\u5b58 45 \u56de\u5408\uff1a40 \u4e2a\u624b\u5199 Track C reference\u30015 \u4e2a\u6545\u969c\u56de\u5408\u3002\u7a84\u7a97 signed median error \u4e3a +0.333336 s\uff0c\u672a\u8fbe 0.1 s \u8981\u6c42\u3002"
+      },
+      "id": "V24",
+      "kind": "native",
+      "status": "limited",
+      "title": {
+        "en": "Eight-condition reference harness",
+        "zh": "\u516b\u6761\u4ef6\u53c2\u8003\u6267\u884c\u6846\u67b6"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "4 cases \u00b7 1 seed / geometry \u00b7 no population admission",
+        "zh": "4 \u6848\u4f8b \u00b7 1 seed / geometry \u00b7 \u975e\u7fa4\u4f53\u51c6\u5165"
+      },
+      "detail": {
+        "en": "Four fixed seen cases meet the per-case 0.1 s timing bound; maximum absolute error 0.016668233 s. Different banks prevent a matched performance-improvement claim.",
+        "zh": "\u56db\u4e2a\u56fa\u5b9a\u5df2\u89c1\u6848\u4f8b\u9010\u4f8b\u6ee1\u8db3 0.1 s \u8ba1\u65f6\u754c\u9650\uff1b\u6700\u5927\u7edd\u5bf9\u8bef\u5dee 0.016668233 s\u3002\u4e0e\u65e7\u5b9e\u9a8c bank \u4e0d\u540c\uff0c\u4e0d\u4f5c\u5339\u914d\u6027\u80fd\u63d0\u5347\u63a8\u65ad\u3002"
+      },
+      "id": "V26",
+      "kind": "native",
+      "status": "limited",
+      "title": {
+        "en": "Seen timing control",
+        "zh": "\u5df2\u89c1\u573a\u666f\u8ba1\u65f6\u63a7\u5236"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "240 frames \u00b7 2 previews \u00b7 0 policy fits",
+        "zh": "240 \u5e27 \u00b7 2 \u9884\u89c8 \u00b7 0 \u7b56\u7565\u8bad\u7ec3"
+      },
+      "detail": {
+        "en": "Two seen previews, 120 frames each. A has RGBD, proprioception and language; B adds only a timestamp. Static depth arrays do not establish dynamic depth freshness or the information gate.",
+        "zh": "\u4e24\u4e2a\u5df2\u89c1\u9884\u89c8\uff0c\u6bcf\u4e2a 120 \u5e27\u3002A \u4e3a RGBD\u3001\u672c\u4f53\u72b6\u6001\u548c\u8bed\u8a00\uff0cB \u4ec5\u589e\u52a0\u65f6\u95f4\u6233\u3002\u9759\u6001 depth \u6570\u7ec4\u4e0d\u80fd\u8bc1\u660e\u52a8\u6001\u6df1\u5ea6\u65b0\u9c9c\u5ea6\u6216\u4fe1\u606f\u95e8\u901a\u8fc7\u3002"
+      },
+      "id": "V28",
+      "kind": "native",
+      "status": "limited",
+      "title": {
+        "en": "Matched A/B observation fields",
+        "zh": "A/B \u5339\u914d\u89c2\u5bdf\u5b57\u6bb5"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "20 captures \u00b7 diagnostic markers excluded from benchmark",
+        "zh": "20 \u5f20\u6355\u83b7 \u00b7 \u8bca\u65ad marker \u4e0d\u8fdb\u5165 benchmark"
+      },
+      "detail": {
+        "en": "20 development captures. Diagnostic marker counts are 3 / 5 / 5 across lens settings; maximum projection disagreement 0.889 px. Saved row motion is not calibrated volume or verified particle identity.",
+        "zh": "20 \u5f20\u5f00\u53d1\u6355\u83b7\u3002\u4e0d\u540c lens \u8bbe\u7f6e\u4e0b\u8bca\u65ad marker \u6570\u4e3a 3 / 5 / 5\uff0c\u6700\u5927\u6295\u5f71\u504f\u5dee 0.889 px\u3002\u4fdd\u5b58\u884c\u7684\u79fb\u52a8\u4e0d\u662f\u6807\u5b9a\u4f53\u79ef\u6216\u5df2\u9a8c\u8bc1\u7c92\u5b50\u8eab\u4efd\u3002"
+      },
+      "id": "V34",
+      "kind": "native",
+      "status": "limited",
+      "title": {
+        "en": "Camera and particle observability",
+        "zh": "\u76f8\u673a\u4e0e\u7c92\u5b50\u53ef\u89c2\u6d4b\u6027"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "1 diagnostic run \u00b7 360 states \u00b7 60 targets",
+        "zh": "1 \u6b21\u8bca\u65ad \u00b7 360 \u72b6\u6001 \u00b7 60 targets"
+      },
+      "detail": {
+        "en": "360 physics states and 60 nine-dimensional drive targets. Joint 1 moves 0.079997 rad and the fingers about 0.005 m. This is a limited actuator diagnostic, not a grasp or pouring evaluation.",
+        "zh": "360 \u4e2a\u7269\u7406\u72b6\u6001\u300160 \u6b21\u4e5d\u7ef4\u9a71\u52a8 target\u3002joint 1 \u79fb\u52a8 0.079997 rad\u3001finger \u7ea6 0.005 m\u3002\u8fd9\u662f\u9650\u5b9a\u6267\u884c\u5668\u8bca\u65ad\uff0c\u4e0d\u662f\u6293\u53d6\u6216\u5012\u6db2\u8bc4\u6d4b\u3002"
+      },
+      "id": "V35",
+      "kind": "native",
+      "status": "limited",
+      "title": {
+        "en": "Actual Franka drive trace",
+        "zh": "\u5b9e\u9645 Franka \u9a71\u52a8\u8f68\u8ff9"
+      }
+    },
+    {
+      "artifact": "data/evidence/v37-r3.json",
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "1 fixed seen diagnostic \u00b7 engineering FAIL",
+        "zh": "1 \u6b21\u56fa\u5b9a\u5df2\u89c1\u8bca\u65ad \u00b7 \u5de5\u7a0b FAIL"
+      },
+      "detail": {
+        "en": "420 states, 70 captures and 71 target calls. The capacity error is cleared; maximum actual cup tilt is 89.627012\u00b0 (<90\u00b0). Workspace containment also fails.",
+        "zh": "420 \u72b6\u6001\u300170 \u5f20\u6355\u83b7\u300171 \u6b21 target calls\u3002\u5bb9\u91cf\u9519\u8bef\u5df2\u6d88\u9664\uff1b\u5b9e\u9645\u6700\u5927\u676f\u503e\u89d2 89.627012\u00b0\uff08\u5c0f\u4e8e 90\u00b0\uff09\u3002\u5de5\u4f5c\u533a\u7559\u5b58\u540c\u6837\u5931\u8d25\u3002"
+      },
+      "id": "V37-R3",
+      "kind": "native",
+      "status": "fail",
+      "title": {
+        "en": "Shared-fluid transfer diagnostic",
+        "zh": "\u5171\u4eab\u6d41\u4f53\u8f6c\u79fb\u8bca\u65ad"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "5 CPU trajectories \u00b7 0 physical Pour events",
+        "zh": "5 \u6761 CPU \u8f68\u8ff9 \u00b7 0 \u5b9e\u9645 Pour \u4e8b\u4ef6"
+      },
+      "detail": {
+        "en": "Five planned target trajectories pass independent CPU kinematics and limit checks, with an identical start/end home. No native run, actual home tracking, collision clearance or three-second liquid cue is established.",
+        "zh": "\u4e94\u6761\u89c4\u5212\u76ee\u6807\u8f68\u8ff9\u901a\u8fc7\u72ec\u7acb CPU \u8fd0\u52a8\u5b66\u4e0e\u9650\u4f4d\u68c0\u67e5\uff0c\u8d77\u6b62\u4e3a\u540c\u4e00 home\u3002\u5c1a\u65e0 native \u8fd0\u884c\u3001\u5b9e\u9645 home \u8ddf\u8e2a\u3001\u78b0\u649e\u51c0\u7a7a\u6216\u4e09\u79d2\u6db2\u4f53 cue \u8bc1\u660e\u3002"
+      },
+      "id": "V39",
+      "kind": "cpu",
+      "status": "limited",
+      "title": {
+        "en": "Common-home trajectory feasibility",
+        "zh": "\u5171\u540c home \u8f68\u8ff9\u53ef\u884c\u6027"
+      }
+    },
+    {
+      "artifact": "data/evidence/v40-r4.json",
+      "date": "2026-10-10",
+      "denominator": {
+        "en": "1 complete seen diagnostic \u00b7 0 scientific samples",
+        "zh": "1\u6b21\u5b8c\u6574\u5df2\u89c1\u8bca\u65ad \u00b7 0\u79d1\u5b66\u6837\u672c"
+      },
+      "detail": {
+        "en": "R4 saves 420 states / 420 dynamics records / 70 captures. Native exits 0; the original audit exits 1 on the SDK float-rate type. R5 CPU reanalysis preserves all 11 gates: 9 pass, tilt reaches 89.612389\u00b0 (<90\u00b0), and workspace containment fails. Receivers move; velocity-frame calibration and the earlier camera failure remain open. One exploratory GPU0 run, no scientific admission.",
+        "zh": "R4 \u5b8c\u6574\u4fdd\u5b58420\u72b6\u6001 / 420\u52a8\u529b\u5b66 / 70\u5e27\uff0cNative exit0\uff1b\u539f\u5ba1\u8ba1\u56e0SDK\u6d6e\u70b9\u9891\u7387\u7c7b\u578b\u7ea6\u675f exit1\u3002R5 CPU\u91cd\u5ba1\u4fdd\u7559\u5168\u90e811\u7269\u7406\u95e8\uff1a9\u9879\u901a\u8fc7\uff0c\u503e\u89d289.612389\u00b0\uff08<90\u00b0\uff09\u548c\u5de5\u4f5c\u533a\u7ea6\u675f\u4ecd\u5931\u8d25\u3002\u63a5\u6536\u676f\u5b9e\u6d4b\u79fb\u52a8\uff0c\u901f\u5ea6\u5750\u6807\u6807\u5b9a\u4e0e\u65e7\u76f8\u673a\u5931\u8d25\u539f\u56e0\u4ecd\u5f00\u653e\u3002\u4ec5\u4e00\u6b21\u63a2\u7d22\u6027GPU0\u8fd0\u884c\uff0c\u672a\u6784\u6210\u79d1\u5b66\u51c6\u5165\u3002"
+      },
+      "id": "V40",
+      "kind": "native",
+      "status": "fail",
+      "title": {
+        "en": "Complete dynamics capture / physical gates fail",
+        "zh": "\u5b8c\u6574\u52a8\u529b\u5b66\u91c7\u96c6 / \u7269\u7406\u95e8\u4ecd\u5931\u8d25"
+      }
+    }
+  ],
   "external_calibration_cells": {
     "collected": 0,
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "paper": {
-    "draft_pages": 54,
-    "format": "ICML-style research draft",
-    "submitted": false,
-    "draft_pdf_sha256": "4fcdcaf8dc6b257a683d172c981e9572fa433faf49143bf5fe3bde19d1f31fd5"
-  },
-  "evidence": [
-    {
-      "id": "V24",
-      "kind": "native",
-      "status": "limited",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Eight-condition reference harness",
-        "zh": "八条件参考执行框架"
-      },
-      "detail": {
-        "en": "45 saved episodes in one seen geometry: 40 scripted Track C references and 5 faults. Narrow-window signed median error +0.333336 s fails the 0.1 s requirement.",
-        "zh": "一个已见几何中保存 45 回合：40 个手写 Track C reference、5 个故障回合。窄窗 signed median error 为 +0.333336 s，未达 0.1 s 要求。"
-      },
-      "denominator": {
-        "en": "One geometry · scripted tools · no learned VLA",
-        "zh": "一个几何 · 手写工具 · 无学习型 VLA"
-      }
-    },
-    {
-      "id": "V26",
-      "kind": "native",
-      "status": "limited",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Seen timing control",
-        "zh": "已见场景计时控制"
-      },
-      "detail": {
-        "en": "Four fixed seen cases meet the per-case 0.1 s timing bound; maximum absolute error 0.016668233 s. Different banks prevent a matched performance-improvement claim.",
-        "zh": "四个固定已见案例逐例满足 0.1 s 计时界限；最大绝对误差 0.016668233 s。与旧实验 bank 不同，不作匹配性能提升推断。"
-      },
-      "denominator": {
-        "en": "4 cases · 1 seed / geometry · no population admission",
-        "zh": "4 案例 · 1 seed / geometry · 非群体准入"
-      }
-    },
-    {
-      "id": "V28",
-      "kind": "native",
-      "status": "limited",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Matched A/B observation fields",
-        "zh": "A/B 匹配观察字段"
-      },
-      "detail": {
-        "en": "Two seen previews, 120 frames each. A has RGBD, proprioception and language; B adds only a timestamp. Static depth arrays do not establish dynamic depth freshness or the information gate.",
-        "zh": "两个已见预览，每个 120 帧。A 为 RGBD、本体状态和语言，B 仅增加时间戳。静态 depth 数组不能证明动态深度新鲜度或信息门通过。"
-      },
-      "denominator": {
-        "en": "240 frames · 2 previews · 0 policy fits",
-        "zh": "240 帧 · 2 预览 · 0 策略训练"
-      }
-    },
-    {
-      "id": "V34",
-      "kind": "native",
-      "status": "limited",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Camera and particle observability",
-        "zh": "相机与粒子可观测性"
-      },
-      "detail": {
-        "en": "20 development captures. Diagnostic marker counts are 3 / 5 / 5 across lens settings; maximum projection disagreement 0.889 px. Saved row motion is not calibrated volume or verified particle identity.",
-        "zh": "20 张开发捕获。不同 lens 设置下诊断 marker 数为 3 / 5 / 5，最大投影偏差 0.889 px。保存行的移动不是标定体积或已验证粒子身份。"
-      },
-      "denominator": {
-        "en": "20 captures · diagnostic markers excluded from benchmark",
-        "zh": "20 张捕获 · 诊断 marker 不进入 benchmark"
-      }
-    },
-    {
-      "id": "V35",
-      "kind": "native",
-      "status": "limited",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Actual Franka drive trace",
-        "zh": "实际 Franka 驱动轨迹"
-      },
-      "detail": {
-        "en": "360 physics states and 60 nine-dimensional drive targets. Joint 1 moves 0.079997 rad and the fingers about 0.005 m. This is a limited actuator diagnostic, not a grasp or pouring evaluation.",
-        "zh": "360 个物理状态、60 次九维驱动 target。joint 1 移动 0.079997 rad、finger 约 0.005 m。这是限定执行器诊断，不是抓取或倒液评测。"
-      },
-      "denominator": {
-        "en": "1 diagnostic run · 360 states · 60 targets",
-        "zh": "1 次诊断 · 360 状态 · 60 targets"
-      }
-    },
-    {
-      "id": "V37-R3",
-      "kind": "native",
-      "status": "fail",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Shared-fluid transfer diagnostic",
-        "zh": "共享流体转移诊断"
-      },
-      "detail": {
-        "en": "420 states, 70 captures and 71 target calls. The capacity error is cleared; maximum actual cup tilt is 89.627012° (<90°). Workspace containment also fails.",
-        "zh": "420 状态、70 张捕获、71 次 target calls。容量错误已消除；实际最大杯倾角 89.627012°（小于 90°）。工作区留存同样失败。"
-      },
-      "denominator": {
-        "en": "1 fixed seen diagnostic · engineering FAIL",
-        "zh": "1 次固定已见诊断 · 工程 FAIL"
-      },
-      "artifact": "data/evidence/v37-r3.json"
-    },
-    {
-      "id": "V39",
-      "kind": "cpu",
-      "status": "limited",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Common-home trajectory feasibility",
-        "zh": "共同 home 轨迹可行性"
-      },
-      "detail": {
-        "en": "Five planned target trajectories pass independent CPU kinematics and limit checks, with an identical start/end home. No native run, actual home tracking, collision clearance or three-second liquid cue is established.",
-        "zh": "五条规划目标轨迹通过独立 CPU 运动学与限位检查，起止为同一 home。尚无 native 运行、实际 home 跟踪、碰撞净空或三秒液体 cue 证明。"
-      },
-      "denominator": {
-        "en": "5 CPU trajectories · 0 physical Pour events",
-        "zh": "5 条 CPU 轨迹 · 0 实际 Pour 事件"
-      }
-    },
-    {
-      "id": "V40",
-      "kind": "native",
-      "status": "fail",
-      "date": "2026-10-10",
-      "title": {
-        "en": "Partial dynamics acquisition — failed",
-        "zh": "动力学部分采集：失败"
-      },
-      "detail": {
-        "en": "R1 preflight FAIL is preserved; R2 passes 59 CPU checks. Actual saved records: 18/420 states, 18 dynamics rows and 2/70 captures. The third capture was rejected because its render timestamp did not advance; its payload was not saved. Parent exit 1; the full stored-data audit was not run. Frame semantics remain unresolved; no scientific admission.",
-        "zh": "R1 预检 FAIL 保留；R2 通过 59 项 CPU 检查。实际保存 18/420 状态、18 条动力学记录和 2/70 次捕获。第三次采集因渲染时间戳未推进而被拒绝，该次 payload 未保存。真实 parent exit 1；完整保存数据审计未运行。坐标语义仍未决，未构成科学准入。"
-      },
-      "denominator": {
-        "en": "1 partial seen diagnostic · 0 scientific samples",
-        "zh": "1 次部分已见诊断 · 0 科学样本"
-      },
-      "artifact": "data/evidence/v40-r2.json"
-    }
-  ],
-  "source_hashes": {
-    "V37-R3 audit": "079a24d4fa47dbc8b668dfa4138337c50963751abfe0845e9b1c276f8e8dd8da",
-    "V37-R3 scope config": "35ef5f27f439ac509876744d7be7e806638756001e988bc7661d7c2d2236b397",
-    "V39 independent CPU review": "411500e3b596a1096367652ca0f5e61baa31977cfac9412ae50b44ca588e4f76",
-    "V40 root CPU archive checks": "f33db9201904bda79d3db33c2c666253b9635cb3dc808517f6560b2ccbc8dbbb",
-    "V40 R1 independent preflight": "2ef260c8d329f5c793fc580ccb6908d48cd5b0c8910c02e31738c1aa98607534",
-    "V40 R2 CPU checks": "e1c0a4a99030c3b41881655a02f7b09fdc4597a63db5f65465ae76e11e3cbb36",
-    "V40 R2 actual parent receipt": "73c267c235522623f17f1f8a79ad410ad8b9bef95c51e65120f588ccead7e465"
+  "matched_native_VLA_fits": {
+    "actual": 0,
+    "required": 15
   },
   "notes": [
     "Development diagnostics and CPU controls are excluded from scientific denominators.",
     "The public subset omits credentials, private paths, licensed simulator assets and unpublished manuscript files.",
     "This is a versioned snapshot, not a live measurement stream."
-  ]
+  ],
+  "paper": {
+    "draft_pages": 54,
+    "draft_pdf_sha256": "4fcdcaf8dc6b257a683d172c981e9572fa433faf49143bf5fe3bde19d1f31fd5",
+    "format": "ICML-style research draft",
+    "submitted": false
+  },
+  "qualified_expert_demonstrations": {
+    "actual": 0,
+    "required": 700
+  },
+  "reference_hardware_protocol": {
+    "actual": 0,
+    "required": 200
+  },
+  "schema": "chemrmbench-public-progress-v1",
+  "snapshot_id": "Paper-A / V41 / public report r4",
+  "source_hashes": {
+    "V37-R3 audit": "079a24d4fa47dbc8b668dfa4138337c50963751abfe0845e9b1c276f8e8dd8da",
+    "V37-R3 scope config": "35ef5f27f439ac509876744d7be7e806638756001e988bc7661d7c2d2236b397",
+    "V39 independent CPU review": "411500e3b596a1096367652ca0f5e61baa31977cfac9412ae50b44ca588e4f76",
+    "V40 R1 independent preflight": "2ef260c8d329f5c793fc580ccb6908d48cd5b0c8910c02e31738c1aa98607534",
+    "V40 R2 CPU checks": "e1c0a4a99030c3b41881655a02f7b09fdc4597a63db5f65465ae76e11e3cbb36",
+    "V40 R2 actual parent receipt": "73c267c235522623f17f1f8a79ad410ad8b9bef95c51e65120f588ccead7e465",
+    "V40 R4 closed actual review": "8a71e9c6a5437d98c5cf7454c2ace8114b21542242083ceac6158d42068152b8",
+    "V40 R5 actual physical findings": "913e299e14562c232783b3d62689de0c34d78dc208c56dcc38ba1bd651a7b8c0",
+    "V40 R5 closed reanalysis review": "0e6581dad204a467f094aac2c318f5dcc0432bbab4bf69d26c1759f697b7df9f",
+    "V40 root CPU archive checks": "f33db9201904bda79d3db33c2c666253b9635cb3dc808517f6560b2ccbc8dbbb"
+  },
+  "title": "ChemRMBench",
+  "updated_at_utc": "2026-10-10T13:11:18.932654+00:00"
 }
