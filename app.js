@@ -25,7 +25,7 @@ const copy = {
     'verifier-note':'Outcome and process are scored together; verifier state is private. Paper A evaluates frozen policies.',
     'evidence-title':'What has actually been tested.','evidence-lead':'Each result has a scope and a denominator. Native development runs, CPU feasibility, and formal benchmark experiments are separate populations.',
     all:'All evidence',native:'Native diagnostics',cpu:'CPU feasibility',failed:'Failed',loading:'Loading the versioned evidence snapshot…',
-    'figure-two':'FIGURE 02 · ACTUAL CAMERA / PARTICLE DIAGNOSTIC','figure-three':'FIGURE 03 · ACTUAL FRANKA DRIVE TRACE','figure-four':'FIGURE 04 · COMPLETE DYNAMICS DIAGNOSTIC','dynamics-caption':'One GPU0 development run: 420 states and 70 captures. Reanalysis passes 9 of 11 original gates; tilt and workspace containment fail. Endpoint and interval speeds estimate different quantities. Angular frame calibration and the old camera failure remain open.',
+    'figure-two':'FIGURE 02 · ACTUAL CAMERA / PARTICLE DIAGNOSTIC','figure-three':'FIGURE 03 · ACTUAL FRANKA DRIVE TRACE','figure-four':'FIGURE 04 · COMPLETE DYNAMICS DIAGNOSTIC',"figure-five":"FIGURE 05 · ACTUAL INITIALIZATION BOUNDARIES","figure-six":"FIGURE 06 · ACTUAL BOUNDED RENDERING","boundary-caption":"Four actual initialization snapshots from an incomplete development run. Warmup receiver-region retention is already 56.5–59.6% before control. Donor containment changes with the moving tool pose. Counts are not calibrated volume; contact causality and snapshot atomicity remain open.","render-caption":"420 states, 70 captures and 71 target calls. All eleven original physical gates were evaluated: 6/11 pass. The protocol allows at most three public rendering calls per stale boundary. This run made zero public rendering calls, so the recovery branch and conservation of recorded clock, joint state and hand pose under rendering remain NOT_TESTED. Particle/internal-solver conservation and atomic snapshots are not established. Complete acquisition does not demonstrate a rendering repair or population effect.",'dynamics-caption':'One GPU0 development run: 420 states and 70 captures. Reanalysis passes 9 of 11 original gates; tilt and workspace containment fail. Endpoint and interval speeds estimate different quantities. Angular frame calibration and the old camera failure remain open.',
     'camera-alt':'Actual development camera projection and saved particle row motion across lens/readback settings',
     'franka-alt':'Actual joint 1 and finger position traces during a limited Franka actuator diagnostic',
     'camera-caption':'V34 / 20 development captures. Diagnostic magenta markers are excluded from benchmark cues. Lens settings recover visibility of all five slots, but M0 dye readability remains open. Saved row displacement is not calibrated volume or verified particle identity; multiple settings changed.',
@@ -35,7 +35,7 @@ const copy = {
     capacity:'GPU aggregate capacity','capacity-change':'Only planned backend capacity changed','physics-errors':'Critical PhysX errors','error-cleared':'Reported capacity error cleared',
     tilt:'Maximum actual cup tilt','tilt-fail':'FAIL · frozen threshold ≥90°',workspace:'Workspace containment gate','not-gated':'Not gated in R2','scatter-open':'Particle scatter remains unresolved',captures:'States / captures / target calls','one-run':'One fixed diagnostic run per revision',
     observed:'OBSERVED','observed-title':'Motion and containment are not certified.','observed-text':'Particles with very low world-z had left the finite floor footprint; low z alone is not proof of floor penetration. Fixed world-cylinder counts also do not establish liquid inside a moving receiver cup.',
-    'next-test':'NEXT TEST','next-test-title':'Observe before changing the controller.','next-test-text':'V40 adds same-tick joint/body angular motion and receiver-pose traces. It keeps the drive and physics plan fixed, to distinguish tracking, velocity readout and receiver-motion hypotheses. This is a diagnostic, not a calibrated independent sensor.',
+    'next-test':'NEXT TEST','next-test-title':'Test initial state and fluid retention.','next-test-text':'A separate CPU stage changes only nine initial joint positions and nine zero velocities. A new independently reviewed physical test must establish parsed reset alignment and original physical gates before expert collection. M0/M1, unseen observation admission and matched model training remain open.',
     'failure-note':'Original failed runs, warnings and frozen thresholds are retained. Engineering validity is not full dynamics or chemical calibration.',
     'replay-label':'Replay of actual V37-R3 failed development diagnostic','replay-title':'Watch the actual diagnostic.',
     'replay-description':'A fixed supply tool on the Franka hand moves above five receivers. This replay uses all 70 saved RGB captures at 10 fps, without added cue markers or annotations. It is a lossy presentation derivative of the closed captures.',
@@ -53,7 +53,7 @@ const copy = {
     'audit-resource':'V37-R3 audit subset','audit-resource-text':'Ten physical diagnostic gates, actual tilt and bounded region counts.',
     'repo-resource':'Public report source','repo-resource-text':'Page source, owned vector figures, snapshot history and disclosure policy.',
     'updates-title':'Recent research updates','u1-title':'Public report / V41','u1':'Bilingual protocol, interactive mechanism, actual figures, failure comparison and acceptance roadmap. Curated evidence only.',
-    'u2-title':'V40 dynamics diagnosis','u2':'The versioned progress snapshot records the latest preflight, CPU and native diagnostic status. Open the progress JSON if the snapshot cannot load.',
+    'u2-title':'Initialization and rendering diagnostics','u2':'The versioned progress snapshot records the latest preflight, CPU and native diagnostic status. Open the progress JSON if the snapshot cannot load.',
     'u3-title':'V39 common-home feasibility','u3':'Independent CPU review of five trajectories passed. Earlier inverse-kinematics and speed-limit failures remain archived. Physical execution is untested.',
     'u4-title':'V37-R3 shared-fluid diagnostic / FAIL','u4':'Backend capacity errors removed; actual ≥90° tilt and workspace containment still fail. The audit has not been promoted to a benchmark success.',
     'u5-title':'V38 manuscript candidate 11','u5':'54-page ICML-style draft with two new diagnostic appendix pages. Methods and presentation reviews are limited passes; contribution review remains Major Revision.',
@@ -82,7 +82,7 @@ const copy = {
     'verifier-note':'同时评价结果与过程；verifier 状态为私有。Paper A 评测冻结策略。',
     'evidence-title':'哪些实验确实运行过。','evidence-lead':'每项结果都有范围和分母。native 开发诊断、CPU 可行性与正式 benchmark 实验属于不同群体。',
     all:'全部证据',native:'Native 诊断',cpu:'CPU 可行性',failed:'失败',loading:'正在加载版本化证据快照…',
-    'figure-two':'图 02 · 实际相机 / 粒子诊断','figure-three':'图 03 · 实际 FRANKA 驱动轨迹','figure-four':'图 04 · 完整动力学诊断','dynamics-caption':'一次GPU0开发运行，420状态和70帧。重审保留原11门，9项通过，倾角与工作区约束仍失败。Endpoint与区间速度是不同估计量。角速度坐标标定和旧相机失败原因仍开放。',
+    'figure-two':'图 02 · 实际相机 / 粒子诊断','figure-three':'图 03 · 实际 FRANKA 驱动轨迹','figure-four':'图 04 · 完整动力学诊断',"figure-five":"图 05 · 实际初始化边界","figure-six":"图 06 · 实际有界渲染","boundary-caption":"不完整开发运行中的四个真实初始化快照。开始控制前，预热后的接收杯区域保留率已为 56.5–59.6%。供液杯包含率随工具位姿变化。计数不是标定体积，接触原因与快照原子性仍开放。","render-caption":"420 状态、70 次捕获、71 次 target calls。原十一项物理门实际评估，6/11 通过。协议允许每个停滞边界最多三次公开渲染调用。本次实际公开渲染调用为零，因此恢复分支及渲染下所记录时钟、关节状态、手部位姿的守恒均未测试（NOT_TESTED）。粒子、内部求解器守恒与原子快照尚未证明；完整采集不证明渲染修复或群体效应。",'dynamics-caption':'一次GPU0开发运行，420状态和70帧。重审保留原11门，9项通过，倾角与工作区约束仍失败。Endpoint与区间速度是不同估计量。角速度坐标标定和旧相机失败原因仍开放。',
     'camera-alt':'不同 lens 和 readback 设置下，实际相机投影与保存粒子行运动诊断',
     'franka-alt':'限定 Franka 执行器诊断中的实际 joint 1 和 finger 位置轨迹',
     'camera-caption':'V34 / 20 张开发捕获。紫色诊断 marker 不进入 benchmark cue。lens 设置恢复五槽可见性，但 M0 染料可读性仍开放。保存行的位移不是标定体积或已验证粒子身份；此处同时改变了多个设置。',
@@ -92,7 +92,7 @@ const copy = {
     'capacity-change':'仅改变计划中的 backend 容量','physics-errors':'PhysX critical errors','error-cleared':'报告的容量错误消除',
     tilt:'实际最大杯倾角','tilt-fail':'FAIL · 冻结阈值 ≥90°',workspace:'工作区留存门','not-gated':'R2 尚无此门','scatter-open':'粒子散逸原因未关闭',captures:'状态 / 捕获 / target calls','one-run':'每版本仅一次固定诊断',
     observed:'已观察','observed-title':'运动与留存尚未认证。','observed-text':'world-z 很低的粒子已离开有限地板的 XY 范围，低 z 本身不能证明穿透地板。固定世界圆柱内的粒子计数，也不能证明液体位于实际移动烧杯内。',
-    'next-test':'下一验证','next-test-title':'先增加观测，再改变控制器。','next-test-text':'V40 增加同 tick 的关节 / 刚体角运动与接收杯位姿 trace，保持驱动和物理计划不变，用于区分跟踪、速度读数和接收杯运动假设。它是诊断，不是标定的独立传感器。',
+    'next-test':'下一验证','next-test-title':'检验初始状态与液体保留。','next-test-text':'独立 CPU 场景只改变九个关节初始位置与九个零速度。新的独立复核物理实验须验证实际解析后的 reset 对齐及原物理门，才能开始专家采集。M0/M1、未知观察准入与匹配模型训练仍开放。',
     'failure-note':'保留原失败、警告与冻结阈值。工程有效性不等于完整动力学或化学校准。',
     'replay-label':'V37-R3 实际失败开发诊断的回放','replay-title':'直接查看实际诊断。',
     'replay-description':'Franka 手部固定的供液工具在五个接收杯上方运动。使用全部 70 张已保存 RGB，以 10 fps 回放，不添加 cue marker 或标注。视频是闭合捕获的有损展示衍生产物。',
@@ -109,7 +109,7 @@ const copy = {
     'audit-resource':'V37-R3 审计公开子集','audit-resource-text':'十项物理诊断门、实际倾角与有限区域计数。',
     'repo-resource':'公开报告源码','repo-resource-text':'页面源码、自有矢量图、快照历史与披露规则。',
     'updates-title':'近期研究进展','u1-title':'公开报告 / V41','u1':'中英方案、交互机制示意、实际实验图、失败对比与验收路线，仅包含经过整理的公开证据。',
-    'u2-title':'V40 动力学诊断','u2':'版本化进展快照记录最新的预检、CPU 和 native 诊断状态。若快照不能加载，请查看进展 JSON。',
+    'u2-title':'初始化与渲染诊断','u2':'版本化进展快照记录最新的预检、CPU 和 native 诊断状态。若快照不能加载，请查看进展 JSON。',
     'u3-title':'V39 共同 home 可行性','u3':'五条轨迹的独立 CPU 审阅通过；之前的 IK 与速度门失败继续存档。物理执行尚未验证。',
     'u4-title':'V37-R3 共享流体诊断 / FAIL','u4':'backend 容量错误消除，实际 ≥90° 倾角和工作区留存仍失败，没有将审计升级为 benchmark 成功。',
     'u5-title':'V38 论文 candidate 11','u5':'54 页 ICML 格式草稿，新增两页诊断附录。方法与展示审阅限定通过，贡献审阅仍为 Major Revision。',
@@ -134,7 +134,7 @@ function renderText(){
   renderMechanism();renderEvidence();
   if(snapshot){
     const date=snapshot.updated_at_utc.slice(0,10);document.getElementById('snapshot-date').textContent=date+' · UTC';document.getElementById('footer-snapshot').textContent=(lang==='en'?'Snapshot ':'快照 ')+date;
-    const dynamics=snapshot.evidence.find(row=>row.id==='V40');
+    const dynamics=snapshot.evidence.find(row=>row.id===(snapshot.latest_evidence_id||'V40'));
     if(dynamics){document.querySelector('[data-i18n="u2-title"]').textContent=dynamics.title[lang];document.querySelector('[data-i18n="u2"]').textContent=dynamics.detail[lang];}
   }
 }
