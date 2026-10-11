@@ -262,6 +262,25 @@
         "en": "Actual dry robot / tool / receiver comparison",
         "zh": "机器人 / 工具 / 接收器实际干跑对比"
       }
+    },
+    {
+      "artifact": "data/evidence/v58-r5.json",
+      "date": "2026-10-11",
+      "denominator": {
+        "en": "1 dry run · 420 saved states · initialization FAIL",
+        "zh": "1次干跑 · 420保存状态 · 初始化FAIL"
+      },
+      "detail": {
+        "en": "One complete dry clearance run: 420 states, 70 captures, all 175 receiver colliders. Posthoc cup tilt94.839846°, full saved speed/limit0.909099, and 2,646,000 authored-bound pairs without overlap. The original audit rejects initialization before its nine-gate endpoint: reset/setup home error0.087001rad and nonzero velocity. Shape-path mapping and effective receiver offsets remain unverified. No wet, expert, training, calibration or online-agent result is admitted.",
+        "zh": "一次完整干态间隙运行：420状态、70捕获、全部175接收器碰撞体。后验杯倾角94.839846°，全程保存速度/限值0.909099；2,646,000对authored bounds没有重叠。原审计在九门端点之前拒绝初始化：reset/setup home偏差0.087001rad且速度非零。shape-path映射和接收器后端offset仍未验证。没有新增湿态、专家、训练、实测校准或在线agent结果。"
+      },
+      "id": "V58-R5",
+      "kind": "native",
+      "status": "fail",
+      "title": {
+        "en": "Actual clearance: initialization still fails",
+        "zh": "实际间隙运行：初始化仍未通过"
+      }
     }
   ],
   "external_calibration_cells": {
@@ -269,7 +288,7 @@
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "latest_evidence_id": "V52-R18",
+  "latest_evidence_id": "V58-R5",
   "matched_native_VLA_fits": {
     "actual": 0,
     "required": 15
@@ -280,13 +299,17 @@
     "This is a versioned snapshot, not a live measurement stream."
   ],
   "paper": {
-    "current_candidate": 13,
-    "draft_pages": 57,
-    "draft_pdf_sha256": "26104c4d25ead58525c17b1f8a50df849ab60cb7d6c5b0465c015d004c8dc872",
-    "final_writing_audit_exit": 0,
+    "current_candidate": 16,
+    "current_full_writing_audit": "NOT_RERUN_CURRENT_CANDIDATE",
+    "draft_pages": 62,
+    "draft_pdf_sha256": "e5c25d5f74cafbeea110d11cae9ee70afc2345d60ecca6b8aff9d1b9741abf9a",
     "format": "ICML-style research draft",
-    "independent_local_reviews": "Methods, contribution and clarity: Major Revision",
-    "lexical_panel_validator_exit": 1,
+    "historical_candidate13_checks": {
+      "final_writing_audit_exit": 0,
+      "lexical_panel_validator_exit": 1
+    },
+    "independent_local_reviews": "Scoped development appendix verification; full paper remains Major Revision",
+    "main_and_impact_pages": 8,
     "submitted": false
   },
   "qualified_expert_demonstrations": {
@@ -298,7 +321,7 @@
     "required": 200
   },
   "schema": "chemrmbench-public-progress-v1",
-  "snapshot_id": "Paper-A / V41 / public report r10",
+  "snapshot_id": "Paper-A / V41 / public report r11",
   "source_hashes": {
     "C13 clarity closed review": "2cc4325a43142ab5e9fa254b814b202c0c5336194664fd24fe0223a38a76dc16",
     "C13 contribution closed review": "8598f41f9e8cdd7564a8ee04fd3591c080d33fe8ed31779a68acf86fef1c668e",
@@ -327,8 +350,10 @@
     "V52 R15 independent actual report": "c4ee67a1e5b273079ff0ebef38340d866a450aafc999225d37d2792a21a605fd",
     "V52 R15 original failure analysis": "2cb111b64783e1f947e0d41e7ba082ee72624e8c4f7267913f0ee6e9490db7db",
     "V52 R18 closed actual verification": "4db1bdac4d622a7defc0ebafd46be84f018a8d988aa9acc6f063a68531dd1b3c",
-    "V52 R18 independent actual report": "392fdc07d23dac45f6c65a5b466cf9a94922a3da9c41f37b594ef90c63e77404"
+    "V52 R18 independent actual report": "392fdc07d23dac45f6c65a5b466cf9a94922a3da9c41f37b594ef90c63e77404",
+    "V58 R5 closed actual failure": "3a4d839c387622d468123fce1becdbb5bf98f962e4c0856b039552ba30f01113",
+    "V58 R5 complete raw analysis": "027b9d852b88b6b1d3314ee1a45d655dd7f2d231ed5f86553ed7f373a719e111"
   },
   "title": "ChemRMBench",
-  "updated_at_utc": "2026-10-11T02:15:57.571666+00:00"
+  "updated_at_utc": "2026-10-11T05:57:37.895529+00:00"
 }
