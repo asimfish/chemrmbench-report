@@ -224,6 +224,25 @@
         "en": "Initial joint state / complete physical failure",
         "zh": "初始关节状态 / 完整物理验收失败"
       }
+    },
+    {
+      "artifact": "data/evidence/v52-r15.json",
+      "date": "2026-10-11",
+      "denominator": {
+        "en": "1 attempted dry A · 0 control states · 7 NOT_RUN gates",
+        "zh": "1 次干态 A 启动 · 0 控制状态 · 7 项门 NOT_RUN"
+      },
+      "detail": {
+        "en": "USD load identity passed; four initialization boundaries and 17 camera callbacks were recorded. Vulkan reported driver 570.124.06 and Warp reported Driver 12.8. Zero control states and control captures: loaded-library classification failed after warmup. All seven dry gates are NOT_RUN. The exact rejected library path is NOT_RECORDED; SDK auxiliary-prefix overlap is a static risk, not identification of the original offender. The closed failure archive is intact; no qualified experts or benchmark samples were added.",
+        "zh": "USD 加载身份检查通过，已记录四个初始化边界和 17 次相机回调。Vulkan 日志报告驱动 570.124.06，Warp 日志报告 Driver 12.8。预热后库分类检查失败，控制状态和控制捕获为零；七项干态门均 NOT_RUN。被拒绝库的精确路径为 NOT_RECORDED；SDK 辅助库前缀重叠是静态风险，不是原失败库的身份鉴定。原失败档案已完整闭合，新增合格专家和 benchmark 样本为零。"
+      },
+      "id": "V52-R15",
+      "kind": "native",
+      "status": "fail",
+      "title": {
+        "en": "SDK initialization / pre-control library failure",
+        "zh": "SDK 初始化 / 控制前库分类失败"
+      }
     }
   ],
   "external_calibration_cells": {
@@ -231,7 +250,7 @@
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "latest_evidence_id": "V51-R2",
+  "latest_evidence_id": "V52-R15",
   "matched_native_VLA_fits": {
     "actual": 0,
     "required": 15
@@ -260,7 +279,7 @@
     "required": 200
   },
   "schema": "chemrmbench-public-progress-v1",
-  "snapshot_id": "Paper-A / V41 / public report r7",
+  "snapshot_id": "Paper-A / V41 / public report r8",
   "source_hashes": {
     "C13 clarity closed review": "2cc4325a43142ab5e9fa254b814b202c0c5336194664fd24fe0223a38a76dc16",
     "C13 contribution closed review": "8598f41f9e8cdd7564a8ee04fd3591c080d33fe8ed31779a68acf86fef1c668e",
@@ -284,8 +303,11 @@
     "V50 closed root verification": "2c14020176e31927cf0d9c951bd395cb53e597ca34a41c1347fb42b4b2ee48b2",
     "V51 closed actual verification": "c04dbf11f4408673bfac83a502b4982a41fa1a327c05f0bd09d3fc0ac558343e",
     "V51 initialization analysis": "ffb58a506c19de710b49a7ef68e6bb1e65c4d41980701e1dd5dc555522c193e7",
-    "V51 verified physical archive": "4456c6f955f6ffe9188207384922c438f2e7e3eefce87f97aa8858e2631182f1"
+    "V51 verified physical archive": "4456c6f955f6ffe9188207384922c438f2e7e3eefce87f97aa8858e2631182f1",
+    "V52 R15 closed actual verification": "87f764949bb40d38220cbac697bbeab8ef5bf53997e845f99ecb3d68394f0b3c",
+    "V52 R15 independent actual report": "c4ee67a1e5b273079ff0ebef38340d866a450aafc999225d37d2792a21a605fd",
+    "V52 R15 original failure analysis": "2cb111b64783e1f947e0d41e7ba082ee72624e8c4f7267913f0ee6e9490db7db"
   },
   "title": "ChemRMBench",
-  "updated_at_utc": "2026-10-10T20:50:42.333952+00:00"
+  "updated_at_utc": "2026-10-11T00:48:49.650142+00:00"
 }
