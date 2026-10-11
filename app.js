@@ -1,6 +1,8 @@
 'use strict';
 const copy = {
   en: {
+    "figure-twelve":"FIGURE 12 · ACTUAL INITIALIZATION DIAGNOSTIC",
+    "initialization-caption":"One measured dry run passes the original nine checks. All 420 saved states are shown without smoothing. Prior initialization failures remain in the evidence ledger. Effective offsets, liquid, calibration and scientific acceptance remain incomplete.",
     "figure-ten":"FIGURE 10 · ACTUAL CLEARANCE TRACES",
     "clearance-caption":"All420 measured control steps, unchanged90° tilt threshold and original URDF speed limits. These posthoc traces do not bypass the failed initialization guard. Offset mapping, continuous contact, liquid and scientific admission remain open.",
     "figure-eleven":"FIGURE 11 · PROPOSED TIMING AND ONLINE PLANNING",
@@ -43,7 +45,7 @@ const copy = {
     capacity:'GPU aggregate capacity','capacity-change':'Only planned backend capacity changed','physics-errors':'Critical PhysX errors','error-cleared':'Reported capacity error cleared',
     tilt:'Maximum actual cup tilt','tilt-fail':'FAIL · frozen threshold ≥90°',workspace:'Workspace containment gate','not-gated':'Not gated in R2','scatter-open':'Particle scatter remains unresolved',captures:'States / captures / target calls','one-run':'One fixed diagnostic run per revision',
     observed:'OBSERVED','observed-title':'Motion and containment are not certified.','observed-text':'Particles with very low world-z had left the finite floor footprint; low z alone is not proof of floor penetration. Fixed world-cylinder counts also do not establish liquid inside a moving receiver cup.',
-    'next-test':'NEXT TEST','next-test-title':"Repair initialization, then qualify liquid transfer.",'next-test-text':"The new clearance run keeps all175 receiver colliders and meets posthoc control speed limits, but the original audit rejects reset/setup home and velocity. A fresh initialization revision must pass independent preflight and actual gates before liquid qualification, eight matched cells and learning experiments. Proposed online LLM replanning has no new measured result.",
+    'next-test':'NEXT TEST','next-test-title':"Qualify effective offsets, then liquid transfer.",'next-test-text':"A fresh single dry run passes all nine frozen checks: 420 states, 70 captures and all 175 receiver colliders. Declared setup uses one position and one velocity write before warmup, with zero state writes afterward. Cup tilt reaches 94.84° and maximum speed/limit is 0.9091. Complete effective offsets, liquid, expert data, model fits, real calibration and online LLM comparisons remain open.",
     'failure-note':'Original failed runs, warnings and frozen thresholds are retained. Engineering validity is not full dynamics or chemical calibration.',
     'replay-label':'Replay of actual V37-R3 failed development diagnostic','replay-title':'Watch the actual diagnostic.',
     'replay-description':'A fixed supply tool on the Franka hand moves above five receivers. This replay uses all 70 saved RGB captures at 10 fps, without added cue markers or annotations. It is a lossy presentation derivative of the closed captures.',
@@ -70,6 +72,8 @@ const copy = {
     'reference-credit':'Presentation references:','back-top':'Back to top ↑',
   },
   zh: {
+    "figure-twelve":"图12 · 实际初始化诊断",
+    "initialization-caption":"一次实测干态运行通过原九项检查；展示全部420个保存状态，未平滑。历史初始化失败仍保留在证据清单中。有效偏移、液体、标定和科学验收仍未完成。",
     "figure-ten":"图10 · 实际间隙运行曲线",
     "clearance-caption":"全部420控制步的实际测量，保持90°倾角门和原URDF速度限值。后验曲线不能绕过失败的初始化条件。offset映射、连续接触、液体和科学准入仍开放。",
     "figure-eleven":"图11 · 拟开展的时间与在线规划",
@@ -108,7 +112,7 @@ const copy = {
     'capacity-change':'仅改变计划中的 backend 容量','physics-errors':'PhysX critical errors','error-cleared':'报告的容量错误消除',
     tilt:'实际最大杯倾角','tilt-fail':'FAIL · 冻结阈值 ≥90°',workspace:'工作区留存门','not-gated':'R2 尚无此门','scatter-open':'粒子散逸原因未关闭',captures:'状态 / 捕获 / target calls','one-run':'每版本仅一次固定诊断',
     observed:'已观察','observed-title':'运动与留存尚未认证。','observed-text':'world-z 很低的粒子已离开有限地板的 XY 范围，低 z 本身不能证明穿透地板。固定世界圆柱内的粒子计数，也不能证明液体位于实际移动烧杯内。',
-    'next-test':'下一验证','next-test-title':"修复初始化，再验证液体转移。",'next-test-text':"新的间隙运行保留全部175接收器碰撞体，控制阶段保存速度低于原限值，但原审计拒绝reset/setup初始姿态和速度。新的初始化修订须通过独立预检和实际验收，再进入液体、八个匹配条件和学习实验。拟开展的在线LLM重规划仍没有新增实测结果。",
+    'next-test':'下一验证','next-test-title':"验证有效偏移，再验证液体转移。",'next-test-text':"新的单次干态运行通过全部九项冻结检查：420个状态、70次捕获、175个接收器碰撞体。声明的初始化仅在预热前写一次位置和一次速度，此后没有状态写入。杯倾角94.84°，最大速度/限值0.9091。完整有效偏移、液体、专家数据、模型训练、真实标定和在线LLM对照仍未完成。",
     'failure-note':'保留原失败、警告与冻结阈值。工程有效性不等于完整动力学或化学校准。',
     'replay-label':'V37-R3 实际失败开发诊断的回放','replay-title':'直接查看实际诊断。',
     'replay-description':'Franka 手部固定的供液工具在五个接收杯上方运动。使用全部 70 张已保存 RGB，以 10 fps 回放，不添加 cue marker 或标注。视频是闭合捕获的有损展示衍生产物。',

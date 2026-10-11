@@ -281,6 +281,25 @@
         "en": "Actual clearance: initialization still fails",
         "zh": "实际间隙运行：初始化仍未通过"
       }
+    },
+    {
+      "artifact": "data/evidence/v59-r2.json",
+      "date": "2026-10-11",
+      "denominator": {
+        "en": "1 dry diagnostic · 420 states · 9/9 dry checks",
+        "zh": "1次干态诊断 · 420状态 · 九项检查9/9"
+      },
+      "detail": {
+        "en": "A fresh single dry run passes all nine frozen checks: 420 states, 70 captures and all 175 receiver colliders. Declared setup uses one position and one velocity write before warmup, with zero state writes afterward. Cup tilt reaches 94.84° and maximum speed/limit is 0.9091. Complete effective offsets, liquid, expert data, model fits, real calibration and online LLM comparisons remain open.",
+        "zh": "新的单次干态运行通过全部九项冻结检查：420个状态、70次捕获、175个接收器碰撞体。声明的初始化仅在预热前写一次位置和一次速度，此后没有状态写入。杯倾角94.84°，最大速度/限值0.9091。完整有效偏移、液体、专家数据、模型训练、真实标定和在线LLM对照仍未完成。"
+      },
+      "id": "V59-R2",
+      "kind": "native",
+      "status": "pass",
+      "title": {
+        "en": "Declared setup: all nine dry checks pass",
+        "zh": "声明的初始化：九项干态检查全部通过"
+      }
     }
   ],
   "external_calibration_cells": {
@@ -288,7 +307,7 @@
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "latest_evidence_id": "V58-R5",
+  "latest_evidence_id": "V59-R2",
   "matched_native_VLA_fits": {
     "actual": 0,
     "required": 15
@@ -299,16 +318,16 @@
     "This is a versioned snapshot, not a live measurement stream."
   ],
   "paper": {
-    "current_candidate": 16,
+    "current_candidate": 17,
     "current_full_writing_audit": "NOT_RERUN_CURRENT_CANDIDATE",
-    "draft_pages": 62,
-    "draft_pdf_sha256": "e5c25d5f74cafbeea110d11cae9ee70afc2345d60ecca6b8aff9d1b9741abf9a",
+    "draft_pages": 63,
+    "draft_pdf_sha256": "402f082daa12b14c036eb404cca5385c477bc1d7f7752822d9ea83e9417f55e8",
     "format": "ICML-style research draft",
     "historical_candidate13_checks": {
       "final_writing_audit_exit": 0,
       "lexical_panel_validator_exit": 1
     },
-    "independent_local_reviews": "Scoped development appendix verification; full paper remains Major Revision",
+    "independent_local_reviews": "Scoped actual dry evidence and new appendix review; full paper remains Major Revision",
     "main_and_impact_pages": 8,
     "submitted": false
   },
@@ -321,7 +340,7 @@
     "required": 200
   },
   "schema": "chemrmbench-public-progress-v1",
-  "snapshot_id": "Paper-A / V41 / public report r11",
+  "snapshot_id": "Paper-A / V41 / public report r12",
   "source_hashes": {
     "C13 clarity closed review": "2cc4325a43142ab5e9fa254b814b202c0c5336194664fd24fe0223a38a76dc16",
     "C13 contribution closed review": "8598f41f9e8cdd7564a8ee04fd3591c080d33fe8ed31779a68acf86fef1c668e",
@@ -352,8 +371,9 @@
     "V52 R18 closed actual verification": "4db1bdac4d622a7defc0ebafd46be84f018a8d988aa9acc6f063a68531dd1b3c",
     "V52 R18 independent actual report": "392fdc07d23dac45f6c65a5b466cf9a94922a3da9c41f37b594ef90c63e77404",
     "V58 R5 closed actual failure": "3a4d839c387622d468123fce1becdbb5bf98f962e4c0856b039552ba30f01113",
-    "V58 R5 complete raw analysis": "027b9d852b88b6b1d3314ee1a45d655dd7f2d231ed5f86553ed7f373a719e111"
+    "V58 R5 complete raw analysis": "027b9d852b88b6b1d3314ee1a45d655dd7f2d231ed5f86553ed7f373a719e111",
+    "V59 R2 closed actual dry evidence": "429766f7933af299052cab5a35657ca70629437c896db583e1346438fbf005f5"
   },
   "title": "ChemRMBench",
-  "updated_at_utc": "2026-10-11T05:57:37.895529+00:00"
+  "updated_at_utc": "2026-10-11T07:10:58.723428+00:00"
 }
