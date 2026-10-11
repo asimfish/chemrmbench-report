@@ -243,6 +243,25 @@
         "en": "SDK initialization / pre-control library failure",
         "zh": "SDK 初始化 / 控制前库分类失败"
       }
+    },
+    {
+      "artifact": "data/evidence/v52-r18.json",
+      "date": "2026-10-11",
+      "denominator": {
+        "en": "3 single dry runs · 1,260 states · 210 captures · C fails90°",
+        "zh": "3 条单次干跑 · 1,260 状态 · 210 捕获 · C 未达 90°"
+      },
+      "detail": {
+        "en": "Three complete single dry trajectories: 420 states, 70 captures and 71 target calls each. A/B peak94.835852° and pass7/7 dry checks; C peak89.709966° fails the unchanged90° gate (6/7). A uses a virtual hand-implied axis without a donor. Eleven common SDK body mass/inertia/drive descriptors match; A/B state streams are byte-identical despite different RGB. Calibrated effort/contact and full velocity admission remain open. Wet D was not run. Zero qualified experts or learned-policy fits were added.",
+        "zh": "三条完整的单次干跑各有 420 状态、70 捕获、71 次 target 调用。A/B 峰值 94.835852°，干跑检查 7/7；C 峰值 89.709966°，未通过保持不变的 90°门（6/7）。A 无供液杯，使用手部姿态推算的虚拟轴。11 个共有 SDK 刚体的质量、惯量和驱动描述相同；A/B 状态流逐字节相同，RGB 不同。力/接触标定和完整速度准入仍开放。未运行湿态 D；新增合格专家和学习策略训练为零。"
+      },
+      "id": "V52-R18",
+      "kind": "native",
+      "status": "fail",
+      "title": {
+        "en": "Actual dry robot / tool / receiver comparison",
+        "zh": "机器人 / 工具 / 接收器实际干跑对比"
+      }
     }
   ],
   "external_calibration_cells": {
@@ -250,7 +269,7 @@
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "latest_evidence_id": "V52-R15",
+  "latest_evidence_id": "V52-R18",
   "matched_native_VLA_fits": {
     "actual": 0,
     "required": 15
@@ -279,7 +298,7 @@
     "required": 200
   },
   "schema": "chemrmbench-public-progress-v1",
-  "snapshot_id": "Paper-A / V41 / public report r8",
+  "snapshot_id": "Paper-A / V41 / public report r10",
   "source_hashes": {
     "C13 clarity closed review": "2cc4325a43142ab5e9fa254b814b202c0c5336194664fd24fe0223a38a76dc16",
     "C13 contribution closed review": "8598f41f9e8cdd7564a8ee04fd3591c080d33fe8ed31779a68acf86fef1c668e",
@@ -306,8 +325,10 @@
     "V51 verified physical archive": "4456c6f955f6ffe9188207384922c438f2e7e3eefce87f97aa8858e2631182f1",
     "V52 R15 closed actual verification": "87f764949bb40d38220cbac697bbeab8ef5bf53997e845f99ecb3d68394f0b3c",
     "V52 R15 independent actual report": "c4ee67a1e5b273079ff0ebef38340d866a450aafc999225d37d2792a21a605fd",
-    "V52 R15 original failure analysis": "2cb111b64783e1f947e0d41e7ba082ee72624e8c4f7267913f0ee6e9490db7db"
+    "V52 R15 original failure analysis": "2cb111b64783e1f947e0d41e7ba082ee72624e8c4f7267913f0ee6e9490db7db",
+    "V52 R18 closed actual verification": "4db1bdac4d622a7defc0ebafd46be84f018a8d988aa9acc6f063a68531dd1b3c",
+    "V52 R18 independent actual report": "392fdc07d23dac45f6c65a5b466cf9a94922a3da9c41f37b594ef90c63e77404"
   },
   "title": "ChemRMBench",
-  "updated_at_utc": "2026-10-11T00:48:49.650142+00:00"
+  "updated_at_utc": "2026-10-11T02:15:57.571666+00:00"
 }

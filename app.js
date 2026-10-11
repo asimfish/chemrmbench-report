@@ -1,6 +1,10 @@
 'use strict';
 const copy = {
   en: {
+    "figure-eight":"FIGURE 08 · ACTUAL DRY ABC TRACES",
+    "dry-traces-caption":"Three single seen dry trajectories, original95° command and90° gate. A/B coincide; A has no active donor and its axis is virtual. C fails the original gate. SDK projected effort and mass readbacks are uncalibrated; this is not contact identification, safe velocity admission, liquid transfer or learned-policy evaluation.",
+    "figure-nine":"FIGURE 09 · SAME TICK234 ACTUAL RGB",
+    "dry-scene-caption":"Unmodified real RGB at tick234 / capture38 in each run, selected at the fixed command plateau. A: robot only. B: robot and donor. C: fixed receivers added. These images are dry diagnostics and do not certify an M0 dye cue or an exclusive M1 pouring cue.",
     skip:'Skip to content', developing:'In development', contents:'IN THIS REPORT',
     'nav.overview':'Overview','nav.method':'Benchmark design','nav.evidence':'Current evidence','nav.failures':'Failure analysis','nav.roadmap':'Acceptance roadmap','nav.resources':'Resources & updates',
     snapshot:'Versioned snapshot','sidebar-note':'Results retain their original scope. Unrun experiments remain open.',
@@ -35,7 +39,7 @@ const copy = {
     capacity:'GPU aggregate capacity','capacity-change':'Only planned backend capacity changed','physics-errors':'Critical PhysX errors','error-cleared':'Reported capacity error cleared',
     tilt:'Maximum actual cup tilt','tilt-fail':'FAIL · frozen threshold ≥90°',workspace:'Workspace containment gate','not-gated':'Not gated in R2','scatter-open':'Particle scatter remains unresolved',captures:'States / captures / target calls','one-run':'One fixed diagnostic run per revision',
     observed:'OBSERVED','observed-title':'Motion and containment are not certified.','observed-text':'Particles with very low world-z had left the finite floor footprint; low z alone is not proof of floor penetration. Fixed world-cylinder counts also do not establish liquid inside a moving receiver cup.',
-    'next-test':'NEXT TEST','next-test-title':"Verify loaded libraries, then collect dry trajectories.",'next-test-text':"The closed A run reached reset and sensor warmup, then stopped before control. Fresh collection requires independent preflight and recorded library identity. Keep original targets, gains and physics, and compare actual mass/inertia before interpreting tracking or contact. Liquid qualification, eight matched cells and learning experiments remain open.",
+    'next-test':'NEXT TEST','next-test-title':"Test receiver lid collisions, then qualify liquid transfer.",'next-test-text':"The closed dry comparison keeps targets, gains and physics fixed: A/B reach94.84°, while C reaches89.71° and fails the original90° gate. Common mass/inertia/drive readbacks match. Receiver geometry and contact require controlled diagnostics; full velocity, liquid qualification, eight matched cells and learning experiments remain open.",
     'failure-note':'Original failed runs, warnings and frozen thresholds are retained. Engineering validity is not full dynamics or chemical calibration.',
     'replay-label':'Replay of actual V37-R3 failed development diagnostic','replay-title':'Watch the actual diagnostic.',
     'replay-description':'A fixed supply tool on the Franka hand moves above five receivers. This replay uses all 70 saved RGB captures at 10 fps, without added cue markers or annotations. It is a lossy presentation derivative of the closed captures.',
@@ -62,6 +66,10 @@ const copy = {
     'reference-credit':'Presentation references:','back-top':'Back to top ↑',
   },
   zh: {
+    "figure-eight":"图 08 · 实际干跑 ABC 曲线",
+    "dry-traces-caption":"三条单次已见干跑，保留原 95°指令与 90°门。A/B 曲线重合；A 无供液杯，其轴为虚拟推算。C 未达原门。SDK 投影关节力和质量读数未标定；这不证明接触、完整速度准入、液体转移或学习策略表现。",
+    "figure-nine":"图 09 · 同一第 234 帧实际 RGB",
+    "dry-scene-caption":"各组第 234 帧 / 第 38 次捕获的实际 RGB，固定指令平台时刻选帧，图像未修改。A：仅机器人；B：加供液杯；C：再加固定接收器。这些是干跑诊断图，不能认证 M0 染料线索或 M1 排他倒液线索。",
     skip:'跳至正文',developing:'研究进行中',contents:'报告目录',
     'nav.overview':'研究概览','nav.method':'Benchmark 方案','nav.evidence':'已有实验','nav.failures':'失败分析','nav.roadmap':'验收路线','nav.resources':'资源与进展',
     snapshot:'版本化进展快照','sidebar-note':'结果保留原始适用范围。未执行实验保持开放。',
@@ -92,7 +100,7 @@ const copy = {
     'capacity-change':'仅改变计划中的 backend 容量','physics-errors':'PhysX critical errors','error-cleared':'报告的容量错误消除',
     tilt:'实际最大杯倾角','tilt-fail':'FAIL · 冻结阈值 ≥90°',workspace:'工作区留存门','not-gated':'R2 尚无此门','scatter-open':'粒子散逸原因未关闭',captures:'状态 / 捕获 / target calls','one-run':'每版本仅一次固定诊断',
     observed:'已观察','observed-title':'运动与留存尚未认证。','observed-text':'world-z 很低的粒子已离开有限地板的 XY 范围，低 z 本身不能证明穿透地板。固定世界圆柱内的粒子计数，也不能证明液体位于实际移动烧杯内。',
-    'next-test':'下一验证','next-test-title':"核验实际库身份，再采集干态轨迹。",'next-test-text':"已闭合的 A 运行到达 reset 和传感器预热，随后在控制前退出。新采集须通过独立预检并保存实际库身份。保留原目标、增益和物理，先比较实际质量与惯量，再解释跟踪或接触。液体资格、八个匹配条件和学习实验仍开放。",
+    'next-test':'下一验证','next-test-title':"检验接收器盖板碰撞，再验证液体转移。",'next-test-text':"已闭合的干跑对比保留目标、增益和物理：A/B 达 94.84°，C 为 89.71°，未达原 90°门。共有质量、惯量和驱动读数相同。接收器几何与接触仍需受控诊断；完整速度、液体资格、八个匹配条件和学习实验仍开放。",
     'failure-note':'保留原失败、警告与冻结阈值。工程有效性不等于完整动力学或化学校准。',
     'replay-label':'V37-R3 实际失败开发诊断的回放','replay-title':'直接查看实际诊断。',
     'replay-description':'Franka 手部固定的供液工具在五个接收杯上方运动。使用全部 70 张已保存 RGB，以 10 fps 回放，不添加 cue marker 或标注。视频是闭合捕获的有损展示衍生产物。',
