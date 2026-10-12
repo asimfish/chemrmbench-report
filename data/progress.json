@@ -300,6 +300,43 @@
         "en": "Declared setup: all nine dry checks pass",
         "zh": "声明的初始化：九项干态检查全部通过"
       }
+    },
+    {
+      "id": "V74",
+      "date": "2026-10-12",
+      "kind": "native",
+      "status": "limited",
+      "title": {
+        "en": "Staged long-task evidence retained after a native error",
+        "zh": "原生错误后保留的长任务分阶段证据"
+      },
+      "denominator": {
+        "en": "1 development parent episode · 8 committed stages · native ERROR",
+        "zh": "1 个开发父试次 · 8 段提交 · 原生 ERROR"
+      },
+      "detail": {
+        "en": "Eight committed stage records retained from one development episode. The original native error is preserved; a subsequent CPU summary repair does not retroactively change the consumed run. No Astra call, physical restart, chemical admission or training.",
+        "zh": "从一个开发父试次保留 8 个提交阶段。原生错误原样保留；后续 CPU 汇总修复不追溯改变已执行的运行。无 Astra 调用，不授予物理重启、化学准入或训练。"
+      }
+    },
+    {
+      "id": "V75",
+      "date": "2026-10-12",
+      "kind": "native",
+      "status": "limited",
+      "artifact": "data/collection.json",
+      "title": {
+        "en": "Live Astra motor-proxy collection with staged evidence",
+        "zh": "实时 Astra 电机代理采集与阶段保存"
+      },
+      "denominator": {
+        "en": "1 seen development episode · M0 proxy · 0 qualified demonstrations",
+        "zh": "1 个已见开发父试次 · M0 代理 · 0 条合格演示"
+      },
+      "detail": {
+        "en": "37 s continuous native simulation; 2220 states, 163 RGBD captures, 1230 liquid snapshots and 8 committed time bins. One live image request yields the accepted future B-motion proposal. Public-current-time→B error [0.002,16.668] ms passes the ±20 ms diagnostic; actual A→B motor error [116.668,150.002] ms fails ±100 ms. B sends 69/70 targets. 123 final cup-exterior proxy points; no chemical A/B, volume calibration, M1 memory, five-path recognition or training admission.",
+        "zh": "37 s 连续原生仿真，2220 状态、163 帧 RGBD、1230 液体快照和 8 个已提交时间段。一次实时图像请求产生并采用未来 B 动作提案。公开当前时刻→B 误差 [0.002,16.668] ms 通过 ±20 ms 诊断；实际 A→B 电机误差 [116.668,150.002] ms 未达 ±100 ms。B 发送 69/70 目标；终态杯外代理点 123。无化学 A/B、体积标定、M1 记忆、五路识别或训练准入。"
+      }
     }
   ],
   "external_calibration_cells": {
@@ -307,7 +344,7 @@
     "planned": 18
   },
   "fresh_unknown_observation_admission": "OPEN",
-  "latest_evidence_id": "V59-R2",
+  "latest_evidence_id": "V75",
   "matched_native_VLA_fits": {
     "actual": 0,
     "required": 15
@@ -315,7 +352,7 @@
   "notes": [
     "Development diagnostics and CPU controls are excluded from scientific denominators.",
     "The public subset omits credentials, private paths, licensed simulator assets and unpublished manuscript files.",
-    "This is a versioned snapshot, not a live measurement stream."
+    "The research report is versioned evidence; collection.html provides regularly published, timestamped progress snapshots."
   ],
   "paper": {
     "current_candidate": 17,
@@ -340,7 +377,7 @@
     "required": 200
   },
   "schema": "chemrmbench-public-progress-v1",
-  "snapshot_id": "Paper-A / V41 / public report r12",
+  "snapshot_id": "Paper A / V75 evidence / live dashboard",
   "source_hashes": {
     "C13 clarity closed review": "2cc4325a43142ab5e9fa254b814b202c0c5336194664fd24fe0223a38a76dc16",
     "C13 contribution closed review": "8598f41f9e8cdd7564a8ee04fd3591c080d33fe8ed31779a68acf86fef1c668e",
@@ -375,5 +412,5 @@
     "V59 R2 closed actual dry evidence": "429766f7933af299052cab5a35657ca70629437c896db583e1346438fbf005f5"
   },
   "title": "ChemRMBench",
-  "updated_at_utc": "2026-10-11T07:10:58.723428+00:00"
+  "updated_at_utc": "2026-10-12T14:34:35.171556+00:00"
 }

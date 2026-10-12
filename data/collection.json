@@ -1,0 +1,307 @@
+{
+  "schema": "chemrmbench-live-dashboard-v1",
+  "sampled_at_utc": "2026-10-12T17:22:57+00:00",
+  "published_at_utc": "2026-10-12T17:22:57+00:00",
+  "source_updated_at_utc": "2026-10-12T14:34:35.171556+00:00",
+  "collector": {
+    "state": "healthy"
+  },
+  "counts": {
+    "native_astra_episodes": 1,
+    "qualified_demonstrations": 0,
+    "policy_training_runs": 0
+  },
+  "latest": {
+    "id": "V75",
+    "duration_s": 37.000001929700375,
+    "committed_stages": 8,
+    "planned_stages": 8,
+    "stages": [
+      {
+        "label": "阶段 1",
+        "duration_s": 2.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 2",
+        "duration_s": 3.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 3",
+        "duration_s": 2.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 4",
+        "duration_s": 10.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 5",
+        "duration_s": 13.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 6",
+        "duration_s": 2.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 7",
+        "duration_s": 3.0,
+        "committed": true
+      },
+      {
+        "label": "阶段 8",
+        "duration_s": 2.0,
+        "committed": true
+      }
+    ],
+    "delivery_manifest_sha256": "233446d2beb37d58d9a56f03e3518b1acdf0d1e0d5bad01a84c73bd5f10985af",
+    "completion_receipt_sha256": "cddfe410c86b8fd74f2a95a34d49a75a1b60c9b151f479d13212db5f3d74c481",
+    "timing_anchors": [
+      {
+        "label": "公开观测时刻 → B 电机事件",
+        "short_label": "公开时刻 → B",
+        "error_interval_s": [
+          1.564621925354004e-06,
+          0.016668232157826424
+        ]
+      },
+      {
+        "label": "视觉材质更新命令 → B 电机事件",
+        "short_label": "视觉命令 → B",
+        "error_interval_s": [
+          0.0833349023014307,
+          0.10000156983733177
+        ]
+      },
+      {
+        "label": "实际 A 电机事件 → B 电机事件",
+        "short_label": "A 电机事件 → B",
+        "error_interval_s": [
+          0.11666823737323284,
+          0.15000157244503498
+        ]
+      }
+    ],
+    "native_wall_s": 239.35598480002955,
+    "gpu_hours_upper_bound": 0.06648777355556376,
+    "native_model_tokens": 10728,
+    "second_cycle_target_count": 69,
+    "full_second_cycle": false,
+    "scientific_admission": false,
+    "training_admitted": false,
+    "benchmark_complete": false,
+    "conference_ready": false
+  },
+  "active_runs": [],
+  "gpus": [
+    {
+      "index": 0,
+      "name": "RTX 5090",
+      "utilization_percent": 94.0,
+      "memory_used_mib": 14081.0,
+      "memory_total_mib": 32607.0,
+      "temperature_c": 53.0,
+      "sampled_at_utc": "2026-10-12T17:22:57+00:00"
+    },
+    {
+      "index": 1,
+      "name": "RTX 5090",
+      "utilization_percent": 0.0,
+      "memory_used_mib": 814.0,
+      "memory_total_mib": 32607.0,
+      "temperature_c": 42.0,
+      "sampled_at_utc": "2026-10-12T17:22:57+00:00"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "c13",
+      "code": "C13 · 操作计时",
+      "title": "Astra 闭环操作计时",
+      "state": "development",
+      "summary": "新图像驱动未来动作提案，在同一条原生轨迹中执行并保留结果。",
+      "notice": "当前是持续 LED 提示的电机代理。对公开时刻的误差通过 ±20 ms 诊断，但真实 A→B 电机事件仍晚于 ±100 ms，不能据此声称化学时间精确。",
+      "metrics": [
+        {
+          "label": "父试次",
+          "value": 1
+        },
+        {
+          "label": "状态",
+          "value": 2220
+        },
+        {
+          "label": "RGBD",
+          "value": 163
+        },
+        {
+          "label": "液体快照",
+          "value": 1230
+        }
+      ],
+      "collection": "1 条开发轨迹",
+      "engineering": "限定工程交付通过",
+      "scientific": "BLOCKED · 化学标定缺失",
+      "next": "补完整第二段动作与事件标定"
+    },
+    {
+      "id": "stages",
+      "code": "DATA · 长任务",
+      "title": "长任务分步保存",
+      "state": "development",
+      "summary": "将长试次分成固定采集时间段，逐段提交证据并绑定同一个父试次。",
+      "notice": "已提交阶段可核验保存完整性；这不代表每个子任务成功，也不等同于从物理快照重启。",
+      "metrics": [
+        {
+          "label": "阶段",
+          "value": "8 / 8"
+        },
+        {
+          "label": "父试次",
+          "value": 1
+        },
+        {
+          "label": "重启能力",
+          "value": "未建立"
+        },
+        {
+          "label": "训练准入",
+          "value": 0
+        }
+      ],
+      "collection": "8 段已保存",
+      "engineering": "提交标记与摘要可核验",
+      "scientific": "开发数据 · 不计正式样本",
+      "next": "延长采集至完整动作终态"
+    },
+    {
+      "id": "memory",
+      "code": "M1 · 事件记忆",
+      "title": "短暂提示与事件记忆",
+      "state": "planned",
+      "summary": "提示消失后仍需记住接收器身份和事件时间，并执行对应操作。",
+      "notice": "持续提示 M0 不能证明 M1。尚无随机起始、五路技能或遮挡后的记忆试验。",
+      "metrics": [
+        {
+          "label": "M1 样本",
+          "value": 0
+        },
+        {
+          "label": "正式专家",
+          "value": "0 / 700"
+        },
+        {
+          "label": "任务识别",
+          "value": "未测"
+        },
+        {
+          "label": "上下文消融",
+          "value": "未测"
+        }
+      ],
+      "collection": "未采集",
+      "engineering": "任务协议已设计",
+      "scientific": "未验收",
+      "next": "先建立可执行五路技能和独立事件"
+    },
+    {
+      "id": "calibration",
+      "code": "CAL · 物理标定",
+      "title": "化学事件、剂量与泄漏",
+      "state": "blocked",
+      "summary": "区分命令、视觉提示、实际运动与化学事件；再检验时间准确性和过程安全。",
+      "notice": "杯外代理点不等于标定泄漏体积。当前没有独立试剂 A/B、传感器事件标定或外部校准。",
+      "metrics": [
+        {
+          "label": "杯外点",
+          "value": 123
+        },
+        {
+          "label": "标定单元",
+          "value": "0 / 18"
+        },
+        {
+          "label": "硬件协议",
+          "value": "0 / 200"
+        },
+        {
+          "label": "化学 A/B",
+          "value": "未建立"
+        }
+      ],
+      "collection": "保留失败与原始证据",
+      "engineering": "计时区间已分开",
+      "scientific": "BLOCKED",
+      "next": "对齐真实事件、视觉延迟和剂量"
+    },
+    {
+      "id": "learning",
+      "code": "POLICY · 经验吸收",
+      "title": "多任务策略与训练",
+      "state": "planned",
+      "summary": "验证数据准入后，再推进初始策略、失败与恢复经验学习，以及学生状态上的蒸馏。",
+      "notice": "不以开发电机代理直接训练。当前没有策略拟合、正式多任务结果或云端训练任务。",
+      "metrics": [
+        {
+          "label": "VLA 拟合",
+          "value": "0 / 15"
+        },
+        {
+          "label": "策略训练",
+          "value": 0
+        },
+        {
+          "label": "云任务",
+          "value": 0
+        },
+        {
+          "label": "会议准入",
+          "value": "未通过"
+        }
+      ],
+      "collection": "0 条合格训练数据",
+      "engineering": "训练契约待接入",
+      "scientific": "未验收",
+      "next": "先补齐可验证数据与对照实验"
+    }
+  ],
+  "evidence_notes": [
+    "一个连续开发父试次；8 个固定采集阶段不是 8 次独立实验。",
+    "保存 2220 个状态、163 帧 RGBD、1230 组液体快照。",
+    "Astra 在新图像上给出未来动作提案，执行器实际采用；第一段动作由脚本执行。",
+    "模型通过 CLI 显式选择 gpt-6-astra；后端未暴露实际模型版本标识。",
+    "只登记接收器 2 的一个技能；不构成五路任务识别、多任务学习或 M1 事件记忆证据。",
+    "第二段动作发送 69 个目标；固定采集时长截断了最后保持。",
+    "终态杯外液体代理点 123 个，不能称为零泄漏或标定剂量。",
+    "31 项封存工程检查、10 项契约测试、15 项交付检查；非独立科学评审。",
+    "阶段保存保留可观察证据，PhysX/PBD 物理状态恢复和快照原子性尚未建立。",
+    "未标定独立化学 A/B、剂量、真实事件与视觉提示延迟；科学、训练、benchmark 和会议准入保持未通过。"
+  ],
+  "history": [
+    {
+      "date": "2026-10-13",
+      "title": "持续进度页与自动更新",
+      "detail": "接入白名单导出、分阶段进度和共享 GPU 遥测；网页时间戳区分研究结果、采样与发布。"
+    },
+    {
+      "date": "2026-10-12",
+      "title": "V75 · 第一条实时 Astra 闭环开发采集封存",
+      "detail": "37 秒原生轨迹、8 段保存；保留 69/70 目标截断、杯外点和计时起点差异。正式准入仍未通过。"
+    },
+    {
+      "date": "2026-10-12",
+      "title": "V74 · 分阶段长任务诊断",
+      "detail": "建立按阶段保留状态、图像、液体和边界证据的开发采集路径；不授予物理重启能力。"
+    }
+  ],
+  "next_steps": [
+    "在新的版本目录延长采集时长，完整保留模型延迟启动后的 70 个动作目标和保持终态。",
+    "校准真实 A 事件、视觉提示与 B 实际操作之间的延迟；保留区间计分和失败。",
+    "建立独立 A/B 操作、剂量和泄漏验证，再扩展五路技能、随机起始与 M1 短暂提示。",
+    "完成独立验收与匹配对照后，将合格经验送入训练，并更新论文结果与机制图。"
+  ]
+}
