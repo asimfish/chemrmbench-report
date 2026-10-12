@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "title": "Chemical memory · Paper A reproduction",
+  "exported_at_utc": "2026-10-12T17:22:18.855530+00:00",
+  "publisher_interval_minutes": 10,
+  "stale_after_minutes": 25,
+  "full_reference_reproduction": false,
+  "coverage": [
+    {
+      "id": "nature_pick_place",
+      "reference": "Fig.6a",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "nature_robot_pour",
+      "reference": "Fig.6b",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "nature_organic_chemistry",
+      "reference": "Fig.5a",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "nature_redox",
+      "reference": "Fig.5b",
+      "full_reference_accepted": false,
+      "state": "OPEN"
+    },
+    {
+      "id": "nature_liquid_station",
+      "reference": "Fig.6c",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "nature_particle_and_granular_skills",
+      "reference": "Fig.4",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "nature_semantics_scaling",
+      "reference": "Fig.4l",
+      "full_reference_accepted": false,
+      "state": "OPEN"
+    },
+    {
+      "id": "auto_static_dual_flexiv",
+      "reference": "5.1 article",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "auto_ur5e_transfer",
+      "reference": "5.1 article",
+      "full_reference_accepted": false,
+      "state": "PARTIAL"
+    },
+    {
+      "id": "auto_moving_receiver",
+      "reference": "5.2 article",
+      "full_reference_accepted": false,
+      "state": "OPEN"
+    },
+    {
+      "id": "auto_stir_from_demos",
+      "reference": "5.3 article",
+      "full_reference_accepted": false,
+      "state": "OPEN"
+    },
+    {
+      "id": "auto_swirl_from_video",
+      "reference": "5.4 article",
+      "full_reference_accepted": false,
+      "state": "OPEN"
+    },
+    {
+      "id": "auto_hybrid_fluid",
+      "reference": "4 article",
+      "full_reference_accepted": false,
+      "state": "OPEN"
+    }
+  ],
+  "trials": [
+    {
+      "id": "pour-600-development",
+      "group": "nature_robot_pour",
+      "kind": "development",
+      "condition": "pour-600-development",
+      "outcome": "PASS",
+      "metrics": {
+        "receiver_model_ml": 61.16516499456,
+        "source_return_mm": 3.171671414747834,
+        "escaped_particles": 0,
+        "contact_headers": 61281,
+        "physics_hz": 600
+      },
+      "evidence": "data/reproduction-evidence/pour-600-development.json"
+    },
+    {
+      "id": "pour-1200-pose-b-development",
+      "group": "nature_robot_pour",
+      "kind": "development",
+      "condition": "pour-1200-pose-b-development",
+      "outcome": "PASS",
+      "metrics": {
+        "receiver_model_ml": 54.404804653056004,
+        "source_return_mm": 2.31035309843719,
+        "escaped_particles": 0,
+        "contact_headers": 124052,
+        "physics_hz": 1200
+      },
+      "evidence": "data/reproduction-evidence/pour-1200-pose-b-development.json"
+    },
+    {
+      "id": "ot2-mounted-eight",
+      "group": "nature_liquid_station",
+      "kind": "development",
+      "outcome": "PASS",
+      "metrics": {
+        "targets": 8,
+        "endpoints": 128,
+        "maximum_endpoint_mm": 0.2238507454514516,
+        "mount_error_deg": 2.5444437451708134e-14
+      },
+      "evidence": "data/reproduction-evidence/ot2-mounted-eight.json"
+    },
+    {
+      "id": "ot2-mounted-sixteen",
+      "group": "nature_liquid_station",
+      "kind": "development",
+      "outcome": "PASS",
+      "metrics": {
+        "targets": 16,
+        "endpoints": 256,
+        "maximum_endpoint_mm": 0.2238681168822686,
+        "mount_error_deg": 2.5444437451708134e-14
+      },
+      "evidence": "data/reproduction-evidence/ot2-mounted-sixteen.json"
+    },
+    {
+      "id": "heat-confirmation-1",
+      "group": "nature_pick_place",
+      "kind": "confirmation",
+      "outcome": "PASS",
+      "metrics": {
+        "peak_lift_cm": 20.48306204378605,
+        "plate_error_mm": 9.82095406961536,
+        "temperature_change_K": 5.90545654296875
+      },
+      "evidence": "data/reproduction-evidence/heat-confirmation-1.json"
+    },
+    {
+      "id": "heat-confirmation-2",
+      "group": "nature_pick_place",
+      "kind": "confirmation",
+      "outcome": "PASS",
+      "metrics": {
+        "peak_lift_cm": 20.601899921894073,
+        "plate_error_mm": 10.579183578263608,
+        "temperature_change_K": 8.17413330078125
+      },
+      "evidence": "data/reproduction-evidence/heat-confirmation-2.json"
+    },
+    {
+      "id": "rigid-confirmation-1",
+      "group": "auto_ur5e_transfer",
+      "kind": "confirmation",
+      "outcome": "PASS",
+      "metrics": {
+        "dx_mm": 10.0
+      },
+      "evidence": "data/reproduction-evidence/rigid-confirmation-1.json"
+    },
+    {
+      "id": "rigid-confirmation-2",
+      "group": "auto_ur5e_transfer",
+      "kind": "confirmation",
+      "outcome": "PASS",
+      "metrics": {
+        "dx_mm": -10.0
+      },
+      "evidence": "data/reproduction-evidence/rigid-confirmation-2.json"
+    },
+    {
+      "id": "rigid-confirmation-3",
+      "group": "auto_static_dual_flexiv",
+      "kind": "confirmation",
+      "outcome": "PASS",
+      "metrics": {
+        "dx_mm": 10.0
+      },
+      "evidence": "data/reproduction-evidence/rigid-confirmation-3.json"
+    },
+    {
+      "id": "rigid-confirmation-4",
+      "group": "auto_static_dual_flexiv",
+      "kind": "confirmation",
+      "outcome": "PASS",
+      "metrics": {
+        "dx_mm": -10.0
+      },
+      "evidence": "data/reproduction-evidence/rigid-confirmation-4.json"
+    },
+    {
+      "id": "rigid-confirmation-5",
+      "group": "auto_ur5e_transfer",
+      "kind": "negative-control",
+      "outcome": "PASS",
+      "metrics": {
+        "dx_mm": 10.0
+      },
+      "evidence": "data/reproduction-evidence/rigid-confirmation-5.json"
+    },
+    {
+      "id": "rigid-confirmation-6",
+      "group": "auto_static_dual_flexiv",
+      "kind": "negative-control",
+      "outcome": "PASS",
+      "metrics": {
+        "dx_mm": -10.0
+      },
+      "evidence": "data/reproduction-evidence/rigid-confirmation-6.json"
+    },
+    {
+      "id": "robotiq-far-home-confirmation-nominal-r1",
+      "group": "nature_robot_pour",
+      "kind": "historical-confirmation",
+      "outcome": "FAIL",
+      "metrics": {},
+      "evidence": null,
+      "complete_native_evidence": true
+    },
+    {
+      "id": "robotiq-far-home-confirmation-pose-a-r1",
+      "group": "nature_robot_pour",
+      "kind": "historical-confirmation",
+      "outcome": "INCONCLUSIVE",
+      "metrics": {},
+      "evidence": null,
+      "complete_native_evidence": false
+    },
+    {
+      "id": "robotiq-far-home-confirmation-pose-b-r1",
+      "group": "nature_robot_pour",
+      "kind": "historical-confirmation",
+      "outcome": "FAIL",
+      "metrics": {},
+      "evidence": null,
+      "complete_native_evidence": true
+    },
+    {
+      "id": "robotiq-far-home-confirmation-no-tilt-r1",
+      "group": "nature_robot_pour",
+      "kind": "historical-confirmation",
+      "outcome": "INCONCLUSIVE",
+      "metrics": {},
+      "evidence": null,
+      "complete_native_evidence": false
+    },
+    {
+      "id": "new-robotiq-contact-recenter-confirmation-nominal-r3",
+      "group": "nature_robot_pour",
+      "kind": "confirmation",
+      "condition": "robotiq_contact_recenter_confirmation_nominal_r3",
+      "outcome": "RUNNING",
+      "metrics": {},
+      "evidence": null
+    },
+    {
+      "id": "new-robotiq-contact-recenter-confirmation-pose-a-r3",
+      "group": "nature_robot_pour",
+      "kind": "confirmation",
+      "condition": "robotiq_contact_recenter_confirmation_pose_a_r3",
+      "outcome": "QUEUED",
+      "metrics": {},
+      "evidence": null
+    },
+    {
+      "id": "new-robotiq-contact-recenter-confirmation-pose-b-r3",
+      "group": "nature_robot_pour",
+      "kind": "confirmation",
+      "condition": "robotiq_contact_recenter_confirmation_pose_b_r3",
+      "outcome": "QUEUED",
+      "metrics": {},
+      "evidence": null
+    },
+    {
+      "id": "new-robotiq-contact-recenter-confirmation-no-tilt-r3",
+      "group": "nature_robot_pour",
+      "kind": "negative-control",
+      "condition": "robotiq_contact_recenter_confirmation_no_tilt_r3",
+      "outcome": "QUEUED",
+      "metrics": {},
+      "evidence": null
+    }
+  ],
+  "active": {
+    "id": "robotiq_contact_recenter_confirmation_nominal_r3",
+    "phase": "TRANSPORTING",
+    "process_verified_alive": true,
+    "simulated_seconds": 9.756666666666668,
+    "physics_steps": 11708,
+    "sampled_at_utc": "2026-10-12T17:22:18.789565+00:00"
+  },
+  "subset_counts": {
+    "heat_passes": 2,
+    "heat_budget": 2,
+    "rigid_positive_passes": 4,
+    "rigid_positive_budget": 4,
+    "rigid_control_passes": 2,
+    "rigid_control_budget": 2
+  },
+  "confirmation_batch": {
+    "phase": "RUNNING_FIXED_BUDGET",
+    "completed": 0,
+    "scheduled": 4,
+    "accepted": 0,
+    "protocol_sha256": "055133c903207da0fadf233c7532a5b772099f119ca887ef7f21f7e9f30b69c1"
+  },
+  "qa": {
+    "passed": true,
+    "checks": 151,
+    "full_reference": false,
+    "source_sha256": "ff4dc170610793f2adf2274ac9a667dc6da312a89f4ee09e4cbc6c33c3d0fdf0"
+  },
+  "source_commits": {
+    "matterix_paper": "fadb50275176153f8f38aea5cbc3b2473762cffe",
+    "public_workflows": "51f2070c3f54a64e974dbc8e6fd3b309019c1b94"
+  },
+  "private_assets_exported": false,
+  "hardware_calibrated": false,
+  "figures": [
+    "robotiq_contact_enabled_recenter_r2.svg",
+    "robotiq_recenter_1200hz_pose_b_pour_r13_resolution.svg",
+    "author_ot2_mount_frame_audit_r1.svg",
+    "public_rigid_pose_confirmation_r2.svg",
+    "organic_equation_reconstruction_r1.svg",
+    "public_heat_frozen_confirmations_r2.svg"
+  ]
+}

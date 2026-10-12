@@ -2,6 +2,12 @@
 
 Public report: **https://asimfish.github.io/chemrmbench-report/**
 
+Live reproduction dashboard: **https://asimfish.github.io/chemrmbench-report/reproduction.html**
+
+The new dashboard tracks MATTERIX and Auto-Engineering simulation reproduction. It exposes 13 reference capability gates, scoped development and confirmation results, the original failed/inconclusive budget, active native progress, and the proposed verified-experience research system. Chinese is the default; use `reproduction.html?lang=en` for English. The original report below remains a dated snapshot.
+
+An installed local publisher resamples the explicit public allowlist every 10 minutes. The page polls every minute and marks exports older than 25 minutes stale. It shows experiment and export timestamps separately. Publication validates field/path restrictions and evidence boundaries, refuses protected branches, unrelated local changes or divergent remote history, and only commits reviewed public JSON paths. It never exports raw logs, credentials, simulator meshes or private source manifests. `python3 check_reproduction.py` checks the public artifact contract. SHA-256 values identify private underlying evidence; the dashboard is not a standalone reproduction capsule.
+
 This repository hosts a bilingual, buildless research report: benchmark design, an explicitly illustrative mechanism, actual development figures and a failed diagnostic replay, and the scientific acceptance roadmap. English is the default; `?lang=zh&view=method` selects a language and section.
 
 ## Evidence and scope
