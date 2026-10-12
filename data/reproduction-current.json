@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Chemical memory · Paper A reproduction",
-  "exported_at_utc": "2026-10-12T21:32:12.633870+00:00",
+  "exported_at_utc": "2026-10-12T21:42:08.014450+00:00",
   "publisher_interval_minutes": 10,
   "stale_after_minutes": 25,
   "full_reference_reproduction": false,
@@ -312,18 +312,18 @@
       "group": "nature_robot_pour",
       "kind": "negative-control",
       "condition": "robotiq_contact_recenter_confirmation_no_tilt_r3",
-      "outcome": "RUNNING",
+      "outcome": "INCONCLUSIVE",
       "metrics": {},
       "evidence": null
     }
   ],
   "active": {
     "id": "robotiq_contact_recenter_confirmation_no_tilt_r3",
-    "phase": "RETREAT",
-    "process_verified_alive": true,
-    "simulated_seconds": 55.96916666666667,
-    "physics_steps": 67163,
-    "sampled_at_utc": "2026-10-12T21:32:12.630175+00:00"
+    "phase": "BOUNDED_EPISODE_FINISHED",
+    "process_verified_alive": false,
+    "simulated_seconds": 60.38333333333334,
+    "physics_steps": 72460,
+    "sampled_at_utc": "2026-10-12T21:37:10.132913+00:00"
   },
   "subset_counts": {
     "heat_passes": 2,
@@ -334,8 +334,8 @@
     "rigid_control_budget": 2
   },
   "confirmation_batch": {
-    "phase": "RUNNING_FIXED_BUDGET",
-    "completed": 3,
+    "phase": "STOPPED_CONTROLLER_FAILURE_REQUIRES_DIAGNOSIS",
+    "completed": 4,
     "scheduled": 4,
     "accepted": 3,
     "protocol_sha256": "055133c903207da0fadf233c7532a5b772099f119ca887ef7f21f7e9f30b69c1"
@@ -344,7 +344,7 @@
     "passed": true,
     "checks": 154,
     "full_reference": false,
-    "source_sha256": "1a0886c6fe2d2ef5011fe7e3635d13b8c9c4d4641413ac37dffaa45281ecf2ed"
+    "source_sha256": "b72f4dfabfba334bab7cf390bb6eeacff19b63a51e998c78001262d697c1135f"
   },
   "source_commits": {
     "matterix_paper": "fadb50275176153f8f38aea5cbc3b2473762cffe",
