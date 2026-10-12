@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Chemical memory · Paper A reproduction",
-  "exported_at_utc": "2026-10-12T20:32:06.172960+00:00",
+  "exported_at_utc": "2026-10-12T20:42:04.837281+00:00",
   "publisher_interval_minutes": 10,
   "stale_after_minutes": 25,
   "full_reference_reproduction": false,
@@ -297,27 +297,33 @@
       "group": "nature_robot_pour",
       "kind": "confirmation",
       "condition": "robotiq_contact_recenter_confirmation_pose_b_r3",
-      "outcome": "RUNNING",
-      "metrics": {},
-      "evidence": null
+      "outcome": "PASS",
+      "metrics": {
+        "receiver_model_ml": 54.726726574080004,
+        "source_return_mm": 1.8174583092331886,
+        "escaped_particles": 0,
+        "contact_headers": 124004,
+        "physics_hz": 1200
+      },
+      "evidence": "data/reproduction-evidence/new-robotiq-contact-recenter-confirmation-pose-b-r3.json"
     },
     {
       "id": "new-robotiq-contact-recenter-confirmation-no-tilt-r3",
       "group": "nature_robot_pour",
       "kind": "negative-control",
       "condition": "robotiq_contact_recenter_confirmation_no_tilt_r3",
-      "outcome": "QUEUED",
+      "outcome": "RUNNING",
       "metrics": {},
       "evidence": null
     }
   ],
   "active": {
-    "id": "robotiq_contact_recenter_confirmation_pose_b_r3",
-    "phase": "BOUNDED_EPISODE_FINISHED",
-    "process_verified_alive": false,
-    "simulated_seconds": 62.03333333333334,
-    "physics_steps": 74440,
-    "sampled_at_utc": "2026-10-12T20:31:53.323447+00:00"
+    "id": "robotiq_contact_recenter_confirmation_no_tilt_r3",
+    "phase": "TRANSPORTING",
+    "process_verified_alive": true,
+    "simulated_seconds": 9.781666666666668,
+    "physics_steps": 11738,
+    "sampled_at_utc": "2026-10-12T20:42:04.835045+00:00"
   },
   "subset_counts": {
     "heat_passes": 2,
@@ -329,9 +335,9 @@
   },
   "confirmation_batch": {
     "phase": "RUNNING_FIXED_BUDGET",
-    "completed": 2,
+    "completed": 3,
     "scheduled": 4,
-    "accepted": 2,
+    "accepted": 3,
     "protocol_sha256": "055133c903207da0fadf233c7532a5b772099f119ca887ef7f21f7e9f30b69c1"
   },
   "qa": {
