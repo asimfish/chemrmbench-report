@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Chemical memory · Paper A reproduction",
-  "exported_at_utc": "2026-10-12T18:12:06.053056+00:00",
+  "exported_at_utc": "2026-10-12T18:22:17.273599+00:00",
   "publisher_interval_minutes": 10,
   "stale_after_minutes": 25,
   "full_reference_reproduction": false,
@@ -267,16 +267,22 @@
       "group": "nature_robot_pour",
       "kind": "confirmation",
       "condition": "robotiq_contact_recenter_confirmation_nominal_r3",
-      "outcome": "RUNNING",
-      "metrics": {},
-      "evidence": null
+      "outcome": "PASS",
+      "metrics": {
+        "receiver_model_ml": 55.155955802112004,
+        "source_return_mm": 7.739636115729809,
+        "escaped_particles": 0,
+        "contact_headers": 125656,
+        "physics_hz": 1200
+      },
+      "evidence": "data/reproduction-evidence/new-robotiq-contact-recenter-confirmation-nominal-r3.json"
     },
     {
       "id": "new-robotiq-contact-recenter-confirmation-pose-a-r3",
       "group": "nature_robot_pour",
       "kind": "confirmation",
       "condition": "robotiq_contact_recenter_confirmation_pose_a_r3",
-      "outcome": "QUEUED",
+      "outcome": "RUNNING",
       "metrics": {},
       "evidence": null
     },
@@ -300,12 +306,12 @@
     }
   ],
   "active": {
-    "id": "robotiq_contact_recenter_confirmation_nominal_r3",
-    "phase": "RETREAT",
+    "id": "robotiq_contact_recenter_confirmation_pose_a_r3",
+    "phase": "PICKING",
     "process_verified_alive": true,
-    "simulated_seconds": 57.083333333333336,
-    "physics_steps": 68500,
-    "sampled_at_utc": "2026-10-12T18:12:06.048301+00:00"
+    "simulated_seconds": 2.9316666666666666,
+    "physics_steps": 3518,
+    "sampled_at_utc": "2026-10-12T18:22:17.267714+00:00"
   },
   "subset_counts": {
     "heat_passes": 2,
@@ -317,9 +323,9 @@
   },
   "confirmation_batch": {
     "phase": "RUNNING_FIXED_BUDGET",
-    "completed": 0,
+    "completed": 1,
     "scheduled": 4,
-    "accepted": 0,
+    "accepted": 1,
     "protocol_sha256": "055133c903207da0fadf233c7532a5b772099f119ca887ef7f21f7e9f30b69c1"
   },
   "qa": {
