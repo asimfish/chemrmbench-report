@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "scope": "Posthoc engineering comparison of two complete native attempts; no isolated causal ablation or robustness claim",
+  "metrics": [
+    {
+      "label": "R6: original full trial",
+      "run": "runs/auto_repro_ur5e_complete_workflow_r6",
+      "accepted": false,
+      "final_receiver_count": 238,
+      "particle_count": 240,
+      "source_return_error_mm": 18.058019615641708,
+      "nonpad_nonbench_contact_control_rows": 172,
+      "control_rows": 2300,
+      "checks": {
+        "source_returned_within_10mm": false,
+        "source_released_upright": true,
+        "source_on_native_bench": true,
+        "source_not_touching_gripper": true,
+        "gripper_retracted": true,
+        "zero_below_native_floor": true,
+        "zero_inside_native_bench": true,
+        "all_particles_in_domain": true,
+        "finite": true,
+        "mass_conserved": true,
+        "projection_convergence_fraction_ge_0_99": true,
+        "max_cfl_below_0_4": true,
+        "physical_lift": true,
+        "receiver_gate": true
+      },
+      "result_sha256": "47f0e7babd14319862c07612f37127a57d4b5e5bce2a3400c937ea0753d71664",
+      "trajectory_sha256": "9a162d2cf6c11253fc6d2c005921afefdfee9679741ce9cddcbad3d6510ab0d5"
+    },
+    {
+      "label": "R7: repaired full trial",
+      "run": "runs/auto_repro_ur5e_contact_repair_cuda_r7",
+      "accepted": true,
+      "final_receiver_count": 239,
+      "particle_count": 240,
+      "source_return_error_mm": 8.545618219455758,
+      "nonpad_nonbench_contact_control_rows": 0,
+      "control_rows": 2300,
+      "checks": {
+        "zero_unexpected_tube_contact_at_100Hz": true,
+        "opposed_pad_contact_at_least_95_of_100_loaded_hold": true,
+        "source_returned_within_10mm": true,
+        "source_released_upright": true,
+        "source_on_native_bench": true,
+        "source_not_touching_gripper": true,
+        "gripper_retracted": true,
+        "zero_below_native_floor": true,
+        "zero_inside_native_bench": true,
+        "all_particles_in_domain": true,
+        "finite": true,
+        "mass_conserved": true,
+        "projection_convergence_fraction_ge_0_99": true,
+        "max_cfl_below_0_4": true,
+        "physical_lift": true,
+        "receiver_gate": true
+      },
+      "result_sha256": "fa124ad4475a9cc65c2bd90cf374bac81bcc851ab2e2fcca59cf632009ca9b3c",
+      "trajectory_sha256": "467902fa9f4d8cc0867a6f3778b781e0a3c6b48c3670134e028d23a267debbfb"
+    }
+  ],
+  "source_threshold_m": 0.01,
+  "sampled_contact_frequency_hz": 100,
+  "changes": [
+    "Tilt2.15\u21921.90rad",
+    "Fixed EE return\u2192100Hz native ground-truth object-space return",
+    "CPU\u2192CUDA0"
+  ],
+  "full_auto_engineering_reproduction": false,
+  "helper_sha256": "5ec56b1489da886b28922f067b86e8a6aa8f20e236103862f748f66372a7e392"
+}

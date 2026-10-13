@@ -10,3 +10,24 @@ function render(){const age=(Date.now()-Date.parse(data.exported_at_utc))/60000;
  $('boundaries').replaceChildren(...data.source_boundaries.map(t=>node('li',t)));$('assets').textContent=data.asset_progress;$('sources').replaceChildren();for(const source of data.source_links){const a=node('a',source.title+' ↗');a.href=source.url;a.rel='noopener noreferrer';a.target='_blank';$('sources').append(a);}renderRequirements();}
 async function refresh(){if(loading)return;loading=true;$('refresh').disabled=true;try{const response=await fetch('data/full-reference-progress.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const d=await response.json();if(d.schema_version!==1||d.full_reference_reproduction!==false||d.requirements.length!==36)throw Error('Unexpected evidence contract');data=d;$('error').hidden=true;render();}catch(e){$('error').hidden=false;$('error').textContent='Could not refresh evidence. The last snapshot is retained; please retry.';}finally{loading=false;$('refresh').disabled=false;}}
 $('refresh').addEventListener('click',refresh);$('search').addEventListener('input',renderRequirements);$('family').addEventListener('change',renderRequirements);refresh();setInterval(refresh,60000);
+
+// Defer inactive clip loading and restore position only when a clip is played.
+const clips=[...document.querySelectorAll('#videos video')];
+for(const clip of clips){
+ clip.preload='none';
+ const resume=()=>{
+  if(clip.paused||clip.readyState<1)return;
+  const resume=Number(clip.dataset.resumeTime);
+  if(Number.isFinite(resume)&&resume>0&&resume<clip.duration)clip.currentTime=resume;
+  delete clip.dataset.resumeTime;
+ };
+ clip.addEventListener('loadedmetadata',resume);
+ clip.addEventListener('play',()=>{
+  resume();
+  for(const other of clips){
+   if(other===clip||other.readyState===0)continue;
+   if(other.currentTime>0)other.dataset.resumeTime=String(other.currentTime);
+   other.pause();other.preload='none';other.load();
+  }
+ });
+}

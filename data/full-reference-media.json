@@ -137,6 +137,33 @@
       "source_result_sha256": "92f93ce9d94014f1c1e80f94a107569537109d8fa7a80a947c78d3076836d1a8",
       "native_duration_s": 1.8,
       "slow_motion_factor": 4
+    },
+    {
+      "path": "assets/reproduction/full/ur5e-whole-workflow-repair-r7.mp4",
+      "poster": "assets/reproduction/full/ur5e-whole-workflow-repair-r7.jpg",
+      "sha256": "0d2be3a53bbf523b2b409e9a65557bffcb75f251c37d9b6b6c40b38099d56329",
+      "full_reference_accepted": false,
+      "trial_accepted": true,
+      "scope": "239/240 particles captured; return error 8.546 mm is within the frozen 10 mm limit. All 16 local gates pass in one posthoc repair. Return uses simulator ground-truth pose, not perception or learning. A separate audit finds pad\u2013rack contact in 44 saved frames, deepest sampled signed overlap 0.178 mm; this is not whole-robot collision-free execution.",
+      "render_receipt_sha256": "d72c5258ef30782d0c090ecdca80c225acc356114bc6ae8ac3d11709c352123f",
+      "exact_terminal_state_included": true,
+      "source_result_sha256": "fa124ad4475a9cc65c2bd90cf374bac81bcc851ab2e2fcca59cf632009ca9b3c",
+      "native_groundtruth_return": true,
+      "posthoc_gripper_rack_contact_frames": 44,
+      "independent_review_sha256": "f55addfbbf3b2b7dfdd29a85719a9b142a55c9f59e940575c95f6fc23726b119"
+    },
+    {
+      "path": "assets/reproduction/full/dual-flexiv-handoff-failure-r1.mp4",
+      "poster": "assets/reproduction/full/dual-flexiv-handoff-failure-r1.jpg",
+      "sha256": "f0f9ae63b81bf3196017bed93bd780ba4d28eee98b2c7296f3559fdf205fbc6e",
+      "full_reference_accepted": false,
+      "trial_accepted": false,
+      "scope": "The source tube transfers to receiver-only support, but one of 240 particles leaves the frozen domain; 239 remain in the tube. The whole trial fails. This is scripted native contact with an independent fluid model, bench source, and no subsequent pouring, original GRID or learned cross-robot transfer.",
+      "render_receipt_sha256": "feaf31e8c46341420f59549019fe6c433f65f73735445efe68e95d3ae6629782",
+      "exact_terminal_state_included": true,
+      "source_result_sha256": "90fa733aa6fd8c391ee50ae59ffd7307582dd8ae59aecf606fe443f3f9b3a024",
+      "source_states_sha256": "96a80122790efeef8083c29e151a8c3e692510ce3c763bd9cefcff59b1e769ac",
+      "native_duration_s": 19
     }
   ],
   "retired_videos": [
