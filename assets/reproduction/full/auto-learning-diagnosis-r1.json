@@ -1,0 +1,99 @@
+{
+  "source_artifacts": [
+    {
+      "path": "runs/auto_repro_holdout_bc_seed101_r1/result.json",
+      "sha256": "67aa2ab9ed44939f48463b0af0b55511255d65cd0fbf3052fb7d63bb1b211d0b"
+    },
+    {
+      "path": "runs/auto_repro_holdout_bc_seed102_r1/result.json",
+      "sha256": "fcfea4a9185e90d58fd9aacdab5a68a383fcfbef7878a1f5436d0f925470045a"
+    },
+    {
+      "path": "runs/auto_repro_holdout_bc_seed103_r1/result.json",
+      "sha256": "59881f83cddbaf93b3be683b1ea887b482c606d935f48c38cbd11ee90c55dcf3"
+    },
+    {
+      "path": "runs/auto_repro_holdout_dagger_seed101_r1/result.json",
+      "sha256": "5b5b085dda360a48574c6672b7665f0a8764f2da526238df48fefeee32dd5281"
+    },
+    {
+      "path": "runs/auto_repro_holdout_dagger_seed102_r1/result.json",
+      "sha256": "8430221e6a89160af140843350ae59a2fc3a67847f7c5fc099f22e104a656315"
+    },
+    {
+      "path": "runs/auto_repro_holdout_dagger_seed103_r1/result.json",
+      "sha256": "8fd22769d183a47f5431fdccaeb61de856e981e2f9ea3fbbe9ed81d035a215af"
+    },
+    {
+      "path": "runs/auto_repro_holdout_zero_seed101_r1/result.json",
+      "sha256": "4b2837acca88f22e66f5c9d374c87ed7d3a8e3c763257cd09fdae4516084ffbd"
+    },
+    {
+      "path": "runs/auto_repro_holdout_zero_seed102_r1/result.json",
+      "sha256": "5d9a73389aa9e56feb1d7ac21989ce33c2726e801b5c6e6ac0cfcfdaf18b08bd"
+    },
+    {
+      "path": "runs/auto_repro_holdout_zero_seed103_r1/result.json",
+      "sha256": "55f02067e097b720b01cbe120f28409a2580bf76a718d0d2426ec27b9ecee642"
+    },
+    {
+      "path": "runs/auto_repro_holdout_bc_seed101_r1/rollout/episode_001_seed101/trajectory.json",
+      "sha256": "ac088fb37c077b6902ca8719b0639be87f894add8123a9ea6ebd16a8bd7e51ed"
+    },
+    {
+      "path": "runs/auto_repro_complete_bench_bc_seed101_r2/rollout/episode_001_seed101/trajectory.json",
+      "sha256": "47c4a255cea1c63590e4b37da550a1efffa6046e7a5e0b823b541ec5266ccd81"
+    },
+    {
+      "path": "runs/auto_repro_bc_dagger_pilot_r1_rollouts/episode_007_seed0/trajectory.json",
+      "sha256": "923fdb144a579d3b2a8de99bafaa776f9781f15a370890b56127ff149afbd58d"
+    }
+  ],
+  "old_holdouts": [
+    {
+      "arm": "bc",
+      "capture_percent": [
+        80.83333333333333,
+        87.91666666666667,
+        82.08333333333333
+      ],
+      "physically_valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "arm": "dagger",
+      "capture_percent": [
+        81.66666666666667,
+        88.75,
+        89.58333333333334
+      ],
+      "physically_valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "arm": "zero",
+      "capture_percent": [
+        5.833333333333333,
+        37.083333333333336,
+        69.16666666666667
+      ],
+      "physically_valid": [
+        false,
+        false,
+        true
+      ]
+    }
+  ],
+  "original_protocol_attempts": 20,
+  "paired_repair_is_posthoc": true,
+  "old_final_DAgger_training_contaminated": true,
+  "first_quarantined_action_one_based": 46,
+  "quarantined_rows_not_independent_events": 27,
+  "full_auto_engineering_reproduction": false
+}
