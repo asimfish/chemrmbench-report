@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T13:22:10.664577+00:00",
+  "exported_at_utc": "2026-10-13T13:28:14.599326+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -52,7 +52,7 @@
       "acceptance": "Reproduce author insertion-conditioned semantic tip loading and synchronized tip motion, immersed aspiration, dispensing and disposal, plus rack/reservoir setup in the stated manipulator configuration. Verify liquid identity/volume and ordered transitions. Force-threshold or friction-fit loading is an additional local validation, not a published prerequisite.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Native OT2 motion drives reconstructed eight-channel finite-volume aspiration/dispense with a no-aspiration control. Match the author insertion-triggered semantic tip loading, synchronized motion and disposal; force/friction validation is an additional local enhancement. Figure 3G uses Panda/Robotiq and six-well/two-well labware; Figure 6C demonstrates real FR3 loading. Current 96-well/12-channel fixtures are a fallback."
+      "gap": "Native OT2 motion drives reconstructed eight-channel finite-volume aspiration/dispense with a no-aspiration control. Match the author insertion-triggered semantic tip loading, synchronized motion and disposal; force/friction validation is an additional local enhancement. Figure 3G uses Panda/Robotiq and six-well/two-well labware; Figure 6C demonstrates real FR3 loading. A newer native six-well candidate executes insertion-conditioned semantic tip loading, three aspiration/dispense cycles and disposal; original author station setup and full asset equivalence remain open. The earlier 96-well/12-channel videos are retained as fallback evidence."
     },
     {
       "id": "N06",
@@ -383,6 +383,42 @@
       "remaining": "Author-equivalent complete setup/load/aspirate/dispense/discard workflow, original labware and manipulator configurations remain open. Force-based tip fitting is an extra local check."
     },
     {
+      "id": "ot2-sixwell-positive",
+      "title": "OT2 six-well · full semantic sequence",
+      "evidence_sha256": "2074f0163c4ac3173f600e40053807b9ae93c632c59fc1f5d7fb3ff8391922a9",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Native author OT2 articulation with reconstructed author-style semantics: insertion-conditioned loading, synchronized tips, three immersed aspiration/dispense cycles and supported disposal. Official six-well dimensions, reconstructed two-channel reservoir.",
+      "metrics": {
+        "simulation_s": 61,
+        "physics_steps": 14640,
+        "wells": 6,
+        "total_delivered_model_uL": 2400.0,
+        "source_remaining_model_uL": 17600.0,
+        "disposed_tips": 8,
+        "max_hold_XY_mm": 0.013612556577506093
+      },
+      "remaining": "Panda/Robotiq side-grasp station setup and original author asset/configuration equivalence remain open. Tip attachment uses semantic state changes as described by the paper; friction-force fitting is a separate local extension."
+    },
+    {
+      "id": "ot2-sixwell-no-aspiration",
+      "title": "OT2 six-well · no-aspiration control",
+      "evidence_sha256": "5e68955fcfef1a237167351a35720d5aca2de3bbd40518a90aa2457911d0ef9e",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Native author OT2 articulation with reconstructed author-style semantics: insertion-conditioned loading, synchronized tips, three immersed aspiration/dispense cycles and supported disposal. Official six-well dimensions, reconstructed two-channel reservoir.",
+      "metrics": {
+        "simulation_s": 61,
+        "physics_steps": 14640,
+        "wells": 6,
+        "total_delivered_model_uL": 0.0,
+        "source_remaining_model_uL": 20000.0,
+        "disposed_tips": 8,
+        "max_hold_XY_mm": 0.013612556577506093
+      },
+      "remaining": "Panda/Robotiq side-grasp station setup and original author asset/configuration equivalence remain open. Tip attachment uses semantic state changes as described by the paper; friction-force fitting is a separate local extension."
+    },
+    {
       "id": "dfsph",
       "title": "Auto-Engineering · independent Warp DFSPH backend",
       "evidence_sha256": "63a38ae06df23330cb17cda619ff753f27b76273d5eb55c5185da84fa1691c6f",
@@ -464,7 +500,7 @@
         "max_CFL": 1.7049381732940674,
         "physical_lift_m": 0.08952227200173479
       },
-      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
+      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations. Failed frozen checks: max cfl below 0 4"
     },
     {
       "id": "auto_repro_ur5e_fluid_pour_r2",
@@ -481,7 +517,7 @@
         "max_CFL": 0.22478586435317993,
         "physical_lift_m": 0.0894991516114007
       },
-      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
+      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations. Failed frozen checks: all particles in domain"
     },
     {
       "id": "auto_repro_ur5e_fluid_no_tilt_r2",
@@ -498,7 +534,7 @@
         "max_CFL": 0.03413407504558563,
         "physical_lift_m": 0.0894991516114007
       },
-      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
+      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations. All checks for this bounded trial passed."
     },
     {
       "id": "learning-round-0",
@@ -513,9 +549,12 @@
         "student_action_states": 0,
         "evaluation_episodes": 1,
         "successful_evaluation_episodes": 1,
-        "final_training_loss": 0.0026299399516374906
+        "final_training_loss": 0.0026299399516374906,
+        "physics_invalid_training_episodes": 0,
+        "cumulative_flagged_training_transitions": 0,
+        "training_data_physics_gate_passed": 1
       },
-      "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
+      "remaining": "No monotonic DAgger improvement is supported. Small reconstruction pilot: learned pickup, autonomous tilt, perception and cross-robot transfer remain open."
     },
     {
       "id": "learning-round-1",
@@ -530,15 +569,18 @@
         "student_action_states": 75,
         "evaluation_episodes": 1,
         "successful_evaluation_episodes": 1,
-        "final_training_loss": 0.0015751420335819197
+        "final_training_loss": 0.0015751420335819197,
+        "physics_invalid_training_episodes": 0,
+        "cumulative_flagged_training_transitions": 0,
+        "training_data_physics_gate_passed": 1
       },
-      "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
+      "remaining": "No monotonic DAgger improvement is supported. Small reconstruction pilot: learned pickup, autonomous tilt, perception and cross-robot transfer remain open."
     },
     {
       "id": "learning-round-2",
       "title": "Reactive translation policy · DAgger round 2",
       "evidence_sha256": "4bd9c13eaef5a1d8e365b5bcaf94a15fd5ec64cd7daa216ebfaafa535ed685a2",
-      "subsystem_passed": true,
+      "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
       "metrics": {
@@ -547,18 +589,85 @@
         "student_action_states": 144,
         "evaluation_episodes": 1,
         "successful_evaluation_episodes": 1,
-        "final_training_loss": 0.0011312171152835196
+        "final_training_loss": 0.0011312171152835196,
+        "physics_invalid_training_episodes": 1,
+        "cumulative_flagged_training_transitions": 27,
+        "training_data_physics_gate_passed": 0
       },
-      "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
+      "remaining": "Final DAgger included one physics-invalid training episode: 27 cumulative flagged transition receipts, not 27 independent events. Its weights are not trained on verified data. No monotonic DAgger improvement is supported. Small reconstruction pilot: learned pickup, autonomous tilt, perception and cross-robot transfer remain open."
+    },
+    {
+      "id": "learning-zero-feedback",
+      "title": "Reactive pouring · zero-translation-feedback control",
+      "evidence_sha256": "09b1fa7f16dd497dd825d56a8b0d07e8c90a0806d96caf7845800437790f2b3a",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Same held-out seed 100, fluid model, established grasp and shared tilt schedule as the BC/DAgger pilot; no EE translation feedback. One paired scene, not a multi-seed generalization result.",
+      "metrics": {
+        "receiver_particles": 97,
+        "particles": 240,
+        "capture_fraction": 0.4041666666666667,
+        "max_CFL": 0.11207616329193115,
+        "expert_queries": 0
+      },
+      "remaining": "Compare with each frozen policy using the same strict capture/domain/projection gates. More independent hold-outs are required; capture alone does not establish success."
+    },
+    {
+      "id": "holdout-bc",
+      "title": "Independent seeds 101–103 · BC",
+      "evidence_sha256": "afaebdff4257fc4e1fcdbd64a45567aafcbf2e10752b8335db0e49f5dc3fa76c",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A frozen three-seed comparison on a shared tilt schedule. All attempted episodes are retained. High capture does not count as success when the physics/domain gate fails.",
+      "metrics": {
+        "planned_episodes": 3,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
+        "accepted_episodes": 1,
+        "physics_invalid_completed": 2
+      },
+      "remaining": "New seeds exposed a fixed tabletop boundary-sampling hole under the moving receiver. Physics-invalid episodes cannot support a learning-mechanism claim. Preserve these outcomes and evaluate a separately frozen repair."
+    },
+    {
+      "id": "holdout-dagger",
+      "title": "Independent seeds 101–103 · DAgger-final",
+      "evidence_sha256": "afaebdff4257fc4e1fcdbd64a45567aafcbf2e10752b8335db0e49f5dc3fa76c",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A frozen three-seed comparison on a shared tilt schedule. All attempted episodes are retained. High capture does not count as success when the physics/domain gate fails.",
+      "metrics": {
+        "planned_episodes": 3,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
+        "accepted_episodes": 1,
+        "physics_invalid_completed": 2
+      },
+      "remaining": "New seeds exposed a fixed tabletop boundary-sampling hole under the moving receiver. Physics-invalid episodes cannot support a learning-mechanism claim. Preserve these outcomes and evaluate a separately frozen repair. Final DAgger was trained with a physics-invalid episode; even a valid evaluation cannot establish verified experience absorption."
+    },
+    {
+      "id": "holdout-zero",
+      "title": "Independent seeds 101–103 · Zero-EE-translation",
+      "evidence_sha256": "afaebdff4257fc4e1fcdbd64a45567aafcbf2e10752b8335db0e49f5dc3fa76c",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A frozen three-seed comparison on a shared tilt schedule. All attempted episodes are retained. High capture does not count as success when the physics/domain gate fails.",
+      "metrics": {
+        "planned_episodes": 3,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
+        "accepted_episodes": 1,
+        "physics_invalid_completed": 2
+      },
+      "remaining": "New seeds exposed a fixed tabletop boundary-sampling hole under the moving receiver. Physics-invalid episodes cannot support a learning-mechanism claim. Preserve these outcomes and evaluate a separately frozen repair."
     }
   ],
   "active": {
     "id": "organic_native_2000s_r4",
     "phase": "RUNNING",
     "process_verified_alive": true,
-    "simulation_s": 1485.02,
-    "physics_steps": 371255,
-    "sampled_at_utc": "2026-10-13T13:22:04.421100+00:00"
+    "simulation_s": 1690.02,
+    "physics_steps": 422505,
+    "sampled_at_utc": "2026-10-13T13:28:12.361210+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
