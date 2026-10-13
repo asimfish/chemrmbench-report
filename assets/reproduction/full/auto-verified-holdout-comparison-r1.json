@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "seeds": [
+    201,
+    202,
+    203
+  ],
+  "policies": [
+    "bc",
+    "dagger",
+    "zero"
+  ],
+  "receiver_counts": [
+    [
+      178,
+      203,
+      199
+    ],
+    [
+      181,
+      205,
+      206
+    ],
+    [
+      20,
+      62,
+      72
+    ]
+  ],
+  "accepted": [
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      false
+    ]
+  ],
+  "physics_valid": [
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true
+    ]
+  ],
+  "mean_capture_percent": [
+    80.55555555555556,
+    82.22222222222221,
+    21.38888888888889
+  ],
+  "paired_dagger_minus_bc_particles": [
+    3,
+    2,
+    7
+  ],
+  "mean_dagger_minus_bc_percentage_points": 1.6666666666666667,
+  "all_nine_evaluations_physics_valid": true,
+  "evaluation_expert_queries": 0,
+  "source_results": [
+    {
+      "policy": "bc",
+      "seed": 201,
+      "path": "runs/auto_repro_verified_holdout_bc_seed201_r2/result.json",
+      "sha256": "c6d9372e1910a605c880aa99fc65504014bfc307d88f1e5d1302ff7ec8410517"
+    },
+    {
+      "policy": "bc",
+      "seed": 202,
+      "path": "runs/auto_repro_verified_holdout_bc_seed202_r2/result.json",
+      "sha256": "198176a7d129861e23e199582035648ec4cbfd475b2df285bb8a17d4b98d361a"
+    },
+    {
+      "policy": "bc",
+      "seed": 203,
+      "path": "runs/auto_repro_verified_holdout_bc_seed203_r2/result.json",
+      "sha256": "67a80265981b7205e387debab61e9d25716a5f168ddcab9538880c6355e63a79"
+    },
+    {
+      "policy": "dagger",
+      "seed": 201,
+      "path": "runs/auto_repro_verified_holdout_dagger_seed201_r2/result.json",
+      "sha256": "92f93ce9d94014f1c1e80f94a107569537109d8fa7a80a947c78d3076836d1a8"
+    },
+    {
+      "policy": "dagger",
+      "seed": 202,
+      "path": "runs/auto_repro_verified_holdout_dagger_seed202_r2/result.json",
+      "sha256": "b81c1ef0b501f534b464feb33655dc782873974654e700cd88635a6a738729b2"
+    },
+    {
+      "policy": "dagger",
+      "seed": 203,
+      "path": "runs/auto_repro_verified_holdout_dagger_seed203_r2/result.json",
+      "sha256": "18ef038a46f2fc28544193822a805166ad75a8284cc02cdd33e26599e372e4db"
+    },
+    {
+      "policy": "zero",
+      "seed": 201,
+      "path": "runs/auto_repro_verified_holdout_zero_seed201_r2/result.json",
+      "sha256": "5bd1e1f8b7fa0a135cbfa733eed36380b467dc850e79168483ff796fd8ccb2e3"
+    },
+    {
+      "policy": "zero",
+      "seed": 202,
+      "path": "runs/auto_repro_verified_holdout_zero_seed202_r2/result.json",
+      "sha256": "86ac28026738a8b06ec1b70f04f3c46e9a87cbde0d0d4607f5f921e0a1f4673f"
+    },
+    {
+      "policy": "zero",
+      "seed": 203,
+      "path": "runs/auto_repro_verified_holdout_zero_seed203_r2/result.json",
+      "sha256": "eac47cef26822a2a46965055a35b1e68b23498744c3d7942707380cc0e436af6"
+    }
+  ],
+  "source_code_sha256": "280fc4dc97f74202054407e42a043ac2cfb3173e136269185105807aa80cfc1a",
+  "training_label_counts": {
+    "bc": 144,
+    "dagger": 432
+  },
+  "actual_denominators": {
+    "historical_protocol": 20,
+    "candidate_posthoc_diagnostics": 3,
+    "candidate_training_and_known_seed_evaluation": 9,
+    "candidate_independent_evaluation": 9
+  },
+  "limitations": [
+    "Only three independent synthetic held-out scenarios.",
+    "Both learned policies share a prescribed tilt; EE translation includes initial alignment and reactive tracking.",
+    "BC and final DAgger have unequal labelled data counts, so this comparison does not isolate on-policy data collection.",
+    "No original GRID weights, visual policy, learned pickup, robot transfer, hardware or full article reproduction."
+  ],
+  "full_auto_engineering_reproduction": false
+}

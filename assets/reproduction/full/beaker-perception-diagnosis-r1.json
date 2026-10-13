@@ -1,0 +1,269 @@
+{
+  "created_at_utc": "2026-10-13T14:04:55.630170+00:00",
+  "scope": "Post-hoc RGB/depth diagnostic on one static five-view fixture; no full perception or robot acceptance",
+  "original_glass_perception_passed": false,
+  "full_reference_reproduced": false,
+  "independent_instances": 1,
+  "correlated_frames_per_case": 5,
+  "inference": "For this fixture, exchanging depth reverses acceptance for both RGB variants; this supports depth observation as the principal current failure source, not a general proof.",
+  "original_control": "Whole-material shader replacement changes more than opacity",
+  "privileged_inputs": [
+    "Identical-geometry opaque depth in diagnostic arms",
+    "Oracle initial segmentation mask in all arms"
+  ],
+  "cases": [
+    {
+      "label": "Opaque RGB + ideal depth",
+      "color": "#287e80",
+      "source": "runs/foundationpose_beaker_opaque_r2/result.json",
+      "sha256": "9d28258fc5c58cc41a48782c5d4ae8c09683236afea4508a00c1a8f429403545",
+      "metrics": [
+        {
+          "index": 0,
+          "ADD_S_m": 0.0023833485928573257,
+          "translation_error_m": 0.0004700442608839984,
+          "rotation_error_deg_descriptive": 4.045022312334286,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 1,
+          "ADD_S_m": 0.0028593895720445974,
+          "translation_error_m": 0.0004479544849401988,
+          "rotation_error_deg_descriptive": 4.960634775260043,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 2,
+          "ADD_S_m": 0.002214890225035604,
+          "translation_error_m": 0.0004607282359515956,
+          "rotation_error_deg_descriptive": 3.747353747715983,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 3,
+          "ADD_S_m": 0.0031656576063904813,
+          "translation_error_m": 0.0005717525300498018,
+          "rotation_error_deg_descriptive": 5.54042178037307,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 4,
+          "ADD_S_m": 0.0015947005621527867,
+          "translation_error_m": 0.00047195503618286164,
+          "rotation_error_deg_descriptive": 2.649818688539126,
+          "local_pose_gate_passed": true
+        }
+      ],
+      "passed_frames": 5,
+      "total_frames": 5
+    },
+    {
+      "label": "Glass RGB + glass depth",
+      "color": "#b84640",
+      "source": "runs/foundationpose_beaker_glass_r2/result.json",
+      "sha256": "ccb11bfbda97ec7d7d9365408d9087f238f04cd0add71dfb701abba7496d8efd",
+      "metrics": [
+        {
+          "index": 0,
+          "ADD_S_m": 0.11599332905403853,
+          "translation_error_m": 0.15549753545702835,
+          "rotation_error_deg_descriptive": 110.85130497126347,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 1,
+          "ADD_S_m": 0.14825853858390114,
+          "translation_error_m": 0.18817376335666203,
+          "rotation_error_deg_descriptive": 109.9108492241667,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 2,
+          "ADD_S_m": 0.17286538870679294,
+          "translation_error_m": 0.21401604448004777,
+          "rotation_error_deg_descriptive": 111.4179071211165,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 3,
+          "ADD_S_m": 0.20890550093425417,
+          "translation_error_m": 0.25200213051226683,
+          "rotation_error_deg_descriptive": 108.11313978258629,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 4,
+          "ADD_S_m": 0.24215597470112155,
+          "translation_error_m": 0.2861356718990902,
+          "rotation_error_deg_descriptive": 103.05707682185385,
+          "local_pose_gate_passed": false
+        }
+      ],
+      "passed_frames": 0,
+      "total_frames": 5
+    },
+    {
+      "label": "Glass RGB + ideal depth*",
+      "color": "#6385b1",
+      "source": "runs/foundationpose_glass_rgb_ideal_depth_r1/result.json",
+      "sha256": "05d6c967db8c7256e96fdc43db090c6c2c91b23da2c6cafe832392045c5478f7",
+      "metrics": [
+        {
+          "index": 0,
+          "ADD_S_m": 0.0011575644397665403,
+          "translation_error_m": 0.0006386584808718267,
+          "rotation_error_deg_descriptive": 1.7244123429110947,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 1,
+          "ADD_S_m": 0.0005959592209101336,
+          "translation_error_m": 0.0005388015578022931,
+          "rotation_error_deg_descriptive": 0.45910561483174395,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 2,
+          "ADD_S_m": 0.0014124813427104231,
+          "translation_error_m": 0.0006137838465320117,
+          "rotation_error_deg_descriptive": 2.213027611100471,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 3,
+          "ADD_S_m": 0.0009150525696257677,
+          "translation_error_m": 0.0006837486141921022,
+          "rotation_error_deg_descriptive": 1.1676285925869951,
+          "local_pose_gate_passed": true
+        },
+        {
+          "index": 4,
+          "ADD_S_m": 0.000727578050163896,
+          "translation_error_m": 0.0005599979191358213,
+          "rotation_error_deg_descriptive": 0.7240483975270213,
+          "local_pose_gate_passed": true
+        }
+      ],
+      "passed_frames": 5,
+      "total_frames": 5
+    },
+    {
+      "label": "Opaque RGB + glass depth*",
+      "color": "#c98c3b",
+      "source": "runs/foundationpose_opaque_rgb_glass_depth_r1/result.json",
+      "sha256": "dd565d214287a1d4acb30c3d2437c2e03d1c3e9517460c344155e7e1cd02de3b",
+      "metrics": [
+        {
+          "index": 0,
+          "ADD_S_m": 0.21076916119649955,
+          "translation_error_m": 0.2544001498422545,
+          "rotation_error_deg_descriptive": 12.150746528650977,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 1,
+          "ADD_S_m": 0.21319161956527,
+          "translation_error_m": 0.2565543038983194,
+          "rotation_error_deg_descriptive": 10.921368453979976,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 2,
+          "ADD_S_m": 0.2115502330198311,
+          "translation_error_m": 0.25499397765104403,
+          "rotation_error_deg_descriptive": 12.115385203041589,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 3,
+          "ADD_S_m": 0.21177560102564946,
+          "translation_error_m": 0.2555835861626477,
+          "rotation_error_deg_descriptive": 11.653403559948261,
+          "local_pose_gate_passed": false
+        },
+        {
+          "index": 4,
+          "ADD_S_m": 0.213927449684656,
+          "translation_error_m": 0.2578593532366894,
+          "rotation_error_deg_descriptive": 6.669014408446813,
+          "local_pose_gate_passed": false
+        }
+      ],
+      "passed_frames": 0,
+      "total_frames": 5
+    }
+  ],
+  "depth_stats": [
+    {
+      "label": "Original glass",
+      "directory": "runs/beaker_rgbd_oracle_mask_r1",
+      "frames": [
+        {
+          "frame": 0,
+          "median_depth_in_oracle_mask_m": 0.775,
+          "mask_pixels": 6856
+        },
+        {
+          "frame": 1,
+          "median_depth_in_oracle_mask_m": 0.775,
+          "mask_pixels": 6840
+        },
+        {
+          "frame": 2,
+          "median_depth_in_oracle_mask_m": 0.775,
+          "mask_pixels": 6840
+        },
+        {
+          "frame": 3,
+          "median_depth_in_oracle_mask_m": 0.775,
+          "mask_pixels": 6834
+        },
+        {
+          "frame": 4,
+          "median_depth_in_oracle_mask_m": 0.775,
+          "mask_pixels": 6822
+        }
+      ]
+    },
+    {
+      "label": "Opaque material control",
+      "directory": "runs/beaker_rgbd_opaque_control_r1",
+      "frames": [
+        {
+          "frame": 0,
+          "median_depth_in_oracle_mask_m": 0.613,
+          "mask_pixels": 6856
+        },
+        {
+          "frame": 1,
+          "median_depth_in_oracle_mask_m": 0.613,
+          "mask_pixels": 6840
+        },
+        {
+          "frame": 2,
+          "median_depth_in_oracle_mask_m": 0.613,
+          "mask_pixels": 6840
+        },
+        {
+          "frame": 3,
+          "median_depth_in_oracle_mask_m": 0.614,
+          "mask_pixels": 6834
+        },
+        {
+          "frame": 4,
+          "median_depth_in_oracle_mask_m": 0.614,
+          "mask_pixels": 6822
+        }
+      ]
+    }
+  ],
+  "protocols": {
+    "evidence/foundationpose_beaker_pair_protocol_r2.json": "14730eab10367e715bd54c2e68dac57ac2cbfe027a1bff98f2ac14b5447318fd",
+    "evidence/foundationpose_beaker_crossover_protocol_r1.json": "80eb8981150ce2d7291fcf34a94d5c9bcdab11717c61bf80dca3e1d4907462d5"
+  },
+  "independent_reviews": {
+    "evidence/foundationpose_beaker_pair_independent_review_r1.json": "483fc41893626af03f4aeba45be6e43f4865f5f0b17116b3d03daa635d380682",
+    "evidence/foundationpose_crossover_independent_review_r1.json": "1d8b916900229cda3b4567964e6b6ccb19efc7c6dd6319b835800dfe39bef2c4"
+  },
+  "script_sha256": "53632c0d8963b99475b5f73a5c124bda21de58e98945c8a8abe3b4a5c9dedc88"
+}
