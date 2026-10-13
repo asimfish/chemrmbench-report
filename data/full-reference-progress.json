@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:33:05.688942+00:00",
+  "exported_at_utc": "2026-10-13T16:42:15.883565+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1248,29 +1248,51 @@
       "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
     },
     {
+      "id": "ur5e-paired-repair-401",
+      "title": "UR5e · same-case higher-grasp repair 401",
+      "evidence_sha256": "052059cb483af014cda7f186a689d15d4e65245623d2dbc494ec9dbb11e20ea5",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 401,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 235,
+        "total_particles": 240,
+        "return_error_mm": 8.531652045417282,
+        "frozen_gates_passed": 18,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
       "id": "auto-repro-dual-timescaled-complete-cpu-r7",
       "title": "Dual Flexiv · same-path slower full-fluid candidate",
-      "evidence_sha256": "182ea1646ec3f901e45953199b2332a25191c7d376a2e8b8e39d78ab3d48b686",
+      "evidence_sha256": "67294b0ff00b2bf3231d7af9a1374b6619a76514ddca19116f9a7a3d4359e58d",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_lift. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: receiver_approach. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 6.499999999996189,
+        "recorded_simulation_s": 13.000000000016566,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
     {
-      "id": "ur5e-paired-repair-progress-401",
-      "title": "UR5e · paired repair 401 · unreviewed progress",
-      "evidence_sha256": "6b3dea1e458a9e8661ca30d406dce1d5b5cf00da08c8490e31daff4ee8c9ff93",
+      "id": "ur5e-paired-repair-progress-402",
+      "title": "UR5e · paired repair 402 · unreviewed progress",
+      "evidence_sha256": "d435bb09d116ae1e6f4fdc335850ed8e88b8cb5447141c3788820d1452f1c164",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: retract. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
+      "scope": "Last recorded native phase: pour_hold. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
       "metrics": {
-        "seed": 401,
-        "recorded_simulation_s": 21.000000000054765,
+        "seed": 402,
+        "recorded_simulation_s": 11.500000000009404,
         "planned_simulation_s": 23,
         "predeclared_cohort_size": 4
       },
