@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:12:17.825785+00:00",
+  "exported_at_utc": "2026-10-13T16:18:01.492393+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1115,6 +1115,51 @@
       "remaining": "One repair trial in a separate denominator from original R7 and its four frozen perturbations. The original six native contact exclusions remain; sampled contacts do not certify continuous collision freedom or force stability. Return uses simulator truth. Full perception, learned workflow, GRID equivalence, rack extraction and robustness remain open."
     },
     {
+      "id": "dual-flexiv-complete-r6",
+      "title": "Dual Flexiv · complete 33.5 s trial, final domain failure",
+      "evidence_sha256": "ff893f8f49fc5663d18e1bbc394c3428193692a29ab9ce511b78a9e075e152c5",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "All 19 phases execute: pickup, physical handoff, receiver transport, pour, untilt and return to suspended hold. The 21 s handoff passes all fourteen frozen gates; the final whole workflow fails its fluid-domain gate. Terminal and intermediate counts are kept separate.",
+      "metrics": {
+        "simulation_s": 33.500000000071815,
+        "physics_steps": 268000,
+        "control_rows": 3350,
+        "saved_states": 838,
+        "receiver_particles": 218,
+        "source_particles": 0,
+        "total_particles": 240,
+        "outside_domain": 3,
+        "handoff_gates_passed": 14,
+        "handoff_gates_total": 14,
+        "final_gates_passed": 14,
+        "final_gates_total": 15,
+        "return_error_mm": 8.94781041539325,
+        "maximum_CFL": 0.213009312748909,
+        "unexpected_robot_scene_rows": 0
+      },
+      "remaining": "This failed trial remains in its one-attempt repair denominator, alongside separately retained earlier failures. One simulator-truth grasp transform measured at21 s drives a fixed plan; no ongoing perception. Enabled collision exclusions remain, and 100 Hz contact checks do not prove continuous collision freedom. No GRID, learned controller, rack extraction, bench release or real-robot claim."
+    },
+    {
+      "id": "dual-flexiv-contact-abort-regression",
+      "title": "Dual Flexiv · contact-triggered simulation abort",
+      "evidence_sha256": "8d8df5d2fb7a0f243a080a5f8e50ec6ee387f0c14cfb98ea90fa8240cc2f4faf",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A deliberately restored low grasp creates pad-rack contact. The first detected 100 Hz contact row is the terminal state; the raw task remains FAILED and accepted=false. Independent reconstruction checks the terminal geometry and the same exception branch used by the complete candidate.",
+      "metrics": {
+        "simulation_s": 2.5500000000002436,
+        "physics_steps": 20400,
+        "control_rows": 255,
+        "recorded_detection_to_abort_s": 0.0,
+        "source_particles": 240,
+        "mechanism_gates_passed": 10,
+        "mechanism_gates_total": 10,
+        "raw_task_accepted": 0
+      },
+      "remaining": "Simulation stepping aborts at detection; this is not a mechanical braking controller or real stopping-time measurement. Continuous contact onset may precede the first sampled contact. Periodic status2.50 s is stale; exact terminal2.55 s is authoritative. One injected-failure diagnostic, not a successful full task."
+    },
+    {
       "id": "ur5e-frozen-confirmation-401",
       "title": "UR5e · predeclared perturbation 401",
       "evidence_sha256": "55e6307b9465b1a1bcc9fbdf56b2c34892cbe06e9846f8ba64e174f23d94d78d",
@@ -1181,20 +1226,6 @@
       "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
     },
     {
-      "id": "auto-repro-dual-rack-clearance-complete-cpu-r6",
-      "title": "Dual Flexiv · higher-grasp handoff and pour candidate",
-      "evidence_sha256": "79c03132f6fd25a9f5f126abfdc7b487ecd9578dab5c69e3b1be4203fadef463",
-      "subsystem_passed": false,
-      "full_reference_accepted": false,
-      "scope": "Last recorded native phase: returned_loaded_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
-      "metrics": {
-        "recorded_simulation_s": 33.00000000008364,
-        "planned_simulation_s": 33.5,
-        "result_file_present": 0
-      },
-      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
-    },
-    {
       "id": "ot2-continuous-positive-r4",
       "title": "MATTERIX · continuous plate loading and pipetting",
       "evidence_sha256": "c05b2863980e58f6b4df418550cfae614bd44708337d9c5e3ae7c22f233f4c01",
@@ -1225,13 +1256,13 @@
     {
       "id": "ot2-repro-continuous-no-aspiration-r4",
       "title": "MATTERIX · continuous native no aspiration r4",
-      "evidence_sha256": "90e31a3c99503b49f8d97c52bb455017af5e5d0f0d667f234e562a6778a84896",
+      "evidence_sha256": "73789699a86bffdf0a26140e5c7c403a2246da4588e91910c96f74de29499008",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
-        "recorded_physics_steps": 37500,
-        "clock_derived_simulation_s": 62.50000000000001,
+        "recorded_physics_steps": 48900,
+        "clock_derived_simulation_s": 81.5,
         "planned_simulation_s": 105.5,
         "original_OT2_colliders": 25
       },
@@ -1255,14 +1286,14 @@
     {
       "id": "ur5e-frozen-planar-confirmation",
       "title": "UR5e · four frozen initial-state confirmations",
-      "evidence_sha256": "52e24a252a7fa12790eee814257c92ecd5305f7ed9d4f994f61a26aefe95786a",
+      "evidence_sha256": "4c9b0ec1a8c684b3c30c6c0daf0485f0625c87fceec21284844d2a5e63a6d065",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Four source/receiver planar perturbations were frozen before these runs. The original R7 controller and its local gates are retained; whole-scene contact diagnostics are recorded separately. Nominal and no-tilt trials, later grasp repairs and these four confirmation attempts remain distinct denominators.",
       "metrics": {
         "planned": 4,
         "started": 4,
-        "processes_finished": 3,
+        "processes_finished": 4,
         "nonzero_process_exits": 0,
         "independently_reviewed": 3,
         "reviewed_local_gate_passes": 3
@@ -1274,9 +1305,9 @@
     "id": "ot2_repro_continuous_no_aspiration_r4",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 62.50000000000001,
-    "physics_steps": 37500,
-    "sampled_at_utc": "2026-10-13T16:12:09.307537+00:00"
+    "simulation_s": 81.5,
+    "physics_steps": 48900,
+    "sampled_at_utc": "2026-10-13T16:17:36.995055+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
