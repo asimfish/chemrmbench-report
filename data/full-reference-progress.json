@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T18:14:00.100723+00:00",
+  "exported_at_utc": "2026-10-13T18:15:56.570044+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1503,6 +1503,23 @@
       "remaining": "Both complete candidates fail the zero-domain-violation gate. No paper-level completion or learned cross-robot transfer."
     },
     {
+      "id": "liquid-rendering",
+      "title": "Fluid display ·575frame particle/surface comparison",
+      "evidence_sha256": "59272aa6fad77d138769eacbabe336a5b249d17743f7821d7092e724513831bb",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Recorded native UR5e trajectory; independent volume-constrained surface reconstruction, original triangle normals and verified RTX path tracing. Zero new physics steps.",
+      "metrics": {
+        "frames": 575,
+        "native_seconds": 23,
+        "particles": 240,
+        "model_volume_mL": 3.75,
+        "minimum_mesh_model_volume_ratio": 0.9900112437679265,
+        "maximum_mesh_model_volume_ratio": 1.009789146540034
+      },
+      "remaining": "Physical resolution and source visual fidelity remain open. This is not GRID renderer recovery or native MATTERIX isosurface reproduction. See liquid-rendering.html."
+    },
+    {
       "id": "ur5e-fluid-refinement",
       "title": "UR5e ·1920particle coupled refinement candidate",
       "evidence_sha256": "de15a47412a10d75cf9e9382c57bc65c236d6cad982cf3fa3f1532da578db662",
@@ -1522,11 +1539,11 @@
   ],
   "active": {
     "id": "auto_repro_ur5e_refined1920_seed401_cuda_r1",
-    "phase": "RESOURCE_PAUSED",
+    "phase": "SETTLE",
     "process_verified_alive": true,
     "simulation_s": 0.4999999999999588,
     "physics_steps": 4000,
-    "sampled_at_utc": "2026-10-13T17:58:53.606778+00:00"
+    "sampled_at_utc": "2026-10-13T18:15:56.566375+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
