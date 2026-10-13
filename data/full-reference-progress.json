@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "title": "Full reference reproduction · detailed audit",
+  "exported_at_utc": "2026-10-13T12:48:39.390026+00:00",
+  "full_reference_reproduction": false,
+  "requirements": [
+    {
+      "id": "N01",
+      "family": "MATTERIX",
+      "kind": "scene",
+      "reference": "Fig.3 / Full Self-driving Lab Environment",
+      "acceptance": "One composed laboratory with 4 fume hoods, liquid-handling station, solid-dispensing station, glove box, washing/drying station, 5 fixed-base arms and 1 mobile KUKA; metric dimensions, collision geometry and source provenance; overview plus all station views.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Four reconstructed workstations do not instantiate the whole published lab; A–F figure panels are not a specification of exactly six physical stations."
+    },
+    {
+      "id": "N02",
+      "family": "MATTERIX",
+      "kind": "perception",
+      "reference": "Fig.4I; Fig.6A–B",
+      "acceptance": "Run FoundationPose on observed images with pinned object meshes/camera intrinsics; log estimated and known poses, initialization, resets and perception-caused failures. Synthetic observations must be labeled as simulation-only.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Scripted known poses bypass the published perception mechanism."
+    },
+    {
+      "id": "N03",
+      "family": "MATTERIX",
+      "kind": "quantitative_task",
+      "reference": "Fig.6A Object Pick and Place",
+      "acceptance": "Frozen arbitrary-pose trial bank; physical lift, carry, placement/release, whole workflow and failures; include pose-estimation pipeline; report all attempts and interval for success rate.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Prose/caption count conflict unresolved. Existing 2 heat confirmations are not 12 perception-driven trials."
+    },
+    {
+      "id": "N04",
+      "family": "MATTERIX",
+      "kind": "quantitative_task",
+      "reference": "Fig.6B Liquid Pouring / publisher Source Data Fig6",
+      "acceptance": "Frozen 10-attempt arbitrary-pose protocol; physical grip/tilt/untilt/return; independent receiver/spill/source counts and calibrated model-volume; report unsuccessful trials separately from volume samples.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Three local positives are subsystem confirmations; negative whole workflow still fails. Published nine volume samples do not imply nine total attempts."
+    },
+    {
+      "id": "N05",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.6C; Supplement Sec.6",
+      "acceptance": "FR3 places dispensing rack, tip rack and reservoir into OT2; actual contact-derived tip loading, liquid aspiration/dispensing and disposal; verify channel locations, mass conservation, actual transfer and ordered task transitions.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Native OT2 motion now drives reconstructed eight-channel finite-volume aspiration/dispense with a no-aspiration control. Native tip contact and FR3 loading remain open. The current 96-well plate / 12-channel reservoir are disclosed fallback labware, not the original six-well / two-well setup."
+    },
+    {
+      "id": "N06",
+      "family": "MATTERIX",
+      "kind": "quantitative_curve",
+      "reference": "Fig.5A; Eq.4–15; publisher fig5a_1.csv",
+      "acceptance": "Couple native robot placement/contact to bidirectional heater/beaker/solution thermal states and chemical identity/concentrations for all 2000 s. Evaluate trace errors and event times independently; neither replay reference temperatures nor fit on evaluation outputs.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "A 30 s native placement/contact/chemistry pilot passed; the full 2000 s run is tracked separately below. The effective thermal fit is nonreciprocal, original configurations are missing, and literal CSV Cl/CCCl identity has not been equated to narrative HI/EtI."
+    },
+    {
+      "id": "N07",
+      "family": "MATTERIX",
+      "kind": "held_out_curve",
+      "reference": "Supplement Fig.3",
+      "acceptance": "Same model and source parameters as high-temperature experiment, held-out 40 C heater target; native coupled trace and reduced conversion. No separate fitting of low-temperature outputs.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "A 40 C semantic shadow uses the same native contact history. This is not an independently executed 40 C physical trial, and the original author parameter set is still unavailable."
+    },
+    {
+      "id": "N08",
+      "family": "MATTERIX",
+      "kind": "quantitative_task",
+      "reference": "Fig.5B; Supplement Fig.4; publisher Fig5 data",
+      "acceptance": "Two actual robot-mediated additions with compound/mass ledger and color time series; formation then reduction of iodine/starch color; independently verify conservation, stoichiometry, mixing and timing.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Source CSV 90 s versus text 250 s and concentration-unit typo remain unresolved; original kinetic parameters absent. A color animation alone is not chemistry reproduction."
+    },
+    {
+      "id": "N09",
+      "family": "MATTERIX",
+      "kind": "performance",
+      "reference": "Fig.4L; publisher Fig4 source data",
+      "acceptance": "Physics-only versus physics+thermal semantics with same scene, random arm motion/40–100 C targets, 1000 steps, synchronized clocks and warm-up policy; report all 3 replicates per size, throughput and overhead with hardware/version.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "4090/driver/version-port timings cannot be called identical performance replication; performance work follows semantic correctness."
+    },
+    {
+      "id": "N10",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4E–H / glove-box video",
+      "acceptance": "Robot powder pouring, scooping and weighing with native granular contact and mass ledger; compare source video phases; not stationary particle activity.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "granular manipulation has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N11",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4E–H",
+      "acceptance": "Two robot arms hand a beaker across using physical opposed contacts, sender release, receiver-only hold and stable payload.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "bimanual beaker handoff has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N12",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4B; project Y5Sf8-DDKDQ",
+      "acceptance": "Pick vial and physically insert into a rack hole; rim collisions, stable seating, alignment error and negative misalignment control.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "vial insertion has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N13",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4C; project EWxdYJpaqvQ",
+      "acceptance": "cuRobo plans and executes beaker reaching/placement within actual fume-hood collision geometry, with collision records.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "fumehood constrained reach has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N14",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4D; project NHiyla50Who",
+      "acceptance": "KUKA KMR iiwa whole-body base/arm controller transfers a held sample between two modeled workstations.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "mobile cross-station transfer has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N15",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.3F / Methods",
+      "acceptance": "Robot rotates physical faucet knob; measured angle affects simulated flow continuously; wash and drying scene present.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "washing device semantic coupling has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N16",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Supplement Sec.2",
+      "acceptance": "Physical funnel grasp, transport and release at requested location with asset-specific grasp geometry.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "funnel pick and place has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N17",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Supplement Sec.2",
+      "acceptance": "Robot places a beaker into the constrained OT2 workspace, collision-free and stably released.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "beaker into OT2 has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N18",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Supplement Sec.2",
+      "acceptance": "Physical beaker placement on scale plus independently computed payload mass and stable load sensing.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "beaker on scale has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N19",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Supplement Sec.2",
+      "acceptance": "Move populated vial rack with contents stable and recorded relative transforms and contacts.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "vial-rack transport has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N20",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4A; Supplement Sec.2",
+      "acceptance": "Physical pick/place of a wellplate in OT2 rack; verify all workflow phases and stable seating.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "wellplate insertion has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N21",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "project Dt9z63-I1aI",
+      "acceptance": "Recreate the rack/beaker interaction shown in the original video after verifying its exact action sequence.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "drying rack has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N22",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4J–K; RXr86nRF4hI",
+      "acceptance": "Tip load/unload and aspiration/dispense respond to spatial containment/contact preconditions; tips follow nozzle after attachment, liquid moves only when submerged, quantities conserved.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "pipette semantics has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "N23",
+      "family": "MATTERIX",
+      "kind": "demonstration",
+      "reference": "Fig.4A; Supplement Fig.2",
+      "acceptance": "Trace arbitrarily nested task states, per-agent actions and transitions; physics-derived success and semantic guards must control transitions rather than annotations after a fixed replay.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "hierarchical multi-agent workflow has no complete independent confirmation in the 13-gate ledger."
+    },
+    {
+      "id": "A01",
+      "family": "AUTO_ENGINEERING",
+      "kind": "simulation_backend",
+      "reference": "World Experience Harness",
+      "acceptance": "Warp DFSPH fluid solver coupled to MuJoCo robot/vessel contacts; verify incompressibility/divergence, stable fluid/container boundaries, transfer/spill/mass, timestep convergence and reciprocal coupling actually implemented.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Independent Warp DFSPH numerical and coupled pouring-fixture tests have passed scoped checks. Original GRID code is unavailable; robot-level coupling, fluid resolution/convergence and the complete fluid model remain under evaluation."
+    },
+    {
+      "id": "A02",
+      "family": "AUTO_ENGINEERING",
+      "kind": "demonstration",
+      "reference": "Robot Ingestion + Modular Harness",
+      "acceptance": "Dual Flexiv pick tube from rack, hand off and physically pour into beaker; perception, grasp generation and collision-aware planning must execute object-relative goals.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Rigid tube handoff confirmed; fluid pour and perception missing."
+    },
+    {
+      "id": "A03",
+      "family": "AUTO_ENGINEERING",
+      "kind": "cross_robot_transfer",
+      "reference": "Modular Harness",
+      "acceptance": "Use the same object-centered task/EE-action skill on UR5e, adapting only embodiment/interface; physical grip, pour and varied object poses.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Robot-specific scripted joint behaviors do not prove source cross-robot skill transfer."
+    },
+    {
+      "id": "A04",
+      "family": "AUTO_ENGINEERING",
+      "kind": "learning",
+      "reference": "Policy Harness",
+      "acceptance": "Generate synthetic expert trajectories; train BC then DAgger with labels on student-visited states; moving receiver online feedback; held-out scene/trajectory rollout on both Flexiv and UR5e; report seeds, data budget, failures, spill and aligned transfer.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Original architecture/data/rollout counts undisclosed. Freeze local numbers and gates before experiments; hand-coded tracking is an expert baseline, not BC/DAgger."
+    },
+    {
+      "id": "A05",
+      "family": "AUTO_ENGINEERING",
+      "kind": "learning_from_human_demos",
+      "reference": "Demonstration Harness",
+      "acceptance": "GELLO human teleoperation data -> documented dataset -> fine-tuned visuomotor policy -> held-out thin-stirrer pickup and sustained in-beaker stirring with contacts.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Original GELLO dataset not available; synthetic expert demonstrations can unblock an explicitly adapted study but cannot satisfy original-human-data provenance."
+    },
+    {
+      "id": "A06",
+      "family": "AUTO_ENGINEERING",
+      "kind": "learning_from_video",
+      "reference": "Video-to-Sim Harness",
+      "acceptance": "Single actual phone video -> hand pose + 3D object segmentation/tracking -> motion reconstruction -> varied physics-valid demonstrations -> BC -> held-out swirl rollouts. Preserve source-frame to generated-demo provenance.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Original phone video/tracks unavailable; presentation clips are not automatically raw input. Direct programmed circles omit the central mechanism."
+    },
+    {
+      "id": "A07",
+      "family": "AUTO_ENGINEERING",
+      "kind": "calibration",
+      "reference": "Deployment & Evaluation Harness",
+      "acceptance": "Replay or recreate documented wrong robot/frame calibration, use controller observations for correction, compare translation/orientation residuals on held-out configurations.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "These are reported hardware case-study values, not universal acceptance thresholds. Simulation injection is a separate validation."
+    },
+    {
+      "id": "A08",
+      "family": "AUTO_ENGINEERING",
+      "kind": "timing_repair",
+      "reference": "Deployment & Evaluation Harness",
+      "acceptance": "Instrument actual command timestamps and observed robot effects; reproduce an over-rate pacing fault, repair to target, retain negative control and before/after frequency/jitter records.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "The reference already addresses control timing; our novelty cannot claim timing was entirely ignored."
+    },
+    {
+      "id": "A09",
+      "family": "AUTO_ENGINEERING",
+      "kind": "perception_repair",
+      "reference": "Deployment & Evaluation Harness",
+      "acceptance": "Same camera capture across depth models; fit reconstructed tabletop plane, report held-out error, and demonstrate newly revealed collisions affect planning.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Original image and depth-model identities not published; synthetic plane perturbation cannot reproduce the exact reported result."
+    },
+    {
+      "id": "A10",
+      "family": "AUTO_ENGINEERING",
+      "kind": "online_perception",
+      "reference": "Deployment & Evaluation Harness",
+      "acceptance": "Segmentation-derived supervision trains lightweight detector/tracker; measured live inference latency/cadence feeds state-based moving-receiver policy and closes perception-to-action loop.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Privileged ground-truth receiver coordinates alone do not implement the deployment mechanism."
+    },
+    {
+      "id": "A11",
+      "family": "AUTO_ENGINEERING",
+      "kind": "agentic_engineering_loop",
+      "reference": "Four harnesses; Intelligence that compounds",
+      "acceptance": "Auditable agent calls construct or revise ingestion, sim, skill and deployment/evaluation; failed hypotheses retained; a correction/model/skill is actually reused on a subsequent task or embodiment with before/after evidence.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "Manually assembling tasks and showing videos does not reproduce autonomous engineering or retained experience."
+    },
+    {
+      "id": "A12",
+      "family": "AUTO_ENGINEERING",
+      "kind": "engineering_efficiency",
+      "reference": "Deployment & Evaluation Harness",
+      "acceptance": "Report start/end conditions, tool/compute/human time and reused artifacts for a fresh robot and later task; distinguish local effort from original case-study claim.",
+      "status": "OPEN",
+      "full_reference_accepted": false,
+      "gap": "No source seed count or controlled timing protocol. Current work cannot claim these speedups."
+    },
+    {
+      "id": "V01",
+      "family": "BOTH",
+      "kind": "visual_acceptance",
+      "reference": "Fig.3/6; official Auto scene and clips",
+      "acceptance": "Compare source and native frames by scene topology, robot type, vessel geometry/material, liquid appearance, task phase and motion; keep full-resolution closeups, before/after, unedited native or declared state-replay videos, source hashes and visual inspector judgment.",
+      "status": "PARTIAL",
+      "full_reference_accepted": false,
+      "gap": "Glass corrected; full original layout/markings/material calibration and continuous liquid appearance remain open. No image-similarity acceptance threshold was specified by either source."
+    }
+  ],
+  "modules": [
+    {
+      "id": "ot2-semantic",
+      "title": "OT2 · native motion + pipetting semantics",
+      "evidence_sha256": "defc3f3f3664437eaff94ccb14c202d34d106ece247a2316a0e2b1f4f6efbba4",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Native author OT2 joints; geometry-gated reconstructed finite-volume liquid semantics. Two 26 s runs, positive and no-aspiration control. No tip-contact claim.",
+      "metrics": {
+        "channels": 8,
+        "positive_per_channel_model_uL": 100,
+        "negative_per_channel_model_uL": 0,
+        "parcel_model_uL": 0.5,
+        "physics_steps_per_run": 6240
+      },
+      "remaining": "Native tip/labware contact, FR3 loading, original liquid engine, and complete station acceptance remain open."
+    },
+    {
+      "id": "dfsph",
+      "title": "Auto-Engineering · independent Warp DFSPH backend",
+      "evidence_sha256": "63a38ae06df23330cb17cda619ff753f27b76273d5eb55c5185da84fa1691c6f",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Small CPU numerical tests: separate density/divergence projections and equal/opposite pressure feedback to MuJoCo. Independent implementation; original GRID solver is not available.",
+      "metrics": {
+        "numerical_checks": 10,
+        "checks_passed": 10,
+        "initial_density_residual": 0.21583756804466248,
+        "final_density_residual": 7.302246376639232e-05
+      },
+      "remaining": "Fluid-coupled robot workflows, original demonstrations, BC/DAgger and cross-robot evaluation remain open."
+    },
+    {
+      "id": "dfsph-fixture-tilt",
+      "title": "DFSPH · native pouring fixture",
+      "evidence_sha256": "53a30fbbeb7ba160ff45daf5d5232a2597573bf8813d29dd11cbdcffe4f73c45",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A three-second native rigid/fluid coupling trial with 240 particles. The source is driven by a fixture actuator; this is not robot pickup, handoff or a learned policy.",
+      "metrics": {
+        "simulation_s": 2.999999999999697,
+        "receiver_particles": 238,
+        "source_particles": 0,
+        "other_particles": 2,
+        "initial_model_mL": 3.7500000000000004,
+        "max_CFL": 0.1767936646938324,
+        "converged_step_fraction": 1.0
+      },
+      "remaining": "Robot workflow, higher fluid resolution, viscosity/surface tension and independent policy evaluation remain open."
+    },
+    {
+      "id": "dfsph-fixture-no-tilt",
+      "title": "DFSPH · matched no-tilt fixture",
+      "evidence_sha256": "37d69cb920db97a205f6c05e971615f8660de70e18f38bc78701ff50d6e93dff",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A three-second native rigid/fluid coupling trial with 240 particles. The source is driven by a fixture actuator; this is not robot pickup, handoff or a learned policy.",
+      "metrics": {
+        "simulation_s": 2.999999999999697,
+        "receiver_particles": 0,
+        "source_particles": 240,
+        "other_particles": 0,
+        "initial_model_mL": 3.7500000000000004,
+        "max_CFL": 0.045176275074481964,
+        "converged_step_fraction": 1.0
+      },
+      "remaining": "Robot workflow, higher fluid resolution, viscosity/surface tension and independent policy evaluation remain open."
+    },
+    {
+      "id": "organic-native",
+      "title": "MATTERIX · native contact + reconstructed chemistry",
+      "evidence_sha256": "3e0d7e382baf314c0de22e2c1ee597eaac85129c30a5e36c1f7d2245f9c010cd",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One physical robot trial with three shadow semantic cases. Contact gates online heat/chemistry; effective fitted parameters are not original author parameters. Literal source species retained.",
+      "metrics": {
+        "simulation_s": 30.0,
+        "physics_steps": 7500,
+        "placement_error_mm": 10.512680153913823,
+        "product_high": 0.010931472551898108,
+        "product_40C_shadow": 0.001885201868460167
+      },
+      "remaining": "Original chemical identity/configuration, reciprocal thermal calibration and exact reference equivalence remain open."
+    }
+  ],
+  "active": {
+    "id": "organic_native_2000s_r4",
+    "phase": "RUNNING",
+    "process_verified_alive": true,
+    "simulation_s": 480.02,
+    "physics_steps": 120005,
+    "sampled_at_utc": "2026-10-13T12:48:28.410276+00:00"
+  },
+  "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
+  "scope": "Simulation first. The 36 requirements expand the earlier 13 capability groups. Hardware comparisons and unavailable author inputs are identified separately; no full-paper completion is inferred from subsystem passes.",
+  "source_links": [
+    {
+      "title": "MATTERIX · Nature Computational Science",
+      "url": "https://www.nature.com/articles/s43588-025-00924-4"
+    },
+    {
+      "title": "MATTERIX · full paper and supplement",
+      "url": "https://arxiv.org/html/2601.13232v1"
+    },
+    {
+      "title": "Auto-Engineering · original article",
+      "url": "https://www.generalrobotics.company/post/introducing-auto-engineering-for-robotics"
+    }
+  ],
+  "asset_progress": "A self-contained FR3 asset and several independent laboratory scene candidates were located and composition-checked. They are not confirmed original-author assets; raw NAS assets are not redistributed.",
+  "source_boundaries": [
+    "Original MATTERIX chemistry configuration and exact source species identity remain unresolved.",
+    "GRID fluid implementation, original GELLO demonstrations and original phone-video input were not recovered.",
+    "Published pick-place prose/caption trial counts conflict; the discrepancy is retained.",
+    "Published pour volume sample count is not the full attempt denominator."
+  ]
+}

@@ -22,6 +22,7 @@
   <p class="small" data-i18n="frequency">页面每分钟检查数据，后台每 10 分钟发布。发布采样时间与实验记录时间分别显示；缓存可能带来延迟，25 分钟未发布会标为过期。</p>
 </header>
 <main id="main">
+  <p class="notice"><a href="full-reproduction.html"><strong>完整复现细分清单 / Full reference audit →</strong><br>36 项原文要求、本轮移液与流体耦合实验、完整 2000 秒实验进度。13 个能力组保留在本页。</a></p>
   <p id="error" class="notice warning" hidden role="alert"></p>
   <section class="runtime"><div class="section-head"><h2 data-i18n="runtimeTitle">正在执行</h2><span class="pill" id="batch"></span></div><div id="runtimeBody"></div></section>
   <div class="layout"><aside class="sidebar panel"><h2 data-i18n="choose">选择复现条目</h2><label class="sr-only" for="search" data-i18n="search">搜索任务</label><input id="search" type="search" placeholder="搜索 / Search"><div class="filter-buttons" role="group" aria-label="Reference work"><button data-family="all" class="active">All</button><button data-family="nature">MATTERIX</button><button data-family="auto">Auto</button></div><div id="tasks" class="task-list"></div><p class="small" data-i18n="sideNote">先关闭原工作验收，再推进新方法。所有失败和未完成试次保留。</p></aside>
