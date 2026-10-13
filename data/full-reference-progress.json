@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T17:22:20.806908+00:00",
+  "exported_at_utc": "2026-10-13T17:32:21.233354+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1292,62 +1292,76 @@
       "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
     },
     {
+      "id": "ur5e-paired-repair-403",
+      "title": "UR5e · same-case higher-grasp repair 403",
+      "evidence_sha256": "9b6fe9c528e7b34eec31704aaeed19f33c082877017c45583a0b05b018a5fe06",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 403,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 237,
+        "total_particles": 240,
+        "return_error_mm": 8.538797912898794,
+        "frozen_gates_passed": 18,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
+      "id": "ur5e-paired-repair-404",
+      "title": "UR5e · same-case higher-grasp repair 404",
+      "evidence_sha256": "3247e53dd8a8fdf1c5e01f6e21ca3ea501b0e1730cab329deafae26c04102fd8",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 404,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 236,
+        "total_particles": 240,
+        "return_error_mm": 8.532784890267028,
+        "frozen_gates_passed": 18,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
       "id": "auto-repro-dual-timescaled-complete-cpu-r7",
       "title": "Dual Flexiv · same-path slower full-fluid candidate",
-      "evidence_sha256": "0a50b58bd8aab1020a432e3bcc99ba38b3ef9e05fc24ba6a70fb207856ca054a",
+      "evidence_sha256": "480290b6a617b6e2a843cc6c3f6637d790411d1f062446fc6b13949831f16c39",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: objectspace_return_to_handoff_hold. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: BOUNDED_EPISODE_FINISHED. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 43.499999999835346,
+        "recorded_simulation_s": 45.99999999977623,
         "planned_simulation_s": 46,
-        "result_file_present": 0
+        "result_file_present": 1
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
     {
       "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
       "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
-      "evidence_sha256": "0dcf1c7829b1371c97ef1be3b809dfcc6c135c179f47da8bdeb0c05254d2e3b0",
+      "evidence_sha256": "c10beaa043c6965abe171e24896f482ff72465159172caa22c469dbddd7a4b44",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: objectspace_transport_to_pour. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: objectspace_tilt_about_mouth. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 24.500000000071477,
+        "recorded_simulation_s": 31.5000000001049,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
-    },
-    {
-      "id": "ur5e-paired-repair-progress-403",
-      "title": "UR5e · paired repair 403 · unreviewed progress",
-      "evidence_sha256": "609299552d524ac6ab571ea32d3b16926f9207aebec155db34a44afaa9e7de3d",
-      "subsystem_passed": false,
-      "full_reference_accepted": false,
-      "scope": "Last recorded native phase: COMPLETED. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
-      "metrics": {
-        "seed": 403,
-        "recorded_simulation_s": 23.000000000064315,
-        "planned_simulation_s": 23,
-        "predeclared_cohort_size": 4
-      },
-      "remaining": "Independent terminal audit is pending. Keep all four original contact-labeled R8 cases and all four repair attempts. These are known offsets, not unseen tasks. Simulator truth and configured collision exclusions remain."
-    },
-    {
-      "id": "ur5e-paired-repair-progress-404",
-      "title": "UR5e · paired repair 404 · unreviewed progress",
-      "evidence_sha256": "aa5e3ebc3bc64365135e6697013b72fc952c3fae51b2b7725155af6ef275d87e",
-      "subsystem_passed": false,
-      "full_reference_accepted": false,
-      "scope": "Last recorded native phase: retract. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
-      "metrics": {
-        "seed": 404,
-        "recorded_simulation_s": 22.00000000005954,
-        "planned_simulation_s": 23,
-        "predeclared_cohort_size": 4
-      },
-      "remaining": "Independent terminal audit is pending. Keep all four original contact-labeled R8 cases and all four repair attempts. These are known offsets, not unseen tasks. Simulator truth and configured collision exclusions remain."
     },
     {
       "id": "ot2-continuous-positive-r4",
