@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T17:42:27.454867+00:00",
+  "exported_at_utc": "2026-10-13T18:15:56.570044+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -56,7 +56,7 @@
       "acceptance": "Reproduce author insertion-conditioned semantic tip loading and synchronized tip motion, immersed aspiration, dispensing and disposal, plus rack/reservoir setup in the stated manipulator configuration. Verify liquid identity/volume and ordered transitions. Force-threshold or friction-fit loading is an additional local validation, not a published prerequisite.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim.",
+      "gap": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim. Three-object setup R1 failed at56.118s after plate placement. R2 attachment-only probe passed; full setup remains unexecuted and strict negative-event validation is still required.",
       "published_function_reproduced": false
     },
     {
@@ -1352,14 +1352,14 @@
     {
       "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
       "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
-      "evidence_sha256": "0321449b15135a096bdc9174a39e38c751b103f3dcca575f67729523d88a1f08",
+      "evidence_sha256": "bc71f473f512b90fa0b18432f44aa6b8cfd60e5adc91dd6f0e8a322835323404",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: objectspace_untilt_about_mouth. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: BOUNDED_EPISODE_FINISHED. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 37.999999999965404,
+        "recorded_simulation_s": 45.99999999977623,
         "planned_simulation_s": 46,
-        "result_file_present": 0
+        "result_file_present": 1
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
@@ -1467,15 +1467,83 @@
         "pipetting_executed": 0
       },
       "remaining": "Last recorded progress is not evidence of a live process or acceptance. Independent contact/pose review is pending. N05 remains open until all three actual final poses carry into native pipetting in the same scene. Local supports, reconstructed rack/reservoir and grip overlay remain adaptations."
+    },
+    {
+      "id": "auto-dual-r7-terminal",
+      "title": "Dual Flexiv · R7 full46s outcome",
+      "evidence_sha256": "d6c679fa0ac1ee82658f31466370070bf3d35441f69c899e18e8f125a73ad07b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Independent terminal audit of the complete native handoff/pour/untilt/return-to-hold. Original attempts retained.",
+      "metrics": {
+        "native_seconds": 45.99999999977623,
+        "receiver_particles": 238,
+        "particle_count": 240,
+        "outside_domain": 1,
+        "passed_final_gates": 14,
+        "final_gates": 15
+      },
+      "remaining": "Both complete candidates fail the zero-domain-violation gate. No paper-level completion or learned cross-robot transfer."
+    },
+    {
+      "id": "auto-dual-r8-terminal",
+      "title": "Dual Flexiv · R8 full46s outcome",
+      "evidence_sha256": "16b170a81dd2597132410e10e4e03f746b40f2f8cc6c761e2d82c6f499f24b57",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Independent terminal audit of the complete native handoff/pour/untilt/return-to-hold. Original attempts retained.",
+      "metrics": {
+        "native_seconds": 45.99999999977623,
+        "receiver_particles": 216,
+        "particle_count": 240,
+        "outside_domain": 21,
+        "passed_final_gates": 14,
+        "final_gates": 15
+      },
+      "remaining": "Both complete candidates fail the zero-domain-violation gate. No paper-level completion or learned cross-robot transfer."
+    },
+    {
+      "id": "liquid-rendering",
+      "title": "Fluid display ·575frame particle/surface comparison",
+      "evidence_sha256": "59272aa6fad77d138769eacbabe336a5b249d17743f7821d7092e724513831bb",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Recorded native UR5e trajectory; independent volume-constrained surface reconstruction, original triangle normals and verified RTX path tracing. Zero new physics steps.",
+      "metrics": {
+        "frames": 575,
+        "native_seconds": 23,
+        "particles": 240,
+        "model_volume_mL": 3.75,
+        "minimum_mesh_model_volume_ratio": 0.9900112437679265,
+        "maximum_mesh_model_volume_ratio": 1.009789146540034
+      },
+      "remaining": "Physical resolution and source visual fidelity remain open. This is not GRID renderer recovery or native MATTERIX isosurface reproduction. See liquid-rendering.html."
+    },
+    {
+      "id": "ur5e-fluid-refinement",
+      "title": "UR5e ·1920particle coupled refinement candidate",
+      "evidence_sha256": "de15a47412a10d75cf9e9382c57bc65c236d6cad982cf3fa3f1532da578db662",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "One predeclared23s known-case refinement. Same CUDA baseline seed401,3.75mL model volume, native geometry, control, timing and18gates; fluid and boundary sampling refined.",
+      "metrics": {
+        "planned_seconds": 23,
+        "observed_native_seconds": 0.4999999999999588,
+        "fluid_particles": 1920,
+        "model_volume_mL": 3.75,
+        "fluid_spacing_mm": 1.25,
+        "boundary_spacing_mm": 1.5
+      },
+      "remaining": "Raw execution progress only; independent terminal acceptance and resolution convergence not yet established. Resource pauses do not reset native state."
     }
   ],
   "active": {
-    "id": "ot2_repro_three_labware_setup_diagnostic_r1",
-    "phase": "FAILED",
-    "process_verified_alive": false,
-    "simulation_s": 56.11833333333334,
-    "physics_steps": 33671,
-    "sampled_at_utc": "2026-10-13T16:54:13.615747+00:00"
+    "id": "auto_repro_ur5e_refined1920_seed401_cuda_r1",
+    "phase": "SETTLE",
+    "process_verified_alive": true,
+    "simulation_s": 0.4999999999999588,
+    "physics_steps": 4000,
+    "sampled_at_utc": "2026-10-13T18:15:56.566375+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
