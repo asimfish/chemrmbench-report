@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T14:42:15.659811+00:00",
+  "exported_at_utc": "2026-10-13T14:50:43.183669+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -252,7 +252,7 @@
       "acceptance": "Dual Flexiv pick tube from rack, hand off and physically pour into beaker; perception, grasp generation and collision-aware planning must execute object-relative goals.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Native UR5e has executed the 23 s pickup/pour/return/release sequence with live DFSPH, but failed the frozen return criterion (18.058 mm > 10 mm). Forearm contact is an additional quality failure. Fluid-loaded dual Flexiv and perception remain separate tests; original GRID implementation remains unavailable."
+      "gap": "A repaired 23 s UR5e bench-source pickup/pour/return/release run passes 16 local gates with simulator-ground-truth return feedback. The earlier full run failed and remains recorded. Matched full controls and perturbed confirmation are separate; perception, rack extraction, learned transfer and original GRID equivalence remain open."
     },
     {
       "id": "A03",
@@ -894,29 +894,81 @@
       "remaining": "One scripted bench-source attempt; no matched full-duration liquid negative, rack extraction, subsequent pouring, learned transfer or original GRID equivalence. Forty-millisecond saved frames bracket source departure but cannot establish the precise exit surface; microstep diagnostics are separate."
     },
     {
-      "id": "auto-repro-ur5e-contact-repair-cuda-r7",
-      "title": "UR5e · contact and object-return repair",
-      "evidence_sha256": "fa124ad4475a9cc65c2bd90cf374bac81bcc851ab2e2fcca59cf632009ca9b3c",
-      "subsystem_passed": false,
+      "id": "ur5e-whole-workflow-repair-r7",
+      "title": "UR5e · scoped 23 s workflow passes",
+      "evidence_sha256": "f55addfbbf3b2b7dfdd29a85719a9b142a55c9f59e940575c95f6fc23726b119",
+      "subsystem_passed": true,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: COMPLETED. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses 100Hz simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "One repaired native pickup, pour, return, release and retreat execution passes all 16 frozen local gates. The smaller tilt and object-space return use simulator-ground-truth feedback, not camera perception. All 400 return-feedback actions were independently reconstructed.",
       "metrics": {
-        "recorded_simulation_s": 23.000000000064315,
-        "planned_simulation_s": 23,
-        "result_file_present": 1
+        "simulation_s": 23,
+        "physics_steps": 184000,
+        "control_rows": 2300,
+        "native_saved_states": 575,
+        "receiver_particles": 239,
+        "total_particles": 240,
+        "return_error_mm": 8.545618219455758,
+        "return_limit_mm": 10,
+        "frozen_gates_passed": 16,
+        "frozen_gates_total": 16,
+        "independent_consistency_checks": 21,
+        "unexpected_contact_control_rows": 0,
+        "maximum_CFL": 0.10664936900138855,
+        "return_feedback_actions": 400
       },
-      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+      "remaining": "One posthoc repair, not a success-rate estimate or single-factor ablation: tilt, return feedback and compute device changed. Zero unexpected contacts at 100 Hz does not prove collision freedom at every physics substep. Original GRID, rack extraction, perception and learned whole-task behavior remain open."
     },
     {
-      "id": "auto-repro-dual-slow-lift-pickup-r2",
-      "title": "Dual Flexiv · slower-lift diagnostic",
-      "evidence_sha256": "78decd8dcbf53ef205f1ec020193d5ca405bc2d810c12ecbe95834296ff2090e",
+      "id": "dual-open-top-egress-diagnostic",
+      "title": "Dual Flexiv · escape mechanism diagnosed",
+      "evidence_sha256": "addddc6ce8d1fb98ecc3e26782e21e8418e1b05cfb595c40399abd56aa71b853",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The instrumented replay matches all 117 archived shared frames exactly. Particle 129 first clears the native 82 mm rim, then the 8.5 mm source-count radius. Independent signed distances to all 32 native sidewall boxes support open-top egress for this event.",
+      "metrics": {
+        "matched_archived_frames": 117,
+        "microsteps": 2800,
+        "sampled_particle_centres": 672000,
+        "sampled_sidewall_penetrations": 0,
+        "minimum_sampled_clearance_mm": 0.10999961518165134,
+        "step_microseconds": 125,
+        "independent_consistency_checks": 14
+      },
+      "remaining": "The original 19 s handoff remains FAIL. This is one diagnostic interval, 4.300–4.649875 s; discrete centre samples do not establish continuous, finite-kernel, bottom-wall or whole-run clearance."
+    },
+    {
+      "id": "dual-slow-lift-recovered-metrics",
+      "title": "Dual Flexiv · pickup metrics recovered after output failure",
+      "evidence_sha256": "b834a56a6440759a1fa7602cdbadc5de03ca478c8d623a14e21f26a7123954fc",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_loaded_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. The slower-lift diagnostic, when shown, is only an 8.5s pickup test and not a complete handoff.",
+      "scope": "The native run completed 8.5 s of pickup physics but exited 1 during final JSON serialization. An append-only, independently reviewed reconstruction passes ten local physical checks and retains all 240 particles. The original process remains failed.",
       "metrics": {
-        "recorded_simulation_s": 8.49999999999508,
-        "planned_simulation_s": 8.5,
+        "simulation_s": 8.5,
+        "physics_steps": 68000,
+        "control_rows": 850,
+        "native_saved_states": 213,
+        "retained_particles": 240,
+        "total_particles": 240,
+        "minimum_lift_mm": 101.59307085945477,
+        "recovered_physical_checks_passed": 10,
+        "recovered_physical_checks_total": 10,
+        "original_process_exit": 1,
+        "maximum_CFL": 0.051327940076589584,
+        "independent_consistency_checks": 12
+      },
+      "remaining": "One pickup-only diagnostic, not a complete handoff or successful software run. The original log and missing result file are preserved. The slower lift motivates the separate full handoff-and-pour candidate; it does not establish whole-task repair or statistical robustness."
+    },
+    {
+      "id": "auto-repro-dual-objectspace-pour-cuda-r5",
+      "title": "Dual Flexiv · complete handoff and pour candidate",
+      "evidence_sha256": "8d06ecc37b5e3bc91d6573fd8d1f64c3d840ca4f6d49b2e93bb3678ef382ef61",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: sender_loaded_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "metrics": {
+        "recorded_simulation_s": 7.999999999992693,
+        "planned_simulation_s": 33.5,
         "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
