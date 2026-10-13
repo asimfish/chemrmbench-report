@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T15:43:29.763918+00:00",
+  "exported_at_utc": "2026-10-13T15:52:15.966273+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1091,14 +1091,36 @@
       "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
     },
     {
+      "id": "ur5e-frozen-confirmation-402",
+      "title": "UR5e · predeclared perturbation 402",
+      "evidence_sha256": "de993acebfd0c101cf42fa39e205a45e2d3b5d062be386d7cfb44974b71d8246",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared source/receiver planar perturbations, using the original R7 controller and sixteen tube-scoped gates. Independent reconstruction verifies the initial offsets, recorded native states, return feedback and every reported gate outcome.",
+      "metrics": {
+        "seed": 402,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 234,
+        "total_particles": 240,
+        "return_error_mm": 8.533203091240773,
+        "original_gates_passed": 16,
+        "original_gates_total": 16,
+        "independent_consistency_checks": 30,
+        "pad_rack_saved_frames": 44,
+        "unexpected_robot_contact_saved_frames": 44
+      },
+      "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
+    },
+    {
       "id": "auto-repro-dual-rack-clearance-complete-cpu-r6",
       "title": "Dual Flexiv · higher-grasp handoff and pour candidate",
-      "evidence_sha256": "bc23b62f126b4e06a2f3cf36417c0611e845885e33fae47628c6684e251d7c2c",
+      "evidence_sha256": "6811f9bc815b21dd1f5acc85da48215a7f63c3ef9452c6b27bd15ddbd93346c2",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: receiver_approach. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: receiver_transport. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 13.000000000016566,
+        "recorded_simulation_s": 19.000000000045215,
         "planned_simulation_s": 33.5,
         "result_file_present": 0
       },
@@ -1122,13 +1144,13 @@
     {
       "id": "ot2-repro-continuous-positive-r4",
       "title": "MATTERIX · continuous native positive r4",
-      "evidence_sha256": "51c7548bd183fb090b5f1d4e532b6f640b181bbd4ae1ec879f7d310de47d039d",
+      "evidence_sha256": "7227fee71312cab61ddef26ed2c0d6d0ee2f554434f3629f4f4bb0df78b4738b",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
-        "recorded_physics_steps": 42900,
-        "clock_derived_simulation_s": 71.5,
+        "recorded_physics_steps": 61500,
+        "clock_derived_simulation_s": 102.5,
         "planned_simulation_s": 105.5,
         "original_OT2_colliders": 25
       },
@@ -1137,17 +1159,17 @@
     {
       "id": "ur5e-frozen-planar-confirmation",
       "title": "UR5e · four frozen initial-state confirmations",
-      "evidence_sha256": "bd3d619646a4bb460dd0d105453c91744d55b2aa3cd8bf2c7de21b091d137394",
+      "evidence_sha256": "837a7d264f5f4532fecfccf20c412997766448ff250856ab903792f0e96571be",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Four source/receiver planar perturbations were frozen before these runs. The original R7 controller and its local gates are retained; whole-scene contact diagnostics are recorded separately. Nominal and no-tilt trials, later grasp repairs and these four confirmation attempts remain distinct denominators.",
       "metrics": {
         "planned": 4,
-        "started": 2,
-        "processes_finished": 1,
+        "started": 3,
+        "processes_finished": 2,
         "nonzero_process_exits": 0,
-        "independently_reviewed": 1,
-        "reviewed_local_gate_passes": 1
+        "independently_reviewed": 2,
+        "reviewed_local_gate_passes": 2
       },
       "remaining": "Process completion is not task acceptance. All outcomes, including failures, require per-trial independent review. This tests small planar initial-state variation, not new task structure or task-space generalization."
     }
@@ -1156,9 +1178,9 @@
     "id": "ot2_repro_continuous_positive_r4",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 71.5,
-    "physics_steps": 42900,
-    "sampled_at_utc": "2026-10-13T15:43:13.784173+00:00"
+    "simulation_s": 102.5,
+    "physics_steps": 61500,
+    "sampled_at_utc": "2026-10-13T15:52:12.176683+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
