@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T14:02:06.792250+00:00",
+  "exported_at_utc": "2026-10-13T14:11:03.928352+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -20,9 +20,9 @@
       "kind": "perception",
       "reference": "Fig.4I; Fig.6A–B",
       "acceptance": "Run FoundationPose on observed images with pinned object meshes/camera intrinsics; log estimated and known poses, initialization, resets and perception-caused failures. Synthetic observations must be labeled as simulation-only.",
-      "status": "OPEN",
+      "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Scripted known poses bypass the published perception mechanism."
+      "gap": "Official FoundationPose has executed on the observed MATTERIX beaker fixture. Original glass passes 0/5 local pose gates despite an oracle initial mask; opaque control passes 5/5. These are correlated frames of one static instance. Posthoc ideal-depth substitution diagnoses local depth sensitivity, not a perception repair or robot-level reproduction."
     },
     {
       "id": "N03",
@@ -663,7 +663,7 @@
     {
       "id": "bench-repair-101",
       "title": "Complete bench · known-seed repair 101",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
@@ -679,7 +679,7 @@
     {
       "id": "bench-repair-102",
       "title": "Complete bench · known-seed repair 102",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
@@ -695,7 +695,7 @@
     {
       "id": "bench-repair-103",
       "title": "Complete bench · known-seed repair 103",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
@@ -711,7 +711,7 @@
     {
       "id": "verified-learning-0",
       "title": "Complete bench + data admission · BC round 0",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
@@ -730,7 +730,7 @@
     {
       "id": "verified-learning-1",
       "title": "Complete bench + data admission · DAgger round 1",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
@@ -749,7 +749,7 @@
     {
       "id": "verified-learning-2",
       "title": "Complete bench + data admission · DAgger round 2",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
@@ -768,7 +768,7 @@
     {
       "id": "new-holdout-bc",
       "title": "Untouched seeds 201–203 · repaired bc",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
@@ -784,7 +784,7 @@
     {
       "id": "new-holdout-dagger",
       "title": "Untouched seeds 201–203 · repaired dagger",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
@@ -800,7 +800,7 @@
     {
       "id": "new-holdout-zero",
       "title": "Untouched seeds 201–203 · repaired zero",
-      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "evidence_sha256": "c71ef5cd3ad2d8b79416c5cde4e2a16b8b0ec205650c53dd48edc4100f28be67",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
@@ -827,6 +827,53 @@
         "accuracy_evaluated": 0
       },
       "remaining": "This verifies execution of the perception stack only. MATTERIX beaker pose accuracy, camera calibration and closed-loop robotic use remain open."
+    },
+    {
+      "id": "foundationpose-beaker",
+      "title": "MATTERIX beaker · transparent RGB-D pose failure",
+      "evidence_sha256": "cb1bcd44f101db3d9a5cb5e14b496a4b550c09732f54cbdb366a994f86724f22",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Official FoundationPose, identical CAD and five correlated camera views. The original glass observation fails all five local pose gates. A whole-material opaque control passes. Posthoc channel exchange changes acceptance with depth source; all variants use an oracle initial mask.",
+      "metrics": {
+        "independent_instances": 1,
+        "correlated_frames_per_variant": 5,
+        "original_glass_passed_frames": 0,
+        "opaque_control_passed_frames": 5,
+        "glass_rgb_ideal_depth_passed_frames": 5,
+        "opaque_rgb_glass_depth_passed_frames": 0,
+        "original_glass_translation_error_min_mm": 155.4975,
+        "original_glass_translation_error_max_mm": 286.1357
+      },
+      "remaining": "Privileged ideal geometry depth is a diagnostic input, not a deployed repair. Real transparent depth recovery, learned segmentation and closed-loop robotic use remain open."
+    },
+    {
+      "id": "auto-repro-ur5e-complete-workflow-r6",
+      "title": "UR5e · pickup to return/release",
+      "evidence_sha256": "051f41453ede0f27e223e30e15841135c11dde9cfd08bb1059097bedb21561af",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: tilt. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend.",
+      "metrics": {
+        "recorded_simulation_s": 11.000000000007017,
+        "planned_simulation_s": 23,
+        "result_file_present": 0
+      },
+      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+    },
+    {
+      "id": "auto-repro-dual-fluid-handoff-r1",
+      "title": "Dual Flexiv · fluid-loaded handoff",
+      "evidence_sha256": "e87bf0920ddab5237590f74c949923f1b7538d1f4a6b95c6a114a707ebb67c7a",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: sender_lift. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend.",
+      "metrics": {
+        "recorded_simulation_s": 4.000000000002015,
+        "planned_simulation_s": 19,
+        "result_file_present": 0
+      },
+      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     }
   ],
   "active": {
