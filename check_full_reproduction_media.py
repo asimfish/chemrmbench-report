@@ -1,4 +1,4 @@
-"""Decode and authenticate the twenty-one reviewed recorded-state videos."""
+"""Decode and authenticate the twenty-three reviewed recorded-state videos."""
 import hashlib
 import json
 from pathlib import Path
@@ -9,7 +9,7 @@ def check(root):
     root = Path(root).resolve()
     manifest = json.loads((root / 'data/full-reference-media.json').read_text())
     assert manifest['full_reference_reproduction'] is False
-    assert len(manifest['videos']) == 21
+    assert len(manifest['videos']) == 23
     results = []
     for item in manifest['videos']:
         path = root / item['path']
@@ -20,7 +20,21 @@ def check(root):
             'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_streams',
             '-of', 'json', str(path)
         ], check=True, capture_output=True, text=True).stdout)['streams'][0]
-        if 'panda-plate-' in path.name:
+        if 'ot2-continuous-' in path.name:
+            expected = (1593, 105.5, 1920, 740)
+            assert probe['time_base'] == '1/600'
+            frames = json.loads(subprocess.run([
+                'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_frames',
+                '-show_entries', 'frame=best_effort_timestamp', '-of', 'json', str(path)
+            ], check=True, capture_output=True, text=True).stdout)['frames']
+            selected_steps = sorted({1, 63300, 26700, *range(40, 63301, 40),
+                                     30900, 35100, 39300, 43500, 47700, 51900, 56100, 60300})
+            assert [f['best_effort_timestamp'] for f in frames] == [s-1 for s in selected_steps]
+            for field in ('poster', 'terminal_image'):
+                still = root / item[field]
+                assert still.resolve().is_relative_to(root) and not still.is_symlink()
+                assert hashlib.sha256(still.read_bytes()).hexdigest() == item[field+'_sha256']
+        elif 'panda-plate-' in path.name:
             positive = 'placement' in path.name
             expected = (669, 44.5 if positive else 44.498333, 1920, 740)
             assert probe['time_base'] == '1/600'
@@ -53,6 +67,7 @@ def check(root):
         actual = (int(probe['nb_frames']), float(probe['duration']), probe['width'], probe['height'])
         assert actual == expected, (path.name, actual, expected)
         subprocess.run(['ffmpeg', '-v', 'error', '-xerror', '-i', str(path),
+                        *(['-enc_time_base', '1/600'] if 'ot2-continuous-' in path.name else []),
                         '-f', 'null', '-'], check=True, capture_output=True)
         assert (root / item['poster']).is_file()
         results.append(dict(path=item['path'], sha256=item['sha256'],
