@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T13:32:18.695905+00:00",
+  "exported_at_utc": "2026-10-13T13:41:31.881053+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -62,7 +62,7 @@
       "acceptance": "Couple native robot placement/contact to bidirectional heater/beaker/solution thermal states and chemical identity/concentrations for all 2000 s. Evaluate trace errors and event times independently; neither replay reference temperatures nor fit on evaluation outputs.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "A 30 s native placement/contact/chemistry pilot passed; the full 2000 s run is tracked separately below. The effective thermal fit is nonreciprocal, original configurations are missing, and literal CSV Cl/CCCl identity has not been equated to narrative HI/EtI."
+      "gap": "The 2000 s native robot/contact/online-chemistry run has finished; scoped outcome is reported below. Original author chemistry parameters and the literal CSV Cl/CCCl versus narrative HI/EtI identity remain unresolved. Shadow controls are not independent physical trials."
     },
     {
       "id": "N07",
@@ -472,16 +472,16 @@
     {
       "id": "organic-native",
       "title": "MATTERIX · native contact + reconstructed chemistry",
-      "evidence_sha256": "3e0d7e382baf314c0de22e2c1ee597eaac85129c30a5e36c1f7d2245f9c010cd",
+      "evidence_sha256": "f92e47401ea9efbed7ec7f7c0c0bda43edda213d0faf70eb091868bac6c19a73",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "One physical robot trial with three shadow semantic cases. Contact gates online heat/chemistry; effective fitted parameters are not original author parameters. Literal source species retained.",
       "metrics": {
-        "simulation_s": 30.0,
-        "physics_steps": 7500,
-        "placement_error_mm": 10.512680153913823,
-        "product_high": 0.010931472551898108,
-        "product_40C_shadow": 0.001885201868460167
+        "simulation_s": 2000.0,
+        "physics_steps": 500000,
+        "placement_error_mm": 10.512557330723324,
+        "product_high": 0.9089827851027,
+        "product_40C_shadow": 0.2559786149218635
       },
       "remaining": "Original chemical identity/configuration, reciprocal thermal calibration and exact reference equivalence remain open."
     },
@@ -659,15 +659,129 @@
         "physics_invalid_completed": 2
       },
       "remaining": "New seeds exposed a fixed tabletop boundary-sampling hole under the moving receiver. Physics-invalid episodes cannot support a learning-mechanism claim. Preserve these outcomes and evaluate a separately frozen repair."
+    },
+    {
+      "id": "bench-repair-101",
+      "title": "Complete bench · known-seed repair 101",
+      "evidence_sha256": "3d3d49ff7fd8be491e756d40c0c1c3aeb9424cf59c39acc2136b98575324c201",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
+      "metrics": {
+        "seed": 101,
+        "receiver_particles": 191,
+        "particles": 240,
+        "max_CFL": 0.13953568041324615,
+        "inside_bench": 0
+      },
+      "remaining": "Original failed runs remain in the historical 20-attempt protocol. Newly trained policies and untouched seeds are a separate experiment."
+    },
+    {
+      "id": "bench-repair-102",
+      "title": "Complete bench · known-seed repair 102",
+      "evidence_sha256": "3d3d49ff7fd8be491e756d40c0c1c3aeb9424cf59c39acc2136b98575324c201",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
+      "metrics": {
+        "seed": 102,
+        "receiver_particles": 208,
+        "particles": 240,
+        "max_CFL": 0.17096319794654846,
+        "inside_bench": 0
+      },
+      "remaining": "Original failed runs remain in the historical 20-attempt protocol. Newly trained policies and untouched seeds are a separate experiment."
+    },
+    {
+      "id": "bench-repair-103",
+      "title": "Complete bench · known-seed repair 103",
+      "evidence_sha256": "3d3d49ff7fd8be491e756d40c0c1c3aeb9424cf59c39acc2136b98575324c201",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
+      "metrics": {
+        "seed": 103,
+        "receiver_particles": 197,
+        "particles": 240,
+        "max_CFL": 0.1201154887676239,
+        "inside_bench": 0
+      },
+      "remaining": "Original failed runs remain in the historical 20-attempt protocol. Newly trained policies and untouched seeds are a separate experiment."
+    },
+    {
+      "id": "verified-learning-0",
+      "title": "Complete bench + data admission · BC round 0",
+      "evidence_sha256": "3d3d49ff7fd8be491e756d40c0c1c3aeb9424cf59c39acc2136b98575324c201",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
+      "metrics": {
+        "training_attempted": 2,
+        "training_completed": 2,
+        "cumulative_raw_states": 144,
+        "admitted_states": 144,
+        "quarantined_states": 0,
+        "data_admission_passed": 1,
+        "known_seed100_evaluations": 1,
+        "known_seed100_accepted": 1
+      },
+      "remaining": "Seed 100 is a known diagnostic scene. Independent seeds 201–203, complete pickup/return, image-based control and cross-robot transfer are separate acceptance criteria."
+    },
+    {
+      "id": "new-holdout-bc",
+      "title": "Untouched seeds 201–203 · repaired bc",
+      "evidence_sha256": "3d3d49ff7fd8be491e756d40c0c1c3aeb9424cf59c39acc2136b98575324c201",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
+      "metrics": {
+        "planned": 3,
+        "attempted": 1,
+        "completed": 1,
+        "accepted": 1,
+        "checkpoint_data_admission_passed": 1
+      },
+      "remaining": "A three-seed translation-policy pilot with a fixed tilt schedule cannot establish full Auto-Engineering reproduction or general cross-robot transfer."
+    },
+    {
+      "id": "new-holdout-zero",
+      "title": "Untouched seeds 201–203 · repaired zero",
+      "evidence_sha256": "3d3d49ff7fd8be491e756d40c0c1c3aeb9424cf59c39acc2136b98575324c201",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
+      "metrics": {
+        "planned": 3,
+        "attempted": 1,
+        "completed": 0,
+        "accepted": 0,
+        "checkpoint_data_admission_passed": 1
+      },
+      "remaining": "A three-seed translation-policy pilot with a fixed tilt schedule cannot establish full Auto-Engineering reproduction or general cross-robot transfer."
+    },
+    {
+      "id": "foundationpose-stack",
+      "title": "FoundationPose · official RGB-D inference",
+      "evidence_sha256": "fe4db37dc9833f66305e9258365a6d598b0d0aeb7916043381fdb6583ca26fa2",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Official model weights: registration on frame zero and tracking on four subsequent mustard-demo frames. The initial segmentation mask is supplied. No ground-truth pose is supplied to inference; this demo archive has no accuracy labels.",
+      "metrics": {
+        "frames": 5,
+        "registration_frames": 1,
+        "tracking_frames": 4,
+        "accuracy_evaluated": 0
+      },
+      "remaining": "This verifies execution of the perception stack only. MATTERIX beaker pose accuracy, camera calibration and closed-loop robotic use remain open."
     }
   ],
   "active": {
     "id": "organic_native_2000s_r4",
-    "phase": "RUNNING",
-    "process_verified_alive": true,
-    "simulation_s": 1775.02,
-    "physics_steps": 443755,
-    "sampled_at_utc": "2026-10-13T13:32:11.192361+00:00"
+    "phase": "COMPLETED",
+    "process_verified_alive": false,
+    "simulation_s": 2000.0,
+    "physics_steps": 500000,
+    "sampled_at_utc": "2026-10-13T13:39:33.496590+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
