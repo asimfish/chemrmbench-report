@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T15:22:09.529683+00:00",
+  "exported_at_utc": "2026-10-13T15:27:19.489370+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -942,6 +942,27 @@
       "remaining": "One posthoc repair, not a success-rate estimate or single-factor ablation: tilt, return feedback and compute device changed. Zero unexpected tube contacts at 100 Hz does not imply whole-robot collision freedom: the separate audit below finds pad–rack contacts. Original GRID, rack extraction, perception and learned whole-task behavior remain open."
     },
     {
+      "id": "ur5e-matched-full-no-tilt-r7",
+      "title": "UR5e · matched complete no-tilt control",
+      "evidence_sha256": "a76d79e5180d133f1d96b3e75856a3b1606db01cbd8881e8f877e477d18e5018",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "All 14 phases execute for 23 s with actual tilt set to zero. Geometry, control timing and the same simulator-pose return controller are retained. The 16 mode-specific gates and the additional predeclared 95% source-retention gate pass; 240/240 particles remain in the source and none enter the receiver.",
+      "metrics": {
+        "simulation_s": 23,
+        "physics_steps": 184000,
+        "control_rows": 2300,
+        "source_particles": 240,
+        "receiver_particles": 0,
+        "total_particles": 240,
+        "return_error_mm": 8.475354133836909,
+        "frozen_local_gates_passed": 17,
+        "independent_consistency_checks": 27,
+        "pad_rack_contact_saved_frames": 44
+      },
+      "remaining": "One matched negative control is not a success-rate cohort. The same 44 saved pad–rack contact frames remain a quality gap. CUDA trajectories are not bitwise deterministic; no exact-prefix or time-zero observation equivalence is claimed. No camera or learned controller is involved."
+    },
+    {
       "id": "ur5e-pad-rack-quality-gap",
       "title": "UR5e · gripper–rack contact remains a quality gap",
       "evidence_sha256": "878733439b079c870f38226c641c2f103e100a77b451645c62227b87f697cc67",
@@ -1018,31 +1039,47 @@
         "handoff_gates_passed": 11,
         "handoff_gates_total": 12,
         "pouring_executed": 0,
-        "maximum_CFL": 0.048557672649621964
+        "maximum_CFL": 0.048557672649621964,
+        "first_contact_s": 5.009999999999661,
+        "stage_end_gate_delay_s": 15.990000000055105
       },
-      "remaining": "The old CPU slower-lift prefix also contacts the rack at 5.04 s; this failure is not uniquely attributable to CUDA. A separate whole-scene audit finds additional gripper-pad–rack contacts. Fluid retention and receiver-only support do not override the failed contact gate."
+      "remaining": "The old CPU slower-lift prefix also contacts the rack at 5.04 s; this failure is not uniquely attributable to CUDA. The first recorded contact is at 5.01 s, while the stage-end gate stops at 21 s: a 15.99 s simulated delay, not immediate safety intervention. A separate whole-scene audit finds additional gripper-pad–rack contacts. Fluid retention and receiver-only support do not override the failed contact gate."
     },
     {
       "id": "auto-repro-ur5e-rack-clearance-complete-cpu-r9",
       "title": "UR5e · higher-grasp whole-scene repair candidate",
-      "evidence_sha256": "11d1f5bfebf0b7bd8bbe89f243b61ec9dc428f930a199543e4f86bd28da74e16",
+      "evidence_sha256": "d9d348c2fb416a630095e37276d96d416866d55804e31757d2672ebb70a0eb71",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: transfer. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: pour_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 7.999999999992693,
+        "recorded_simulation_s": 12.500000000014179,
         "planned_simulation_s": 23,
         "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
     {
-      "id": "panda-ot2-continuous-native-candidate",
-      "title": "MATTERIX · continuous Panda-to-OT2 native candidate",
-      "evidence_sha256": "9520c02294d86223cc55e984fbe7795875916e7ca485a81881436ba37cd19efc",
+      "id": "auto-repro-dual-rack-clearance-complete-cpu-r6",
+      "title": "Dual Flexiv · higher-grasp handoff and pour candidate",
+      "evidence_sha256": "6335b9f1337f0935eddd9a3f7989c79e6a69cb0cdf1ffced552237a3c12d7d4f",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded phase: lift. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "scope": "Last recorded native phase: sender_approach. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "metrics": {
+        "recorded_simulation_s": 1.9999999999995715,
+        "planned_simulation_s": 33.5,
+        "result_file_present": 0
+      },
+      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+    },
+    {
+      "id": "ot2-repro-continuous-positive-r3",
+      "title": "MATTERIX · continuous native positive r3",
+      "evidence_sha256": "064add36b838b180f21834ad1a09a87d2e19be28b18f80f0407be2f6eed8e6a2",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded phase: ABORTED_AFTER_STATIC_REVIEW. This attempt was stopped after static review found a missing import that would fail after tip attachment. The frozen source and executed prefix are preserved. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
         "recorded_physics_steps": 8400,
         "clock_derived_simulation_s": 14.000000000000002,
@@ -1050,15 +1087,45 @@
         "original_OT2_colliders": 25
       },
       "remaining": "Observed progress is not acceptance. Revalidate the Panda contact path with live OT2 articulation, actual loaded-plate pipetting, volume conservation, timing, door torque and final state. Paper-style semantic tip attachment and finite-volume liquid remain distinct from a calibrated particle-fluid model."
+    },
+    {
+      "id": "ot2-repro-continuous-positive-r4",
+      "title": "MATTERIX · continuous native positive r4",
+      "evidence_sha256": "67e0f215188f94df5633b85bed44f1f46e0cde31269d37a49b0da7c9e19ce416",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded phase: lift_hold. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "metrics": {
+        "recorded_physics_steps": 10200,
+        "clock_derived_simulation_s": 17.0,
+        "planned_simulation_s": 105.5,
+        "original_OT2_colliders": 25
+      },
+      "remaining": "Observed progress is not acceptance. Revalidate the Panda contact path with live OT2 articulation, actual loaded-plate pipetting, volume conservation, timing, door torque and final state. Paper-style semantic tip attachment and finite-volume liquid remain distinct from a calibrated particle-fluid model."
+    },
+    {
+      "id": "ur5e-frozen-planar-confirmation",
+      "title": "UR5e · four frozen initial-state confirmations",
+      "evidence_sha256": "09274193dd7f3024d67d80ab63d55439b337a7865f5384457dfe1476f54893bc",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Four source/receiver planar perturbations were frozen before these runs. The original R7 controller and its local gates are retained; whole-scene contact diagnostics are recorded separately. Nominal and no-tilt trials, later grasp repairs and these four confirmation attempts remain distinct denominators.",
+      "metrics": {
+        "planned": 4,
+        "started": 1,
+        "processes_finished": 0,
+        "nonzero_process_exits": 0
+      },
+      "remaining": "Process completion is not task acceptance. All outcomes, including failures, require per-trial independent review. This tests small planar initial-state variation, not new task structure or task-space generalization."
     }
   ],
   "active": {
-    "id": "organic_native_2000s_r4",
-    "phase": "COMPLETED",
-    "process_verified_alive": false,
-    "simulation_s": 2000.0,
-    "physics_steps": 500000,
-    "sampled_at_utc": "2026-10-13T13:39:33.496590+00:00"
+    "id": "ot2_repro_continuous_positive_r4",
+    "phase": "STEPPING",
+    "process_verified_alive": true,
+    "simulation_s": 17.0,
+    "physics_steps": 10200,
+    "sampled_at_utc": "2026-10-13T15:27:12.501076+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
