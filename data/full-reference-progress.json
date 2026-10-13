@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T17:02:23.199797+00:00",
+  "exported_at_utc": "2026-10-13T17:12:14.358453+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1294,12 +1294,12 @@
     {
       "id": "auto-repro-dual-timescaled-complete-cpu-r7",
       "title": "Dual Flexiv · same-path slower full-fluid candidate",
-      "evidence_sha256": "f3acfa68ec7e0a3468e5e5dee7f251fa13c85530d7c838ea43445723d9e6e50b",
+      "evidence_sha256": "3a2709cf29d35a1e45bc27ee90566aa400154a389a68b783b4a34caef51d80d4",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: objectspace_transport_to_pour. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: pour_hold. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 26.500000000081027,
+        "recorded_simulation_s": 34.50000000004817,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
@@ -1308,12 +1308,12 @@
     {
       "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
       "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
-      "evidence_sha256": "17d7e8091605fafa9e3a05557ccad43409aa3d37778fc45eeb0a83f14c7ac16f",
+      "evidence_sha256": "b63f1016949e78aaa33ed8c2fec5227befcae470d73cbe46498b2a82f4e20feb",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_transfer_pose. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: sender_retreat. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 10.50000000000463,
+        "recorded_simulation_s": 17.000000000035666,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
@@ -1322,13 +1322,28 @@
     {
       "id": "ur5e-paired-repair-progress-403",
       "title": "UR5e · paired repair 403 · unreviewed progress",
-      "evidence_sha256": "69b3772f5d0ff536bee3a101ea8f27d5ff02a7e546ecacd910955a7ab8432ac2",
+      "evidence_sha256": "609299552d524ac6ab571ea32d3b16926f9207aebec155db34a44afaa9e7de3d",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: untilt. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
+      "scope": "Last recorded native phase: COMPLETED. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
       "metrics": {
         "seed": 403,
-        "recorded_simulation_s": 14.500000000023729,
+        "recorded_simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Independent terminal audit is pending. Keep all four original contact-labeled R8 cases and all four repair attempts. These are known offsets, not unseen tasks. Simulator truth and configured collision exclusions remain."
+    },
+    {
+      "id": "ur5e-paired-repair-progress-404",
+      "title": "UR5e · paired repair 404 · unreviewed progress",
+      "evidence_sha256": "aa7de54671a09d6361096d23cd214db8366f79676afb1525d6a779d486f6cf66",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: loaded_hold. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
+      "metrics": {
+        "seed": 404,
+        "recorded_simulation_s": 5.999999999997354,
         "planned_simulation_s": 23,
         "predeclared_cohort_size": 4
       },
