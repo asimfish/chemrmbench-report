@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T14:32:10.748793+00:00",
+  "exported_at_utc": "2026-10-13T14:41:53.837570+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -252,7 +252,7 @@
       "acceptance": "Dual Flexiv pick tube from rack, hand off and physically pour into beaker; perception, grasp generation and collision-aware planning must execute object-relative goals.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Rigid tube handoff confirmed; fluid pour and perception missing."
+      "gap": "Native UR5e has executed the 23 s pickup/pour/return/release sequence with live DFSPH, but failed the frozen return criterion (18.058 mm > 10 mm). Forearm contact is an additional quality failure. Fluid-loaded dual Flexiv and perception remain separate tests; original GRID implementation remains unavailable."
     },
     {
       "id": "A03",
@@ -848,12 +848,58 @@
       "remaining": "Privileged ideal geometry depth is a diagnostic input, not a deployed repair. Real transparent depth recovery, learned segmentation and closed-loop robotic use remain open."
     },
     {
-      "id": "auto-repro-ur5e-complete-workflow-r6",
-      "title": "UR5e · pickup to return/release",
-      "evidence_sha256": "47f0e7babd14319862c07612f37127a57d4b5e5bce2a3400c937ea0753d71664",
+      "id": "ur5e-whole-workflow-r6",
+      "title": "UR5e · 23 s complete execution, failed return",
+      "evidence_sha256": "98242841577c3d2cb1b8d2c60d2acef8e5c71be63d640c1fea020c649aaaf774",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: COMPLETED. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend.",
+      "scope": "All 14 phases executed: bench pickup, transfer, pour, untilt, return, release, retreat and settle. The frozen task verdict is FAIL: source return error 18.058 mm exceeds 10 mm. High fluid capture does not supersede this failure.",
+      "metrics": {
+        "simulation_s": 23,
+        "physics_steps": 184000,
+        "control_rows": 2300,
+        "native_saved_states": 575,
+        "receiver_particles": 238,
+        "total_particles": 240,
+        "frozen_gates_passed": 13,
+        "frozen_gates_total": 14,
+        "return_error_mm": 18.058019615641708,
+        "return_limit_mm": 10,
+        "maximum_CFL": 0.10800640285015106,
+        "nonpad_contact_control_rows": 172
+      },
+      "remaining": "Posthoc quality audit also found 172/2300 contact rows involving the forearm and 14.764 mm relative grasp drift. Contact rows are not independent events. This is a scripted independent backend with a bench source; original rack extraction, perception and learned end-to-end behavior remain open."
+    },
+    {
+      "id": "dual-flexiv-whole-handoff-r1",
+      "title": "Dual Flexiv · complete handoff, failed fluid-domain gate",
+      "evidence_sha256": "a68153e822982b4f274c2846a3453d4160dbf9fae891adcda14c0c223928be01",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "All 13 stages of the 19 s native fluid-loaded handoff executed, including sender release and receiver-only transport. One particle left the frozen domain. Retaining 239/240 particles in the source does not override the failed whole-task gate.",
+      "metrics": {
+        "simulation_s": 19,
+        "physics_steps": 152000,
+        "control_rows": 1900,
+        "retained_particles": 239,
+        "total_particles": 240,
+        "frozen_gates_passed": 10,
+        "frozen_gates_total": 11,
+        "outside_domain": 1,
+        "exclusive_receiver_contact_rows": 100,
+        "receiver_hold_rows": 100,
+        "maximum_CFL": 0.20311947166919708,
+        "nonpad_contact_control_rows": 0
+      },
+      "remaining": "One scripted bench-source attempt; no matched full-duration liquid negative, rack extraction, subsequent pouring, learned transfer or original GRID equivalence. Forty-millisecond saved frames bracket source departure but cannot establish the precise exit surface; microstep diagnostics are separate."
+    },
+    {
+      "id": "auto-repro-ur5e-contact-repair-cuda-r7",
+      "title": "UR5e · contact and object-return repair",
+      "evidence_sha256": "fa124ad4475a9cc65c2bd90cf374bac81bcc851ab2e2fcca59cf632009ca9b3c",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: COMPLETED. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses 100Hz simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
         "recorded_simulation_s": 23.000000000064315,
         "planned_simulation_s": 23,
@@ -862,15 +908,15 @@
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
     {
-      "id": "auto-repro-dual-fluid-handoff-r1",
-      "title": "Dual Flexiv · fluid-loaded handoff",
-      "evidence_sha256": "07128854154ad00adccfcaecf7416b99132ca0462844b8d45b6dcc062faddf97",
+      "id": "auto-repro-dual-slow-lift-pickup-r2",
+      "title": "Dual Flexiv · slower-lift diagnostic",
+      "evidence_sha256": "78decd8dcbf53ef205f1ec020193d5ca405bc2d810c12ecbe95834296ff2090e",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: receiver_transport. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend.",
+      "scope": "Last recorded native phase: sender_loaded_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. The slower-lift diagnostic, when shown, is only an 8.5s pickup test and not a complete handoff.",
       "metrics": {
-        "recorded_simulation_s": 18.00000000004044,
-        "planned_simulation_s": 19,
+        "recorded_simulation_s": 8.49999999999508,
+        "planned_simulation_s": 8.5,
         "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
