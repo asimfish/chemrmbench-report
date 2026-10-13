@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:11:08.420748+00:00",
+  "exported_at_utc": "2026-10-13T16:12:17.825785+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1183,12 +1183,12 @@
     {
       "id": "auto-repro-dual-rack-clearance-complete-cpu-r6",
       "title": "Dual Flexiv · higher-grasp handoff and pour candidate",
-      "evidence_sha256": "2f6420dec56bc1ba0af9da9b105cabdd1c830673c800c59a2a7bae8889f77c70",
+      "evidence_sha256": "79c03132f6fd25a9f5f126abfdc7b487ecd9578dab5c69e3b1be4203fadef463",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: objectspace_return_to_handoff_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: returned_loaded_hold. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 32.50000000009546,
+        "recorded_simulation_s": 33.00000000008364,
         "planned_simulation_s": 33.5,
         "result_file_present": 0
       },
@@ -1225,13 +1225,13 @@
     {
       "id": "ot2-repro-continuous-no-aspiration-r4",
       "title": "MATTERIX · continuous native no aspiration r4",
-      "evidence_sha256": "805696776a9e68f3055333747f9776e235e99c32c50f33faa878471e66aa000d",
+      "evidence_sha256": "90e31a3c99503b49f8d97c52bb455017af5e5d0f0d667f234e562a6778a84896",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
-        "recorded_physics_steps": 35100,
-        "clock_derived_simulation_s": 58.50000000000001,
+        "recorded_physics_steps": 37500,
+        "clock_derived_simulation_s": 62.50000000000001,
         "planned_simulation_s": 105.5,
         "original_OT2_colliders": 25
       },
@@ -1274,9 +1274,9 @@
     "id": "ot2_repro_continuous_no_aspiration_r4",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 58.50000000000001,
-    "physics_steps": 35100,
-    "sampled_at_utc": "2026-10-13T16:11:00.994005+00:00"
+    "simulation_s": 62.50000000000001,
+    "physics_steps": 37500,
+    "sampled_at_utc": "2026-10-13T16:12:09.307537+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
