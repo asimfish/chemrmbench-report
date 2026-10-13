@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T15:12:05.831280+00:00",
+  "exported_at_utc": "2026-10-13T15:22:09.529683+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1025,12 +1025,12 @@
     {
       "id": "auto-repro-ur5e-rack-clearance-complete-cpu-r9",
       "title": "UR5e · higher-grasp whole-scene repair candidate",
-      "evidence_sha256": "16e571a4f84f493105fbdcd9ebd743f84ad77ea1e7f392b592abd252835d4b76",
+      "evidence_sha256": "11d1f5bfebf0b7bd8bbe89f243b61ec9dc428f930a199543e4f86bd28da74e16",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: approach. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: transfer. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 1.4999999999998486,
+        "recorded_simulation_s": 7.999999999992693,
         "planned_simulation_s": 23,
         "result_file_present": 0
       },
@@ -1039,13 +1039,13 @@
     {
       "id": "panda-ot2-continuous-native-candidate",
       "title": "MATTERIX · continuous Panda-to-OT2 native candidate",
-      "evidence_sha256": "19cd00f7a5ca00f7cb56fe00b6ba2eef125104be64f470534cc4ac77b9018e71",
+      "evidence_sha256": "9520c02294d86223cc55e984fbe7795875916e7ca485a81881436ba37cd19efc",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded phase: insert_edge. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "scope": "Last recorded phase: lift. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
-        "recorded_physics_steps": 3600,
-        "clock_derived_simulation_s": 6.0,
+        "recorded_physics_steps": 8400,
+        "clock_derived_simulation_s": 14.000000000000002,
         "planned_simulation_s": 105.5,
         "original_OT2_colliders": 25
       },
