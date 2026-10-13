@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "exported_at_utc": "2026-10-13T09:42:06.993418+00:00",
+  "exported_at_utc": "2026-10-13T10:03:29.451501+00:00",
   "assembled_scenes": 4,
   "native_validated_scenes": 4,
   "full_reference_reproduction": false,
@@ -9,6 +9,9 @@
   "manifest_sha256": "d214ec05b0329ac5651cf930cd412271e4a5536f5de6bce0eb07e93f84ea95cf",
   "scenes": [
     {
+      "visual_color_correction_passed": true,
+      "full_reference_visual_match": false,
+      "visual_scope": "Original glass restored with RTX refraction.",
       "id": "matterix_heat_pour",
       "family": "nature",
       "title": "MATTERIX · 加热与倾倒工位",
@@ -27,10 +30,10 @@
         "Two author beakers"
       ],
       "reconstructed": [
-        "机器人与器皿布局；烧杯沿用已有任务的 1.5 倍缩放；预览使用不透明检查材质"
+        "机器人与器皿布局；烧杯沿用已有任务的 1.5 倍缩放；预览恢复作者 OmniGlass，开启原生折射"
       ],
       "reconstructed_en": [
-        "Robot and vessel layout; declared1.5× beaker scale and an opaque inspection material for previews"
+        "Robot and vessel layout; declared1.5× beaker scale and the original OmniGlass material with RTX refraction"
       ],
       "next": [
         "控制器接入、接触验收、原生化学耦合"
@@ -60,15 +63,25 @@
       "pictures": [
         {
           "file": "assets/scenes/matterix_heat_pour_overview.png",
-          "sha256": "1cf87b2fab88ad325abcfb58f09e651bfaf7c82c193f28be10af0501dd63e8c3",
+          "sha256": "4d3b3f245700055a4ff9518b072a6b7875798018823e9d8836e2acad017ae598",
           "view": "overview",
           "native_output_matches": true,
-          "additional_preview_evidence_sha256": null
+          "additional_preview_evidence_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a"
+        },
+        {
+          "file": "assets/scenes/matterix_heat_pour_fixtures.png",
+          "sha256": "86e491fd6811c5a43316fdcf0e889dd96daac04797ddb6dce4fdc865440fc904",
+          "view": "fixtures",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a"
         }
       ],
       "full_workflow_reproduced": false
     },
     {
+      "visual_color_correction_passed": false,
+      "full_reference_visual_match": false,
+      "visual_scope": "Unchanged OT2 preview; original labware identity still open",
       "id": "matterix_ot2_station",
       "family": "nature",
       "title": "MATTERIX · OT2 移液工作站",
@@ -127,6 +140,9 @@
       "full_workflow_reproduced": false
     },
     {
+      "visual_color_correction_passed": true,
+      "full_reference_visual_match": false,
+      "visual_scope": "Display-only glass correction; original physical validation retained. Auto glass uses alpha blending without refraction.",
       "id": "auto_dual_flexiv_lab",
       "family": "auto",
       "title": "Auto-Engineering · 双 Flexiv 工位",
@@ -178,22 +194,25 @@
       "pictures": [
         {
           "file": "assets/scenes/auto_dual_flexiv_lab_overview.png",
-          "sha256": "ed084949ff1523403b34cfcc2cc87e9b92d13c94a20e643d0208fcd3affa4409",
+          "sha256": "454e759fa8520a13d9e34a96700e125efa4af5fc93f6bd78e360e7fa78fcd03a",
           "view": "overview",
           "native_output_matches": true,
-          "additional_preview_evidence_sha256": null
+          "additional_preview_evidence_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a"
         },
         {
           "file": "assets/scenes/auto_dual_flexiv_lab_fixtures.png",
-          "sha256": "74ef3b7f294df9f36e79897f3d1f03551009336075e1f688c2e6c1199985c968",
+          "sha256": "764b2bd282e6f9139499e673f32283d466ad2fb8204350ca5400c4a937597b48",
           "view": "fixtures",
           "native_output_matches": true,
-          "additional_preview_evidence_sha256": null
+          "additional_preview_evidence_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a"
         }
       ],
       "full_workflow_reproduced": false
     },
     {
+      "visual_color_correction_passed": true,
+      "full_reference_visual_match": false,
+      "visual_scope": "Display-only glass correction; original physical validation retained. Auto glass uses alpha blending without refraction.",
       "id": "auto_ur5e_lab",
       "family": "auto",
       "title": "Auto-Engineering · UR5e 迁移工位",
@@ -243,17 +262,17 @@
       "pictures": [
         {
           "file": "assets/scenes/auto_ur5e_lab_overview.png",
-          "sha256": "dab82bd7f479e3509654ee333528055f2cb2fbdd0a0f76138d335608532a6fa9",
+          "sha256": "b824756102548502133fb251bbd86a5d80b11a5c9607741a9bdbbee6ce82bc07",
           "view": "overview",
           "native_output_matches": true,
-          "additional_preview_evidence_sha256": null
+          "additional_preview_evidence_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a"
         },
         {
           "file": "assets/scenes/auto_ur5e_lab_fixtures.png",
-          "sha256": "2f4a42d24d0e8efda5cad5c4c20ae72f3d11e20fb8c946478d91ae6a960c9a36",
+          "sha256": "c3b1f62d8638c8176d75c08561a494380bd1d299102cf2fecdd94df7284e6c3c",
           "view": "fixtures",
           "native_output_matches": true,
-          "additional_preview_evidence_sha256": null
+          "additional_preview_evidence_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a"
         }
       ],
       "full_workflow_reproduced": false

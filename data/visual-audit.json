@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-13T10:03:25.816501+00:00",
+  "color_material_correction_passed": true,
+  "full_reference_visual_match": false,
+  "full_reference_reproduction": false,
+  "comparison_images": [
+    {
+      "file": "assets/visual-audit/auto-after.png",
+      "sha256": "f3c820ee905514f065fab9b8f51e6aaaef6a8de20697e9c68c65e0b23b4936b5"
+    },
+    {
+      "file": "assets/visual-audit/auto-before.png",
+      "sha256": "b0c06cde8de28763ab75abc12f3437e0a59a3f1f3302e9091b17a552c2df8eb4"
+    },
+    {
+      "file": "assets/visual-audit/matterix-after.png",
+      "sha256": "becbd222526e257073a33935aaef562ffa9750068eb136cc3999c76de2c40509"
+    },
+    {
+      "file": "assets/visual-audit/matterix-before.png",
+      "sha256": "19360a72f9ff1d7a25aa83cca79e0038490539370e440586561d0d9138417b27"
+    },
+    {
+      "file": "assets/visual-audit/matterix-detail.png",
+      "sha256": "7afb72eab2e1fbce94a25dbcef9b29acd3ebabe0ac7d75d8e90ca69f2a9b3a02"
+    }
+  ],
+  "corrected_videos": [
+    {
+      "id": "pour_nominal",
+      "sha256": "697e1e99af61e9155fb9701d8780d63ab98d17c84590418ff610cb03dcd412d8"
+    },
+    {
+      "id": "pour_no_tilt",
+      "sha256": "b503f4161dd21b4a6645758e9dd8136f911715dfcc7e9afa7a04f6897e403072"
+    },
+    {
+      "id": "pour_pose_a",
+      "sha256": "99c341606899f523f3922d7d1da401badf8d519310978a52a9d16c3b2a745516"
+    },
+    {
+      "id": "pour_pose_b",
+      "sha256": "cc94c1700d8d9817b4ad9a4ead3d477708841294efefffa660cab6de65d5e6d1"
+    },
+    {
+      "id": "dual_handoff",
+      "sha256": "fea78194ac14398538e1e2fbbeeb54ef991fed6e3178106c2d1f874104b807b9"
+    },
+    {
+      "id": "dual_no_close",
+      "sha256": "3f466962bcc09bfafaca43d7060ec7bab437304f10fc58424e7f5eb8e2acced1"
+    },
+    {
+      "id": "ur5e_pick_place",
+      "sha256": "855974b83f10855ed9151ac01d68e3242c8bc8014bcf44a19acca67cf02694a5"
+    },
+    {
+      "id": "ur5e_no_close",
+      "sha256": "2476d16e213592f356296a78f51574f010fc73d51d117ad1bab8cca569be0ff8"
+    }
+  ],
+  "native_physics_steps": 0,
+  "original_physics_assets_unchanged": true,
+  "audit_sha256": "842cc6c02ff7067f36c0d5fc28e95edcc21df5b6e9c6f8d16540f7ac2bf76e9a",
+  "manual_review_sha256": "0b5d2e3aaa1eeffb88382bc05e3d60185b613ef69c33a6b9c6fe08280850904b",
+  "review_scope": "Assistant inspection of sampled native frames; not an independent human review.",
+  "original_glass_ior": 1.491,
+  "auto_optics": "Neutral alpha blending; no refraction or fluid",
+  "open_visual_requirements": [
+    "Continuous liquid surface",
+    "Calibrated optical appearance and exposure",
+    "Exact reference fixture shapes and markings",
+    "Reference table/rack color and layout",
+    "Complete original workstations"
+  ]
+}
