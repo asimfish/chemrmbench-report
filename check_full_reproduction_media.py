@@ -1,4 +1,4 @@
-"""Decode and authenticate the nineteen reviewed recorded-state videos."""
+"""Decode and authenticate the twenty-one reviewed recorded-state videos."""
 import hashlib
 import json
 from pathlib import Path
@@ -9,7 +9,7 @@ def check(root):
     root = Path(root).resolve()
     manifest = json.loads((root / 'data/full-reference-media.json').read_text())
     assert manifest['full_reference_reproduction'] is False
-    assert len(manifest['videos']) == 19
+    assert len(manifest['videos']) == 21
     results = []
     for item in manifest['videos']:
         path = root / item['path']
@@ -31,6 +31,10 @@ def check(root):
             assert [f['best_effort_timestamp'] for f in frames] == [0]+list(range(39, 26680, 40))+[26699 if positive else 26698]
         elif 'seed201' in path.name:
             expected = (72, 7.2, 1600, 900)
+        elif 'dual-flexiv-complete-failure-' in path.name:
+            expected = (838, 33.52, 1600, 900)
+        elif 'dual-flexiv-contact-abort-' in path.name:
+            expected = (64, 2.56, 1600, 900)
         elif 'dual-flexiv-gate-stop-' in path.name:
             expected = (525, 21.0, 1600, 900)
         elif 'dual-flexiv-handoff-' in path.name:
