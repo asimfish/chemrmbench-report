@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T13:12:06.398866+00:00",
+  "exported_at_utc": "2026-10-13T13:22:10.664577+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -503,7 +503,7 @@
     {
       "id": "learning-round-0",
       "title": "Reactive translation policy · BC round 0",
-      "evidence_sha256": "a134eb652e9f7f8ccc6f3f46457062b1b0922e16840885db28908d8e17adc28e",
+      "evidence_sha256": "4bd9c13eaef5a1d8e365b5bcaf94a15fd5ec64cd7daa216ebfaafa535ed685a2",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
@@ -520,7 +520,7 @@
     {
       "id": "learning-round-1",
       "title": "Reactive translation policy · DAgger round 1",
-      "evidence_sha256": "a134eb652e9f7f8ccc6f3f46457062b1b0922e16840885db28908d8e17adc28e",
+      "evidence_sha256": "4bd9c13eaef5a1d8e365b5bcaf94a15fd5ec64cd7daa216ebfaafa535ed685a2",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
@@ -533,15 +533,32 @@
         "final_training_loss": 0.0015751420335819197
       },
       "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
+    },
+    {
+      "id": "learning-round-2",
+      "title": "Reactive translation policy · DAgger round 2",
+      "evidence_sha256": "4bd9c13eaef5a1d8e365b5bcaf94a15fd5ec64cd7daa216ebfaafa535ed685a2",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
+      "metrics": {
+        "completed_round": 2,
+        "cumulative_labeled_states": 432,
+        "student_action_states": 144,
+        "evaluation_episodes": 1,
+        "successful_evaluation_episodes": 1,
+        "final_training_loss": 0.0011312171152835196
+      },
+      "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
     }
   ],
   "active": {
     "id": "organic_native_2000s_r4",
     "phase": "RUNNING",
     "process_verified_alive": true,
-    "simulation_s": 1155.02,
-    "physics_steps": 288755,
-    "sampled_at_utc": "2026-10-13T13:12:04.008691+00:00"
+    "simulation_s": 1485.02,
+    "physics_steps": 371255,
+    "sampled_at_utc": "2026-10-13T13:22:04.421100+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
