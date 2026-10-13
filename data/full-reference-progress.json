@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T13:03:14.962922+00:00",
+  "exported_at_utc": "2026-10-13T13:12:06.398866+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -467,9 +467,43 @@
       "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
     },
     {
+      "id": "auto_repro_ur5e_fluid_pour_r2",
+      "title": "UR5e + live DFSPH · corrected scene boundaries",
+      "evidence_sha256": "f1f7326d07e3d64905e423525f837d54570339ff9b743dbef14e605cf4ea911b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Independent fluid backend with actual native UR5e pickup/transport and scripted tilt. A 12.5 s workflow; not original GRID, image-based perception or a learned full-task policy.",
+      "metrics": {
+        "simulation_s": 12.500000000014179,
+        "receiver_particles": 152,
+        "source_particles": 0,
+        "particles": 240,
+        "max_CFL": 0.22478586435317993,
+        "physical_lift_m": 0.0894991516114007
+      },
+      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
+    },
+    {
+      "id": "auto_repro_ur5e_fluid_no_tilt_r2",
+      "title": "UR5e + live DFSPH · no-tilt control",
+      "evidence_sha256": "56e84fe05ed4e0ecd1a1f3d0bbd6f4d8717e651f1fbc6f25749a50bf9b5cfce4",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Independent fluid backend with actual native UR5e pickup/transport and scripted tilt. A 12.5 s workflow; not original GRID, image-based perception or a learned full-task policy.",
+      "metrics": {
+        "simulation_s": 12.500000000014179,
+        "receiver_particles": 0,
+        "source_particles": 240,
+        "particles": 240,
+        "max_CFL": 0.03413407504558563,
+        "physical_lift_m": 0.0894991516114007
+      },
+      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
+    },
+    {
       "id": "learning-round-0",
       "title": "Reactive translation policy · BC round 0",
-      "evidence_sha256": "4b175b30980a1451a6b0de34a7cb7121b2722226b83661f289e34e31955bcf99",
+      "evidence_sha256": "a134eb652e9f7f8ccc6f3f46457062b1b0922e16840885db28908d8e17adc28e",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
@@ -482,15 +516,32 @@
         "final_training_loss": 0.0026299399516374906
       },
       "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
+    },
+    {
+      "id": "learning-round-1",
+      "title": "Reactive translation policy · DAgger round 1",
+      "evidence_sha256": "a134eb652e9f7f8ccc6f3f46457062b1b0922e16840885db28908d8e17adc28e",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
+      "metrics": {
+        "completed_round": 1,
+        "cumulative_labeled_states": 288,
+        "student_action_states": 75,
+        "evaluation_episodes": 1,
+        "successful_evaluation_episodes": 1,
+        "final_training_loss": 0.0015751420335819197
+      },
+      "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
     }
   ],
   "active": {
     "id": "organic_native_2000s_r4",
     "phase": "RUNNING",
     "process_verified_alive": true,
-    "simulation_s": 870.02,
-    "physics_steps": 217505,
-    "sampled_at_utc": "2026-10-13T13:03:07.682168+00:00"
+    "simulation_s": 1155.02,
+    "physics_steps": 288755,
+    "sampled_at_utc": "2026-10-13T13:12:04.008691+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
