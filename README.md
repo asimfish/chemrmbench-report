@@ -2,6 +2,8 @@
 
 Public report: **https://asimfish.github.io/chemrmbench-report/**
 
+Historical scenes and reconstruction acceptance: **https://asimfish.github.io/chemrmbench-report/scenes.html**
+
 Continuously updated task dashboard: **https://asimfish.github.io/chemrmbench-report/collection.html**
 
 The task dashboard shows registered development collection, committed stages, three distinct timing anchors, actual replay, open scientific gates, resource use and the next experiments. The browser checks every minute; a local collector samples every minute and a publisher pushes a reviewed public snapshot every fifteen minutes. Pages builds and caching add delay. Research evidence, telemetry sampling and publication have separate timestamps; regular refresh does not imply a new experiment. The collection publisher uses a fifteen-minute cadence alongside the existing ten-minute reproduction publisher; together they stay within the documented [Pages soft build limit](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
@@ -50,3 +52,11 @@ Verify with Python 3.10+ and Node: `python3 -m unittest discover -s tests -v`, `
 The reading structure is inspired by the user-selected [anonymous report](https://anonymous-report-421.github.io/public-website/?lang=en&view=), [RoboDojo report](https://robodojo-benchmark.com/report/gpt-6-astra-eval), and [Awesome Astra Embodied AI](https://github.com/zjwzcx/Awesome-Astra-Embodied-AI). Report text, interactive diagram and figures here are authored for ChemRMBench; no reference media or results are copied.
 
 The task dashboard structure is also inspired by [SafeLab PickPlace](https://asimfish.github.io/psibot-dashboard/pick_place.html). Its code, data, results and media are not reused.
+
+## Preserved scenes and reconstruction
+
+`scenes.html` presents six previously recorded laboratory replays (A-r7 four bottles, B tray/furnace, C vial/capper), each with five camera views. Thirty source videos were checked with ffprobe against their render manifests, and copied unchanged. These are kinematic pose replays, not resumed physics or new task outcomes. A-r7 uses PathTracing plus the documented capC material overlay. The original static background contacts and formal-admission gaps remain visible. V75 has not been migrated into these laboratory scenes.
+
+The reconstruction table distinguishes stage storage, pose reconstruction, scoped in-process carry continuation, full-scene restoration, cold restart and PBD restoration. The original local carry result was recomputed from saved NPZ state and image identities; the original whole-scene failure (0.568° pestle drift versus the 0.5° gate, 19/56 settled bodies tracked) remains failed. Current research integration adds immutable parent/child records, complete entity/drive checks and action denial on invalid restoration. Its ten CPU contract tests do not establish fresh native or cold-start acceptance.
+
+The seven requested histories were archived through the user-provided read-only conversation APIs and indexed privately (40,496 visible messages, internal messages excluded). No conversation credentials, history contents, private source paths, scene assets or prompt logs are published. `data/reconstruction.json` contains curated media identities and scoped acceptance facts.

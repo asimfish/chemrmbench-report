@@ -141,6 +141,30 @@ def live_runs(config):
                        'state': 'collecting' if alive else 'awaiting_seal' if complete else 'interrupted',
                        'stages': stage_list, 'committed_stages': sum(s['committed'] for s in stage_list),
                        'planned_stages': len(stage_list)})
+    for registration in config.get('development_checks', []):
+        raw = within(registration['path'], config['experiment_root'])
+        parent_running = raw / 'parent_running.json'
+        if not parent_running.exists():
+            continue
+        stage_list = []
+        alive = False
+        for phase in ('parent', 'child'):
+            receipt = raw / (phase + '_running.json')
+            resource = raw / (phase + '_resource.json')
+            result_path = raw / phase / 'RESULT.json'
+            if receipt.exists() and not resource.exists():
+                pid = number(read_json(receipt)['pid'], integer=True)
+                try:
+                    command = Path(f'/proc/{pid}/cmdline').read_bytes().replace(b'\0', b' ')
+                    alive |= str(raw).encode() in command
+                except OSError:
+                    pass
+            stage_list.append({'label': '同进程核验' if phase == 'parent' else '新进程核验',
+                               'duration_s': 0.0, 'committed': result_path.exists()})
+        if alive:
+            result.append({'id': identifier(registration['id']), 'state': 'collecting',
+                           'stages': stage_list, 'committed_stages': sum(s['committed'] for s in stage_list),
+                           'planned_stages': 2})
     return result
 
 
@@ -179,9 +203,9 @@ def worklines(latest):
              '1 条开发轨迹', '限定工程交付通过', 'BLOCKED · 化学标定缺失', '补完整第二段动作与事件标定'),
         task('stages', 'DATA · 长任务', '长任务分步保存', 'development',
              '将长试次分成固定采集时间段，逐段提交证据并绑定同一个父试次。',
-             '已提交阶段可核验保存完整性；这不代表每个子任务成功，也不等同于从物理快照重启。',
-             [('阶段', f"{latest['committed_stages']} / {latest['planned_stages']}"), ('父试次', 1), ('重启能力', '未建立'), ('训练准入', 0)],
-             '8 段已保存', '提交标记与摘要可核验', '开发数据 · 不计正式样本', '延长采集至完整动作终态'),
+             '保存完整性已验证；历史刚体适配器已有局部恢复证据并已接入。全场景、冷启动、长链和液体恢复未验收；详见场景与重建页。',
+             [('阶段', f"{latest['committed_stages']} / {latest['planned_stages']}"), ('父试次', 1), ('物理恢复', '局部通过'), ('训练准入', 0)],
+             '8 段已保存', '提交核验 + 历史局部恢复', '开发数据 · 不计正式样本', '先验全实体恢复与续采，再延长动作终态'),
         task('memory', 'M1 · 事件记忆', '短暂提示与事件记忆', 'planned',
              '提示消失后仍需记住接收器身份和事件时间，并执行对应操作。',
              '持续提示 M0 不能证明 M1。尚无随机起始、五路技能或遮挡后的记忆试验。',
