@@ -138,10 +138,74 @@ if mid:
         value=frame['image'];assert re.fullmatch(r'assets/native-v80/(parent|child)-[0-9]{5}\.jpg',value)
         assert hashlib.sha256((root/value).read_bytes()).hexdigest()==frame['image_sha256']
     assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
+memory=data.get('memory_probe')
+if memory:
+    assert memory['status']=='PASS_SCOPED_PRESERVED_OBSERVATION_MEMORY_READOUT'
+    assert memory['receipt']=='artifacts/memory-v82.json'
+    path=root/memory['receipt'];assert hashlib.sha256(path.read_bytes()).hexdigest()==memory['receipt_sha256']
+    detail=json.loads(path.read_text())
+    assert detail['readout_cases']==memory['readout_cases']
+    assert detail['new_native_trials']==memory['new_native_trials']==0
+    assert detail['model_calls']==memory['model_calls']==5
+    assert detail['known_billed_tokens']==memory['known_billed_tokens']==56018
+    assert detail['cleared_identical_input_called_once'] is detail['current_image_identical_across_readouts'] is True
+    assert detail['semantic_memory_bound_to_physical_checkpoint'] is detail['parent_checkpoint_preserved'] is True
+    assert detail['old_images_attached_to_resumed_readouts'] is detail['physical_policy_execution_observed'] is False
+    assert detail['operation_timing_measured_this_run'] is detail['scientific_admission'] is detail['training_admission'] is False
+    assert detail['formal_event_memory_admission'] is False
+    assert detail['requested_model']=='gpt-6-astra' and detail['backend_model_id'] is None
+    assert detail['cleared_decision']==memory['cleared_decision']=='wait'
+    assert [x['selected_deadline_s'] for x in detail['readout_cases']]==[10,16]
+    for x in detail['readout_cases']:
+        assert x['remembered_public_observation_s']==x['past_public_observation_s']
+        assert x['physical_execution_observed'] is False
+    assert len(memory['frames'])==3
+    for frame in memory['frames']:
+        value=frame['image'];assert re.fullmatch(r'assets/native-v82/(past-early|past-late|current)\.jpg',value)
+        assert hashlib.sha256((root/value).read_bytes()).hexdigest()==frame['image_sha256']
+    assert memory['frames'][-1]['image_sha256']==detail['public_current_image_sha256']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
+agent=data.get('native_memory_probe')
+if agent:
+    assert agent['status']=='PASS_SCOPED_NATIVE_AGENT_MEMORY_TIMED_CONTACT'
+    assert agent['receipt']=='artifacts/memory-v83-native.json'
+    path=root/agent['receipt'];assert hashlib.sha256(path.read_bytes()).hexdigest()==agent['receipt_sha256']
+    detail=json.loads(path.read_text())
+    assert detail['pinned_files_verified']==113 and detail['contract_tests_passed']==85
+    assert detail['model_calls']==agent['model_calls']==3 and detail['known_billed_tokens']==33399
+    assert detail['new_native_parent_episodes']==detail['new_native_child_episodes']==1
+    assert detail['tail_commands']==agent['tail_commands']==5507 and detail['reexecuted_prefix_commands']==0
+    assert detail['parent_checkpoint_preserved'] is detail['parent_prefix_preserved'] is True
+    assert detail['agent_semantic_memory_restored'] is detail['physical_policy_execution_observed'] is True
+    assert detail['hidden_model_state_restored'] is detail['old_images_attached_to_resumed_readouts'] is False
+    assert detail['current_image_identical_across_readouts'] is True
+    assert detail['cleared_decision']==agent['cleared_decision']=='wait'
+    assert detail['retained_decision']=='schedule'
+    assert detail['desired_contact_after_resume_s']==agent['desired_contact_after_resume_s']==16
+    assert detail['contact_after_resume_bounds_s']==agent['contact_after_resume_bounds_s']
+    assert detail['error_interval_ms']==agent['error_interval_ms']
+    assert detail['requested_deadline_pass'] and all(abs(v)<=20 for v in detail['error_interval_ms'])
+    assert detail['simulation_paused_for_inference'] is agent['simulation_paused_for_inference'] is True
+    assert detail['host_readout_elapsed_s']==agent['host_readout_elapsed_s']
+    assert detail['phases']['child']['placement_error_mm']==agent['placement_error_mm']<1
+    assert detail['phases']['parent']['commands']==7920 and detail['phases']['child']['commands']==5507
+    assert detail['restore']['all_transient_gates_pass'] is detail['restore']['full_registry_each_tick'] is True
+    for key in ['scientific_admission','training_admission','formal_event_memory_admission','full_benchmark_pass',
+                'chemical_event_verified','independently_calibrated_contact','native_clock_continuous_across_rebuild',
+                'mid_carry_restart_pass','liquid_restart_pass','graceful_sdk_cleanup_pass']:
+        assert detail[key] is False,key
+    assert detail['qualified_training_episodes']==0
+    assert len(agent['frames'])==3
+    for frame in agent['frames']:
+        value=frame['image'];assert re.fullmatch(r'assets/native-v83/(cue|current|finished)\.jpg',value)
+        assert hashlib.sha256((root/value).read_bytes()).hexdigest()==frame['image_sha256']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
                      native_bottle_frames=30 if bottle else 0,
                      native_bottle_pair_pass=bool(bottle),
                      native_mid_task_resume_pass=bool(mid),
+                     preserved_memory_readout_pass=bool(memory),
+                     native_agent_memory_timed_contact_pass=bool(agent),
                      historical_carry_whole_scene_restore_accepted=False,
                      native_released_restore_tested=bool(native.get('physical_measurement_started')),
                      scientific_admission=False)))

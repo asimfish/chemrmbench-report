@@ -1,6 +1,6 @@
 {
   "schema": "chemrm-preserved-scenes-v1",
-  "verified_at_utc": "2026-10-13T09:40:27.012226+00:00",
+  "verified_at_utc": "2026-10-13T13:38:54.780704+00:00",
   "history_message_count": 40496,
   "scenes": [
     {
@@ -866,5 +866,98 @@
     "scientific_admission": false,
     "full_benchmark_pass": false,
     "event_memory_evaluated": false
+  },
+  "memory_probe": {
+    "status": "PASS_SCOPED_PRESERVED_OBSERVATION_MEMORY_READOUT",
+    "receipt": "artifacts/memory-v82.json",
+    "receipt_sha256": "fc9dc3cd654ce41ae39ba2f642f3c9bcbae77913a7e67d26fc343064867d76f4",
+    "frames": [
+      {
+        "image": "assets/native-v82/past-early.jpg",
+        "image_sha256": "4e220ada47eb89d7ab31ca7ccea61bbb9010223ea93bc56bcdb696059710a1c5",
+        "label": "历史观测 · 24.133 s · 提起瓶体"
+      },
+      {
+        "image": "assets/native-v82/past-late.jpg",
+        "image_sha256": "344bf9fed4230f0a08b90b92610d1e84c2edbfa51d3bd6cf0303838649f30c87",
+        "label": "历史观测 · 32.133 s · 提起瓶体"
+      },
+      {
+        "image": "assets/native-v82/current.jpg",
+        "image_sha256": "5ae5676fc1960026098a39940e7f8adee188646f8228917c4f9161f56ece4003",
+        "label": "共同当前画面 · V80 冷重建后 · 线索不再可见"
+      }
+    ],
+    "readout_cases": [
+      {
+        "case_id": 0,
+        "deadline_selection_pass": true,
+        "expected_deadline_s": 10.0,
+        "memory_restored": true,
+        "observation_time_recall_pass": true,
+        "past_public_observation_s": 24.13333459198475,
+        "physical_execution_observed": false,
+        "proposed_skill_start_after_resume_s": 4.8270830635447055,
+        "remembered_public_observation_s": 24.13333459198475,
+        "selected_deadline_s": 10
+      },
+      {
+        "case_id": 1,
+        "deadline_selection_pass": true,
+        "expected_deadline_s": 16.0,
+        "memory_restored": true,
+        "observation_time_recall_pass": true,
+        "past_public_observation_s": 32.13333500921726,
+        "physical_execution_observed": false,
+        "proposed_skill_start_after_resume_s": 10.827083063544706,
+        "remembered_public_observation_s": 32.13333500921726,
+        "selected_deadline_s": 16
+      }
+    ],
+    "cleared_decision": "wait",
+    "model_calls": 5,
+    "new_native_trials": 0,
+    "scientific_admission": false,
+    "operation_timing_measured_this_run": false,
+    "known_billed_tokens": 56018
+  },
+  "native_memory_probe": {
+    "status": "PASS_SCOPED_NATIVE_AGENT_MEMORY_TIMED_CONTACT",
+    "receipt": "artifacts/memory-v83-native.json",
+    "receipt_sha256": "244b652abc4598470c0023b6a5044412a3d17cd8604961b093ca47ce8ecdb5bf",
+    "frames": [
+      {
+        "image": "assets/native-v83/cue.jpg",
+        "image_sha256": "ad11fb55a8be7fc5ed2ab16d2a1b69ec474170fdf234f4c0639f7871d701b844",
+        "label": "父进程 · 橙色线索出现 0.5 秒"
+      },
+      {
+        "image": "assets/native-v83/current.jpg",
+        "image_sha256": "1c01776e3c3b432371ef49718dbe0293f4905b2201551a660aadfd3505b20f6b",
+        "label": "冷重建后 · 无线索 · 恢复语义记忆"
+      },
+      {
+        "image": "assets/native-v83/finished.jpg",
+        "image_sha256": "706255055389635f44a91af3dd9503ee2059cf42eea5f9cd484dafdec3089931",
+        "label": "实际定时再抓取后 · 完成转盘放回"
+      }
+    ],
+    "contact_after_resume_bounds_s": [
+      16.000000834465027,
+      16.004167501349002
+    ],
+    "error_interval_ms": [
+      0.0008344650268554688,
+      4.167501349002123
+    ],
+    "desired_contact_after_resume_s": 16,
+    "placement_error_mm": 0.32968768191163517,
+    "tail_commands": 5507,
+    "cleared_decision": "wait",
+    "model_calls": 3,
+    "simulation_paused_for_inference": true,
+    "host_readout_elapsed_s": 36.751390914199874,
+    "scientific_admission": false,
+    "formal_event_memory_admission": false
   }
 }
