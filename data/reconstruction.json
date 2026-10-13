@@ -1,6 +1,6 @@
 {
   "schema": "chemrm-preserved-scenes-v1",
-  "verified_at_utc": "2026-10-13T06:16:42.599865+00:00",
+  "verified_at_utc": "2026-10-13T07:50:55.197003+00:00",
   "history_message_count": 40496,
   "scenes": [
     {
@@ -435,10 +435,77 @@
     "cpu_reconstruction_tests": 10
   },
   "native_probe": {
-    "status": "NOT_REACHED_STARTUP_TIMEOUT",
-    "wall_s": 901.3822670921218,
-    "physical_measurement_started": false,
-    "new_process_attempt_started": false,
-    "scientific_admission": false
+    "status": "PASS_SCOPED_RELEASED_RIGID_RECONSTRUCTION",
+    "wall_s": 69.86712420289405,
+    "physical_measurement_started": true,
+    "new_process_attempt_started": true,
+    "scientific_admission": false,
+    "receipt": "artifacts/reconstruction-v78.json",
+    "receipt_sha256": "ac94bfed53eef52f9598523cc2ce36b76a2f006874584d79b5ac29fd61f8dc8d",
+    "cpu_contract_tests": 16,
+    "stage_regression_tests": 8,
+    "same_process": {
+      "status": "PASS_SCOPED_NATIVE_RELEASED_RESTORE",
+      "rigid_objects": 56,
+      "articulations": 9,
+      "transient_ticks": 30,
+      "full_registry_each_tick": true,
+      "initial_observed_velocity_pass": true,
+      "maximum_position_error_mm": 0.09833090090221099,
+      "maximum_orientation_error_deg": 0.15070501652107465,
+      "maximum_joint_error_rad": 8.345348760485649e-06,
+      "skill_scope": "EMPTY_GRIPPER_CLOSE_OPEN_NO_OBJECT_TASK",
+      "skill_completed": true,
+      "measured_gripper_movement_mm": 19.999820739030838,
+      "native_clock_continuous_across_rebuild": false,
+      "worker_exit_code": 0,
+      "controlled_exit_without_sdk_cleanup": true,
+      "wall_s": 27.63869653106667,
+      "result_sha256": "22ec4de8455c78f1decb3984be333340cb93f2dd6756914c38584805c10426b3",
+      "verdict_sha256": "bd354ac4a5ff8f08fdbcbe4a4b4056da2c786c9a9826d202844091cad8275c99",
+      "skill_sha256": "10455f64e7a158a6d8650469925e42938d43b1390ae9c8e6102f02487d68eda8"
+    },
+    "fresh_process": {
+      "status": "PASS_SCOPED_NATIVE_RELEASED_RESTORE",
+      "rigid_objects": 56,
+      "articulations": 9,
+      "transient_ticks": 30,
+      "full_registry_each_tick": true,
+      "initial_observed_velocity_pass": true,
+      "maximum_position_error_mm": 0.09833090090221099,
+      "maximum_orientation_error_deg": 0.15070501652107465,
+      "maximum_joint_error_rad": 8.345348760485649e-06,
+      "skill_scope": "EMPTY_GRIPPER_CLOSE_OPEN_NO_OBJECT_TASK",
+      "skill_completed": true,
+      "measured_gripper_movement_mm": 19.999820739030838,
+      "native_clock_continuous_across_rebuild": false,
+      "worker_exit_code": 0,
+      "controlled_exit_without_sdk_cleanup": true,
+      "wall_s": 42.228427671827376,
+      "result_sha256": "3b9f3eaa442a9c64518a0958e6dd46a2ade6ce3f2fe639356fd20b757603eb61",
+      "verdict_sha256": "bd354ac4a5ff8f08fdbcbe4a4b4056da2c786c9a9826d202844091cad8275c99",
+      "skill_sha256": "9de767ea8620b91ddc89360a3b156b7cfb9d7e4bf26face37350882d3572bd8e"
+    },
+    "graceful_sdk_cleanup_pass": false,
+    "full_long_task_pass": false,
+    "bottle_task_pass": false,
+    "liquid_restart_pass": false,
+    "previous_startup_attempt": {
+      "status": "NOT_REACHED_STARTUP_TIMEOUT",
+      "wall_s": 901.3822670921218,
+      "physical_measurement_started": false,
+      "new_process_attempt_started": false,
+      "scientific_admission": false
+    },
+    "child_retry": {
+      "status": "PASS_NATIVE_FAILED_CHILD_RETRY",
+      "parent_stage_prefix_preserved": true,
+      "parent_checkpoint_preserved": true,
+      "sealed_parent_stages": 1,
+      "full_chemical_long_task_pass": false,
+      "scientific_admission": false,
+      "receipt": "artifacts/reconstruction-v78-failed-child.json",
+      "receipt_sha256": "c0b58bed3b96e24fa745ea3c855ece2f8147ee5e7777a4e053a3331992f6614f"
+    }
   }
 }

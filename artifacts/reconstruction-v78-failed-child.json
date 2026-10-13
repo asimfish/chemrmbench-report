@@ -1,0 +1,54 @@
+{
+  "schema": "chemrm-v78-failed-child-review-v1",
+  "status": "PASS_NATIVE_FAILED_CHILD_RETRY",
+  "verified_at_utc": "2026-10-13T07:50:55.197003+00:00",
+  "parent_stage_prefix_preserved": true,
+  "parent_checkpoint_preserved": true,
+  "parent_stage_payload_ranges_verified": 7,
+  "parent_checkpoint_sha256": "5148779bd0d01c6fb752ad423b057e64c32394bb3672394a4d68fe9dfc1180d2",
+  "parent_manifest_sha256": "d4f8de1d91c1cb2bcf909f673d99996ce5e1437e53a38cff2cfbd11079d0c143",
+  "sealed_parent_stages": 1,
+  "full_chemical_long_task_pass": false,
+  "phases": {
+    "parent": {
+      "actual_exit_code": 0,
+      "whole_registry_restore_status": "PASS",
+      "wall_s": 30.19423732580617,
+      "full_registry_transient_ticks": 30,
+      "maximum_position_error_mm": 0.09833090090221099,
+      "maximum_orientation_error_deg": 0.15070501652107465,
+      "verdict_sha256": "bd354ac4a5ff8f08fdbcbe4a4b4056da2c786c9a9826d202844091cad8275c99",
+      "actual_completed_skill_steps": 480
+    },
+    "crash": {
+      "actual_exit_code": 1,
+      "whole_registry_restore_status": "PASS",
+      "wall_s": 100.85583330201916,
+      "full_registry_transient_ticks": 30,
+      "maximum_position_error_mm": 0.09833090090221099,
+      "maximum_orientation_error_deg": 0.15070501652107465,
+      "verdict_sha256": "bd354ac4a5ff8f08fdbcbe4a4b4056da2c786c9a9826d202844091cad8275c99",
+      "actual_failed_skill_steps": 240,
+      "partial_data_retained": true
+    },
+    "retry": {
+      "actual_exit_code": 0,
+      "whole_registry_restore_status": "PASS",
+      "wall_s": 26.894077316857874,
+      "full_registry_transient_ticks": 30,
+      "maximum_position_error_mm": 0.09833090090221099,
+      "maximum_orientation_error_deg": 0.15070501652107465,
+      "verdict_sha256": "bd354ac4a5ff8f08fdbcbe4a4b4056da2c786c9a9826d202844091cad8275c99",
+      "actual_completed_skill_steps": 480
+    }
+  },
+  "owned_process_groups_empty": true,
+  "scientific_admission": false,
+  "bottle_task_pass": false,
+  "liquid_restart_pass": false,
+  "scope": "ACTUAL_STAGE_JOURNAL_AND_RIGID_RELEASED_CHECKPOINT_EMPTY_GRIPPER_FAILURE_RETRY",
+  "graceful_sdk_cleanup_pass": false,
+  "native_clock_continuous_across_rebuild": false,
+  "source_pins_sha256": "28d7b0a35630d840dcd1555ef1c4109cfc1f4f56d8921f948089bca3688adbe4",
+  "source_pins_verified": 99
+}
