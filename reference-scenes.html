@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MATTERIX 与 Auto-Engineering 实验工位：原生仿真渲染、资产来源、场景加载验收和实验差距。">
+  <title>Paper A · 实验场景</title>
+  <link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="reference-scenes.css">
+  <script src="reference-scenes.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#scenes">Skip to scenes</a>
+<header>
+  <nav><a class="brand" href="reproduction.html">CR <span>Paper A / Research log</span></a><div><a href="reproduction.html">复现进展</a><a href="scenes.html">历史场景</a><button id="lang">EN</button><a href="https://github.com/asimfish/chemrmbench-report" rel="noopener" target="_blank">GitHub ↗</a></div></nav>
+  <p class="eyebrow">MATTERIX × AUTO-ENGINEERING / SCENE ASSEMBLY</p>
+  <h1 id="title">把实验工位搭起来。</h1>
+  <p class="lead" id="lead">四个可加载场景，直接查看原生仿真截图、机器人与器皿组成，以及距离完整实验还缺什么。</p>
+  <div class="status"><div><strong id="count">读取场景证据…</strong><p id="boundary">场景加载验收与完整实验验收分别记录。</p></div><span class="scope" id="scope">完整复现进行中</span></div>
+  <p class="timestamp" id="timestamp"></p>
+</header>
+<main id="scenes">
+  <div class="tools"><div class="filters" aria-label="Scene family"><button data-family="all" class="active">All</button><button data-family="nature">MATTERIX</button><button data-family="auto">Auto-Engineering</button></div><a href="data/reproduction-scenes.json" id="download">公开验收数据 ↓</a></div>
+  <p id="error" role="alert" hidden></p>
+  <div class="cards" id="cards"></div>
+  <section class="explanation"><h2 id="evidenceTitle">每张截图对应真实场景文件</h2><p id="evidenceText">截图由 Isaac Sim RTX 或 MuJoCo 原生渲染器产生。机器人、设备原资产与重建夹具分别标注；场景加载通过不等于抓取、移液、学习或化学实验通过。</p><p id="roomBoundary">当前交付原工作核心实验工位。MATTERIX 图 3 的完整六工位实验室仍需补齐手套箱、通风柜、移动机器人与清洗站原资产。</p><div class="links"><a href="https://arxiv.org/html/2601.13232v1" target="_blank" rel="noopener">MATTERIX · 原论文与补充材料 ↗</a><a href="https://www.generalrobotics.company/post/introducing-auto-engineering-for-robotics" target="_blank" rel="noopener">Auto-Engineering · 原工作 ↗</a></div></section>
+</main>
+<footer id="footer">Paper A · 保留原始协议、失败和证据边界。</footer>
+</body>
+</html>

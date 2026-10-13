@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "exported_at_utc": "2026-10-13T07:00:10.119334+00:00",
+  "assembled_scenes": 4,
+  "native_validated_scenes": 4,
+  "full_reference_reproduction": false,
+  "raw_assets_exported": false,
+  "hardware_calibrated": false,
+  "manifest_sha256": "d214ec05b0329ac5651cf930cd412271e4a5536f5de6bce0eb07e93f84ea95cf",
+  "scenes": [
+    {
+      "id": "matterix_heat_pour",
+      "family": "nature",
+      "title": "MATTERIX · 加热与倾倒工位",
+      "title_en": "MATTERIX · Heating and pouring",
+      "reference": "Fig.6a,b",
+      "components": [
+        "Franka Panda + Robotiq",
+        "原作者 Thorlabs 实验台",
+        "原作者 IKA 加热盘",
+        "两个原作者烧杯"
+      ],
+      "components_en": [
+        "Franka Panda + Robotiq",
+        "Author Thorlabs bench",
+        "Author IKA heater",
+        "Two author beakers"
+      ],
+      "reconstructed": [
+        "机器人与器皿布局；烧杯沿用已有任务的 1.5 倍缩放；预览使用不透明检查材质"
+      ],
+      "reconstructed_en": [
+        "Robot and vessel layout; declared1.5× beaker scale and an opaque inspection material for previews"
+      ],
+      "next": [
+        "控制器接入、接触验收、原生化学耦合"
+      ],
+      "next_en": [
+        "Controller integration, contact acceptance and native chemistry coupling"
+      ],
+      "backend": "Isaac Sim / USD",
+      "scene_file": "matterix_heat_pour.usda",
+      "scene_sha256": "b81a5b362754583d20dbb92f9af7f905b9767d7b6edce2ee231dea6c8a019d57",
+      "native_validation_passed": true,
+      "native_checks": {
+        "timeline_clock_unchanged": true,
+        "timeline_not_playing": true,
+        "native_USD_stage_loaded": true,
+        "all_expected_components_present": true,
+        "robot_meshes_composed": true,
+        "collision_schemas_composed": true,
+        "nonblank_native_RGB": true
+      },
+      "native_steps": 0,
+      "simulated_seconds": 0.0,
+      "native_contact_smoke": false,
+      "timeline_stopped": true,
+      "evidence_sha256": "b2bdbd11153a8e8f4554a1e9c8732bad7246be49fad19aba5f04e753d6f518cd",
+      "experiment_timestamp": "2026-10-13T06:53:37.245782+00:00",
+      "pictures": [
+        {
+          "file": "assets/scenes/matterix_heat_pour_overview.png",
+          "sha256": "1cf87b2fab88ad325abcfb58f09e651bfaf7c82c193f28be10af0501dd63e8c3",
+          "view": "overview",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": null
+        }
+      ],
+      "full_workflow_reproduced": false
+    },
+    {
+      "id": "matterix_ot2_station",
+      "family": "nature",
+      "title": "MATTERIX · OT2 移液工作站",
+      "title_en": "MATTERIX · OT2 liquid handling",
+      "reference": "Fig.3B,G / Fig.6c",
+      "components": [
+        "原作者 OT2，保留安装朝向与关节",
+        "Franka Panda + Robotiq（FR3 替代）",
+        "96 孔吸头架、96 孔板、12 槽储液槽"
+      ],
+      "components_en": [
+        "Author OT2 with original mounting and joints",
+        "Franka Panda + Robotiq (FR3 substitute)",
+        "96-tip rack, 96-well plate, 12-channel reservoir"
+      ],
+      "reconstructed": [
+        "器皿采用固定版本的 Opentrons 官方定义；几何及布局为重建"
+      ],
+      "reconstructed_en": [
+        "Labware geometry and layout reconstructed from pinned official Opentrons definitions"
+      ],
+      "next": [
+        "原器皿身份、FR3、台面接触、吸头装载及移液"
+      ],
+      "next_en": [
+        "Original labware identity, FR3, deck contact, tip attachment and liquid transfer"
+      ],
+      "backend": "Isaac Sim / USD",
+      "scene_file": "matterix_ot2_station.usda",
+      "scene_sha256": "2532f666ecc49863780aa24ae72f7668a717c1052d8d33e8421a8075b74e1d31",
+      "native_validation_passed": true,
+      "native_checks": {
+        "timeline_clock_unchanged": true,
+        "timeline_not_playing": true,
+        "native_USD_stage_loaded": true,
+        "all_expected_components_present": true,
+        "robot_meshes_composed": true,
+        "collision_schemas_composed": true,
+        "nonblank_native_RGB": true
+      },
+      "native_steps": 0,
+      "simulated_seconds": 0.0,
+      "native_contact_smoke": false,
+      "timeline_stopped": true,
+      "evidence_sha256": "b2bdbd11153a8e8f4554a1e9c8732bad7246be49fad19aba5f04e753d6f518cd",
+      "experiment_timestamp": "2026-10-13T06:53:37.245782+00:00",
+      "pictures": [
+        {
+          "file": "assets/scenes/matterix_ot2_station_overview.png",
+          "sha256": "a6b49f01cfbc3cfdab748c6e97462784022490759231fed8f6be2322cfc70e07",
+          "view": "overview",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": "7ea285d551a1cccd81a31935b2ca43a3c16b77ed21abc42035084d1070d9d5b9"
+        }
+      ],
+      "full_workflow_reproduced": false
+    },
+    {
+      "id": "auto_dual_flexiv_lab",
+      "family": "auto",
+      "title": "Auto-Engineering · 双 Flexiv 工位",
+      "title_en": "Auto-Engineering · Dual Flexiv",
+      "reference": "Sections 5.1–5.4",
+      "components": [
+        "两台 Flexiv Rizon4 + Robotiq",
+        "试管架与三个中空试管",
+        "中空接收烧杯",
+        "搅拌杆与支架、旋转任务容器"
+      ],
+      "components_en": [
+        "Two Flexiv Rizon4 + Robotiq",
+        "Rack with three hollow tubes",
+        "Hollow receiver beaker",
+        "Stirrer, stand and swirl-task vessel"
+      ],
+      "reconstructed": [
+        "夹具、器皿和摆放位置为本地重建；原 GRID 场景未取得"
+      ],
+      "reconstructed_en": [
+        "Fixtures, vessels and layout reconstructed locally; original GRID scene unavailable"
+      ],
+      "next": [
+        "流固耦合、完整交接倾倒、BC/DAgger 与原始示教输入"
+      ],
+      "next_en": [
+        "Fluid coupling, full handoff-and-pour, BC/DAgger and original demonstration inputs"
+      ],
+      "backend": "MuJoCo",
+      "scene_file": "auto_dual_flexiv_lab.xml",
+      "scene_sha256": "d5fb5c6b961c1eb667fe9277a88ed5c93dba0d9494df1c24daec496076fa8384",
+      "native_validation_passed": true,
+      "native_checks": {
+        "native_MJCF_loaded": true,
+        "arm_initial_IK_below_1mm": true,
+        "all_steps_finite": true,
+        "all_task_vessels_settle_within_1cm": true,
+        "all_named_task_frames_present": true,
+        "native_contact_records_available": true,
+        "nonblank_RGB_preview": true
+      },
+      "native_steps": 1000,
+      "simulated_seconds": 2.0000000000000013,
+      "native_contact_smoke": true,
+      "timeline_stopped": false,
+      "evidence_sha256": "b558971a48355c6e41b0323ab384305cd652a6bbb2268f52df8dfd0374c86d32",
+      "experiment_timestamp": "2026-10-13T06:24:16.548361+00:00",
+      "pictures": [
+        {
+          "file": "assets/scenes/auto_dual_flexiv_lab_overview.png",
+          "sha256": "ed084949ff1523403b34cfcc2cc87e9b92d13c94a20e643d0208fcd3affa4409",
+          "view": "overview",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": null
+        },
+        {
+          "file": "assets/scenes/auto_dual_flexiv_lab_fixtures.png",
+          "sha256": "74ef3b7f294df9f36e79897f3d1f03551009336075e1f688c2e6c1199985c968",
+          "view": "fixtures",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": null
+        }
+      ],
+      "full_workflow_reproduced": false
+    },
+    {
+      "id": "auto_ur5e_lab",
+      "family": "auto",
+      "title": "Auto-Engineering · UR5e 迁移工位",
+      "title_en": "Auto-Engineering · UR5e transfer",
+      "reference": "Sections 5.1–5.4",
+      "components": [
+        "UR5e + Robotiq",
+        "同一组试管、烧杯与搅拌夹具",
+        "末端执行器任务坐标系"
+      ],
+      "components_en": [
+        "UR5e + Robotiq",
+        "Matching tube, beaker and stirring fixtures",
+        "End-effector task frames"
+      ],
+      "reconstructed": [
+        "本地重建布局与器皿；原始跨机器人策略尚未接入"
+      ],
+      "reconstructed_en": [
+        "Local layout and vessels; original cross-robot policy not integrated"
+      ],
+      "next": [
+        "移动接收容器、反应式倾倒策略、学习与评测"
+      ],
+      "next_en": [
+        "Moving receiver, reactive pouring policy, training and evaluation"
+      ],
+      "backend": "MuJoCo",
+      "scene_file": "auto_ur5e_lab.xml",
+      "scene_sha256": "1737e9db48fd92eb48984081d824343d13fdd2a08b18d18def71213fd767c068",
+      "native_validation_passed": true,
+      "native_checks": {
+        "native_MJCF_loaded": true,
+        "arm_initial_IK_below_1mm": true,
+        "all_steps_finite": true,
+        "all_task_vessels_settle_within_1cm": true,
+        "all_named_task_frames_present": true,
+        "native_contact_records_available": true,
+        "nonblank_RGB_preview": true
+      },
+      "native_steps": 1000,
+      "simulated_seconds": 2.0000000000000013,
+      "native_contact_smoke": true,
+      "timeline_stopped": false,
+      "evidence_sha256": "b558971a48355c6e41b0323ab384305cd652a6bbb2268f52df8dfd0374c86d32",
+      "experiment_timestamp": "2026-10-13T06:24:16.548361+00:00",
+      "pictures": [
+        {
+          "file": "assets/scenes/auto_ur5e_lab_overview.png",
+          "sha256": "dab82bd7f479e3509654ee333528055f2cb2fbdd0a0f76138d335608532a6fa9",
+          "view": "overview",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": null
+        },
+        {
+          "file": "assets/scenes/auto_ur5e_lab_fixtures.png",
+          "sha256": "2f4a42d24d0e8efda5cad5c4c20ae72f3d11e20fb8c946478d91ae6a960c9a36",
+          "view": "fixtures",
+          "native_output_matches": true,
+          "additional_preview_evidence_sha256": null
+        }
+      ],
+      "full_workflow_reproduced": false
+    }
+  ],
+  "reference_urls": [
+    "https://arxiv.org/html/2601.13232v1",
+    "https://www.generalrobotics.company/post/introducing-auto-engineering-for-robotics"
+  ]
+}
