@@ -239,6 +239,24 @@ for kind,versions in [('native_memory_conditions',(83,84)),('continuous_timing_p
                 assert detail['native_delay_explains_timing_error'] and detail['accounted_executor_would_refuse']
                 assert p['remaining_wait_ticks']==1159 and all(abs(e)<20 for e in detail['error_minus_readout_ms'])
                 assert min(p['error_interval_ms'])>1000
+p=data['expiry_recovery_probe'];path=root/p['receipt']
+assert hashlib.sha256(path.read_bytes()).hexdigest()==p['receipt_sha256'];r=json.loads(path.read_text())
+for key in p:
+    if key not in ('receipt','receipt_sha256','frames'):assert p[key]==r[key],key
+assert r['status']=='PASS_SCOPED_NATIVE_EXPIRY_REFUSAL_AND_NEW_ATTEMPT_RETRY'
+assert r['expired_proposal_refused'] and r['refused_attempt_task_success'] is False
+assert r['failed_tail_commands']==r['parent_recollection_commands']==0 and r['retry_tail_commands']==5507
+assert r['parent_files_preserved']==45 and r['parent_checkpoint_preserved'] and r['parent_prefix_preserved']
+assert r['retry_is_new_attempt'] and r['uninterrupted_chemical_deadline'] is False
+assert r['failed_clock_id']!=r['retry_clock_id']
+assert r['injected_native_ticks']==1440 and r['injected_delay_s']==6 and r['actual_model_native_ticks']==58
+assert r['initial_resource_gate_failure_preserved'] and not r['resource_failure_entered_native_sim']
+assert r['model_calls']==4 and r['known_billed_tokens']==44816 and r['retry_contact_deadline_pass']
+assert r['scientific_admission'] is r['training_admission'] is r['formal_event_memory_admission'] is False
+for f in p['frames']:
+    assert re.fullmatch(r'assets/native-v87/(cue|refused|finished)\.jpg',f['image'])
+    assert hashlib.sha256((root/f['image']).read_bytes()).hexdigest()==f['image_sha256']
+assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|ssh\s',json.dumps(r))
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
                      native_bottle_frames=30 if bottle else 0,
                      native_bottle_pair_pass=bool(bottle),

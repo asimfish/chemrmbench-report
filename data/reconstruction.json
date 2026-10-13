@@ -1,6 +1,6 @@
 {
   "schema": "chemrm-preserved-scenes-v1",
-  "verified_at_utc": "2026-10-13T17:05:02.679085+00:00",
+  "verified_at_utc": "2026-10-13T17:42:38.631288+00:00",
   "history_message_count": 40496,
   "scenes": [
     {
@@ -1162,5 +1162,52 @@
       "native_delay_explains_timing_error": true,
       "accounted_executor_would_refuse": true
     }
-  ]
+  ],
+  "expiry_recovery_probe": {
+    "status": "PASS_SCOPED_NATIVE_EXPIRY_REFUSAL_AND_NEW_ATTEMPT_RETRY",
+    "parent_files_preserved": 45,
+    "expired_proposal_refused": true,
+    "failed_tail_commands": 0,
+    "retry_tail_commands": 5507,
+    "retry_contact_bounds_s": [
+      10.000000521540642,
+      10.004167188424617
+    ],
+    "retry_error_interval_ms": [
+      0.000521540641784668,
+      4.167188424617052
+    ],
+    "retry_return_error_mm": 0.40642048263090597,
+    "model_calls": 4,
+    "known_billed_tokens": 44816,
+    "total_allocated_gpu_hours_upper_bound": 0.1483823683854684,
+    "retry_is_new_attempt": true,
+    "uninterrupted_chemical_deadline": false,
+    "scientific_admission": false,
+    "formal_event_memory_admission": false,
+    "initial_resource_gate_failure_preserved": true,
+    "actual_model_native_ticks": 58,
+    "injected_native_ticks": 1440,
+    "injected_delay_s": 6.0,
+    "total_failed_native_readout_s": 6.241666992194951,
+    "receipt": "artifacts/expiry-retry-v87.json",
+    "receipt_sha256": "5586cf98cb7240a95f7b63e30eadbcd67f67362d7514cf87846dcbbb93c57a40",
+    "frames": [
+      {
+        "image": "assets/native-v87/cue.jpg",
+        "image_sha256": "0f1bf79d864449fc4dbb687890f36b7e8680fde683649d102ac328f0a663a7a7",
+        "label": "父任务 · 绿色短时线索原始观测"
+      },
+      {
+        "image": "assets/native-v87/refused.jpg",
+        "image_sha256": "265ef44f82efc3446ebf63a4fad4ea29fe27da93c244944c91fa3755a7c55df3",
+        "label": "过期尝试 · 返回提案前的原始恢复观测"
+      },
+      {
+        "image": "assets/native-v87/finished.jpg",
+        "image_sha256": "557aeb4d314d6fe6ab72e0c922f9f55905d4b4bf56131ac29b78cf404757e04d",
+        "label": "新进程单次重试 · 执行余程后的放回终态"
+      }
+    ]
+  }
 }
