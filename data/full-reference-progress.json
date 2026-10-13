@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T17:12:14.358453+00:00",
+  "exported_at_utc": "2026-10-13T17:22:20.806908+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1294,12 +1294,12 @@
     {
       "id": "auto-repro-dual-timescaled-complete-cpu-r7",
       "title": "Dual Flexiv · same-path slower full-fluid candidate",
-      "evidence_sha256": "3a2709cf29d35a1e45bc27ee90566aa400154a389a68b783b4a34caef51d80d4",
+      "evidence_sha256": "0a50b58bd8aab1020a432e3bcc99ba38b3ef9e05fc24ba6a70fb207856ca054a",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: pour_hold. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: objectspace_return_to_handoff_hold. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 34.50000000004817,
+        "recorded_simulation_s": 43.499999999835346,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
@@ -1308,12 +1308,12 @@
     {
       "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
       "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
-      "evidence_sha256": "b63f1016949e78aaa33ed8c2fec5227befcae470d73cbe46498b2a82f4e20feb",
+      "evidence_sha256": "0dcf1c7829b1371c97ef1be3b809dfcc6c135c179f47da8bdeb0c05254d2e3b0",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_retreat. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: objectspace_transport_to_pour. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 17.000000000035666,
+        "recorded_simulation_s": 24.500000000071477,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
@@ -1337,13 +1337,13 @@
     {
       "id": "ur5e-paired-repair-progress-404",
       "title": "UR5e · paired repair 404 · unreviewed progress",
-      "evidence_sha256": "aa7de54671a09d6361096d23cd214db8366f79676afb1525d6a779d486f6cf66",
+      "evidence_sha256": "aa5e3ebc3bc64365135e6697013b72fc952c3fae51b2b7725155af6ef275d87e",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: loaded_hold. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
+      "scope": "Last recorded native phase: retract. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
       "metrics": {
         "seed": 404,
-        "recorded_simulation_s": 5.999999999997354,
+        "recorded_simulation_s": 22.00000000005954,
         "planned_simulation_s": 23,
         "predeclared_cohort_size": 4
       },
