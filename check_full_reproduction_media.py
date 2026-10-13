@@ -1,4 +1,4 @@
-"""Decode and authenticate the ten reviewed recorded-state videos."""
+"""Decode and authenticate the twelve reviewed recorded-state videos."""
 import hashlib
 import json
 from pathlib import Path
@@ -9,7 +9,7 @@ def check(root):
     root = Path(root).resolve()
     manifest = json.loads((root / 'data/full-reference-media.json').read_text())
     assert manifest['full_reference_reproduction'] is False
-    assert len(manifest['videos']) == 10
+    assert len(manifest['videos']) == 12
     results = []
     for item in manifest['videos']:
         path = root / item['path']
@@ -22,6 +22,8 @@ def check(root):
         ], check=True, capture_output=True, text=True).stdout)['streams'][0]
         if 'seed201' in path.name:
             expected = (72, 7.2, 1600, 900)
+        elif 'ur5e-whole-workflow-' in path.name:
+            expected = (575, 23.0, 1600, 900)
         elif 'ur5e-' in path.name:
             expected = (312, 12.48, 1600, 900)
         elif 'ot2-sixwell-' in path.name:

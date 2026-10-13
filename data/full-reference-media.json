@@ -111,6 +111,32 @@
       "trial_accepted": false,
       "scope": "Same held-out scene and shared tilt. Physics valid; capture gate FAIL. 1.8 s post-grasp test shown at 4\u00d7 slow motion; this paired case is not a multi-seed conclusion.",
       "render_receipt_sha256": "5f056ab64c33460c6a5535e81aea8a33a01a71770b798b76a294b02f2e1c6d32"
+    },
+    {
+      "path": "assets/reproduction/full/ur5e-whole-workflow-failure-r6.mp4",
+      "poster": "assets/reproduction/full/ur5e-whole-workflow-failure-r6.jpg",
+      "sha256": "1982229d2cd977f711bf5c4f9b01cbdac13420c6d874d0caa504196a6555399c",
+      "full_reference_accepted": false,
+      "trial_accepted": false,
+      "scope": "All 14 phases execute through release and retreat. Return error 18.058 mm exceeds the frozen 10 mm limit despite 238/240 captured particles; 172 control samples also contain forearm contact. Final native 23.000 s state is included exactly. Scripted independent backend, bench source; original rack extraction, GRID, perception and learned full task remain open.",
+      "render_receipt_sha256": "2cb184378dc4ddfefd2af4926df5fe5aaa86ff0fe782aa14af6991d213049a85",
+      "exact_terminal_state_included": true,
+      "native_terminal_s": 23,
+      "source_result_sha256": "47f0e7babd14319862c07612f37127a57d4b5e5bce2a3400c937ea0753d71664",
+      "independent_review_sha256": "98242841577c3d2cb1b8d2c60d2acef8e5c71be63d640c1fea020c649aaaf774"
+    },
+    {
+      "path": "assets/reproduction/full/ur5e-dagger-seed201.mp4",
+      "poster": "assets/reproduction/full/ur5e-dagger-seed201.jpg",
+      "sha256": "16ac36c1ef268dd309a1f786c1f3709dbf74b28e6c5e1227a584ce60cc64d74b",
+      "full_reference_accepted": false,
+      "trial_accepted": true,
+      "scope": "1.8 s post-grasp translation-policy test, shown at 4\u00d7 slow motion. Shared scripted tilt, supplied grasp state, zero evaluation teacher queries. Same frozen seed as BC and zero translation; no learned pickup or original GRID weights.",
+      "render_receipt_sha256": "ffc84772adc07d7bdad0039344887990d32a644e5c569530d093df3b17c9d521",
+      "source_states_sha256": "d03122006aa66f4a5f713fefd3c29d44e2fb8b67359cc5f53e93d0b0fb984c63",
+      "source_result_sha256": "92f93ce9d94014f1c1e80f94a107569537109d8fa7a80a947c78d3076836d1a8",
+      "native_duration_s": 1.8,
+      "slow_motion_factor": 4
     }
   ],
   "retired_videos": [
