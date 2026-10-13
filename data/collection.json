@@ -1,7 +1,7 @@
 {
   "schema": "chemrmbench-live-dashboard-v1",
-  "sampled_at_utc": "2026-10-13T06:03:04+00:00",
-  "published_at_utc": "2026-10-13T06:03:26+00:00",
+  "sampled_at_utc": "2026-10-13T07:06:01+00:00",
+  "published_at_utc": "2026-10-13T07:06:04+00:00",
   "source_updated_at_utc": "2026-10-12T14:34:35.171556+00:00",
   "collector": {
     "state": "healthy"
@@ -101,20 +101,20 @@
     {
       "index": 0,
       "name": "RTX 5090",
-      "utilization_percent": 13.0,
-      "memory_used_mib": 392.0,
+      "utilization_percent": 69.0,
+      "memory_used_mib": 10010.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 45.0,
-      "sampled_at_utc": "2026-10-13T06:03:04+00:00"
+      "temperature_c": 54.0,
+      "sampled_at_utc": "2026-10-13T07:06:01+00:00"
     },
     {
       "index": 1,
       "name": "RTX 5090",
-      "utilization_percent": 1.0,
-      "memory_used_mib": 1066.0,
+      "utilization_percent": 8.0,
+      "memory_used_mib": 5583.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 42.0,
-      "sampled_at_utc": "2026-10-13T06:03:04+00:00"
+      "temperature_c": 45.0,
+      "sampled_at_utc": "2026-10-13T07:06:01+00:00"
     }
   ],
   "tasks": [
@@ -154,7 +154,7 @@
       "title": "长任务分步保存",
       "state": "development",
       "summary": "将长试次分成固定采集时间段，逐段提交证据并绑定同一个父试次。",
-      "notice": "已提交阶段可核验保存完整性；这不代表每个子任务成功，也不等同于从物理快照重启。",
+      "notice": "保存完整性已验证；历史刚体适配器已有局部恢复证据并已接入。全场景、冷启动、长链和液体恢复未验收；详见场景与重建页。",
       "metrics": [
         {
           "label": "阶段",
@@ -165,8 +165,8 @@
           "value": 1
         },
         {
-          "label": "重启能力",
-          "value": "未建立"
+          "label": "物理恢复",
+          "value": "局部通过"
         },
         {
           "label": "训练准入",
@@ -174,9 +174,9 @@
         }
       ],
       "collection": "8 段已保存",
-      "engineering": "提交标记与摘要可核验",
+      "engineering": "提交核验 + 历史局部恢复",
       "scientific": "开发数据 · 不计正式样本",
-      "next": "延长采集至完整动作终态"
+      "next": "先验全实体恢复与续采，再延长动作终态"
     },
     {
       "id": "memory",
