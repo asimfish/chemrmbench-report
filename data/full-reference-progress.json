@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T12:48:39.390026+00:00",
+  "exported_at_utc": "2026-10-13T13:03:14.962922+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -49,10 +49,10 @@
       "family": "MATTERIX",
       "kind": "demonstration",
       "reference": "Fig.6C; Supplement Sec.6",
-      "acceptance": "FR3 places dispensing rack, tip rack and reservoir into OT2; actual contact-derived tip loading, liquid aspiration/dispensing and disposal; verify channel locations, mass conservation, actual transfer and ordered task transitions.",
+      "acceptance": "Reproduce author insertion-conditioned semantic tip loading and synchronized tip motion, immersed aspiration, dispensing and disposal, plus rack/reservoir setup in the stated manipulator configuration. Verify liquid identity/volume and ordered transitions. Force-threshold or friction-fit loading is an additional local validation, not a published prerequisite.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Native OT2 motion now drives reconstructed eight-channel finite-volume aspiration/dispense with a no-aspiration control. Native tip contact and FR3 loading remain open. The current 96-well plate / 12-channel reservoir are disclosed fallback labware, not the original six-well / two-well setup."
+      "gap": "Native OT2 motion drives reconstructed eight-channel finite-volume aspiration/dispense with a no-aspiration control. Match the author insertion-triggered semantic tip loading, synchronized motion and disposal; force/friction validation is an additional local enhancement. Figure 3G uses Panda/Robotiq and six-well/two-well labware; Figure 6C demonstrates real FR3 loading. Current 96-well/12-channel fixtures are a fallback."
     },
     {
       "id": "N06",
@@ -372,7 +372,7 @@
       "evidence_sha256": "defc3f3f3664437eaff94ccb14c202d34d106ece247a2316a0e2b1f4f6efbba4",
       "subsystem_passed": true,
       "full_reference_accepted": false,
-      "scope": "Native author OT2 joints; geometry-gated reconstructed finite-volume liquid semantics. Two 26 s runs, positive and no-aspiration control. No tip-contact claim.",
+      "scope": "Native author OT2 joints; geometry-gated reconstructed finite-volume liquid semantics. Two 26 s runs, positive and no-aspiration control. Insertion-conditioned semantic fluid/attachment model.",
       "metrics": {
         "channels": 8,
         "positive_per_channel_model_uL": 100,
@@ -380,7 +380,7 @@
         "parcel_model_uL": 0.5,
         "physics_steps_per_run": 6240
       },
-      "remaining": "Native tip/labware contact, FR3 loading, original liquid engine, and complete station acceptance remain open."
+      "remaining": "Author-equivalent complete setup/load/aspirate/dispense/discard workflow, original labware and manipulator configurations remain open. Force-based tip fitting is an extra local check."
     },
     {
       "id": "dfsph",
@@ -448,17 +448,59 @@
         "product_40C_shadow": 0.001885201868460167
       },
       "remaining": "Original chemical identity/configuration, reciprocal thermal calibration and exact reference equivalence remain open."
+    },
+    {
+      "id": "auto_repro_ur5e_fluid_pour_r1",
+      "title": "UR5e + live DFSPH · original failed trial",
+      "evidence_sha256": "e692d1d0da3ed25510a81615452208c91bd1212bd3c9120b2462c75114ce3481",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Independent fluid backend with actual native UR5e pickup/transport and scripted tilt. A 12.5 s workflow; not original GRID, image-based perception or a learned full-task policy.",
+      "metrics": {
+        "simulation_s": 12.499999999993543,
+        "receiver_particles": 155,
+        "source_particles": 0,
+        "particles": 240,
+        "max_CFL": 1.7049381732940674,
+        "physical_lift_m": 0.08952227200173479
+      },
+      "remaining": "240-particle pilot, calibrated fluid resolution and full task return are still open. The original failed attempt remains in the evidence. Corrected candidate uses the original finite bench/floor geometry with sampled boundary approximations."
+    },
+    {
+      "id": "learning-round-0",
+      "title": "Reactive translation policy · BC round 0",
+      "evidence_sha256": "4b175b30980a1451a6b0de34a7cb7121b2722226b83661f289e34e31955bcf99",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Actual native fluid/UR5e rollouts after an established grasp. The policy learns EE translation; the tilt schedule is shared. Model versions reuse one held-out seed (100), not independent evaluation replicates.",
+      "metrics": {
+        "completed_round": 0,
+        "cumulative_labeled_states": 144,
+        "student_action_states": 0,
+        "evaluation_episodes": 1,
+        "successful_evaluation_episodes": 1,
+        "final_training_loss": 0.0026299399516374906
+      },
+      "remaining": "Small reconstruction pilot: learned pickup, autonomous tilt, perception, multiple independent hold-outs and cross-robot transfer remain open."
     }
   ],
   "active": {
     "id": "organic_native_2000s_r4",
     "phase": "RUNNING",
     "process_verified_alive": true,
-    "simulation_s": 480.02,
-    "physics_steps": 120005,
-    "sampled_at_utc": "2026-10-13T12:48:28.410276+00:00"
+    "simulation_s": 870.02,
+    "physics_steps": 217505,
+    "sampled_at_utc": "2026-10-13T13:03:07.682168+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
+  "audit_clarifications": [
+    {
+      "requirement": "N05",
+      "evidence_sha256": "d5d1eb3fc3ff0d66ee4b27981ee6dd71c8466223ad84cff9102196464ab852b9",
+      "source": "Nature PDF pp. 72, 75, 78; Fig. 4j,k and Fig. 6c",
+      "change": "Author semantic insertion/loading condition distinguished from extra local force/friction validation"
+    }
+  ],
   "scope": "Simulation first. The 36 requirements expand the earlier 13 capability groups. Hardware comparisons and unavailable author inputs are identified separately; no full-paper completion is inferred from subsystem passes.",
   "source_links": [
     {
@@ -476,6 +518,7 @@
   ],
   "asset_progress": "A self-contained FR3 asset and several independent laboratory scene candidates were located and composition-checked. They are not confirmed original-author assets; raw NAS assets are not redistributed.",
   "source_boundaries": [
+    "Audit correction: insertion-triggered semantic tip loading is the author method; contact-force/friction verification was previously misattributed and is a local extension.",
     "Original MATTERIX chemistry configuration and exact source species identity remain unresolved.",
     "GRID fluid implementation, original GELLO demonstrations and original phone-video input were not recovered.",
     "Published pick-place prose/caption trial counts conflict; the discrepancy is retained.",
