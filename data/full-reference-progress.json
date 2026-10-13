@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T15:02:16.991875+00:00",
+  "exported_at_utc": "2026-10-13T15:12:05.831280+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -894,6 +894,29 @@
       "remaining": "One scripted bench-source attempt; no matched full-duration liquid negative, rack extraction, subsequent pouring, learned transfer or original GRID equivalence. Forty-millisecond saved frames bracket source departure but cannot establish the precise exit surface; microstep diagnostics are separate."
     },
     {
+      "id": "ot2-panda-native-loading-r8",
+      "title": "MATTERIX · Panda physically loads a full-size six-well plate",
+      "evidence_sha256": "de93eab912a36617c7e2eea3666fecfbe8ccc2a8607612664695b182d4f67f1a",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One 44.5 s Panda/Robotiq run physically lifts and places the plate. All 15 frozen local gates are independently reproduced. Both inner fingers carry the plate throughout the final one-second lift hold, with no other support contact. Original station transforms, bounds and 25 colliders are retained.",
+      "metrics": {
+        "simulation_s": 44.5,
+        "physics_steps": 26700,
+        "minimum_root_lift_mm": 69.3899393081665,
+        "minimum_plate_bottom_clearance_mm": 67.76334990567688,
+        "both_fingers_loaded_steps": 600,
+        "load_window_steps": 600,
+        "placement_XY_error_mm": 0.28173374998827494,
+        "audited_environment_impulse_records": 0,
+        "native_contact_callbacks": 65580,
+        "frozen_gates_passed": 15,
+        "frozen_gates_total": 15,
+        "original_station_colliders": 25
+      },
+      "remaining": "Measured simulator grasp transforms guide the path; fixtures include a reconstructed support. Contact gates cover the parked OT2, station and supports, not ground or robot self-contact. The no-grasp run leaves the plate at staging and uses a hypothetical grasp plan, so it is not a strictly identical-trajectory causal control. Native pipetting from this actual loaded state remains a separate integration test."
+    },
+    {
       "id": "ur5e-whole-workflow-repair-r7",
       "title": "UR5e · scoped 23 s workflow passes",
       "evidence_sha256": "f55addfbbf3b2b7dfdd29a85719a9b142a55c9f59e940575c95f6fc23726b119",
@@ -912,11 +935,28 @@
         "frozen_gates_passed": 16,
         "frozen_gates_total": 16,
         "independent_consistency_checks": 21,
-        "unexpected_contact_control_rows": 0,
+        "unexpected_tube_contact_control_rows": 0,
         "maximum_CFL": 0.10664936900138855,
         "return_feedback_actions": 400
       },
-      "remaining": "One posthoc repair, not a success-rate estimate or single-factor ablation: tilt, return feedback and compute device changed. Zero unexpected contacts at 100 Hz does not prove collision freedom at every physics substep. Original GRID, rack extraction, perception and learned whole-task behavior remain open."
+      "remaining": "One posthoc repair, not a success-rate estimate or single-factor ablation: tilt, return feedback and compute device changed. Zero unexpected tube contacts at 100 Hz does not imply whole-robot collision freedom: the separate audit below finds pad–rack contacts. Original GRID, rack extraction, perception and learned whole-task behavior remain open."
+    },
+    {
+      "id": "ur5e-pad-rack-quality-gap",
+      "title": "UR5e · gripper–rack contact remains a quality gap",
+      "evidence_sha256": "878733439b079c870f38226c641c2f103e100a77b451645c62227b87f697cc67",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A whole-scene posthoc audit of all 575 saved native states finds gripper-pad contact with rack rails during closing and lifting. This is outside the original test-tube contact gate, whose local pass remains recorded.",
+      "metrics": {
+        "saved_native_states": 575,
+        "pad_rack_contact_frames": 44,
+        "correlated_contact_points": 173,
+        "first_observed_s": 2.560000000000256,
+        "last_observed_s": 4.280000000001363,
+        "maximum_sampled_signed_overlap_mm": 0.17830238134854604
+      },
+      "remaining": "The 44 frames and 173 contact points are correlated. These are 25 Hz native geometric contacts under soft-contact dynamics, not measured forces or a continuous-time penetration bound. Do not describe the original R7 as whole-robot collision-free; a higher pickup is a separate repair candidate."
     },
     {
       "id": "dual-open-top-egress-diagnostic",
@@ -957,21 +997,59 @@
         "maximum_CFL": 0.051327940076589584,
         "independent_consistency_checks": 12
       },
-      "remaining": "One pickup-only diagnostic, not a complete handoff or successful software run. The original log and missing result file are preserved. The slower lift motivates the separate full handoff-and-pour candidate; it does not establish whole-task repair or statistical robustness."
+      "remaining": "One pickup-only diagnostic, not a complete handoff or successful software run. The original log and missing result file are preserved. The slower lift motivates the separate full handoff-and-pour candidate; it does not establish whole-task repair or statistical robustness. A later independently checked contact audit also finds tube–rack contact at 5.04 s, which its ten original local checks did not cover."
     },
     {
-      "id": "auto-repro-dual-objectspace-pour-cuda-r5",
-      "title": "Dual Flexiv · complete handoff and pour candidate",
-      "evidence_sha256": "79f3dffe255234aebaedcea355d509963086780b973167b0c18ba59e9002bc3f",
+      "id": "dual-handoff-pour-gate-stop-r5",
+      "title": "Dual Flexiv · 21 s gate failure; pouring not executed",
+      "evidence_sha256": "a95e2cbdd4096a3da1581fd1e842e1275dfa599a284c283e9366a2baec6be812",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: FAILED. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "The planned 33.5 s workflow stops at the 21 s handoff gate. All 240 particles remain in the source, but five 100 Hz rows contain tube–rack contact. No pouring or return phase executed; the failed attempt remains in its own denominator.",
       "metrics": {
-        "recorded_simulation_s": 21.000000000054765,
+        "actual_simulation_s": 21.000000000054765,
         "planned_simulation_s": 33.5,
-        "result_file_present": 1
+        "clock_derived_physics_steps": 168000,
+        "control_rows": 2100,
+        "saved_native_states": 525,
+        "retained_particles": 240,
+        "total_particles": 240,
+        "unexpected_tube_contact_control_rows": 5,
+        "handoff_gates_passed": 11,
+        "handoff_gates_total": 12,
+        "pouring_executed": 0,
+        "maximum_CFL": 0.048557672649621964
+      },
+      "remaining": "The old CPU slower-lift prefix also contacts the rack at 5.04 s; this failure is not uniquely attributable to CUDA. A separate whole-scene audit finds additional gripper-pad–rack contacts. Fluid retention and receiver-only support do not override the failed contact gate."
+    },
+    {
+      "id": "auto-repro-ur5e-rack-clearance-complete-cpu-r9",
+      "title": "UR5e · higher-grasp whole-scene repair candidate",
+      "evidence_sha256": "16e571a4f84f493105fbdcd9ebd743f84ad77ea1e7f392b592abd252835d4b76",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: approach. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "metrics": {
+        "recorded_simulation_s": 1.4999999999998486,
+        "planned_simulation_s": 23,
+        "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+    },
+    {
+      "id": "panda-ot2-continuous-native-candidate",
+      "title": "MATTERIX · continuous Panda-to-OT2 native candidate",
+      "evidence_sha256": "19cd00f7a5ca00f7cb56fe00b6ba2eef125104be64f470534cc4ac77b9018e71",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded phase: insert_edge. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "metrics": {
+        "recorded_physics_steps": 3600,
+        "clock_derived_simulation_s": 6.0,
+        "planned_simulation_s": 105.5,
+        "original_OT2_colliders": 25
+      },
+      "remaining": "Observed progress is not acceptance. Revalidate the Panda contact path with live OT2 articulation, actual loaded-plate pipetting, volume conservation, timing, door torque and final state. Paper-style semantic tip attachment and finite-volume liquid remain distinct from a calibrated particle-fluid model."
     }
   ],
   "active": {
