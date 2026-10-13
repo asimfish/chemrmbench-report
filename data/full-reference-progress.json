@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T14:52:06.599995+00:00",
+  "exported_at_utc": "2026-10-13T15:02:16.991875+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -962,14 +962,14 @@
     {
       "id": "auto-repro-dual-objectspace-pour-cuda-r5",
       "title": "Dual Flexiv · complete handoff and pour candidate",
-      "evidence_sha256": "455eb72acaa1153e3cfa9cc79430c2cc6bcbd77e883bc98d3d4adb18c88f3633",
+      "evidence_sha256": "79f3dffe255234aebaedcea355d509963086780b973167b0c18ba59e9002bc3f",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_transfer_pose. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: FAILED. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 10.000000000002242,
+        "recorded_simulation_s": 21.000000000054765,
         "planned_simulation_s": 33.5,
-        "result_file_present": 0
+        "result_file_present": 1
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     }
