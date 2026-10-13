@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:42:15.883565+00:00",
+  "exported_at_utc": "2026-10-13T16:50:29.983993+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1272,12 +1272,26 @@
     {
       "id": "auto-repro-dual-timescaled-complete-cpu-r7",
       "title": "Dual Flexiv · same-path slower full-fluid candidate",
-      "evidence_sha256": "67294b0ff00b2bf3231d7af9a1374b6619a76514ddca19116f9a7a3d4359e58d",
+      "evidence_sha256": "ca55232f915d94c1424a913ef891f6a6df0c50ae73c39c68ff3360841fd29da1",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: receiver_approach. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: receiver_transport. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 13.000000000016566,
+        "recorded_simulation_s": 18.500000000042828,
+        "planned_simulation_s": 46,
+        "result_file_present": 0
+      },
+      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+    },
+    {
+      "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
+      "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
+      "evidence_sha256": "4a2827e73d0e27dea49f4cc2eac511c73f1dcedb42026eb551067ae23ec4ed77",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: sender_approach. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "metrics": {
+        "recorded_simulation_s": 2.5000000000001825,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
@@ -1286,13 +1300,13 @@
     {
       "id": "ur5e-paired-repair-progress-402",
       "title": "UR5e · paired repair 402 · unreviewed progress",
-      "evidence_sha256": "d435bb09d116ae1e6f4fdc335850ed8e88b8cb5447141c3788820d1452f1c164",
+      "evidence_sha256": "95098e337729f636de6310f122e688ed241e5b71c2547301ab30f9d72132ba94",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: pour_hold. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
+      "scope": "Last recorded native phase: retract. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
       "metrics": {
         "seed": 402,
-        "recorded_simulation_s": 11.500000000009404,
+        "recorded_simulation_s": 21.500000000057153,
         "planned_simulation_s": 23,
         "predeclared_cohort_size": 4
       },
@@ -1385,15 +1399,32 @@
         "reviewed_local_gate_passes": 4
       },
       "remaining": "Process completion is not task acceptance. All outcomes, including failures, require per-trial independent review. This tests small planar initial-state variation, not new task structure or task-space generalization."
+    },
+    {
+      "id": "ot2-three-labware-setup-diagnostic-r1",
+      "title": "MATTERIX · three-object physical setup diagnosis",
+      "evidence_sha256": "2dd5f051c260e6f516a25d504a2362fee7926bb37715b2af264030c49007d77b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded phase: STEPPING / plate/hold. One continuous scene attempts full-size plate, reservoir and tip-rack grasp/transport/placement; no object pose writes after initialization. This diagnostic stops at the first recorded unexpected positive impulse or failed frozen gate. Ground and self-contact are outside its contact gate.",
+      "metrics": {
+        "recorded_physics_steps": 25200,
+        "clock_derived_simulation_s": 42.0,
+        "maximum_simulation_s": 180,
+        "recorded_completed_objects": 0,
+        "planned_objects": 3,
+        "pipetting_executed": 0
+      },
+      "remaining": "Last recorded progress is not evidence of a live process or acceptance. Independent contact/pose review is pending. N05 remains open until all three actual final poses carry into native pipetting in the same scene. Local supports, reconstructed rack/reservoir and grip overlay remain adaptations."
     }
   ],
   "active": {
-    "id": "ot2_repro_continuous_no_aspiration_r4",
-    "phase": "BOUNDED_CONTINUOUS_EPISODE_FINISHED",
-    "process_verified_alive": false,
-    "simulation_s": 105.5,
-    "physics_steps": 63300,
-    "sampled_at_utc": "2026-10-13T16:24:29.969544+00:00"
+    "id": "ot2_repro_three_labware_setup_diagnostic_r1",
+    "phase": "STEPPING",
+    "process_verified_alive": true,
+    "simulation_s": 42.0,
+    "physics_steps": 25200,
+    "sampled_at_utc": "2026-10-13T16:50:20.997485+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
