@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T13:52:08.453311+00:00",
+  "exported_at_utc": "2026-10-13T14:02:06.792250+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -663,7 +663,7 @@
     {
       "id": "bench-repair-101",
       "title": "Complete bench · known-seed repair 101",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
@@ -679,7 +679,7 @@
     {
       "id": "bench-repair-102",
       "title": "Complete bench · known-seed repair 102",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
@@ -695,7 +695,7 @@
     {
       "id": "bench-repair-103",
       "title": "Complete bench · known-seed repair 103",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "Controlled posthoc repair using the same original clean BC checkpoint and known seed. Complete bench sampling removes the old fixed footprint hole. This is not a new blind holdout.",
@@ -711,7 +711,7 @@
     {
       "id": "verified-learning-0",
       "title": "Complete bench + data admission · BC round 0",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
@@ -730,7 +730,7 @@
     {
       "id": "verified-learning-1",
       "title": "Complete bench + data admission · DAgger round 1",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
@@ -747,9 +747,44 @@
       "remaining": "Seed 100 is a known diagnostic scene. Independent seeds 201–203, complete pickup/return, image-based control and cross-robot transfer are separate acceptance criteria."
     },
     {
+      "id": "verified-learning-2",
+      "title": "Complete bench + data admission · DAgger round 2",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separately frozen retraining run. Raw transitions are preserved; the first physically invalid action and its suffix are quarantined. Physically valid task failures remain eligible. This still learns translation with a shared scripted tilt.",
+      "metrics": {
+        "training_attempted": 2,
+        "training_completed": 2,
+        "cumulative_raw_states": 432,
+        "admitted_states": 432,
+        "quarantined_states": 0,
+        "data_admission_passed": 1,
+        "known_seed100_evaluations": 1,
+        "known_seed100_accepted": 1
+      },
+      "remaining": "Seed 100 is a known diagnostic scene. Independent seeds 201–203, complete pickup/return, image-based control and cross-robot transfer are separate acceptance criteria."
+    },
+    {
       "id": "new-holdout-bc",
       "title": "Untouched seeds 201–203 · repaired bc",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
+      "metrics": {
+        "planned": 3,
+        "attempted": 3,
+        "completed": 3,
+        "accepted": 3,
+        "checkpoint_data_admission_passed": 1
+      },
+      "remaining": "A three-seed translation-policy pilot with a fixed tilt schedule cannot establish full Auto-Engineering reproduction or general cross-robot transfer."
+    },
+    {
+      "id": "new-holdout-dagger",
+      "title": "Untouched seeds 201–203 · repaired dagger",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": true,
       "full_reference_accepted": false,
       "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
@@ -765,7 +800,7 @@
     {
       "id": "new-holdout-zero",
       "title": "Untouched seeds 201–203 · repaired zero",
-      "evidence_sha256": "0ff6f634e02ab8c7dc87fc97cdfa9f6b46cacd551303f9a298b683da5d2ea19a",
+      "evidence_sha256": "87732b6e59b35753c1d0b3dc9378057ba7ea79069131ea40b3b46c66898e2228",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "New seeds frozen before retraining, with the complete bench and transition data-admission gate. These results are kept separate from old seeds 101–103 and their posthoc repair diagnostics.",
