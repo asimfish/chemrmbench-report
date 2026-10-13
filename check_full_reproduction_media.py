@@ -1,4 +1,4 @@
-"""Decode and authenticate the eighteen reviewed recorded-state videos."""
+"""Decode and authenticate the nineteen reviewed recorded-state videos."""
 import hashlib
 import json
 from pathlib import Path
@@ -9,7 +9,7 @@ def check(root):
     root = Path(root).resolve()
     manifest = json.loads((root / 'data/full-reference-media.json').read_text())
     assert manifest['full_reference_reproduction'] is False
-    assert len(manifest['videos']) == 18
+    assert len(manifest['videos']) == 19
     results = []
     for item in manifest['videos']:
         path = root / item['path']

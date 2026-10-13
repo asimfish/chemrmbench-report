@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-13T15:57:59.109809+00:00",
+  "role": "Independent source-to-observable-function coverage review; no old contract/audit/result modified",
+  "basis": "Primary published paper and author supplement, followed by completed independently auditedR4native run.",
+  "source_sources": [
+    {
+      "path": "evidence/auto_learning_review_r1/user_nature_main_layout.txt",
+      "role": "User-supplied published Nature PDF text, primary published source",
+      "sha256": "3f487263f116f6c81da8a8d26100c4f649604272b0678ef6b937f3f58e7a09b1"
+    },
+    {
+      "path": "references/matterix_arxiv_full_with_supplement_r1.txt",
+      "role": "Downloaded author full text with supplementary sections, corroborates task descriptions",
+      "sha256": "36c31cc47a3689cddc8c924972d0cdbac4de5a460698457ef278368202e04fd1"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "N20",
+      "source_locator": [
+        "Published PDF physical p.6 / printed p.72, Manipulation skills, Fig.4a; extracted lines384\u2013391",
+        "Author supplement Sec.2 environment catalogue: wellplate insertion in OT2; full-text lines2373\u20132374"
+      ],
+      "published_observable_function": "Robot grasps a wellplate, carries it and places it at a rack position within the OT2 so that the pick-and-place workflow completes.",
+      "published_quantitative_target": null,
+      "simulation_published_function_closed": true,
+      "acceptance_level": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+      "completed_evidence": [
+        "R4 performs actual dynamic full-size six-well plate grasp, transport, placement and release in one live scene. The last600 loaded samples have600 bilateral plate contacts and0other support contacts; whole plate clears initial support66.98mm.",
+        "The placed plate stays at its observed final position throughout61s of native OT2 motion, and actual plate-local well geometry accepts all24 dispensing outlets. This strengthens stable useful placement beyond a paused pose image.",
+        "Source OT2 body scales and all25 original collider world bounds are independently checked. Plate remains dynamic,70g,nonkinematic and unjointed; no pose/velocity reset is applied at handoff."
+      ],
+      "configuration_differences_to_keep_public": [
+        "The reconstructed receiving location uses a local50mm riser/support and front-row layout. This is not a claim of the author exact rack-slot geometry.",
+        "Panda/Robotiq uses the declared parallel-grip overlay and local mass/friction/controller assumptions. The main real deployment usesFR3; the supplement explicitly identifiesPanda for the simulation insertion example.",
+        "The six-well asset and added fixtures are declared reconstructed substitutes; equality of original CAD, layout and contact trajectories is not established."
+      ],
+      "minimum_necessary_evidence_remaining_for_this_qualitative_function": [],
+      "remaining_for_exact_configuration_or_full_paper": [
+        "Document source-vs-reconstruction layout and labware visually; recover/rebuild the precise author rack seating if claiming exact original configuration.",
+        "Do not extend this result to reusable HSM library/API equivalence, perception, realFR3 deployment or the complete liquid station."
+      ],
+      "local_thresholds_not_author_requirements": [
+        "5cm lift,5mm placement tolerance,0.1rad orientation,0.02m/s terminal velocity,contact sample thresholds and10um geometry readback tolerance are local validation values."
+      ],
+      "contract_recommendation": "A versioned contract may mark the qualitative simulation pick/place feature accepted now, while recording configuration differences separately. Original-code identity or contact-force thresholds absent from the paper must not block this feature indefinitely."
+    },
+    {
+      "id": "N22",
+      "source_locator": [
+        "Published PDF physical p.6 / printed p.72, Integrated physics and semantics engine, Fig.4j,k; extracted lines370\u2013395",
+        "Published PDF physical p.12 / printed p.78, Methods: Integrated physics and semantics engine; extracted lines874\u2013922",
+        "Author full text lines639\u2013650 and928"
+      ],
+      "published_observable_function": "Insertion triggers tip loading; loaded tip follows pipette motion; liquid aspiration requires immersion; aspiration/dispensing changes liquid states; moving to disposal detaches the tip.",
+      "published_quantitative_target": null,
+      "simulation_published_function_closed": true,
+      "acceptance_level": "QUALITATIVE_INSERTION_IMMERSION_AND_TRANSFER_SEMANTICS_RECONSTRUCTED",
+      "completed_evidence": [
+        "R4 executes8 insertion-conditioned attachments,24 aspiration events,24 dispense events and8 disposal detachments; all64 event coordinates, phases, native times and results are independently reconstructed.",
+        "Tip attachment stores the measured local transform and updates the actual executing USD. Independent all-step relative error is3.93e-17m, not post-render-only movement.",
+        "Actual live source immersion is positive at every aspiration, minimum1.104mm local margin. Every dispense outlet lies inside the actual dynamic well, minimum2.642mm geometric margin.",
+        "All63300 logged semantic snapshots are independently reconstructed from native geometry and an event ledger. The exact final source/tip/well parcel-ID lists match the reconstructed40000-ID ledger; source17600modeluL and6wells\u00d7400modeluL remain, all tips empty and disposed."
+      ],
+      "configuration_differences_to_keep_public": [
+        "Finite conservative semantic parcels and instantaneous event transfers are used. This is notPBD fluid, a physical aspiration-rate model, calibrated real microlitres or original author implementation identity.",
+        "Tips/reservoir geometry and recipe are declared local reconstructions. No mechanical force-fit attachment or measured pipette calibration is claimed.",
+        "The current sequence isPython/CPU semantics alongside nativePhysX. It does not reproduce the paper PyTorch/GPU throughput results, which belong to a separate performance requirement."
+      ],
+      "minimum_necessary_evidence_remaining_for_this_qualitative_function": [],
+      "additional_local_validation_pending": [
+        "Matched full continuous no-aspiration control is currently executing and must be reported when terminal; it is a useful local intervention rather than a numerical criterion specified by the paper.",
+        "Full continuous visual replay is pending; terminal physics/semantic evidence is already complete. Visual completion must not be inferred from a browser decode pass."
+      ],
+      "local_thresholds_not_author_requirements": [
+        "0.4mm insertion/XY gate,0.5modeluL parcel,100modeluL per channel and400modeluL per well are local recipe/validation values.",
+        "Zero parcel loss,door1mrad/5Nm thresholds and a matched no-aspiration control are local strengthening; no equivalent numerical author requirement was found."
+      ],
+      "contract_recommendation": "The paper explicitly permits semantic state to change physical behavior. Mark this qualitative functionality accepted as a declared reconstruction; do not require contact-derived latch force, PBD-only aspiration or bitwise author engine data to close this item."
+    },
+    {
+      "id": "N05",
+      "source_locator": [
+        "Published PDF physical p.9 / printed p.75, Liquid handling station / Fig.6c; extracted lines702\u2013713",
+        "Author supplement Sec.2 Liquid Dispensing Station; full-text line2348",
+        "Published PDF physical pp.4\u20135 / printed pp.70\u201371, Fig.3 liquid station description:96-tip rack,six-well plate,two-well reservoir; extracted lines291\u2013339"
+      ],
+      "published_observable_function": "Robot sets up all three station components\u2014the dispensing rack,tip rack and reservoir\u2014in theOT2 tray, followed by the ordered OT2 liquid-handling workflow. Published Fig.6c additionally reports simulation-developed control deployed zero-shot to realFR3/OT2.",
+      "published_quantitative_target": null,
+      "simulation_published_function_closed": false,
+      "acceptance_level": "PARTIAL_STATION_WORKFLOW_WITH_IDENTIFIED_MISSING_SETUP_ACTIONS",
+      "completed_evidence": [
+        "Dynamic wellplate placement now continues directly into tip loading,aspiration,6well distribution anddisposal in the same105.5s scene and600Hz clock. The plate is neither reset nor reloaded at the transition.",
+        "The ordered downstream OT2 workflow is verified by31frozen local gates and independent full trace/ledger review."
+      ],
+      "minimum_necessary_evidence_remaining_for_this_qualitative_function": [
+        "Perform actual native robot grasp/transport/placement of the tip rack and two-well reservoir; these are still prepositioned inR4. Preserve their observed placements into the later OT2 execution.",
+        "Execute the three-component station setup and resulting OT2 sequence as one declared workflow with recorded task ordering and live geometry preconditions. A rendering-only rearrangement or loading a finished scene cannot stand in for setup actions.",
+        "Verify the final placed tip rack and reservoir are usable by the original OT2 axes and insertion/immersion semantics, in addition to the already verified placed wellplate."
+      ],
+      "remaining_for_full_published_deployment": [
+        "Zero-shot realFR3/OT2 actuation and observed outcomes remain unexecuted. The current user scope is simulation first; that can be tracked as a separate completed simulation milestone rather than silently claimed hardware deployment.",
+        "Original complete lab layout and precise author configuration/material/visual equivalence remain distinct open reproduction work, not requirements to prove an exact same random trajectory."
+      ],
+      "local_thresholds_not_author_requirements": [
+        "Use predeclared local pose/stability/geometry criteria for the two new placements. The paper does not specify millimeter,force,volume or collision-count acceptance numbers for this demo.",
+        "Panda-based simulation is explicitly described in the supplement; requireFR3 specifically for the paper realFR3deployment claim, not as an invented gate on every simulation skill."
+      ],
+      "contract_recommendation": "Keep the full three-component liquid station item open. Record the now-complete wellplate\u2192OT2 subworkflow separately; close the simulation-stage station requirement when the two missing setup actions and their usable live placements are independently verified. Keep real deployment as a separate published claim."
+    }
+  ],
+  "summary": {
+    "N20_simulation_qualitative_feature_accepted": true,
+    "N22_simulation_qualitative_feature_accepted": true,
+    "N05_complete_station_setup_workflow_accepted": false,
+    "real_robot_deployment_reproduced": false,
+    "full_MATTERIX_paper_reproduced": false
+  },
+  "recommended_contract_change": {
+    "split_dimensions": [
+      "published_observable_function",
+      "configuration_and_asset_provenance",
+      "quantitative_or_performance_equivalence",
+      "simulation_vs_real_deployment"
+    ],
+    "avoid_permanent_blanket_false": true,
+    "do_not_silently_change_old_contract": true,
+    "versioned_update_needed": true,
+    "acceptance_rule": "Allow a qualitative feature to pass when its stated observable behavior is independently demonstrated under disclosed reconstruction assumptions. Keep missing published actions and quantitative claims open. Require neither unavailable bitwise author data nor unsourced extra force/physics thresholds."
+  },
+  "source_sha256": {
+    "evidence/ot2_continuous_positive_r4_independent_review_r1.json": "c05b2863980e58f6b4df418550cfae614bd44708337d9c5e3ae7c22f233f4c01",
+    "evidence/ot2_continuous_r4_native_geometry_independent_review_r1.json": "580dc8ce14488e88248a24961997893619a384894365a2f4c8cc8031e577b634",
+    "evidence/full_reference_requirements_audit_r1.json": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
+    "evidence/full_reference_N05_acceptance_clarification_r1.json": "d5d1eb3fc3ff0d66ee4b27981ee6dd71c8466223ad84cff9102196464ab852b9",
+    "evidence/ot2_repro_panda_sidegrasp_continuous_frozen_protocol_r4.json": "85f8a5b749c7d93b1f89696514c960bcd7ae328952434055fe6066ade53162f0",
+    "evidence/ot2_repro_continuous_acceptance_frozen_r2.json": "a3d4a6ee2430f400fc9f9e814235effcb3580d7c35d2eb22b5863260d5d1a908",
+    "evidence/auto_learning_review_r1/user_nature_main_layout.txt": "3f487263f116f6c81da8a8d26100c4f649604272b0678ef6b937f3f58e7a09b1",
+    "references/matterix_arxiv_full_with_supplement_r1.txt": "36c31cc47a3689cddc8c924972d0cdbac4de5a460698457ef278368202e04fd1"
+  },
+  "no_shared_files_modified": true
+}
