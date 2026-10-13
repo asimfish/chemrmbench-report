@@ -200,6 +200,45 @@ if agent:
         value=frame['image'];assert re.fullmatch(r'assets/native-v83/(cue|current|finished)\.jpg',value)
         assert hashlib.sha256((root/value).read_bytes()).hexdigest()==frame['image_sha256']
     assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
+for kind,versions in [('native_memory_conditions',(83,84)),('continuous_timing_probes',(85,86))]:
+    pilots=data[kind];assert [p['id'] for p in pilots]==['V'+str(v) for v in versions]
+    for p,v in zip(pilots,versions):
+        path=root/p['receipt'];assert hashlib.sha256(path.read_bytes()).hexdigest()==p['receipt_sha256']
+        detail=json.loads(path.read_text())
+        assert p['scientific_admission'] is p['formal_event_memory_admission'] is False
+        assert detail['scientific_admission'] is detail['training_admission'] is detail['formal_event_memory_admission'] is False
+        for key in ('contact_after_resume_bounds_s','error_interval_ms','desired_contact_after_resume_s','simulation_paused_for_inference','host_readout_elapsed_s'):
+            assert p[key]==detail[key],key
+        assert detail['parent_prefix_preserved'] and detail['parent_checkpoint_preserved']
+        assert detail['restored_command_cursor']==7920 and detail['tail_commands']==5507 and detail['reexecuted_prefix_commands']==0
+        assert detail['phases']['child']['placement_error_mm']==p['placement_error_mm']<1
+        assert detail['restore']['all_transient_gates_pass'] and detail['restore']['full_registry_each_tick']
+        assert detail['native_clock_continuous_across_rebuild'] is detail['chemical_event_verified'] is False
+        assert len(p['frames'])==3
+        for frame in p['frames']:
+            assert re.fullmatch(r'assets/native-v'+str(v)+r'/(cue|current|finished)\.jpg',frame['image'])
+            assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
+        assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|ssh\s',json.dumps(detail))
+        if v<85:
+            assert detail['simulation_paused_for_inference'] and detail['requested_deadline_pass']
+        else:
+            assert detail['pinned_files_verified']==114 and detail['contract_tests_passed']==94
+            assert not detail['simulation_paused_for_inference'] and not detail['real_time_speed_assumed']
+            assert detail['cleared_readout_mode']=='OFFLINE_AFTER_NATIVE_SHUTDOWN'
+            assert p['physical_bottle_mechanics_pass'] is True
+            for key in ('native_readout_elapsed_s','physical_callbacks_during_readout','remaining_wait_ticks','readout_ticks_spent_once'):
+                assert p[key]==detail[key]
+            assert abs(p['native_readout_elapsed_s']-p['physical_callbacks_during_readout']/240)<1e-5
+            assert abs(p['actual_skill_start_after_resume_s']-(p['native_readout_elapsed_s']+p['remaining_wait_ticks']/240))<1e-5
+            if v==85:
+                assert detail['requested_deadline_pass'] and detail['readout_ticks_spent_once']
+                assert p['physical_callbacks_during_readout']+p['remaining_wait_ticks']==1159
+            else:
+                assert detail['status']=='FAIL_SCOPED_NATIVE_AGENT_CONTACT_DEADLINE'
+                assert not detail['requested_deadline_pass'] and not detail['readout_ticks_spent_once']
+                assert detail['native_delay_explains_timing_error'] and detail['accounted_executor_would_refuse']
+                assert p['remaining_wait_ticks']==1159 and all(abs(e)<20 for e in detail['error_minus_readout_ms'])
+                assert min(p['error_interval_ms'])>1000
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
                      native_bottle_frames=30 if bottle else 0,
                      native_bottle_pair_pass=bool(bottle),

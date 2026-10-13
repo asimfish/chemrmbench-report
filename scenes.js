@@ -50,16 +50,47 @@ function renderMemory(){
   node('memoryResult').textContent='共 '+p.model_calls+' 次真实 Astra 调用，已知计费 '+p.known_billed_tokens.toLocaleString('zh-CN')+' tokens。记忆摘要绑定原物理检查点与控制器游标；恢复读出没有附上旧图片。新增物理执行 0 次，操作截止时间尚未在本轮执行。';
 }
 function renderNativeMemory(){
-  const p=data.native_memory_probe;
+  const choices=data.native_memory_conditions||[data.native_memory_probe],select=node('nativeMemoryCondition');
+  if(!select.options.length){for(const [i,p]of choices.entries()){const o=make('option',p.label||'橙色 · 恢复后 16 秒');o.value=String(i);select.append(o);}select.value=String(choices.length-1);select.onchange=renderNativeMemory;}
+  const p=choices[Number(select.value)];
   if(!p||p.status!=='PASS_SCOPED_NATIVE_AGENT_MEMORY_TIMED_CONTACT'||p.scientific_admission!==false||p.simulation_paused_for_inference!==true)throw Error('native memory evidence scope');
   const pictures=node('nativeMemoryImages');pictures.replaceChildren();
   for(const frame of p.frames){
-    if(!/^assets\/native-v83\/(cue|current|finished)\.jpg$/.test(frame.image))throw Error('invalid native memory image');
+    if(!/^assets\/native-v(83|84)\/(cue|current|finished)\.jpg$/.test(frame.image))throw Error('invalid native memory image');
     const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label;img.loading='lazy';f.append(img,make('figcaption',frame.label));pictures.append(f);
   }
   const stats=node('nativeMemoryStats');stats.replaceChildren();
   for(const [label,value]of[['要求恢复后接触',p.desired_contact_after_resume_s+' s'],['实际接触采样区间',p.contact_after_resume_bounds_s.map(x=>x.toFixed(3)).join('–')+' s'],['实际放回误差',p.placement_error_mm.toFixed(3)+' mm'],['只执行剩余阶段',p.tail_commands.toLocaleString('zh-CN')+' 步']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));stats.append(n);}
-  node('nativeMemoryResult').textContent='恢复后的保留记忆提案实际驱动技能；没有脚本替代模型排程。清空记忆选择等待，仅保留条件实际执行。接触误差采样区间 '+p.error_interval_ms.map(x=>x.toFixed(1)).join('–')+' ms，整体区间满足预设 ±20 ms。读出期间仿真暂停，宿主等待 '+p.host_readout_elapsed_s.toFixed(1)+' s，不能据此声称实时部署延迟通过。';
+  node('nativeMemoryResult').textContent='恢复后的保留记忆提案实际驱动技能，清空记忆选择等待；仅保留条件执行物理余程。接触误差区间 '+p.error_interval_ms.map(x=>x.toFixed(1)).join('–')+' ms，整体区间满足预设 ±20 ms。读出期间仿真暂停，宿主等待 '+p.host_readout_elapsed_s.toFixed(1)+' s。三次真实调用，共 '+p.known_billed_tokens.toLocaleString('zh-CN')+' 已知 tokens；不是实时响应验收。';
+  node('nativeMemoryReceipt').href=p.receipt;node('nativeMemoryReceipt').textContent=p.id+' 独立物理验收、实际计时和资源摘要';
+}
+function timingTimeline(p){
+  const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 900 154');svg.setAttribute('role','img');svg.setAttribute('aria-label',p.label+'：模型调用、剩余等待、技能执行与实际接触的原生时间轴');
+  const x=t=>60+t/17*780,add=(tag,attrs,text)=>{const n=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text)n.textContent=text;svg.append(n);};
+  add('line',{x1:60,x2:840,y1:106,y2:106,stroke:'#bac8c4'});
+  for(const t of[0,5,10,15]){add('line',{x1:x(t),x2:x(t),y1:102,y2:111,stroke:'#73847d'});add('text',{x:x(t),y:131,'text-anchor':'middle',fill:'#52675e','font-size':13},t+' s');}
+  const segments=[[0,p.native_readout_elapsed_s,'#8eaecb'],[p.native_readout_elapsed_s,p.actual_skill_start_after_resume_s,'#ceddd7'],[p.actual_skill_start_after_resume_s,p.contact_after_resume_bounds_s[1],p.requested_deadline_pass?'#397d63':'#b45643']];
+  for(const[a,b,color]of segments)add('rect',{x:x(a),y:59,width:Math.max(1,x(b)-x(a)),height:28,rx:3,fill:color});
+  add('line',{x1:x(10),x2:x(10),y1:36,y2:100,stroke:'#263e34','stroke-dasharray':'4 4'});add('text',{x:x(10),y:24,'text-anchor':'middle','font-size':13,fill:'#263e34'},'要求接触 10 s');
+  add('circle',{cx:x(p.contact_after_resume_bounds_s[1]),cy:73,r:5,fill:'#182f25'});
+  add('text',{x:60,y:151,'font-size':12,fill:'#53675f'},'蓝：模型调用期间积分　浅绿：等待　深色：技能执行至实际接触（采样区间）');
+  node('continuousTimingTimeline').replaceChildren(svg);
+}
+function renderContinuousTiming(){
+  const choices=data.continuous_timing_probes,select=node('continuousTimingCondition');
+  if(!Array.isArray(choices)||choices.length!==2)throw Error('continuous timing evidence unavailable');
+  if(!select.options.length){for(const[i,p]of choices.entries()){const o=make('option',p.label);o.value=String(i);select.append(o);}select.onchange=renderContinuousTiming;}
+  const p=choices[Number(select.value)];
+  if(p.scientific_admission!==false||p.simulation_paused_for_inference!==false||p.real_time_speed_assumed!==false)throw Error('continuous timing scope');
+  const pictures=node('continuousTimingImages');pictures.replaceChildren();
+  for(const frame of p.frames){if(!/^assets\/native-v(85|86)\/(cue|current|finished)\.jpg$/.test(frame.image))throw Error('invalid continuous native image');const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label;img.loading='lazy';f.append(img,make('figcaption',frame.label));pictures.append(f);}
+  const stats=node('continuousTimingStats');stats.replaceChildren();
+  for(const[label,value]of[['调用期间原生积分',p.physical_callbacks_during_readout.toLocaleString('zh-CN')+' 步 / '+p.native_readout_elapsed_s.toFixed(3)+' s'],['实际接触采样区间',p.contact_after_resume_bounds_s.map(x=>x.toFixed(3)).join('–')+' s'],['瓶体放回误差',p.placement_error_mm.toFixed(3)+' mm'],['计时准入',p.requested_deadline_pass?'通过 ±20 ms':'失败 · 晚于时间窗']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));stats.append(n);}
+  const detail=p.requested_deadline_pass?'模型返回后只等待剩余 '+p.remaining_wait_ticks.toLocaleString('zh-CN')+' 步；调用期间的时间只计入一次。':'基线在返回后另等完整 '+p.remaining_wait_ticks.toLocaleString('zh-CN')+' 步；计时误差 '+p.error_interval_ms.map(x=>x.toFixed(1)).join('–')+' ms。漏记的原生时间解释了误差，剩余采样残差 '+p.error_minus_readout_ms.map(x=>x.toFixed(3)).join('–')+' ms；正常准入会拒绝这一过期提案。';
+  node('continuousTimingResult').textContent=detail+' 模型调用宿主时间 '+p.host_readout_elapsed_s.toFixed(2)+' s，原生时间 '+p.native_readout_elapsed_s.toFixed(3)+' s，分别记录。清空记忆诊断在 GPU 工作进程结束后使用原封存输入调用一次，不参与物理调用延迟。';
+  node('continuousTimingReceipt').href=p.receipt;node('continuousTimingReceipt').textContent=p.id+' 独立计时复核与原始数据摘要校验值';timingTimeline(p);
+  const rows=node('continuousTimingComparison');rows.replaceChildren();
+  for(const c of choices){const tr=make('tr');for(const v of[c.id+' · '+c.label,c.native_readout_elapsed_s.toFixed(3)+' / '+c.host_readout_elapsed_s.toFixed(2)+' s',c.contact_after_resume_bounds_s.map(x=>x.toFixed(3)).join('–')+' s',c.requested_deadline_pass?'通过':'失败',c.placement_error_mm.toFixed(3)+' mm'])tr.append(make('td',v));rows.append(tr);}
 }
 function renderScene(){const scene=data.scenes.find(s=>s.id===current)||data.scenes[0];current=scene.id;const view=scene.views.find(v=>v.id===camera)||scene.views[0];camera=view.id;node('sceneTitle').textContent=scene.station+' 站 · '+scene.title;node('sceneChoices').replaceChildren();for(const s of data.scenes){const b=make('button',s.station+' · '+s.title);b.type='button';b.classList.toggle('active',s.id===current);b.setAttribute('aria-pressed',String(s.id===current));b.addEventListener('click',()=>{current=s.id;camera=null;renderScene();});node('sceneChoices').append(b);}node('cameraChoices').replaceChildren();for(const v of scene.views){const b=make('button',v.label);b.type='button';b.classList.toggle('active',v.id===camera);b.setAttribute('aria-pressed',String(v.id===camera));b.addEventListener('click',()=>{camera=v.id;renderScene();});node('cameraChoices').append(b);}const video=node('sceneVideo');video.pause();video.poster=localAsset(view.poster,'jpg');video.src=localAsset(view.video,'mp4');video.load();node('sceneVideoNote').textContent=scene.revision+' · '+view.frames+' 帧 / '+view.fps+' fps · '+view.duration_s.toFixed(1)+' 秒 · '+view.label;node('sceneScope').textContent=scene.scope+' '+scene.demo_acceptance;const digests=node('sceneDigests');digests.replaceChildren();for(const text of['渲染记录：'+scene.render_manifest_sha256,'位姿核验：'+scene.pose_checks_sha256,'当前视频：'+view.video_sha256])digests.append(make('p',text));}
 function renderRestore(){
@@ -89,5 +120,5 @@ function renderRestore(){
   for(const [label,value]of[['历史局部相对位置误差',r.local_relative_position_error_mm.toFixed(4)+' mm'],['历史局部相对姿态误差',r.local_relative_orientation_error_deg.toFixed(4)+'°'],['历史不中断放回误差',r.baseline_placement_mm.toFixed(4)+' mm'],['历史恢复后放回误差',r.resumed_placement_mm.toFixed(4)+' mm']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));nums.append(n);}
   node('restoreFailure').textContent='历史携物整体恢复 FAIL 保留：研杵旋转漂移 '+r.pestle_orientation_drift_deg.toFixed(3)+'° > '+r.original_orientation_limit_deg+'°；当时恢复 30 tick 后只有 '+r.settled_tracked_bodies+'/'+r.checkpoint_bodies+' 个刚体被逐 tick 覆盖。本轮空载结果不覆盖这项历史失败。';
 }
-async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();renderMemory();renderNativeMemory();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
+async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();renderMemory();renderNativeMemory();renderContinuousTiming();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
 load();

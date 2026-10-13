@@ -148,10 +148,16 @@ def live_runs(config):
             continue
         stage_list = []
         alive = False
-        for phase in ('parent', 'child'):
+        phases=registration.get('phases',['parent','child'])
+        if phases not in (['parent','child'],['parent','child_expired','child_retry'],
+                          ['parent','child_expired_resource_retry1','child_retry']):
+            raise ValueError('unregistered native phase plan')
+        labels={'parent':'父阶段封存','child':'新进程核验','child_expired':'过期提案拒绝',
+                'child_expired_resource_retry1':'过期提案拒绝','child_retry':'从父检查点单次重试'}
+        for phase in phases:
             receipt = raw / (phase + '_running.json')
             resource = raw / (phase + '_resource.json')
-            result_path = raw / phase / 'RESULT.json'
+            result_path = raw / ('child_expired' if phase=='child_expired_resource_retry1' else phase) / 'RESULT.json'
             if receipt.exists() and not resource.exists():
                 pid = number(read_json(receipt)['pid'], integer=True)
                 try:
@@ -159,12 +165,13 @@ def live_runs(config):
                     alive |= str(raw).encode() in command
                 except OSError:
                     pass
-            stage_list.append({'label': '同进程核验' if phase == 'parent' else '新进程核验',
-                               'duration_s': 0.0, 'committed': result_path.exists()})
+            refused=phase in ('child_expired','child_expired_resource_retry1') and (raw/'RETRY_GATE.json').exists()
+            stage_list.append({'label': labels[phase],
+                               'duration_s': 0.0, 'committed': result_path.exists() or refused})
         if alive:
             result.append({'id': identifier(registration['id']), 'state': 'collecting',
                            'stages': stage_list, 'committed_stages': sum(s['committed'] for s in stage_list),
-                           'planned_stages': 2})
+                           'planned_stages': len(phases)})
     return result
 
 
@@ -203,14 +210,14 @@ def worklines(latest):
              '1 条开发轨迹', '限定工程交付通过', 'BLOCKED · 化学标定缺失', '补完整第二段动作与事件标定'),
         task('stages', 'DATA · 长任务', '长任务分步保存', 'development',
              '将长试次分成固定采集时间段，逐段提交证据并绑定同一个父试次。',
-             'V83 已完成短时线索与语义记忆保存、冷重建和实际 Astra 排程；只执行剩余 5,507 步，放回误差 0.33 mm。原生接触区间 16.000–16.004 秒；化学事件和液体恢复仍待验收。',
+             'V83/V84 完成短时线索与语义记忆冷恢复、10/16 秒定时接触；V85 连续积分期间按已消耗时间排程通过。各次只执行余程 5,507 步。V86 瓶体操作通过，但计时失败；化学事件和液体恢复仍待验收。',
              [('已保留前阶段', '5 段'), ('恢复后执行', '5,507 步'), ('最终放回误差', '0.33 mm'), ('训练准入', 0)],
-             '前五段 + 恢复后三段', '刚体释放边界原生续跑通过', '开发数据 · 不计正式样本', '扩展绿色条件与随机化事件记忆、独立化学计时'),
+             '前五段 + 恢复后三段', '刚体释放边界原生续跑通过', '开发数据 · 不计正式样本', '超时拒绝、子阶段重试、随机化记忆和独立化学计时'),
         task('memory', 'M1 · 事件记忆', '短暂提示与事件记忆', 'development',
              '提示消失后仍需记住接收器身份和事件时间，并执行对应操作。',
-             'V82 完成两个历史上下文的封存图像读出。V83 另以新原生父子任务完成 0.5 秒短时线索、语义记忆和实际定时接触。清空记忆选择等待；正式随机化 M1 与化学计时未验收。',
-             [('封存图像读出调用', 5), ('原生闭环调用', 3), ('短时原生线索条件', 1), ('正式 M1 样本', 0)],
-             '封存图像诊断 + 新原生父子任务', '外置记忆与实际接触计时限定通过', '正式 M1 未验收', '执行绿色 10 秒条件，再扩展随机化'),
+             'V82 完成封存图像读出；V83/V84 两个暂停条件和 V85 连续条件接触计时通过。V86 延迟基线晚于 10 秒目标 5.413–5.417 秒；失败保留。正式随机化 M1 与化学计时未验收。',
+             [('封存图像读出调用', 5), ('原生试次模型调用', 12), ('已测计时条件', 4), ('正式 M1 样本', 0)],
+             '封存图像诊断 + 原生计时试次', '三例通过，一例计时失败；非配对成功率', '正式 M1 未验收', '超时拒绝与单次重试，再扩展随机化'),
         task('calibration', 'CAL · 物理标定', '化学事件、剂量与泄漏', 'blocked',
              '区分命令、视觉提示、实际运动与化学事件；再检验时间准确性和过程安全。',
              '杯外代理点不等于标定泄漏体积。当前没有独立试剂 A/B、传感器事件标定或外部校准。',
@@ -241,6 +248,9 @@ def collect(config):
                 collector={'state': state}, counts=counts, latest=latest,
                 active_runs=active, gpus=gpus, tasks=worklines(latest), evidence_notes=notes,
                 history=[
+                    {'date': '2026-10-14', 'title': 'V86 · 延迟基线完成，计时失败原样保留', 'detail': '调用期间积分 1,299 步 / 5.413 原生秒，返回后仍等完整间隔；实际接触 15.413–15.417 秒，违反 10 秒目标。瓶体放回误差 0.444 mm；计时误差由漏记的原生时间加采样残差解释。模型宿主耗时 24.44 秒，与原生时间分开报告。'},
+                    {'date': '2026-10-14', 'title': 'V85 · 连续积分时只等待未消耗的时间', 'detail': 'Astra 调用期间推进 67 步 / 0.279 原生秒；随后等待剩余 1,092 步。接触 10.000–10.004 秒，放回误差 0.406 mm。清空对照在 GPU 工作进程结束后离线调用；不是实时部署或配对成功率。'},
+                    {'date': '2026-10-14', 'title': 'V84 · 绿色线索条件通过独立定时接触复核', 'detail': '新父子任务、三次真实模型调用；绿色线索记忆选择 10 秒接触，实际 10.000–10.004 秒。场景及记忆冷恢复后只执行 5,507 步余程。两种暂停线索条件现均完成，正式随机化 M1 仍为零。'},
                     {'date': '2026-10-13', 'title': 'V83 · 短时线索、记忆冷恢复与实际定时接触完成', 'detail': '三次新模型调用；前五阶段封存后，新进程恢复 56 刚体 / 9 关节系统及语义记忆。模型请求 16 秒接触，实际采样区间 16.000–16.004 秒，剩余 5,507 步完成，放回误差 0.33 mm。仿真暂停期间读出 36.8 秒；不是实时或化学计时验收。'},
                     {'date': '2026-10-13', 'title': 'V82 · Astra 语义记忆读出与清空对照封存', 'detail': '五次真实调用；两张历史提瓶图像、共同恢复画面、两段记忆。准确召回公开观测时刻并选择 10 / 16 秒排程；共同清空输入调用一次，选择等待。没有新增物理执行或计时验收。'},
                     {'date': '2026-10-13', 'title': 'V80 · 天平释放后中途恢复，只跑剩余任务', 'detail': '前五阶段 7,920 步与检查点保持完整；新进程恢复全实体及控制器游标，仅执行剩余 5,507 步，最终放回误差 0.55 mm。恢复后搬运漂移 6.05 mm（原门槛 20 mm）。Astra 记忆和连续化学时钟未验收。'},
@@ -251,7 +261,7 @@ def collect(config):
                     {'date': '2026-10-12', 'title': 'V74 · 分阶段长任务诊断', 'detail': '建立按阶段保留状态、图像、液体和边界证据的开发采集路径；不授予物理重启能力。'},
                 ],
                 next_steps=[
-                    '已完成一次短时线索记忆与实际接触计时；下一轮补绿色 10 秒条件和重复随机化。',
+                    '两种短时线索和连续积分已测；当前推进过期拒绝、失败子阶段重试，随后随机化记忆与延迟对照。',
                     '在新的版本目录延长采集时长，完整保留模型延迟启动后的 70 个动作目标和保持终态。',
                     '校准真实 A 事件、视觉提示与 B 实际操作之间的延迟；保留区间计分和失败。',
                     '建立独立 A/B 操作、剂量和泄漏验证，再扩展五路技能、随机起始与 M1 短暂提示。',

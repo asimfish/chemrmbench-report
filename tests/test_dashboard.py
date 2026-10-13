@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from dashboard_io import atomic_json, digest, read_json, validate_public, within
-from export_dashboard import collect, stages
+from export_dashboard import collect, stages, live_runs
 from publish_dashboard import publish
 
 
@@ -89,6 +89,32 @@ class PublicBoundary(unittest.TestCase):
             atomic_json(root / 'b/COMMITTED.json', {'manifest_sha256': digest(root / 'b/manifest.json')})
             with self.assertRaises(ValueError):
                 stages(raw)
+
+    def test_child_refusal_and_retry_progress_preserve_failed_resource_attempt(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()
+            atomic_json(raw/'parent_running.json',{'pid':12345})
+            atomic_json(raw/'parent_resource.json',{'exit_code':0})
+            atomic_json(raw/'parent/RESULT.json',{'status':'BASELINE_COMMANDS_COMPLETED'})
+            atomic_json(raw/'child_expired_resource.json',{'exit_code':42})
+            atomic_json(raw/'child_expired_resource_retry1_running.json',{'pid':12345})
+            phases=['parent','child_expired_resource_retry1','child_retry']
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V87','path':str(raw),'phases':phases}]}
+            with patch('export_dashboard.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)
+            self.assertEqual(result[0]['planned_stages'],3)
+            self.assertEqual(result[0]['committed_stages'],1)
+            self.assertEqual(result[0]['state'],'collecting')
+            # The original launch rejection cannot stand in for verified refusal.
+            self.assertFalse(result[0]['stages'][1]['committed'])
+            atomic_json(raw/'RETRY_GATE.json',{'status':'VERIFIED_EXPIRY_REFUSAL_PARENT_PRESERVED'})
+            with patch('export_dashboard.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)
+            self.assertEqual(result[0]['committed_stages'],2)
+            self.assertEqual(result[0]['stages'][1]['label'],'过期提案拒绝')
+            config['development_checks'][0]['phases']=['parent','unregistered']
+            with self.assertRaisesRegex(ValueError,'unregistered'):
+                live_runs(config)
 
     def test_stale_snapshot_is_not_republished(self):
         data = copy.deepcopy(self.public)
