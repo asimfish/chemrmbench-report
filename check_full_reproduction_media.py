@@ -1,4 +1,4 @@
-"""Decode and authenticate the six reviewed recorded-state videos."""
+"""Decode and authenticate the ten reviewed recorded-state videos."""
 import hashlib
 import json
 from pathlib import Path
@@ -9,7 +9,7 @@ def check(root):
     root = Path(root).resolve()
     manifest = json.loads((root / 'data/full-reference-media.json').read_text())
     assert manifest['full_reference_reproduction'] is False
-    assert len(manifest['videos']) == 6
+    assert len(manifest['videos']) == 10
     results = []
     for item in manifest['videos']:
         path = root / item['path']
@@ -20,7 +20,16 @@ def check(root):
             'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_streams',
             '-of', 'json', str(path)
         ], check=True, capture_output=True, text=True).stdout)['streams'][0]
-        expected = (915, 61.0, 1920, 740) if 'ot2-sixwell-' in path.name else ((390, 26.0, 1920, 740) if 'ot2-' in path.name else (121, 3.025, 1000, 720))
+        if 'seed201' in path.name:
+            expected = (72, 7.2, 1600, 900)
+        elif 'ur5e-' in path.name:
+            expected = (312, 12.48, 1600, 900)
+        elif 'ot2-sixwell-' in path.name:
+            expected = (915, 61.0, 1920, 740)
+        elif 'ot2-' in path.name:
+            expected = (390, 26.0, 1920, 740)
+        else:
+            expected = (121, 3.025, 1000, 720)
         assert probe['codec_name'] == 'h264'
         actual = (int(probe['nb_frames']), float(probe['duration']), probe['width'], probe['height'])
         assert actual == expected, (path.name, actual, expected)
