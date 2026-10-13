@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:22:20.674231+00:00",
+  "exported_at_utc": "2026-10-13T16:29:59.753467+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1276,19 +1276,32 @@
       "remaining": "The tip rack and reservoir are prepositioned; robot setup of those two components remains open. Local support, grip overlay and bounded door-holding control are declared adaptations. Door torque is a submitted command. Tip attachment and finite-volume parcels are explicit semantics, not calibrated fluid or friction-fit physics. Full continuous video and matched controls have separate acceptance."
     },
     {
-      "id": "ot2-repro-continuous-no-aspiration-r4",
-      "title": "MATTERIX · continuous native no aspiration r4",
-      "evidence_sha256": "83553128df57589ff7147bff322c07009719684a85d9fbb22f4d1ad007b383e6",
-      "subsystem_passed": false,
+      "id": "ot2-continuous-no-aspiration-r4",
+      "title": "MATTERIX · continuous plate loading and no-aspiration control",
+      "evidence_sha256": "3bbdba7fb557e4e0d18c85a4f0f1669d124c9b788b618c3f87ffffb245a08b73",
+      "subsystem_passed": true,
       "full_reference_accepted": false,
-      "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "scope": "One continuous 105.5 s, 600 Hz PhysX scene executes physical Panda plate loading and then native OT2 motion using the actual placed plate state. Independent full-trace and parcel-ledger reconstruction checks all recorded tip/transfer events and the handoff without a plate reset.",
       "metrics": {
-        "recorded_physics_steps": 58500,
-        "clock_derived_simulation_s": 97.5,
-        "planned_simulation_s": 105.5,
-        "original_OT2_colliders": 25
+        "simulation_s": 105.5,
+        "physics_steps": 63300,
+        "Panda_steps": 26700,
+        "OT2_steps": 36600,
+        "audited_events": 64,
+        "delivered_model_uL": 0.0,
+        "remaining_source_model_uL": 20000.0,
+        "disposed_tips": 8,
+        "loaded_bilateral_plate_contact_steps": 600,
+        "audited_environment_impulse_events": 0,
+        "handoff_translation_jump_m": 0.0,
+        "posthandoff_plate_translation_drift_m": 0.0,
+        "maximum_door_error_rad": 8.742278012618954e-08,
+        "maximum_submitted_door_torque_Nm": 0.05632690712809563,
+        "frozen_gates_passed": 31,
+        "frozen_gates_total": 31,
+        "independent_consistency_checks": 14
       },
-      "remaining": "Observed progress is not acceptance. Revalidate the Panda contact path with live OT2 articulation, actual loaded-plate pipetting, volume conservation, timing, door torque and final state. Paper-style semantic tip attachment and finite-volume liquid remain distinct from a calibrated particle-fluid model."
+      "remaining": "The tip rack and reservoir are prepositioned; robot setup of those two components remains open. Local support, grip overlay and bounded door-holding control are declared adaptations. Door torque is a submitted command. Tip attachment and finite-volume parcels are explicit semantics, not calibrated fluid or friction-fit physics. Full continuous video and matched controls have separate acceptance."
     },
     {
       "id": "ot2-repro-continuous-positive-r3",
@@ -1325,11 +1338,11 @@
   ],
   "active": {
     "id": "ot2_repro_continuous_no_aspiration_r4",
-    "phase": "CONTINUOUS_PIPETTING",
-    "process_verified_alive": true,
-    "simulation_s": 97.5,
-    "physics_steps": 58500,
-    "sampled_at_utc": "2026-10-13T16:22:12.481539+00:00"
+    "phase": "BOUNDED_CONTINUOUS_EPISODE_FINISHED",
+    "process_verified_alive": false,
+    "simulation_s": 105.5,
+    "physics_steps": 63300,
+    "sampled_at_utc": "2026-10-13T16:24:29.969544+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
