@@ -1,6 +1,6 @@
 {
   "schema": "chemrm-preserved-scenes-v1",
-  "verified_at_utc": "2026-10-13T09:13:13.749616+00:00",
+  "verified_at_utc": "2026-10-13T09:40:27.012226+00:00",
   "history_message_count": 40496,
   "scenes": [
     {
@@ -764,6 +764,107 @@
     "scientific_admission": false,
     "full_benchmark_pass": false,
     "mid_task_restart_tested": false,
+    "event_memory_evaluated": false
+  },
+  "mid_task_probe": {
+    "status": "PASS_SCOPED_NATIVE_MID_TASK_BOTTLE_RESUME",
+    "receipt": "artifacts/bottle-v80-mid-task.json",
+    "receipt_sha256": "2b680ab9721c9e9a0a2a9abcf6b9fe4f9069283529459e3efb36b647ffc3f600",
+    "restore": {
+      "rigid_objects": 56,
+      "articulations": 9,
+      "transient_ticks": 30,
+      "full_registry_each_tick": true,
+      "all_transient_gates_pass": true,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "maximum_orientation_error_deg": 0.15630565745770006,
+      "maximum_joint_error_rad": 1.1159851140973842e-06,
+      "original_position_limit_mm": 1,
+      "original_orientation_limit_deg": 0.5,
+      "original_joint_limit_rad": 0.0001,
+      "checkpoint_sha256": "74ff0fd05f85c695dde110aa36a8092111589de065b2a2eccc92d1e90146d02d",
+      "hidden_solver_state_restored": false
+    },
+    "phases": {
+      "parent": {
+        "status": "PASS_SCOPED_NATIVE_BOTTLE_SEGMENT",
+        "start_command": 0,
+        "end_command_exclusive": 7920,
+        "commands": 7920,
+        "committed_stages": 5,
+        "native_rgbd_snapshots": 8,
+        "native_epoch": "native_v80:parent:4c426327acc4901f",
+        "placement_error_mm": 1.7060533535467572,
+        "maximum_relative_displacement_mm": 1.6961878267455237,
+        "transport_bilateral_contact_fraction": 0.9982724580454096,
+        "relative_displacement_limit_mm": 20,
+        "minimum_bilateral_contact_fraction": 0.8,
+        "close_command_to_bilateral_contact_ms": [
+          170.83334224298596,
+          175.00000912696123
+        ],
+        "state_writes_during_task": 0,
+        "penetration_ticks": 0,
+        "owned_process_group_empty": true,
+        "controlled_exit_without_sdk_cleanup": true,
+        "wall_s": 180.1885018509347,
+        "allocated_gpu_hours_upper_bound": 0.05005236162525964
+      },
+      "child": {
+        "status": "PASS_SCOPED_NATIVE_BOTTLE_SEGMENT",
+        "start_command": 7920,
+        "end_command_exclusive": 13427,
+        "commands": 5507,
+        "committed_stages": 3,
+        "native_rgbd_snapshots": 8,
+        "native_epoch": "native_v80:child:4c426327acc4901f",
+        "placement_error_mm": 0.5465716824280532,
+        "maximum_relative_displacement_mm": 6.046156593492278,
+        "transport_bilateral_contact_fraction": 0.9980513153621305,
+        "relative_displacement_limit_mm": 20,
+        "minimum_bilateral_contact_fraction": 0.8,
+        "close_command_to_bilateral_contact_ms": [
+          170.83334224298596,
+          175.00000912696123
+        ],
+        "state_writes_during_task": 0,
+        "penetration_ticks": 0,
+        "owned_process_group_empty": true,
+        "controlled_exit_without_sdk_cleanup": true,
+        "wall_s": 192.8292786120437,
+        "allocated_gpu_hours_upper_bound": 0.053563688503345475
+      }
+    },
+    "frames": [
+      {
+        "image": "assets/native-v80/parent-07920.jpg",
+        "image_sha256": "63f08db76f0a0d527a1ddf9e54024c2cd17d987bbe2f1d7e851ee77db8776309",
+        "label": "前五阶段结束：瓶子已在天平上释放",
+        "source_command_cursor": 7920
+      },
+      {
+        "image": "assets/native-v80/child-07920.jpg",
+        "image_sha256": "5ae5676fc1960026098a39940e7f8adee188646f8228917c4f9161f56ece4003",
+        "label": "冷重建完成：从天平上的瓶子接续",
+        "source_command_cursor": 7920
+      },
+      {
+        "image": "assets/native-v80/child-13427.jpg",
+        "image_sha256": "59b5e7905b15526a481a58e54f0e4c184777e6c2950dee5419893c034590ab4e",
+        "label": "只执行剩余三阶段：瓶子已放回转盘",
+        "source_command_cursor": 13427
+      }
+    ],
+    "restored_command_cursor": 7920,
+    "completed_prefix_stages": 5,
+    "resumed_tail_stages": 3,
+    "tail_commands": 5507,
+    "parent_prefix_preserved": true,
+    "parent_checkpoint_preserved": true,
+    "controller_context_restored": true,
+    "agent_context_restored": false,
+    "scientific_admission": false,
+    "full_benchmark_pass": false,
     "event_memory_evaluated": false
   }
 }

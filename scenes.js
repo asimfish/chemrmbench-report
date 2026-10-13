@@ -23,6 +23,19 @@ function renderBottle(){
   node('bottleRestore').textContent='冷恢复覆盖 '+r.rigid_objects+' 刚体 / '+r.articulations+' 关节系统，30 个瞬态样本均通过。全瞬态最大漂移 '+r.maximum_position_error_mm.toFixed(3)+' mm / '+r.maximum_orientation_error_deg.toFixed(3)+'°；原门槛 1 mm / 0.5° 保留。';
   node('bottleRun').addEventListener('change',renderBottleFrame);node('bottleCursor').addEventListener('input',renderBottleFrame);renderBottleFrame();
 }
+function renderMidTask(){
+  const p=data.mid_task_probe;
+  if(!p||p.status!=='PASS_SCOPED_NATIVE_MID_TASK_BOTTLE_RESUME'||p.scientific_admission!==false)throw Error('mid task evidence unavailable');
+  const pictures=node('midTaskImages');pictures.replaceChildren();
+  for(const frame of p.frames){
+    if(!/^assets\/native-v80\/(parent|child)-[0-9]{5}\.jpg$/.test(frame.image))throw Error('invalid mid task image');
+    const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label;img.loading='lazy';f.append(img,make('figcaption',frame.label));pictures.append(f);
+  }
+  const r=p.restore,x=p.phases.child;
+  node('midTaskResult').textContent='父阶段和检查点摘要核验保持一致；恢复游标 '+p.restored_command_cursor.toLocaleString('zh-CN')+'，实际只执行剩余 '+p.tail_commands.toLocaleString('zh-CN')+' 步。最终转盘放回误差 '+x.placement_error_mm.toFixed(3)+' mm。全部恢复瞬态最大漂移 '+r.maximum_position_error_mm.toFixed(3)+' mm / '+r.maximum_orientation_error_deg.toFixed(3)+'°。';
+  const rows=node('midTaskComparison');rows.replaceChildren();
+  for(const [phase,label]of[['parent','前五阶段 → 天平'],['child','恢复后剩余阶段 → 转盘']]){const x=p.phases[phase],tr=make('tr');for(const v of[label,x.placement_error_mm.toFixed(3)+' mm',(x.transport_bilateral_contact_fraction*100).toFixed(2)+'%',x.maximum_relative_displacement_mm.toFixed(3)+' mm'])tr.append(make('td',v));rows.append(tr);}
+}
 function renderScene(){const scene=data.scenes.find(s=>s.id===current)||data.scenes[0];current=scene.id;const view=scene.views.find(v=>v.id===camera)||scene.views[0];camera=view.id;node('sceneTitle').textContent=scene.station+' 站 · '+scene.title;node('sceneChoices').replaceChildren();for(const s of data.scenes){const b=make('button',s.station+' · '+s.title);b.type='button';b.classList.toggle('active',s.id===current);b.setAttribute('aria-pressed',String(s.id===current));b.addEventListener('click',()=>{current=s.id;camera=null;renderScene();});node('sceneChoices').append(b);}node('cameraChoices').replaceChildren();for(const v of scene.views){const b=make('button',v.label);b.type='button';b.classList.toggle('active',v.id===camera);b.setAttribute('aria-pressed',String(v.id===camera));b.addEventListener('click',()=>{camera=v.id;renderScene();});node('cameraChoices').append(b);}const video=node('sceneVideo');video.pause();video.poster=localAsset(view.poster,'jpg');video.src=localAsset(view.video,'mp4');video.load();node('sceneVideoNote').textContent=scene.revision+' · '+view.frames+' 帧 / '+view.fps+' fps · '+view.duration_s.toFixed(1)+' 秒 · '+view.label;node('sceneScope').textContent=scene.scope+' '+scene.demo_acceptance;const digests=node('sceneDigests');digests.replaceChildren();for(const text of['渲染记录：'+scene.render_manifest_sha256,'位姿核验：'+scene.pose_checks_sha256,'当前视频：'+view.video_sha256])digests.append(make('p',text));}
 function renderRestore(){
   const r=data.reconstruction,p=data.native_probe;
@@ -39,7 +52,7 @@ function renderRestore(){
     ['局部携物恢复后续跑','历史 A 站保存 → 恢复 → 放回实测','限定通过 · 运动学支持'],
     ['原场景空载物理恢复',nativePassed?'本轮覆盖 56 刚体 / 9 关节系统；30 步全实体状态': '历史携物整体漂移与覆盖不足',nativePassed?'限定通过 · 原阈值保留':'未通过'],
     ['实际瓶体任务',data.bottle_probe?'V79 两次 13,427 步，实际接触与放回核验':'真实物体任务待补',data.bottle_probe?'任务起点恢复后取放通过':'尚未验收'],
-    ['语义阶段续采接入',data.bottle_probe?'36 项相关契约回归；中途漂移拒绝检查已补':'16 项 CPU 契约测试',data.bottle_probe?'任务起点通过 · 中途阶段续跑待补':'空载技能通过'],
+    ['语义阶段续采接入',data.mid_task_probe?'V80 天平释放后保存 → 冷重建 → 只跑剩余 5,507 步':'任务起点恢复与存储验证',data.mid_task_probe?'刚体释放边界续跑通过 · agent 记忆待补':'中途阶段续跑待补'],
     ['新进程重建',nativePassed?'保存父阶段 → 终止进程 → 新实例恢复 → 实测技能':'缺少独立匹配原生验收',nativePassed?'限定通过 · 时钟分别记录':'尚未验证'],
     ['完整长任务与精确操作时间','携物、事件记忆、物理事件锚点尚未接入本轮恢复','尚未验收'],
     ['PBD / 液体状态恢复','当前适配器拒绝该类 checkpoint','未实现']
@@ -51,5 +64,5 @@ function renderRestore(){
   for(const [label,value]of[['历史局部相对位置误差',r.local_relative_position_error_mm.toFixed(4)+' mm'],['历史局部相对姿态误差',r.local_relative_orientation_error_deg.toFixed(4)+'°'],['历史不中断放回误差',r.baseline_placement_mm.toFixed(4)+' mm'],['历史恢复后放回误差',r.resumed_placement_mm.toFixed(4)+' mm']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));nums.append(n);}
   node('restoreFailure').textContent='历史携物整体恢复 FAIL 保留：研杵旋转漂移 '+r.pestle_orientation_drift_deg.toFixed(3)+'° > '+r.original_orientation_limit_deg+'°；当时恢复 30 tick 后只有 '+r.settled_tracked_bodies+'/'+r.checkpoint_bodies+' 个刚体被逐 tick 覆盖。本轮空载结果不覆盖这项历史失败。';
 }
-async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
+async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
 load();
