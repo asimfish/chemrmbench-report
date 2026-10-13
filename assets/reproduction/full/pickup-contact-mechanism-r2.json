@@ -1,0 +1,57 @@
+{
+  "source_receipt_sha256": "93997cceb70283f37a37ebf6e6877d6327586f4999969baf6234fc16e5745e06",
+  "source_receipt": {
+    "scope": "Posterior local pickup timing/geometry diagnostic only; not isolated causal effect or full workflow acceptance",
+    "source_rows": [
+      {
+        "run": "runs/auto_repro_ur5e_contact_repair_cuda_r7",
+        "trace_sha256": "467902fa9f4d8cc0867a6f3778b781e0a3c6b48c3670134e028d23a267debbfb",
+        "control_rows": 650,
+        "first_simultaneous_opposed_pad_contact_time_s": 4.420000000001036,
+        "last20_close_opposed_contact_rows": 0,
+        "first_lift_row_time_s": 3.510000000001417,
+        "last_source_count": 240
+      },
+      {
+        "run": "runs/auto_repro_ur5e_higher_pickup_cpu_r1",
+        "trace_sha256": "ad8fb7ec80fbf95a6f7eb231be98ec389826b961203d5c6d601adbb8c79c2f1c",
+        "control_rows": 650,
+        "first_simultaneous_opposed_pad_contact_time_s": 2.6400000000003536,
+        "last20_close_opposed_contact_rows": 20,
+        "first_lift_row_time_s": 3.510000000001417,
+        "last_source_count": 240
+      }
+    ],
+    "original_pad_rack_saved_frame_count": 44,
+    "higher_pad_rack_saved_frame_count": 0,
+    "original_quality_receipt": {
+      "path": "evidence/auto_repro_ur5e_r7_all_contact_diagnostic_r2.json",
+      "sha256": "72a6466dd62e93c46f941898b0c42c7164bac44d2fd81362bdfe15bb0e8a0139"
+    },
+    "higher_independent_review": {
+      "path": "evidence/auto_ur_higher_pickup_independent_review_r1.json",
+      "sha256": "68f7f43a5ad074b289a9d8cc9fc48e4fb34688a2ab312d92ca1435c0ba1feb8b"
+    },
+    "phase_boundary_s": 3.5,
+    "contact_sample_hz": 100,
+    "geometry_recheck_hz": 25,
+    "source_xyz_semantics": "tube free-body root",
+    "new_home_initial_and_lift_target_delta_m": 0.03,
+    "device_changed": true,
+    "full_workflow_acceptance_claim": false,
+    "full_auto_engineering_reproduction": false,
+    "helper_sha256": "08fdb0f905715c6da99cd306291320d94180f5c995a797159d0b9bb052f6d229",
+    "artifacts": {
+      "png": "337f5c2f16504363fd749e0a9edaba915451d1f4f93d2ad773931b107091dd0d",
+      "pdf": "a1bf1337a8e5e6d0fa79c425b3cd3fa9e829fc27e8f26f012e342bc4c9ad1730",
+      "svg": "c448d445bb39ed9b93e9f6cc61f79899770932aba35c08b86d4286f3e099128a"
+    }
+  },
+  "public_artifacts_sha256": {
+    "pickup-contact-mechanism-r2.png": "337f5c2f16504363fd749e0a9edaba915451d1f4f93d2ad773931b107091dd0d",
+    "pickup-contact-mechanism-r2.pdf": "a1bf1337a8e5e6d0fa79c425b3cd3fa9e829fc27e8f26f012e342bc4c9ad1730",
+    "pickup-contact-mechanism-r2.svg": "040fd220bb5b238a3e3fc4aa97cc3348b813ebed14d5b865632f7ff3ec4d0f0d"
+  },
+  "svg_export": "Trailing whitespace removed only; original SVG retained with original source receipt.",
+  "full_reference_reproduction": false
+}

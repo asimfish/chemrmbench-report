@@ -1,4 +1,4 @@
-"""Decode and authenticate the fourteen reviewed recorded-state videos."""
+"""Decode and authenticate the eighteen reviewed recorded-state videos."""
 import hashlib
 import json
 from pathlib import Path
@@ -9,7 +9,7 @@ def check(root):
     root = Path(root).resolve()
     manifest = json.loads((root / 'data/full-reference-media.json').read_text())
     assert manifest['full_reference_reproduction'] is False
-    assert len(manifest['videos']) == 14
+    assert len(manifest['videos']) == 18
     results = []
     for item in manifest['videos']:
         path = root / item['path']
@@ -20,8 +20,19 @@ def check(root):
             'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_streams',
             '-of', 'json', str(path)
         ], check=True, capture_output=True, text=True).stdout)['streams'][0]
-        if 'seed201' in path.name:
+        if 'panda-plate-' in path.name:
+            positive = 'placement' in path.name
+            expected = (669, 44.5 if positive else 44.498333, 1920, 740)
+            assert probe['time_base'] == '1/600'
+            frames = json.loads(subprocess.run([
+                'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_frames',
+                '-show_entries', 'frame=best_effort_timestamp', '-of', 'json', str(path)
+            ], check=True, capture_output=True, text=True).stdout)['frames']
+            assert [f['best_effort_timestamp'] for f in frames] == [0]+list(range(39, 26680, 40))+[26699 if positive else 26698]
+        elif 'seed201' in path.name:
             expected = (72, 7.2, 1600, 900)
+        elif 'dual-flexiv-gate-stop-' in path.name:
+            expected = (525, 21.0, 1600, 900)
         elif 'dual-flexiv-handoff-' in path.name:
             expected = (475, 19.0, 1600, 900)
         elif 'ur5e-whole-workflow-' in path.name:
