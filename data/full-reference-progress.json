@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:18:01.492393+00:00",
+  "exported_at_utc": "2026-10-13T16:22:20.674231+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1226,6 +1226,28 @@
       "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
     },
     {
+      "id": "ur5e-frozen-confirmation-404",
+      "title": "UR5e · predeclared perturbation 404",
+      "evidence_sha256": "0850cd482c88d2d9ae4cfa28fa07a86653c9d97b511bf92ad65235859487f703",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared source/receiver planar perturbations, using the original R7 controller and sixteen tube-scoped gates. Independent reconstruction verifies the initial offsets, recorded native states, return feedback and every reported gate outcome.",
+      "metrics": {
+        "seed": 404,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 237,
+        "total_particles": 240,
+        "return_error_mm": 8.53867069854304,
+        "original_gates_passed": 16,
+        "original_gates_total": 16,
+        "independent_consistency_checks": 30,
+        "pad_rack_saved_frames": 44,
+        "unexpected_robot_contact_saved_frames": 44
+      },
+      "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
+    },
+    {
       "id": "ot2-continuous-positive-r4",
       "title": "MATTERIX · continuous plate loading and pipetting",
       "evidence_sha256": "c05b2863980e58f6b4df418550cfae614bd44708337d9c5e3ae7c22f233f4c01",
@@ -1256,13 +1278,13 @@
     {
       "id": "ot2-repro-continuous-no-aspiration-r4",
       "title": "MATTERIX · continuous native no aspiration r4",
-      "evidence_sha256": "73789699a86bffdf0a26140e5c7c403a2246da4588e91910c96f74de29499008",
+      "evidence_sha256": "83553128df57589ff7147bff322c07009719684a85d9fbb22f4d1ad007b383e6",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
-        "recorded_physics_steps": 48900,
-        "clock_derived_simulation_s": 81.5,
+        "recorded_physics_steps": 58500,
+        "clock_derived_simulation_s": 97.5,
         "planned_simulation_s": 105.5,
         "original_OT2_colliders": 25
       },
@@ -1295,8 +1317,8 @@
         "started": 4,
         "processes_finished": 4,
         "nonzero_process_exits": 0,
-        "independently_reviewed": 3,
-        "reviewed_local_gate_passes": 3
+        "independently_reviewed": 4,
+        "reviewed_local_gate_passes": 4
       },
       "remaining": "Process completion is not task acceptance. All outcomes, including failures, require per-trial independent review. This tests small planar initial-state variation, not new task structure or task-space generalization."
     }
@@ -1305,9 +1327,9 @@
     "id": "ot2_repro_continuous_no_aspiration_r4",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 81.5,
-    "physics_steps": 48900,
-    "sampled_at_utc": "2026-10-13T16:17:36.995055+00:00"
+    "simulation_s": 97.5,
+    "physics_steps": 58500,
+    "sampled_at_utc": "2026-10-13T16:22:12.481539+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
