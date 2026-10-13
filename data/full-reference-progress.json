@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:50:29.983993+00:00",
+  "exported_at_utc": "2026-10-13T16:55:34.709081+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1270,14 +1270,36 @@
       "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
     },
     {
-      "id": "auto-repro-dual-timescaled-complete-cpu-r7",
-      "title": "Dual Flexiv · same-path slower full-fluid candidate",
-      "evidence_sha256": "ca55232f915d94c1424a913ef891f6a6df0c50ae73c39c68ff3360841fd29da1",
+      "id": "ur5e-paired-repair-402",
+      "title": "UR5e · same-case higher-grasp repair 402",
+      "evidence_sha256": "8c92b6aca33231fa44d8ccc17cad985d3062de2cc70a3ccfa065814eff26e4b4",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: receiver_transport. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
       "metrics": {
-        "recorded_simulation_s": 18.500000000042828,
+        "seed": 402,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 235,
+        "total_particles": 240,
+        "return_error_mm": 8.539693457667527,
+        "frozen_gates_passed": 17,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
+      "id": "auto-repro-dual-timescaled-complete-cpu-r7",
+      "title": "Dual Flexiv · same-path slower full-fluid candidate",
+      "evidence_sha256": "0292b222326eefe5bf267df61b45bff85209c889cb60dc9e5030ad1e486ba595",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: objectspace_transport_to_pour. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "metrics": {
+        "recorded_simulation_s": 22.00000000005954,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
@@ -1286,27 +1308,27 @@
     {
       "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
       "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
-      "evidence_sha256": "4a2827e73d0e27dea49f4cc2eac511c73f1dcedb42026eb551067ae23ec4ed77",
+      "evidence_sha256": "e420faf44ee50ae194df379c2814c76f54daff896f136a8fccab6f1dc0111fee",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_approach. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: sender_lift. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 2.5000000000001825,
+        "recorded_simulation_s": 5.499999999998519,
         "planned_simulation_s": 46,
         "result_file_present": 0
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
     {
-      "id": "ur5e-paired-repair-progress-402",
-      "title": "UR5e · paired repair 402 · unreviewed progress",
-      "evidence_sha256": "95098e337729f636de6310f122e688ed241e5b71c2547301ab30f9d72132ba94",
+      "id": "ur5e-paired-repair-progress-403",
+      "title": "UR5e · paired repair 403 · unreviewed progress",
+      "evidence_sha256": "29de094512d4231a3262a4caa85a196a2dcc9685a72865338dc127b13f269c9b",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: retract. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
+      "scope": "Last recorded native phase: lift. One of four frozen same-case repair attempts. Presence of progress is not proof the process is still alive or that any gate passed.",
       "metrics": {
-        "seed": 402,
-        "recorded_simulation_s": 21.500000000057153,
+        "seed": 403,
+        "recorded_simulation_s": 4.50000000000085,
         "planned_simulation_s": 23,
         "predeclared_cohort_size": 4
       },
@@ -1403,15 +1425,15 @@
     {
       "id": "ot2-three-labware-setup-diagnostic-r1",
       "title": "MATTERIX · three-object physical setup diagnosis",
-      "evidence_sha256": "2dd5f051c260e6f516a25d504a2362fee7926bb37715b2af264030c49007d77b",
+      "evidence_sha256": "aa60f1e0afd760b9db31e67871c690d47e0da3b8087e518b280ab7bbad1c2155",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded phase: STEPPING / plate/hold. One continuous scene attempts full-size plate, reservoir and tip-rack grasp/transport/placement; no object pose writes after initialization. This diagnostic stops at the first recorded unexpected positive impulse or failed frozen gate. Ground and self-contact are outside its contact gate.",
+      "scope": "Last recorded phase: FAILED / reservoir/approach_low. One continuous scene attempts full-size plate, reservoir and tip-rack grasp/transport/placement; no object pose writes after initialization. This diagnostic stops at the first recorded unexpected positive impulse or failed frozen gate. Ground and self-contact are outside its contact gate.",
       "metrics": {
-        "recorded_physics_steps": 25200,
-        "clock_derived_simulation_s": 42.0,
+        "recorded_physics_steps": 33671,
+        "clock_derived_simulation_s": 56.11833333333334,
         "maximum_simulation_s": 180,
-        "recorded_completed_objects": 0,
+        "recorded_completed_objects": 1,
         "planned_objects": 3,
         "pipetting_executed": 0
       },
@@ -1420,11 +1442,11 @@
   ],
   "active": {
     "id": "ot2_repro_three_labware_setup_diagnostic_r1",
-    "phase": "STEPPING",
-    "process_verified_alive": true,
-    "simulation_s": 42.0,
-    "physics_steps": 25200,
-    "sampled_at_utc": "2026-10-13T16:50:20.997485+00:00"
+    "phase": "FAILED",
+    "process_verified_alive": false,
+    "simulation_s": 56.11833333333334,
+    "physics_steps": 33671,
+    "sampled_at_utc": "2026-10-13T16:54:13.615747+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
