@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T17:42:27.454867+00:00",
+  "exported_at_utc": "2026-10-13T17:52:38.582935+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1352,14 +1352,14 @@
     {
       "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
       "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
-      "evidence_sha256": "0321449b15135a096bdc9174a39e38c751b103f3dcca575f67729523d88a1f08",
+      "evidence_sha256": "bc71f473f512b90fa0b18432f44aa6b8cfd60e5adc91dd6f0e8a322835323404",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: objectspace_untilt_about_mouth. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "scope": "Last recorded native phase: BOUNDED_EPISODE_FINISHED. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
       "metrics": {
-        "recorded_simulation_s": 37.999999999965404,
+        "recorded_simulation_s": 45.99999999977623,
         "planned_simulation_s": 46,
-        "result_file_present": 0
+        "result_file_present": 1
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
