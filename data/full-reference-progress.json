@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T16:18:01.492393+00:00",
+  "exported_at_utc": "2026-10-13T17:32:21.233354+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1226,6 +1226,144 @@
       "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
     },
     {
+      "id": "ur5e-frozen-confirmation-404",
+      "title": "UR5e · predeclared perturbation 404",
+      "evidence_sha256": "0850cd482c88d2d9ae4cfa28fa07a86653c9d97b511bf92ad65235859487f703",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared source/receiver planar perturbations, using the original R7 controller and sixteen tube-scoped gates. Independent reconstruction verifies the initial offsets, recorded native states, return feedback and every reported gate outcome.",
+      "metrics": {
+        "seed": 404,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 237,
+        "total_particles": 240,
+        "return_error_mm": 8.53867069854304,
+        "original_gates_passed": 16,
+        "original_gates_total": 16,
+        "independent_consistency_checks": 30,
+        "pad_rack_saved_frames": 44,
+        "unexpected_robot_contact_saved_frames": 44
+      },
+      "remaining": "Any pad-rack contacts are outside the original tube gate and remain explicit quality failures. A local gate pass does not mean whole-robot collision freedom. All four planned attempts remain in the cohort; nominal R7, matched no-tilt and the higher-grasp R9 repair are separate experiments. No task-space or full reference acceptance."
+    },
+    {
+      "id": "ur5e-paired-repair-401",
+      "title": "UR5e · same-case higher-grasp repair 401",
+      "evidence_sha256": "052059cb483af014cda7f186a689d15d4e65245623d2dbc494ec9dbb11e20ea5",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 401,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 235,
+        "total_particles": 240,
+        "return_error_mm": 8.531652045417282,
+        "frozen_gates_passed": 18,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
+      "id": "ur5e-paired-repair-402",
+      "title": "UR5e · same-case higher-grasp repair 402",
+      "evidence_sha256": "8c92b6aca33231fa44d8ccc17cad985d3062de2cc70a3ccfa065814eff26e4b4",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 402,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 235,
+        "total_particles": 240,
+        "return_error_mm": 8.539693457667527,
+        "frozen_gates_passed": 17,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
+      "id": "ur5e-paired-repair-403",
+      "title": "UR5e · same-case higher-grasp repair 403",
+      "evidence_sha256": "9b6fe9c528e7b34eec31704aaeed19f33c082877017c45583a0b05b018a5fe06",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 403,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 237,
+        "total_particles": 240,
+        "return_error_mm": 8.538797912898794,
+        "frozen_gates_passed": 18,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
+      "id": "ur5e-paired-repair-404",
+      "title": "UR5e · same-case higher-grasp repair 404",
+      "evidence_sha256": "3247e53dd8a8fdf1c5e01f6e21ca3ea501b0e1730cab329deafae26c04102fd8",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One of four predeclared paired repair confirmations using the R9 controller on the same already evaluated R8 planar offsets. All eighteen frozen gates, initial offsets, return feedback and recorded whole-scene contacts receive independent reconstruction.",
+      "metrics": {
+        "seed": 404,
+        "simulation_s": 23.000000000064315,
+        "planned_simulation_s": 23,
+        "receiver_particles": 236,
+        "total_particles": 240,
+        "return_error_mm": 8.532784890267028,
+        "frozen_gates_passed": 18,
+        "frozen_gates_total": 18,
+        "pad_rack_saved_frames": 0,
+        "unexpected_robot_contact_saved_frames": 0,
+        "predeclared_cohort_size": 4
+      },
+      "remaining": "Known-case repair confirmation, not a new blind test or task-space generalization. All four attempts stay in the denominator; original R8 contact failures and CPU nominal R9 are separate. This cohort runs CUDA; CPU/CUDA bitwise identity is not assumed. Simulator-truth return and configured collision exclusions remain."
+    },
+    {
+      "id": "auto-repro-dual-timescaled-complete-cpu-r7",
+      "title": "Dual Flexiv · same-path slower full-fluid candidate",
+      "evidence_sha256": "480290b6a617b6e2a843cc6c3f6637d790411d1f062446fc6b13949831f16c39",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: BOUNDED_EPISODE_FINISHED. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "metrics": {
+        "recorded_simulation_s": 45.99999999977623,
+        "planned_simulation_s": 46,
+        "result_file_present": 1
+      },
+      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+    },
+    {
+      "id": "auto-repro-dual-velocity-ff-complete-cpu-r8",
+      "title": "Dual Flexiv · same-path slower full-fluid plus velocity feedforward",
+      "evidence_sha256": "c10beaa043c6965abe171e24896f482ff72465159172caa22c469dbddd7a4b44",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded native phase: objectspace_tilt_about_mouth. Independent 240-particle DFSPH with actual robot and configured support contacts; no original GRID backend. A single measured handoff pose initializes fixed object-space targets; this is not ongoing perception or a learned controller. Feedforward, when present, is a separately frozen candidate; no hardware torque or velocity feasibility is claimed.",
+      "metrics": {
+        "recorded_simulation_s": 31.5000000001049,
+        "planned_simulation_s": 46,
+        "result_file_present": 0
+      },
+      "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
+    },
+    {
       "id": "ot2-continuous-positive-r4",
       "title": "MATTERIX · continuous plate loading and pipetting",
       "evidence_sha256": "c05b2863980e58f6b4df418550cfae614bd44708337d9c5e3ae7c22f233f4c01",
@@ -1254,19 +1392,32 @@
       "remaining": "The tip rack and reservoir are prepositioned; robot setup of those two components remains open. Local support, grip overlay and bounded door-holding control are declared adaptations. Door torque is a submitted command. Tip attachment and finite-volume parcels are explicit semantics, not calibrated fluid or friction-fit physics. Full continuous video and matched controls have separate acceptance."
     },
     {
-      "id": "ot2-repro-continuous-no-aspiration-r4",
-      "title": "MATTERIX · continuous native no aspiration r4",
-      "evidence_sha256": "73789699a86bffdf0a26140e5c7c403a2246da4588e91910c96f74de29499008",
-      "subsystem_passed": false,
+      "id": "ot2-continuous-no-aspiration-r4",
+      "title": "MATTERIX · continuous plate loading and no-aspiration control",
+      "evidence_sha256": "3bbdba7fb557e4e0d18c85a4f0f1669d124c9b788b618c3f87ffffb245a08b73",
+      "subsystem_passed": true,
       "full_reference_accepted": false,
-      "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "scope": "One continuous 105.5 s, 600 Hz PhysX scene executes physical Panda plate loading and then native OT2 motion using the actual placed plate state. Independent full-trace and parcel-ledger reconstruction checks all recorded tip/transfer events and the handoff without a plate reset.",
       "metrics": {
-        "recorded_physics_steps": 48900,
-        "clock_derived_simulation_s": 81.5,
-        "planned_simulation_s": 105.5,
-        "original_OT2_colliders": 25
+        "simulation_s": 105.5,
+        "physics_steps": 63300,
+        "Panda_steps": 26700,
+        "OT2_steps": 36600,
+        "audited_events": 64,
+        "delivered_model_uL": 0.0,
+        "remaining_source_model_uL": 20000.0,
+        "disposed_tips": 8,
+        "loaded_bilateral_plate_contact_steps": 600,
+        "audited_environment_impulse_events": 0,
+        "handoff_translation_jump_m": 0.0,
+        "posthandoff_plate_translation_drift_m": 0.0,
+        "maximum_door_error_rad": 8.742278012618954e-08,
+        "maximum_submitted_door_torque_Nm": 0.05632690712809563,
+        "frozen_gates_passed": 31,
+        "frozen_gates_total": 31,
+        "independent_consistency_checks": 14
       },
-      "remaining": "Observed progress is not acceptance. Revalidate the Panda contact path with live OT2 articulation, actual loaded-plate pipetting, volume conservation, timing, door torque and final state. Paper-style semantic tip attachment and finite-volume liquid remain distinct from a calibrated particle-fluid model."
+      "remaining": "The tip rack and reservoir are prepositioned; robot setup of those two components remains open. Local support, grip overlay and bounded door-holding control are declared adaptations. Door torque is a submitted command. Tip attachment and finite-volume parcels are explicit semantics, not calibrated fluid or friction-fit physics. Full continuous video and matched controls have separate acceptance."
     },
     {
       "id": "ot2-repro-continuous-positive-r3",
@@ -1295,19 +1446,36 @@
         "started": 4,
         "processes_finished": 4,
         "nonzero_process_exits": 0,
-        "independently_reviewed": 3,
-        "reviewed_local_gate_passes": 3
+        "independently_reviewed": 4,
+        "reviewed_local_gate_passes": 4
       },
       "remaining": "Process completion is not task acceptance. All outcomes, including failures, require per-trial independent review. This tests small planar initial-state variation, not new task structure or task-space generalization."
+    },
+    {
+      "id": "ot2-three-labware-setup-diagnostic-r1",
+      "title": "MATTERIX · three-object physical setup diagnosis",
+      "evidence_sha256": "aa60f1e0afd760b9db31e67871c690d47e0da3b8087e518b280ab7bbad1c2155",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Last recorded phase: FAILED / reservoir/approach_low. One continuous scene attempts full-size plate, reservoir and tip-rack grasp/transport/placement; no object pose writes after initialization. This diagnostic stops at the first recorded unexpected positive impulse or failed frozen gate. Ground and self-contact are outside its contact gate.",
+      "metrics": {
+        "recorded_physics_steps": 33671,
+        "clock_derived_simulation_s": 56.11833333333334,
+        "maximum_simulation_s": 180,
+        "recorded_completed_objects": 1,
+        "planned_objects": 3,
+        "pipetting_executed": 0
+      },
+      "remaining": "Last recorded progress is not evidence of a live process or acceptance. Independent contact/pose review is pending. N05 remains open until all three actual final poses carry into native pipetting in the same scene. Local supports, reconstructed rack/reservoir and grip overlay remain adaptations."
     }
   ],
   "active": {
-    "id": "ot2_repro_continuous_no_aspiration_r4",
-    "phase": "CONTINUOUS_PIPETTING",
-    "process_verified_alive": true,
-    "simulation_s": 81.5,
-    "physics_steps": 48900,
-    "sampled_at_utc": "2026-10-13T16:17:36.995055+00:00"
+    "id": "ot2_repro_three_labware_setup_diagnostic_r1",
+    "phase": "FAILED",
+    "process_verified_alive": false,
+    "simulation_s": 56.11833333333334,
+    "physics_steps": 33671,
+    "sampled_at_utc": "2026-10-13T16:54:13.615747+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
