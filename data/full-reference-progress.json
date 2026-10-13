@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-13T15:32:07.802505+00:00",
+  "exported_at_utc": "2026-10-13T15:42:15.477006+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1048,26 +1048,26 @@
     {
       "id": "auto-repro-ur5e-rack-clearance-complete-cpu-r9",
       "title": "UR5e · higher-grasp whole-scene repair candidate",
-      "evidence_sha256": "f3d6ac7c07ec34dac56bc114d248512da88f9c12e2146408c227d19654456268",
+      "evidence_sha256": "bf2ae719aee82b8077887e1459c21663fb595f470c066be726173d27c59abb61",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: return_above_source. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: COMPLETED. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 17.000000000035666,
+        "recorded_simulation_s": 23.000000000064315,
         "planned_simulation_s": 23,
-        "result_file_present": 0
+        "result_file_present": 1
       },
       "remaining": "Progress is not acceptance. Completed raw results require independent whole-workflow review; original learning, perception and cross-robot transfer remain separate requirements."
     },
     {
       "id": "auto-repro-dual-rack-clearance-complete-cpu-r6",
       "title": "Dual Flexiv · higher-grasp handoff and pour candidate",
-      "evidence_sha256": "bce4411be70aec4c1df754cdf505bcf12d7e1645404e73beb93f2a8804b520f9",
+      "evidence_sha256": "bfe055857d3bd5b7165040d1893393cb86459fa9b923c06d7f59aaf410906a59",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded native phase: sender_lift. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
+      "scope": "Last recorded native phase: sender_transfer_settle. Independent 240-particle DFSPH with actual robot contacts; bench source, no rack extraction, no original GRID backend. Return control uses simulator-ground-truth object pose feedback, not camera perception.",
       "metrics": {
-        "recorded_simulation_s": 4.999999999999685,
+        "recorded_simulation_s": 12.000000000011791,
         "planned_simulation_s": 33.5,
         "result_file_present": 0
       },
@@ -1091,13 +1091,13 @@
     {
       "id": "ot2-repro-continuous-positive-r4",
       "title": "MATTERIX · continuous native positive r4",
-      "evidence_sha256": "52360395a123a8bd2e0115ebd2ed328e50c65c26641623be1cc1b2712c4bf11c",
+      "evidence_sha256": "365bffaedf12198357aea0ffb3b8ce0825eac437549765751a1915ddd5f86fc2",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Last recorded phase: place_hold. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
+      "scope": "Last recorded phase: CONTINUOUS_PIPETTING. A single PhysX scene keeps the actually loaded plate state for subsequent pipetting. No object-pose reset is intended at the handoff. The original passive front door requires an explicit bounded local holding torque; this is an added assembly control, not a recovered author drive.",
       "metrics": {
-        "recorded_physics_steps": 19500,
-        "clock_derived_simulation_s": 32.5,
+        "recorded_physics_steps": 40500,
+        "clock_derived_simulation_s": 67.5,
         "planned_simulation_s": 105.5,
         "original_OT2_colliders": 25
       },
@@ -1121,11 +1121,11 @@
   ],
   "active": {
     "id": "ot2_repro_continuous_positive_r4",
-    "phase": "STEPPING",
+    "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 32.5,
-    "physics_steps": 19500,
-    "sampled_at_utc": "2026-10-13T15:32:00.799288+00:00"
+    "simulation_s": 67.5,
+    "physics_steps": 40500,
+    "sampled_at_utc": "2026-10-13T15:42:05.237218+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
