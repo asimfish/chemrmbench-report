@@ -72,7 +72,46 @@ if native.get('status')=='PASS_SCOPED_RELEASED_RIGID_RECONSTRUCTION':
         assert detail['phases']['retry']['actual_completed_skill_steps']==480
         assert detail['full_chemical_long_task_pass'] is detail['graceful_sdk_cleanup_pass'] is False
         assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
+bottle=data.get('bottle_probe')
+if bottle:
+    assert bottle['status']=='PASS_SCOPED_NATIVE_BOTTLE_PAIR'
+    for key in ['scientific_admission','full_benchmark_pass','mid_task_restart_tested','event_memory_evaluated']:
+        assert bottle[key] is False,key
+    assert bottle['receipt']=='artifacts/bottle-v79.json'
+    path=root/bottle['receipt']
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==bottle['receipt_sha256']
+    detail=json.loads(path.read_text())
+    assert detail['phases']==bottle['phases'] and detail['restore']==bottle['restore']
+    assert detail['qualified_training_episodes']==detail['astra_model_calls']==0
+    for key in ['scientific_admission','training_admission','full_benchmark_pass',
+                'mid_task_restart_tested','chemistry_event_verified','event_memory_evaluated',
+                'native_clock_continuous_across_rebuild','graceful_sdk_cleanup_pass']:
+        assert detail[key] is False,key
+    assert detail['pinned_files_verified']==108 and detail['original_helpers_verified']==4
+    assert detail['contract_tests_passed']==36
+    r=bottle['restore']
+    assert r['rigid_objects']==56 and r['articulations']==9 and r['transient_ticks']==30
+    assert r['full_registry_each_tick'] is r['all_transient_gates_pass'] is True
+    assert r['maximum_position_error_mm']<=1 and r['maximum_orientation_error_deg']<=.5
+    assert r['maximum_joint_error_rad']<=.0001
+    for phase in ['parent','child']:
+        p=bottle['phases'][phase]
+        assert p['status']=='PASS_SCOPED_NATIVE_BOTTLE_MECHANISM'
+        assert p['commands']==13427 and p['committed_stages']==8 and p['native_rgbd_snapshots']==15
+        assert p['state_writes_during_task']==p['penetration_ticks']==0
+        assert p['final_return_error_mm']<1 and p['transport_bilateral_contact_fraction']>.99
+        assert p['maximum_relative_displacement_mm']<2
+        assert len(bottle['frames'][phase])==15
+        for frame in bottle['frames'][phase]:
+            value=frame['image']
+            assert re.fullmatch(r'assets/native-v79/'+phase+r'-[0-9]{5}\.jpg',value)
+            assert hashlib.sha256((root/value).read_bytes()).hexdigest()==frame['image_sha256']
+        assert p['controlled_exit_without_sdk_cleanup'] is p['owned_process_group_empty'] is True
+    assert bottle['phases']['parent']['native_epoch']!=bottle['phases']['child']['native_epoch']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
+                     native_bottle_frames=30 if bottle else 0,
+                     native_bottle_pair_pass=bool(bottle),
                      historical_carry_whole_scene_restore_accepted=False,
                      native_released_restore_tested=bool(native.get('physical_measurement_started')),
                      scientific_admission=False)))

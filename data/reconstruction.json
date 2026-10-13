@@ -1,6 +1,6 @@
 {
   "schema": "chemrm-preserved-scenes-v1",
-  "verified_at_utc": "2026-10-13T07:50:55.197003+00:00",
+  "verified_at_utc": "2026-10-13T09:13:13.749616+00:00",
   "history_message_count": 40496,
   "scenes": [
     {
@@ -507,5 +507,263 @@
       "receipt": "artifacts/reconstruction-v78-failed-child.json",
       "receipt_sha256": "c0b58bed3b96e24fa745ea3c855ece2f8147ee5e7777a4e053a3331992f6614f"
     }
+  },
+  "bottle_probe": {
+    "status": "PASS_SCOPED_NATIVE_BOTTLE_PAIR",
+    "receipt": "artifacts/bottle-v79.json",
+    "receipt_sha256": "3a01a30f9f9eb60eb328f6194848109a7fb663718f174097c8d621e4171aeda0",
+    "phases": {
+      "parent": {
+        "status": "PASS_SCOPED_NATIVE_BOTTLE_MECHANISM",
+        "commands": 13427,
+        "committed_stages": 8,
+        "native_rgbd_snapshots": 15,
+        "drive_only_actions": true,
+        "state_writes_during_task": 0,
+        "native_epoch": "native_v79:parent:9481af3df06a6125",
+        "transport_bilateral_contact_fraction": 0.9982724580454096,
+        "maximum_relative_displacement_mm": 1.6961878267455237,
+        "final_return_error_mm": 0.7424939193819795,
+        "maximum_transport_tilt_deg": 1.1290515315580583,
+        "penetration_ticks": 0,
+        "close_command_to_bilateral_contact_ms": [
+          170.83334224298596,
+          175.00000912696123
+        ],
+        "controlled_exit_without_sdk_cleanup": true,
+        "owned_process_group_empty": true,
+        "reported_worker_wall_s": 309.71419919794425,
+        "upper_bound_allocated_gpu_hours": 0.09217684499938818,
+        "training_admission": false,
+        "scientific_admission": false
+      },
+      "child": {
+        "status": "PASS_SCOPED_NATIVE_BOTTLE_MECHANISM",
+        "commands": 13427,
+        "committed_stages": 8,
+        "native_rgbd_snapshots": 15,
+        "drive_only_actions": true,
+        "state_writes_during_task": 0,
+        "native_epoch": "native_v79:child:9481af3df06a6125",
+        "transport_bilateral_contact_fraction": 0.9982724580454096,
+        "maximum_relative_displacement_mm": 1.6929398670461817,
+        "final_return_error_mm": 0.5374623176383885,
+        "maximum_transport_tilt_deg": 1.1508803020810028,
+        "penetration_ticks": 0,
+        "close_command_to_bilateral_contact_ms": [
+          170.83334224298596,
+          175.00000912696123
+        ],
+        "controlled_exit_without_sdk_cleanup": true,
+        "owned_process_group_empty": true,
+        "reported_worker_wall_s": 297.9058564971201,
+        "upper_bound_allocated_gpu_hours": 0.08866245729080956,
+        "training_admission": false,
+        "scientific_admission": false
+      }
+    },
+    "restore": {
+      "rigid_objects": 56,
+      "articulations": 9,
+      "transient_ticks": 30,
+      "full_registry_each_tick": true,
+      "all_transient_gates_pass": true,
+      "initial_observed_velocity_pass": true,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "maximum_orientation_error_deg": 0.15630565745770006,
+      "maximum_joint_error_rad": 3.735286327355425e-06,
+      "hidden_solver_state_restored": false,
+      "checkpoint_sha256": "778497fc9b6b17afc91f809077441d039b0b9a336c3b4aa38c08ac5ba8ffd1b7"
+    },
+    "frames": {
+      "parent": [
+        {
+          "command_index": 0,
+          "native_time_s": 5.1333336010575294,
+          "image": "assets/native-v79/parent-00000.jpg",
+          "image_sha256": "57165f11c60e454c262b16abcbbc3e74912a6b4dc5da5f631e75017a58a2b345"
+        },
+        {
+          "command_index": 2400,
+          "native_time_s": 15.133334122598171,
+          "image": "assets/native-v79/parent-02400.jpg",
+          "image_sha256": "a963f348ce250e843b39105db36f74d67b91575e1c87567e5b1f04784a5a169c"
+        },
+        {
+          "command_index": 3360,
+          "native_time_s": 19.133334331214428,
+          "image": "assets/native-v79/parent-03360.jpg",
+          "image_sha256": "9b750aefd3cba21431f43338f1f3f5373b0c7a353ebf5ddc4ad0a615c42710dd"
+        },
+        {
+          "command_index": 3840,
+          "native_time_s": 21.133334435522556,
+          "image": "assets/native-v79/parent-03840.jpg",
+          "image_sha256": "01481582414e5305d93f20b027087ac352e1da713e6d91b86507515573cc09db"
+        },
+        {
+          "command_index": 4560,
+          "native_time_s": 24.13333459198475,
+          "image": "assets/native-v79/parent-04560.jpg",
+          "image_sha256": "e200d71c060e55e32037892822229f7725c287b6a06b6cb8fc2b63cde935b298"
+        },
+        {
+          "command_index": 6480,
+          "native_time_s": 32.13333500921726,
+          "image": "assets/native-v79/parent-06480.jpg",
+          "image_sha256": "5b705786c077aa362ea0e6961077f4d3543def99efdeec4ed26b4abbe274cab6"
+        },
+        {
+          "command_index": 7440,
+          "native_time_s": 36.13333521783352,
+          "image": "assets/native-v79/parent-07440.jpg",
+          "image_sha256": "2adcc5d993d99ac9f79de975b8db13cafbc30cbae6c9f56ed1f54daa1d128691"
+        },
+        {
+          "command_index": 7920,
+          "native_time_s": 38.13333532214165,
+          "image": "assets/native-v79/parent-07920.jpg",
+          "image_sha256": "b11a91831f43cdc501ac602244d286015a46d84f68bce07c8e20bf4f3eadf82b"
+        },
+        {
+          "command_index": 9120,
+          "native_time_s": 43.13333558291197,
+          "image": "assets/native-v79/parent-09120.jpg",
+          "image_sha256": "dc169b6579c735ace9a73c7b65d87a06ce1de158596f4c7d0f5bac7cb7fa2bd4"
+        },
+        {
+          "command_index": 9600,
+          "native_time_s": 45.1333356872201,
+          "image": "assets/native-v79/parent-09600.jpg",
+          "image_sha256": "92871ade46ef22fa7e95150ddc150101089193e1b1e9f1fa77c1e539136957c9"
+        },
+        {
+          "command_index": 11520,
+          "native_time_s": 53.13333610445261,
+          "image": "assets/native-v79/parent-11520.jpg",
+          "image_sha256": "07a4610dc54a96a6663bad6b0bb2c75ed7a1c81a8800a3269ef49f7afce7fbb4"
+        },
+        {
+          "command_index": 12227,
+          "native_time_s": 56.079169591423124,
+          "image": "assets/native-v79/parent-12227.jpg",
+          "image_sha256": "6f534cf04506caa87086cffb1a8bfe397fee543c0f0d2bda9f0084289654c4eb"
+        },
+        {
+          "command_index": 12707,
+          "native_time_s": 58.07916969573125,
+          "image": "assets/native-v79/parent-12707.jpg",
+          "image_sha256": "0cd9a51aa1d76503d3b57ea0a295e2abfa16fd284daab51ed2a5f92b064cc361"
+        },
+        {
+          "command_index": 13187,
+          "native_time_s": 60.07916980003938,
+          "image": "assets/native-v79/parent-13187.jpg",
+          "image_sha256": "9357f8bb8a981d7809225de8cfd174d00e160db080262628fd747aab8194e11a"
+        },
+        {
+          "command_index": 13427,
+          "native_time_s": 61.079169852193445,
+          "image": "assets/native-v79/parent-13427.jpg",
+          "image_sha256": "4a1a0e07de7d3c708ef88c52830978cbbd48f09edeb9d81cd97fff9975b131eb"
+        }
+      ],
+      "child": [
+        {
+          "command_index": 0,
+          "native_time_s": 5.1333336010575294,
+          "image": "assets/native-v79/child-00000.jpg",
+          "image_sha256": "6e537cda030aba51edb1a55d58486eb663f759904dc6e4097c0c54c894077b36"
+        },
+        {
+          "command_index": 2400,
+          "native_time_s": 15.133334122598171,
+          "image": "assets/native-v79/child-02400.jpg",
+          "image_sha256": "3bb22d7330c2e49234b29b9fa83fac4180b7575c26f3c6ba2969b1d186222a3b"
+        },
+        {
+          "command_index": 3360,
+          "native_time_s": 19.133334331214428,
+          "image": "assets/native-v79/child-03360.jpg",
+          "image_sha256": "fb1ef923b3e2306529bb354dc0c7ec45be44076de684e35541e95f37b33c44f8"
+        },
+        {
+          "command_index": 3840,
+          "native_time_s": 21.133334435522556,
+          "image": "assets/native-v79/child-03840.jpg",
+          "image_sha256": "c46c30ff623e77869d04873e2ad8241c3d93105b09d0652a7fe2b1ce9174d031"
+        },
+        {
+          "command_index": 4560,
+          "native_time_s": 24.13333459198475,
+          "image": "assets/native-v79/child-04560.jpg",
+          "image_sha256": "dfdf710d3254c9beca0fb3f9a8977766850621748eecf894ada82ecc2c627dcf"
+        },
+        {
+          "command_index": 6480,
+          "native_time_s": 32.13333500921726,
+          "image": "assets/native-v79/child-06480.jpg",
+          "image_sha256": "2f465c2496b90447553c1251817ff88f8b59e35f516596011d1cb91cbffa1216"
+        },
+        {
+          "command_index": 7440,
+          "native_time_s": 36.13333521783352,
+          "image": "assets/native-v79/child-07440.jpg",
+          "image_sha256": "10b6681447b83878dc7cd549ab9812c26f8cf6c8ed23d808de3332db7f17e02f"
+        },
+        {
+          "command_index": 7920,
+          "native_time_s": 38.13333532214165,
+          "image": "assets/native-v79/child-07920.jpg",
+          "image_sha256": "82afc6c42b6cd35831b049938dacfbbced5b7ccd5da8cb4cd0bc4bfad93aa8fd"
+        },
+        {
+          "command_index": 9120,
+          "native_time_s": 43.13333558291197,
+          "image": "assets/native-v79/child-09120.jpg",
+          "image_sha256": "e4b967f6e3314ed4aafeade3f0e722399f5d7186a38696013259e91ba920d9b9"
+        },
+        {
+          "command_index": 9600,
+          "native_time_s": 45.1333356872201,
+          "image": "assets/native-v79/child-09600.jpg",
+          "image_sha256": "0e41dd1248c28a6cea56b91aa25612055c50b7049b8276fde18981fd72ce166f"
+        },
+        {
+          "command_index": 11520,
+          "native_time_s": 53.13333610445261,
+          "image": "assets/native-v79/child-11520.jpg",
+          "image_sha256": "5f7a9ece404e2ecc245cb5e55f882107e6f830a0d9e80f22d5b5e6f8dea119c8"
+        },
+        {
+          "command_index": 12227,
+          "native_time_s": 56.079169591423124,
+          "image": "assets/native-v79/child-12227.jpg",
+          "image_sha256": "64acd5ab2c675265736cc034fe79b583f282f27b02b232c7ff50b5f797be0140"
+        },
+        {
+          "command_index": 12707,
+          "native_time_s": 58.07916969573125,
+          "image": "assets/native-v79/child-12707.jpg",
+          "image_sha256": "31ab8ab4aa80c91759a131ea90f6f63402f4f699c4935a528a0ba310527b3ede"
+        },
+        {
+          "command_index": 13187,
+          "native_time_s": 60.07916980003938,
+          "image": "assets/native-v79/child-13187.jpg",
+          "image_sha256": "4253c1e1d85342cc388d3a51de73f6512835229c41e8c8dd589f32a483e50849"
+        },
+        {
+          "command_index": 13427,
+          "native_time_s": 61.079169852193445,
+          "image": "assets/native-v79/child-13427.jpg",
+          "image_sha256": "5958aa336c43c40be09d7ab74f030496c5374c2fa082e83977eaf30c93c0a32a"
+        }
+      ]
+    },
+    "scientific_admission": false,
+    "full_benchmark_pass": false,
+    "mid_task_restart_tested": false,
+    "event_memory_evaluated": false
   }
 }
