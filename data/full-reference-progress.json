@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T04:12:23.487956+00:00",
+  "exported_at_utc": "2026-10-14T04:13:04.173083+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1630,8 +1630,8 @@
       "full_reference_accepted": false,
       "scope": "Fresh continuous PhysX sequence after independently admitted reservoir pickup. Plate, reservoir, tip rack and strict64pipetting events must pass in this one run before the no-aspiration control.",
       "metrics": {
-        "observed_native_seconds": 91.0,
-        "physics_steps": 54600,
+        "observed_native_seconds": 93.0,
+        "physics_steps": 55800,
         "maximum_native_seconds": 260.0,
         "required_objects": 3,
         "wall_cap_seconds": 7200
@@ -1652,6 +1652,69 @@
         "model_volume_mL": 3.75
       },
       "remaining": "Exporter/renderer admission only. Does not mean a1920particle surface, video or full experiment has already passed visual or physical validation."
+    },
+    {
+      "id": "ot2-full-r4-reservoir-prefix",
+      "title": "OT2 complete scene · reservoir pickup passes original failed point",
+      "evidence_sha256": "d0378302c964a34923972722feb5ba4e86a4e9b00e7555c191ec5282109f8b94",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Independent42300step prefix audit of the new complete trial reproduces600/600 bilateral hold, zero other support and the original50mm lift gate. The unchanged32700step pre-intervention prefix exactly matches R3.",
+      "metrics": {
+        "native_prefix_seconds": 70.5,
+        "bilateral_hold_steps": 600,
+        "other_support_steps": 0,
+        "minimum_lift_mm": 77.14265584945679
+      },
+      "remaining": "Prefix only; transfer, rack loading and pipetting are separate later gates. No full-run or full-reference acceptance is inferred."
+    },
+    {
+      "id": "ur5e-interface1920-cfl-failure",
+      "title": "UR5e current candidate · strict CFL gate exceeded",
+      "evidence_sha256": "057bcfa9882dd2fe78307e0dab2e2bfcb674865bf4f680130cd251a56d923d86",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The current1920particle trial first logs cumulative CFL above0.4 at13.41s. Two saved spill tracks fit vertical acceleration near-9.81m/s2 with submicrometre residual before floor contact; this supports a free-fall timestep explanation, not an initial-density explosion.",
+      "metrics": {
+        "first_logged_failure_seconds": 13.410000000018524,
+        "CFL_at_first_failure": 0.404685378074646,
+        "CFL_limit": 0.4,
+        "fitted_tracks": 2,
+        "maximum_fit_residual_m": 6.545867237139902e-07
+      },
+      "remaining": "Full trajectory and independent terminal review remain separate. Saved25Hz states cannot independently identify which8000Hz substep/particle produced the global CFL maximum. No threshold change or particle removal."
+    },
+    {
+      "id": "fluid-exact-plane-union",
+      "title": "Fluid sampling · exact bounded rectangle-union optimization",
+      "evidence_sha256": "00cefdeaf011217fbcf84582c8e694970701d5dbefe8faed881450b93d2bc723",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separate future sampler computes the same integer stencil union without sorting duplicate keys.160exact-output cases and48deterministic CPU coupled steps match bitwise; current full trial retains its frozen sampler.",
+      "metrics": {
+        "plane_cases": 160,
+        "CPU_steps_per_variant": 48,
+        "prior_plane_sampling_median_s": 1.2208762757945806,
+        "new_plane_sampling_median_s": 0.004370759008452296
+      },
+      "remaining": "Three warmed CPU sampling calls on one archived state. No full-task speedup, GPU bitwise equivalence or physical accuracy improvement is claimed."
+    },
+    {
+      "id": "matterix-full-lab-native-ur3",
+      "title": "MATTERIX full lab · native UR3e configuration and placement",
+      "evidence_sha256": "06a779feda38c97640e1768af2f0dd08f338c0f47eb45dc4424b4a0a351113aa",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Local layered scene now contains2Panda,3nativeUR3e and1KMR model. Original mesh/material/collider/joint attributes are preserved; CPU placement and four-camera frustum preflight passed without physics.",
+      "metrics": {
+        "Panda": 2,
+        "UR3e": 3,
+        "KMR": 1,
+        "fixed_robots": 5,
+        "mobile_models": 1,
+        "native_physics_steps": 0
+      },
+      "remaining": "RTX material/visibility review is queued after the active fluid trial. UR3task gripper identity, native hood-door motion, KMR arm/base dynamics and whole-lab tasks remain unresolved. Raw licensed/private assets are not republished."
     }
   ],
   "active": {
