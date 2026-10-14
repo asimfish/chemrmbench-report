@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T07:32:21.943431+00:00",
+  "exported_at_utc": "2026-10-14T07:37:45.025290+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2049,13 +2049,13 @@
     {
       "id": "ot2-continuous-positive-r9-restart1",
       "title": "OT2 complete sequence R9 · positive_r9_restart1 · CONTINUOUS_PIPETTING",
-      "evidence_sha256": "47739e67a952ad23f3427c9d6e5a0743587d0cd1ffb146f04ed1bc56794a403e",
+      "evidence_sha256": "230853feb33434c4ed6fe4c9c762ce3c8aa45c9f5d0bd63c1b758a94a1eb2752",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: destination_1_hold. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: source_3_overhead. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 168.0,
-        "native_steps": 100800,
+        "native_seconds": 186.0,
+        "native_steps": 111600,
         "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2109,7 +2109,7 @@
     },
     {
       "id": "liquid-1920-rtx-diagnostic-render",
-      "title": "1920-particle replay · RENDER_COMPLETE_MEDIA_AND_VISUAL_REVIEW_PENDING",
+      "title": "1920-particle replay · render complete; independent media checks below",
       "evidence_sha256": "0c229e98de3a2899bcd8f13a106c790115f087462e45937c62130b0a268984b2",
       "subsystem_passed": false,
       "full_reference_accepted": false,
@@ -2135,7 +2135,7 @@
         "checks_passed": 20,
         "maximum_corrected_button_drift_mm": 6.849625447348572
       },
-      "remaining": "This fixes authored initial coordinates, not dynamics. The prior comparison accidentally changed stage units and up-axis and is retained as INVALID_CONFOUNDED. Hood-floor overlap, Panda initial joint state, loaded support and full workflows remain open."
+      "remaining": "This fixes authored initial coordinates, not dynamics. The prior comparison accidentally changed stage units and up-axis and is retained as INVALID_CONFOUNDED. The later isolated Panda and hood initialization checks are reported below; loaded stability and full workflows remain open."
     },
     {
       "id": "fluid-native-boundary-calibration-eight-cases",
@@ -2154,15 +2154,125 @@
         "task_steps": 0
       },
       "remaining": "This rejects the tested unrelaxed external particle clouds and independent quadrature/steady-state harness. It does not reject the native solver or complete volume-map model. Author initialization and native boundary integration are being isolated before any new robot task."
+    },
+    {
+      "id": "liquid-1920-complete-video-delivered",
+      "title": "1920-particle replay · complete23s diagnostic video online",
+      "evidence_sha256": "e129de40c2304763092e2192f724d1b89b5a8bdd4abe585174f7b1654fb1e583",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "All575 frames render and decode at25fps. Every encoded timestamp maps to the original saved state with a0.04s offset. Desktop and mobile browser checks pass, including complete1x playback and independent controls for the retained240-particle video.",
+      "metrics": {
+        "frames": 575,
+        "duration_s": 23,
+        "physics_steps": 0,
+        "media_checks": 18,
+        "browser_checks": 24,
+        "manually_inspected_frames": 5
+      },
+      "remaining": "Accepted for diagnostic display only. The source physical trial still fails CFL and domain containment; liquid color and original GRID rendering are uncalibrated. No new physics, altered trajectory or full-reference acceptance."
+    },
+    {
+      "id": "full-lab-panda-initial-state",
+      "title": "Full laboratory · Panda native initialization restored",
+      "evidence_sha256": "db3262246c7c442e76e999f60b0a05f90a5003fa0233842c7d997849eb06d6ce",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Fourteen initial arm-joint states are derived from authored geometry. Original drive targets, all82 initial body states,48 unaffected poststep bodies and eight other articulations remain unchanged in the one-step control.",
+      "metrics": {
+        "independent_checks": 23,
+        "old_maximum_jump_mm": 344.53802817322133,
+        "new_maximum_jump_mm": 0.7162994542428294
+      },
+      "remaining": "One-step initialization check only; this does not establish equilibrium or task readiness."
+    },
+    {
+      "id": "full-lab-hood-initial-support",
+      "title": "Full laboratory · collider-aware initial floor support",
+      "evidence_sha256": "f432d046d8b886d012d2fce391ab927a7e3c2f6a015889b0128b307752baddbd",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Guide-purpose collision geometry extended6.349mm below the earlier render bounds. Translating each complete hood station and its hosted robot removes the initial overlap; all four native floor contacts carry positive support impulses.",
+      "metrics": {
+        "independent_checks": 26,
+        "maximum_first_step_drift_mm": 0.07651583088230672,
+        "unaffected_bodies": 63
+      },
+      "remaining": "One-step isolation only. The7.025mm visible floor gap remains a visual mismatch and later drift is reported separately."
+    },
+    {
+      "id": "full-lab-combined-half-second",
+      "title": "Full laboratory ·120steps complete, equilibrium not accepted",
+      "evidence_sha256": "6792e00d3264e2d48027c68d0cfee0dfae60139d60a8c1a100387d23de2c206a",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The combined repairs preserve the exact first-step outcomes of the isolated controls. All9922 body samples and1200 articulation samples are finite and independently checked; the original broad0.5m displacement and20m/s safety screens pass.",
+      "metrics": {
+        "native_steps": 120,
+        "simulation_s": 0.5,
+        "independent_checks": 27,
+        "maximum_hood_body_drift_mm": 17.647450139735643
+      },
+      "remaining": "This is not a stability or task pass. UR3e zero initial joint values conflict with the authored display pose; terminal UR3e speed reaches1.369m/s. Hood motion reaches17.65mm. Source-preserving initialization and support diagnosis continue; thresholds are unchanged."
+    },
+    {
+      "id": "fluid-author-native-dynamic-control",
+      "title": "Fluid reference · actual native DFSPH dynamics verified, not settled",
+      "evidence_sha256": "ba3086eea4f36dca5ff52c80ff1b8db3b92aa02511038007864a3750cb1c01ee",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The author DamBreak configuration executes125 native adaptive steps with6859 original particles. Count and mass remain constant, native advection is independently reconstructed, and no particle-position repair or center penetration occurs.",
+      "metrics": {
+        "native_steps": 125,
+        "position_time_s": 0.5015813515917972,
+        "density_time_s": 0.497310658575922,
+        "initial_mean_density_ratio": 0.7626465593957769,
+        "final_mean_density_ratio": 0.9115807108241425,
+        "final_rms_speed_m_s": 1.8329163336703362,
+        "independent_checks": 15
+      },
+      "remaining": "The initially underdense fluid dynamically compresses, but terminal density and speed fail steady-state admission. This author-scale test uses its original viscosity, not a calibrated water model. A separately identified external periodic driver must pass source-equivalence and negative controls before channel relaxation."
+    },
+    {
+      "id": "fluid-native-periodic-driver-controls",
+      "title": "Fluid reference · external periodic driver passes scoped controls",
+      "evidence_sha256": "61fe44d0f5ffcf4050c8a836220cc6d0ed0dcc7dfff22e3fcec25ec1dce04af0",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The external driver matches three nonperiodic native DFSPH steps, including ten state fields, iteration counts and adaptive clock. Periodic translation and momentum checks pass; deliberately omitting halo acceleration synchronization is detected between the two pressure passes.",
+      "metrics": {
+        "independent_checks": 23,
+        "source_control_steps": 3,
+        "maximum_source_field_relative_difference": 7.683665021090978e-14,
+        "maximum_translation_field_relative_difference": 2.0341653636266454e-11
+      },
+      "remaining": "Control integrity only. The source library has no built-in periodic driver; this external harness currently uses explicit Standard viscosity. Pressure reaches its100-iteration cap, and periodic implicit Weiler viscosity, relaxation, flow calibration and robot tasks are not admitted."
+    },
+    {
+      "id": "native-particle-clock-and-reader-audit",
+      "title": "Native particle diagnostics · exact clock verified, reader equivalence unresolved",
+      "evidence_sha256": "c959cfea5bc4a24128dac22f266014abd540fc0e2c7010625dfc2fb3ab442b19",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Three fresh0.1s controls each record exactly30 native callbacks and matching engine time, with readback flags checked every step. Physics-only stepping and separate rendering remove the measured mixed-step clock error.",
+      "metrics": {
+        "controls": 3,
+        "total_callback_steps": 90,
+        "integrity_checks": 28,
+        "same_configuration_max_position_difference_mm": 2.453249773209802,
+        "cross_configuration_max_position_difference_mm": 2.4821317004923094,
+        "older_mixed_render_source_versions": 7
+      },
+      "remaining": "Both same-configuration repeat and isosurface comparison fail the original trajectory-equivalence gates. Do not attribute divergence uniquely to rendering. Seven older native-pour source versions mix render and physics steps; their loop-derived timing remains unverified. Current three-object OT2 uses a separate physics-only path, supported by source audit but without a separately logged callback clock."
     }
   ],
   "active": {
     "id": "ot2_repro_three_labware_complete_positive_r9_restart1",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 168.0,
-    "physics_steps": 100800,
-    "sampled_at_utc": "2026-10-14T07:32:18.915739+00:00"
+    "simulation_s": 186.0,
+    "physics_steps": 111600,
+    "sampled_at_utc": "2026-10-14T07:37:34.353699+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
