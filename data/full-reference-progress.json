@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T10:52:17.737300+00:00",
+  "exported_at_utc": "2026-10-14T11:02:22.549103+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2654,17 +2654,17 @@
     {
       "id": "ot2-three-object-video-r8-chunked",
       "title": "Three-object video · durable128-frame chunks",
-      "evidence_sha256": "c594942a0ab525dcd30492ce5be41720899065dc3465e1404f8c075f953487be",
+      "evidence_sha256": "d2873e73c6b76109b5a71642f3c77b09111fa23e2f92afdd153d67c5b08e3e05",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T10:52:11.217428+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T11:02:21.384974+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
       "metrics": {
-        "frames_completed": 1500,
-        "frames_accepted_from_complete_chunks": 1408,
+        "frames_completed": 1669,
+        "frames_accepted_from_complete_chunks": 1664,
         "frames_total": 3266,
-        "chunks_completed": 11,
+        "chunks_completed": 13,
         "chunks_total": 26,
-        "remaining_budget_s": 12177.33651307039,
+        "remaining_budget_s": 11567.168966140132,
         "total_wall_budget_s": 18000,
         "trial_relative_s": 208.5
       },
