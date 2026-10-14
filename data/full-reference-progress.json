@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T09:12:15.071329+00:00",
+  "exported_at_utc": "2026-10-14T09:19:23.455926+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2432,6 +2432,42 @@
         "physical_calibration_cases_accepted": 0
       },
       "remaining": "This changes count, mass and occupied volume relative to the original failed512-particle cohort and is not merged into its denominator. Initial bulk density is about0.8 of target. Three-step numerical agreement does not establish steady flow, fluid calibration or robot performance; original eight physical cases remain0/8."
+    },
+    {
+      "id": "fluid-source-rule-relaxation-failed",
+      "title": "Fluid reference · bounded relaxation stopped at10.515s",
+      "evidence_sha256": "5faa31974013146e4e578041a86fdf149a37b2536ad46b639644ed6d5fc29afa",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The separate source-rule216-particle cloud ran2103 native steps and stopped at the first frozen divergence-momentum gate violation. All25 saved field frames were independently matched to the sampling rules and checked at the correct density time. The original relative-residual gate remains failed.",
+      "metrics": {
+        "native_steps": 2103,
+        "native_seconds": 10.515000000000244,
+        "saved_field_frames": 25,
+        "maximum_relative_divergence_residual": 1.4283720848796905e-10,
+        "maximum_cumulative_momentum_error": 2.6038236138803324e-14,
+        "terminal_supported_bulk_particles": 0,
+        "physical_calibration_cases_accepted": 0
+      },
+      "remaining": "A no-solve force reconstruction suggests floating-point cancellation at extremely small increments; stage operands were not individually archived, so it does not certify the original rounding or reverse the failed gate. The zero-gravity cloud also spreads laterally and has no supported bulk at termination. No rest, filled-channel or physical-flow qualification is established. A prior audit frame-count coding error is documented separately."
+    },
+    {
+      "id": "ot2-three-object-video-r8-chunked",
+      "title": "Three-object video · durable128-frame chunks",
+      "evidence_sha256": "25a347512bca4b51ff54de474a72b8066a4e7cba4ef85984f8c6df0e41173c20",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T09:19:23.402285+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "metrics": {
+        "frames_completed": 63,
+        "frames_total": 3266,
+        "chunks_completed": 0,
+        "chunks_total": 26,
+        "remaining_budget_s": 17745.151655655354,
+        "total_wall_budget_s": 18000,
+        "trial_relative_s": 208.5
+      },
+      "remaining": "R5 stalled and remains retained. R7 passed18 content checks but exceeded its earlier10800s feasibility budget; the new18000s computation budget changes neither rendering nor scientific thresholds. Each worker has a120s no-progress watchdog and bounded retry. Final all-frame source binding, native timestamps, decoding and inspection of the encoded video remain separate gates; no automatic video publication."
     }
   ],
   "active": null,
