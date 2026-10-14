@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T06:42:21.456651+00:00",
+  "exported_at_utc": "2026-10-14T06:46:35.597933+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2017,9 +2017,9 @@
       "remaining": "Every575-frame geometry audit is still required before rendering and delivery. Particle positions and the failed physical trajectory are unchanged. Both interrupted exports and the first rejected repair remain archived."
     },
     {
-      "id": "liquid-1920-diagnostic-export-r3",
-      "title": "1920-particle diagnostic replay · complete export and audit",
-      "evidence_sha256": "c19021b74eb602906f849eac7d9b135b24dd86c7f58c009606f7fbf98e42566f",
+      "id": "liquid-1920-diagnostic-audit-r4",
+      "title": "1920-particle diagnostic replay · persistent independent audit",
+      "evidence_sha256": "b4b81568f957bb0f5af57adc7e8e689e363012996548702da36e70b7cc728631",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Recorded-state replay phase: CPU_STAGE_3. The original23s physical run passes16 of18 gates and remains rejected.",
@@ -2031,9 +2031,9 @@
       "remaining": "This module reports diagnostic-media production, not physical acceptance. Full geometry, rendering and browser playback must all complete before a new video is delivered."
     },
     {
-      "id": "ot2-complete-r9-positive",
-      "title": "OT2 complete sequence R9 · positive · STEPPING",
-      "evidence_sha256": "25515d209d366f03befc86f90b514988f84d0bc1a29b358b18fab8b2c14e24cf",
+      "id": "ot2-continuous-positive-r9",
+      "title": "OT2 complete sequence R9 · positive_r9 · INTERRUPTED_NO_VALID_TERMINAL_RESULT",
+      "evidence_sha256": "5921dcef0c21937469fc3eb35e4f8d3ecacfae52751b34e9847846ae69d6d7f3",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/place_hold. Separate local passes are not imported as state or counted as the full result.",
@@ -2045,15 +2045,60 @@
         "wall_cap_seconds": 7200
       },
       "remaining": "All original collision, sustained grasp, placement and event gates remain. Final600 contact-free samples and final three-object pose/speed are additionally checked. Only independent terminal audits can establish this sequence; the negative begins only after positive acceptance. Complete paper reproduction remains open."
+    },
+    {
+      "id": "ot2-continuous-positive-r9-restart1",
+      "title": "OT2 complete sequence R9 · positive_r9_restart1 · STEPPING",
+      "evidence_sha256": "490a9164f760b4199ce2b8e4e46cdd900a7f2ed1444f2aa49967db3fb451868e",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: plate/close. Separate local passes are not imported as state or counted as the full result.",
+      "metrics": {
+        "native_seconds": 13.0,
+        "native_steps": 7800,
+        "completed_objects": 0,
+        "native_cap_seconds": 260.0,
+        "wall_cap_seconds": 7200
+      },
+      "remaining": "All original collision, sustained grasp, placement and event gates remain. Final600 contact-free samples and final three-object pose/speed are additionally checked. Only independent terminal audits can establish this sequence; the negative begins only after positive acceptance. Complete paper reproduction remains open."
+    },
+    {
+      "id": "liquid-1920-interrupted-audit",
+      "title": "Liquid replay · interrupted audit retained, completed export reused",
+      "evidence_sha256": "db356ef9a7e827ae09f67dae80607e9e308629192566942b30d3a75e61325253",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The previous processes ended without a terminal receipt. All575 surface frames and native USD preservation completed. The interrupted verifier reported500 checked frames but did not persist individual results, so its aggregate log cannot establish complete acceptance.",
+      "metrics": {
+        "completed_export_frames": 575,
+        "previous_aggregate_audited_frames": 500,
+        "required_frames": 575,
+        "physics_steps": 0
+      },
+      "remaining": "The new persistent audit rechecks all575 frames and checkpoints each result with source and helper hashes. GPU rendering is gated on the complete independent audit. The physical run remains rejected."
+    },
+    {
+      "id": "matterix-full-lab-initialization-diagnostic",
+      "title": "Full laboratory · first physical initialization exposes unresolved issues",
+      "evidence_sha256": "416b57765261e8adead296b2115f2113137832df78b159ad0a434b1071af8daf",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The first separate CPU PhysX diagnostic stops after one step. All127 author triangle colliders respond to native queries. Large hood-button initialization shifts and missing articulation tensor readback require separate diagnosis; this is not a settled laboratory.",
+      "metrics": {
+        "actual_steps": 1,
+        "queried_author_meshes": 127,
+        "author_mesh_query_hits": 127
+      },
+      "remaining": "A fixed-joint coordinate mismatch and tensor creation timing are under controlled repair. Native ray hits do not prove loaded support, contact stability or complete tasks; hood-floor penetration and robot initialization shifts remain open."
     }
   ],
   "active": {
-    "id": "ot2_repro_three_labware_complete_positive_r9",
+    "id": "ot2_repro_three_labware_complete_positive_r9_restart1",
     "phase": "STEPPING",
-    "process_verified_alive": false,
-    "simulation_s": 136.0,
-    "physics_steps": 81600,
-    "sampled_at_utc": "2026-10-14T06:14:39.333705+00:00"
+    "process_verified_alive": true,
+    "simulation_s": 13.0,
+    "physics_steps": 7800,
+    "sampled_at_utc": "2026-10-14T06:46:27.988840+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
