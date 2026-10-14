@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T05:22:16.885795+00:00",
+  "exported_at_utc": "2026-10-14T05:31:33.502810+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1943,6 +1943,92 @@
         "physics_steps": 0
       },
       "remaining": "Only two large-frame regression cases. Every one of575 frames still needs the complete independent audit before GPU rendering; physical and original-renderer acceptance are unchanged."
+    },
+    {
+      "id": "ot2-reservoir-finite-release",
+      "title": "Reservoir placement · matched finite-opening control passes",
+      "evidence_sha256": "ab924e894551c319b8a85615b4a0fc16223fb100f92ff307abb9d1f10bad2f7c",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Independent native trace review passes every frozen gate for this separately initialized diagnostic. The reservoir uses finite opening before withdrawal; the rack uses a geometrically screened arm branch.",
+      "metrics": {
+        "native_seconds": 44.5,
+        "checks_passed": 11,
+        "gates_passed": 16,
+        "gates_total": 16
+      },
+      "remaining": "A local admission only. Plate, reservoir and rack diagnostics cannot be stitched into a complete sequence. A fresh continuous three-object positive and its matched negative remain required."
+    },
+    {
+      "id": "ot2-rack-clearance-pickup",
+      "title": "Rack pickup · new arm branch avoids the ground",
+      "evidence_sha256": "c269c9e1cdfa4f1bb2286401a0f55e3197383ac52135f08c04338dc9d469be72",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Independent native trace review passes every frozen gate for this separately initialized diagnostic. The reservoir uses finite opening before withdrawal; the rack uses a geometrically screened arm branch.",
+      "metrics": {
+        "native_seconds": 19,
+        "checks_passed": 8,
+        "gates_passed": 9,
+        "gates_total": 9
+      },
+      "remaining": "A local admission only. Plate, reservoir and rack diagnostics cannot be stitched into a complete sequence. A fresh continuous three-object positive and its matched negative remain required."
+    },
+    {
+      "id": "matterix-author-toronto-full-scene-candidate",
+      "title": "Full laboratory · original Toronto glovebox integrated",
+      "evidence_sha256": "96b68ba38c883bc002d3286a16492edeb6a8962105b1cc11eaa8d65485b0210d",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "An author branch supplies the Toronto glovebox with127 meshes and127 static colliders. Two UR3e arms are repositioned against its actual floor; the earlier proxy is disabled only in a new composition layer.",
+      "metrics": {
+        "author_meshes": 127,
+        "author_colliders": 127,
+        "physics_steps": 0
+      },
+      "remaining": "CPU composition and static images do not establish task dynamics. Exact task grippers, glove sleeves, articulated doors and whole-laboratory workflows remain open. Author UR5e/2F140 assets are not relabeled as Fig.3 UR3e tools."
+    },
+    {
+      "id": "fluid-volume-map-port-rejected",
+      "title": "Fluid boundary · volume-map port rejected before task execution",
+      "evidence_sha256": "f903ef969c29258838ed8a3984609ea890e216704bb1a4c3a05062891c84e4ec",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The source-linked CPU candidate passes planar Couette but fails curved-pipe profile and flow limits; the original initial-state density already exceeds the frozen gate. No task state is advanced.",
+      "metrics": {
+        "physical_checks_passed": 3,
+        "physical_checks_total": 6,
+        "task_steps": 0
+      },
+      "remaining": "An independent exact half-space integral checks the density formula. This rejects our transplanted3.2dx/dx-cubed configuration, not native SPlisHSPlasH as a whole. Native radius, mass-volume and queried-density settings need a separate fixed-reference calibration."
+    },
+    {
+      "id": "liquid-1920-quantized-topology-repair",
+      "title": "Liquid replay · quantized mesh defect repaired in one failed frame",
+      "evidence_sha256": "174edc704e9514edbc3f5a48047509f835c4cb6d8fa6deca10ffd8defd5b8a0b",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The second export retains277 completed frames before a nonmanifold float32 mesh. A bounded isovalue adjustment repairs that frame; independent canonicalized topology, all1920 centers and original volume tolerance pass. The unchanged control frame is bitwise identical.",
+      "metrics": {
+        "checks_passed": 11,
+        "checks_total": 11,
+        "physics_steps": 0
+      },
+      "remaining": "Every575-frame geometry audit is still required before rendering and delivery. Particle positions and the failed physical trajectory are unchanged. Both interrupted exports and the first rejected repair remain archived."
+    },
+    {
+      "id": "liquid-1920-diagnostic-export-r3",
+      "title": "1920-particle diagnostic replay · complete export and audit",
+      "evidence_sha256": "d6604712c34585717fe36dfd01361fbf3b5ee1ba40c6087066877e9b0860626e",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Recorded-state replay phase: CPU_STAGE_1. The original23s physical run passes16 of18 gates and remains rejected.",
+      "metrics": {
+        "required_frames": 575,
+        "particle_count": 1920,
+        "physics_steps": 0
+      },
+      "remaining": "This module reports diagnostic-media production, not physical acceptance. Full geometry, rendering and browser playback must all complete before a new video is delivered."
     }
   ],
   "active": {
