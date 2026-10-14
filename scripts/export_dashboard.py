@@ -145,13 +145,15 @@ def live_runs(config):
         raw = within(registration['path'], config['experiment_root'])
         phases=registration.get('phases',['parent','child'])
         leader=('live_a' if phases==['live_a','live_b'] else
-                'live_control' if phases==['live_control','same_process_restore'] else 'parent')
+                'live_control' if phases==['live_control','same_process_restore'] else
+                'live' if phases==['live','single_pose'] else
+                'single_pose' if phases==['single_pose'] else 'parent')
         parent_running = raw / (leader+'_running.json')
         if not parent_running.exists():
             continue
         stage_list = []
         alive = False
-        if phases not in (['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['live_control','same_process_restore'],['parent','child_expired','child_retry'],
+        if phases not in (['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['live_control','same_process_restore'],['live','single_pose'],['single_pose'],['parent','child_expired','child_retry'],
                           ['parent','child_expired_resource_retry1','child_retry'],
                           ['parent','child_interrupted','child_retry'],
                           ['parent','no_fault_first','recovery_first','recovery_retry','expired_first']):
@@ -161,7 +163,8 @@ def live_runs(config):
                 'child_retry':'从父检查点单次重试','no_fault_first':'无故障冷续跑对照',
                 'recovery_first':'可行中断证据保存','recovery_retry':'保留原期限重试',
                 'expired_first':'原期限过期拒绝','live_a':'连续运行基线 A','live_b':'连续运行基线 B',
-                'live_control':'不中断物理对照','same_process_restore':'同进程状态恢复对照'}
+                'live_control':'不中断物理对照','same_process_restore':'同进程状态恢复对照',
+                'live':'完整八阶段原生录像','single_pose':'单项位姿写入录像与门槛'}
         matched_paths={'no_fault_first':'branches/no_fault/child_first',
                        'recovery_first':'branches/recovery/child_first',
                        'recovery_retry':'branches/recovery/child_retry',
@@ -267,6 +270,8 @@ def collect(config):
                 collector={'state': state}, counts=counts, latest=latest,
                 active_runs=active, gpus=gpus, tasks=worklines(latest), evidence_notes=notes,
                 history=[
+                    {'date':'2026-10-14','title':'V97 · 八阶段原生录像与单项写入负结果','detail':'完整连续任务13427步、673原始帧/56.08秒、8阶段各65实体；单项瓶体位姿写入后65实体×30步匹配保持通过，1920步运送终态姿态0.650°超过原0.5°，位置0.312mm低于1mm。事先封存读出、201源文件和772连续对照文件核验，2进程闭合；0调用/0训练/GPU上界0.181h。实验系统提供阶段跳转、逐帧游标、状态投影和验收下载，见benchmark.html。中途冷重建仍1/8；未建立随机因果或隐藏状态机制。'},
+                    {'date':'2026-10-14','title':'V96 · 身份门槛拒绝与19秒原始录像保留','detail':'新录像执行器源身份与旧归档基线不同；即使物理与任务游标完全一致，仍在写入前拒绝。0状态写入/0运送，229原始RGB帧/19.08秒；原封存读出异常保留，另立采集后拒绝读出，无回填通过。1进程闭合/GPU上界0.057h/0调用/0训练。'},
                     {'date':'2026-10-14','title':'V95 · 同进程恢复仍有后续姿态失配','detail':'恢复前65实体物理记录与任务游标完全一致；已有进程内167次状态、目标和参数写入不推进积分。65实体×30步保持通过，随后1920步运送终态姿态0.999°超过原0.5°门槛，位置0.466mm低于1mm；启动前封存读出保留失败。126源文件/68连续对照文件不变，2组进程闭合，0调用/0训练/GPU分配上界0.140h。进程重启不是本例失配的必要条件；具体写入或隐藏状态原因未定。保存8/8，中途冷重建仍1/8。'},
                     {'date':'2026-10-14','title':'V94 · 两条连续基线完成，瓶体配对记录一致','detail':'每条连续运行相同固定种子的4560步前缀、30步保持、1920步运送，抬瓶边界不恢复状态。65实体终态和保持对照满足原门槛；1920对瓶体位姿记录一致，终态位置/姿态差0。角度公式微小浮点残差不代表物理漂移。124源文件、67基线A文件保留，启动前封存读出完成原始复核；0调用/0训练/GPU分配上界0.110h。V93姿态失败保留，完整重建仍1/8；同进程恢复对照 V95 已完成，负结果继续保留。'},
                     {'date':'2026-10-14','title':'V93 · 携物短时恢复通过，后续运送姿态失败','detail':'同源抬瓶边界：65实体×30步连续父进程与冷恢复比较通过；随后各运送1920步，双侧接触100%。终态姿态0.999°超过原0.5°门槛，位置0.466mm低于1mm。67父文件不变；0模型调用；GPU分配上界0.136h包含首轮实现失败。保留负结果，重建覆盖仍1/8；下一轮先测连续基线差异，不推断求解器原因。'},

@@ -1,0 +1,495 @@
+{
+  "schema": "chemrm-benchmark-system-v1",
+  "published_at_utc": "2026-10-14T13:15:57.445329+00:00",
+  "full_benchmark_pass": false,
+  "formal_M1_admission": false,
+  "training_admission": false,
+  "physics_hz": 240,
+  "video_fps": 12,
+  "runs": [
+    {
+      "id": "V97-live",
+      "short_title": "完整任务",
+      "title": "完整八阶段 · 连续运行录像",
+      "camera_label": "Station A · 重建实验室",
+      "scope": "同一源封存版本的新物理采集。完整连续任务，含 30 步携物保持。",
+      "verdict_label": "完整操作与八阶段保存通过",
+      "next_stage_pose_control_pass": true,
+      "video": "assets/native-v97/live.mp4",
+      "poster": "assets/native-v97/live.jpg",
+      "frame_index": "assets/native-v97/live-frames.json",
+      "stage_states": "assets/native-v97/live-stages.json",
+      "receipt": "artifacts/benchmark-v97.json",
+      "video_frames": 673,
+      "video_fps": 12,
+      "video_duration_s": 56.083333333333336,
+      "recorded_native_span_s": 56.000002920627594,
+      "video_sha256": "794f18a65b971840f38e66e87fc97fef8e7e1f0d9e4d97318e00e14ea0563397",
+      "raw_frame_index_sha256": "2a042e2bed19dca734381db29b49e52244fa3c124a3869eda0b6351f527751ee",
+      "video_scope": "新物理积分期间同步采集 RGB：240 Hz 物理 / 12 fps 视频。按原生时间播放，非真机或实测实时录像；末端未采样间隔小于 83.4 ms，以 240 Hz 状态日志验收。",
+      "resource_scope": "本条件 GPU 分配时长上界 0.108950 小时；模型调用 0，训练任务 0。新录像渲染开销事先声明，不用录像新增计时标定结论。",
+      "stages": [
+        {
+          "id": "approach",
+          "label": "接近",
+          "native_start_s": 0.0,
+          "native_end_s": 10.000000521540642,
+          "video_seek_s": 0.0,
+          "source_start_cursor": 0,
+          "source_end_cursor": 2400,
+          "registered_entities": 65,
+          "archive_state_sha256": "c708595f1d34b5cfb1917c6d357af64aab4b5f67c01dc146c07aa014a3c12e56"
+        },
+        {
+          "id": "grasp",
+          "label": "抓取",
+          "native_start_s": 10.000000521540642,
+          "native_end_s": 16.000000834465027,
+          "video_seek_s": 10.0,
+          "source_start_cursor": 2400,
+          "source_end_cursor": 3840,
+          "registered_entities": 65,
+          "archive_state_sha256": "19492f90a26584b1f2681ed9d9c86e5a1455fe3f7b11b6464a8d7866116e56a8"
+        },
+        {
+          "id": "lift",
+          "label": "提起",
+          "native_start_s": 16.000000834465027,
+          "native_end_s": 19.00000099092722,
+          "video_seek_s": 16.0,
+          "source_start_cursor": 3840,
+          "source_end_cursor": 4560,
+          "registered_entities": 65,
+          "archive_state_sha256": "160f3452c3b3ece522159fb10a462e2ba89c2f4f702090b2a65288b8118f7ebd"
+        },
+        {
+          "id": "hold",
+          "label": "携物保持",
+          "native_start_s": 19.00000099092722,
+          "native_end_s": 19.125000997446477,
+          "video_seek_s": 19.0
+        },
+        {
+          "id": "transport",
+          "label": "运送",
+          "native_start_s": 19.125000997446477,
+          "native_end_s": 27.12500141467899,
+          "video_seek_s": 19.166666666666668,
+          "source_start_cursor": 4560,
+          "source_end_cursor": 6480,
+          "registered_entities": 65,
+          "archive_state_sha256": "95949570442543e6e1cd75acdddf826c2f93a297889031b8627a6a1f57b5ac12"
+        },
+        {
+          "id": "place_release",
+          "label": "天平释放",
+          "native_start_s": 27.12500141467899,
+          "native_end_s": 33.125001727603376,
+          "video_seek_s": 27.166666666666668,
+          "source_start_cursor": 6480,
+          "source_end_cursor": 7920,
+          "registered_entities": 65,
+          "archive_state_sha256": "8c17c9be54d82eb6e6f521a4749749aef1f3ea10564fac33c2daaa75c52d51f4"
+        },
+        {
+          "id": "regrasp",
+          "label": "再次抓取",
+          "native_start_s": 33.125001727603376,
+          "native_end_s": 40.125002092681825,
+          "video_seek_s": 33.166666666666664,
+          "source_start_cursor": 7920,
+          "source_end_cursor": 9600,
+          "registered_entities": 65,
+          "archive_state_sha256": "0b8e6b42d49847631c0899b9c19469f6e3c288b2a5d4689e5ddc08746aa969e7"
+        },
+        {
+          "id": "return",
+          "label": "放回",
+          "native_start_s": 40.125002092681825,
+          "native_end_s": 53.07083610119298,
+          "video_seek_s": 40.166666666666664,
+          "source_start_cursor": 9600,
+          "source_end_cursor": 12707,
+          "registered_entities": 65,
+          "archive_state_sha256": "2d72a06db9d619c3ee7f214602eeb1093574a7c967a1ea461d523735c0b609f3"
+        },
+        {
+          "id": "retreat",
+          "label": "退出",
+          "native_start_s": 53.07083610119298,
+          "native_end_s": 56.07083625765517,
+          "video_seek_s": 53.083333333333336,
+          "source_start_cursor": 12707,
+          "source_end_cursor": 13427,
+          "registered_entities": 65,
+          "archive_state_sha256": "679733f0f29a9a8af75286b822e943d6775d93a7fff2321907c09ed0d1830293"
+        }
+      ],
+      "gates": [
+        [
+          "阶段状态保存",
+          "8 个边界 × 65 个登记实体",
+          "已保存"
+        ],
+        [
+          "录像完整性",
+          "673 原始帧 / 12 fps / H264 全帧解码",
+          "通过"
+        ],
+        [
+          "渲染观察",
+          "物理回调 0 / 登记状态与原生钟不改变",
+          "通过"
+        ],
+        [
+          "完整任务放回",
+          "0.495 mm / 原门槛 20 mm",
+          "通过"
+        ],
+        [
+          "新中途冷重建",
+          "本条件连续运行；新增覆盖 0",
+          "未测试"
+        ]
+      ]
+    },
+    {
+      "id": "V97-single-pose",
+      "short_title": "单项写入对照",
+      "title": "单项瓶体位姿写入 · 配对录像",
+      "camera_label": "Station A · 重建实验室",
+      "scope": "同一源封存版本的新物理采集。提起边界后单次位姿写入，执行相同保持和运送。",
+      "verdict_label": "单项写入后配对终态失败",
+      "next_stage_pose_control_pass": false,
+      "video": "assets/native-v97/single-pose.mp4",
+      "poster": "assets/native-v97/single-pose.jpg",
+      "frame_index": "assets/native-v97/single-pose-frames.json",
+      "stage_states": "assets/native-v97/single-pose-stages.json",
+      "receipt": "artifacts/benchmark-v97.json",
+      "video_frames": 326,
+      "video_fps": 12,
+      "video_duration_s": 27.166666666666668,
+      "recorded_native_span_s": 27.083334745839238,
+      "video_sha256": "55dede9388fc6ccac60ff833bf771550b054701f5b300de4aa0f6e68e4c37436",
+      "raw_frame_index_sha256": "9855b499ca3b9ba284f320f220d5320362c0d9cb1749023f1278f800d512d9bf",
+      "video_scope": "新物理积分期间同步采集 RGB：240 Hz 物理 / 12 fps 视频。按原生时间播放，非真机或实测实时录像；末端未采样间隔小于 83.4 ms，以 240 Hz 状态日志验收。",
+      "resource_scope": "本条件 GPU 分配时长上界 0.072278 小时；模型调用 0，训练任务 0。新录像渲染开销事先声明，不用录像新增计时标定结论。",
+      "stages": [
+        {
+          "id": "approach",
+          "label": "接近",
+          "native_start_s": 0.0,
+          "native_end_s": 10.000000521540642,
+          "video_seek_s": 0.0,
+          "source_start_cursor": 0,
+          "source_end_cursor": 2400,
+          "registered_entities": 65,
+          "archive_state_sha256": "50a738dbcf3c7e4081b96ac896db4cd4368d312f9cba97e97c96194a979576ae"
+        },
+        {
+          "id": "grasp",
+          "label": "抓取",
+          "native_start_s": 10.000000521540642,
+          "native_end_s": 16.000000834465027,
+          "video_seek_s": 10.0,
+          "source_start_cursor": 2400,
+          "source_end_cursor": 3840,
+          "registered_entities": 65,
+          "archive_state_sha256": "522250ce5aed88557f233702097b3415225398fd20cb6c548b5910eb074538bb"
+        },
+        {
+          "id": "lift",
+          "label": "提起",
+          "native_start_s": 16.000000834465027,
+          "native_end_s": 19.00000099092722,
+          "video_seek_s": 16.0,
+          "source_start_cursor": 3840,
+          "source_end_cursor": 4560,
+          "registered_entities": 65,
+          "archive_state_sha256": "962b8797eeca09d4c76ffe81f6b0715a72d3fd6b6624632385d0d5dd1318a499"
+        },
+        {
+          "id": "hold",
+          "label": "携物保持",
+          "native_start_s": 19.00000099092722,
+          "native_end_s": 19.125000997446477,
+          "video_seek_s": 19.0
+        },
+        {
+          "id": "transport",
+          "label": "运送",
+          "native_start_s": 19.125000997446477,
+          "native_end_s": 27.12500141467899,
+          "video_seek_s": 19.166666666666668,
+          "source_start_cursor": 4560,
+          "source_end_cursor": 6480,
+          "registered_entities": 65,
+          "archive_state_sha256": "aecca3ba4f8d88920eb38c673ca7976d013fe4d04402924dfe583d139a7d4c34"
+        }
+      ],
+      "gates": [
+        [
+          "阶段状态保存",
+          "4 个边界 × 65 个登记实体",
+          "已保存"
+        ],
+        [
+          "录像完整性",
+          "326 原始帧 / 12 fps / H264 全帧解码",
+          "通过"
+        ],
+        [
+          "渲染观察",
+          "物理回调 0 / 登记状态与原生钟不改变",
+          "通过"
+        ],
+        [
+          "初始全实体与速度",
+          "源身份、登记物理与游标一致；原门槛",
+          "通过"
+        ],
+        [
+          "声明写入",
+          "1 次瓶体 root pose / 0 物理回调",
+          "已审计"
+        ],
+        [
+          "匹配保持",
+          "65 实体 × 30 原生步 / 持瓶接触",
+          "通过"
+        ],
+        [
+          "配对终态姿态",
+          "0.649778° / 原门槛 0.5°",
+          "失败"
+        ],
+        [
+          "配对终态位置",
+          "0.312241 mm / 原门槛 1 mm",
+          "通过"
+        ]
+      ]
+    },
+    {
+      "id": "V96-refused",
+      "short_title": "写入前拒绝",
+      "title": "身份门槛拒绝 · 原始录像保留",
+      "camera_label": "Station A · 重建实验室",
+      "scope": "同一源封存版本的新物理采集。在提起边界拒绝，未执行写入或余程。",
+      "verdict_label": "写入前拒绝：源身份不同",
+      "next_stage_pose_control_pass": false,
+      "video": "assets/native-v96/single-pose.mp4",
+      "poster": "assets/native-v96/single-pose.jpg",
+      "frame_index": "assets/native-v96/single-pose-frames.json",
+      "stage_states": "assets/native-v96/single-pose-stages.json",
+      "receipt": "artifacts/benchmark-v96.json",
+      "video_frames": 229,
+      "video_fps": 12,
+      "video_duration_s": 19.083333333333332,
+      "recorded_native_span_s": 19.00000099092722,
+      "video_sha256": "7ad0530c52bac54fbd2406148def4c592932fb3a13c558aedcebd06939df6e68",
+      "raw_frame_index_sha256": "01752dc495ebcb8c02399255bae2500b294e5b7d56fd792cefa163e7f153c0f8",
+      "video_scope": "新物理积分期间同步采集 RGB：240 Hz 物理 / 12 fps 视频。按原生时间播放，非真机或实测实时录像；末端未采样间隔小于 83.4 ms，以 240 Hz 状态日志验收。",
+      "resource_scope": "本条件 GPU 分配时长上界 0.056689 小时；模型调用 0，训练任务 0。新录像渲染开销事先声明，不用录像新增计时标定结论。",
+      "stages": [
+        {
+          "id": "approach",
+          "label": "接近",
+          "native_start_s": 0.0,
+          "native_end_s": 10.000000521540642,
+          "video_seek_s": 0.0,
+          "source_start_cursor": 0,
+          "source_end_cursor": 2400,
+          "registered_entities": 65,
+          "archive_state_sha256": "bfafc73ce4ecdab9368a9ead662eee304ce675bc0f91d04e839e958b7f302d45"
+        },
+        {
+          "id": "grasp",
+          "label": "抓取",
+          "native_start_s": 10.000000521540642,
+          "native_end_s": 16.000000834465027,
+          "video_seek_s": 10.0,
+          "source_start_cursor": 2400,
+          "source_end_cursor": 3840,
+          "registered_entities": 65,
+          "archive_state_sha256": "5a974f7855831cd203cb95fc0fde65a9ac82063eb35898b6ebec25065ca9df78"
+        },
+        {
+          "id": "lift",
+          "label": "提起",
+          "native_start_s": 16.000000834465027,
+          "native_end_s": 19.00000099092722,
+          "video_seek_s": 16.0,
+          "source_start_cursor": 3840,
+          "source_end_cursor": 4560,
+          "registered_entities": 65,
+          "archive_state_sha256": "b1f0c521a883bac83019c3f567fa64703cb0d16817e8cc89157d067f2921dcd0"
+        }
+      ],
+      "gates": [
+        [
+          "阶段状态保存",
+          "3 个边界 × 65 个登记实体",
+          "已保存"
+        ],
+        [
+          "录像完整性",
+          "229 原始帧 / 12 fps / H264 全帧解码",
+          "通过"
+        ],
+        [
+          "渲染观察",
+          "物理回调 0 / 登记状态与原生钟不改变",
+          "通过"
+        ],
+        [
+          "初始身份",
+          "物理与游标完全一致；执行器源身份不同",
+          "拒绝"
+        ],
+        [
+          "状态写入 / 余程",
+          "0 次 / 0 步运送",
+          "未执行"
+        ],
+        [
+          "读出边界",
+          "原封存读出失败保留；另立采集后拒绝读出",
+          "已声明"
+        ]
+      ]
+    }
+  ],
+  "stats": [
+    [
+      "最新连续任务状态",
+      "8 / 8 阶段"
+    ],
+    [
+      "已验中途冷重建",
+      "1 / 8 边界"
+    ],
+    [
+      "本轮原始录像",
+      "3 条"
+    ],
+    [
+      "物理日志 / 视频采样",
+      "240 Hz / 12 fps"
+    ]
+  ],
+  "pipeline": [
+    {
+      "label": "协议封存",
+      "detail": "201 个文件绑定同一源身份，明确阶段、门槛和预算。"
+    },
+    {
+      "label": "原生采集",
+      "detail": "240 Hz 状态与接触；12 fps 被动 RGB，保留原始帧。"
+    },
+    {
+      "label": "阶段保存",
+      "detail": "八边界各保存 65 实体及控制、任务与宿主记录。"
+    },
+    {
+      "label": "恢复操作",
+      "detail": "先检查源与初态，只开放声明的一次瓶体位姿写入。"
+    },
+    {
+      "label": "独立验收",
+      "detail": "重算全实体保持、后续终态、原始帧与资源。"
+    },
+    {
+      "label": "公共回放",
+      "detail": "视频、阶段、物理状态投影和验收记录共同索引。"
+    }
+  ],
+  "stage_coverage": [
+    {
+      "id": "approach",
+      "label": "接近",
+      "saved": true,
+      "cold_restart_verified": false
+    },
+    {
+      "id": "grasp",
+      "label": "抓取",
+      "saved": true,
+      "cold_restart_verified": false
+    },
+    {
+      "id": "lift",
+      "label": "提起",
+      "saved": true,
+      "cold_restart_verified": false
+    },
+    {
+      "id": "transport",
+      "label": "运送",
+      "saved": true,
+      "cold_restart_verified": false
+    },
+    {
+      "id": "place_release",
+      "label": "天平释放",
+      "saved": true,
+      "cold_restart_verified": true
+    },
+    {
+      "id": "regrasp",
+      "label": "再次抓取",
+      "saved": true,
+      "cold_restart_verified": false
+    },
+    {
+      "id": "return",
+      "label": "放回",
+      "saved": true,
+      "cold_restart_verified": false
+    },
+    {
+      "id": "retreat",
+      "label": "退出",
+      "saved": true,
+      "cold_restart_verified": false
+    }
+  ],
+  "history": [
+    {
+      "video": "assets/history/a1-station_a.mp4",
+      "poster": "assets/history/a1-station_a.jpg",
+      "label": "棕色小瓶 · 100 ml",
+      "scope": "历史轨迹的位姿重建与渲染回放；不积分物理，不产生新任务结果。"
+    },
+    {
+      "video": "assets/history/a2-station_a.mp4",
+      "poster": "assets/history/a2-station_a.jpg",
+      "label": "透明小瓶 · 100 ml",
+      "scope": "历史轨迹的位姿重建与渲染回放；不积分物理，不产生新任务结果。"
+    },
+    {
+      "video": "assets/history/a3-station_a.mp4",
+      "poster": "assets/history/a3-station_a.jpg",
+      "label": "透明大瓶 · 250 ml",
+      "scope": "历史轨迹的位姿重建与渲染回放；不积分物理，不产生新任务结果。"
+    }
+  ],
+  "public_asset_sha256": {
+    "artifacts/benchmark-v97.json": "08d52877a0ec87c06fd16add268b87aae9003964097b57eb3ae0b00bbbdf981c",
+    "artifacts/benchmark-v96.json": "c4d0554a91dad24c492bb1ce6afa134a11574f33464d3d4a89cc02b270cfa261",
+    "assets/native-v97/live.mp4": "794f18a65b971840f38e66e87fc97fef8e7e1f0d9e4d97318e00e14ea0563397",
+    "assets/native-v97/live.jpg": "dde8de2fa263d35022fee295d3b46786832dbacbdf9d337984cd3d15a4b30612",
+    "assets/native-v97/live-frames.json": "fff4c2bc32ad5c4633994baf34f1f6809d280ad84f6c02bdb716ea034bd3243c",
+    "assets/native-v97/live-stages.json": "59ecd585231a65de8027073d017436f96851fab2c96856849d51f3c77015d39d",
+    "assets/native-v97/single-pose.mp4": "55dede9388fc6ccac60ff833bf771550b054701f5b300de4aa0f6e68e4c37436",
+    "assets/native-v97/single-pose.jpg": "53d3e416a1589c6d5b886de6f6cd4b88e57ab6be0586d229c897b4a45d0fa91d",
+    "assets/native-v97/single-pose-frames.json": "9be4470c8c3a15d994c7142a2a516920f3bf7ce5d1892f84bd5c1fadf0c11d0e",
+    "assets/native-v97/single-pose-stages.json": "a51ee5c4e085ae4bd2923996a22d702989ceacd6df855078a8b82b9d2c4bf6a1",
+    "assets/native-v96/single-pose.mp4": "7ad0530c52bac54fbd2406148def4c592932fb3a13c558aedcebd06939df6e68",
+    "assets/native-v96/single-pose.jpg": "9e7b6da28f682f6341bd2b6f6ce0fd0ee58ba3a30cc08d9c4eebd5b9d7866a73",
+    "assets/native-v96/single-pose-frames.json": "a37f66f4052f4d5bf916086ec3dcfb0f52318e4b9d7042062a3b1c3ad8e04c1d",
+    "assets/native-v96/single-pose-stages.json": "317b87b25734151f906917c3e9377e3b7484dc55ad1516d54fda52fe92db3868"
+  },
+  "total_new_GPU_hours_upper_bound": 0.2379175052252443,
+  "scope": "Three new native-video records, including one refused trial. No new cold-restart, agent-memory, chemical timing, randomized causal or M1 admission."
+}

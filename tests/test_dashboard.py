@@ -152,6 +152,38 @@ class PublicBoundary(unittest.TestCase):
             (raw/'same_process_restore_resource.json').write_text('{}')
             self.assertEqual(live_runs(config),[])
 
+    def test_video_pair_tracks_the_live_worker_and_retains_failed_write_condition(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'v97';raw.mkdir()
+            (raw/'live').mkdir();(raw/'single_pose').mkdir()
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V97','path':str(raw),'phases':['live','single_pose']}]}
+            atomic_json(raw/'live_running.json',{'pid':12345})
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                self.assertEqual(live_runs(config)[0]['committed_stages'],0)
+            atomic_json(raw/'live_resource.json',{'exit_code':0})
+            atomic_json(raw/'live/RESULT.json',{'status':'PASS_NATIVE_SINGLE_POSE_VIDEO_CONTROL'})
+            atomic_json(raw/'single_pose_running.json',{'pid':12345})
+            atomic_json(raw/'single_pose/ERROR.json',{'status':'FAIL_MATCHED_NEXT_STAGE_ENDPOINT'})
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                active=live_runs(config)[0]
+            self.assertEqual(active['committed_stages'],1)
+            self.assertFalse(active['stages'][1]['committed'])
+            self.assertNotIn('scientific_admission',active)
+            self.assertNotIn('physical_restart_admitted',active)
+            atomic_json(raw/'single_pose_resource.json',{'exit_code':1})
+            self.assertEqual(live_runs(config),[])
+
+    def test_single_video_refusal_never_counts_as_a_committed_task(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'v96';raw.mkdir();(raw/'single_pose').mkdir()
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V96','path':str(raw),'phases':['single_pose']}]}
+            atomic_json(raw/'single_pose_running.json',{'pid':12345})
+            atomic_json(raw/'single_pose/ERROR.json',{'status':'REFUSED_PREINTERVENTION_SOURCE_IDENTITY'})
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                self.assertEqual(live_runs(config)[0]['committed_stages'],0)
+            atomic_json(raw/'single_pose_resource.json',{'exit_code':1})
+            self.assertEqual(live_runs(config),[])
+
     def test_single_cold_child_progress_uses_nested_output_without_granting_archive_admission(self):
         with tempfile.TemporaryDirectory() as temporary:
             exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()
