@@ -133,6 +133,25 @@ class PublicBoundary(unittest.TestCase):
             (raw/'live_a_resource.json').write_text('{}')
             self.assertEqual(live_runs(config),[])
 
+    def test_same_process_progress_does_not_promote_failed_endpoint(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'v95';raw.mkdir();(raw/'live_control').mkdir()
+            (raw/'same_process_restore').mkdir()
+            (raw/'live_control_running.json').write_text(json.dumps({'pid':12345}))
+            (raw/'live_control_resource.json').write_text('{}')
+            (raw/'live_control/RESULT.json').write_text('{}')
+            (raw/'same_process_restore_running.json').write_text(json.dumps({'pid':12345}))
+            (raw/'same_process_restore/ERROR.json').write_text('{}')
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V95','path':str(raw),'phases':['live_control','same_process_restore']}]}
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)[0]
+            self.assertEqual(result['committed_stages'],1)
+            self.assertEqual([s['label'] for s in result['stages']],['不中断物理对照','同进程状态恢复对照'])
+            self.assertFalse(result['stages'][1]['committed'])
+            self.assertNotIn('physical_restart_admitted',result)
+            (raw/'same_process_restore_resource.json').write_text('{}')
+            self.assertEqual(live_runs(config),[])
+
     def test_single_cold_child_progress_uses_nested_output_without_granting_archive_admission(self):
         with tempfile.TemporaryDirectory() as temporary:
             exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()
