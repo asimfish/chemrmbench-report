@@ -1,0 +1,54 @@
+{
+  "created_at_utc": "2026-10-14T04:33:02.031476+00:00",
+  "full_reference_reproduction": false,
+  "native_samples": 7200,
+  "native_hz": 600,
+  "first_time_s": 84.00166666666667,
+  "last_time_s": 96.0,
+  "phase_metrics": {
+    "place_hold": {
+      "native_steps": 600,
+      "bilateral_steps": 600,
+      "end_finger_rad": 0.5246450901031494,
+      "end_target_rad": 0.800000011920929,
+      "end_XY_error_mm": 0.7074038266738827,
+      "end_orientation_rad": 0.001646139531240384
+    },
+    "release": {
+      "native_steps": 1200,
+      "bilateral_steps": 1200,
+      "end_finger_rad": 0.5253894329071045,
+      "end_target_rad": 0.550000011920929,
+      "end_XY_error_mm": 0.7652250047802172,
+      "end_orientation_rad": 0.0053719549186074635
+    },
+    "retreat": {
+      "native_steps": 2400,
+      "bilateral_steps": 2400,
+      "end_finger_rad": 0.5254126787185669,
+      "end_target_rad": 0.550000011920929,
+      "end_XY_error_mm": 123.06149888709763,
+      "end_orientation_rad": 0.007779608174999271
+    },
+    "hold": {
+      "native_steps": 3000,
+      "bilateral_steps": 1855,
+      "end_finger_rad": 0.13846874237060547,
+      "end_target_rad": 0.0,
+      "end_XY_error_mm": 125.97298471461326,
+      "end_orientation_rad": 2.656501566211852
+    }
+  },
+  "placement_goal_m": [
+    0.0,
+    -0.21,
+    0.10704999923706061
+  ],
+  "claim": "Trace supports failure diagnosis: the source remains bilaterally gripped during retreat. A separately initialized release diagnostic is not a matched full-scene counterfactual.",
+  "source_receipt_sha256": "7051857df567b03d55dbc0c0739f37f3b1c436194ee7a0bfa87828b795015e47",
+  "artifacts": {
+    "reservoir-release-failure-r2.png": "cf7ac30e522130fadab4f2a146bfb89dcda2351c0e0c67d76c1f92cf907099d8",
+    "reservoir-release-failure-r2.pdf": "21e43f99e0a7eb29a3ea0577b342d3e515672e7d65dc1f379b867c6fb38de082",
+    "reservoir-release-failure-r2-600hz.csv": "2fb0dd34e098e2261b93471cbc71c45d25dd6f61cc7d28290216e2c753cfe1c7"
+  }
+}
