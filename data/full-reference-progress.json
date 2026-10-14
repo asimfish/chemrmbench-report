@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T05:32:14.608332+00:00",
+  "exported_at_utc": "2026-10-14T05:37:03.303205+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2029,9 +2029,32 @@
         "physics_steps": 0
       },
       "remaining": "This module reports diagnostic-media production, not physical acceptance. Full geometry, rendering and browser playback must all complete before a new video is delivered."
+    },
+    {
+      "id": "ot2-complete-r9-positive",
+      "title": "OT2 complete sequence R9 · positive · STEPPING",
+      "evidence_sha256": "1e32f2a500bb7d06f64a6ff955d1c67476190c42f6d1f94c11ec455bc6b3a636",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: plate/close. Separate local passes are not imported as state or counted as the full result.",
+      "metrics": {
+        "native_seconds": 10.0,
+        "native_steps": 6000,
+        "completed_objects": 0,
+        "native_cap_seconds": 260.0,
+        "wall_cap_seconds": 7200
+      },
+      "remaining": "All original collision, sustained grasp, placement and event gates remain. Final600 contact-free samples and final three-object pose/speed are additionally checked. Only independent terminal audits can establish this sequence; the negative begins only after positive acceptance. Complete paper reproduction remains open."
     }
   ],
-  "active": null,
+  "active": {
+    "id": "ot2_repro_three_labware_complete_positive_r9",
+    "phase": "STEPPING",
+    "process_verified_alive": true,
+    "simulation_s": 10.0,
+    "physics_steps": 6000,
+    "sampled_at_utc": "2026-10-14T05:36:53.030966+00:00"
+  },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
     {
