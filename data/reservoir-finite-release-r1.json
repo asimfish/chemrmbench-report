@@ -1,0 +1,54 @@
+{
+  "title": "Reservoir release: a matched control comparison",
+  "scope": "Two matched standalone source-placement trials, not complete three-object setup or full MATTERIX reproduction.",
+  "prefix_identical_native_steps": 20100,
+  "prefix_identical_seconds": 33.5,
+  "prefix_hashes": [
+    "5ba9b3754a6c10716c1d2f26e4f88a742ca52f0de7116da2565a255fde599e49",
+    "5ba9b3754a6c10716c1d2f26e4f88a742ca52f0de7116da2565a255fde599e49"
+  ],
+  "downsampling": "After native step20100, group consecutive10completed native rows (60Hz); final short failed bin retained with its row count. Mean actual angle, final target, maximum contact impulse and pose errors per bin. No missing/failed suffix interpolation.",
+  "plot_notes": [
+    "Dashed angle curves are commands; solid curves are actual native states.",
+    "Shaded angle interval is the CPU scan with>1mm source/environment geometric gap, distinct from PhysX contact-generation offsets.",
+    "Failed trace ends at35.105s absolute time; successful scoped trial ends44.5s."
+  ],
+  "sources": [
+    {
+      "public_case_id": "full_open_failed",
+      "native_sampling_Hz": 600,
+      "native_terminal_step": 21063,
+      "native_terminal": "FAILED",
+      "trace_sha256": "f26b3dcd89f9e101637b6209b683b2584170ea33b50ab7290a3001fe4f1532c1",
+      "contact_trace_sha256": "deb51eb91f7bdd260836bdb7226596a33bf1b7820b1f0e443ea0bf1564a6b76d",
+      "status_sha256": "1d210a42e92081081baa7d18239bc8c00bb0529c0e31690436871687ae7b4a0d",
+      "csv_file": "full_open_failed_60hz.csv",
+      "csv_sha256": "d28f82d75b4389c5180197a4cd89f080e62e22ffe32afe7fbddf95b2c4e33e92"
+    },
+    {
+      "public_case_id": "finite_open_passed",
+      "native_sampling_Hz": 600,
+      "native_terminal_step": 26700,
+      "native_terminal": "BOUNDED_RESERVOIR_PLACEMENT_FINISHED",
+      "trace_sha256": "5554ed6fa6db8ff74038e46520039b195fdfe01e99b8e62b6815012099db84a4",
+      "contact_trace_sha256": "cc3dbc3fae569f53e5358199b83d1009c9bf27972e47c9229b29b256c0159640",
+      "status_sha256": "95fee131eaa3d44288f6a8ee0738fe0855d2a2c7024461529bcc866adac9cbde",
+      "csv_file": "finite_open_passed_60hz.csv",
+      "csv_sha256": "97168457edebf382f26529e2f9ed2b2b65e4bf0409cd081f18b9131e201444da"
+    }
+  ],
+  "figure_files": {
+    "reservoir_release_comparison.svg": "9133834a63ff8797775173a699d476a3630b5e41e8d9961cced67a4b599a160c",
+    "reservoir_release_comparison.pdf": "823b48e369350b2b7ca235d5a3ecb08d627ab4b9215b858a9e9a08c24b2c79de",
+    "reservoir_release_comparison.png": "59efcc827a982e1208678c31dec0344449148cf2ee354cf4d43d0aa28f7e5ea4"
+  },
+  "independent_review_sha256": "ab924e894551c319b8a85615b4a0fc16223fb100f92ff307abb9d1f10bad2f7c",
+  "full_reference_reproduction": false,
+  "artifacts": {
+    "assets/reproduction/full/reservoir-finite-release-r1.png": "59efcc827a982e1208678c31dec0344449148cf2ee354cf4d43d0aa28f7e5ea4",
+    "assets/reproduction/full/reservoir-finite-release-r1.pdf": "823b48e369350b2b7ca235d5a3ecb08d627ab4b9215b858a9e9a08c24b2c79de",
+    "assets/reproduction/full/reservoir-full-open-failed-60hz.csv": "d28f82d75b4389c5180197a4cd89f080e62e22ffe32afe7fbddf95b2c4e33e92",
+    "assets/reproduction/full/reservoir-finite-open-passed-60hz.csv": "97168457edebf382f26529e2f9ed2b2b65e4bf0409cd081f18b9131e201444da"
+  },
+  "source_receipt_sha256": "b1eeeb80223c45512b8dc5e1700522f3c789a8e674462028201d043c97e3eeaa"
+}
