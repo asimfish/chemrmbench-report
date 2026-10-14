@@ -1,0 +1,57 @@
+{
+  "full_reference_reproduction": false,
+  "native_eligible": false,
+  "source_joint_values_changed": false,
+  "prior_camera_repeatability_passed": false,
+  "grid_camera_repeatability_passed": true,
+  "camera_selected": false,
+  "new_physics_steps": 0,
+  "local_projection_passes": 2,
+  "figure_sha256": "9094a9e559e5aca762daeb9009ac8688cdaae071e9142d9904447682579dd93d",
+  "figure": "assets/reproduction/full/hood-fixed-joint-camera-comparison-r1.png",
+  "scope": "Descriptive fixed projections of existing lower-only fits. The frozen prior-camera repeatability failure stops candidate admission. Local visual gates do not prove camera, metric layout or asset identity.",
+  "cases": [
+    {
+      "camera": "prior_rail_nominal",
+      "parameters": [
+        1.764991643662291,
+        1087.2948035591075,
+        517.0039496318172,
+        -1.5495259186667778
+      ],
+      "lower28_rms_px": 3.4455450310737623,
+      "finite_upper_max_error_px": 8.64000356629549,
+      "finger_tip_errors_px": [
+        8.799628744489201,
+        9.960429186869556
+      ],
+      "shoulder_seam_max_error_px": 4.646561055711352,
+      "old_blue_IoU": 0.5168539325842697,
+      "all_local_visual_gates_passed": true
+    },
+    {
+      "camera": "grid_nominal_orthogonal",
+      "parameters": [
+        1.870136962877037,
+        1088.0196934788744,
+        517.8351137739455,
+        -1.570373287269966
+      ],
+      "lower28_rms_px": 3.4502382016196362,
+      "finite_upper_max_error_px": 4.958957094133439,
+      "finger_tip_errors_px": [
+        4.785331958876606,
+        4.016707037926427
+      ],
+      "shoulder_seam_max_error_px": 2.8426377718930476,
+      "old_blue_IoU": 0.5166051660516605,
+      "all_local_visual_gates_passed": true
+    }
+  ],
+  "source_sha256": {
+    "evidence/hood_grid_camera_20261015_extrinsic_protocol_r1.json": "fc394b63e93071e78ff6d4d746aa2d4789873d72f88b12e3d8a177ef4ee1e161",
+    "evidence/hood_grid_camera_20261015_extrinsic_fit_r1.json": "5cbd98507068db5543185d9dc694178bd9ec8c739293d727ad4ee3172b05ba4b",
+    "evidence/hood_grid_camera_20261015_extrinsic_evaluation_r1.json": "ee54fe5829dd2f433f446795952accb84c3bc60e722c011f7e385b4245238363",
+    "evidence/hood_grid_camera_20261015_extrinsic_audit_r2.json": "caeec9efc0633db85d1d5cb3c133fdec3dff3bb8ae6d40c06014e7568e3c5d98"
+  }
+}

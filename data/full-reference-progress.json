@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T17:02:32.167806+00:00",
+  "exported_at_utc": "2026-10-14T17:52:19.302299+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -412,6 +412,216 @@
     }
   ],
   "modules": [
+    {
+      "id": "auto-concrete-api-contract",
+      "title": "Auto source recovery · concrete IsaacArm contract",
+      "evidence_sha256": "0f0907c32026597ab121384e06866057d3f7dd4c7c2c74e3b4c7ef883646f96a",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Official GRID v2.4 concrete IsaacArm, Pose and Orientation documentation establishes xyzw quaternion order. Two archived sample calls bind their Orientation argument to blocking under this concrete signature. The documented moveToPose return reports IK and command publication, not independently measured arrival. Concrete getPose explicitly uses the base frame. Seven source-contract checks pass; the actual incomplete archive and raw trajectory row are rejected by the new local capture schema.",
+      "metrics": {
+        "contract_checks": 7,
+        "legacy_argument_binding_mismatches": 2,
+        "original_episodes_obtained": 0,
+        "original_checkpoints_obtained": 0,
+        "new_training_runs": 0
+      },
+      "remaining": "Documentation version is not the installed original runtime. No positive complete episode exists to validate the full collector. Original four harness implementations, SDK artifact, camera/control records, converter recipe and checkpoints remain missing; adapter readiness and original Auto reproduction are false. A new read-only attempt at the previously configured workstation entry was refused before remote identity or files could be read; this does not show that its assets are absent."
+    },
+    {
+      "id": "hood-independent-shoulder-constraints",
+      "title": "Hood source image · old shoulder hypotheses rejected",
+      "evidence_sha256": "37fdaa3f1e4c369cf32473040eab1a5e07ec68c8e4ddc7d648c16d29a5097507",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Seven newly frozen shoulder-seam observations were excluded from the old lower-body fit. With camera, geometry and layout fixed, both old q1 hypotheses exceed the local9px seam limit. A bounded q1-only diagnostic retains a near-zero1.28-degree hypothesis that also preserves the old28-point objective reasonably. All original constraints are reported; no collision result selected a pose. Independent projection arithmetic passes10checks.",
+      "metrics": {
+        "new_seam_points": 7,
+        "old_hypotheses_rejected": 2,
+        "old_max_error_1_px": 13.8588929548,
+        "old_max_error_2_px": 13.4619661809,
+        "conditional_q1_deg": 1.277448043,
+        "retained_lower28_rms_px": 3.634853869,
+        "unchanged_blue_IoU": 0.307443366,
+        "new_native_steps": 0
+      },
+      "remaining": "The9px limit is a local diagnostic threshold, not an author criterion. Correspondence to the original video asset remains conditional; q1 is not uniquely recovered. Blue-mask mismatch and full joint-state/layout correspondence remain unresolved. The subsequent exact full-pose comparison also remains unaccepted; no scene, native or task acceptance follows."
+    },
+    {
+      "id": "hood-exact-full-pose-comparison",
+      "title": "Hood original frame · both exact presets remain unaccepted",
+      "evidence_sha256": "559857006d842ec8ef92c9eaf181dcd75d5845c1edbdde9f6eaab16a89ab6b8d",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The complete published init and startup/reset joint presets are evaluated without fitting camera, base, source geometry or joint values. The source joint axes/anchors and complete chain arithmetic agree. Init is closer but misses the observed silhouette at y90 and exceeds local upper-arm/fingertip limits. Startup/reset has much larger hand displacement. The original-image overlays and numeric comparison are published on hood-pose-diagnosis.html.",
+      "metrics": {
+        "exact_presets": 2,
+        "visual_passes": 0,
+        "init_finite_upper_error_px": 10.9221428114,
+        "init_right_tip_error_px": 12.8449789405,
+        "reset_upper_error_px": 68.8682333455,
+        "reset_max_tip_error_px": 106.517976028,
+        "independent_checks": 12,
+        "new_native_steps": 0
+      },
+      "remaining": "Failure is conditional on the existing camera and source-asset identity; it cannot be attributed to incorrect joint pose alone. Thirteen stable upper endpoints, hand and finger observations retain their frozen local limits. The later independent grid and fixed-joint extrinsic comparisons are reported separately; their local projection passes do not retroactively change this earlier fixed-camera failure. No collision or native execution is admitted."
+    },
+    {
+      "id": "fluid-native-densitymap-static",
+      "title": "Fluid alternative · source density map statically checked",
+      "evidence_sha256": "30b47f9e8f70636f35bbb14a8565232fa129dff9b030b9914fd8d93aa7bbf6f5",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The complete pinned native initDensityMap body generates the alternative density map with the original1728 fresh positions and masses. R2 reuses exactly the same map and particle fields while correcting a discovered parameter-minimum clamp: actual CG tolerance is now read back as1e-14. Static source accounting passes29checks, including scalar-density replay and two-scale raw-field gradient differences. No dynamic solve is accepted by this static result.",
+      "metrics": {
+        "particles": 1728,
+        "static_checks": 29,
+        "actual_CG_tolerance": 1e-14,
+        "total_mass_kg": 0.003375,
+        "bulk_density_ratio": 0.7999536345184,
+        "original_physical_tests_qualified": 0
+      },
+      "remaining": "R1 actual CG was1e-6 and its configuration failure remains archived. Bulk density is0.79995, below the later frozen static-admission0.95 lower limit. That bulk lower bound was not part of the first eight-case protocol, which specified an initial maximum-density bound; no post-settling exemption was frozen. Raw interpolant gradients do not establish continuity across the applied activation mask or physical convergence. This alternative SPH backend is a diagnostic, not original GRID equivalence."
+    },
+    {
+      "id": "fluid-native-densitymap-short-control",
+      "title": "Fluid control ·20ms source-backed diagnostic passes",
+      "evidence_sha256": "3ef41b8c6388c4b47f947cb67f297011a34e696430dda19e54a1a7b12e60669c",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Both the native whole step and staged implementation finish the same20ms diagnostic with original1728 fresh particles and unchanged1ms steps, physical settings and thresholds. All27 recorded-evidence checks and26 separate NumPy review checks pass. The repaired phase-direct reaction logger preserves all36 fields in the167-record old overlap bit for bit. Whole/staged fields agree within the frozen1e-10 criterion, with exact common clocks. Sixty clear events have online position/velocity identity assertions, source-only accumulator writes and cross-run field evidence; immediate before/after raw arrays were not retained for independent per-clear replay.",
+      "metrics": {
+        "steps_each": 20,
+        "physical_duration_ms": 20,
+        "staged_records": 181,
+        "whole_records": 61,
+        "old_records_bitwise_preserved": 167,
+        "checks": 27,
+        "independent_checks": 26,
+        "maximum_density_ratio": 0.8578654456946901,
+        "maximum_CG_residual": 7.563285318543886e-15,
+        "maximum_whole_staged_field_relative": 1.1129400686791374e-11,
+        "original_physical_tests_qualified": 0
+      },
+      "remaining": "The first run stopped at18ms on a newly added observer gate. Saved-state ordered addition and an independent NumPy audit traced this to accumulation of tiny phase forces after a large prior force; the failure remains archived. Only the observer changed, not tolerances. Twenty milliseconds does not establish equilibrium, calibrated viscosity, long-term stability or original GRID equivalence. Initial bulk density remains0.79995. Raw torque and source noncentral couple remain separate; no global angular-conservation claim."
+    },
+    {
+      "id": "fluid-native-densitymap-contact-control",
+      "title": "Fluid contact ·27ms prefix, native CFL boundary",
+      "evidence_sha256": "69fd042ad0302b305e21b464665861f13f61691d409cd392eaa0cc40e9e3f46a",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A separately frozen100ms observation attempt keeps all physical parameters and prior gates unchanged. It completes27ms; on the next step native CFL changes dt from1ms to0.895398687ms, triggering the fixed1ms comparison stop. No density, force or CG gate fails before that stop. The source CFL formula matches saved-state recomputation exactly. Whole-step control runs only the completed27-step prefix; the181 saved records shared with the20ms run preserve all36 fields bit for bit.",
+      "metrics": {
+        "requested_horizon_ms": 100,
+        "completed_prefix_ms": 27,
+        "staged_records": 249,
+        "next_native_dt_ms": 0.8953986873723336,
+        "maximum_fresh_density_ratio": 0.9724098420090709,
+        "fixed_initial_bulk_particles": 512,
+        "bulk_particles_in_original_band_at27ms": 0,
+        "bulk_mean_at27ms": 0.8184637894384355,
+        "bulk_max_at27ms": 0.8968558875425511,
+        "original_physical_tests_qualified": 0
+      },
+      "remaining": "The100ms run did not complete. This first stop marks the fixed-step protocol boundary and does not by itself establish fluid instability. The original fixed512-ID cohort remains entirely below the later static-admission0.95 density lower bound. The source intentionally reduces initial particle mass to avoid pressure; underdensity is not by itself a density-map bug. Source-faithful initialization and calibration-ready equilibrium are separate claims. No timestep is forcibly overridden, no failed step is admitted and no convergence or original GRID equivalence is claimed."
+    },
+    {
+      "id": "hood-independent-grid-camera",
+      "title": "Hood camera · independent grid constraints",
+      "evidence_sha256": "1568da78dace24a07fb18dfc8c7774d24ae87346c4f212d1315d14c0289f03eb",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Eight frozen background-grid stripes provide a camera check independent of robot joint fitting. Four lines estimate vanishing points and four excluded lines agree within0.112px under the stated family correspondence. The nominal horizon differs from the old rail estimate by4.814px. Available source grid geometry has orthogonal equal-scale UV directions;12 independent arithmetic checks pass.",
+      "metrics": {
+        "stripes": 8,
+        "excluded_lines": 4,
+        "max_excluded_endpoint_error_px": 0.11200421004849659,
+        "horizon_difference_px": 4.814148295376782,
+        "conditional_focal_px": 1095.6812683488783,
+        "sensitivity_draws": 5000,
+        "independent_checks": 12,
+        "new_native_steps": 0
+      },
+      "remaining": "Exact original-video asset identity and active camera metadata are unproven. With fixed principal point and plus/minus2px endpoint perturbations, conditional focal sensitivity spans755.7–1913.4px between the2.5th and97.5th percentiles; these are not confidence intervals. The evidence neither identifies a replacement camera nor attributes the full-pose mismatch to joint values alone."
+    },
+    {
+      "id": "hood-fixed-joint-extrinsic-comparison",
+      "title": "Hood projection · author joints retained, fit ambiguity remains",
+      "evidence_sha256": "ef4fa1cfa39020a7b623e41f2e28622a17c5863821e54de3e3bd913cdfa18cd8",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Both predeclared camera hypotheses keep all nine author-init joint values and source scale fixed. Fitting the same four extrinsics to only the original28 lower-body observations yields local upper-arm, hand, fingertip, seam and lower-body passes under both cameras. Twelve fixed starts were evaluated once. Independent all-triangle recomputation verifies all12 residual vectors and costs. The new overlay is published on hood-pose-diagnosis.html; historical fixed-camera failures remain visible.",
+      "metrics": {
+        "camera_hypotheses": 2,
+        "frozen_starts": 12,
+        "local_projection_passes": 2,
+        "source_joints_changed": 0,
+        "prior_upper_max_px": 8.64000356629549,
+        "grid_upper_max_px": 4.959,
+        "prior_repeatability_max_residual_difference_px": 0.406966,
+        "repeatability_limit_px": 0.05,
+        "independent_checks": 10,
+        "new_native_steps": 0
+      },
+      "remaining": "The prior-camera fit fails the frozen repeatability condition and stops candidate admission; no extra optimization or relaxed limit is used. Grid-camera repeated solutions agree but another near-optimum remains sensitive. Upper observations neither fit nor select a camera. These descriptive projections show that the earlier mismatch can decrease without changing author joints; they do not establish original camera identity, metric hood layout, collision freedom or full-scene reproduction."
+    },
+    {
+      "id": "fluid-native-initialization-source-explained",
+      "title": "Fluid initialization · native low-pressure startup explained",
+      "evidence_sha256": "4fd23764b03fe72b72dc8a1a75fd823605857b2e18828c324629dfaeabffa496",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Pinned native FluidModel deliberately sets particle volume to0.8 times the diameter cubed to avoid initial pressure. Independent native-kernel and NumPy lattice sums explain the original512-particle bulk ratio0.799954; those bulk particles have zero boundary-density contribution. Sixteen independent source, arithmetic and protocol-scope checks pass. This supports the native initialization rule and does not establish a density-map defect.",
+      "metrics": {
+        "independent_checks": 16,
+        "source_volume_factor": 0.8,
+        "native_bulk_density_ratio": 0.799953634518026,
+        "bulk_boundary_density_contribution": 0,
+        "local_fixture_mass_g": 3.375,
+        "derived_local_volume_mL": 3.375,
+        "solves": 0
+      },
+      "remaining": "The source-faithful transient remains separate from calibration-ready equilibrium. The first eight-case protocol specified initial maximum density1.01; later static lower-density criteria are retained without retroactive relabeling or a post-settling exemption. A new mass-volume placement is a separate local calibration candidate. The3.375mL volume is derived from this local fixture mass and is not a verified paper experiment volume. Native sampling modes change count/mass and do not automatically solve the calibration problem."
+    },
+    {
+      "id": "fluid-local-massvolume-static",
+      "title": "Fluid local candidate · density-consistent static placement",
+      "evidence_sha256": "3c95279c717dd5dbe922faa7165d886958008d07db8bd990b686eade6981d41c",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separately frozen local candidate derives1.25mm simple-cubic spacing directly from the unchanged fixture mass, particle count and reference density. All1728 particle masses, native radius, kernel, physical settings and existing boundary map are retained. The fixed512 support-complete IDs have density ratio1.00385145, inside the unchanged later static band. All32 static checks pass; no solver, integration or position repair occurs.",
+      "metrics": {
+        "particles": 1728,
+        "fixed_bulk_particles": 512,
+        "spacing_mm": 1.25,
+        "local_volume_mL": 3.375,
+        "static_checks": 32,
+        "bulk_density_ratio": 1.0038514517417754,
+        "maximum_density_ratio": 1.0038514517417754,
+        "active_wall_queries": 0,
+        "solves": 0,
+        "original_physical_tests_qualified": 0
+      },
+      "remaining": "This is a new local calibration initialization, not author-default startup or a measured paper volume. Zero active wall queries makes the projection check vacuous; neither wall contact nor equilibrium is established. Raw interpolated map values and their activation rules remain observable, without renormalization or density-dependent placement. Full physical benchmarks, dynamic acceptance and original GRID equivalence remain open."
+    },
+    {
+      "id": "fluid-face-switch-figure-delivered",
+      "title": "Fluid diagnosis · all-particle figure and data online",
+      "evidence_sha256": "442331146e3f651d670799c52675d36b817e45af231587841cb62d12b69accdd",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The dedicated fluid-boundary-diagnosis.html page publishes a reviewed three-panel scientific figure, PDF and complete1728-particle counterfactual data. It separates predicted/actual density and fluid/wall increments and retains all24 failures. Desktop/mobile checks verify image display, scope labels, complete data and download hashes.",
+      "metrics": {
+        "particles_published": 1728,
+        "failed_particles": 24,
+        "switching_particles": 36,
+        "nonfailing_switches": 12,
+        "remote_checks": 20,
+        "new_integrations": 0
+      },
+      "remaining": "All18–20ms saved states are unqualified after the original8ms operator failure. An old-face counterfactual uses a non-nearest wall and is not a solved repair. Figure/media acceptance does not change physical or full-paper acceptance."
+    },
     {
       "id": "ot2-semantic",
       "title": "OT2 · native motion + pipetting semantics",
@@ -2604,7 +2814,7 @@
         "new_simulations": 0,
         "new_training_runs": 0
       },
-      "remaining": "The exact concrete IsaacArm and Pose/Orientation pages were inaccessible in this check, so abstract-contract differences do not establish concrete SDK failure. Generic GELLO source is not evidence of the Auto-specific pipeline. The local pose archive lacks camera, joint-state and control fields and is rejected as GELLO input. Adapter execution and learned-policy reproduction remain open."
+      "remaining": "The earlier abstract-only check is retained. A later concrete v2.4 documentation recovery resolves quaternion order and command-publication semantics; see auto-concrete-api-contract. Original runtime compatibility, complete camera/joint/control capture, adapter execution and learned-policy reproduction remain open. Generic GELLO source is not the Auto-specific pipeline."
     },
     {
       "id": "fluid-exact-boundary-matched-failure",
@@ -2724,7 +2934,7 @@
         "solver_calls": 0,
         "new_integrations": 0
       },
-      "remaining": "All18–20ms states are unqualified after the8ms operator-gate failure. Retaining an old face uses a non-nearest boundary and underestimates the wall; it is not a repair. Twelve other switching particles do not fail, so switching alone is insufficient. Exact-volume quadrature still leaves24 density failures. Native density-map comparison is proposed only; original8 physical-flow tests remain0 qualified."
+      "remaining": "All18–20ms states are unqualified after the8ms operator-gate failure. Retaining an old face uses a non-nearest boundary and underestimates the wall; it is not a repair. Twelve other switching particles do not fail, so switching alone is insufficient. Exact-volume quadrature still leaves24 density failures. The later native density-map diagnostic is tracked separately; original8 physical-flow tests remain0 qualified."
     }
   ],
   "active": null,
