@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T08:29:19.997647+00:00",
+  "exported_at_utc": "2026-10-14T09:02:14.223609+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2064,14 +2064,14 @@
     },
     {
       "id": "ot2-continuous-noasp-r9-restart1",
-      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · CONTINUOUS_PIPETTING",
-      "evidence_sha256": "6e634cbd960acf2e44b2d8ba62a50d098f4d79acfc30b64b7f9eb756220a5e6c",
+      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · BOUNDED_THREE_OBJECT_CONTINUOUS_FINISHED",
+      "evidence_sha256": "6d011fc82cad7c5022cb9ad32d32c52bfb03a17941d9c8b1fe0c522748dd5e4d",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack_insert. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: OT2_final_home. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 152.0,
-        "native_steps": 91200,
+        "native_seconds": 208.5,
+        "native_steps": 125100,
         "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2298,7 +2298,7 @@
         "geometry_checks": 13,
         "maximum_terminal_XY_mm": 0.6679549129608254
       },
-      "remaining": "One local positive only. The aspiration-disabled matched run starts from the original initial state and is still separately evaluated. Liquid is a finite-volume semantic ledger without force coupling; reconstructed fixtures, local masses, grip geometry and door control remain adaptations. Full N05 and paper reproduction remain open; the208.5s label is supported by the physics-only source path, not a separately recorded callback clock."
+      "remaining": "The positive and aspiration-disabled control both completed from the original initial state; the independently accepted pair is reported separately below. Liquid is a finite-volume semantic ledger without force coupling; reconstructed fixtures, local masses, grip geometry and door control remain adaptations. Full N05 and paper reproduction remain open; the208.5s label is supported by the physics-only source path, not a separately recorded callback clock."
     },
     {
       "id": "full-lab-ur3-existing-initial-state",
@@ -2313,7 +2313,7 @@
         "new_first_step_jump_mm": 0.17046044183031678,
         "maximum_joint_error_rad": 0.0003622223469315067
       },
-      "remaining": "One-step initialization only. Passive settling and hood-relative mounting drift remain open. Local hood asset provenance is being reconciled across two recovered snapshots and is not asserted as an exact author asset."
+      "remaining": "This entry covers one-step initialization. A separate half-second control now passes its broad safety screen, with UR3e terminal speed zero; whole-scene equilibrium and hood-relative mounting remain open. Local hood asset provenance is being reconciled across two recovered snapshots and is not asserted as an exact author asset."
     },
     {
       "id": "fluid-periodic-weiler-operator-controls",
@@ -2328,17 +2328,17 @@
         "independent_aggregate_checks": 4,
         "physical_configurations_admitted": 0
       },
-      "remaining": "Operator controls only. External conjugate-gradient and boundary quadrature are explicit adaptations. Native dynamic Discregrid updates plus coupled DFSPH/Weiler evolution remain unverified, and no long relaxation or new robot task is admitted. Pressure-density constant-mode bias remains a separate failure."
+      "remaining": "Operator controls only. External conjugate-gradient and boundary quadrature are explicit adaptations. Later source-equivalence controls and a separately frozen no-drive relaxation test are reported separately. This operator audit does not establish physical calibration or admit a new robot task. Pressure-density constant-mode bias remains a separate failure."
     },
     {
       "id": "ot2-three-object-full-video-render",
-      "title": "Three-object video · recorded render progress",
-      "evidence_sha256": "4a884b6a5d7ef3393dcd04cf1b8e5962bc9e233bf10b14bfdba342a566008194",
+      "title": "Three-object video · incomplete R5 preserved; recovery underway",
+      "evidence_sha256": "ae68c8b74273c6ea666367f2b4f9dba8e5cac914dba5b739858f0f164d707ae7",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "A durable GPU0 renderer replays the single accepted positive trace in three views. Recorded status: RENDERING at 2026-10-14T08:29:19.685998+00:00. Renderer completion is separate from final media and visual acceptance.",
+      "scope": "R5 stopped after its status ceased advancing at frame506. The partial video, saved PNG subset and frozen inputs are retained. Only this owned service was stopped and its GPU contexts released. A separate diagnostic replay is in preparation; no complete video is accepted.",
       "metrics": {
-        "frames_completed": 451,
+        "frames_completed": 506,
         "planned_frames": 3266,
         "planned_trial_relative_s": 208.5,
         "recorded_render_physics_callbacks": 0,
@@ -2363,16 +2363,78 @@
         "physical_calibration_cases_accepted": 0
       },
       "remaining": "Native direct boundary quadrature reproduces the large wall contribution; the mismatch is the external cloud initialization near the wall. The original eight physical calibration cases remain failed. A separate author-rule initialized cohort must disclose its changed particle count, mass and occupied volume. The earlier external CFL-min configuration error is preserved; corrected clocks did not repair this initial state."
+    },
+    {
+      "id": "ot2-three-object-continuous-negative-audit",
+      "title": "Three-object no-aspiration control · independent terminal audit",
+      "evidence_sha256": "a7aae8819e2af14ce9ec7ce6e20421b820a57f65b2c45e82d7f8959c23067a61",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The disabled-aspiration run is evaluated independently from its original initial state. Physical, event and terminal geometry checks are required together; matched-pair equivalence is a separate audit.",
+      "metrics": {
+        "recorded_steps": 125100,
+        "trial_relative_s": 208.5,
+        "physical_checks_passed": 23,
+        "physical_checks_total": 23
+      },
+      "remaining": "This is a local semantic ablation with the same explicit fixture and controller adaptations as the positive. No physical liquid forces or complete paper reproduction are established."
+    },
+    {
+      "id": "ot2-three-object-continuous-pair-accepted",
+      "title": "Three-object aspiration ablation · independent pair audit",
+      "evidence_sha256": "fd929d5a091418e1910b49d8eeedb02941c8aa4ad45aa5de212a379c7988a34c",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The independently completed positive and disabled-aspiration runs are compared at every recorded step: native rigid poses, velocities, joint states, targets, efforts, phase and clock membership. Liquid outcomes are tested separately.",
+      "metrics": {
+        "pair_checks_passed": 10,
+        "pair_checks_total": 10,
+        "positive_recorded_rows": 125100,
+        "negative_recorded_rows": 125100,
+        "maximum_rigid_difference": 0.0,
+        "positive_total_model_uL": 2400.0,
+        "negative_total_model_uL": 0.0
+      },
+      "remaining": "This is an implementation-level semantic ablation. Model liquid has no mass/force feedback, so this pair does not establish physical fluid causality. One pair does not estimate robustness or a success rate. Full paper and visual acceptance remain separate."
+    },
+    {
+      "id": "hood-local-sash-native",
+      "title": "Hood sash · three-second local mechanism diagnostic",
+      "evidence_sha256": "f71d61112e6f63eaceea3de20b14cf17f7e3ee4a6d4f35f5a6548f5de1cfc0e6",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A reconstructed prismatic sash completed720 native steps and720 callbacks with the arm held at home. All24 frozen local checks passed. Terminal sash travel is290.205mm for a300mm target; no unexpected robot or sash-beaker contacts were recorded.",
+      "metrics": {
+        "native_steps": 720,
+        "native_callbacks": 720,
+        "callback_seconds": 3.0000001564621925,
+        "terminal_sash_travel_mm": 290.20458459854126,
+        "maximum_hood_drift_mm": 11.766013981295679,
+        "maximum_arm_error_rad": 0.0010172748565673295,
+        "independent_checks": 24
+      },
+      "remaining": "Local5kg sash, drive and30cm stroke are explicit assumptions. Hood drift is11.77mm. This test used the retained Robotiq candidate; a native Panda-hand source candidate is being checked separately against the recovered video. No reach, task, original-asset or visual acceptance is established."
+    },
+    {
+      "id": "fluid-author-initialization-controls",
+      "title": "Fluid reference · source-rule initialized numerical controls",
+      "evidence_sha256": "75a9b7ae89075f5b520e0570bc5c3a259a8eff881471b96910bb82097969d8c7",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separate nonperiodic216-particle cohort uses the native initialization equations. Tighter linear tolerance resolves the observed numerical momentum residual without relaxing its gate:17/17 controls pass. An additional native CFL control passes21/21; its three steps all reach the same5ms cap.",
+      "metrics": {
+        "particles": 216,
+        "mass_kg": 0.0004218749999999999,
+        "nominal_volume_mass_fraction": 0.4218749999999999,
+        "initial_bulk_density_ratio": 0.7999536345191722,
+        "numerical_checks": 17,
+        "CFL_control_checks": 21,
+        "physical_calibration_cases_accepted": 0
+      },
+      "remaining": "This changes count, mass and occupied volume relative to the original failed512-particle cohort and is not merged into its denominator. Initial bulk density is about0.8 of target. Three-step numerical agreement does not establish steady flow, fluid calibration or robot performance; original eight physical cases remain0/8."
     }
   ],
-  "active": {
-    "id": "ot2_repro_three_labware_complete_noasp_r9_restart1",
-    "phase": "CONTINUOUS_PIPETTING",
-    "process_verified_alive": true,
-    "simulation_s": 152.0,
-    "physics_steps": 91200,
-    "sampled_at_utc": "2026-10-14T08:29:08.450873+00:00"
-  },
+  "active": null,
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
     {

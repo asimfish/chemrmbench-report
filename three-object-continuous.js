@@ -9,7 +9,7 @@
       const pair = data.modules.find(item => item.id === "ot2-three-object-continuous-pair-accepted");
       const stamp = new Date(data.exported_at_utc);
       const stale = !Number.isFinite(stamp.getTime()) || Date.now() - stamp.getTime() > 25 * 60 * 1000;
-      const title = document.createElement("strong"); title.textContent = row.title;
+      const title = document.createElement("strong"); title.textContent = "No-aspiration control · continuous three-object task";
       const progress = document.createElement("p");
       progress.textContent = `${row.metrics.native_steps.toLocaleString()} recorded steps · ${row.metrics.native_seconds.toFixed(1)} trial-relative seconds · ${row.metrics.completed_objects} objects placed.`;
       const verdict = document.createElement("p");
