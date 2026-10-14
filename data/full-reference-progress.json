@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T07:12:16.440786+00:00",
+  "exported_at_utc": "2026-10-14T07:22:26.411854+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2049,13 +2049,13 @@
     {
       "id": "ot2-continuous-positive-r9-restart1",
       "title": "OT2 complete sequence R9 · positive_r9_restart1 · STEPPING",
-      "evidence_sha256": "d71cdfc4d44897fc4da23f8db64b8150f128852135992cf160e8f52ce1b9b0a5",
+      "evidence_sha256": "a60a3fa502672f79eb9bcb94ed62aaa47491db2cb6df978fc12397484495fd12",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/transition_to_staging. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/insert. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 98.0,
-        "native_steps": 58800,
+        "native_seconds": 133.0,
+        "native_steps": 79800,
         "completed_objects": 2,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2110,12 +2110,12 @@
     {
       "id": "liquid-1920-rtx-diagnostic-render",
       "title": "1920-particle replay · RENDER_RUNNING",
-      "evidence_sha256": "5c9f326f5dd9f3023558c9e244cc730558d20c2ad9ca0e3ec16839308ab36a68",
+      "evidence_sha256": "ece397893d98d469b4c2fa86ebaf38f21db9df662a6fe3cc6103570ae26a4767",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Bounded native RTX PathTracing replay of the immutable recorded state. Every frame explicitly labels the source PHYSICAL TRIAL FAILED. Absolute-script identity and dangling display-file link failures remain archived; input geometry is now read directly with its original hash.",
       "metrics": {
-        "rendered_frames": 299,
+        "rendered_frames": 504,
         "required_frames": 575,
         "physics_steps": 0
       },
@@ -2160,9 +2160,9 @@
     "id": "ot2_repro_three_labware_complete_positive_r9_restart1",
     "phase": "STEPPING",
     "process_verified_alive": true,
-    "simulation_s": 98.0,
-    "physics_steps": 58800,
-    "sampled_at_utc": "2026-10-14T07:12:07.605750+00:00"
+    "simulation_s": 133.0,
+    "physics_steps": 79800,
+    "sampled_at_utc": "2026-10-14T07:22:21.002209+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
