@@ -1,0 +1,42 @@
+{
+  "schema": "chemrm-v91-protocol-scope-addendum",
+  "created_at_utc": "2026-10-14T04:30:42.474286+00:00",
+  "source_pins_sha256": "5fb1cc27a5167a7cbb9b68b4554b53a07ed24b9d9139ec648297fefa16dcc329",
+  "consumed_protocol_sha256": "9e703c10f77e6effe7a93329791e1236834b4a986540c3d9cef4c489072d27f8",
+  "consumed_sources_and_protocol_unchanged": true,
+  "inactive_inherited_keys": {
+    "readout_mode": "continuous-retained",
+    "simulation_paused_for_model_readouts": false,
+    "cleared_readout_mode": "OFFLINE_COUNTERFACTUAL_AFTER_NATIVE_SHUTDOWN"
+  },
+  "authoritative_fields": {
+    "native_model_readout": false,
+    "controlled_delivery_ticks": 240,
+    "controlled_delivery_is_measured_model_latency": false,
+    "proposal_source": "ONE_PRIOR_ACTUAL_AGENT_READOUT_HELD_FIXED_ACROSS_BRANCHES",
+    "task_clock_policy": "PAUSED_PRE_RESTORE_SETUP_AND_HOST_DOWNTIME_NATIVE_ONLY"
+  },
+  "executor_ast_scan": {
+    "probe.py": {
+      "source_sha256": "27522c6921eb11cf446765814ac01f4894920993f5a34a1f486772a9a82136f1",
+      "direct_inherited_key_reads": []
+    },
+    "run_owned.py": {
+      "source_sha256": "91dc5b968aa6706462906bdcf23dcfc4fc76685dbf91887228e466b272dd1519",
+      "direct_inherited_key_reads": []
+    },
+    "ingest_memory.py": {
+      "source_sha256": "5a65b2817827e2a14ab3723ac451209f263a89de16ada6841b1efaa19483f99d",
+      "direct_inherited_key_reads": []
+    }
+  },
+  "AST_scan_is_not_complete_provider_context_attestation": true,
+  "actual_prior_calls": 2,
+  "child_model_calls": 0,
+  "offline_cleared_call_in_this_cohort": false,
+  "shared_readout_observation": "ARCHIVED_PARENT_COMMAND7920_RGB_LAST_JOINTS_AND_CHECKPOINT_TASK_TIMESTAMP",
+  "child_current_observations_recorded_but_not_sent_to_model": true,
+  "no_fault_control": "COLD_CONTINUATION_NOT_CONTINUOUSLY_LIVE_PARENT",
+  "expiry": "DISPATCH_START_WINDOW_UPPER_ENDPOINT_EXCEEDED_BEFORE_CONTACT_TARGET_TIME",
+  "scientific_admission": false
+}

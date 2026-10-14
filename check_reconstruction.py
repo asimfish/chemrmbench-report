@@ -296,7 +296,54 @@ if original:
         assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
     assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
 
+matched=data['matched_event_clock_probe']
+assert matched['status']=='PASS_SCOPED_MATCHED_ORIGINAL_EVENT_NATIVE_CONTRACT'
+assert matched['scientific_admission'] is matched['training_admission'] is matched['formal_M1_admission'] is False
+assert matched['native_model_calls']==0 and matched['model_calls']==2 and matched['known_billed_tokens']==22400
+assert matched['controlled_delivery_ticks_per_child']==240 and matched['controlled_delivery_is_measured_model_latency'] is False
+assert matched['no_fault_control']=='COLD_CONTINUATION_NOT_CONTINUOUSLY_RUNNING_PARENT'
+assert matched['original_deadline_reset'] is matched['causal_memory_benefit_identified'] is False
+assert matched['parent_files_preserved']==71 and matched['pinned_files_verified']==121
+assert matched['receipt']=='artifacts/event-clock-v91-matched.json'
+assert hashlib.sha256((root/matched['receipt']).read_bytes()).hexdigest()==matched['receipt_sha256']
+assert hashlib.sha256((root/matched['timeline']).read_bytes()).hexdigest()==matched['timeline_sha256']
+assert len(matched['restore'])==4 and all(v['transient_samples']==30 and v['entities_each_sample']==65 for v in matched['restore'].values())
+a=matched['original_event_a_task_bounds_s'];gap=matched['original_requested_gap_s']
+for branch in ('no_fault','recovery'):
+    b=matched['branches'][branch];lo,hi=b['event_b_task_bounds_s']
+    error=[(lo-a[1]-gap)*1000,(hi-a[0]-gap)*1000]
+    assert all(math.isclose(x,y,abs_tol=1e-8,rel_tol=0) for x,y in zip(error,b['error_interval_ms']))
+    assert b['status']=='PASS_ORIGINAL_EVENT_INTERVAL' and b['tail_commands']==5507 and b['return_error_mm']<1
+expired=matched['branches']['expired']
+assert expired['tail_commands']==0 and expired['refusal_task_time_s']>matched['start_window_task_bounds_s'][1]
+assert matched['attempts']['recovery_first']['task_end_s']==matched['attempts']['recovery_retry']['task_origin_s']
+for frame in matched['frames']:
+    assert re.fullmatch(r'assets/native-v91/(cue|control|retry)\.jpg',frame['image'])
+    assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
+scope=json.loads((root/matched['protocol_scope_addendum']).read_text())
+assert hashlib.sha256((root/matched['protocol_scope_addendum']).read_bytes()).hexdigest()==matched['protocol_scope_addendum_sha256']
+assert scope['consumed_sources_and_protocol_unchanged'] is True
+assert scope['actual_prior_calls']==2 and scope['child_model_calls']==0
+assert scope['source_pins_sha256']==matched['source_pins_sha256']
+assert scope['authoritative_fields']['controlled_delivery_ticks']==240
+assert set(scope['inactive_inherited_keys'])=={'readout_mode','simulation_paused_for_model_readouts','cleared_readout_mode'}
+assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(scope))
+coverage=data['stage_checkpoint_coverage']
+assert coverage['committed_evidence_stages']==8 and len(coverage['stages'])==8
+assert coverage['full_world_task_checkpoint_boundaries']==coverage['native_restart_verified_task_boundaries']==1
+assert coverage['full_long_chain_restart_accepted'] is coverage['midcarry_restart_accepted'] is coverage['liquid_restart_accepted'] is False
+assert coverage['verified_cold_restore_attempts']==4
+assert sum(s['full_world_checkpoint_sealed'] for s in coverage['stages'])==1
+assert sum(s['native_restart_verified'] for s in coverage['stages'])==1
+assert coverage['stages'][4]['stage']=='place_release' and coverage['stages'][4]['native_restart_verified'] is True
+assert hashlib.sha256((root/coverage['receipt']).read_bytes()).hexdigest()==coverage['receipt_sha256']
+for value in (json.loads((root/matched['receipt']).read_text()),json.loads((root/coverage['receipt']).read_text())):
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(value))
+
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
+                     matched_original_deadline_contract_pass=True,
+                     verified_task_checkpoint_boundaries=1,
+                     committed_evidence_stages=8,
                      native_bottle_frames=30 if bottle else 0,
                      native_bottle_pair_pass=bool(bottle),
                      native_mid_task_resume_pass=bool(mid),

@@ -1,0 +1,250 @@
+{
+  "all_material_restore_steps_debited": true,
+  "attempts": {
+    "expired_first": {
+      "excluded_setup_native_s": 5.008333594538271,
+      "excluded_warmup_callbacks": 1200,
+      "native_clock_id": "native_v91:child:774958f38ec064d2",
+      "native_elapsed_s": 11.125000580213964,
+      "native_origin_s": 5.008333594538271,
+      "outcome": "REFUSED",
+      "phase_callbacks": {
+        "CONTROLLED_PROPOSAL_DELIVERY": 240,
+        "INJECTED_REVERSIBLE_INTERRUPTION": 2400,
+        "RESTORE": 30
+      },
+      "task_end_s": 44.12500230129808,
+      "task_origin_s": 33.00000172108412
+    },
+    "no_fault_first": {
+      "excluded_setup_native_s": 5.008333594538271,
+      "excluded_warmup_callbacks": 1200,
+      "native_clock_id": "native_v91:child:e4d4fe5dec3fe976",
+      "native_elapsed_s": 31.637501650024205,
+      "native_origin_s": 5.008333594538271,
+      "outcome": "COMPLETED",
+      "phase_callbacks": {
+        "CONTROLLED_PROPOSAL_DELIVERY": 240,
+        "RESTORE": 30,
+        "TAIL_COMMANDS": 5507,
+        "WAIT_FOR_ORIGINAL_EVENT_START": 1816
+      },
+      "task_end_s": 64.63750337110832,
+      "task_origin_s": 33.00000172108412
+    },
+    "recovery_first": {
+      "excluded_setup_native_s": 5.008333594538271,
+      "excluded_warmup_callbacks": 1200,
+      "native_clock_id": "native_v91:child:a35b261a20e1cee0",
+      "native_elapsed_s": 3.1250001629814506,
+      "native_origin_s": 5.008333594538271,
+      "outcome": "FAILED",
+      "phase_callbacks": {
+        "CONTROLLED_PROPOSAL_DELIVERY": 240,
+        "INJECTED_REVERSIBLE_INTERRUPTION": 480,
+        "RESTORE": 30
+      },
+      "task_end_s": 36.12500188406557,
+      "task_origin_s": 33.00000172108412
+    },
+    "recovery_retry": {
+      "excluded_setup_native_s": 5.008333594538271,
+      "excluded_warmup_callbacks": 1200,
+      "native_clock_id": "native_v91:child:abc16379111063cc",
+      "native_elapsed_s": 28.512501487042755,
+      "native_origin_s": 5.008333594538271,
+      "outcome": "COMPLETED",
+      "phase_callbacks": {
+        "CONTROLLED_PROPOSAL_DELIVERY": 240,
+        "RESTORE": 30,
+        "TAIL_COMMANDS": 5507,
+        "WAIT_FOR_ORIGINAL_EVENT_START": 1066
+      },
+      "task_end_s": 64.63750337110832,
+      "task_origin_s": 36.12500188406557
+    }
+  },
+  "backend_model_id": null,
+  "branches": {
+    "expired": {
+      "refusal_task_time_s": 44.12500230129808,
+      "start_window_s": [
+        41.68208394320992,
+        41.70125060965928
+      ],
+      "status": "REFUSED_ORIGINAL_DEADLINE_EXPIRED",
+      "tail_commands": 0
+    },
+    "no_fault": {
+      "actual_dispatch_task_s": 41.691668841056526,
+      "error_interval_ms": [
+        -4.165102262049913,
+        4.168231505900621
+      ],
+      "event_b_task_bounds_s": [
+        46.86250244406983,
+        46.86666911095381
+      ],
+      "return_error_mm": 0.3832238825675199,
+      "status": "PASS_ORIGINAL_EVENT_INTERVAL",
+      "tail_commands": 5507
+    },
+    "recovery": {
+      "actual_dispatch_task_s": 41.691668841056526,
+      "error_interval_ms": [
+        -4.165102262049913,
+        4.168231505900621
+      ],
+      "event_b_task_bounds_s": [
+        46.86250244406983,
+        46.86666911095381
+      ],
+      "return_error_mm": 0.3832238825675199,
+      "status": "PASS_ORIGINAL_EVENT_INTERVAL",
+      "tail_commands": 5507
+    }
+  },
+  "calls": [
+    {
+      "known_billed_tokens": 11024,
+      "path": "agent_requests/ingest"
+    },
+    {
+      "known_billed_tokens": 11376,
+      "path": "agent_requests/readout_shared"
+    }
+  ],
+  "causal_memory_benefit_identified": false,
+  "chemical_event_verified": false,
+  "clock_policy": "PAUSED_PRE_RESTORE_SETUP_AND_HOST_DOWNTIME_NATIVE_ONLY",
+  "controlled_delivery_is_measured_model_latency": false,
+  "controlled_delivery_ticks_per_child": 240,
+  "excluded_setup_warmup_steps_per_child": 1200,
+  "formal_M1_admission": false,
+  "full_benchmark_pass": false,
+  "graceful_sdk_cleanup_pass": false,
+  "hidden_model_state_restored": false,
+  "hidden_solver_state_restored": false,
+  "known_billed_tokens": 22400,
+  "memory_sha256": "f5d6ed6ec6d4003bed9c71c6450c3e554bb811460458dce230dd22d822c1a124",
+  "model_calls": 2,
+  "native_model_calls": 0,
+  "no_fault_control": "COLD_CONTINUATION_NOT_CONTINUOUSLY_RUNNING_PARENT",
+  "no_gpu_or_provider_calls_during_review": true,
+  "original_deadline_reset": false,
+  "original_event_a_task_bounds_s": [
+    16.862500879447907,
+    16.866667546331882
+  ],
+  "original_requested_gap_s": 30.0,
+  "parent_files_preserved": 71,
+  "parent_prefix_commands": 7920,
+  "parent_recollection_commands": 0,
+  "phases": {
+    "branches/no_fault/child_first": {
+      "commands": 5507,
+      "committed_stages": 3,
+      "maximum_relative_displacement_mm": 5.805160660948549,
+      "native_epoch": "native_v91:child:e4d4fe5dec3fe976",
+      "placement_error_mm": 0.3832238825675199,
+      "state_writes_during_task": 0,
+      "transport_bilateral_contact_fraction": 0.9980513153621305
+    },
+    "branches/recovery/child_retry": {
+      "commands": 5507,
+      "committed_stages": 3,
+      "maximum_relative_displacement_mm": 5.805160660948549,
+      "native_epoch": "native_v91:child:abc16379111063cc",
+      "placement_error_mm": 0.3832238825675199,
+      "state_writes_during_task": 0,
+      "transport_bilateral_contact_fraction": 0.9980513153621305
+    },
+    "parent": {
+      "commands": 7920,
+      "committed_stages": 5,
+      "maximum_relative_displacement_mm": 1.6961878267455237,
+      "native_epoch": "native_v91:parent:5fb1cc27a5167a7c",
+      "placement_error_mm": 1.7060533535467572,
+      "state_writes_during_task": 0,
+      "transport_bilateral_contact_fraction": 0.9982724580454096
+    }
+  },
+  "pinned_files_verified": 121,
+  "public_event_sensor": "DECLARED_IDEAL_CAUSAL_SIMULATION_INSTRUMENT",
+  "raw_artifact_sha256": {
+    "EVENT_TIMER_SOURCE_BINDING.json": "66c5bdd858b6095b47b7d2bf0466840c30ca9b64e44df670614fe3e4a23163fa",
+    "PARENT_PRESERVATION_AFTER_CHILDREN.json": "8e80e6547ecc86a7c10285b53974e30c11eb7f4cd9d8ae7c4cddbc2f5517d0b3",
+    "PREDECLARED.json": "4d97d515d554663528f55043666fb3a44391d83571a5df56cd7446de51e3b67a",
+    "agent_checkpoint/memory.json": "f5d6ed6ec6d4003bed9c71c6450c3e554bb811460458dce230dd22d822c1a124",
+    "branches/expired/child_first/setup/native_clock.jsonl": "acde598b686a837ae9c3cf3c0983921383884bfdb86c09489ba9da34d4940075",
+    "branches/expired/child_first/task_clock_native_steps.jsonl": "71e3bf6e0cc87afc183824c94b5ea5d4b735784f1f327f3052fe8709dc449a71",
+    "branches/no_fault/child_first/setup/native_clock.jsonl": "acde598b686a837ae9c3cf3c0983921383884bfdb86c09489ba9da34d4940075",
+    "branches/no_fault/child_first/task/contact_rows.jsonl": "9212116e51cd478b12c06089b58423839c014f023bd86b32fac5302d892131cf",
+    "branches/no_fault/child_first/task/independent_score.json": "f7c1443d5de65ba3b51af4572dca5b68d8679498ff780fe40789e7f8d439f016",
+    "branches/no_fault/child_first/task/operation_events.json": "96be9e42f8d5ac723070f48a743384c23246b0f780bb315e7f93100bef3a9c4d",
+    "branches/no_fault/child_first/task/states.jsonl": "8a85c42b6c76d1b53e24b0a9993fd1143834e0cfd353933fb662642515b291b4",
+    "branches/no_fault/child_first/task_clock_native_steps.jsonl": "61be46cb67819cefecfe77cc36e2b7f730484b762f2fa680670fde306411b33e",
+    "branches/recovery/child_first/setup/native_clock.jsonl": "acde598b686a837ae9c3cf3c0983921383884bfdb86c09489ba9da34d4940075",
+    "branches/recovery/child_first/task_clock_native_steps.jsonl": "3bd8f8e8f4e7160be6c989ca1984c2f8219e1146fd3f51325962d9de74fd3502",
+    "branches/recovery/child_retry/setup/native_clock.jsonl": "acde598b686a837ae9c3cf3c0983921383884bfdb86c09489ba9da34d4940075",
+    "branches/recovery/child_retry/task/contact_rows.jsonl": "f3a21960e0082deba143ebbad75b9e6fee17d12f9049da9cde90ad59d63c2f91",
+    "branches/recovery/child_retry/task/independent_score.json": "f7c1443d5de65ba3b51af4572dca5b68d8679498ff780fe40789e7f8d439f016",
+    "branches/recovery/child_retry/task/operation_events.json": "6cb7aa547ac04e90c08432af143281f3125b1b6471839f9907ea6e0d044f4a36",
+    "branches/recovery/child_retry/task/states.jsonl": "18e006836cba4421a3e3e9a36c22ff8c43e8ce53605eb7b848c5f2c4780e9c2f",
+    "branches/recovery/child_retry/task_clock_native_steps.jsonl": "9963e1e70ba48eda887a373da318419ba199de86d3fd5a9efb7db57644a3d34e",
+    "parent/task/contact_rows.jsonl": "1052d9e04c53862e21312a13544de2ad01e4a32968e30db04d1adb7dcf8e8869",
+    "parent/task/independent_score.json": "de93d64e278fa270e858e9eb3275043a72e8061b1a03c98c6aed0932bc4b00cb",
+    "parent/task/operation_events.json": "fd8fdb39dab111b16935291d82da2c5245d55572758ad9d76217df199db17cc5",
+    "parent/task/states.jsonl": "076bce6aec59fdaf347f60fe54840c91bdae248384c6c1ace26db13e89576ac4",
+    "shared_schedule/COMMITTED.json": "e38df5771f16ba95959385ac5f99009fffad6d60309b657d9d50e29a04deaa16",
+    "source_pins.json": "5fb1cc27a5167a7cbb9b68b4554b53a07ed24b9d9139ec648297fefa16dcc329",
+    "task_timer/HEADER.json": "a7eb6d63eff0b49d0603e121a78ef86c335bf06f0016f6da11aaf6591d27aaf1"
+  },
+  "requested_model": "gpt-6-astra",
+  "restore": {
+    "expired_first": {
+      "all_original_pose_gates_pass": true,
+      "entities_each_sample": 65,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "transient_samples": 30
+    },
+    "no_fault_first": {
+      "all_original_pose_gates_pass": true,
+      "entities_each_sample": 65,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "transient_samples": 30
+    },
+    "recovery_first": {
+      "all_original_pose_gates_pass": true,
+      "entities_each_sample": 65,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "transient_samples": 30
+    },
+    "recovery_retry": {
+      "all_original_pose_gates_pass": true,
+      "entities_each_sample": 65,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "transient_samples": 30
+    }
+  },
+  "reviewed_at_utc": "2026-10-14T04:18:52.581167+00:00",
+  "reviewer_source_sha256": "dc05d2487315bdfaeb5743e64aba2b089841e0ff32bb7dc9b211ffb69f2b4474",
+  "schema": "chemrm-v91-independent-matched-native-contract-review",
+  "scientific_admission": false,
+  "shared_proposal_sha256": "e38df5771f16ba95959385ac5f99009fffad6d60309b657d9d50e29a04deaa16",
+  "skill_duration_bound_is_calibrated": false,
+  "source_checkpoint_sha256": "de1db7e7ed66b4188e32c104d15a7957184e267bd6df248846b10e78658d591e",
+  "source_pins_sha256": "5fb1cc27a5167a7cbb9b68b4554b53a07ed24b9d9139ec648297fefa16dcc329",
+  "start_window_task_bounds_s": [
+    41.68208394320992,
+    41.70125060965928
+  ],
+  "statistical_units": "ONE_PARENT_THREE_BRANCHES_FOUR_LINKED_CHILDREN_NOT_INDEPENDENT_REPETITIONS",
+  "status": "PASS_SCOPED_MATCHED_ORIGINAL_EVENT_NATIVE_CONTRACT",
+  "tail_commands_per_success": 5507,
+  "timer_header_sha256": "a7eb6d63eff0b49d0603e121a78ef86c335bf06f0016f6da11aaf6591d27aaf1",
+  "total_allocated_gpu_hours_upper_bound": 0.2341653633789004,
+  "training_admission": false,
+  "undocumented_provider_context_attested": false,
+  "wall_real_time_claim": false
+}
