@@ -413,7 +413,46 @@ if loaded:
     assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(loaded))
     assert archive['native_restart_verified_task_boundaries']==1 and archive['full_registered_stage_archives']==8
 
+baseline=data.get('live_baseline_probe')
+if baseline:
+    import csv
+    assert baseline['status']=='LIVE_BASELINE_DATA_VALIDATED_WITHIN_ORIGINAL_ENDPOINT_LIMITS'
+    assert baseline['baseline_workers']==2 and baseline['source_commands_each']==6480
+    assert baseline['source_command_cut']==4560 and baseline['transport_commands_each']==1920
+    assert baseline['registered_entities']==65 and baseline['matched_hold_steps']==30
+    assert baseline['whole_registered_endpoint_equivalence_pass'] and baseline['matched_hold_equivalence_pass']
+    assert baseline['recorded_bottle_transport_pose_arrays_identical'] and baseline['tiny_angle_residual_is_formula_roundoff_on_identical_poses']
+    assert baseline['endpoint_bottle_orientation_error_deg']==baseline['endpoint_bottle_position_error_mm']==0
+    assert baseline['maximum_computed_transport_orientation_error_deg']<1e-5
+    assert baseline['live_a_files_preserved']==67 and baseline['pinned_files_verified']==124
+    assert baseline['loaded_restore_calls_at_cut']==baseline['model_calls']==baseline['training_jobs']==0
+    assert baseline['reader_sealed_before_collection']
+    assert baseline['total_allocated_gpu_hours_upper_bound']<2*435/3600
+    for key in ('randomized_success_rate_measured','causal_cold_restore_effect_established',
+                'root_cause_established','loaded_boundary_full_continuation_accepted',
+                'new_generic_restart_admission','original_event_and_agent_timer_binding_tested',
+                'scientific_admission','training_admission','formal_M1_admission','full_benchmark_pass'):
+        assert baseline[key] is False,key
+    for key in ('receipt','plot','numeric_projection'):
+        path=baseline[key]
+        assert path.startswith(('artifacts/live-baseline-v94.', 'assets/native-v94/'))
+        assert (root/path).resolve().is_relative_to(root.resolve())
+        assert hashlib.sha256((root/path).read_bytes()).hexdigest()==baseline[key+'_sha256']
+    values=[{k:float(v) for k,v in row.items()} for row in csv.DictReader((root/baseline['numeric_projection']).open())]
+    assert len(values)==1920 and all(row['position_error_mm']==0 for row in values)
+    assert all(math.isfinite(v) and v>=0 for row in values for v in row.values())
+    assert max(row['orientation_error_deg'] for row in values)==baseline['maximum_computed_transport_orientation_error_deg']
+    assert all(a['native_transport_s']<b['native_transport_s'] for a,b in zip(values,values[1:]))
+    assert len(baseline['frames'])==4
+    for frame in baseline['frames']:
+        assert re.fullmatch(r'assets/native-v94/live_[ab]-(04560|06480)\.jpg',frame['image'])
+        assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(baseline))
+    assert loaded['full_endpoint_equivalence_pass'] is False
+    assert archive['native_restart_verified_task_boundaries']==1
+
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
+                     live_baseline_evidence_checked=bool(baseline),
                      loaded_continuation_accepted=False,
                      loaded_negative_evidence_checked=bool(loaded),
                      matched_original_deadline_contract_pass=True,
