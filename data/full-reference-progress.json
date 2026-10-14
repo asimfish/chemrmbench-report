@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T17:52:19.302299+00:00",
+  "exported_at_utc": "2026-10-14T17:56:32.821595+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -413,6 +413,32 @@
   ],
   "modules": [
     {
+      "id": "fluid-local-massvolume-short-control",
+      "title": "Fluid local control ·20ms completes, density transient remains",
+      "evidence_sha256": "7e118210af69aa9da33027f23a692377806ff32dab8ce0e28d567efde6ae65c8",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The new mass-volume placement completes20ms in both native whole-step and staged implementations. All33 saved-evidence checks and34 separate NumPy review checks pass with unchanged force, density-upper-bound, CG, time-update and momentum criteria. The initial state matches its separate static fixture bit for bit; all original particle masses and physical parameters are retained. The512 cohort IDs are fixed before observing density. The density, speed and kinetic-energy comparison is published on fluid-boundary-diagnosis.html#placement-control.",
+      "metrics": {
+        "completed_ms": 20,
+        "steps_each": 20,
+        "staged_records": 181,
+        "whole_records": 61,
+        "checks": 33,
+        "independent_checks": 34,
+        "initial_fixed_bulk_in_band": 512,
+        "terminal_fixed_bulk_in_band": 200,
+        "fixed_bulk_particles": 512,
+        "terminal_bulk_min_ratio": 0.9313770975777825,
+        "terminal_bulk_mean_ratio": 0.9500588434533347,
+        "terminal_bulk_max_ratio": 0.985311523292089,
+        "first_native_map_activation_ms": 4,
+        "first_exact_support_on_saved_trajectory_ms": 10,
+        "original_physical_tests_qualified": 0
+      },
+      "remaining": "The static density-band pass does not persist: at20ms only200/512 original interior IDs lie in[0.95,1.01]. The fixed cohort is not reselected after deformation. Native map activation first appears at4ms, while exact-box support first appears at10ms on the same saved trajectory. This is a geometric-condition comparison, not a rerun with an exact wall or proof of physical contact-time error; the density transient cannot all be attributed to SDF interpolation. Old native-mode0 results are descriptive, not a superiority oracle. Equilibrium, viscosity calibration, accurate wall contact, long-term stability and full-paper reproduction remain open."
+    },
+    {
       "id": "auto-concrete-api-contract",
       "title": "Auto source recovery · concrete IsaacArm contract",
       "evidence_sha256": "0f0907c32026597ab121384e06866057d3f7dd4c7c2c74e3b4c7ef883646f96a",
@@ -603,7 +629,7 @@
         "solves": 0,
         "original_physical_tests_qualified": 0
       },
-      "remaining": "This is a new local calibration initialization, not author-default startup or a measured paper volume. Zero active wall queries makes the projection check vacuous; neither wall contact nor equilibrium is established. Raw interpolated map values and their activation rules remain observable, without renormalization or density-dependent placement. Full physical benchmarks, dynamic acceptance and original GRID equivalence remain open."
+      "remaining": "This is a new local calibration initialization, not author-default startup or a measured paper volume. The independent static review passes29checks but has zero active wall queries: its projection check is vacuous. It retains728 negative raw interpolant samples and about0.607mm maximum SDF interpolation error. A later20ms control is reported separately; the static512/512 density-band pass is not maintained by that dynamic run. Full physical benchmarks and original GRID equivalence remain open."
     },
     {
       "id": "fluid-face-switch-figure-delivered",
