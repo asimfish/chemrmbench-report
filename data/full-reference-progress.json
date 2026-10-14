@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T07:22:26.411854+00:00",
+  "exported_at_utc": "2026-10-14T07:32:21.943431+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2048,15 +2048,15 @@
     },
     {
       "id": "ot2-continuous-positive-r9-restart1",
-      "title": "OT2 complete sequence R9 · positive_r9_restart1 · STEPPING",
-      "evidence_sha256": "a60a3fa502672f79eb9bcb94ed62aaa47491db2cb6df978fc12397484495fd12",
+      "title": "OT2 complete sequence R9 · positive_r9_restart1 · CONTINUOUS_PIPETTING",
+      "evidence_sha256": "47739e67a952ad23f3427c9d6e5a0743587d0cd1ffb146f04ed1bc56794a403e",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/insert. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: destination_1_hold. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 133.0,
-        "native_steps": 79800,
-        "completed_objects": 2,
+        "native_seconds": 168.0,
+        "native_steps": 100800,
+        "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
       },
@@ -2109,13 +2109,13 @@
     },
     {
       "id": "liquid-1920-rtx-diagnostic-render",
-      "title": "1920-particle replay · RENDER_RUNNING",
-      "evidence_sha256": "ece397893d98d469b4c2fa86ebaf38f21db9df662a6fe3cc6103570ae26a4767",
+      "title": "1920-particle replay · RENDER_COMPLETE_MEDIA_AND_VISUAL_REVIEW_PENDING",
+      "evidence_sha256": "0c229e98de3a2899bcd8f13a106c790115f087462e45937c62130b0a268984b2",
       "subsystem_passed": false,
       "full_reference_accepted": false,
       "scope": "Bounded native RTX PathTracing replay of the immutable recorded state. Every frame explicitly labels the source PHYSICAL TRIAL FAILED. Absolute-script identity and dangling display-file link failures remain archived; input geometry is now read directly with its original hash.",
       "metrics": {
-        "rendered_frames": 504,
+        "rendered_frames": 575,
         "required_frames": 575,
         "physics_steps": 0
       },
@@ -2158,11 +2158,11 @@
   ],
   "active": {
     "id": "ot2_repro_three_labware_complete_positive_r9_restart1",
-    "phase": "STEPPING",
+    "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 133.0,
-    "physics_steps": 79800,
-    "sampled_at_utc": "2026-10-14T07:22:21.002209+00:00"
+    "simulation_s": 168.0,
+    "physics_steps": 100800,
+    "sampled_at_utc": "2026-10-14T07:32:18.915739+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
