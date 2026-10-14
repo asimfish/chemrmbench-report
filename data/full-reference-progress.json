@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T05:02:22.012698+00:00",
+  "exported_at_utc": "2026-10-14T05:06:37.625138+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1871,7 +1871,78 @@
         "dt_microseconds": 10,
         "physics_seconds": 0.002
       },
-      "remaining": "Synthetic viscosity and free isotropic bodies, without pressure or contact. Full DFSPH wiring still needs dimensional density conversion, surface-boundary volume validation and one combined pressure-plus-viscosity wrench write. This does not repair the failed full pour."
+      "remaining": "Synthetic viscosity and free isotropic bodies, without pressure or contact. A later small CPU fixture validates density conversion and one combined wrench write; actual-resolution boundary consistency and the complete task remain open. This does not repair the failed full pour."
+    },
+    {
+      "id": "fluid-dfsph-viscosity-cpu-interface",
+      "title": "DFSPH viscosity · dimensional and combined-wrench interface",
+      "evidence_sha256": "92636de264cb941de92115038f053ff85617a8f75d5cca91545e2b7d8ed23f0e",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A small actual DFSPH CPU fixture executes both pressure-projection stages, converts relative density to SI units, and submits pressure, viscosity and external reactions together. All17 interface checks pass; zero viscosity reproduces eight original steps bitwise.",
+      "metrics": {
+        "interface_checks": 17,
+        "full_task_steps": 0
+      },
+      "remaining": "This is a27-particle interface test. It does not validate resolved droplets, surface forces, wall accuracy or the failed full pour. The separate actual-spacing boundary failure remains open."
+    },
+    {
+      "id": "fluid-wall-actual-spacing-failure",
+      "title": "Fluid wall model · actual-resolution benchmark rejects a variant",
+      "evidence_sha256": "e63b3e6cf3f42d10b10c79e843c5a8982b6c911b19eacf791e8c637419acfcab",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The real1.25mm fluid spacing exposes a wall-traction error missed by finer-grid-only checks: recomputing the single-layer Akinci boundary volume for the wider viscosity support gives17.154percent traction error against a frozen15percent limit.",
+      "metrics": {
+        "checks_passed": 7,
+        "checks_total": 8,
+        "traction_error_percent": 17.154,
+        "traction_limit_percent": 15
+      },
+      "remaining": "The old mixed-support volume happens to pass this fixture, but does not reproduce the reference single-kernel formula. A consistent kernel, actual layered boundary and executable coverage guard must be validated before a new complete pour."
+    },
+    {
+      "id": "matterix-local-hood-pane-recovery",
+      "title": "Laboratory hood · local door body and visible pane recovered",
+      "evidence_sha256": "59a17c09a0c77f9377bb136405fa424d76f5387f3af0abd292372e16466abe2b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A same-family local asset retains the missing rigid pane. Four fixed-joint references are restored; its original collision triangles supply a local4.495mm visible glass panel. Native same-camera RTX shows the panel and arm with the reflection retained.",
+      "metrics": {
+        "local_door_bodies": 4,
+        "pane_thickness_mm": 4.49496,
+        "physics_steps": 0
+      },
+      "remaining": "Local visual reconstruction, not the original author hood. Door actuation, mounting, task grippers and full-scene dynamics remain unaccepted. The Full laboratory page preserves all earlier raw images."
+    },
+    {
+      "id": "liquid-1920-export-grid-failure",
+      "title": "1920-particle replay · retained surface-export memory failure",
+      "evidence_sha256": "58734d9295432c82308c0c96db2fa8af9e266f0f2ffe9c9be7f23e71d93268c3",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The first full replay export stops after266 frames because the connected liquid stream outgrows the dense workspace limit. The worst component has262152100 scalar-grid points. No particle is removed and no partial video is delivered as complete.",
+      "metrics": {
+        "retained_prefix_frames": 266,
+        "required_frames": 575,
+        "first_failed_native_seconds": 10.68,
+        "maximum_grid_points": 262152100
+      },
+      "remaining": "A bounded-workspace implementation and exact prefix reuse are independently checked before resuming. The underlying23s physical trajectory remains failed even if its diagnostic replay later renders completely."
+    },
+    {
+      "id": "liquid-1920-streamed-field-admission",
+      "title": "Liquid replay · bounded workspace preserves recorded surfaces",
+      "evidence_sha256": "9f771cd647076dbf9abcd7d6101040d55b607a122a1e0ab056f9c27ee1dd9f9e",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The display-only repair preserves the old scalar field bitwise in12 controls and preserves two native meshes exactly. The first rejected frame and the largest component frame receive independent closed-mesh, all-particle-center, volume and native-time checks.",
+      "metrics": {
+        "checks_passed": 25,
+        "checks_total": 25,
+        "physics_steps": 0
+      },
+      "remaining": "Only two large-frame regression cases. Every one of575 frames still needs the complete independent audit before GPU rendering; physical and original-renderer acceptance are unchanged."
     }
   ],
   "active": {
