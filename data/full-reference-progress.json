@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T06:12:13.006151+00:00",
+  "exported_at_utc": "2026-10-14T06:22:18.296258+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2033,13 +2033,13 @@
     {
       "id": "ot2-complete-r9-positive",
       "title": "OT2 complete sequence R9 · positive · STEPPING",
-      "evidence_sha256": "68e05fa0acccdd16521fb747fb57e9c6371b9017c701828ba5cf8dd87264043f",
+      "evidence_sha256": "25515d209d366f03befc86f90b514988f84d0bc1a29b358b18fab8b2c14e24cf",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/front_align. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/place_hold. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 128.0,
-        "native_steps": 76800,
+        "native_seconds": 136.0,
+        "native_steps": 81600,
         "completed_objects": 2,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2050,10 +2050,10 @@
   "active": {
     "id": "ot2_repro_three_labware_complete_positive_r9",
     "phase": "STEPPING",
-    "process_verified_alive": true,
-    "simulation_s": 128.0,
-    "physics_steps": 76800,
-    "sampled_at_utc": "2026-10-14T06:12:06.480723+00:00"
+    "process_verified_alive": false,
+    "simulation_s": 136.0,
+    "physics_steps": 81600,
+    "sampled_at_utc": "2026-10-14T06:14:39.333705+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
