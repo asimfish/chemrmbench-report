@@ -24,11 +24,11 @@
         const count = document.createElement("p");
         count.textContent = `${video.metrics.frames_completed.toLocaleString()} / ${video.metrics.frames_total.toLocaleString()} frames archived · ${video.metrics.chunks_completed} / ${video.metrics.chunks_total} chunks completed.`;
         const detail = document.createElement("p"); detail.className = "muted"; detail.style.overflowWrap = "anywhere"; detail.textContent = video.scope;
-        const limit = document.createElement("p"); limit.textContent = "Progress does not establish final video acceptance. Full source, timestamp, decode and visual checks are still required before publication.";
+        const limit = document.createElement("p"); limit.textContent = "This is the renderer progress record. The completed video above has separate source, timestamp, decode and sampled visual checks; its scoped acceptance and limitations are linked alongside the player.";
         const snapshot = document.createElement("p"); snapshot.className = stale ? "muted stale" : "muted"; snapshot.textContent = `${stale ? "STALE SNAPSHOT · " : "Snapshot · "}${data.exported_at_utc}`;
         videoNode.replaceChildren(heading, count, detail, limit, snapshot);
       } else if (videoNode) {
-        videoNode.textContent = "The current published snapshot does not yet contain the new chunk renderer. The R5 incomplete attempt remains retained; no full video is accepted.";
+        videoNode.textContent = "The current published snapshot does not yet contain the new chunk renderer. The R5 incomplete attempt remains retained. Use the independently reviewed video record above.";
       }
-    }).catch(() => { if (videoNode) videoNode.textContent = "Render progress is unavailable. No complete video acceptance can be inferred."; node.textContent = "The live control snapshot is unavailable. Use the full evidence index; the positive result does not imply pair acceptance."; });
+    }).catch(() => { if (videoNode) videoNode.textContent = "Live render progress is unavailable. The completed video and its independent review are linked above."; node.textContent = "The live control snapshot is unavailable. Use the full evidence index; the positive result does not imply pair acceptance."; });
 })();

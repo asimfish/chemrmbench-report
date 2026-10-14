@@ -1,0 +1,152 @@
+{
+  "scope": "Complete recorded-state replay of one locally adapted positive trial",
+  "scoped_media_acceptance": true,
+  "full_reference_reproduction": false,
+  "original_visual_equivalence": false,
+  "physical_fluid_acceptance": false,
+  "video": {
+    "path": "assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+    "sha256": "dc46ae07d971a7b0184e5020cc970be89bbffe1a6a0a6769acf691b99c442e31",
+    "bytes": 11304908,
+    "duration_s": 208.5,
+    "width": 1920,
+    "height": 740,
+    "frames": 3266
+  },
+  "poster": "assets/reproduction/three-object/complete-frame-1884-r1.png",
+  "technical_checks": {
+    "all26_complete_immutable_verified_chunks": true,
+    "all3266_exactly_once": true,
+    "originalPNG_count3266": true,
+    "all_frame_native_step_bindings": true,
+    "closed_mux_complete_and_video_sha": true
+  },
+  "technical_stages": {
+    "independent_complete_native_CPU_USD_binding": true,
+    "all_native_PTS_exact_1_600_duration208_5": true,
+    "complete_actual_decode_and_all_originalPNG_comparison": true
+  },
+  "trial_clock": {
+    "recorded_steps": 125100,
+    "hz": 600,
+    "warmup_excluded": true,
+    "retrospective_native_callback_counter": false,
+    "encoded_pts_formula": "(native_step - 1) / 600",
+    "overlay_time_formula": "native_step / 600"
+  },
+  "sampled_encoded_frames": [
+    {
+      "index": 0,
+      "native_step": 1,
+      "trial_time_s": 0.0016666666666666668,
+      "encoded_pts_s": 0.0,
+      "path": "assets/reproduction/three-object/complete-frame-0000-r1.png",
+      "sha256": "6bc2aaf522300358736daaffad1fdadfb803511703f15f93b02a3399525de761",
+      "label": "Initial state"
+    },
+    {
+      "index": 291,
+      "native_step": 11400,
+      "trial_time_s": 19.0,
+      "encoded_pts_s": 18.998333333333335,
+      "path": "assets/reproduction/three-object/complete-frame-0291-r1.png",
+      "sha256": "4c3a4c83c3ae3eadca938ca7139eede3f64ef8b9eb72b7ed8461da1b6b1e69b9",
+      "label": "Plate hold"
+    },
+    {
+      "index": 1091,
+      "native_step": 42300,
+      "trial_time_s": 70.5,
+      "encoded_pts_s": 70.49833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-1091-r1.png",
+      "sha256": "dd405203671ed2a7f766071678b5cb42d5b63fc9904a46f393e4394c71d51118",
+      "label": "Reservoir hold"
+    },
+    {
+      "index": 1350,
+      "native_step": 52200,
+      "trial_time_s": 87.0,
+      "encoded_pts_s": 86.99833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-1350-r1.png",
+      "sha256": "f03b8fb5606e31d230cf7bfecadc16973241c81128c5078102231da7875e2e91",
+      "label": "Reservoir release"
+    },
+    {
+      "index": 1884,
+      "native_step": 73200,
+      "trial_time_s": 122.0,
+      "encoded_pts_s": 121.99833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-1884-r1.png",
+      "sha256": "01bd0faf11bf113c019b8549c5a26601ca32ee15287e877cadc6590923cbb42e",
+      "label": "Tip-rack hold"
+    },
+    {
+      "index": 2141,
+      "native_step": 83100,
+      "trial_time_s": 138.5,
+      "encoded_pts_s": 138.49833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-2141-r1.png",
+      "sha256": "78f52c13c8d0bf4bcb1bb73c6b39d1963ee70c71b820fa5f1a6bd4918d01569f",
+      "label": "Tip-rack release"
+    },
+    {
+      "index": 2280,
+      "native_step": 88500,
+      "trial_time_s": 147.5,
+      "encoded_pts_s": 147.49833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-2280-r1.png",
+      "sha256": "0743597892504ff724bbeb8d0aed61796bc0ee747115cf28fec21021a417335c",
+      "label": "Handoff to OT2"
+    },
+    {
+      "index": 2506,
+      "native_step": 96900,
+      "trial_time_s": 161.5,
+      "encoded_pts_s": 161.49833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-2506-r1.png",
+      "sha256": "d8f7129d82cbd06c5233d3550918c765c5dc2bfd5e90fb3364a6dbf367a92360",
+      "label": "First aspiration hold"
+    },
+    {
+      "index": 2619,
+      "native_step": 101100,
+      "trial_time_s": 168.5,
+      "encoded_pts_s": 168.49833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-2619-r1.png",
+      "sha256": "af417deb0a5ba05fdf57988eb18d6c166340699c90f470388c710fc20f324780",
+      "label": "First dispense hold"
+    },
+    {
+      "index": 3265,
+      "native_step": 125100,
+      "trial_time_s": 208.5,
+      "encoded_pts_s": 208.49833333333333,
+      "path": "assets/reproduction/three-object/complete-frame-3265-r1.png",
+      "sha256": "f147ab8a5104c4f587b43a721a6e1466c5ace420d72154726eb3413329263859",
+      "label": "Terminal state"
+    }
+  ],
+  "scope_limits": [
+    "Ten actual encoded frames were visually inspected; the entire video was machine-decoded and compared against all 3266 source PNGs. This is not a claim of continuous human viewing.",
+    "Dark shell, reflections and partial tool occlusion remain. Source-paper colors and materials are not calibrated; original visual equivalence is unaccepted.",
+    "Local fixtures, masses, grip geometry and door control remain adaptations. Liquid is a semantic ledger without mass or force feedback.",
+    "The physical trial uses a frozen 600 Hz trial-relative log, with warmup excluded; it has no retrospective native callback counter.",
+    "Rendering replays recorded transforms with zero recorded physics callbacks. Configured 96 SPP is not an independently measured effective sample count.",
+    "Only the positive run has this complete replay. The matched no-aspiration physical/semantic run is separately audited, without a full replay video."
+  ],
+  "root_visual_review_sha256": "95570e7345db7d6f6fba07de0da46ca3b0f87458a25affdf6c41eb57b781c11e",
+  "technical_receipt_sha256": "072fa1d8141f4ef18792f7d5d6a23fd5d4855bbf5c67285d5f88ee7a29889f2a",
+  "artifacts": {
+    "assets/reproduction/three-object/continuous-positive-208s-r1.mp4": "dc46ae07d971a7b0184e5020cc970be89bbffe1a6a0a6769acf691b99c442e31",
+    "assets/reproduction/three-object/complete-frame-0000-r1.png": "6bc2aaf522300358736daaffad1fdadfb803511703f15f93b02a3399525de761",
+    "assets/reproduction/three-object/complete-frame-0291-r1.png": "4c3a4c83c3ae3eadca938ca7139eede3f64ef8b9eb72b7ed8461da1b6b1e69b9",
+    "assets/reproduction/three-object/complete-frame-1091-r1.png": "dd405203671ed2a7f766071678b5cb42d5b63fc9904a46f393e4394c71d51118",
+    "assets/reproduction/three-object/complete-frame-1350-r1.png": "f03b8fb5606e31d230cf7bfecadc16973241c81128c5078102231da7875e2e91",
+    "assets/reproduction/three-object/complete-frame-1884-r1.png": "01bd0faf11bf113c019b8549c5a26601ca32ee15287e877cadc6590923cbb42e",
+    "assets/reproduction/three-object/complete-frame-2141-r1.png": "78f52c13c8d0bf4bcb1bb73c6b39d1963ee70c71b820fa5f1a6bd4918d01569f",
+    "assets/reproduction/three-object/complete-frame-2280-r1.png": "0743597892504ff724bbeb8d0aed61796bc0ee747115cf28fec21021a417335c",
+    "assets/reproduction/three-object/complete-frame-2506-r1.png": "d8f7129d82cbd06c5233d3550918c765c5dc2bfd5e90fb3364a6dbf367a92360",
+    "assets/reproduction/three-object/complete-frame-2619-r1.png": "af417deb0a5ba05fdf57988eb18d6c166340699c90f470388c710fc20f324780",
+    "assets/reproduction/three-object/complete-frame-3265-r1.png": "f147ab8a5104c4f587b43a721a6e1466c5ace420d72154726eb3413329263859"
+  }
+}
