@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-14T04:27:06.192509+00:00",
+  "title": "MATTERIX laboratory · static visual audit",
+  "full_reference_reproduction": false,
+  "visual_accepted": false,
+  "static_capture_accepted": true,
+  "physics_steps": 0,
+  "renderer": "PathTracing",
+  "robots": {
+    "Panda": 2,
+    "UR3e": 3,
+    "KMR_iiwa": 1
+  },
+  "stage_sha256": "1cf2bc9bffefcc257ed075243ab48dff0fe24f14e3c221ab37db8d89108a4b6e",
+  "source_receipt_sha256": "ee386cb39842606700f5b516646edd0df7f50ed7077224798951b5e4f128604e",
+  "views": [
+    {
+      "id": "overview",
+      "title": "Laboratory overview",
+      "finding": "Two Panda stations and the mobile manipulator are visible. Three UR3e arms exist in the scene but are not clearly visible in this view.",
+      "image": "assets/reproduction/full-lab/r4-overview.png",
+      "image_sha256": "89c68e73de093eb8e18e71e29c6e7ecda8b5020ea991532be395c74a27487f71",
+      "width": 1600,
+      "height": 1000,
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "native_body_poses_unchanged": true
+    },
+    {
+      "id": "entrance",
+      "title": "From the central aisle",
+      "finding": "The OT2 station, solid-dispenser placeholder, sink and drying rack can be inspected. The arrangement is a local reconstruction; metric agreement with the original laboratory is not established.",
+      "image": "assets/reproduction/full-lab/r4-entrance.png",
+      "image_sha256": "2173f0d172d6aa0adb8babdb75433d249ef4da2d8e4fe14ce53850c7162ed2a7",
+      "width": 1600,
+      "height": 1000,
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "native_body_poses_unchanged": true
+    },
+    {
+      "id": "hood_ur3e",
+      "title": "Hood close-up · visibility failed",
+      "finding": "The camera faces an opaque shell. The UR3e arm is fully hidden. A successful image write does not pass subject visibility.",
+      "image": "assets/reproduction/full-lab/r4-hood_ur3e.png",
+      "image_sha256": "2f8ecfb254d8c0dee5438223ec23cd21febb43217acc3e59450c665ee20da3bc",
+      "width": 1600,
+      "height": 1000,
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "native_body_poses_unchanged": true
+    },
+    {
+      "id": "glovebox_dual_ur3e",
+      "title": "Glovebox close-up · visibility failed",
+      "finding": "Parts of both arms can be seen, but the ports and grey window obscure them. Grippers, task operation and visual equivalence remain unverified.",
+      "image": "assets/reproduction/full-lab/r4-glovebox_dual_ur3e.png",
+      "image_sha256": "bbd5ef531d649850aabea1587fddd3d7f41d91e461a4b774a24c1aaa7445ae68",
+      "width": 1600,
+      "height": 1000,
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "native_body_poses_unchanged": true
+    }
+  ],
+  "source_correction": "The inherited hood fixed-joint declaration points to a missing glass body. A retained joint declaration does not establish a complete door asset.",
+  "remaining": [
+    "Hood and glovebox subject visibility",
+    "UR3 task grippers",
+    "Missing hood door body and actuation",
+    "Mobile-base and arm dynamics",
+    "Original scene identity, dimensions and material calibration",
+    "Whole-laboratory physical workflows"
+  ]
+}
