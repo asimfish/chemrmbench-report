@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T03:13:27.076394+00:00",
+  "exported_at_utc": "2026-10-14T03:17:51.645179+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -56,7 +56,7 @@
       "acceptance": "Reproduce author insertion-conditioned semantic tip loading and synchronized tip motion, immersed aspiration, dispensing and disposal, plus rack/reservoir setup in the stated manipulator configuration. Verify liquid identity/volume and ordered transitions. Force-threshold or friction-fit loading is an additional local validation, not a published prerequisite.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim. Three-object setup R1 failed at56.118s after plate placement. R2 attachment-only probe passed; full setup remains unexecuted and strict negative-event validation is still required.",
+      "gap": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim. Three-object setup R1 failed at56.118s. R2 attachment-only passed. R3 strict64event CPU verifier passed19regressions; the complete positive native setup is executing before any negative trial.",
       "published_function_reproduced": false
     },
     {
@@ -1521,29 +1521,47 @@
     },
     {
       "id": "ur5e-fluid-refinement",
-      "title": "UR5e ·1920particle coupled refinement candidate",
-      "evidence_sha256": "de15a47412a10d75cf9e9382c57bc65c236d6cad982cf3fa3f1532da578db662",
+      "title": "UR5e ·1920particle attempt failed before timeout",
+      "evidence_sha256": "c19587acadd208d83f116efd0d42a91b58870c22c8065532f020e7b32fc15d2a",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One predeclared23s known-case refinement. Same CUDA baseline seed401,3.75mL model volume, native geometry, control, timing and18gates; fluid and boundary sampling refined.",
+      "scope": "Known seed401; original CFL/domain gates failed before the7200s wall limit. No terminal23s result.312 retained25Hz particle snapshots end at12.48s.",
       "metrics": {
         "planned_seconds": 23,
         "observed_native_seconds": 12.500000000014179,
         "fluid_particles": 1920,
         "model_volume_mL": 3.75,
-        "fluid_spacing_mm": 1.25,
-        "boundary_spacing_mm": 1.5
+        "first_CFL_failure_s": 2.0899999999996814,
+        "first_domain_failure_s": 3.84000000000182,
+        "max_CFL": 0.4051404297351837,
+        "outside_domain": 24,
+        "retained_particle_frames": 312
       },
-      "remaining": "Raw execution progress only; independent terminal acceptance and resolution convergence not yet established. Resource pauses do not reset native state."
+      "remaining": "Performance profiling and early mouth-ejection diagnosis underway. More particles did not establish convergence or physical acceptance."
+    },
+    {
+      "id": "ot2-strict-event-oracle",
+      "title": "OT2 ·strict64event verifier regression",
+      "evidence_sha256": "32d95135ede38098f2341f168bf2f7ecebdb4726ae34429fe25661eb6a7fc348",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "CPU synthetic tests reproduce the old false acceptance and verify independent phase/time/channel/native-geometry/parcel checks. This is verifier evidence only.",
+      "metrics": {
+        "regression_cases": 19,
+        "passed_regressions": 19,
+        "events_required": 64,
+        "channels": 8
+      },
+      "remaining": "Complete three-object physical setup and positive/no-aspiration native pair are still required. Full positive is executing; no physical PASS inferred from CPU tests."
     }
   ],
   "active": {
     "id": "ot2_repro_three_labware_complete_positive_r3",
     "phase": "STEPPING",
     "process_verified_alive": true,
-    "simulation_s": 14.000000000000002,
-    "physics_steps": 8400,
-    "sampled_at_utc": "2026-10-14T03:13:12.868305+00:00"
+    "simulation_s": 28.0,
+    "physics_steps": 16800,
+    "sampled_at_utc": "2026-10-14T03:17:34.620786+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
