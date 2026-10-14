@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T04:32:13.286023+00:00",
+  "exported_at_utc": "2026-10-14T04:42:22.511210+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1597,7 +1597,7 @@
       "scope": "One frozen23s known-seed trial after short independent admission and cooperative-termination verification. Original18gates plus initial-density/containment and100Hz native-vessel geometry checks remain strict.",
       "metrics": {
         "planned_seconds": 23,
-        "observed_native_seconds": 20.00000000004999,
+        "observed_native_seconds": 23.000000000064315,
         "particles": 1920,
         "model_volume_mL": 3.75,
         "dt_microseconds": 125,
@@ -1637,6 +1637,24 @@
         "wall_cap_seconds": 7200
       },
       "remaining": "Progress only. Process status and exit code do not imply acceptance. Full independent native-event and original-geometry audits are required; R3 failure remains separately visible."
+    },
+    {
+      "id": "ur5e-interface1920-independent-terminal",
+      "title": "UR5e ·1920particle complete independent audit",
+      "evidence_sha256": "5d1f150e791204f09fd826d3430b973cb747c2be8ffccfb9fe721a7d894ec308",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Independent23s audit reconstructs575saved native states, checks2300control rows and terminal geometry, and retains the original18gates plus initial-state and sampled-vessel geometry checks. Producer-only8000Hz cumulative diagnostics remain labeled in the source review.",
+      "metrics": {
+        "independent_checks": 40,
+        "passed_checks": 38,
+        "saved_native_frames": 575,
+        "receiver_particles": 1916,
+        "source_return_error_mm": 8.533387417061055,
+        "max_CFL": 0.4047187566757202,
+        "max_saved_native_solid_overlap": 0
+      },
+      "remaining": "One known seed with changed initial fill and boundary representation. This is not a resolution convergence study, original GRID reproduction, learned policy evaluation or full-paper completion."
     },
     {
       "id": "liquid-replay-resolution-contract",
@@ -1772,8 +1790,8 @@
       "full_reference_accepted": false,
       "scope": "Bounded44.5s physical pickup, transfer, placement, release and retreat test. Only the reservoir release and retreat finger target changes to the observed native open command. Original hold and placement gates remain; added actual-opening and no-contact checks are independent.",
       "metrics": {
-        "observed_native_seconds": 27.0,
-        "native_steps": 16200,
+        "observed_native_seconds": 35.105,
+        "native_steps": 21063,
         "planned_seconds": 44.5,
         "planned_steps": 26700
       },
@@ -1782,11 +1800,11 @@
   ],
   "active": {
     "id": "auto_repro_ur5e_interface1920_seed401_cuda_r3",
-    "phase": "RELEASE",
-    "process_verified_alive": true,
-    "simulation_s": 20.00000000004999,
-    "physics_steps": 160000,
-    "sampled_at_utc": "2026-10-14T04:30:36.021279+00:00"
+    "phase": "COMPLETED",
+    "process_verified_alive": false,
+    "simulation_s": 23.000000000064315,
+    "physics_steps": 184000,
+    "sampled_at_utc": "2026-10-14T04:40:23.016574+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
