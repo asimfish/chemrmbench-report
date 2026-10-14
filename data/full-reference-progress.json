@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T08:29:19.997647+00:00",
+  "exported_at_utc": "2026-10-14T08:32:23.966488+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2065,13 +2065,13 @@
     {
       "id": "ot2-continuous-noasp-r9-restart1",
       "title": "OT2 complete sequence R9 · noasp_r9_restart1 · CONTINUOUS_PIPETTING",
-      "evidence_sha256": "6e634cbd960acf2e44b2d8ba62a50d098f4d79acfc30b64b7f9eb756220a5e6c",
+      "evidence_sha256": "76f2f8627d1da3de665c358a92204ba88c25577a20de9448c1e4ba302aebbe8b",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack_insert. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: source_1_retract. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 152.0,
-        "native_steps": 91200,
+        "native_seconds": 163.0,
+        "native_steps": 97800,
         "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2333,12 +2333,12 @@
     {
       "id": "ot2-three-object-full-video-render",
       "title": "Three-object video · recorded render progress",
-      "evidence_sha256": "4a884b6a5d7ef3393dcd04cf1b8e5962bc9e233bf10b14bfdba342a566008194",
+      "evidence_sha256": "ae68c8b74273c6ea666367f2b4f9dba8e5cac914dba5b739858f0f164d707ae7",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "A durable GPU0 renderer replays the single accepted positive trace in three views. Recorded status: RENDERING at 2026-10-14T08:29:19.685998+00:00. Renderer completion is separate from final media and visual acceptance.",
+      "scope": "A durable GPU0 renderer replays the single accepted positive trace in three views. Recorded status: RENDERING at 2026-10-14T08:30:58.236335+00:00. Renderer completion is separate from final media and visual acceptance.",
       "metrics": {
-        "frames_completed": 451,
+        "frames_completed": 506,
         "planned_frames": 3266,
         "planned_trial_relative_s": 208.5,
         "recorded_render_physics_callbacks": 0,
@@ -2369,9 +2369,9 @@
     "id": "ot2_repro_three_labware_complete_noasp_r9_restart1",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 152.0,
-    "physics_steps": 91200,
-    "sampled_at_utc": "2026-10-14T08:29:08.450873+00:00"
+    "simulation_s": 163.0,
+    "physics_steps": 97800,
+    "sampled_at_utc": "2026-10-14T08:32:20.720630+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
