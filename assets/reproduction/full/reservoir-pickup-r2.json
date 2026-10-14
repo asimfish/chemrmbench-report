@@ -1,0 +1,62 @@
+{
+  "public_downsampled_data": {
+    "failed_complete_r3": {
+      "filename": "failed_complete_r3_60hz.csv",
+      "source_native_rate_hz": 600,
+      "exported_bin_rate_hz": 60,
+      "selected_native_rows": 10800,
+      "exported_bins": 1080,
+      "phase_clock_origin_native_step": 31500,
+      "source_sha256": {
+        "native_trace.jsonl": "b395298f6423174751dde0a6bbde0777f93ad5947da4e35114f96c6a62e70a95",
+        "native_contact_trace.jsonl": "69a0ee0562c9768b3ef1703aee3d18217d68bf0a885c9deac520c0f3b4ccbb24",
+        "status.json": "55a59d370439ae2916f651abe342f8c6797c361d7f2de87ddd516a53c7c153a9"
+      },
+      "rule": "Consecutive non-overlapping 10-native-step bins from reservoir/home through reservoir/lift_hold. Height and finger retain mean/min/max; contact fields count positive-impulse samples within each bin. No interpolation. Native phase clock begins at first selected step minus one.",
+      "acceptance_warning": "Aggregated public CSV is for plotting only. The 600/600 gate was evaluated against the full 600 Hz source; do not infer acceptance from bin means."
+    },
+    "standalone_centered_r1": {
+      "filename": "standalone_centered_r1_60hz.csv",
+      "source_native_rate_hz": 600,
+      "exported_bin_rate_hz": 60,
+      "selected_native_rows": 10800,
+      "exported_bins": 1080,
+      "phase_clock_origin_native_step": 600,
+      "source_sha256": {
+        "native_trace.jsonl": "ac418b31907689b0488dfd0b96e69ad22d645fbe2c5606db3513fbf570c2a93d",
+        "native_contact_trace.jsonl": "2d4c3a22594d5b053aeb96e17cb5e6cc9e733588bca849c471ce5da3733916b7",
+        "status.json": "5213d099649cf6cfbb002ed7aaf5b76cbc15f20631fdd1e18da5e2dc753bdb36"
+      },
+      "rule": "Consecutive non-overlapping 10-native-step bins from reservoir/home through reservoir/lift_hold. Height and finger retain mean/min/max; contact fields count positive-impulse samples within each bin. No interpolation. Native phase clock begins at first selected step minus one.",
+      "acceptance_warning": "Aggregated public CSV is for plotting only. The 600/600 gate was evaluated against the full 600 Hz source; do not infer acceptance from bin means."
+    }
+  },
+  "scope": "Scientific plots derived only from native source height, joint position and positive contact events",
+  "time_alignment": {
+    "ot2_repro_three_labware_complete_positive_r3": {
+      "origin_native_step": 31500,
+      "last_phase_seconds": 18.0
+    },
+    "ot2_reservoir_centered_pickup_r1": {
+      "origin_native_step": 600,
+      "last_phase_seconds": 18.0
+    }
+  },
+  "contact_impulse_threshold_Ns": 1e-10,
+  "acceptance_window_phase_seconds": [
+    17,
+    18
+  ],
+  "claim_boundary": "R3 is a failed complete attempt. Corrected run is a separate19s standalone pickup, including1s initial settle. It does not complete N05. The scenes and initial conditions differ; these are diagnostic traces, not a matched full-scene causal pair. Full continuous R4 requires its own audit.",
+  "no_generated_or_rendered_scene_frames": true,
+  "full_reference_reproduction": false,
+  "artifact_sha256": {
+    "ot2_repro_three_labware_complete_positive_r3.npz": "7781b6fb1a1c539922396b422aec3ea0982ed8a2db5d1861c7d3a31802fe3502",
+    "ot2_reservoir_centered_pickup_r1.npz": "43086044bce4772991434e7d03132f2efeaf9dc7c54be25aa381a0b59b4626d7",
+    "standalone_centered_r1_60hz.csv": "8a750c3f85d5f0a4ab280b35ff2db05bfbb0d168f6a461f034b885438daecc90",
+    "failed_complete_r3_60hz.csv": "4bc2bc460f4c21d9de7d6bcbb5719e3b6f5b3318f6ea4be50b332249f92fdde4",
+    "reservoir_pickup_diagnosis.svg": "1f5a4d1a22b6d4f3e818e495014dec985aae5dd1d15647dc8984affc7568f4bd",
+    "reservoir_pickup_diagnosis.pdf": "8b41215c580640040e1afe1adeaec85bdbcb62ce37dffd1198e3371d9312f645",
+    "reservoir_pickup_diagnosis.png": "d9fc59fbe53db7a8155ac188e12f54239df2601f5e45b53529c141aa53825ecf"
+  }
+}
