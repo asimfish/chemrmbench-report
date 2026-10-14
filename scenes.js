@@ -128,6 +128,20 @@ function renderMatchedClock(){
   }
   node('matchedClockResult').textContent='同一封存父任务、原事件 A / 目标 D、检查点与提案，使用独立分支账本；可行重试起点 '+p.attempts.recovery_retry.task_origin_s.toFixed(4)+' s 包含首次失败全部耗时。过期开始窗口上限 '+p.start_window_task_bounds_s[1].toFixed(6)+' s，拒绝后没有重设目标或补发动作。2 次实际调用 / '+p.known_billed_tokens.toLocaleString('zh-CN')+' tokens / 原生 GPU 分配时间上界 '+p.total_allocated_gpu_hours_upper_bound.toFixed(3)+' h。';
 }
+function renderLoadedBoundary(){
+  const p=data.loaded_boundary_probe;
+  node('loaded-boundary').hidden=!p;if(!p)return;
+  if(p.status!=='FAIL_MATCHED_NEXT_STAGE_ORIENTATION_WITH_VERIFIED_LOADED_HOLD'||p.matched_hold_pass!==true||p.full_endpoint_equivalence_pass!==false||p.loaded_boundary_full_continuation_accepted!==false||p.scientific_admission!==false||p.root_cause_established!==false||p.thresholds_changed_after_outcome!==false)throw Error('loaded boundary failure scope');
+  const stats=node('loadedBoundaryStats');stats.replaceChildren();
+  for(const [label,value]of[['恢复短时核验','65 实体 × 30 步通过'],['后续实际运送','每条件 1,920 步'],['终态姿态 / 原门槛',p.endpoint_orientation_error_deg.toFixed(3)+'° / 0.5°'],['本轮模型调用','0 次']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));stats.append(n);}
+  const rows=node('loadedBoundaryRows');rows.replaceChildren();
+  for(const values of[['双侧接触保持','连续父进程 100% / 冷恢复 100%','任务搬运谓词通过'],['终态瓶体位置',p.endpoint_position_error_mm.toFixed(3)+' mm / 1 mm','通过原门槛'],['终态瓶体姿态',p.endpoint_orientation_error_deg.toFixed(3)+'° / 0.5°','失败 · 不授予完整续跑准入']]){const tr=make('tr');for(const value of values)tr.append(make('td',value));rows.append(tr);}
+  const pictures=node('loadedBoundaryImages');pictures.replaceChildren();
+  for(const frame of p.frames){if(!/^assets\/native-v93\/(parent|child)-(04560|06480)\.jpg$/.test(frame.image))throw Error('invalid loaded native frame');const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label+'的原生场景帧';img.loading='lazy';f.append(img,make('figcaption',frame.label+' · 第 '+frame.source_command_cursor.toLocaleString('zh-CN')+' 步'));pictures.append(f);}
+  if(p.plot!=='assets/native-v93/paired-transport.png'||p.receipt!=='artifacts/loaded-boundary-v93-negative.json')throw Error('invalid loaded evidence asset');
+  node('loadedBoundaryPlot').src=p.plot;node('loadedBoundaryReceipt').href=p.receipt;
+  node('loadedBoundaryResult').textContent='首次姿态越界发生在运送第 '+p.first_orientation_limit_crossing.aligned_native_transport_s.toFixed(3)+' 原生秒。67 个父文件不变；没有重跑冷恢复前缀。两次原生工作进程已结束。V93 GPU 分配上界共 '+p.total_V93_allocated_gpu_hours_upper_bound.toFixed(3)+' h，包含实现键错误导致的首轮失败 '+p.failed_r1_allocated_gpu_hours_upper_bound.toFixed(3)+' h；该失败保留。下一轮先测连续运行基线差异。';
+}
 function renderStageCoverage(){
   const c=data.stage_state_archive_probe||data.stage_checkpoint_coverage;
   if(!c||c.committed_evidence_stages!==8||c.full_world_task_checkpoint_boundaries!==1||c.native_restart_verified_task_boundaries!==1||c.full_long_chain_restart_accepted!==false||c.midcarry_restart_accepted!==false)throw Error('stage checkpoint scope');
@@ -170,5 +184,5 @@ function renderRestore(){
   for(const [label,value]of[['历史局部相对位置误差',r.local_relative_position_error_mm.toFixed(4)+' mm'],['历史局部相对姿态误差',r.local_relative_orientation_error_deg.toFixed(4)+'°'],['历史不中断放回误差',r.baseline_placement_mm.toFixed(4)+' mm'],['历史恢复后放回误差',r.resumed_placement_mm.toFixed(4)+' mm']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));nums.append(n);}
   node('restoreFailure').textContent='历史携物整体恢复 FAIL 保留：研杵旋转漂移 '+r.pestle_orientation_drift_deg.toFixed(3)+'° > '+r.original_orientation_limit_deg+'°；当时恢复 30 tick 后只有 '+r.settled_tracked_bodies+'/'+r.checkpoint_bodies+' 个刚体被逐 tick 覆盖。本轮空载结果不覆盖这项历史失败。';
 }
-async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();renderMemory();renderNativeMemory();renderContinuousTiming();renderExpiryRecovery();renderOriginalEventClock();renderMatchedClock();renderStageCoverage();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
+async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();renderMemory();renderNativeMemory();renderContinuousTiming();renderExpiryRecovery();renderOriginalEventClock();renderMatchedClock();renderStageCoverage();renderLoadedBoundary();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
 load();

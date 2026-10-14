@@ -371,7 +371,51 @@ if archive:
     assert archive['stages'][5]['recorded_host_tick']!=archive['stages'][5]['source_command_cursor']
     assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',(root/archive['receipt']).read_text())
 
+loaded=data.get('loaded_boundary_probe')
+if loaded:
+    import csv
+    assert loaded['status']=='FAIL_MATCHED_NEXT_STAGE_ORIENTATION_WITH_VERIFIED_LOADED_HOLD'
+    assert loaded['review_scope']=='POST_COLLECTION_NEGATIVE_OUTCOME_RECOMPUTATION_NOT_RETROACTIVE_PASS'
+    assert loaded['registered_entities_each_sample']==65 and loaded['matched_hold_native_steps']==30
+    assert loaded['matched_hold_pass'] and loaded['initial_velocity_gate_pass']
+    assert loaded['transport_source_command_start']==4560 and loaded['transport_source_command_stop']==6480
+    assert loaded['transport_commands_each']==1920 and loaded['transport_task_predicates_pass']
+    assert loaded['bilateral_contact_fraction']==dict(parent=1.,child=1.)
+    assert loaded['endpoint_orientation_error_deg']>loaded['original_orientation_limit_deg']==.5
+    assert loaded['endpoint_position_error_mm']<loaded['original_position_limit_mm']==1.
+    assert loaded['parent_files_preserved']==67 and loaded['pinned_files_verified']==122
+    assert loaded['native_workers']==2 and loaded['actual_model_calls']==loaded['training_jobs']==0
+    assert abs(loaded['r2_allocated_gpu_hours_upper_bound']+loaded['failed_r1_allocated_gpu_hours_upper_bound']-loaded['total_V93_allocated_gpu_hours_upper_bound'])<1e-12
+    for key in ('full_endpoint_equivalence_pass','thresholds_changed_after_outcome',
+                'root_cause_established','loaded_boundary_full_continuation_accepted',
+                'new_generic_restart_admission','agent_context_and_original_timer_rebound',
+                'pending_original_event_deadline_tested','scientific_admission',
+                'training_admission','formal_M1_admission','full_benchmark_pass'):
+        assert loaded[key] is False,key
+    for key in ('receipt','plot','numeric_projection'):
+        path=loaded[key]
+        assert path.startswith(('artifacts/loaded-boundary-v93-', 'assets/native-v93/'))
+        assert (root/path).resolve().is_relative_to(root.resolve())
+        assert hashlib.sha256((root/path).read_bytes()).hexdigest()==loaded[key+'_sha256']
+    rows=list(csv.DictReader((root/loaded['numeric_projection']).open()))
+    assert len(rows)==1920
+    assert list(rows[0])==['native_transport_s','orientation_error_deg','position_error_mm']
+    values=[{k:float(v) for k,v in row.items()} for row in rows]
+    assert all(math.isfinite(v) and v>=0 for row in values for v in row.values())
+    assert all(a['native_transport_s']<b['native_transport_s'] for a,b in zip(values,values[1:]))
+    assert abs(values[-1]['orientation_error_deg']-loaded['endpoint_orientation_error_deg'])<1e-12
+    crossing=next(row for row in values if row['orientation_error_deg']>.5)
+    assert crossing['native_transport_s']==loaded['first_orientation_limit_crossing']['aligned_native_transport_s']
+    assert [(f['phase'],f['source_command_cursor']) for f in loaded['frames']]==[('parent',4560),('child',4560),('parent',6480),('child',6480)]
+    for frame in loaded['frames']:
+        assert re.fullmatch(r'assets/native-v93/(parent|child)-(04560|06480)\.jpg',frame['image'])
+        assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(loaded))
+    assert archive['native_restart_verified_task_boundaries']==1 and archive['full_registered_stage_archives']==8
+
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
+                     loaded_continuation_accepted=False,
+                     loaded_negative_evidence_checked=bool(loaded),
                      matched_original_deadline_contract_pass=True,
                      verified_task_checkpoint_boundaries=1,
                      committed_evidence_stages=8,

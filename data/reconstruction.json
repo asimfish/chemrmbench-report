@@ -1996,5 +1996,100 @@
     "verified_cold_restore_attempts": 1,
     "receipt": "artifacts/stage-state-v92.json",
     "receipt_sha256": "829ad895a8b64f8b251afc82f564093e8bc9b64e569e51f7809859baa4c202de"
+  },
+  "loaded_boundary_probe": {
+    "schema": "chemrm-public-loaded-reconstruction-negative-v93",
+    "version": "V93",
+    "status": "FAIL_MATCHED_NEXT_STAGE_ORIENTATION_WITH_VERIFIED_LOADED_HOLD",
+    "review_scope": "POST_COLLECTION_NEGATIVE_OUTCOME_RECOMPUTATION_NOT_RETROACTIVE_PASS",
+    "measured_single_pair": true,
+    "continuously_live_parent_control": true,
+    "registered_entities_each_sample": 65,
+    "matched_hold_native_steps": 30,
+    "matched_hold_pass": true,
+    "initial_velocity_gate_pass": true,
+    "maximum_hold_position_error_mm": 0.10105425686683518,
+    "transport_source_command_start": 4560,
+    "transport_source_command_stop": 6480,
+    "transport_commands_each": 1920,
+    "transport_task_predicates_pass": true,
+    "bilateral_contact_fraction": {
+      "parent": 1.0,
+      "child": 1.0
+    },
+    "endpoint_orientation_error_deg": 0.9993667020333967,
+    "original_orientation_limit_deg": 0.5,
+    "endpoint_position_error_mm": 0.4656936882190788,
+    "original_position_limit_mm": 1.0,
+    "full_endpoint_equivalence_pass": false,
+    "first_orientation_limit_crossing": {
+      "source_command_index": 6245,
+      "aligned_native_transport_s": 7.025000366382301,
+      "orientation_error_deg": 0.5334045212115928,
+      "position_error_mm": 0.23659336036192397
+    },
+    "parent_files_preserved": 67,
+    "pinned_files_verified": 122,
+    "native_workers": 2,
+    "actual_model_calls": 0,
+    "training_jobs": 0,
+    "r2_allocated_gpu_hours_upper_bound": 0.10931278530443606,
+    "failed_r1_allocated_gpu_hours_upper_bound": 0.02677535722277955,
+    "total_V93_allocated_gpu_hours_upper_bound": 0.1360881425272156,
+    "failed_r1_status": "IMPLEMENTATION_KEY_ERROR_BEFORE_SOURCE_TASK_COMMANDS",
+    "all_owned_native_process_groups_closed": true,
+    "source_pins_sha256": "76a42b989ad04f8bddae7ca2b939af323f800f0d0997a1ebb23e0a7e91138e3b",
+    "negative_review_receipt_sha256": "a7e44da6b1812a93848babfd94c87c3d156147f450d775c29082be86bea2f2f3",
+    "closeout_sha256": "30459a8a2b2b85c4f24ae52f18da3f0a588526ca09e4236f514910bbad8d24e0",
+    "raw_paired_trace_sha256": "8cfb52f3fbf74dc4a3d8bacdd083928f6cebfc177e64adf7438e44fe9827a028",
+    "plot": "assets/native-v93/paired-transport.png",
+    "plot_sha256": "a30eca8cce3f1068cc0bccb7304bb0d7f55349d5b3fc045ad5f4e8dbbe7f6e5a",
+    "numeric_projection": "assets/native-v93/paired-transport.csv",
+    "numeric_projection_sha256": "68a6ebdabee9ed9b96b41bb83c4f521b36eadf9a5e3a9c5006444b224781a450",
+    "frames": [
+      {
+        "image": "assets/native-v93/parent-04560.jpg",
+        "image_sha256": "703b7a53cc5d537eeee9e2cf153e45064ee184a0cd008c2fbbd9474b61b375a5",
+        "source_command_cursor": 4560,
+        "phase": "parent",
+        "label": "连续父进程：抬瓶阶段结束"
+      },
+      {
+        "image": "assets/native-v93/child-04560.jpg",
+        "image_sha256": "1206a871de438b6c9680b57d65ba9d808d9f5293711cda71cc1ec9e2cfe5f0a0",
+        "source_command_cursor": 4560,
+        "phase": "child",
+        "label": "新进程：恢复抬瓶边界"
+      },
+      {
+        "image": "assets/native-v93/parent-06480.jpg",
+        "image_sha256": "55b232d37bad5f89b7cef3c9e50d8b13facd289407a031a733a2f0c6d2bc19ab",
+        "source_command_cursor": 6480,
+        "phase": "parent",
+        "label": "连续父进程：运送阶段结束"
+      },
+      {
+        "image": "assets/native-v93/child-06480.jpg",
+        "image_sha256": "68fa8003af98a88da80f0ec976536dff41bae326baffec7b86fc3d21079afc52",
+        "source_command_cursor": 6480,
+        "phase": "child",
+        "label": "新进程：运送阶段结束"
+      }
+    ],
+    "source_command_prefix_replayed": 0,
+    "thresholds_changed_after_outcome": false,
+    "root_cause_established": false,
+    "hidden_solver_state_restored": false,
+    "loaded_boundary_full_continuation_accepted": false,
+    "new_generic_restart_admission": false,
+    "agent_context_and_original_timer_rebound": false,
+    "pending_original_event_deadline_tested": false,
+    "scientific_admission": false,
+    "training_admission": false,
+    "formal_M1_admission": false,
+    "full_benchmark_pass": false,
+    "next_experiment": "V94: measure two continuously live baseline trajectories before causal attribution.",
+    "receipt": "artifacts/loaded-boundary-v93-negative.json",
+    "receipt_sha256": "6dcdd6bf46cd9064cbaee7d0b0df10436f89579d67b3209e7075a30119a4eb8c"
   }
 }
