@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T10:22:13.658834+00:00",
+  "exported_at_utc": "2026-10-14T10:26:59.069303+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2607,19 +2607,64 @@
       "remaining": "The exact concrete IsaacArm and Pose/Orientation pages were inaccessible in this check, so abstract-contract differences do not establish concrete SDK failure. Generic GELLO source is not evidence of the Auto-specific pipeline. The local pose archive lacks camera, joint-state and control fields and is rejected as GELLO input. Adapter execution and learned-policy reproduction remain open."
     },
     {
-      "id": "ot2-three-object-video-r8-chunked",
-      "title": "Three-object video · durable128-frame chunks",
-      "evidence_sha256": "92b359ed509b47d16c3d719cebc19ca120803575dd4f2294de4ad4f79ac16859",
+      "id": "fluid-exact-boundary-matched-failure",
+      "title": "Fluid reference · exact-distance intervention still fails",
+      "evidence_sha256": "8547a005efcae8d36da753861d562b992033cb1990daff94d036817891e571c8",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T10:22:12.490166+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "scope": "The fresh source-map control exactly reproduces all prior staged fields and the18ms density failure. One matched intervention replaces distance,normal and projection together while retaining the original volume map. It reaches20ms but still fails the1.01 density ceiling. The retained volume field makes this a hybrid diagnostic model, not an author-equivalent physical repair.",
       "metrics": {
-        "frames_completed": 1010,
-        "frames_accepted_from_complete_chunks": 896,
+        "source_completed_steps": 18,
+        "source_terminal_density": 1.039683217234209,
+        "intervention_completed_steps": 20,
+        "intervention_terminal_density": 1.1089580087020092,
+        "intervention_terminal_over_limit": 24,
+        "source_control_checks": 17,
+        "intervention_control_checks": 16,
+        "control_checks_total": 17,
+        "first_intervention_acceptance_failure_ms": 8.0,
+        "first_force_residual_N": 4.0213058577487364e-16,
+        "frozen_force_allowance_N": 4.6405930132946645e-18,
+        "physical_flow_cases_accepted": 0
+      },
+      "remaining": "The first intervention acceptance failure is the8ms viscosity force-balance check. Its small residual is consistent with the saved linear-solve residual but still exceeds the frozen allowance. This gate was audited posthoc, so later states through20ms remain unqualified diagnostic data. No threshold change, retry, long relaxation or physical-flow acceptance follows; download the complete scoped trace below."
+    },
+    {
+      "id": "hood-cup-upright-CPU-repair",
+      "title": "Panda hood · cup-axis import repaired, collisions retained",
+      "evidence_sha256": "cd4fb7d40531d0d876bbf86fd141b589847ed7e9539f24840cb3e7f5d749cd50",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separate candidate converts the source Y-up cup to the Z-up scene with a90degree rotation and a support-preserving vertical translation. Only the cup transform changes:58mesh properties, prim metadata, source dimensions and all other world transforms are preserved. All18 geometry/frame/support checks pass.",
+      "metrics": {
+        "rotation_degrees": 90,
+        "vertical_translation_mm": 10.24563253532479,
+        "minimum_support_gap_mm": 0.49999999999994493,
+        "maximum_support_gap_mm": 0.769989490020162,
+        "actual_axial_height_mm": 59.69104617834087,
+        "retained_goal_above_corrected_rim_mm": 30.55455058206502,
+        "closed_robot_glass_collisions": 2,
+        "open_robot_glass_collisions": 2,
+        "geometry_checks": 18,
+        "affected_old_hood_files": 13,
+        "new_physics_steps": 0
+      },
+      "remaining": "This passes only the scoped CPU geometry correction. Each open/closed configuration still has two robot–glass collisions. The retained reach target and previous rim-clearance interpretations require a new contract; no native task or original-scene visual acceptance is established. The before/after image is an orthographic vertex plot, not a native render. Unrelated UR5e/OT2 assets are outside this audit."
+    },
+    {
+      "id": "ot2-three-object-video-r8-chunked",
+      "title": "Three-object video · durable128-frame chunks",
+      "evidence_sha256": "ad6a86d1011a25903af2863dc0dc9244a968b17e79da640081ec4f24de7216cd",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T10:26:50.045677+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "metrics": {
+        "frames_completed": 1095,
+        "frames_accepted_from_complete_chunks": 1024,
         "frames_total": 3266,
-        "chunks_completed": 7,
+        "chunks_completed": 8,
         "chunks_total": 26,
-        "remaining_budget_s": 13976.063772921218,
+        "remaining_budget_s": 13698.50826239027,
         "total_wall_budget_s": 18000,
         "trial_relative_s": 208.5
       },
