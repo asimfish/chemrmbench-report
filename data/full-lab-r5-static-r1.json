@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-14T04:38:29.680645+00:00",
+  "full_reference_reproduction": false,
+  "visual_accepted": false,
+  "static_capture_accepted": true,
+  "hood_orientation_and_body_visibility_passed": true,
+  "glovebox_two_arms_identifiable": true,
+  "glovebox_material_clarity_passed": false,
+  "physics_steps": 0,
+  "stage_sha256": "a735e464926db4b7d1c7280ff20aaa98ea6c142e4b0f946b1df06547d0b16746",
+  "source_receipt_sha256": "b8758a4e03f96c82a649040eef2613354b0b1d353139fb1f05ddf467db1f7e92",
+  "visual_review_sha256": "b2dc8471f55cd63f36ff67cbd41ddbe2157e623954670ed8a00caf80a4b6db46",
+  "views": [
+    {
+      "id": "overview",
+      "title": "Corrected laboratory overview",
+      "finding": "Four hood openings now face the aisle. Same camera as R4; only the declared hood assembly placement changes. This remains a local reconstruction.",
+      "image": "assets/reproduction/full-lab/r5-overview.png",
+      "image_sha256": "f2e96e42f348aa73e50984b085fbf885036fa42f1a9741bae5e46ceafa130ec0",
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "same_camera_as_r4": true
+    },
+    {
+      "id": "entrance",
+      "title": "From the same central aisle",
+      "finding": "The hood arm is now visible from the aisle. The nearest hood is still partly cropped. Original metric layout and full device behavior remain unverified.",
+      "image": "assets/reproduction/full-lab/r5-entrance.png",
+      "image_sha256": "24ca6e556a6759cc38f750fdff201f01ad735f48065689135bba6ce0bca369d3",
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "same_camera_as_r4": true
+    },
+    {
+      "id": "hood_ur3e",
+      "title": "Hood close-up \u00b7 orientation repaired",
+      "finding": "The native UR3e body is clearly visible with the same camera and unchanged materials. The task gripper and hood door body are missing. At the support point, the source collider is about23.76mm above the visible counter; actual mounting contact is unverified.",
+      "image": "assets/reproduction/full-lab/r5-hood_ur3e.png",
+      "image_sha256": "e57d493961fda4ccd9ec9c1615fcb37b8c11d9c5f200dd7b98bde1e3adb08670",
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "same_camera_as_r4": true
+    },
+    {
+      "id": "glovebox_dual_ur3e",
+      "title": "Glovebox \u00b7 two arms visible, clarity open",
+      "finding": "A higher oblique camera makes both arms distinguishable without hiding ports or changing the window. Grey glass and low contrast remain; this is a camera change, not a material-fidelity pass.",
+      "image": "assets/reproduction/full-lab/r5-glovebox_dual_ur3e.png",
+      "image_sha256": "2b20d289ca5df1720dbfae8dd2588ed498db0461aaa155b63cc686678faf6d33",
+      "renderer": "PathTracing",
+      "physics_steps": 0,
+      "same_camera_as_r4": false
+    }
+  ],
+  "prior": "data/full-lab-r4-static-r1.json",
+  "remaining": [
+    "Hood visual/collider counter height mismatch about23.76mm",
+    "Missing hood door body",
+    "Missing task grippers",
+    "Glovebox glass clarity and material fidelity",
+    "Native contact and task execution",
+    "Original metric scene equivalence"
+  ]
+}
