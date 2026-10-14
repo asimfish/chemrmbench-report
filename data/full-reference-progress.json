@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T03:42:25.825140+00:00",
+  "exported_at_utc": "2026-10-14T03:53:27.547428+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1597,22 +1597,70 @@
       "scope": "One frozen23s known-seed trial after short independent admission and cooperative-termination verification. Original18gates plus initial-density/containment and100Hz native-vessel geometry checks remain strict.",
       "metrics": {
         "planned_seconds": 23,
-        "observed_native_seconds": 4.999999999999685,
+        "observed_native_seconds": 11.500000000009404,
         "particles": 1920,
         "model_volume_mL": 3.75,
         "dt_microseconds": 125,
         "wall_cap_seconds": 7200
       },
       "remaining": "Raw progress only; full independent terminal audit required. A running process or completed phase is not acceptance. Earlier timeout, incompatible-fill and wall-penetration failures remain retained."
+    },
+    {
+      "id": "ot2-reservoir-midheight-pickup",
+      "title": "OT2 setup · repaired reservoir pickup independently passed",
+      "evidence_sha256": "91212134e9be6989c5001b35c84d85051692b4d88d9f293d52c9188a47afa3d0",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A19s native diagnostic changed only grasp height to the measured31.4mm-high reservoir midpoint. Independent review verifies all11400steps and600/600 bilateral-contact hold samples.",
+      "metrics": {
+        "native_seconds": 19.0,
+        "physics_steps": 11400,
+        "bilateral_hold_samples": 600,
+        "other_support_samples": 0,
+        "minimum_lift_mm": 76.35127007961273,
+        "independent_checks": 15
+      },
+      "remaining": "Local pickup only. Complete setup and pipetting are rerun from the initial three-object scene; separate successful segments are not stitched into a full PASS."
+    },
+    {
+      "id": "ot2-full-setup-r4-candidate",
+      "title": "OT2 · new complete three-object positive trial",
+      "evidence_sha256": "01be0255a6e06c5c31bf42ac3814bb5c4227c9c49379d9383815e94bc1d1d7ee",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Fresh continuous PhysX sequence after independently admitted reservoir pickup. Plate, reservoir, tip rack and strict64pipetting events must pass in this one run before the no-aspiration control.",
+      "metrics": {
+        "observed_native_seconds": 25.0,
+        "physics_steps": 15000,
+        "maximum_native_seconds": 260.0,
+        "required_objects": 3,
+        "wall_cap_seconds": 7200
+      },
+      "remaining": "Progress only. Process status and exit code do not imply acceptance. Full independent native-event and original-geometry audits are required; R3 failure remains separately visible."
+    },
+    {
+      "id": "liquid-replay-resolution-contract",
+      "title": "Liquid display · frozen resolution and complete-clock admission",
+      "evidence_sha256": "50a4bcb413ee86afedc30bfacc1298f7325ee332ddd5022f73763b5d1fc945f1",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Synthetic CPU contract checks plus the real frozen protocol reject the old240particle spacing on1920particles, which would inflate mesh volume eightfold. Also reject partial clocks, missing frames, count mismatch and nonfinite poses.",
+      "metrics": {
+        "checks": 14,
+        "passed_checks": 14,
+        "particles": 1920,
+        "model_volume_mL": 3.75
+      },
+      "remaining": "Exporter/renderer admission only. Does not mean a1920particle surface, video or full experiment has already passed visual or physical validation."
     }
   ],
   "active": {
     "id": "auto_repro_ur5e_interface1920_seed401_cuda_r3",
-    "phase": "LIFT",
+    "phase": "POUR_HOLD",
     "process_verified_alive": true,
-    "simulation_s": 4.999999999999685,
-    "physics_steps": 40000,
-    "sampled_at_utc": "2026-10-14T03:42:06.975599+00:00"
+    "simulation_s": 11.500000000009404,
+    "physics_steps": 92000,
+    "sampled_at_utc": "2026-10-14T03:52:52.500067+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
