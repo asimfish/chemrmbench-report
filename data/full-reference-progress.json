@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T08:42:22.681822+00:00",
+  "exported_at_utc": "2026-10-14T08:52:29.911224+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2064,14 +2064,14 @@
     },
     {
       "id": "ot2-continuous-noasp-r9-restart1",
-      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · CONTINUOUS_PIPETTING",
-      "evidence_sha256": "ed5555013e35169e11390ba8211f1d46501fcd3b8ca68f4e9be0b37674220ce9",
+      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · BOUNDED_THREE_OBJECT_CONTINUOUS_FINISHED",
+      "evidence_sha256": "6d011fc82cad7c5022cb9ad32d32c52bfb03a17941d9c8b1fe0c522748dd5e4d",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: destination_3_retract. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: OT2_final_home. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 197.0,
-        "native_steps": 118200,
+        "native_seconds": 208.5,
+        "native_steps": 125100,
         "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2363,16 +2363,42 @@
         "physical_calibration_cases_accepted": 0
       },
       "remaining": "Native direct boundary quadrature reproduces the large wall contribution; the mismatch is the external cloud initialization near the wall. The original eight physical calibration cases remain failed. A separate author-rule initialized cohort must disclose its changed particle count, mass and occupied volume. The earlier external CFL-min configuration error is preserved; corrected clocks did not repair this initial state."
+    },
+    {
+      "id": "ot2-three-object-continuous-negative-audit",
+      "title": "Three-object no-aspiration control · independent terminal audit",
+      "evidence_sha256": "a7aae8819e2af14ce9ec7ce6e20421b820a57f65b2c45e82d7f8959c23067a61",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The disabled-aspiration run is evaluated independently from its original initial state. Physical, event and terminal geometry checks are required together; matched-pair equivalence is a separate audit.",
+      "metrics": {
+        "recorded_steps": 125100,
+        "trial_relative_s": 208.5,
+        "physical_checks_passed": 23,
+        "physical_checks_total": 23
+      },
+      "remaining": "This is a local semantic ablation with the same explicit fixture and controller adaptations as the positive. No physical liquid forces or complete paper reproduction are established."
+    },
+    {
+      "id": "ot2-three-object-continuous-pair-accepted",
+      "title": "Three-object aspiration ablation · independent pair audit",
+      "evidence_sha256": "fd929d5a091418e1910b49d8eeedb02941c8aa4ad45aa5de212a379c7988a34c",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The independently completed positive and disabled-aspiration runs are compared at every recorded step: native rigid poses, velocities, joint states, targets, efforts, phase and clock membership. Liquid outcomes are tested separately.",
+      "metrics": {
+        "pair_checks_passed": 10,
+        "pair_checks_total": 10,
+        "positive_recorded_rows": 125100,
+        "negative_recorded_rows": 125100,
+        "maximum_rigid_difference": 0.0,
+        "positive_total_model_uL": 2400.0,
+        "negative_total_model_uL": 0.0
+      },
+      "remaining": "This is an implementation-level semantic ablation. Model liquid has no mass/force feedback, so this pair does not establish physical fluid causality. One pair does not estimate robustness or a success rate. Full paper and visual acceptance remain separate."
     }
   ],
-  "active": {
-    "id": "ot2_repro_three_labware_complete_noasp_r9_restart1",
-    "phase": "CONTINUOUS_PIPETTING",
-    "process_verified_alive": true,
-    "simulation_s": 197.0,
-    "physics_steps": 118200,
-    "sampled_at_utc": "2026-10-14T08:42:12.077595+00:00"
-  },
+  "active": null,
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
     {
