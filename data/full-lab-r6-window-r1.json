@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "full_reference_reproduction": false,
+  "visual_accepted": false,
+  "static_capture_accepted": true,
+  "physics_steps": 0,
+  "source_receipt_sha256": "08e5255afc5e591ab9f858562810f51207f2a21aa1ac38d643b6b7feae2064bb",
+  "visual_review_sha256": "011c5ad44de02877fa192f839bcff0596cde9099a28e23285721b43faac5abd6",
+  "image": "assets/reproduction/full-lab/r6-glovebox_dual_ur3e.png",
+  "image_sha256": "37879ad6574d8c9971d425b54db2b41b96cc494544d6cc34aac4a560b17115c7",
+  "native_image_size": [
+    1600,
+    1000
+  ],
+  "reference_image": "assets/reproduction/full-lab/r5-glovebox_dual_ur3e.png",
+  "changed": "Only Window receives a separate OmniGlass material; the shared Hopper material is unchanged.",
+  "retained": [
+    "Camera",
+    "Light",
+    "20mm window thickness",
+    "Opaque ports",
+    "All geometry and robot poses"
+  ],
+  "result": "The grey diffuse veil is reduced and the two arm outlines are clearer; interior illumination remains dark.",
+  "limits": [
+    "Local optical approximation, not recovered author material",
+    "Window has no collision API",
+    "No new physics or task acceptance",
+    "Missing task grippers and incomplete full-lab assets"
+  ]
+}
