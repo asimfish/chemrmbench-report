@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T09:52:34.371660+00:00",
+  "exported_at_utc": "2026-10-14T10:04:51.508183+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -275,7 +275,7 @@
       "acceptance": "Warp DFSPH fluid solver coupled to MuJoCo robot/vessel contacts; verify incompressibility/divergence, stable fluid/container boundaries, transfer/spill/mass, timestep convergence and reciprocal coupling actually implemented.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Independent Warp DFSPH numerical and coupled pouring-fixture tests have passed scoped checks. Original GRID code is unavailable; robot-level coupling, fluid resolution/convergence and the complete fluid model remain under evaluation.",
+      "gap": "Independent Warp DFSPH numerical and coupled pouring-fixture tests have passed scoped checks. A bounded source check recovered pinned official GRID platform examples, but not the original Auto-Engineering four harness implementations or learned checkpoints. Robot-level coupling, fluid resolution/convergence and the complete fluid model remain under evaluation.",
       "published_function_reproduced": false
     },
     {
@@ -2490,19 +2490,103 @@
       "remaining": "Source agreement does not qualify the physical fluid. A prepared state at0.015s has local density about1.441 times target, above1.01; its origin is being decomposed from saved fields before a long-run decision. No150s relaxation is admitted by these numerical checks. The original eight physical cases remain0/8."
     },
     {
-      "id": "ot2-three-object-video-r8-chunked",
-      "title": "Three-object video · durable128-frame chunks",
-      "evidence_sha256": "06b68988bd3fe920076321bc80edfc6791befc4f23966a35d0e7f7ce9e6e2975",
+      "id": "fluid-author-one-ms-density-stop",
+      "title": "Fluid reference · one1ms candidate still fails at18ms",
+      "evidence_sha256": "14bf58bc3b20073bbcfc938ce2738cfa0dbe0454adacef6169da3b569067618e",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T09:52:32.929798+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "scope": "A single predeclared fresh-initialization candidate changes only the initial/maximum CFL step from5ms to1ms. Both source execution paths complete18 steps and stop on the first over-limit prepared state. The terminal density requery confirms the failure. All actual entry and next-step durations are1ms; no retry or step-size search is performed.",
       "metrics": {
-        "frames_completed": 553,
-        "frames_accepted_from_complete_chunks": 512,
+        "completed_steps_each": 18,
+        "native_seconds": 0.01800000000000001,
+        "maximum_density_ratio": 1.039683217234209,
+        "physical_density_limit": 1.01,
+        "particles_above_limit": 32,
+        "particles": 1728,
+        "source_diagnostic_checks_passed": 20,
+        "diagnostic_checks_total": 22,
+        "maximum_source_field_relative_error": 3.1850004009556374e-13,
+        "physical_flow_cases_accepted": 0
+      },
+      "remaining": "The two failed check flags describe the same physical density stop, not two independent failure mechanisms. Equal old/new timesteps still overshoot, so their mismatch is not a sufficient explanation. The earlier shorter-position query was not a solved repair. A build receipt/log naming overwrite is disclosed separately:148 scientific input references remain unchanged; the original ancillary receipt bytes were not recovered. Full flow, hydrostatic rest and original eight cases remain unqualified."
+    },
+    {
+      "id": "auto-full-workflow-data-contract",
+      "title": "Auto workflow ·2299 source-bound candidate transitions",
+      "evidence_sha256": "5900adc792e432c97f9e5dacbd822d6226fe89bd401d678bb541158f307cebae",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "An offline conversion of the existing local23s UR5e run preserves14 phases and2299 transitions from2300 recorded steps. The first transition has no saved pre-observation and is excluded without interpolation. Each transition retains parent hash, row indices, clocks, cohort and split. Original-source rotation/return expressions and five negative-control categories were checked.",
+      "metrics": {
+        "source_steps": 2300,
+        "exported_transitions": 2299,
+        "phases": 14,
+        "observation_dimensions": 13,
+        "IK_goal_dimensions": 8,
+        "negative_control_categories": 5,
+        "source_cohort_particles": 240,
+        "new_simulations": 0,
+        "new_training_runs": 0
+      },
+      "remaining": "This is a local scripted240-particle cohort, separate from1920-particle trials. Actions are goals sent to IK; actual actuator commands and measured EE orientation were not recorded. Training admission is undecided; no full learned workflow or original GRID reproduction is established. Download the numeric arrays and per-row provenance from the workflow-data section on this page."
+    },
+    {
+      "id": "fluid-one-ms-edge-density-diagnosis",
+      "title": "Fluid reference · floor/side distance-field diagnostic",
+      "evidence_sha256": "b8f1acd60d0e2fa0d29de67a726d54ddc99f83c1099c360a0ff972c991c4ad06",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Read-only reconstruction of the archived18ms failure: all32 over-limit particles lie near a floor/side edge, eight on each of four edges. Replaying the two recorded Jacobi updates matches saved pressure. The final linear prediction stays below1.01, while the actual density query exceeds it. Recomputing boundary volume alone with source Gauss quadrature retains the excess.",
+      "metrics": {
+        "failed_particles": 32,
+        "total_particles": 1728,
+        "postpressure_linear_peak": 1.006497581521294,
+        "actual_density_peak": 1.039683217234209,
+        "source_Gauss_with_map_distance_peak": 1.03810767309822,
+        "exact_distance_and_volume_fixed_query_peak": 0.7938755445846177,
+        "wall_distance_underestimate_min_mm": 0.17232845828113508,
+        "wall_distance_underestimate_max_mm": 0.19417307464187858,
+        "new_solver_calls": 0,
+        "new_integrated_steps": 0,
+        "physical_flow_cases_accepted": 0
+      },
+      "remaining": "Replacing the distance and volume queries at these fixed positions lowers the selected peak, but does not recompute pressure, forces or trajectory. This identifies a local edge-distance interpolation discrepancy, not a verified repair or a general source-code defect. The original20/22 failure and0/8 physical-flow results remain unchanged."
+    },
+    {
+      "id": "hood-fixed-link-conditional-image-fit",
+      "title": "Panda hood · conditional source-mesh image fit",
+      "evidence_sha256": "47d6d383231e0a22519a8b4b9f4775769265e780b00d05e41cfa947bd6ddf331",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Fixed native lower-body meshes were compared with the original video under a frozen camera/mount/joint1 fitting protocol. Source mesh scales and joints2–7 were unchanged. Two joint1 hypotheses have nearly identical training scores; held-out blue-interface and vessel observations are reported separately.",
+      "metrics": {
+        "training_points": 28,
+        "fitting_runs": 22,
+        "best_training_RMS_pixels": 3.26215172127527,
+        "blue_center_error_pixels": 5.999931125583141,
+        "blue_IoU": 0.3074433656957929,
+        "predicted_vessel_height_pixels": 26.506520115477713,
+        "observed_vessel_height_pixels": 33.0,
+        "procedure_checks_passed": 17,
+        "procedure_checks_total": 17,
+        "new_physics_steps": 0
+      },
+      "remaining": "The17 procedure checks establish input preservation and holdout isolation only. Original pose, camera calibration, vessel identity and support height remain unresolved. The conditional candidates are not admitted for native execution; scene, visual and task acceptance remain open."
+    },
+    {
+      "id": "ot2-three-object-video-r8-chunked",
+      "title": "Three-object video · durable128-frame chunks",
+      "evidence_sha256": "4211d1485838bd150f856d80e92dae6cb747a437f9f1245801274fd79ba291f9",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T10:04:51.204435+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "metrics": {
+        "frames_completed": 737,
+        "frames_accepted_from_complete_chunks": 640,
         "frames_total": 3266,
-        "chunks_completed": 4,
+        "chunks_completed": 5,
         "chunks_total": 26,
-        "remaining_budget_s": 15755.624144314323,
+        "remaining_budget_s": 15017.349507079227,
         "total_wall_budget_s": 18000,
         "trial_relative_s": 208.5
       },
