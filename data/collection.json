@@ -1,7 +1,7 @@
 {
   "schema": "chemrmbench-live-dashboard-v1",
-  "sampled_at_utc": "2026-10-14T19:48:04+00:00",
-  "published_at_utc": "2026-10-14T19:48:27+00:00",
+  "sampled_at_utc": "2026-10-14T20:03:03+00:00",
+  "published_at_utc": "2026-10-14T20:03:25+00:00",
   "source_updated_at_utc": "2026-10-12T14:34:35.171556+00:00",
   "collector": {
     "state": "healthy"
@@ -122,26 +122,26 @@
         {
           "label": "第2轮 · 只读空操作",
           "duration_s": 0.0,
-          "committed": false,
-          "outcome": "pending"
+          "committed": true,
+          "outcome": "native_pass"
         },
         {
           "label": "第2轮 · 单项位姿写入",
           "duration_s": 0.0,
           "committed": false,
-          "outcome": "pending"
+          "outcome": "native_failed"
         },
         {
           "label": "第2轮 · 不写状态",
           "duration_s": 0.0,
-          "committed": false,
-          "outcome": "pending"
+          "committed": true,
+          "outcome": "native_pass"
         },
         {
           "label": "第3轮 · 单项位姿写入",
           "duration_s": 0.0,
           "committed": false,
-          "outcome": "pending"
+          "outcome": "native_failed"
         },
         {
           "label": "第3轮 · 不写状态",
@@ -156,7 +156,7 @@
           "outcome": "pending"
         }
       ],
-      "committed_stages": 2,
+      "committed_stages": 4,
       "planned_stages": 9
     }
   ],
@@ -164,11 +164,11 @@
     {
       "index": 0,
       "name": "RTX 5090",
-      "utilization_percent": 16.0,
+      "utilization_percent": 22.0,
       "memory_used_mib": 10680.0,
       "memory_total_mib": 32607.0,
       "temperature_c": 41.0,
-      "sampled_at_utc": "2026-10-14T19:48:04+00:00"
+      "sampled_at_utc": "2026-10-14T20:03:03+00:00"
     },
     {
       "index": 1,
@@ -176,8 +176,8 @@
       "utilization_percent": 63.0,
       "memory_used_mib": 14426.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 44.0,
-      "sampled_at_utc": "2026-10-14T19:48:04+00:00"
+      "temperature_c": 43.0,
+      "sampled_at_utc": "2026-10-14T20:03:03+00:00"
     }
   ],
   "tasks": [
