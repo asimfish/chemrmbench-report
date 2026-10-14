@@ -184,6 +184,47 @@ class PublicBoundary(unittest.TestCase):
             atomic_json(raw/'single_pose_resource.json',{'exit_code':1})
             self.assertEqual(live_runs(config),[])
 
+    def test_balanced_repeats_track_declared_order_and_never_promote_failed_write(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'v98';raw.mkdir()
+            phases=['r1_no_write','r1_read_only_sham','r1_single_pose_write','r2_read_only_sham',
+                    'r2_single_pose_write','r2_no_write','r3_single_pose_write','r3_no_write','r3_read_only_sham']
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V98','path':str(raw),'phases':phases}]}
+            for name in phases[:3]:
+                (raw/name).mkdir();atomic_json(raw/(name+'_running.json'),{'pid':12345})
+            for name in phases[:2]:
+                atomic_json(raw/name/'RESULT.json',{'status':'PASS_NATIVE_REPEATED_TRANSPORT'})
+                atomic_json(raw/(name+'_resource.json'),{'exit_code':0})
+            atomic_json(raw/'r1_single_pose_write/ERROR.json',{'status':'FAIL_MATCHED_ENDPOINT'})
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                active=live_runs(config)[0]
+            self.assertEqual(active['planned_stages'],9);self.assertEqual(active['committed_stages'],2)
+            self.assertFalse(active['stages'][2]['committed']);self.assertIn('第3轮',active['stages'][6]['label'])
+            self.assertEqual(active['stages'][2]['outcome'],'native_failed')
+            self.assertNotIn('scientific_admission',active)
+            atomic_json(raw/'r1_single_pose_write_resource.json',{'exit_code':1})
+            self.assertEqual(live_runs(config),[])
+
+    def test_native_outcome_extension_is_typed_and_cannot_promote_failure(self):
+        data=copy.deepcopy(self.public);stage=data['latest']['stages'][0]
+        stage['outcome']='native_pass';stage['committed']=True
+        validate_public(data)
+        for value in ['independent_pass','/mnt/private/log',None]:
+            with self.subTest(value=value),self.assertRaises(ValueError):
+                broken=copy.deepcopy(data);broken['latest']['stages'][0]['outcome']=value;validate_public(broken)
+        broken=copy.deepcopy(data);broken['latest']['stages'][0]['outcome']='native_failed'
+        with self.assertRaises(ValueError):validate_public(broken)
+
+    def test_namespace_working_root_requires_an_exact_registered_allowlist(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            base=Path(temporary);exp=base/'archive';exp.mkdir();a=exp/'cohort';a.mkdir();working=base/'working';working.mkdir()
+            atomic_json(working/'r1_no_write_running.json',{'pid':12345})
+            phases=['r1_no_write','r1_read_only_sham','r1_single_pose_write','r2_read_only_sham','r2_single_pose_write','r2_no_write','r3_single_pose_write','r3_no_write','r3_read_only_sham']
+            c={'experiment_root':str(exp),'development_checks':[{'id':'V98-R2','path':str(a),'working_path':str(working),'phases':phases}]}
+            with self.assertRaises(ValueError):live_runs(c)
+            c['working_root_allowlist']=[str(working)]
+            with patch('pathlib.Path.read_bytes',return_value=str(working).encode()):self.assertEqual(live_runs(c)[0]['id'],'V98-R2')
+
     def test_single_cold_child_progress_uses_nested_output_without_granting_archive_admission(self):
         with tempfile.TemporaryDirectory() as temporary:
             exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()

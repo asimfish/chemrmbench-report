@@ -108,7 +108,8 @@ PUBLIC_FIELDS = {
 
 
 def fields(obj, kind):
-    if not isinstance(obj, dict) or set(obj) != PUBLIC_FIELDS[kind]:
+    required=PUBLIC_FIELDS[kind];optional={'outcome'} if kind=='stage' else set()
+    if not isinstance(obj, dict) or not required.issubset(obj) or set(obj)-required-optional:
         raise ValueError('unexpected or missing public fields: ' + kind)
 
 
@@ -151,6 +152,11 @@ def validate_public(data):
             number(stage['duration_s'], high=3600)
             if type(stage['committed']) is not bool:
                 raise ValueError('invalid stage flag')
+            if 'outcome' in stage:
+                if stage['outcome'] not in ('pending','native_pass','native_failed'):
+                    raise ValueError('unknown native outcome')
+                if (stage['outcome']=='native_pass') != stage['committed']:
+                    raise ValueError('native outcome and recorded success disagree')
     for item in latest['timing_anchors']:
         fields(item, 'anchor')
         bounds = item['error_interval_s']

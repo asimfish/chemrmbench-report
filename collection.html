@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="ChemRMBench 持续实验进度：Astra 闭环采集、长任务阶段保存、操作计时、验收与下一步。">
-<title>采集与实验进度 · ChemRMBench</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="collection.css?v=77"><link rel="stylesheet" href="scenes.css?v=77"></head>
+<title>采集与实验进度 · ChemRMBench</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="collection.css?v=98-native-outcomes"><link rel="stylesheet" href="scenes.css?v=77"></head>
 <body><header><nav><a href="benchmark.html">实验系统 · 视频回放</a><a href="index.html?lang=zh">← 研究方案与论文</a><a href="reproduction.html">复现与验收</a><a href="scenes.html">历史场景与重建</a><a href="#experiments">全部任务</a><a href="#resources">资源与监管</a><a href="https://github.com/asimfish/chemrmbench-report">GitHub 仓库 ↗</a></nav>
 <div class="eyebrow">CHEMRMBENCH / PAPER A · 持续实验记录</div><h1>从分步采集，到可验证的记忆与计时</h1>
 <p class="muted intro">查看真实实验进度、逐阶段保存的轨迹，以及仍需解决的误差。开发样本、工程检查和正式科学验收分别记录。</p>
@@ -13,7 +13,7 @@
 <div class="workspace"><section id="selected"><div class="section-head"><div class="eyebrow" id="taskCode"></div><span id="taskState" class="pill"></span></div><h2 id="taskTitle">正在加载…</h2><p id="taskSummary" class="muted"></p>
 <div class="toolbar" role="group" aria-label="记忆条件"><button id="m0" type="button" aria-pressed="true" class="active">M0 · 持续提示</button><button id="m1" type="button" aria-pressed="false">M1 · 短暂提示</button><span id="modeStatus" class="small"></span></div>
 <div id="taskMetrics" class="mini-stats"></div><div id="taskNotice" class="note"></div>
-<div id="trajectory"><div class="section-head"><h3>V75 基线轨迹 · 分阶段保存</h3><span id="episodeLabel" class="small"></span></div><div id="stageTrack" class="stages"></div><p id="stageNote" class="small"></p>
+<div id="trajectory"><div class="section-head"><h3 id="trajectoryHeading">V75 基线轨迹 · 分阶段保存</h3><span id="episodeLabel" class="small"></span></div><div id="stageTrack" class="stages"></div><p id="stageNote" class="small"></p>
 <div class="media-grid"><figure><video id="replay" controls playsinline preload="metadata" poster="assets/v75-observation.png"><source src="assets/v75-replay.mp4" type="video/mp4"></video><figcaption>V75 原生仿真回放：163 张保存图像，按保存时钟排列。视频是有损展示，不用于精确计时验收。</figcaption></figure><div class="trace-story"><h3>这条轨迹实际做了什么</h3><ol><li>脚本启动第一段既有动作。</li><li>Astra 接收新轨迹的图像、关节与公开时钟。</li><li>模型提出第二段动作的未来启动时间。</li><li>执行器检查提案，实际发送动作；没有脚本兜底。</li></ol><p class="small">模型推理期间原生积分继续。正常渲染和阶段保存仍有暂停边界，不等同于真机实时部署。</p></div></div></div>
 <div id="timing"><h3>操作时间 · 三种起点分别计分</h3><p class="small">同样要求延迟 30 秒，公开观测时刻、视觉更新命令和实际 A 电机事件给出不同结果。只在完整误差区间落入容差时判断通过。</p><div id="timingChart"></div><div class="table-wrap"><table><thead><tr><th scope="col">计时起点 → B 电机事件</th><th scope="col">误差区间</th><th scope="col">±20 ms</th><th scope="col">±100 ms</th></tr></thead><tbody id="timingRows"></tbody></table></div><p class="small">图中蓝色区域为 ±20 ms。电机与视觉代理事件均未标定为化学事件，诊断 PASS 不授予科学或训练准入。</p></div>
 <details><summary>查看此样本的结果、用量与证据标识</summary><div id="evidence"></div><a href="data/collection.json">下载公开进度 JSON</a></details></section>
@@ -21,4 +21,4 @@
 <section id="resources"><div class="section-head"><h2>资源与持续更新</h2><span id="collectorState" class="pill"></span></div><p id="runState" class="note"></p><div class="table-wrap"><table><thead><tr><th scope="col">资源</th><th scope="col">利用率</th><th scope="col">显存</th><th scope="col">温度</th><th scope="col">采样时间</th></tr></thead><tbody id="gpus"></tbody></table></div><p class="small">GPU 利用率包含共享作业，不能据此推断本项目正在训练。当前只接入本机；PRO 6000 未接入遥测。进展以已登记开发采集记录为准。</p><div id="budget" class="budget"></div><details><summary>更新机制与数据边界</summary><p>本机后台读取完成凭据、已提交阶段和只读 GPU 遥测，按字段白名单导出。定时任务发布到此仓库；网页展示最近一份快照，来源中断时显示过期或读取错误。</p><p>不公开凭据、机器地址、私有路径、未发表全文、原始提示日志或 simulator 场景资产。未登记的采集目录不会被自动纳入监控。</p><p>实时阶段进度只针对已登记开发运行；私有事件时间、种子和隐藏真值不进入进行中的公开快照。</p></details></section>
 <section><h2>最近进展与当前前沿</h2><div id="history" class="history"></div><h3>接下来按这个顺序推进</h3><ol id="nextSteps" class="next-steps"></ol></section></div></div></main>
 <footer>界面结构参考 <a href="https://asimfish.github.io/psibot-dashboard/pick_place.html">SafeLab PickPlace 任务页</a>。数据与图表属于 ChemRMBench；持续刷新不代表有新的实验结果。</footer>
-<noscript>请启用 JavaScript，或直接读取 <a href="data/collection.json">公开进度 JSON</a>。</noscript><script src="collection.js?v=90"></script></body></html>
+<noscript>请启用 JavaScript，或直接读取 <a href="data/collection.json">公开进度 JSON</a>。</noscript><script src="collection.js?v=98-native-outcomes"></script></body></html>

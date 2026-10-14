@@ -143,17 +143,26 @@ def live_runs(config):
                        'planned_stages': len(stage_list)})
     for registration in config.get('development_checks', []):
         raw = within(registration['path'], config['experiment_root'])
+        if 'working_path' in registration:
+            working=Path(registration['working_path']).resolve()
+            allowed={Path(path).resolve() for path in config.get('working_root_allowlist',[])}
+            if working not in allowed:raise ValueError('unregistered native working root')
+            raw=working
         phases=registration.get('phases',['parent','child'])
+        repeated=['r1_no_write','r1_read_only_sham','r1_single_pose_write',
+                  'r2_read_only_sham','r2_single_pose_write','r2_no_write',
+                  'r3_single_pose_write','r3_no_write','r3_read_only_sham']
         leader=('live_a' if phases==['live_a','live_b'] else
                 'live_control' if phases==['live_control','same_process_restore'] else
                 'live' if phases==['live','single_pose'] else
+                'r1_no_write' if phases==repeated else
                 'single_pose' if phases==['single_pose'] else 'parent')
         parent_running = raw / (leader+'_running.json')
         if not parent_running.exists():
             continue
         stage_list = []
         alive = False
-        if phases not in (['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['live_control','same_process_restore'],['live','single_pose'],['single_pose'],['parent','child_expired','child_retry'],
+        if phases not in (repeated,['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['live_control','same_process_restore'],['live','single_pose'],['single_pose'],['parent','child_expired','child_retry'],
                           ['parent','child_expired_resource_retry1','child_retry'],
                           ['parent','child_interrupted','child_retry'],
                           ['parent','no_fault_first','recovery_first','recovery_retry','expired_first']):
@@ -165,6 +174,7 @@ def live_runs(config):
                 'expired_first':'原期限过期拒绝','live_a':'连续运行基线 A','live_b':'连续运行基线 B',
                 'live_control':'不中断物理对照','same_process_restore':'同进程状态恢复对照',
                 'live':'完整八阶段原生录像','single_pose':'单项位姿写入录像与门槛'}
+        labels.update({name:'第'+name[1]+'轮 · '+{'no_write':'不写状态','read_only_sham':'只读空操作','single_pose_write':'单项位姿写入'}[name[3:]] for name in repeated})
         matched_paths={'no_fault_first':'branches/no_fault/child_first',
                        'recovery_first':'branches/recovery/child_first',
                        'recovery_retry':'branches/recovery/child_retry',
@@ -188,8 +198,10 @@ def live_runs(config):
                 refused=(account['outcome']==expected and
                          account['phase_callbacks'].get('TAIL_COMMANDS',0)==0 and
                          not (output/'task/agent/dispatch.json').exists())
-            stage_list.append({'label': labels[phase],
-                               'duration_s': 0.0, 'committed': result_path.exists() or refused})
+            entry={'label': labels[phase], 'duration_s': 0.0, 'committed': result_path.exists() or refused}
+            if phases==repeated:
+                entry['outcome']='native_pass' if result_path.exists() else 'native_failed' if (output/'ERROR.json').exists() else 'pending'
+            stage_list.append(entry)
         if alive:
             result.append({'id': identifier(registration['id']), 'state': 'collecting',
                            'stages': stage_list, 'committed_stages': sum(s['committed'] for s in stage_list),
