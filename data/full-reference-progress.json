@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T19:02:25.589615+00:00",
+  "exported_at_utc": "2026-10-14T19:12:43.167740+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -413,6 +413,38 @@
   ],
   "modules": [
     {
+      "id": "fluid-coherent80-control-failed-pair",
+      "title": "Complete 80³ map · activation shifts, paired-field gate fails",
+      "evidence_sha256": "1b97a30f30c93f83458d98f518130e909f7424542824d7cd0deb58414e945c90",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Both boundary fields were built together and passed38 producer plus38 independent static checks. With the same1728 initial particles and exact executable, whole and staged paths each ran20ms. The full paired-field gate nevertheless failed:39/40 producer and40/41 independent checks. First failure is18ms, leaving17ms of complete paired prefix. The maximum field discrepancy is4.044e-10 against the unchanged1e-10 gate. The new control and downloadable scientific figures/data are on fluid-boundary-diagnosis.html#full80-control.",
+      "metrics": {
+        "static_producer_checks": 38,
+        "static_independent_checks": 38,
+        "completed_ms": 20,
+        "paired_prefix_ms": 17,
+        "first_pair_field_failure_ms": 18,
+        "producer_passed": 39,
+        "producer_total": 40,
+        "independent_passed": 40,
+        "independent_total": 41,
+        "failed_field_endpoints": 21,
+        "field_endpoints": 2196,
+        "maximum_relative_field_error": 4.0438711882162474e-10,
+        "frozen_field_gate": 1e-10,
+        "old40_first_activation_ms": 4,
+        "new80_first_activation_ms": 10,
+        "initial_fixed_cohort_in_band": 512,
+        "old40_terminal_in_band": 200,
+        "new80_terminal_in_band": 200,
+        "old40_terminal_density_mean": 0.9500588434533336,
+        "new80_terminal_density_mean": 0.9501043780116907,
+        "original_physical_tests_qualified": 0
+      },
+      "remaining": "The21 failed field-endpoint comparisons concern raw/applied density-gradient x/z components. Small absolute errors do not waive the frozen gate; neither tolerances nor trajectories were retried. Native activation shifts4→10ms and matches exact-box support on the80 saved path, but this is not calibrated physical contact or an exact-wall simulation. Both grids still end200/512 in the static reference band; fixed IDs are not guaranteed to remain interior. Post-failure measurements are descriptive only. Density decline, accurate wall forces, equilibrium and all eight original physical tests remain open. Full reproduction is not complete."
+    },
+    {
       "id": "fluid-source-sdf-resolution-diagnosis",
       "title": "Fluid source geometry · distance errors decrease, normal limits remain",
       "evidence_sha256": "6735797d47e6389b2430031af78f1d302665ad5f010b2fb5bb95c5117acb4171",
@@ -442,7 +474,7 @@
         "grid160_window_false_negatives": 0,
         "grid160_max_normal_error_deg": 54.00623955337905
       },
-      "remaining": "The maximum raw gradient-normal discrepancy remains about54degrees over uniquely nearest-face samples; tied faces receive no single normal. Scalar increases at individual samples occur at floating-point scale, so aggregate improvement is not bitwise per-point monotonicity. SDF support windows are not complete native map activation or physical contact times. No density field, wall force or new trajectory was computed, and512→200 density-band decline remains unexplained. A separate coherent full density map and static checks must precede any further dynamics. Full physical benchmarks and paper reproduction remain open."
+      "remaining": "The maximum raw gradient-normal discrepancy remains about54degrees over uniquely nearest-face samples; tied faces receive no single normal. Scalar increases at individual samples occur at floating-point scale, so aggregate improvement is not bitwise per-point monotonicity. No density field or trajectory is computed by this geometry-only study. The later complete80-map control builds both fields separately, records a failed paired-field gate, and retains the512→200 density decline. SDF support windows are not physical contact times. Full physical benchmarks and paper reproduction remain open."
     },
     {
       "id": "hood-metric-layout-identifiability",
