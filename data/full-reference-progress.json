@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T06:02:19.878643+00:00",
+  "exported_at_utc": "2026-10-14T06:12:13.006151+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2019,10 +2019,10 @@
     {
       "id": "liquid-1920-diagnostic-export-r3",
       "title": "1920-particle diagnostic replay · complete export and audit",
-      "evidence_sha256": "d6604712c34585717fe36dfd01361fbf3b5ee1ba40c6087066877e9b0860626e",
+      "evidence_sha256": "c19021b74eb602906f849eac7d9b135b24dd86c7f58c009606f7fbf98e42566f",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Recorded-state replay phase: CPU_STAGE_1. The original23s physical run passes16 of18 gates and remains rejected.",
+      "scope": "Recorded-state replay phase: CPU_STAGE_3. The original23s physical run passes16 of18 gates and remains rejected.",
       "metrics": {
         "required_frames": 575,
         "particle_count": 1920,
@@ -2033,13 +2033,13 @@
     {
       "id": "ot2-complete-r9-positive",
       "title": "OT2 complete sequence R9 · positive · STEPPING",
-      "evidence_sha256": "2e3a14b06e79888a5bc969f1c117ae87f1b78b0dee9ac6063813bd49f92d0655",
+      "evidence_sha256": "68e05fa0acccdd16521fb747fb57e9c6371b9017c701828ba5cf8dd87264043f",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: reservoir/hold. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/front_align. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 96.0,
-        "native_steps": 57600,
+        "native_seconds": 128.0,
+        "native_steps": 76800,
         "completed_objects": 2,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2051,9 +2051,9 @@
     "id": "ot2_repro_three_labware_complete_positive_r9",
     "phase": "STEPPING",
     "process_verified_alive": true,
-    "simulation_s": 96.0,
-    "physics_steps": 57600,
-    "sampled_at_utc": "2026-10-14T06:02:12.944352+00:00"
+    "simulation_s": 128.0,
+    "physics_steps": 76800,
+    "sampled_at_utc": "2026-10-14T06:12:06.480723+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
