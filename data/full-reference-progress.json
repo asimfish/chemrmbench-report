@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T08:22:19.953057+00:00",
+  "exported_at_utc": "2026-10-14T08:29:19.997647+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2064,15 +2064,15 @@
     },
     {
       "id": "ot2-continuous-noasp-r9-restart1",
-      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · STEPPING",
-      "evidence_sha256": "5f9a2dd0400f01b4567cbffcde2167f4379d1aeec304fb2e4c7696a852dceded",
+      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · CONTINUOUS_PIPETTING",
+      "evidence_sha256": "6e634cbd960acf2e44b2d8ba62a50d098f4d79acfc30b64b7f9eb756220a5e6c",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack/front_align. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: rack_insert. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 128.0,
-        "native_steps": 76800,
-        "completed_objects": 2,
+        "native_seconds": 152.0,
+        "native_steps": 91200,
+        "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
       },
@@ -2329,15 +2329,49 @@
         "physical_configurations_admitted": 0
       },
       "remaining": "Operator controls only. External conjugate-gradient and boundary quadrature are explicit adaptations. Native dynamic Discregrid updates plus coupled DFSPH/Weiler evolution remain unverified, and no long relaxation or new robot task is admitted. Pressure-density constant-mode bias remains a separate failure."
+    },
+    {
+      "id": "ot2-three-object-full-video-render",
+      "title": "Three-object video · recorded render progress",
+      "evidence_sha256": "4a884b6a5d7ef3393dcd04cf1b8e5962bc9e233bf10b14bfdba342a566008194",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A durable GPU0 renderer replays the single accepted positive trace in three views. Recorded status: RENDERING at 2026-10-14T08:29:19.685998+00:00. Renderer completion is separate from final media and visual acceptance.",
+      "metrics": {
+        "frames_completed": 451,
+        "planned_frames": 3266,
+        "planned_trial_relative_s": 208.5,
+        "recorded_render_physics_callbacks": 0,
+        "wall_limit_s": 10800
+      },
+      "remaining": "The validated three-frame PathTracing pilot is online on the continuous-trial page. Complete video requires all-frame source binding, exact timestamps, full decode and visual inspection of the actual encoded output. No final-video or full-reference acceptance is inferred from this progress record."
+    },
+    {
+      "id": "fluid-native-wall-initial-density",
+      "title": "Fluid calibration · incompatible near-wall initial density localized",
+      "evidence_sha256": "d4e836b9304e55ba604ad083a1b5cf87ad85e03790e87a3531087bd3b8757909",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "All512 initial particles were decomposed into fluid and two native boundary contributions. Supported periodic neighbors have unique owners, the two walls are counted once, and the native SDF signs, normals, units and coordinates check out. A nearest-wall particle starts at2.145 times reference density.",
+      "metrics": {
+        "particles": 512,
+        "accounting_checks": 15,
+        "near_wall_density_ratio": 2.144620865424439,
+        "near_wall_fluid_ratio": 0.8275049632301213,
+        "near_wall_boundary_ratio": 1.317115902194318,
+        "central_density_ratio": 1.003932959971547,
+        "physical_calibration_cases_accepted": 0
+      },
+      "remaining": "Native direct boundary quadrature reproduces the large wall contribution; the mismatch is the external cloud initialization near the wall. The original eight physical calibration cases remain failed. A separate author-rule initialized cohort must disclose its changed particle count, mass and occupied volume. The earlier external CFL-min configuration error is preserved; corrected clocks did not repair this initial state."
     }
   ],
   "active": {
     "id": "ot2_repro_three_labware_complete_noasp_r9_restart1",
-    "phase": "STEPPING",
+    "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 128.0,
-    "physics_steps": 76800,
-    "sampled_at_utc": "2026-10-14T08:22:19.481253+00:00"
+    "simulation_s": 152.0,
+    "physics_steps": 91200,
+    "sampled_at_utc": "2026-10-14T08:29:08.450873+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
