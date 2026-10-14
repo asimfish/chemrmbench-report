@@ -1,7 +1,7 @@
 {
   "schema": "chemrmbench-live-dashboard-v1",
-  "sampled_at_utc": "2026-10-14T04:33:03+00:00",
-  "published_at_utc": "2026-10-14T04:33:28+00:00",
+  "sampled_at_utc": "2026-10-14T05:03:00+00:00",
+  "published_at_utc": "2026-10-14T05:03:29+00:00",
   "source_updated_at_utc": "2026-10-12T14:34:35.171556+00:00",
   "collector": {
     "state": "healthy"
@@ -101,20 +101,20 @@
     {
       "index": 0,
       "name": "RTX 5090",
-      "utilization_percent": 41.0,
-      "memory_used_mib": 1517.0,
+      "utilization_percent": 10.0,
+      "memory_used_mib": 7139.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 44.0,
-      "sampled_at_utc": "2026-10-14T04:33:03+00:00"
+      "temperature_c": 46.0,
+      "sampled_at_utc": "2026-10-14T05:03:00+00:00"
     },
     {
       "index": 1,
       "name": "RTX 5090",
-      "utilization_percent": 73.0,
-      "memory_used_mib": 9277.0,
+      "utilization_percent": 0.0,
+      "memory_used_mib": 24.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 46.0,
-      "sampled_at_utc": "2026-10-14T04:33:03+00:00"
+      "temperature_c": 38.0,
+      "sampled_at_utc": "2026-10-14T05:03:00+00:00"
     }
   ],
   "tasks": [
@@ -282,6 +282,11 @@
     "未标定独立化学 A/B、剂量、真实事件与视觉提示延迟；科学、训练、benchmark 和会议准入保持未通过。"
   ],
   "history": [
+    {
+      "date": "2026-10-14",
+      "title": "V91 · 同原事件期限的三分支执行器对照",
+      "detail": "无故障冷续跑、中断后原期限重试均满足 −4.165 至 +4.168 ms；过期开始窗口在 44.125 s 拒绝，0 余程动作。中断 3.125 原生秒全部计入；71 父文件不变，4 次各 65 实体 ×30 步重建。2 次实际先验调用 /22,400 tokens /GPU 分配上界0.234 h。固定240步交付不是实测模型延迟；8段轨迹证据只含1个已验收完整场景任务检查点。"
+    },
     {
       "date": "2026-10-14",
       "title": "V90 · 中断与重建后保持原事件期限",

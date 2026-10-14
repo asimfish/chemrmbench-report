@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T04:42:22.511210+00:00",
+  "exported_at_utc": "2026-10-14T05:02:22.012698+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1748,7 +1748,7 @@
         "reservoir_XY_error_mm": 125.97298471461329,
         "reservoir_orientation_error_rad": 2.656501566211852
       },
-      "remaining": "The inherited release target still squeezes the thicker reservoir during retreat. A separately frozen open-gripper diagnostic is running. Moving-link ground contact in the preceding plate phase is a separate unresolved gate."
+      "remaining": "The inherited release target still squeezes the thicker reservoir during retreat. The separately frozen full-open diagnostic subsequently fails at35.105s on finger-shell contact. Moving-link ground contact in the preceding plate phase is a separate unresolved gate."
     },
     {
       "id": "ur5e-interface1920-domain-failure",
@@ -1796,6 +1796,82 @@
         "planned_steps": 26700
       },
       "remaining": "Runtime progress only. Terminal native-state and contact audit determine acceptance. This source-only diagnostic cannot replace a new complete three-object trial or resolve the separate plate-ground collision."
+    },
+    {
+      "id": "ot2-reservoir-open-contact-failure",
+      "title": "OT2 reservoir · full opening causes finger-shell contact",
+      "evidence_sha256": "4ae6787db26f47dff245152cae9ee98f5d54fb87189069ce29ccb4a981bb3287",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The separate true-release experiment stops at35.105s on native right-outer-finger contact with the original OT2 body. Pickup passes600/600, and the final600observed release steps have no finger-source contact; the complete placement test still fails.",
+      "metrics": {
+        "native_seconds": 35.105,
+        "native_steps": 21063,
+        "held_bilateral_steps": 600,
+        "observed_release_finger_source_contact_steps": 0
+      },
+      "remaining": "The earlier CPU screen accidentally skipped instantiated OT2 colliders. An independent coverage audit now identifies all25enabled shapes and retains the invalid screen. Actual cooked geometry and contact offsets are being checked before a bounded opening-angle repair."
+    },
+    {
+      "id": "ot2-plate-native-ground-repair",
+      "title": "Panda plate pickup · moving-link ground collision repaired",
+      "evidence_sha256": "7a4ce6010487913955fff17d65fd98f0a3e21ded71d1e88dd6e42b8bee995242",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separately frozen19s pickup uses the actual plate geometry midpoint without moving the object or support. Independent native clocks, commands and contacts verify600/600 bilateral hold and no moving-link ground impulse at either reported threshold.",
+      "metrics": {
+        "native_seconds": 19.0,
+        "held_bilateral_steps": 600,
+        "minimum_lift_mm": 79.52173054218292,
+        "moving_ground_events": 0,
+        "lower_threshold_ground_events": 0,
+        "independent_consistency_checks": 8,
+        "native_gates": 9
+      },
+      "remaining": "Pickup only. Plate placement, reservoir release, rack loading and all64pipetting events must still pass in a new single continuous scene. The old full-scene ground contacts remain retained."
+    },
+    {
+      "id": "ot2-rack-native-ground-failure",
+      "title": "Panda rack pickup · another moving link reaches the ground",
+      "evidence_sha256": "c2f5de641590d59808bb24767d673d7ef5443d999bcac8a2bdf15a071036e5fa",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The bounded rack pickup stops at4.775s during approach on panda_link5-ground contact. A wrist-only CPU screen had missed the elbow path. The native gate rejects the trajectory before close or load-bearing hold.",
+      "metrics": {
+        "native_seconds": 4.775,
+        "native_steps": 2865,
+        "moving_ground_events": 1
+      },
+      "remaining": "No pickup or complete setup acceptance. The next CPU screen must cover every moving link and interpolated path with native cooked collision geometry; known unsafe targets will not be sent to a full rerun."
+    },
+    {
+      "id": "matterix-full-lab-hood-orientation-repair",
+      "title": "MATTERIX scene · hood orientation visibly repaired",
+      "evidence_sha256": "b2dc8471f55cd63f36ff67cbd41ddbe2157e623954670ed8a00caf80a4b6db46",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Four retained hood assemblies now face the aisle. The same-camera native RTX comparison makes the hood UR3e clearly visible while preserving geometry, materials and joint definitions. Raw R4 failures and R5 corrections are both on the Full laboratory page.",
+      "metrics": {
+        "corrected_hoods": 4,
+        "native_views": 4,
+        "physics_steps": 0,
+        "visual_counter_collider_height_gap_mm": 23.7568
+      },
+      "remaining": "Partial visual repair only: source counter visual/collider heights differ, the door and task grippers are missing, and glovebox clarity and whole-lab dynamics remain unresolved. Original metric layout is not recovered."
+    },
+    {
+      "id": "fluid-viscosity-native-cpu-wiring",
+      "title": "Fluid viscosity · nonzero CPU force and rigid-reaction checks",
+      "evidence_sha256": "5242c61d068a26c3f0d37b2e301f21d8124181764951886d81f788f51084929d",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "An isolated Warp CPU prototype is compared with a NumPy reference, then sends viscous force and center-of-mass torque into actual finite-mass MuJoCo bodies. Nonzero fluid-only and boundary-only channels are separately exercised after retaining the first fixture coverage gap.",
+      "metrics": {
+        "micro_steps": 200,
+        "dt_microseconds": 10,
+        "physics_seconds": 0.002
+      },
+      "remaining": "Synthetic viscosity and free isotropic bodies, without pressure or contact. Full DFSPH wiring still needs dimensional density conversion, surface-boundary volume validation and one combined pressure-plus-viscosity wrench write. This does not repair the failed full pour."
     }
   ],
   "active": {
