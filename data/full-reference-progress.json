@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T06:52:48.082742+00:00",
+  "exported_at_utc": "2026-10-14T07:01:56.800503+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2019,10 +2019,10 @@
     {
       "id": "liquid-1920-diagnostic-audit-r4",
       "title": "1920-particle diagnostic replay · persistent independent audit",
-      "evidence_sha256": "b4b81568f957bb0f5af57adc7e8e689e363012996548702da36e70b7cc728631",
+      "evidence_sha256": "68068e8aa2445e31c4187604a33037e4c9c1b1622106920bfe1e96f9524b0a26",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "Recorded-state replay phase: CPU_STAGE_3. The original23s physical run passes16 of18 gates and remains rejected.",
+      "scope": "Recorded-state replay phase: CPU_EXPORT_AND_GEOMETRY_PASSED_GPU_RENDER_PENDING. The original23s physical run passes16 of18 gates and remains rejected.",
       "metrics": {
         "required_frames": 575,
         "particle_count": 1920,
@@ -2049,14 +2049,14 @@
     {
       "id": "ot2-continuous-positive-r9-restart1",
       "title": "OT2 complete sequence R9 · positive_r9_restart1 · STEPPING",
-      "evidence_sha256": "4a1de3ac3430b98ff9b36a382d094c0a9cc7ad441d33b7a64f304df2365f42d5",
+      "evidence_sha256": "ac18f08a93c73639b2fa543974243556cddb87a99026adefb374b3eb346af4d2",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: plate/place. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: reservoir/close. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 31.0,
-        "native_steps": 18600,
-        "completed_objects": 0,
+        "native_seconds": 63.0,
+        "native_steps": 37800,
+        "completed_objects": 1,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
       },
@@ -2090,15 +2090,79 @@
         "author_mesh_query_hits": 127
       },
       "remaining": "A fixed-joint coordinate mismatch and tensor creation timing are under controlled repair. Native ray hits do not prove loaded support, contact stability or complete tasks; hood-floor penetration and robot initialization shifts remain open."
+    },
+    {
+      "id": "liquid-1920-complete-geometry-audit",
+      "title": "1920-particle replay · all575 recorded meshes independently checked",
+      "evidence_sha256": "d65fffa3bdbe987e487e608d72c06730193ed9cdae46ae55d70cebf2e1a9827b",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "All575 saved frames have closed, consistently oriented meshes containing every original1920 particle centre. All575 native particle arrays match exactly; no state is advanced or interpolated.",
+      "metrics": {
+        "frames_checked": 575,
+        "particle_center_checks": 1104000,
+        "minimum_volume_ratio": 0.990004441514341,
+        "maximum_volume_ratio": 1.009949362179124,
+        "physics_steps": 0
+      },
+      "remaining": "Only display geometry is accepted. Original16of18 physical gates, CFL failure and three terminal domain escapes remain unchanged. The compiled winding evaluator was independently compared with the original numerical oracle."
+    },
+    {
+      "id": "liquid-1920-rtx-diagnostic-render",
+      "title": "1920-particle replay · RENDER_RUNNING",
+      "evidence_sha256": "1b376fc1fb13124f5e9fe51a29771fc4f9ac7bd47f32c896e2927a139e542e0b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Bounded native RTX PathTracing replay of the immutable recorded state. Every frame explicitly labels the source PHYSICAL TRIAL FAILED. Absolute-script identity and dangling display-file link failures remain archived; input geometry is now read directly with its original hash.",
+      "metrics": {
+        "rendered_frames": 82,
+        "required_frames": 575,
+        "physics_steps": 0
+      },
+      "remaining": "Render completion, full video decoding, native timestamp correspondence and visual/browser review are separate gates. The source physics remains rejected, and colors are not calibrated to the original GRID rendering."
+    },
+    {
+      "id": "full-lab-button-coordinate-repair",
+      "title": "Full laboratory · four authored button frames corrected",
+      "evidence_sha256": "04cf0be9b874fcb15851669050726e801cf9340b66156fccdb30934874446f4b",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The corrected one-step control preserves scene units and axes. Only four initial button transforms change; all82 poststep body states, all10 articulation states and all12 contact records are exactly equal to the unchanged-scene control. Twenty independent checks pass.",
+      "metrics": {
+        "checked_native_steps": 1,
+        "unchanged_other_initial_bodies": 78,
+        "identical_poststep_bodies": 82,
+        "checks_passed": 20,
+        "maximum_corrected_button_drift_mm": 6.849625447348572
+      },
+      "remaining": "This fixes authored initial coordinates, not dynamics. The prior comparison accidentally changed stage units and up-axis and is retained as INVALID_CONFOUNDED. Hood-floor overlap, Panda initial joint state, loaded support and full workflows remain open."
+    },
+    {
+      "id": "fluid-native-boundary-calibration-eight-cases",
+      "title": "Fluid boundary · eight native-operator cases, zero admissible configurations",
+      "evidence_sha256": "1b364ae9fecb1594f790b0b79a1f7dc957c008d6ea724e0e2ebfade75aae6276",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The fixed-source SPlisHSPlasH density and Weiler2018 operators execute directly. Eight Couette/pipe configurations at two resolutions and two spacing conventions pass80 operator checks plus69 independent final-field checks, but none meets the frozen physical calibration gates.",
+      "metrics": {
+        "cases": 8,
+        "qualified_configurations": 0,
+        "operator_checks": 80,
+        "independent_checks": 69,
+        "maximum_final_transverse_residual_m_s2": 4.447146746235968e-16,
+        "maximum_final_axial_residual_m_s2": 9.207912210484892e-15,
+        "task_steps": 0
+      },
+      "remaining": "This rejects the tested unrelaxed external particle clouds and independent quadrature/steady-state harness. It does not reject the native solver or complete volume-map model. Author initialization and native boundary integration are being isolated before any new robot task."
     }
   ],
   "active": {
     "id": "ot2_repro_three_labware_complete_positive_r9_restart1",
     "phase": "STEPPING",
     "process_verified_alive": true,
-    "simulation_s": 31.000000000000004,
-    "physics_steps": 18600,
-    "sampled_at_utc": "2026-10-14T06:52:46.659743+00:00"
+    "simulation_s": 63.00000000000001,
+    "physics_steps": 37800,
+    "sampled_at_utc": "2026-10-14T07:01:47.658159+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
