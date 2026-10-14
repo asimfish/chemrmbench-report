@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T07:42:19.469501+00:00",
+  "exported_at_utc": "2026-10-14T07:47:48.872935+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2048,15 +2048,31 @@
     },
     {
       "id": "ot2-continuous-positive-r9-restart1",
-      "title": "OT2 complete sequence R9 · positive_r9_restart1 · CONTINUOUS_PIPETTING",
-      "evidence_sha256": "06c3e29bff4f83a5e69695c808128dcf3e3d42c1ac693d2f8d775adc3d4e9324",
+      "title": "OT2 complete sequence R9 · positive terminal reached; independent audit below",
+      "evidence_sha256": "0417565ff1f25dac212c3a1b7537508cbf387cd31be9b39337c695a31807927b",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: disposal_insert. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: OT2_final_home. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 202.0,
-        "native_steps": 121200,
+        "native_seconds": 208.5,
+        "native_steps": 125100,
         "completed_objects": 3,
+        "native_cap_seconds": 260.0,
+        "wall_cap_seconds": 7200
+      },
+      "remaining": "All original collision, sustained grasp, placement and event gates remain. Final600 contact-free samples and final three-object pose/speed are additionally checked. Only independent terminal audits can establish this sequence; the negative begins only after positive acceptance. Complete paper reproduction remains open."
+    },
+    {
+      "id": "ot2-continuous-noasp-r9-restart1",
+      "title": "OT2 complete sequence R9 · noasp_r9_restart1 · STEPPING",
+      "evidence_sha256": "0d91a894efdc0dd635743b367ed6b404bee6f6bb022bcbab488c52598a7054ac",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: plate/insert_edge. Separate local passes are not imported as state or counted as the full result.",
+      "metrics": {
+        "native_seconds": 9.0,
+        "native_steps": 5400,
+        "completed_objects": 0,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
       },
@@ -2264,15 +2280,64 @@
         "older_mixed_render_source_versions": 7
       },
       "remaining": "Both same-configuration repeat and isosurface comparison fail the original trajectory-equivalence gates. Do not attribute divergence uniquely to rendering. Seven older native-pour source versions mix render and physics steps; their loop-derived timing remains unverified. Current three-object OT2 uses a separate physics-only path, supported by source audit but without a separately logged callback clock."
+    },
+    {
+      "id": "ot2-three-object-continuous-positive-accepted",
+      "title": "MATTERIX ·208.5s continuous three-object positive passes scoped audit",
+      "evidence_sha256": "62d86019a9daad7dc7cd138060eeb2c16bdfbc5929bd7a5bd0555b8bf746d2df",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "One fresh uninterrupted scene physically loads plate, reservoir and rack, then completes64 insertion, aspiration, dispensing and disposal events. All12 consistency checks,23 reconstructed physical gates,28 strict event checks and13 terminal geometry checks pass independently.",
+      "metrics": {
+        "native_steps": 125100,
+        "simulation_s": 208.5,
+        "strict_events": 64,
+        "consistency_checks": 12,
+        "physical_gates": 23,
+        "event_checks": 28,
+        "geometry_checks": 13,
+        "maximum_terminal_XY_mm": 0.6679549129608254
+      },
+      "remaining": "One local positive only. The aspiration-disabled matched run starts from the original initial state and is still separately evaluated. Liquid is a finite-volume semantic ledger without force coupling; reconstructed fixtures, local masses, grip geometry and door control remain adaptations. Full N05 and paper reproduction remain open; the208.5s label is supported by the physics-only source path, not a separately recorded callback clock."
+    },
+    {
+      "id": "full-lab-ur3-existing-initial-state",
+      "title": "Full laboratory · UR3e existing initial-state values corrected",
+      "evidence_sha256": "6a30a210254bef013799356043e048ddf99545999ab9459a28fea1bcc0b06ff7",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Three robot assets already had initial joint-state fields set to zero while the displayed geometry was bent. Correcting their existing position values preserves every drive target, velocity, schema, geometry and61 unaffected native bodies.",
+      "metrics": {
+        "independent_checks": 23,
+        "old_first_step_jump_mm": 283.8273052970766,
+        "new_first_step_jump_mm": 0.17046044183031678,
+        "maximum_joint_error_rad": 0.0003622223469315067
+      },
+      "remaining": "One-step initialization only. Passive settling and hood-relative mounting drift remain open. Local hood asset provenance is being reconciled across two recovered snapshots and is not asserted as an exact author asset."
+    },
+    {
+      "id": "fluid-periodic-weiler-operator-controls",
+      "title": "Fluid reference · periodic implicit-viscosity operator controls pass",
+      "evidence_sha256": "6fc80691e43517eaa01311658cad02850253a218945745910f9325342d63e707",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "All eight retained fixtures exercise the full three-component native Weiler matrix, right-hand side and force application through an external periodic wrapper. Each conjugate-gradient vector synchronizes halo values; a stale-halo negative is detected in every case.",
+      "metrics": {
+        "cases": 8,
+        "independent_case_checks": 48,
+        "independent_aggregate_checks": 4,
+        "physical_configurations_admitted": 0
+      },
+      "remaining": "Operator controls only. External conjugate-gradient and boundary quadrature are explicit adaptations. Native dynamic Discregrid updates plus coupled DFSPH/Weiler evolution remain unverified, and no long relaxation or new robot task is admitted. Pressure-density constant-mode bias remains a separate failure."
     }
   ],
   "active": {
-    "id": "ot2_repro_three_labware_complete_positive_r9_restart1",
-    "phase": "CONTINUOUS_PIPETTING",
+    "id": "ot2_repro_three_labware_complete_noasp_r9_restart1",
+    "phase": "STEPPING",
     "process_verified_alive": true,
-    "simulation_s": 202.0,
-    "physics_steps": 121200,
-    "sampled_at_utc": "2026-10-14T07:42:13.705140+00:00"
+    "simulation_s": 9.0,
+    "physics_steps": 5400,
+    "sampled_at_utc": "2026-10-14T07:47:40.391306+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
