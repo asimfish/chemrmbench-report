@@ -1,0 +1,50 @@
+{
+  "status": "METRIC_LAYOUT_REMAINS_ONE_HEIGHT_OR_MATCHED_SPAN_SHORT_UNDER_EACH_CONDITIONAL_CAMERA",
+  "checks": 11,
+  "new_raw_root_layers": 6,
+  "new_source_table_geometries": 2,
+  "metric_algebra": {
+    "formula": "n=R[:,2], B=depth*K^-1[u,v,1], d_i=K^-1pixel_i. X_i(h)=(n.B+h)*d_i/(n.d_i). W(h)=abs(n.B+h)*||d_R/(n.d_R)-d_L/(n.d_L)||.",
+    "existing_local_h_m": 0.0050000000000001155,
+    "unverified_bare_pane_proxy_m": 1.2404939211871562,
+    "results": [
+      {
+        "camera": "prior_rail_nominal",
+        "prior_fit_repeatability_passed": false,
+        "span_if_h_zero_m": 1.6923179930012568,
+        "span_if_existing_local_h_5mm_m": 1.6779798311353549,
+        "h_if_unverified_bare_pane_proxy_used_m": 0.15755997039223302,
+        "coefficient": 2.867632373180323,
+        "n_dot_base_m": -0.5901446813157595
+      },
+      {
+        "camera": "grid_nominal_orthogonal",
+        "prior_fit_repeatability_passed": true,
+        "span_if_h_zero_m": 1.7478803831526775,
+        "span_if_existing_local_h_5mm_m": 1.7327463352163208,
+        "h_if_unverified_bare_pane_proxy_used_m": 0.16763078328390713,
+        "coefficient": 3.0268095872712633,
+        "n_dot_base_m": -0.5774662504384463
+      }
+    ],
+    "independent_linear_solve_max_error_m": 0.0,
+    "no_original_span_or_height_estimate_claim": true,
+    "meaning": "At h=local+5mm, conditional observed rail span is1.678/1.733m. Equating an unverified1.240494m pane proxy to the observed metal rail would instead require h157.56/167.63mm. This demonstrates the unresolved identity/height assumption, not evidence to scale, move or select an asset/camera."
+  },
+  "minimum_next_constraint": "A topology/appearance-matched original moving metal-rail endpoint span with verified units, or an independent original source datum for that rail height relative to robot base.",
+  "source_scope": "Six specified cached root layers did not establish an original-video-linked complete camera. Grid contains three auxiliary orthographic cameras; viewer camera settings are retained. This is not an absence claim for all assets or their payload dependencies.",
+  "camera_selected": false,
+  "asset_rescaled": false,
+  "native_eligible": false,
+  "physics_steps": 0,
+  "retained_limits": [
+    "Both selected external camera projections pass the frozen local visual gates with author9q fixed.",
+    "Prior-camera numerical repeatability failed; grid near-optimal ambiguity and broad measurement sensitivity remain.",
+    "Original camera, scene identity and task acceptance are not established.",
+    "Source scales and upright cup remain unchanged; old horizontal-cup scale inference remains withdrawn."
+  ],
+  "source_sha256": "6843556a7570daf3879de34f6d227d8d5422de47ce4eb5701a039948d7222a84",
+  "artifacts": {
+    "assets/reproduction/full/hood-metric-identifiability-r1.png": "1e5c229efdd28d31f5cf6f45227405e486db42ba95f7b8a9bba4341d72cbdfaf"
+  }
+}
