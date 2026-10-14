@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T04:22:10.566480+00:00",
+  "exported_at_utc": "2026-10-14T04:30:37.274648+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -1597,7 +1597,7 @@
       "scope": "One frozen23s known-seed trial after short independent admission and cooperative-termination verification. Original18gates plus initial-density/containment and100Hz native-vessel geometry checks remain strict.",
       "metrics": {
         "planned_seconds": 23,
-        "observed_native_seconds": 17.000000000035666,
+        "observed_native_seconds": 20.00000000004999,
         "particles": 1920,
         "model_volume_mL": 3.75,
         "dt_microseconds": 125,
@@ -1714,16 +1714,79 @@
         "mobile_models": 1,
         "native_physics_steps": 0
       },
-      "remaining": "RTX material/visibility review is queued after the active fluid trial. UR3task gripper identity, native hood-door motion, KMR arm/base dynamics and whole-lab tasks remain unresolved. Raw licensed/private assets are not republished."
+      "remaining": "Four native RTX views have since been captured, but subject visibility failed. The inherited hood fixed-joint points to a missing glass body; a joint declaration is not a complete door. UR3 task grippers, KMR dynamics and whole-lab tasks remain unresolved."
+    },
+    {
+      "id": "ot2-complete-r4-placement-failed",
+      "title": "OT2 complete scene · reservoir placement fails at96s",
+      "evidence_sha256": "3beb838def35ac0e1ad7924f0a0895deb52afafee5a33d74625f262c9ab10b7b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The new full trial passes plate loading and600/600 reservoir lift checks, then fails placement. The independent audit reproduces the native failure; process exit0 does not override it. Rack loading and pipetting were not reached, and the negative control did not start.",
+      "metrics": {
+        "native_seconds": 96.0,
+        "native_steps": 57600,
+        "completed_objects": 1,
+        "reservoir_XY_error_mm": 125.97298471461329,
+        "reservoir_orientation_error_rad": 2.656501566211852
+      },
+      "remaining": "The inherited release target still squeezes the thicker reservoir during retreat. A separately frozen open-gripper diagnostic is running. Moving-link ground contact in the preceding plate phase is a separate unresolved gate."
+    },
+    {
+      "id": "ur5e-interface1920-domain-failure",
+      "title": "UR5e current candidate · domain gate also fails",
+      "evidence_sha256": "508cb194a1daecffebc69d501cc0a1cd6bf0085ac96536e1072626592ba7d6d8",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "At16s the current full trial records its first particle outside the frozen domain, after the earlier CFL failure. The complete trace is retained through termination; no particle deletion, domain enlargement or threshold change is used.",
+      "metrics": {
+        "first_logged_domain_failure_seconds": 16.00000000003089,
+        "prefix_observed_seconds": 18.00000000004044,
+        "outside_domain_at_prefix": 2,
+        "receiver_at_prefix": 1916,
+        "particles": 1920
+      },
+      "remaining": "This is a100Hz producer-telemetry prefix, not an independent terminal result. The prepared dt100 candidate requires CFL to be the sole failed gate; that admission now fails, so the candidate will not run."
+    },
+    {
+      "id": "matterix-full-lab-visual-failed",
+      "title": "MATTERIX laboratory · native images expose layout and visibility failures",
+      "evidence_sha256": "601c38ecbe7bd77fd1deade79a694f8c449a0276db70d2bbcb54e477845ad9ef",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Four actual RTX PathTracing images preserve native body poses with zero physics steps. Overview and aisle show partial inventory; the hood close-up sees an opaque shell and glovebox arms are obscured. Inspect the Full laboratory page for raw images.",
+      "metrics": {
+        "native_views": 4,
+        "image_width": 1600,
+        "image_height": 1000,
+        "physics_steps": 0,
+        "visual_acceptance_passed": 0
+      },
+      "remaining": "CPU ray tests show the hood opening faces the wall. A separate layout correction is being checked. The source hood glass body is missing despite a fixed-joint declaration. Static screenshots do not prove tasks, dynamics or exact paper scene fidelity."
+    },
+    {
+      "id": "ot2-reservoir-release-diagnostic",
+      "title": "OT2 reservoir · true-release diagnostic",
+      "evidence_sha256": "5f753f7450dbefbe081c821b44a2b4ebaebbc76a21e7414d80f1b948f84c04be",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Bounded44.5s physical pickup, transfer, placement, release and retreat test. Only the reservoir release and retreat finger target changes to the observed native open command. Original hold and placement gates remain; added actual-opening and no-contact checks are independent.",
+      "metrics": {
+        "observed_native_seconds": 21.0,
+        "native_steps": 12600,
+        "planned_seconds": 44.5,
+        "planned_steps": 26700
+      },
+      "remaining": "Runtime progress only. Terminal native-state and contact audit determine acceptance. This source-only diagnostic cannot replace a new complete three-object trial or resolve the separate plate-ground collision."
     }
   ],
   "active": {
     "id": "auto_repro_ur5e_interface1920_seed401_cuda_r3",
-    "phase": "RETURN_ABOVE_SOURCE",
+    "phase": "RELEASE",
     "process_verified_alive": true,
-    "simulation_s": 17.000000000035666,
-    "physics_steps": 136000,
-    "sampled_at_utc": "2026-10-14T04:20:48.947510+00:00"
+    "simulation_s": 20.00000000004999,
+    "physics_steps": 160000,
+    "sampled_at_utc": "2026-10-14T04:30:36.021279+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
