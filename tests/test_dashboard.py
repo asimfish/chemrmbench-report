@@ -127,6 +127,33 @@ class PublicBoundary(unittest.TestCase):
                     publish({'site_root': temporary, 'snapshot_path': str(path)})
                 git.assert_not_called()
 
+    def test_matched_branches_show_saved_failure_without_claiming_success(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()
+            atomic_json(raw/'parent_running.json',{'pid':12345})
+            atomic_json(raw/'parent_resource.json',{'exit_code':0})
+            atomic_json(raw/'parent/RESULT.json',{'status':'BASELINE_COMMANDS_COMPLETED'})
+            control=raw/'branches/no_fault/child_first';control.mkdir(parents=True)
+            atomic_json(control/'RESULT.json',{'status':'BASELINE_COMMANDS_COMPLETED'})
+            failed=raw/'branches/recovery/child_first';failed.mkdir(parents=True)
+            atomic_json(failed/'task_clock_accounting.json',{'outcome':'FAILED','phase_callbacks':{'RESTORE':30}})
+            atomic_json(raw/'recovery_retry_running.json',{'pid':12345})
+            phases=['parent','no_fault_first','recovery_first','recovery_retry','expired_first']
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V91','path':str(raw),'phases':phases}]}
+            with patch('export_dashboard.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)[0]
+            self.assertEqual(result['planned_stages'],5)
+            self.assertEqual(result['committed_stages'],3)
+            self.assertEqual(result['stages'][2]['label'],'可行中断证据保存')
+            self.assertFalse(result['stages'][3]['committed'])
+            self.assertFalse(result['stages'][4]['committed'])
+            # A failed branch that already sent actions cannot be displayed as
+            # a zero-tail interruption/refusal boundary.
+            atomic_json(failed/'task_clock_accounting.json',{'outcome':'FAILED','phase_callbacks':{'TAIL_COMMANDS':1}})
+            with patch('export_dashboard.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)[0]
+            self.assertFalse(result['stages'][2]['committed'])
+
     def test_dirty_checkout_cannot_be_staged_or_pushed(self):
         with tempfile.TemporaryDirectory() as temporary:
             from dashboard_io import utcnow

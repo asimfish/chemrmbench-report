@@ -151,15 +151,23 @@ def live_runs(config):
         phases=registration.get('phases',['parent','child'])
         if phases not in (['parent','child'],['parent','child_expired','child_retry'],
                           ['parent','child_expired_resource_retry1','child_retry'],
-                          ['parent','child_interrupted','child_retry']):
+                          ['parent','child_interrupted','child_retry'],
+                          ['parent','no_fault_first','recovery_first','recovery_retry','expired_first']):
             raise ValueError('unregistered native phase plan')
         labels={'parent':'父阶段封存','child':'新进程核验','child_expired':'过期提案拒绝',
                 'child_expired_resource_retry1':'过期提案拒绝','child_interrupted':'中断失败证据保留',
-                'child_retry':'从父检查点单次重试'}
+                'child_retry':'从父检查点单次重试','no_fault_first':'无故障冷续跑对照',
+                'recovery_first':'可行中断证据保存','recovery_retry':'保留原期限重试',
+                'expired_first':'原期限过期拒绝'}
+        matched_paths={'no_fault_first':'branches/no_fault/child_first',
+                       'recovery_first':'branches/recovery/child_first',
+                       'recovery_retry':'branches/recovery/child_retry',
+                       'expired_first':'branches/expired/child_first'}
         for phase in phases:
             receipt = raw / (phase + '_running.json')
             resource = raw / (phase + '_resource.json')
-            result_path = raw / ('child_expired' if phase=='child_expired_resource_retry1' else phase) / 'RESULT.json'
+            output = raw / matched_paths.get(phase,'child_expired' if phase=='child_expired_resource_retry1' else phase)
+            result_path = output / 'RESULT.json'
             if receipt.exists() and not resource.exists():
                 pid = number(read_json(receipt)['pid'], integer=True)
                 try:
@@ -168,6 +176,12 @@ def live_runs(config):
                 except OSError:
                     pass
             refused=phase in ('child_expired','child_expired_resource_retry1','child_interrupted') and (raw/'RETRY_GATE.json').exists()
+            if phase in ('recovery_first','expired_first') and (output/'task_clock_accounting.json').exists():
+                account=read_json(output/'task_clock_accounting.json')
+                expected='FAILED' if phase=='recovery_first' else 'REFUSED'
+                refused=(account['outcome']==expected and
+                         account['phase_callbacks'].get('TAIL_COMMANDS',0)==0 and
+                         not (output/'task/agent/dispatch.json').exists())
             stage_list.append({'label': labels[phase],
                                'duration_s': 0.0, 'committed': result_path.exists() or refused})
         if alive:
