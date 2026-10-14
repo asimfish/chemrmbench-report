@@ -149,7 +149,7 @@ def live_runs(config):
         stage_list = []
         alive = False
         phases=registration.get('phases',['parent','child'])
-        if phases not in (['parent','child'],['parent','child_expired','child_retry'],
+        if phases not in (['parent','child'],['parent','no_fault_first'],['parent','child_expired','child_retry'],
                           ['parent','child_expired_resource_retry1','child_retry'],
                           ['parent','child_interrupted','child_retry'],
                           ['parent','no_fault_first','recovery_first','recovery_retry','expired_first']):
@@ -264,6 +264,7 @@ def collect(config):
                 collector={'state': state}, counts=counts, latest=latest,
                 active_runs=active, gpus=gpus, tasks=worklines(latest), evidence_notes=notes,
                 history=[
+                    {'date':'2026-10-14','title':'V92 · 八阶段完整状态保存验收，重建覆盖仍为一个边界','detail':'8份归档各含65个登记实体、速度与控制目标；源动作游标和宿主步数分开保存，持久化不推进物理。91个父文件不变；1次冷重建只跑5507步余程，原A→B误差−4.165至+4.168ms，放回0.383mm。2次调用/22,398tokens/GPU分配上界0.115h。启动显存拒绝保留，仅补启动子进程，无重采或额外模型调用。保存8/8，重建1/8；携物、液体和完整长链未验收。'},
                     {'date':'2026-10-14','title':'V91 · 同原事件期限的三分支执行器对照','detail':'无故障冷续跑、中断后原期限重试均满足 −4.165 至 +4.168 ms；过期开始窗口在 44.125 s 拒绝，0 余程动作。中断 3.125 原生秒全部计入；71 父文件不变，4 次各 65 实体 ×30 步重建。2 次实际先验调用 /22,400 tokens /GPU 分配上界0.234 h。固定240步交付不是实测模型延迟；8段轨迹证据只含1个已验收完整场景任务检查点。'},
                     {'date':'2026-10-14','title':'V90 · 中断与重建后保持原事件期限','detail':'原抬瓶事件 16.863–16.867 任务秒；接触 46.863–46.867，原目标间隔 30 秒。失败消耗 2.3875 原生秒被完整扣除，两次各 30 步重建均计时。71 个父文件不变、余程 5,507 步、放回误差 0.456 mm；误差 −4.165 至 +4.168 ms。4 次调用 / 44,853 tokens / GPU 分配上界 0.138 h。进程间任务时钟明确暂停，非化学连续钟或记忆因果收益。'},
                     {'date':'2026-10-14','title':'V88/V89 · 时钟下端点修复与调用路径诊断','detail':'修复可以排程与此刻可执行的混淆；22 项 CPU 时钟检查和 5 项临时目录检查通过。V89 两次真实封存输入诊断共 22,390 tokens，无新增物理执行；旧版本路径提示风险仍保留在证据边界中。'},
@@ -281,8 +282,8 @@ def collect(config):
                     {'date': '2026-10-12', 'title': 'V74 · 分阶段长任务诊断', 'detail': '建立按阶段保留状态、图像、液体和边界证据的开发采集路径；不授予物理重启能力。'},
                 ],
                 next_steps=[
-                    '刚体原事件期限已随阶段保留；下一步检验原期限过期拒绝、随机化记忆与等指令匹配对照。',
-                    '在新的版本目录延长采集时长，完整保留模型延迟启动后的 70 个动作目标和保持终态。',
+                    '八阶段完整登记状态已保存；逐个增加原生重建边界，再验收跨新检查点的记忆与原期限绑定。',
+                    '加入父进程不断开的连续对照、随机化事件时间和等指令记忆干预；旧失败及旧阶段文件保留。',
                     '校准真实 A 事件、视觉提示与 B 实际操作之间的延迟；保留区间计分和失败。',
                     '建立独立 A/B 操作、剂量和泄漏验证，再扩展五路技能、随机起始与 M1 短暂提示。',
                     '完成独立验收与匹配对照后，将合格经验送入训练，并更新论文结果与机制图。',

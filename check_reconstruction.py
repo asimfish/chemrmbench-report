@@ -340,10 +340,42 @@ assert hashlib.sha256((root/coverage['receipt']).read_bytes()).hexdigest()==cove
 for value in (json.loads((root/matched['receipt']).read_text()),json.loads((root/coverage['receipt']).read_text())):
     assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(value))
 
+archive=data.get('stage_state_archive_probe')
+if archive:
+    assert archive['status']=='PASS_SCOPED_FULL_REGISTERED_STAGE_STATE_NATIVE_ARCHIVE'
+    assert archive['committed_evidence_stages']==archive['full_registered_stage_archives']==len(archive['stages'])==8
+    assert archive['entities_per_archive']==65
+    assert archive['full_world_task_checkpoint_boundaries']==archive['native_restart_verified_task_boundaries']==1
+    assert archive['verified_cold_restore_attempts']==1 and archive['parent_files_preserved']==91
+    assert archive['model_calls']==2 and archive['known_billed_tokens']<=32768
+    assert archive['total_allocated_gpu_hours_upper_bound']<.24166666666666667
+    assert archive['agent_context_and_task_timer_rebound'] is archive['saved_state_reconstruction_equivalence_claimed'] is False
+    assert archive['full_long_chain_restart_accepted'] is archive['midcarry_restart_accepted'] is archive['liquid_restart_accepted'] is False
+    assert archive['scientific_admission'] is archive['formal_M1_admission'] is archive['training_admission'] is False
+    assert archive['receipt']=='artifacts/stage-state-v92.json'
+    assert hashlib.sha256((root/archive['receipt']).read_bytes()).hexdigest()==archive['receipt_sha256']
+    assert all(-20<=v<=20 for v in archive['original_event_error_interval_ms'])
+    assert archive['final_return_error_mm']<1
+    assert sum(s['full_world_checkpoint_sealed'] for s in archive['stages'])==1
+    assert sum(s['native_restart_verified'] for s in archive['stages'])==1
+    expected=[('approach',2400),('grasp',3840),('lift',4560),('transport',6480),('place_release',7920),('regrasp',9600),('return',12707),('retreat',13427)]
+    assert [(s['stage'],s['source_end_command']) for s in archive['stages']]==expected
+    for s in archive['stages']:
+        assert s['full_registered_state_archived'] and s['registered_entities']==65
+        assert s['physics_callbacks_during_persistence']==0 and s['exact_live_roundtrip']
+        assert s['source_command_cursor']==s['source_end_command']==s['frame']['source_command_cursor']
+        assert re.fullmatch(r'assets/native-v92/'+s['stage']+r'\.jpg',s['frame']['image'])
+        assert hashlib.sha256((root/s['frame']['image']).read_bytes()).hexdigest()==s['frame']['image_sha256']
+        assert re.fullmatch(r'[a-f0-9]{64}',s['state_sha256'])
+        assert s['native_restart_verified']==(s['stage']=='place_release')
+    assert archive['stages'][5]['recorded_host_tick']!=archive['stages'][5]['source_command_cursor']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',(root/archive['receipt']).read_text())
+
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
                      matched_original_deadline_contract_pass=True,
                      verified_task_checkpoint_boundaries=1,
                      committed_evidence_stages=8,
+                     full_registered_state_archives=8 if archive else 1,
                      native_bottle_frames=30 if bottle else 0,
                      native_bottle_pair_pass=bool(bottle),
                      native_mid_task_resume_pass=bool(mid),

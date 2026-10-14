@@ -116,6 +116,26 @@ class PublicBoundary(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'unregistered'):
                 live_runs(config)
 
+    def test_single_cold_child_progress_uses_nested_output_without_granting_archive_admission(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()
+            atomic_json(raw/'parent_running.json',{'pid':12345})
+            atomic_json(raw/'parent_resource.json',{'exit_code':0})
+            atomic_json(raw/'parent/RESULT.json',{'status':'BASELINE_COMMANDS_COMPLETED'})
+            child=raw/'branches/no_fault/child_first';child.mkdir(parents=True)
+            atomic_json(raw/'no_fault_first_running.json',{'pid':12345})
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V92','path':str(raw),'phases':['parent','no_fault_first']}]}
+            with patch('export_dashboard.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)[0]
+            self.assertEqual(result['planned_stages'],2)
+            self.assertEqual(result['committed_stages'],1)
+            self.assertFalse(result['stages'][1]['committed'])
+            atomic_json(child/'RESULT.json',{'status':'BASELINE_COMMANDS_COMPLETED'})
+            with patch('export_dashboard.Path.read_bytes',return_value=str(raw).encode()):
+                result=live_runs(config)[0]
+            self.assertEqual(result['committed_stages'],2)
+            self.assertNotIn('physical_restart_admitted',result)
+
     def test_stale_snapshot_is_not_republished(self):
         data = copy.deepcopy(self.public)
         data['sampled_at_utc'] = '2000-01-01T00:00:00+00:00'
