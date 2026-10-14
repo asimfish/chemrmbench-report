@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T08:32:23.966488+00:00",
+  "exported_at_utc": "2026-10-14T08:42:22.681822+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2065,13 +2065,13 @@
     {
       "id": "ot2-continuous-noasp-r9-restart1",
       "title": "OT2 complete sequence R9 · noasp_r9_restart1 · CONTINUOUS_PIPETTING",
-      "evidence_sha256": "76f2f8627d1da3de665c358a92204ba88c25577a20de9448c1e4ba302aebbe8b",
+      "evidence_sha256": "ed5555013e35169e11390ba8211f1d46501fcd3b8ca68f4e9be0b37674220ce9",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: source_1_retract. Separate local passes are not imported as state or counted as the full result.",
+      "scope": "One uninterrupted scene: plate, reservoir and rack loading, then64 strict pipetting events. Current native phase: destination_3_retract. Separate local passes are not imported as state or counted as the full result.",
       "metrics": {
-        "native_seconds": 163.0,
-        "native_steps": 97800,
+        "native_seconds": 197.0,
+        "native_steps": 118200,
         "completed_objects": 3,
         "native_cap_seconds": 260.0,
         "wall_cap_seconds": 7200
@@ -2369,9 +2369,9 @@
     "id": "ot2_repro_three_labware_complete_noasp_r9_restart1",
     "phase": "CONTINUOUS_PIPETTING",
     "process_verified_alive": true,
-    "simulation_s": 163.0,
-    "physics_steps": 97800,
-    "sampled_at_utc": "2026-10-14T08:32:20.720630+00:00"
+    "simulation_s": 197.0,
+    "physics_steps": 118200,
+    "sampled_at_utc": "2026-10-14T08:42:12.077595+00:00"
   },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
