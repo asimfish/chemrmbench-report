@@ -150,10 +150,12 @@ def live_runs(config):
         alive = False
         phases=registration.get('phases',['parent','child'])
         if phases not in (['parent','child'],['parent','child_expired','child_retry'],
-                          ['parent','child_expired_resource_retry1','child_retry']):
+                          ['parent','child_expired_resource_retry1','child_retry'],
+                          ['parent','child_interrupted','child_retry']):
             raise ValueError('unregistered native phase plan')
         labels={'parent':'父阶段封存','child':'新进程核验','child_expired':'过期提案拒绝',
-                'child_expired_resource_retry1':'过期提案拒绝','child_retry':'从父检查点单次重试'}
+                'child_expired_resource_retry1':'过期提案拒绝','child_interrupted':'中断失败证据保留',
+                'child_retry':'从父检查点单次重试'}
         for phase in phases:
             receipt = raw / (phase + '_running.json')
             resource = raw / (phase + '_resource.json')
@@ -165,7 +167,7 @@ def live_runs(config):
                     alive |= str(raw).encode() in command
                 except OSError:
                     pass
-            refused=phase in ('child_expired','child_expired_resource_retry1') and (raw/'RETRY_GATE.json').exists()
+            refused=phase in ('child_expired','child_expired_resource_retry1','child_interrupted') and (raw/'RETRY_GATE.json').exists()
             stage_list.append({'label': labels[phase],
                                'duration_s': 0.0, 'committed': result_path.exists() or refused})
         if alive:
@@ -210,14 +212,14 @@ def worklines(latest):
              '1 条开发轨迹', '限定工程交付通过', 'BLOCKED · 化学标定缺失', '补完整第二段动作与事件标定'),
         task('stages', 'DATA · 长任务', '长任务分步保存', 'development',
              '将长试次分成固定采集时间段，逐段提交证据并绑定同一个父试次。',
-             'V83/V84 完成短时线索与语义记忆冷恢复、10/16 秒定时接触；V85 连续积分期间按已消耗时间排程通过。各次只执行余程 5,507 步。V86 瓶体操作通过，但计时失败。V87 已完成过期拒绝与子阶段单次重试；原事件期限和液体仍待验收。',
-             [('已保留前阶段', '5 段'), ('恢复后执行', '5,507 步'), ('最终放回误差', '0.33 mm'), ('训练准入', 0)],
-             '前五段 + 恢复后三段', '刚体释放边界原生续跑通过', '开发数据 · 不计正式样本', '超时拒绝、子阶段重试、随机化记忆和独立化学计时'),
+             'V90 以原抬瓶事件为锚点，首次中断的 2.3875 原生秒及两次重建步全部扣除；重试不重设期限。71 个父文件保持一致，只执行 5,507 步余程。原事件到接触的误差区间 −4.165 至 +4.168 ms。化学、液体及完整长链仍待验收。',
+             [('已保留前阶段', '5 段'), ('恢复后执行', '5,507 步'), ('最终放回误差', '0.456 mm'), ('训练准入', 0)],
+             '前五段 + 恢复后三段', '刚体原事件期限恢复限定通过', '开发数据 · 不计正式样本', '原期限过期拒绝、匹配对照与独立化学计时'),
         task('memory', 'M1 · 事件记忆', '短暂提示与事件记忆', 'development',
              '提示消失后仍需记住接收器身份和事件时间，并执行对应操作。',
-             'V82 完成封存图像读出；V83/V84 两个暂停条件和 V85 连续条件接触计时通过。V86 延迟基线晚于 10 秒目标 5.413–5.417 秒；失败保留。正式随机化 M1 与化学计时未验收。',
-             [('封存图像读出调用', 5), ('原生试次模型调用', 16), ('已测计时条件', 4), ('正式 M1 样本', 0)],
-             '封存图像诊断 + 原生计时试次', '三例通过，一例计时失败；非配对成功率', '正式 M1 未验收', '保留原事件期限，再扩展随机化'),
+             'V90 首次完成原抬瓶事件到重试接触的期限保持。V89 的临时目录诊断只有两次封存输入调用，无新增物理试次；模型上游环境仍未完全核验。V86 的计时失败保留。正式随机化 M1 与化学计时未验收。',
+             [('封存图像读出调用', 7), ('原生试次模型调用', 20), ('原期限恢复案例', 1), ('正式 M1 样本', 0)],
+             '封存输入诊断 + 原生计时试次', '原期限限定通过；非配对成功率', '正式 M1 未验收', '随机化事件、等指令记忆干预与时间对照'),
         task('calibration', 'CAL · 物理标定', '化学事件、剂量与泄漏', 'blocked',
              '区分命令、视觉提示、实际运动与化学事件；再检验时间准确性和过程安全。',
              '杯外代理点不等于标定泄漏体积。当前没有独立试剂 A/B、传感器事件标定或外部校准。',
@@ -248,6 +250,8 @@ def collect(config):
                 collector={'state': state}, counts=counts, latest=latest,
                 active_runs=active, gpus=gpus, tasks=worklines(latest), evidence_notes=notes,
                 history=[
+                    {'date':'2026-10-14','title':'V90 · 中断与重建后保持原事件期限','detail':'原抬瓶事件 16.863–16.867 任务秒；接触 46.863–46.867，原目标间隔 30 秒。失败消耗 2.3875 原生秒被完整扣除，两次各 30 步重建均计时。71 个父文件不变、余程 5,507 步、放回误差 0.456 mm；误差 −4.165 至 +4.168 ms。4 次调用 / 44,853 tokens / GPU 分配上界 0.138 h。进程间任务时钟明确暂停，非化学连续钟或记忆因果收益。'},
+                    {'date':'2026-10-14','title':'V88/V89 · 时钟下端点修复与调用路径诊断','detail':'修复可以排程与此刻可执行的混淆；22 项 CPU 时钟检查和 5 项临时目录检查通过。V89 两次真实封存输入诊断共 22,390 tokens，无新增物理执行；旧版本路径提示风险仍保留在证据边界中。'},
                     {'date': '2026-10-14', 'title': 'V87 · 过期拒绝与失败子阶段单次重试通过', 'detail': '58 步真实模型调用积分 + 1,440 步声明的交付延迟后拒绝提案，未执行余程。45 个父阶段文件和记忆保持一致；新进程单次重试只执行 5,507 步，接触 10.000–10.004 秒，放回误差 0.406 mm。四次调用 / 44,816 tokens / GPU 分配上界 0.148 h。重试是新尝试，不代表连续化学期限已恢复。'},
                     {'date': '2026-10-14', 'title': 'V86 · 延迟基线完成，计时失败原样保留', 'detail': '调用期间积分 1,299 步 / 5.413 原生秒，返回后仍等完整间隔；实际接触 15.413–15.417 秒，违反 10 秒目标。瓶体放回误差 0.444 mm；计时误差由漏记的原生时间加采样残差解释。模型宿主耗时 24.44 秒，与原生时间分开报告。'},
                     {'date': '2026-10-14', 'title': 'V85 · 连续积分时只等待未消耗的时间', 'detail': 'Astra 调用期间推进 67 步 / 0.279 原生秒；随后等待剩余 1,092 步。接触 10.000–10.004 秒，放回误差 0.406 mm。清空对照在 GPU 工作进程结束后离线调用；不是实时部署或配对成功率。'},
@@ -262,7 +266,7 @@ def collect(config):
                     {'date': '2026-10-12', 'title': 'V74 · 分阶段长任务诊断', 'detail': '建立按阶段保留状态、图像、液体和边界证据的开发采集路径；不授予物理重启能力。'},
                 ],
                 next_steps=[
-                    '短时线索、连续计时、过期拒绝与单次重试已测；补事件期限随阶段保留，再做随机化记忆与延迟对照。',
+                    '刚体原事件期限已随阶段保留；下一步检验原期限过期拒绝、随机化记忆与等指令匹配对照。',
                     '在新的版本目录延长采集时长，完整保留模型延迟启动后的 70 个动作目标和保持终态。',
                     '校准真实 A 事件、视觉提示与 B 实际操作之间的延迟；保留区间计分和失败。',
                     '建立独立 A/B 操作、剂量和泄漏验证，再扩展五路技能、随机起始与 M1 短暂提示。',

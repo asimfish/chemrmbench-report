@@ -1,6 +1,6 @@
 {
   "schema": "chemrm-preserved-scenes-v1",
-  "verified_at_utc": "2026-10-13T17:42:38.631288+00:00",
+  "verified_at_utc": "2026-10-14T03:29:25.129028+00:00",
   "history_message_count": 40496,
   "scenes": [
     {
@@ -1209,5 +1209,88 @@
         "label": "新进程单次重试 · 执行余程后的放回终态"
       }
     ]
+  },
+  "original_event_clock_probe": {
+    "status": "PASS_SCOPED_NATIVE_ORIGINAL_EVENT_DEADLINE_RECOVERY",
+    "scientific_admission": false,
+    "training_admission": false,
+    "formal_M1_admission": false,
+    "full_benchmark_pass": false,
+    "original_deadline_reset": false,
+    "clock_policy": "PAUSED_BETWEEN_OWNED_PROCESSES_NATIVE_ONLY",
+    "original_requested_gap_s": 30.0,
+    "original_event_a_task_bounds_s": [
+      16.862500879447907,
+      16.866667546331882
+    ],
+    "event_b_task_bounds_s": [
+      46.86250244406983,
+      46.86666911095381
+    ],
+    "original_error_interval_ms": [
+      -4.165102262049913,
+      4.168231505900621
+    ],
+    "failed_native_elapsed_s": 2.3875001245178282,
+    "parent_files_preserved": 71,
+    "retry_tail_commands": 5507,
+    "failed_tail_commands": 0,
+    "attempts": {
+      "interrupted": {
+        "model_host_elapsed_s": 12.976087005110458,
+        "model_native_elapsed_s": 0.26250001369044185,
+        "native_clock_id": "native_v90:child:7778c6c708f45f12",
+        "native_elapsed_s": 2.3875001245178282,
+        "native_end_s": 7.3958337190561,
+        "native_origin_s": 5.008333594538271,
+        "outcome": "FAILED",
+        "phase_callbacks": {
+          "INJECTED_REVERSIBLE_INTERRUPTION": 480,
+          "MODEL_READOUT": 63,
+          "RESTORE": 30
+        },
+        "task_end_s": 35.387501845601946,
+        "task_origin_s": 33.00000172108412
+      },
+      "retry": {
+        "model_host_elapsed_s": 16.740669026970863,
+        "model_native_elapsed_s": 2.8875001505948603,
+        "native_clock_id": "native_v90:child:22e8bd2795ac2263",
+        "native_elapsed_s": 29.250001525506377,
+        "native_end_s": 34.25833512004465,
+        "native_origin_s": 5.008333594538271,
+        "outcome": "COMPLETED",
+        "phase_callbacks": {
+          "MODEL_READOUT": 693,
+          "RESTORE": 30,
+          "TAIL_COMMANDS": 5507,
+          "WAIT_FOR_ORIGINAL_EVENT_START": 790
+        },
+        "task_end_s": 64.63750337110832,
+        "task_origin_s": 35.387501845601946
+      }
+    },
+    "known_billed_tokens": 44853,
+    "total_allocated_gpu_hours_upper_bound": 0.13832962896228612,
+    "frames": [
+      {
+        "image": "assets/native-v90/cue.jpg",
+        "image_sha256": "c72aeade162944afc718d9f779259bc61b61af04ec320afa28fc7b5d742f9969",
+        "label": "原抬瓶事件报告时的真实线索画面"
+      },
+      {
+        "image": "assets/native-v90/interrupted.jpg",
+        "image_sha256": "e838b9147313e01a982f45bbfe6273d414ab9852b0f3bc71a8e44be35e762bba",
+        "label": "首次恢复观测，摄于模型答复及中断前"
+      },
+      {
+        "image": "assets/native-v90/finished.jpg",
+        "image_sha256": "f451955d88600e03a40e739db2e676420d578c9181851c1afbf9c0d546443b1c",
+        "label": "保持原期限重试后的真实完成画面"
+      }
+    ],
+    "receipt": "artifacts/event-clock-v90.json",
+    "receipt_sha256": "dcbee6c25fb175020a04ef9b001f7967718e93b136d911cda41383efd1e45241",
+    "retry_return_error_mm": 0.4562136262307563
   }
 }

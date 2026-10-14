@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import math
 
 root=Path(__file__).resolve().parent
 data=json.loads((root/'data/reconstruction.json').read_text())
@@ -257,6 +258,44 @@ for f in p['frames']:
     assert re.fullmatch(r'assets/native-v87/(cue|refused|finished)\.jpg',f['image'])
     assert hashlib.sha256((root/f['image']).read_bytes()).hexdigest()==f['image_sha256']
 assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|ssh\s',json.dumps(r))
+
+
+# Original-event scope is separate from the historical new-origin cases.
+original=data.get('original_event_clock_probe')
+if original:
+    assert original['status']=='PASS_SCOPED_NATIVE_ORIGINAL_EVENT_DEADLINE_RECOVERY'
+    for key in ('scientific_admission','training_admission','formal_M1_admission','full_benchmark_pass','original_deadline_reset'):
+        assert original[key] is False,key
+    assert original['clock_policy']=='PAUSED_BETWEEN_OWNED_PROCESSES_NATIVE_ONLY'
+    assert original['receipt']=='artifacts/event-clock-v90.json'
+    path=root/original['receipt'];assert hashlib.sha256(path.read_bytes()).hexdigest()==original['receipt_sha256']
+    detail=json.loads(path.read_text())
+    assert detail['original_deadline_pass'] is True
+    assert detail['all_restore_native_steps_debited'] is detail['retry_task_origin_includes_failed_elapsed'] is True
+    assert detail['matched_control_native_trials']==0 and detail['causal_memory_benefit_identified'] is False
+    assert detail['chemical_event_verified'] is detail['wall_real_time_claim'] is detail['native_clock_continuous_across_rebuild'] is False
+    a=original['original_event_a_task_bounds_s'];b=original['event_b_task_bounds_s'];gap=original['original_requested_gap_s']
+    calculated=[(b[0]-a[1]-gap)*1000,(b[1]-a[0]-gap)*1000]
+    assert all(math.isclose(x,y,abs_tol=1e-8,rel_tol=0) for x,y in zip(calculated,original['original_error_interval_ms']))
+    assert all(abs(x)<=20 for x in calculated)
+    attempts=original['attempts'];first=attempts['interrupted'];retry=attempts['retry']
+    assert first['outcome']=='FAILED' and retry['outcome']=='COMPLETED'
+    assert first['task_end_s']==retry['task_origin_s']
+    assert first['phase_callbacks']['RESTORE']==retry['phase_callbacks']['RESTORE']==30
+    assert first['phase_callbacks']['INJECTED_REVERSIBLE_INTERRUPTION']==480
+    assert original['failed_tail_commands']==0 and original['retry_tail_commands']==5507
+    assert first['native_clock_id']!=retry['native_clock_id']
+    assert retry['phase_callbacks']['TAIL_COMMANDS']==5507
+    assert original['parent_files_preserved']==detail['parent_files_preserved']==71
+    assert original['retry_return_error_mm']==detail['phases']['child_retry']['placement_error_mm']<1
+    assert original['known_billed_tokens']==detail['known_billed_tokens']==44853
+    assert detail['opaque_actor_workspaces_verified'] is True and detail['undocumented_provider_context_attested'] is False
+    assert len(original['frames'])==3
+    for frame in original['frames']:
+        assert re.fullmatch(r'assets/native-v90/(cue|interrupted|finished)\.jpg',frame['image'])
+        assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(detail))
+
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
                      native_bottle_frames=30 if bottle else 0,
                      native_bottle_pair_pass=bool(bottle),

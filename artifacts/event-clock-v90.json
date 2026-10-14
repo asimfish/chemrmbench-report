@@ -1,0 +1,185 @@
+{
+  "all_restore_native_steps_debited": true,
+  "attempts": {
+    "interrupted": {
+      "model_host_elapsed_s": 12.976087005110458,
+      "model_native_elapsed_s": 0.26250001369044185,
+      "native_clock_id": "native_v90:child:7778c6c708f45f12",
+      "native_elapsed_s": 2.3875001245178282,
+      "native_end_s": 7.3958337190561,
+      "native_origin_s": 5.008333594538271,
+      "outcome": "FAILED",
+      "phase_callbacks": {
+        "INJECTED_REVERSIBLE_INTERRUPTION": 480,
+        "MODEL_READOUT": 63,
+        "RESTORE": 30
+      },
+      "task_end_s": 35.387501845601946,
+      "task_origin_s": 33.00000172108412
+    },
+    "retry": {
+      "model_host_elapsed_s": 16.740669026970863,
+      "model_native_elapsed_s": 2.8875001505948603,
+      "native_clock_id": "native_v90:child:22e8bd2795ac2263",
+      "native_elapsed_s": 29.250001525506377,
+      "native_end_s": 34.25833512004465,
+      "native_origin_s": 5.008333594538271,
+      "outcome": "COMPLETED",
+      "phase_callbacks": {
+        "MODEL_READOUT": 693,
+        "RESTORE": 30,
+        "TAIL_COMMANDS": 5507,
+        "WAIT_FOR_ORIGINAL_EVENT_START": 790
+      },
+      "task_end_s": 64.63750337110832,
+      "task_origin_s": 35.387501845601946
+    }
+  },
+  "backend_model_id": null,
+  "calls": [
+    {
+      "decision": null,
+      "known_billed_tokens": 11013,
+      "path": "agent_requests/ingest"
+    },
+    {
+      "decision": "schedule",
+      "known_billed_tokens": 11370,
+      "path": "attempts/interrupted/agent_requests/retained"
+    },
+    {
+      "decision": "schedule",
+      "known_billed_tokens": 11371,
+      "path": "attempts/retry/agent_requests/retained"
+    },
+    {
+      "decision": "wait",
+      "known_billed_tokens": 11099,
+      "path": "attempts/retry/agent_requests/cleared"
+    }
+  ],
+  "causal_memory_benefit_identified": false,
+  "chemical_event_verified": false,
+  "clock_policy": "PAUSED_BETWEEN_OWNED_PROCESSES_NATIVE_ONLY",
+  "event_b_task_bounds_s": [
+    46.86250244406983,
+    46.86666911095381
+  ],
+  "failed_native_elapsed_s": 2.3875001245178282,
+  "failed_tail_commands": 0,
+  "formal_M1_admission": false,
+  "full_benchmark_pass": false,
+  "graceful_sdk_cleanup_pass": false,
+  "hidden_model_state_restored": false,
+  "hidden_solver_state_restored": false,
+  "known_billed_tokens": 44853,
+  "matched_control_native_trials": 0,
+  "memory_sha256": "3fcc5128f243dc9ba43141b6c1f5acf8fa8d4f77f2e3a1a4cc87161b805467dd",
+  "model_calls": 4,
+  "native_clock_continuous_across_rebuild": false,
+  "no_gpu_or_provider_calls_during_review": true,
+  "opaque_actor_workspaces_verified": true,
+  "original_deadline_pass": true,
+  "original_deadline_reset": false,
+  "original_error_interval_ms": [
+    -4.165102262049913,
+    4.168231505900621
+  ],
+  "original_event_a_task_bounds_s": [
+    16.862500879447907,
+    16.866667546331882
+  ],
+  "original_requested_gap_s": 30.0,
+  "parent_files_preserved": 71,
+  "parent_prefix_preserved": true,
+  "parent_recollection_commands": 0,
+  "phases": {
+    "child_retry": {
+      "commands": 5507,
+      "committed_stages": 3,
+      "maximum_relative_displacement_mm": 6.064420928319637,
+      "native_epoch": "native_v90:child:22e8bd2795ac2263",
+      "native_rgbd_snapshots": 8,
+      "placement_error_mm": 0.4562136262307563,
+      "state_writes_during_task": 0,
+      "transport_bilateral_contact_fraction": 0.9980513153621305
+    },
+    "parent": {
+      "commands": 7920,
+      "committed_stages": 5,
+      "maximum_relative_displacement_mm": 1.6961878267455237,
+      "native_epoch": "native_v90:parent:1f88801d573edb65",
+      "native_rgbd_snapshots": 8,
+      "placement_error_mm": 1.7060533535467572,
+      "state_writes_during_task": 0,
+      "transport_bilateral_contact_fraction": 0.9982724580454096
+    }
+  },
+  "pinned_files_verified": 120,
+  "public_event_sensor": "DECLARED_IDEAL_CAUSAL_SIMULATION_INSTRUMENT",
+  "raw_artifact_sha256": {
+    "EVENT_TIMER_SOURCE_BINDING.json": "710431e0197ee7a49267addcf9f745e249e42a495c0caaf7a4d4f393c01c0e9a",
+    "PARENT_PRESERVATION_AFTER_CHILDREN.json": "95fc24f01f1d300e8935ed2cd23b65acb731ad57a8aafc580e69266dec80746d",
+    "PREDECLARED.json": "80590e258d700da00e55d654896518610f20d6ae00596baf6010f4d6fc370f3a",
+    "RETRY_GATE.json": "67c40f057623df65c2e40523867c3dd7ee8028beeb44ac1caa5957ae2d6f58f8",
+    "agent_checkpoint/memory.json": "3fcc5128f243dc9ba43141b6c1f5acf8fa8d4f77f2e3a1a4cc87161b805467dd",
+    "child_interrupted/task_clock_native_steps.jsonl": "7e094478cbd39bfb734b8e0985bf1dc64a849ae435a6397712e9e41a25fe6a92",
+    "child_retry/task/contact_rows.jsonl": "e0455dab046f676621a6c86adc320e66043529754238a306cd621477e6775b2d",
+    "child_retry/task/independent_score.json": "cbf29bb0618e63a8f73bcf8d5fac266f06f9da62cc930afd01ac12ec73b06e69",
+    "child_retry/task/operation_events.json": "ca6aab9ac0ac2d8adad27e6f34b77703e4620d95788248355603b278e86c5a4d",
+    "child_retry/task/states.jsonl": "1f266abe84bf01383f79217f3b20979495e314f2d6f442fe80fedb9c03da6eb6",
+    "child_retry/task_clock_native_steps.jsonl": "6ee76fcd9ccf63a72ba8fcb381d7ebbcbcac486f975e71a765bc4fcfc22b1ff8",
+    "parent/task/contact_rows.jsonl": "1052d9e04c53862e21312a13544de2ad01e4a32968e30db04d1adb7dcf8e8869",
+    "parent/task/independent_score.json": "de93d64e278fa270e858e9eb3275043a72e8061b1a03c98c6aed0932bc4b00cb",
+    "parent/task/operation_events.json": "f1317e10da461ce40a4c47ff2849d32462f424a479419694c32bb707a7dd588f",
+    "parent/task/states.jsonl": "c6d184cb0a3faaebcb2e84ee990f3cf2b7abe25618bd215bc76b32b9bd85284b",
+    "source_pins.json": "1f88801d573edb65b25968e0b6e23cdd91c4de42e468bcb229018eaaf59149d2",
+    "task_timer/HEADER.json": "71bc643de47a1dfd13c2d5fb1b60aea0ca388518c85a81aafb444a596fd48521"
+  },
+  "refused_or_interrupted_attempt_task_success": false,
+  "release": {
+    "agent_memory_verified": false,
+    "context_kind": "PINNED_EXPERT_CONTROLLER_ONLY",
+    "continuous_physical_dwell_claim": false,
+    "loaded_finger_contacts": 0,
+    "maximum_orientation_drift_deg": 2.957558666942196e-06,
+    "maximum_position_drift_mm": 0.0,
+    "minimum_jaw_width_m": 0.07995855808258057,
+    "release_goal_error_mm": 1.7060533535467572,
+    "sample_count": 120,
+    "sampled_dwell_s": 0.5,
+    "scientific_admission": false,
+    "status": "PASS_RELEASED_BOTTLE_BOUNDARY"
+  },
+  "requested_model": "gpt-6-astra",
+  "restore": {
+    "interrupted": {
+      "all_original_pose_gates_pass": true,
+      "entities_each_sample": 65,
+      "initial_observed_velocity_gate_pass": true,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "transient_samples": 30
+    },
+    "retry": {
+      "all_original_pose_gates_pass": true,
+      "entities_each_sample": 65,
+      "initial_observed_velocity_gate_pass": true,
+      "maximum_position_error_mm": 0.1023045665239393,
+      "transient_samples": 30
+    }
+  },
+  "retry_tail_commands": 5507,
+  "retry_task_origin_includes_failed_elapsed": true,
+  "reviewed_at_utc": "2026-10-14T03:24:56.661035+00:00",
+  "schema": "chemrm-v90-independent-original-event-recovery-review",
+  "scientific_admission": false,
+  "skill_duration_bound_is_calibrated": false,
+  "source_checkpoint_sha256": "0dec522f3f8c8ea992afaa76bdf3029cb9f7693313fb7101c6b1e47e55a82bc5",
+  "source_pins_sha256": "1f88801d573edb65b25968e0b6e23cdd91c4de42e468bcb229018eaaf59149d2",
+  "status": "PASS_SCOPED_NATIVE_ORIGINAL_EVENT_DEADLINE_RECOVERY",
+  "timer_header_sha256": "71bc643de47a1dfd13c2d5fb1b60aea0ca388518c85a81aafb444a596fd48521",
+  "total_allocated_gpu_hours_upper_bound": 0.13832962896228612,
+  "training_admission": false,
+  "undocumented_provider_context_attested": false,
+  "wall_real_time_claim": false
+}
