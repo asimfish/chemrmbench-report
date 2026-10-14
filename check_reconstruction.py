@@ -451,7 +451,52 @@ if baseline:
     assert loaded['full_endpoint_equivalence_pass'] is False
     assert archive['native_restart_verified_task_boundaries']==1
 
+same=data.get('same_process_probe')
+if same:
+    import csv
+    assert same['status']=='FAIL_SAME_PROCESS_MATCHED_NEXT_STAGE_ENDPOINT'
+    assert same['native_workers']==2 and same['source_commands_each']==6480
+    assert same['source_command_cut']==4560 and same['transport_commands_each']==1920
+    assert same['registered_entities']==65 and same['matched_hold_steps']==30
+    assert same['both_workers_execute_prefix'] and same['loaded_intervention_inside_existing_worker']
+    assert same['initial_source_physics_and_graph_exact'] and same['matched_hold_pass']
+    assert same['restoration_writer_calls']==sum(same['restoration_call_counts'].values())==167
+    assert same['restoration_physics_callbacks']==same['model_calls']==same['training_jobs']==0
+    assert same['endpoint_bottle_orientation_error_deg']>.5
+    assert same['endpoint_bottle_position_error_mm']<1.
+    assert same['original_orientation_limit_deg']==.5 and same['original_position_limit_mm']==1.
+    assert same['thresholds_unchanged'] and same['reader_sealed_before_collection']
+    assert same['pinned_files_verified']==126 and same['live_control_files_preserved']==68
+    assert same['all_owned_native_process_groups_closed']
+    assert same['total_allocated_gpu_hours_upper_bound']<2*435/3600
+    for key in ('next_stage_pose_control_pass','fresh_process_required_for_this_failure',
+                'specific_writer_cause_established','hidden_state_cause_established',
+                'randomized_effect_measured','cold_restart_admitted','new_generic_restart_admission',
+                'full_stored_state_equivalence_certified','original_event_and_agent_timer_binding_tested',
+                'scientific_admission','training_admission','formal_M1_admission','full_benchmark_pass'):
+        assert same[key] is False,key
+    for key in ('receipt','plot','numeric_projection'):
+        path=same[key]
+        assert path.startswith(('artifacts/same-process-v95-negative.', 'assets/native-v95/'))
+        assert (root/path).resolve().is_relative_to(root.resolve())
+        assert hashlib.sha256((root/path).read_bytes()).hexdigest()==same[key+'_sha256']
+    values=[{k:float(v) for k,v in row.items()} for row in csv.DictReader((root/same['numeric_projection']).open())]
+    assert len(values)==1920 and all(math.isfinite(v) and v>=0 for row in values for v in row.values())
+    assert all(a['native_transport_s']<b['native_transport_s'] for a,b in zip(values,values[1:]))
+    assert values[-1]['orientation_error_deg']==same['endpoint_bottle_orientation_error_deg']
+    assert values[-1]['position_error_mm']==same['endpoint_bottle_position_error_mm']
+    crossing=next(row for row in values if row['orientation_error_deg']>.5)
+    assert crossing['native_transport_s']==same['first_sampled_orientation_exceedance']['aligned_native_transport_s']
+    assert len(same['frames'])==4
+    for frame in same['frames']:
+        assert re.fullmatch(r'assets/native-v95/(live_control|same_process_restore)-(04560|06480)\.jpg',frame['image'])
+        assert hashlib.sha256((root/frame['image']).read_bytes()).hexdigest()==frame['image_sha256']
+    assert not re.search(r'(?i)Bearer\s|ct-[a-f0-9]{20}|znt_[a-f0-9]{20}|/mnt/|/home/|/data/|ssh\s',json.dumps(same))
+    assert same['saved_task_boundaries']==8 and same['validated_cold_restart_boundaries']==1
+    assert archive['native_restart_verified_task_boundaries']==1
+
 print(json.dumps(dict(status='PASS',checked_scene_replays=6,checked_camera_videos=count,
+                     same_process_negative_evidence_checked=bool(same),
                      live_baseline_evidence_checked=bool(baseline),
                      loaded_continuation_accepted=False,
                      loaded_negative_evidence_checked=bool(loaded),

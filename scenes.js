@@ -128,6 +128,16 @@ function renderMatchedClock(){
   }
   node('matchedClockResult').textContent='同一封存父任务、原事件 A / 目标 D、检查点与提案，使用独立分支账本；可行重试起点 '+p.attempts.recovery_retry.task_origin_s.toFixed(4)+' s 包含首次失败全部耗时。过期开始窗口上限 '+p.start_window_task_bounds_s[1].toFixed(6)+' s，拒绝后没有重设目标或补发动作。2 次实际调用 / '+p.known_billed_tokens.toLocaleString('zh-CN')+' tokens / 原生 GPU 分配时间上界 '+p.total_allocated_gpu_hours_upper_bound.toFixed(3)+' h。';
 }
+function renderSameProcess(){
+  const p=data.same_process_probe;node('same-process').hidden=!p;if(!p)return;
+  if(p.status!=='FAIL_SAME_PROCESS_MATCHED_NEXT_STAGE_ENDPOINT'||p.restoration_writer_calls!==167||p.initial_source_physics_and_graph_exact!==true||p.matched_hold_pass!==true||p.next_stage_pose_control_pass!==false||p.cold_restart_admitted!==false||p.scientific_admission!==false)throw Error('same-process negative scope');
+  const stats=node('sameProcessStats');stats.replaceChildren();
+  for(const [label,value]of[['恢复前记录完全一致','65 实体 / 任务游标'],['恢复窗口','167 次写入 / 0 积分步'],['终态姿态 / 原门槛',p.endpoint_bottle_orientation_error_deg.toFixed(3)+'° / 0.5°'],['GPU 分配上界',p.total_allocated_gpu_hours_upper_bound.toFixed(3)+' h']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));stats.append(n);}
+  const pictures=node('sameProcessImages');pictures.replaceChildren();
+  for(const frame of p.frames){if(!/^assets\/native-v95\/(live_control|same_process_restore)-(04560|06480)\.jpg$/.test(frame.image))throw Error('invalid same-process frame');const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label+'的原生场景帧';img.loading='lazy';f.append(img,make('figcaption',frame.label+' · 第 '+frame.source_command_cursor.toLocaleString('zh-CN')+' 步'));pictures.append(f);}
+  if(p.plot!=='assets/native-v95/loaded-controls.png'||p.receipt!=='artifacts/same-process-v95-negative.json')throw Error('invalid same-process asset');node('sameProcessPlot').src=p.plot;node('sameProcessReceipt').href=p.receipt;
+  node('sameProcessResult').textContent='启动前封存的读出验证：65 个实体 × 30 步保持通过；后续各执行 1,920 步，姿态首次采样越界在 '+p.first_sampled_orientation_exceedance.aligned_native_transport_s.toFixed(3)+' 原生秒。终态位置差 '+p.endpoint_bottle_position_error_mm.toFixed(3)+' mm < 1 mm，姿态差超过 0.5°，因此整体续跑未通过。126 个源文件与 68 个连续对照文件保持不变；两组进程均已关闭，0 模型调用、0 训练任务。';
+}
 function renderLiveBaseline(){
   const p=data.live_baseline_probe;node('live-baseline').hidden=!p;if(!p)return;
   if(p.status!=='LIVE_BASELINE_DATA_VALIDATED_WITHIN_ORIGINAL_ENDPOINT_LIMITS'||p.loaded_restore_calls_at_cut!==0||p.recorded_bottle_transport_pose_arrays_identical!==true||p.new_generic_restart_admission!==false||p.causal_cold_restore_effect_established!==false||p.scientific_admission!==false)throw Error('live baseline scope');
@@ -136,7 +146,7 @@ function renderLiveBaseline(){
   const pictures=node('liveBaselineImages');pictures.replaceChildren();
   for(const frame of p.frames){if(!/^assets\/native-v94\/live_[ab]-(04560|06480)\.jpg$/.test(frame.image))throw Error('invalid baseline image');const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label+'的原生场景帧';img.loading='lazy';f.append(img,make('figcaption',frame.label+' · 第 '+frame.source_command_cursor.toLocaleString('zh-CN')+' 步'));pictures.append(f);}
   if(p.plot!=='assets/native-v94/loaded-controls.png'||p.receipt!=='artifacts/live-baseline-v94.json')throw Error('invalid baseline asset');node('liveBaselinePlot').src=p.plot;node('liveBaselineReceipt').href=p.receipt;
-  node('liveBaselineResult').textContent='124 个源文件及 67 个基线 A 文件完整保留，启动前封存的读出已完成原始日志复核。全部 65 实体终态与 30 步保持对照满足原门槛；瓶体 1,920 对原始位姿记录相同。角度公式产生约 2.4×10⁻⁶° 浮点残差，不能解释为物理漂移。0 模型调用，0 训练任务，两组原生进程均已关闭。下一项为同进程状态恢复对照，尚未启动。';
+  node('liveBaselineResult').textContent='124 个源文件及 67 个基线 A 文件完整保留，启动前封存的读出已完成原始日志复核。全部 65 实体终态与 30 步保持对照满足原门槛；瓶体 1,920 对原始位姿记录相同。角度公式产生约 2.4×10⁻⁶° 浮点残差，不能解释为物理漂移。0 模型调用，0 训练任务，两组原生进程均已关闭。同进程状态恢复对照 V95 已完成，负结果保留在上方。';
 }
 function renderLoadedBoundary(){
   const p=data.loaded_boundary_probe;
@@ -150,7 +160,7 @@ function renderLoadedBoundary(){
   for(const frame of p.frames){if(!/^assets\/native-v93\/(parent|child)-(04560|06480)\.jpg$/.test(frame.image))throw Error('invalid loaded native frame');const f=make('figure'),img=make('img');img.src=frame.image;img.alt=frame.label+'的原生场景帧';img.loading='lazy';f.append(img,make('figcaption',frame.label+' · 第 '+frame.source_command_cursor.toLocaleString('zh-CN')+' 步'));pictures.append(f);}
   if(p.plot!=='assets/native-v93/paired-transport.png'||p.receipt!=='artifacts/loaded-boundary-v93-negative.json')throw Error('invalid loaded evidence asset');
   node('loadedBoundaryPlot').src=p.plot;node('loadedBoundaryReceipt').href=p.receipt;
-  node('loadedBoundaryResult').textContent='首次采样到姿态越界是在运送第 '+p.first_orientation_limit_crossing.aligned_native_transport_s.toFixed(3)+' 原生秒。67 个父文件不变；没有重跑冷恢复前缀。两次原生工作进程已结束。V93 GPU 分配上界共 '+p.total_V93_allocated_gpu_hours_upper_bound.toFixed(3)+' h，包含实现键错误导致的首轮失败 '+p.failed_r1_allocated_gpu_hours_upper_bound.toFixed(3)+' h；该失败保留。连续基线已完成；下一项为同进程恢复对照。';
+  node('loadedBoundaryResult').textContent='首次采样到姿态越界是在运送第 '+p.first_orientation_limit_crossing.aligned_native_transport_s.toFixed(3)+' 原生秒。67 个父文件不变；没有重跑冷恢复前缀。两次原生工作进程已结束。V93 GPU 分配上界共 '+p.total_V93_allocated_gpu_hours_upper_bound.toFixed(3)+' h，包含实现键错误导致的首轮失败 '+p.failed_r1_allocated_gpu_hours_upper_bound.toFixed(3)+' h；该失败保留。连续基线与同进程恢复对照均已完成，后者负结果保留在上方。';
 }
 function renderStageCoverage(){
   const c=data.stage_state_archive_probe||data.stage_checkpoint_coverage;
@@ -194,5 +204,5 @@ function renderRestore(){
   for(const [label,value]of[['历史局部相对位置误差',r.local_relative_position_error_mm.toFixed(4)+' mm'],['历史局部相对姿态误差',r.local_relative_orientation_error_deg.toFixed(4)+'°'],['历史不中断放回误差',r.baseline_placement_mm.toFixed(4)+' mm'],['历史恢复后放回误差',r.resumed_placement_mm.toFixed(4)+' mm']]){const n=make('div','','mini');n.append(make('strong',value),make('span',label));nums.append(n);}
   node('restoreFailure').textContent='历史携物整体恢复 FAIL 保留：研杵旋转漂移 '+r.pestle_orientation_drift_deg.toFixed(3)+'° > '+r.original_orientation_limit_deg+'°；当时恢复 30 tick 后只有 '+r.settled_tracked_bodies+'/'+r.checkpoint_bodies+' 个刚体被逐 tick 覆盖。本轮空载结果不覆盖这项历史失败。';
 }
-async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();renderMemory();renderNativeMemory();renderContinuousTiming();renderExpiryRecovery();renderOriginalEventClock();renderMatchedClock();renderStageCoverage();renderLoadedBoundary();renderLiveBaseline();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
+async function load(){try{const response=await fetch('data/reconstruction.json',{cache:'no-store'});if(!response.ok)throw Error('source unavailable');data=await response.json();if(data.schema!=='chemrm-preserved-scenes-v1'||data.scenes.length!==6||data.reconstruction.scientific_admission!==false)throw Error('evidence schema');node('recordDate').textContent='本轮核验 '+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.verified_at_utc))+' · 恢复检索 '+data.history_message_count.toLocaleString('zh-CN')+' 条可见历史消息';renderScene();renderRestore();renderBottle();renderMidTask();renderMemory();renderNativeMemory();renderContinuousTiming();renderExpiryRecovery();renderOriginalEventClock();renderMatchedClock();renderStageCoverage();renderLoadedBoundary();renderLiveBaseline();renderSameProcess();}catch(error){node('sceneError').hidden=false;node('sceneError').textContent='证据索引读取失败。静态预览保留；不能据此推断重建、恢复或实验已通过。';}}
 load();
