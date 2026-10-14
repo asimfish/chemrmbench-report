@@ -143,13 +143,13 @@ def live_runs(config):
                        'planned_stages': len(stage_list)})
     for registration in config.get('development_checks', []):
         raw = within(registration['path'], config['experiment_root'])
-        parent_running = raw / 'parent_running.json'
+        phases=registration.get('phases',['parent','child'])
+        parent_running = raw / ('live_a_running.json' if phases==['live_a','live_b'] else 'parent_running.json')
         if not parent_running.exists():
             continue
         stage_list = []
         alive = False
-        phases=registration.get('phases',['parent','child'])
-        if phases not in (['parent','child'],['parent','no_fault_first'],['parent','child_expired','child_retry'],
+        if phases not in (['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['parent','child_expired','child_retry'],
                           ['parent','child_expired_resource_retry1','child_retry'],
                           ['parent','child_interrupted','child_retry'],
                           ['parent','no_fault_first','recovery_first','recovery_retry','expired_first']):
@@ -158,7 +158,7 @@ def live_runs(config):
                 'child_expired_resource_retry1':'过期提案拒绝','child_interrupted':'中断失败证据保留',
                 'child_retry':'从父检查点单次重试','no_fault_first':'无故障冷续跑对照',
                 'recovery_first':'可行中断证据保存','recovery_retry':'保留原期限重试',
-                'expired_first':'原期限过期拒绝'}
+                'expired_first':'原期限过期拒绝','live_a':'连续运行基线 A','live_b':'连续运行基线 B'}
         matched_paths={'no_fault_first':'branches/no_fault/child_first',
                        'recovery_first':'branches/recovery/child_first',
                        'recovery_retry':'branches/recovery/child_retry',

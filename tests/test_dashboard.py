@@ -116,6 +116,23 @@ class PublicBoundary(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'unregistered'):
                 live_runs(config)
 
+    def test_registered_live_baselines_show_activity_without_parent_or_restart_admission(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'v94';raw.mkdir()
+            config={'experiment_root':str(exp),'development_checks':[{'id':'V94','path':str(raw),'phases':['live_a','live_b']}]}
+            (raw/'live_a_running.json').write_text(json.dumps({'pid':12345}))
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                active=live_runs(config)
+            self.assertEqual(len(active),1)
+            self.assertEqual(active[0]['id'],'V94')
+            self.assertEqual(active[0]['state'],'collecting')
+            self.assertEqual(active[0]['planned_stages'],2)
+            self.assertEqual([s['label'] for s in active[0]['stages']],['连续运行基线 A','连续运行基线 B'])
+            self.assertEqual(active[0]['committed_stages'],0)
+            self.assertNotIn('scientific_admission',active[0])
+            (raw/'live_a_resource.json').write_text('{}')
+            self.assertEqual(live_runs(config),[])
+
     def test_single_cold_child_progress_uses_nested_output_without_granting_archive_admission(self):
         with tempfile.TemporaryDirectory() as temporary:
             exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()
