@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T10:04:51.508183+00:00",
+  "exported_at_utc": "2026-10-14T10:32:11.600350+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2565,28 +2565,106 @@
         "best_training_RMS_pixels": 3.26215172127527,
         "blue_center_error_pixels": 5.999931125583141,
         "blue_IoU": 0.3074433656957929,
-        "predicted_vessel_height_pixels": 26.506520115477713,
+        "invalidated_vertical_vessel_prediction_pixels": 26.506520115477713,
         "observed_vessel_height_pixels": 33.0,
         "procedure_checks_passed": 17,
         "procedure_checks_total": 17,
         "new_physics_steps": 0
       },
-      "remaining": "The17 procedure checks establish input preservation and holdout isolation only. Original pose, camera calibration, vessel identity and support height remain unresolved. The conditional candidates are not admitted for native execution; scene, visual and task acceptance remain open."
+      "remaining": "The17 procedure checks establish input preservation and holdout isolation only. A later source-axis audit shows the local vessel was horizontal: the former26.51px prediction used an invalid vertical-axis premise and cannot diagnose a size mismatch. Original pose, camera calibration, vessel identity and support height remain unresolved. The conditional candidates are not admitted for native execution; scene, visual and task acceptance remain open."
+    },
+    {
+      "id": "hood-beaker-source-up-axis-error",
+      "title": "Panda hood · source-up-axis import error confirmed",
+      "evidence_sha256": "7994cc632b8e58076744bfbdb1ac67478554b5014555ffd0658476ac2e2d902e",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Fourteen coaxial circular cross-sections identify the source mesh vessel axis. The author asset is upright in its Y-up stage. The local frozen hood candidate retains the same composed axis in a Z-up stage and therefore places this vessel horizontally. Source mesh scale and old evidence are unchanged.",
+      "metrics": {
+        "coaxial_sections": 14,
+        "source_axis_to_stage_up_degrees": 0.0,
+        "local_axis_to_stage_up_degrees": 89.99999999999999,
+        "new_physics_steps": 0
+      },
+      "remaining": "The previous55.05mm world-Z extent was not the vessel axial height. Its26.51px-versus33px held-out comparison has an invalid upright-vessel premise and cannot establish a size mismatch. A separate axis-adapted candidate must recheck rim, support and clearance; no claim is made about unrelated OT2 or UR5e assets. Original source identity and full visual/task acceptance remain open."
+    },
+    {
+      "id": "auto-api-source-contract-gap",
+      "title": "Auto workflow · versioned API and GELLO source audit",
+      "evidence_sha256": "a7034c4f6900aaa6d89ec76edbda11d3e6e91a0113e0bebd68eb9d88f2167c75",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "A bounded unauthenticated source check recovered official GRID Arm documentation and pinned generic GELLO author conversion code. Offline checks identify a positional-argument mismatch between the old sample and the documented abstract API, plus world/base-frame and timing differences. The original Auto demonstration, harness and checkpoint were not obtained.",
+      "metrics": {
+        "archived_transitions_checked": 2299,
+        "legacy_calls_with_abstract_binding_difference": 2,
+        "generic_GELLO_required_fields": 9,
+        "native_recording_hz": 100,
+        "sample_sleep_only_upper_call_rate_hz": 5,
+        "new_simulations": 0,
+        "new_training_runs": 0
+      },
+      "remaining": "The exact concrete IsaacArm and Pose/Orientation pages were inaccessible in this check, so abstract-contract differences do not establish concrete SDK failure. Generic GELLO source is not evidence of the Auto-specific pipeline. The local pose archive lacks camera, joint-state and control fields and is rejected as GELLO input. Adapter execution and learned-policy reproduction remain open."
+    },
+    {
+      "id": "fluid-exact-boundary-matched-failure",
+      "title": "Fluid reference · exact-distance intervention still fails",
+      "evidence_sha256": "8547a005efcae8d36da753861d562b992033cb1990daff94d036817891e571c8",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "The fresh source-map control exactly reproduces all prior staged fields and the18ms density failure. One matched intervention replaces distance,normal and projection together while retaining the original volume map. It reaches20ms but still fails the1.01 density ceiling. The retained volume field makes this a hybrid diagnostic model, not an author-equivalent physical repair.",
+      "metrics": {
+        "source_completed_steps": 18,
+        "source_terminal_density": 1.039683217234209,
+        "intervention_completed_steps": 20,
+        "intervention_terminal_density": 1.1089580087020092,
+        "intervention_terminal_over_limit": 24,
+        "source_control_checks": 17,
+        "intervention_control_checks": 16,
+        "control_checks_total": 17,
+        "first_intervention_acceptance_failure_ms": 8.0,
+        "first_force_residual_N": 4.0213058577487364e-16,
+        "frozen_force_allowance_N": 4.6405930132946645e-18,
+        "physical_flow_cases_accepted": 0
+      },
+      "remaining": "The first intervention acceptance failure is the8ms viscosity force-balance check. Its small residual is consistent with the saved linear-solve residual but still exceeds the frozen allowance. This gate was audited posthoc, so later states through20ms remain unqualified diagnostic data. No threshold change, retry, long relaxation or physical-flow acceptance follows; download the complete scoped trace below."
+    },
+    {
+      "id": "hood-cup-upright-CPU-repair",
+      "title": "Panda hood · cup-axis import repaired, collisions retained",
+      "evidence_sha256": "cd4fb7d40531d0d876bbf86fd141b589847ed7e9539f24840cb3e7f5d749cd50",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A separate candidate converts the source Y-up cup to the Z-up scene with a90degree rotation and a support-preserving vertical translation. Only the cup transform changes:58mesh properties, prim metadata, source dimensions and all other world transforms are preserved. All18 geometry/frame/support checks pass.",
+      "metrics": {
+        "rotation_degrees": 90,
+        "vertical_translation_mm": 10.24563253532479,
+        "minimum_support_gap_mm": 0.49999999999994493,
+        "maximum_support_gap_mm": 0.769989490020162,
+        "actual_axial_height_mm": 59.69104617834087,
+        "retained_goal_above_corrected_rim_mm": 30.55455058206502,
+        "closed_robot_glass_collisions": 2,
+        "open_robot_glass_collisions": 2,
+        "geometry_checks": 18,
+        "affected_old_hood_files": 13,
+        "new_physics_steps": 0
+      },
+      "remaining": "This passes only the scoped CPU geometry correction. Each open/closed configuration still has two robot–glass collisions. The retained reach target and previous rim-clearance interpretations require a new contract; no native task or original-scene visual acceptance is established. The before/after image is an orthographic vertex plot, not a native render. Unrelated UR5e/OT2 assets are outside this audit."
     },
     {
       "id": "ot2-three-object-video-r8-chunked",
       "title": "Three-object video · durable128-frame chunks",
-      "evidence_sha256": "4211d1485838bd150f856d80e92dae6cb747a437f9f1245801274fd79ba291f9",
+      "evidence_sha256": "9cc94f75772e643a3f044a2970fe1e762c0f6541139e14efb15d7d01fd718bad",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T10:04:51.204435+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T10:32:03.499003+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
       "metrics": {
-        "frames_completed": 737,
-        "frames_accepted_from_complete_chunks": 640,
+        "frames_completed": 1182,
+        "frames_accepted_from_complete_chunks": 1152,
         "frames_total": 3266,
-        "chunks_completed": 5,
+        "chunks_completed": 9,
         "chunks_total": 26,
-        "remaining_budget_s": 15017.349507079227,
+        "remaining_budget_s": 13385.054937973386,
         "total_wall_budget_s": 18000,
         "trial_relative_s": 208.5
       },

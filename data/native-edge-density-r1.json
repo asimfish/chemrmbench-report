@@ -1,0 +1,36 @@
+{
+  "scope": "Archived failed trajectory and fixed-state diagnostic queries; no verified repair",
+  "particles": 1728,
+  "above_limit": 32,
+  "density_ceiling": 1.01,
+  "postpressure_linear_peak": 1.006497581521294,
+  "actual_density_peak": 1.039683217234209,
+  "distance_underestimate_mm": [
+    0.17232845828113508,
+    0.1941730746418786
+  ],
+  "selected32_fixed_query_peaks": {
+    "native_rho18": 1.039683217234209,
+    "rho_sourceGauss_mapD18": 1.03810767309822,
+    "rho_mapV_exactD18": 0.8025548231979884,
+    "rho_exactSDFGauss_exactD18": 0.7938755445846177
+  },
+  "new_integrations": 0,
+  "source_audit_sha256": "b8f1acd60d0e2fa0d29de67a726d54ddc99f83c1099c360a0ff972c991c4ad06",
+  "full_reference_reproduction": false,
+  "artifacts": {
+    "assets/reproduction/full/native-edge-density-r1.png": "347ac9662d6c72e6b61a2005451d60b5ef40c5ae51c2a8ccff0b4e8ca41e6eb5",
+    "assets/reproduction/full/native-edge-density-r1.pdf": "04fe73d288e6f566e002e55bdc551e290beb4602a1ad8d9c8d310486c50ca09b",
+    "assets/reproduction/full/native-edge-density-all1728-r1.csv": "84fb92ee27970adc6d87f701440d19cf1ea21b6e8e929bf6228173b32bb17276",
+    "assets/reproduction/full/native-edge-density-selected32-r1.csv": "deb4fc32de9a4b33127ce2129621712e0d040f713ff24a5a9313e08d72ec7ab1"
+  },
+  "physical_fluid_accepted": false,
+  "query_only": true,
+  "figure_receipt_sha256": "231a4c7ee0c1fa4c843be1ac64391c244ce850670553df8da9194f9f9ba93d4b",
+  "limits": [
+    "The exact-distance bars query the same32 saved positions; no new pressure solve or integration occurs.",
+    "Volume-only source Gauss recomputation retains the excess.",
+    "The selected32 diagnostic is not a global recomputed1728-particle trajectory.",
+    "The source average pressure criterion and the local maximum density gate are distinct."
+  ]
+}

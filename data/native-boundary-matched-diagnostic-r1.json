@@ -1,0 +1,99 @@
+{
+  "scope": "One bounded matched diagnostic; exact distance/normal/projection with retained source volume map is a hybrid model",
+  "source_baseline_reproduced_exactly": true,
+  "source_controls_passed": 17,
+  "exactbox_controls_passed": 16,
+  "controls_total": 17,
+  "first_exactbox_acceptance_failure": {
+    "mode": "exact_box",
+    "step": 8,
+    "entry_time_s": 0.008,
+    "stage": "viscosity",
+    "actual_dt_s": 0.001,
+    "force_scale_N": 4.6325011696751223e-08,
+    "source_operator_residual_vector_N": [
+      -2.5166577340916965e-24,
+      4.021305857748736e-16,
+      5.004870500283737e-24
+    ],
+    "residual_norm_N": 4.0213058577487364e-16,
+    "relative_residual": 8.680636464967695e-09,
+    "frozen_relative_gate": 1e-10,
+    "summation_bound_N": 8.09184361954227e-21,
+    "total_allowed_N": 4.6405930132946645e-18,
+    "pass": false,
+    "actual_CG_residual": 8.175109094399356e-15,
+    "CG_gate": 1e-14,
+    "stored_Ax_minus_b_predicted_residual_N": [
+      6.106542659164752e-24,
+      4.020763756662493e-16,
+      9.46784215066471e-24
+    ],
+    "interpretation": "Residual isconsistentwithstoredlinear-solve residual. Thisdoesnot waiveorchangefrozenforcegate. No solverrerun.",
+    "stop_semantics": "Thiscontrolgate was checked by frozen posthoc auditor, notruntime executor. Actual approvedboundedtrajectory continued to20ms. Firstacceptancefailure remains8ms; allsubsequentstates areunqualified diagnosticdata."
+  },
+  "both_outcomes": {
+    "source_map": {
+      "completion": {
+        "completed_steps": 18,
+        "time": 0.01800000000000001,
+        "failure": "prepared_or_terminal_rho_max_gt_1point01",
+        "physical_density_ceiling_every_prepared_and_terminal": 1.01,
+        "long_relaxation": false
+      },
+      "last_density": {
+        "step": 18,
+        "stage": "terminal_requery",
+        "time": 0.01800000000000001,
+        "rho_min_mean_max": [
+          0.4853174897445298,
+          0.7725082745556013,
+          1.039683217234209
+        ],
+        "peak_id": 1590,
+        "peak_fluid": 0.5004410359155355,
+        "peak_wall": 0.5392421813186734,
+        "exceed_count": 32,
+        "replay_relative": 6.407084424688124e-16,
+        "physical_ceiling_pass": false
+      }
+    },
+    "exact_box": {
+      "completion": {
+        "completed_steps": 20,
+        "time": 0.02000000000000001,
+        "failure": "prepared_or_terminal_rho_max_gt_1point01",
+        "physical_density_ceiling_every_prepared_and_terminal": 1.01,
+        "long_relaxation": false
+      },
+      "last_density": {
+        "step": 20,
+        "stage": "terminal_requery",
+        "time": 0.02000000000000001,
+        "rho_min_mean_max": [
+          0.48534026131377744,
+          0.7780376158920136,
+          1.1089580087020092
+        ],
+        "peak_id": 720,
+        "peak_fluid": 0.4872387913076717,
+        "peak_wall": 0.6217192173943373,
+        "exceed_count": 24,
+        "replay_relative": 8.009125798547615e-16,
+        "physical_ceiling_pass": false
+      }
+    }
+  },
+  "physical_ceiling_pass": {
+    "source_map": false,
+    "exact_box": false
+  },
+  "original_eight_qualified": 0,
+  "full_reference_reproduction": false,
+  "no_retry": true,
+  "source_delivery_sha256": "8547a005efcae8d36da753861d562b992033cb1990daff94d036817891e571c8",
+  "original_density_csv_sha256": "d0e138893fde39053cace354854d47050c2461bf0fc068dc8afc1ee40460e45c",
+  "artifacts": {
+    "assets/reproduction/full/native-boundary-matched-diagnostic-r1.csv": "4905be5a08002dd1d2d3f44711a1c21c9eacf893f23bf398f10b2f5b8ecc9f5e"
+  }
+}
