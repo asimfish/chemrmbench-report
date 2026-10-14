@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T12:42:26.086061+00:00",
+  "exported_at_utc": "2026-10-14T12:51:36.422620+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2332,11 +2332,11 @@
     },
     {
       "id": "ot2-three-object-full-video-render",
-      "title": "Three-object video · incomplete R5 preserved; recovery underway",
+      "title": "Three-object video · incomplete R5 preserved",
       "evidence_sha256": "ae68c8b74273c6ea666367f2b4f9dba8e5cac914dba5b739858f0f164d707ae7",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "R5 stopped after its status ceased advancing at frame506. The partial video, saved PNG subset and frozen inputs are retained. Only this owned service was stopped and its GPU contexts released. A separate diagnostic replay is in preparation; no complete video is accepted.",
+      "scope": "R5 stopped at frame506 after progress stalled. The partial video and frozen inputs remain retained; the separately accepted R8 recovery is now published.",
       "metrics": {
         "frames_completed": 506,
         "planned_frames": 3266,
@@ -2653,7 +2653,7 @@
     },
     {
       "id": "ot2-three-object-video-r8-chunked",
-      "title": "Three-object video · durable128-frame chunks",
+      "title": "Three-object video · all26 chunks archived",
       "evidence_sha256": "c2befd51a45292297ffe531c514ba30366c0e4c3a97c6af1968e2f0e7a0feddf",
       "subsystem_passed": false,
       "full_reference_accepted": false,
@@ -2668,7 +2668,63 @@
         "total_wall_budget_s": 18000,
         "trial_relative_s": 208.5
       },
-      "remaining": "R5 stalled and remains retained. R7 passed18 content checks but exceeded its earlier10800s feasibility budget; the new18000s computation budget changes neither rendering nor scientific thresholds. Each worker has a120s no-progress watchdog and bounded retry. Final all-frame source binding, native timestamps, decoding and inspection of the encoded video remain separate gates; no automatic video publication."
+      "remaining": "Producer receipt is retained in its original COMPLETE_PENDING_VISUAL phase. A separate root visual review and public browser gate now accept the scoped replay; see the delivered-video module. This producer progress record itself is not an acceptance verdict."
+    },
+    {
+      "id": "ot2-three-object-complete-video-delivered",
+      "title": "Three-object trial · complete208.5s replay online",
+      "evidence_sha256": "95570e7345db7d6f6fba07de0da46ca3b0f87458a25affdf6c41eb57b781c11e",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "The positive trial replay is published on three-object-continuous.html#complete-video. All3266 frames pass original-state binding, exact1/600-second timestamps and full decoding against source PNGs. Ten actual encoded frames were visually inspected. Desktop/mobile browser checks verify playback progression, initial/handoff/terminal seeks and complete download hashes.",
+      "metrics": {
+        "duration_s": 208.5,
+        "encoded_frames": 3266,
+        "recorded_physics_steps": 125100,
+        "visual_samples": 10,
+        "browser_checks": 33,
+        "width": 1920,
+        "height": 740
+      },
+      "remaining": "This accepts scoped recorded-state media, not original-paper appearance or physical liquid. Colors remain uncalibrated; dark glass, reflections and tool occlusion remain. Liquid has no mass/force feedback. Original trial time is a600Hz relative log, not a retrospective native callback count. No full negative-control replay or full-reference acceptance."
+    },
+    {
+      "id": "hood-composed-home-collision-attribution",
+      "title": "Hood collision · layout and home conflict identified",
+      "evidence_sha256": "23af8ad02830962773cd1447e9857c9ab7eca1dfd7bc0cbcaeb17036f70aef05",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "CPU diagnosis finds current composed robot geometry, FK, joint state and drive targets consistent. Direct composed-geometry collision checks reproduce two overlaps for both closed and open sash states. The earlier conditional video-ratio base translation changes the counts from0/0 to2/2 while robot-relative and hood geometry stay unchanged. The upright-cup repair is preserved.",
+      "metrics": {
+        "consistency_checks": 8,
+        "attribution_checks": 13,
+        "max_collider_mapping_error_um": 0.08214530366939686,
+        "closed_collisions": 2,
+        "open_collisions": 2,
+        "glass_open_displacement_mm": 300,
+        "new_physics_steps": 0
+      },
+      "remaining": "Diagnostic attribution only; no state-mapping repair is warranted. Original-video initial joint pose or an independent layout constraint remains missing. No arbitrary pose change, new native execution, scene visual acceptance or task acceptance follows from these checks."
+    },
+    {
+      "id": "fluid-exactbox-face-transition-diagnosis",
+      "title": "Fluid failure · boundary face-switch contribution isolated",
+      "evidence_sha256": "1a531e33753d8e797b07e0da02500bc88335f2ab907b88196bd6aae7902d91cd",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Read-only decomposition of the saved18/19/20ms states finds all24 density failures switch from the floor to a side face. At19ms the global linear density forecast stays below1 and saved pressure is zero, but the next actual wall contribution jumps. Projection clamps and exact ties are inactive. A same-position old-face counterfactual isolates a large face-selection contribution without integrating a new state.",
+      "metrics": {
+        "first_acceptance_failure_ms": 8,
+        "actual_density_failure_ms": 20,
+        "failed_particles": 24,
+        "linear_forecast_global_peak": 0.9815860203856979,
+        "actual_density_peak": 1.1089580087020092,
+        "exact_volume_counterfactual_peak": 1.0949010207097882,
+        "oldface_counterfactual_peak": 0.9930155609649075,
+        "solver_calls": 0,
+        "new_integrations": 0
+      },
+      "remaining": "All18–20ms states are unqualified after the8ms operator-gate failure. Retaining an old face uses a non-nearest boundary and underestimates the wall; it is not a repair. Twelve other switching particles do not fail, so switching alone is insufficient. Exact-volume quadrature still leaves24 density failures. Native density-map comparison is proposed only; original8 physical-flow tests remain0 qualified."
     }
   ],
   "active": null,
