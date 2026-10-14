@@ -1,0 +1,65 @@
+{
+  "public_downsampled_data": {
+    "failed_complete_r3": {
+      "filename": "failed_complete_r3_60hz.csv",
+      "source_native_rate_hz": 600,
+      "exported_bin_rate_hz": 60,
+      "selected_native_rows": 10800,
+      "exported_bins": 1080,
+      "phase_clock_origin_native_step": 31500,
+      "source_prefix_through_step42300_sha256": {
+        "native_trace.jsonl": "b395298f6423174751dde0a6bbde0777f93ad5947da4e35114f96c6a62e70a95",
+        "native_contact_trace.jsonl": "69a0ee0562c9768b3ef1703aee3d18217d68bf0a885c9deac520c0f3b4ccbb24"
+      },
+      "rule": "Consecutive non-overlapping 10-native-step bins from reservoir/home through reservoir/lift_hold. Height and finger retain mean/min/max; contact fields count positive-impulse samples within each bin. No interpolation. Native phase clock begins at first selected step minus one.",
+      "acceptance_warning": "Aggregated public CSV is for plotting only. The 600/600 gate was evaluated against the full 600 Hz source; do not infer acceptance from bin means."
+    },
+    "repaired_complete_r4_prefix": {
+      "filename": "repaired_complete_r4_prefix_60hz.csv",
+      "source_native_rate_hz": 600,
+      "exported_bin_rate_hz": 60,
+      "selected_native_rows": 10800,
+      "exported_bins": 1080,
+      "phase_clock_origin_native_step": 31500,
+      "source_prefix_through_step42300_sha256": {
+        "native_trace.jsonl": "2736c17686a6dea3a7b70e00ca9e89e5825a24208959cdb0cb51dd57c1b87480",
+        "native_contact_trace.jsonl": "8b402d44864b2bbe6adb8c0517cf9e8284764889249fb563f222df82b0967097"
+      },
+      "rule": "Consecutive non-overlapping 10-native-step bins from reservoir/home through reservoir/lift_hold. Height and finger retain mean/min/max; contact fields count positive-impulse samples within each bin. No interpolation. Native phase clock begins at first selected step minus one.",
+      "acceptance_warning": "Aggregated public CSV is for plotting only. The 600/600 gate was evaluated against the full 600 Hz source; do not infer acceptance from bin means."
+    }
+  },
+  "scope": "Scientific plots derived only from native source height, joint position and positive contact events",
+  "time_alignment": {
+    "ot2_repro_three_labware_complete_positive_r3": {
+      "origin_native_step": 31500,
+      "last_phase_seconds": 18.0
+    },
+    "ot2_repro_three_labware_complete_positive_r4": {
+      "origin_native_step": 31500,
+      "last_phase_seconds": 18.0
+    }
+  },
+  "contact_impulse_threshold_Ns": 1e-10,
+  "acceptance_window_phase_seconds": [
+    17,
+    18
+  ],
+  "claim_boundary": "Both traces come from complete-scene attempts with the same initial scene. Their native states/commands are exactly identical through step32700, independently audited. This figure selects only source pickup through step42300; R4 later setup and pipetting are not accepted by this diagnostic. The independent R4 prefix audit verifies the final600-step hold.",
+  "no_generated_or_rendered_scene_frames": true,
+  "full_reference_reproduction": false,
+  "full_run_accepted": false,
+  "independent_receipt_sha256": {
+    "ot2_r3_r4_unchanged_prefix_review_r1.json": "6e211d0a404f6bf1bb64bcadd20ff63cc9e79e2529e94ab086ece6add05b58f0",
+    "ot2_full_r4_reservoir_pickup_prefix_review_r1.json": "d0378302c964a34923972722feb5ba4e86a4e9b00e7555c191ec5282109f8b94"
+  },
+  "artifact_sha256": {
+    "failed_complete_r3_60hz.csv": "4bc2bc460f4c21d9de7d6bcbb5719e3b6f5b3318f6ea4be50b332249f92fdde4",
+    "reservoir_pickup_diagnosis.pdf": "6b0b836473c2ae51b1e26cabd2b2bf18780098a54fa6ebc557ad1fda68c1a83e",
+    "reservoir_pickup_diagnosis.png": "df2dd6fd09a440ace958c8627e30fe3c8588ce213d535a75938c19d94a8e419a",
+    "reservoir_pickup_diagnosis.svg": "137318d45dbed26224712697f132cc8c2d328f87c4a8a082b3b48082854a2172",
+    "ot2_repro_three_labware_complete_positive_r4.npz": "1cf038e6e0392fa82cb170b9c2c38bb2d4c83de3a9350a690888e81c4125b7c6",
+    "ot2_repro_three_labware_complete_positive_r3.npz": "7781b6fb1a1c539922396b422aec3ea0982ed8a2db5d1861c7d3a31802fe3502",
+    "repaired_complete_r4_prefix_60hz.csv": "ba5b07a69e68b96655b5cf583afe26f751e72c464b279a0713516c7a432949bf"
+  }
+}
