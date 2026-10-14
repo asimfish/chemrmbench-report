@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T09:19:23.455926+00:00",
+  "exported_at_utc": "2026-10-14T09:22:13.119002+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -2454,16 +2454,16 @@
     {
       "id": "ot2-three-object-video-r8-chunked",
       "title": "Three-object video · durable128-frame chunks",
-      "evidence_sha256": "25a347512bca4b51ff54de474a72b8066a4e7cba4ef85984f8c6df0e41173c20",
+      "evidence_sha256": "01f75e5b20ae70ba645e862bcdc245b1399e4b12383459a6bc2425a4f509b5e8",
       "subsystem_passed": false,
       "full_reference_accepted": false,
-      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T09:19:23.402285+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
+      "scope": "R8c restarts the same immutable positive replay in26 independent worker chunks. The first R8 launch stopped before producing frames because its supervisor interpreter lacked pidfd support; that failure is preserved. The corrected interpreter passed an actual process-capability test. Recorded phase: RENDERING_CHUNK; updated 2026-10-14T09:22:06.371189+00:00. Completed frames include durable images and source-bound per-frame records. This progress record is not final media acceptance.",
       "metrics": {
-        "frames_completed": 63,
+        "frames_completed": 111,
         "frames_total": 3266,
         "chunks_completed": 0,
         "chunks_total": 26,
-        "remaining_budget_s": 17745.151655655354,
+        "remaining_budget_s": 17582.182752730325,
         "total_wall_budget_s": 18000,
         "trial_relative_s": 208.5
       },
