@@ -1,0 +1,113 @@
+{
+  "revision": "R9",
+  "status": "STATIC_CAPTURE_COMPLETE_SCOPED_VISIBILITY_ONLY",
+  "paper": {
+    "title": "MATTERIX: toward a digital twin for robotics-assisted chemistry laboratory automation",
+    "doi": "10.1038/s43588-025-00924-4",
+    "reference": "Figure 3 D"
+  },
+  "author_repository": "https://github.com/AccelerationConsortium/Matterix_assets",
+  "glovebox_asset": {
+    "branch": "fix/beaker",
+    "commit": "9131a2891a66b8b0928fa5dd4ac24c0db404e821",
+    "path": "equipment/glovebox/glovebox_updated_material.usd",
+    "git_blob_sha": "afeb490097366fe90dc40675b720651ffba642ce",
+    "content_sha256": "be98fc2660306454bca644a4164eea3fb3898ac891a86753164e06923511c32d",
+    "content_bytes": 10610164,
+    "lfs": true,
+    "retrieval_url": "https://media.githubusercontent.com/media/AccelerationConsortium/Matterix_assets/9131a2891a66b8b0928fa5dd4ac24c0db404e821/equipment/glovebox/glovebox_updated_material.usd"
+  },
+  "source_dependency": {
+    "branch": "fix/beaker",
+    "commit": "9131a2891a66b8b0928fa5dd4ac24c0db404e821",
+    "path": "equipment/glovebox/glovebox_ref.usd",
+    "git_blob_sha": "58bee4db52b0c9406ddc5e3a014cdc7160415d9b",
+    "content_sha256": "6886c82e5bb14f309ae6bb250e101f9dca105e8f6e8de18bdf123d5bdf01e090",
+    "content_bytes": 9450993,
+    "lfs": true,
+    "retrieval_url": "https://media.githubusercontent.com/media/AccelerationConsortium/Matterix_assets/9131a2891a66b8b0928fa5dd4ac24c0db404e821/equipment/glovebox/glovebox_ref.usd"
+  },
+  "assembly": "Author Toronto glovebox CAD with two separate native NVIDIA UR3e assets, locally assembled in a reconstructed laboratory.",
+  "source_preserved": {
+    "meshes": 127,
+    "static_collision_meshes": 127,
+    "rigid_bodies": 0,
+    "joints": 0,
+    "meters_per_unit": 1,
+    "geometry_material_parameters_unchanged": true
+  },
+  "boundaries": [
+    "The complete room layout and robot placements are local reconstruction, not recovered paper coordinates.",
+    "Four front ports and side transfer chambers/door are structurally consistent with Figure 3; exact source revision equivalence is unverified.",
+    "The robots retain bare flanges; exact Figure 3 grippers, black glove sleeves and door/hatch dynamics are missing.",
+    "This is a zero-physics static inspection; physical task execution, contact stability and full reproduction remain unverified.",
+    "Other stations retain separately documented source approximations.",
+    "Only native screenshots and source metadata are included; no CAD/USD files or private local paths are redistributed."
+  ],
+  "license": "No repository CAD redistribution license located in the fixed branch tree; raw source assets excluded.",
+  "full_reference_reproduction": false,
+  "render": {
+    "engine": "Isaac Sim RTX PathTracing",
+    "image_size": [
+      1600,
+      1000
+    ],
+    "physics_steps": 0,
+    "geometry_and_material_parameters_unchanged": true,
+    "images_are_unedited_native_rgb": true
+  },
+  "images": [
+    {
+      "file": "full-lab-r9-overview.png",
+      "sha256": "e9a5d5c63b156c681513d32278aa487c74babd6a02c18a01e764c41e4b8cf31e",
+      "verdict": "PASS_LOCAL_ASSEMBLY_VISIBILITY_ONLY",
+      "visible": [
+        "Four hood assemblies, liquid station, solid station, wash station, mobile model and new Toronto box are visible.",
+        "The Toronto box stands on the local bench and contains two distinct physical arm assets."
+      ],
+      "limitations": [
+        "Original metric laboratory layout and full apparatus inventory are not recovered.",
+        "Empty hood interiors and simplified solid/wash fixtures remain.",
+        "This distant view cannot resolve millimeter support gaps or validate task functionality."
+      ]
+    },
+    {
+      "file": "full-lab-r9-glovebox-front.png",
+      "sha256": "2eed674e0499e450cb92d84b44a332c8243f842ae351d31031d337c4a16f1df5",
+      "verdict": "PASS_TWO_ARM_AND_FOUR_PORT_VISIBILITY_ONLY",
+      "visible": [
+        "Four front glove ports, left transfer chamber, right side door and red handles are clearly visible.",
+        "Two physical UR3e bodies are distinguishable; bases appear seated on the actual source floor with no obvious floating.",
+        "Both end-effectors remain visibly bare; missing task grippers are not concealed."
+      ],
+      "limitations": [
+        "Reflective rear aluminum produces additional blurred arm and room silhouettes; these are reflections, not additional physical robots.",
+        "Glass reflection/haze and bright low-contrast CAD reduce detail.",
+        "Black glove sleeves and task instruments are absent.",
+        "Visual support appearance complements CPU support sampling; it is not settled-contact evidence."
+      ]
+    },
+    {
+      "file": "full-lab-r9-glovebox-interior.png",
+      "sha256": "bb34c348618313ed726211a1bae46827c98cf769b8a39ce7f52a8288e492f6a1",
+      "verdict": "PARTIAL_PASS_INTERIOR_SUPPORT_VISIBLE_RIGHT_ARM_OCCLUDED",
+      "visible": [
+        "Both physical bases and substantial parts of both arms are visible through unchanged source glass.",
+        "Author side door frame, transfer chamber and source floor/bench contact are clearly exposed."
+      ],
+      "limitations": [
+        "The right door frame partly occludes the nearer arm.",
+        "Rear aluminum reflections create visually duplicated robot silhouettes.",
+        "This oblique screenshot cannot establish fully unobstructed two-arm inspection or photometric correspondence to Figure3."
+      ]
+    }
+  ],
+  "robot_count_note": "There are two physical UR3e assets inside the glovebox. The source aluminum rear panels reflect additional robot silhouettes.",
+  "acceptance": {
+    "scoped_static_capture": true,
+    "full_scene_visual": false,
+    "exact_paper_visual_equivalence": false,
+    "native_task": false,
+    "full_reference_reproduction": false
+  }
+}
