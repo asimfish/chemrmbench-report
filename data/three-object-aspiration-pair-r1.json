@@ -1,0 +1,79 @@
+{
+  "created_at_utc": "2026-10-14T08:53:39.802585+00:00",
+  "positive_label": "ot2_repro_three_labware_complete_positive_r9_restart1",
+  "negative_label": "ot2_repro_three_labware_complete_noasp_r9_restart1",
+  "rows_per_run": 125100,
+  "trial_relative_s": 208.5,
+  "pair_scoped_accepted": true,
+  "full_reference_reproduction": false,
+  "physical_fluid_causality_established": false,
+  "independent_pair_review": {
+    "scope": "Matched local semantic aspiration ablation; excludes physical mass/force coupling and paper reproduction",
+    "checks": {
+      "both_complete": true,
+      "one_positive_one_disabled": true,
+      "same_frozen_protocol": true,
+      "same_native_handoff_step": true,
+      "equal_complete_native_row_counts": true,
+      "exact_native_phase_step_clock_membership": true,
+      "native_rigid_trajectory_numerically_identical": true,
+      "ot2_repro_three_labware_complete_positive_r9_restart1_strict_events_pass": true,
+      "ot2_repro_three_labware_complete_noasp_r9_restart1_strict_events_pass": true,
+      "positive_six_wells_400uL_negative_all_zero": true
+    },
+    "all_checks_passed": true,
+    "native_rows": [
+      125100,
+      125100
+    ],
+    "native_trace_sha256": [
+      "ed8f0859d01f4ed152485aeca56d9786ce41d2dbc12fc3f6574ebad282abb659",
+      "dd2558b2d8c648bd97d6258707f2d6fc64c5f230e424304fd95f0760539d3943"
+    ],
+    "maximum_absolute_native_difference": {
+      "native_Panda_joint_positions": 0.0,
+      "native_OT2_joint_positions": 0.0,
+      "OT2_submitted_effort_Nm": 0.0,
+      "native_Panda_body_poses_xyzw": 0.0,
+      "native_OT2_body_poses_xyzw": 0.0,
+      "Panda_joint_targets": 0.0,
+      "object_poses": 0.0,
+      "object_velocities": 0.0
+    },
+    "destination_model_uL": [
+      [
+        400.0,
+        400.0,
+        400.0,
+        400.0,
+        400.0,
+        400.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "full_reference_reproduction": false
+  },
+  "plot_receipt_sha256": "8ece81eca3974abce8506d3e95629defa994b726c72a269b144b3e29cf38e7ce",
+  "source_native_trace_sha256": [
+    "ed8f0859d01f4ed152485aeca56d9786ce41d2dbc12fc3f6574ebad282abb659",
+    "dd2558b2d8c648bd97d6258707f2d6fc64c5f230e424304fd95f0760539d3943"
+  ],
+  "artifacts": {
+    "assets/reproduction/three-object/aspiration-pair-r1.png": "53919d84aa85d14c5cc458f8360918cf4297652ccc958d4247d570b2f078abf8",
+    "assets/reproduction/three-object/aspiration-pair-r1.pdf": "5c047554324c13308dddd3ce8450277a316d0f36f9e9a2ac30eabbef59e5a2a8",
+    "assets/reproduction/three-object/all-matched-semantic-steps-r1.csv.gz": "301ee8f7e95d37ee2cbbf6c3c78cb18d93adf4d0fc6dabbff8e652bcdca2ed74"
+  },
+  "limitations": [
+    "One matched pair, not a robustness or success-rate estimate.",
+    "Liquid is a semantic ledger and has no mass or force feedback.",
+    "Local fixtures and control adaptations remain; full reference reproduction is open.",
+    "R5 complete-video attempt stalled at frame 506 and was stopped; retained stills are pilot images."
+  ]
+}
