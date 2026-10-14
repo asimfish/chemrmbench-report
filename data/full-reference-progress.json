@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T03:32:18.629297+00:00",
+  "exported_at_utc": "2026-10-14T03:38:43.814445+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -56,7 +56,7 @@
       "acceptance": "Reproduce author insertion-conditioned semantic tip loading and synchronized tip motion, immersed aspiration, dispensing and disposal, plus rack/reservoir setup in the stated manipulator configuration. Verify liquid identity/volume and ordered transitions. Force-threshold or friction-fit loading is an additional local validation, not a published prerequisite.",
       "status": "PARTIAL",
       "full_reference_accepted": false,
-      "gap": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim. Three-object setup R1 failed at56.118s. R2 attachment-only passed. R3 strict64event CPU verifier passed19regressions; the complete positive native setup is executing before any negative trial.",
+      "gap": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim. Complete setup R3 independently failed at70.5s on reservoir sustained grasp after plate placement. Strict64event CPU oracle passed19regressions; complete positive/negative physical pair remains open.",
       "published_function_reproduced": false
     },
     {
@@ -1553,9 +1553,67 @@
         "channels": 8
       },
       "remaining": "Complete three-object physical setup and positive/no-aspiration native pair are still required. Full positive is executing; no physical PASS inferred from CPU tests."
+    },
+    {
+      "id": "ot2-full-setup-r3-terminal",
+      "title": "OT2 ·complete setup attempt stopped at reservoir grasp",
+      "evidence_sha256": "5e6dd916723bcb3c64a9ced507c70e9499e94d293e7201a1aa74d6f1a4010668",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Independent native70.5s audit: plate grasp/placement passed; reservoir sustained bilateral grasp failed. The no-aspiration trial was not started. Process exit0 does not override the failed physical gates.",
+      "metrics": {
+        "native_seconds": 70.5,
+        "physics_steps": 42300,
+        "completed_objects": 1,
+        "required_objects": 3,
+        "unexpected_positive_contact_events": 0
+      },
+      "remaining": "Original author geometry, scale and25colliders passed a separate audit. Reservoir grasp requires repair, then a new complete three-object positive before the negative control."
+    },
+    {
+      "id": "ur5e-interface-initial-state",
+      "title": "Fluid ·density-compatible initial state and interface boundary",
+      "evidence_sha256": "68090b482e1dd48fd97617d3c210172baa216966afa1bc920d3e2bdbce0fb74d",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "Independent0.5s hold audit:50saved frames retain all1920source particles and have no sampled native-vessel-solid overlap. Separate zero-gravity CPU test has no initial pressure impulse.",
+      "metrics": {
+        "native_seconds": 0.5,
+        "independent_frames": 50,
+        "particles": 1920,
+        "model_volume_mL": 3.75,
+        "checks": 18,
+        "passed_checks": 18,
+        "max_CFL": 0.043166063725948334
+      },
+      "remaining": "Boundary circles approximate the native32wall-box interfaces; geometry is sampled100Hz. Changed fill and boundary representation: not a pure-resolution or paper-level result."
+    },
+    {
+      "id": "ur5e-interface-full-candidate",
+      "title": "UR5e ·1920particle interface-corrected full candidate",
+      "evidence_sha256": "7d7efcdcb482e440876e3dbb030719b3c3b660dff1835b958dc6a5cbbe46218b",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "One frozen23s known-seed trial after short independent admission and cooperative-termination verification. Original18gates plus initial-density/containment and100Hz native-vessel geometry checks remain strict.",
+      "metrics": {
+        "planned_seconds": 23,
+        "observed_native_seconds": 1.9999999999995715,
+        "particles": 1920,
+        "model_volume_mL": 3.75,
+        "dt_microseconds": 125,
+        "wall_cap_seconds": 7200
+      },
+      "remaining": "Raw progress only; full independent terminal audit required. A running process or completed phase is not acceptance. Earlier timeout, incompatible-fill and wall-penetration failures remain retained."
     }
   ],
-  "active": null,
+  "active": {
+    "id": "auto_repro_ur5e_interface1920_seed401_cuda_r3",
+    "phase": "APPROACH",
+    "process_verified_alive": true,
+    "simulation_s": 1.9999999999995715,
+    "physics_steps": 16000,
+    "sampled_at_utc": "2026-10-14T03:38:08.417855+00:00"
+  },
   "audit_sha256": "29bda20783eefc9a9fe64d9a41574e34ded8d2afa91c7b1ff4ec9606229b24c5",
   "audit_clarifications": [
     {
