@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-14T18:21:50.400542+00:00",
+  "exported_at_utc": "2026-10-14T18:52:37.393511+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -412,6 +412,56 @@
     }
   ],
   "modules": [
+    {
+      "id": "fluid-source-sdf-resolution-diagnosis",
+      "title": "Fluid source geometry · distance errors decrease, normal limits remain",
+      "evidence_sha256": "6735797d47e6389b2430031af78f1d302665ad5f010b2fb5bb95c5117acb4171",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "scope": "A source-only40/80/160 grid comparison uses the same21 times and1728 particles. The40 distance and gradient match all418176 saved queries bit for bit, and serialized field0 is byte-identical. All54 separate CSV/geometry checks pass. Mean scalar error decreases0.05458→0.01965→0.00846mm; maximum decreases0.60685→0.30060→0.15104mm. SDF-window FP/FN count particle-time samples:280/0→0/0→0/0. The full table and evidence limits are published on fluid-boundary-diagnosis.html#grid-resolution.",
+      "metrics": {
+        "samples_each": 36288,
+        "baseline_bitwise_points": 418176,
+        "independent_checks": 54,
+        "new_integrations": 0,
+        "new_density_fields": 0,
+        "original_physical_tests_qualified": 0,
+        "grid40_MAE_mm": 0.05458148221065119,
+        "grid40_max_error_mm": 0.6068507945471702,
+        "grid40_window_false_positives": 280,
+        "grid40_window_false_negatives": 0,
+        "grid40_max_normal_error_deg": 54.52892144185579,
+        "grid80_MAE_mm": 0.0196491315279065,
+        "grid80_max_error_mm": 0.30059984163821435,
+        "grid80_window_false_positives": 0,
+        "grid80_window_false_negatives": 0,
+        "grid80_max_normal_error_deg": 54.35362181332821,
+        "grid160_MAE_mm": 0.008462378070653398,
+        "grid160_max_error_mm": 0.15104252989241435,
+        "grid160_window_false_positives": 0,
+        "grid160_window_false_negatives": 0,
+        "grid160_max_normal_error_deg": 54.00623955337905
+      },
+      "remaining": "The maximum raw gradient-normal discrepancy remains about54degrees over uniquely nearest-face samples; tied faces receive no single normal. Scalar increases at individual samples occur at floating-point scale, so aggregate improvement is not bitwise per-point monotonicity. SDF support windows are not complete native map activation or physical contact times. No density field, wall force or new trajectory was computed, and512→200 density-band decline remains unexplained. A separate coherent full density map and static checks must precede any further dynamics. Full physical benchmarks and paper reproduction remain open."
+    },
+    {
+      "id": "hood-metric-layout-identifiability",
+      "title": "Hood source layout · one independent height or matched rail span is missing",
+      "evidence_sha256": "6843556a7570daf3879de34f6d227d8d5422de47ce4eb5701a039948d7222a84",
+      "subsystem_passed": false,
+      "full_reference_accepted": false,
+      "scope": "Six specified cached USD root layers and two table geometries were checked without a new pose fit. Eleven arithmetic and provenance checks pass. With the source robot scale and each existing camera fixed, rail span still depends on one relative height. At the local5mm assumption the conditional spans are1.678/1.733m. Equating a1.240494m bare-pane proxy to the metal rail would instead require157.56/167.63mm heights. The original-image overlay and algebra are on hood-pose-diagnosis.html#metric-gap.",
+      "metrics": {
+        "root_layers_checked": 6,
+        "source_table_geometries": 2,
+        "checks": 11,
+        "new_fit_parameters": 0,
+        "new_physics_steps": 0,
+        "camera_selected": 0,
+        "asset_rescaled": 0
+      },
+      "remaining": "The bare pane is not a verified metal-rail span. These conditional values do not identify original scene dimensions or justify moving/scaling assets. The six roots did not establish a video-linked full camera; Grid does contain three auxiliary orthographic cameras, and this is not a global absence claim. Match original rail endpoints to the actual moving visual component before using its width. Prior-camera repeatability failure, camera ambiguity, collision-free initialization and scene acceptance remain open."
+    },
     {
       "id": "fluid-local-massvolume-short-control",
       "title": "Fluid local control ·20ms completes, density transient remains",
