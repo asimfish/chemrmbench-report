@@ -1,0 +1,113 @@
+{
+  "scope": "Saved-state density diagnostic, not physical-flow admission",
+  "native_prepared": [
+    {
+      "time_s": 0.0,
+      "maximum_density_ratio": 0.7999536345195541,
+      "peak_id": 314,
+      "above_limit_count": 0
+    },
+    {
+      "time_s": 0.005,
+      "maximum_density_ratio": 0.7999536345195541,
+      "peak_id": 326,
+      "above_limit_count": 0
+    },
+    {
+      "time_s": 0.01,
+      "maximum_density_ratio": 0.8000580418317369,
+      "peak_id": 169,
+      "above_limit_count": 0
+    },
+    {
+      "time_s": 0.015,
+      "maximum_density_ratio": 1.4410075920684204,
+      "peak_id": 1305,
+      "above_limit_count": 144
+    }
+  ],
+  "fixed_particle_history": [
+    {
+      "time_s": 0.0,
+      "id": 1305,
+      "fluid_ratio": 0.6802144847700955,
+      "wall_ratio": 0.0,
+      "total_ratio": 0.6802144847700955
+    },
+    {
+      "time_s": 0.005,
+      "id": 1305,
+      "fluid_ratio": 0.6802144847698409,
+      "wall_ratio": 0.0,
+      "total_ratio": 0.6802144847698409
+    },
+    {
+      "time_s": 0.01,
+      "id": 1305,
+      "fluid_ratio": 0.6804329354755897,
+      "wall_ratio": 0.014664101697054288,
+      "total_ratio": 0.6950970371726439
+    },
+    {
+      "time_s": 0.015,
+      "id": 1305,
+      "fluid_ratio": 0.629202678369874,
+      "wall_ratio": 0.8118049136985465,
+      "total_ratio": 1.4410075920684204
+    }
+  ],
+  "position_queries": [
+    {
+      "group": "third_existing_velocity_old_dt",
+      "maximum_density_ratio": 1.4410075920684204,
+      "above_limit_count": 144,
+      "new_simulated_trajectory": false
+    },
+    {
+      "group": "third_existing_velocity_new_dt",
+      "maximum_density_ratio": 0.9335589781535535,
+      "above_limit_count": 0,
+      "new_simulated_trajectory": false
+    },
+    {
+      "group": "discrete_gravity_only3",
+      "maximum_density_ratio": 1.27039785255871,
+      "above_limit_count": 144,
+      "new_simulated_trajectory": false
+    }
+  ],
+  "original_physical_cases_accepted": 0,
+  "full_reference_reproduction": false,
+  "source_audit_sha256": "c87e3841e25d8029b36d905687a9e422d5351b1a899ea55c63c517b6c4a4e707",
+  "figure_receipt_sha256": "60a8e9c40b2f2ad14b67aea8f8109de902213330cb8a9dc816c29cd47c3049be",
+  "observed_numerical_source_agreement": true,
+  "physical_fluid_accepted": false,
+  "new_simulation_from_this_figure": false,
+  "artifacts": {
+    "assets/reproduction/full/native-density-transition-r1.png": "8e6f4307b886ffd1a0ea7e58788feda01c6d8cece3148d7eb69e4ad5cc116e20",
+    "assets/reproduction/full/native-density-transition-r1.pdf": "6c4d1c451a0edda3e7547b930aa58351364e57daa23cc6bfebd9cdc99b56b35c",
+    "assets/reproduction/full/native-density-global-peaks-r1.csv": "5d5aef82144faf47edf3a43f7185fded61379dfdef6d6c3ba777674ec044cda1",
+    "assets/reproduction/full/native-density-fixed1305-r1.csv": "fdd8eacbb539f8b0cc10e07eafd1b44915c9f25305de8804776b28ad1208a719"
+  },
+  "limits": [
+    "No new solve or time integration in the position-only queries.",
+    "Shorter displacement reuses recorded velocity and does not recompute pressure.",
+    "The1.01 ceiling was explicit for initialization and proposed rest admission; earlier prospective wording did not unambiguously specify every transient. No old verdict is changed.",
+    "A separately frozen prospective test must define every prepared and terminal density query before execution."
+  ],
+  "peak_boundary_quadrature_probe": {
+    "group": "prepared3",
+    "id": 1305,
+    "map_sdf": 0.0011131925010628384,
+    "exact_box_sdf": 0.0011131925010628464,
+    "map_volume": 3.1653739846770995e-08,
+    "direct_source_gauss30_volume": 3.165267566103046e-08,
+    "direct_exactSDF_gauss30_volume": 3.165024726728189e-08,
+    "map_wall_ratio": 0.8118049136985468,
+    "direct_source_wall_ratio": 0.8117776211505751,
+    "exactSDF_wall_ratio": 0.8117153415593791,
+    "volume_interpolation_relative_error": 3.362071983836756e-05,
+    "mapSDF_quadrature_relative_difference": 7.672590131946322e-05
+  },
+  "quadrature_probe_sha256": "3902089dfd53ebae8fc9a3a1cb82f7dec728e116f09824bce943f65c7e7958be"
+}

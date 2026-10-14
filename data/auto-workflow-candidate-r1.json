@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "scope": "CPU offline conversion of existing local native simulated demonstration; no new simulation or training",
+  "original_GRID_implementation": false,
+  "original_GELLO_data": false,
+  "original_phone_video": false,
+  "full_auto_engineering_reproduction": false,
+  "hardware_demonstration": false,
+  "source_rows": 2300,
+  "exported_transitions": 2299,
+  "excluded_first_transition": "No saved measured pre-observation at t=0; do not fabricate one",
+  "observation_schema": [
+    "ee_world_xyz_m:3",
+    "tube_world_xyz_m:3",
+    "tube_world_quat_wxyz:4",
+    "receiver_world_xyz_m:3"
+  ],
+  "action_schema": [
+    "commanded_ee_world_xyz_m:3",
+    "commanded_ee_world_quat_xyzw:4",
+    "gripper_closed_01:1"
+  ],
+  "action_semantics": "absolute EE pose target and gripper setpoint before IK; not measured velocity, not actuator torque",
+  "state_semantics": "observed pose only; velocities, fluid field, EE orientation and controller history absent; not a Markov state claim",
+  "timing": "observations from row i-1 precede action stored in row i; next observations from row i after 10ms native dynamics",
+  "split": "candidate_demonstration_only; no random temporal train/test split, no heldout evaluation, no model update",
+  "sampling_hz": 100,
+  "phase_counts": {
+    "settle": 49,
+    "approach": 200,
+    "close": 100,
+    "lift": 200,
+    "loaded_hold": 100,
+    "transfer": 200,
+    "tilt": 250,
+    "pour_hold": 150,
+    "untilt": 250,
+    "return_above_source": 200,
+    "lower_source": 200,
+    "release": 100,
+    "retract": 200,
+    "released_settle": 100
+  },
+  "training_admission_decided": false,
+  "cohort": "local_UR5e_r9_240particles_dt0.000125; separate from later refined1920 experiments",
+  "actual_actuator_commands_available": false,
+  "orientation_provenance_counts": {
+    "runner_Ry_logged_tilt_times_Rx_pi": 1499,
+    "logged_objectspace_return_target.commanded_ee_rotation_xyzw": 400,
+    "runner_constant_orientation_from_final_lower_source_command": 400
+  },
+  "limitations": [
+    "One posthoc selected successful local scripted demonstration, not success-rate evidence",
+    "Data derived from local 240-particle Warp/MuJoCo simulation, not original authors assets",
+    "Observed numerical/contact gates do not validate real water or continuous collision freedom",
+    "No learned full-workflow rollout, cross-robot transfer, perception or real-world validation"
+  ],
+  "source_trajectory_sha256": "486451664cb1440c372afbadf1e57babfe94eb8667f3dc626f613d13322016d9",
+  "source_runner_sha256": "ad2ef2ecddd16d09ff362cdf333e7271551fbd38f5ea6dd7f7ba5e808eb40d93",
+  "source_manifest_sha256": "88f8d849223fe517928d7ccdceb001349c2259460da346ff9a1ae9c4fbbb7fe4",
+  "validator_sha256": "a07626c494ad40c003cd5d8ed0f79bb7f818fdd5ae79c523e3400be2b5e56ea4",
+  "validation_checks": {
+    "original_source_target_recomputation": {
+      "max_rotation_error_rad": 1.2246467991473537e-16,
+      "max_return_position_error_m": 5.551115123125783e-17
+    },
+    "negative_naive_return_orientation": {
+      "rejected": true,
+      "reason": "Source rotation mismatch"
+    },
+    "negative_cross_split_same_parent": {
+      "rejected": true,
+      "reason": "Parent trajectory appears in multiple splits"
+    },
+    "negative_shifted_time": {
+      "rejected": true,
+      "reason": "Post-action timestamps are not consecutive 100 Hz"
+    },
+    "negative_missing_return_command": {
+      "rejected": true,
+      "reason": "Missing object-space return command"
+    },
+    "negative_invalid_row_quarantines_suffix": {
+      "rejected_from_source_row": 100,
+      "preserved_prefix": 99,
+      "quarantined_suffix": 2200
+    }
+  },
+  "artifacts": {
+    "assets/reproduction/full/auto-workflow-candidate-r1.npz": "44454a9c479b20c4b1873ab10426055264b854f76475e47f2032764a59eff833",
+    "assets/reproduction/full/auto-workflow-candidate-r1.jsonl.gz": "491e01061ed0a9e4ee8fd64a6642addbb230c09f1e6bd562a13178a0f529d19f"
+  },
+  "official_sample_repository": "https://github.com/GenRobo/GRID-playground/tree/d6bff42ed9899744659e2860b74e8ee7b50045a5",
+  "official_sample_scope": "Public platform examples, not the Auto-Engineering original policy, GELLO, video-to-sim or deployment implementations."
+}
