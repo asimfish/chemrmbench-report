@@ -45,6 +45,8 @@ The private JSON config is kept **outside this public checkout**. Its fields are
 
 The operator uses separate user systemd timers: collector every minute, publisher every fifteen minutes. Services have a bounded runtime, process locks and private receipts. If telemetry is unavailable, the page reports unavailable data rather than idle GPUs. If evidence export fails, the previous snapshot stays visible and its age makes the stale state explicit. User services require the host and registered evidence storage to remain available; they do not run experiments autonomously.
 
+The publisher requires a fresh collector run before it starts. Its clean Git checkout lives on local SSD; the original NAS checkout and experiment archives stay preserved. Closed development registrations move to the private `retired_development_checks` registry after checking process identity and retaining a closure record. Only current registrations are polled each minute; future experiments require explicit registration. Retirement does not grant experimental success or scientific admission.
+
 Verify with Python 3.10+ and Node: `python3 -m unittest discover -s tests -v`, `python3 -m compileall -q scripts tests`, `node --check collection.js`, and `git diff --check`. Tests cover denied public fields, development admission, parser ambiguity, path escape, partial stage commits, stale snapshots, dirty checkouts and telemetry failure. The task page also needs a desktop/mobile browser check before publication. To suspend publishing, stop the operator's publish timer; published research remains online. Revert an owned website commit normally to roll back a presentation change; preserve the research evidence.
 
 ## Presentation references
