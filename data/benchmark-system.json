@@ -1,12 +1,315 @@
 {
   "schema": "chemrm-benchmark-system-v1",
-  "published_at_utc": "2026-10-15T09:15:11.107345+00:00",
+  "published_at_utc": "2026-10-15T16:49:00.697603+00:00",
   "full_benchmark_pass": false,
   "formal_M1_admission": false,
   "training_admission": false,
   "physics_hz": 240,
   "video_fps": 12,
   "runs": [
+    {
+      "id": "V100-live",
+      "short_title": "固定全通道 · 连续对照",
+      "title": "私有全动作通道对照 · 连续完整任务",
+      "camera_label": "Station A · 重建实验室",
+      "scope": "151源文件事先封存；记录并固定所有关节目标及SDK底层输入。私有验证器对照，不向Agent提供未来动作；不增加常规冷重建覆盖。任务钟保留保存前缀，保持30步计时，预热与停机按暂停策略排除。",
+      "verdict_label": "连续对照完成",
+      "next_stage_pose_control_pass": true,
+      "task_time_offset_s": 0.0,
+      "video": "assets/native-v100/live.mp4",
+      "poster": "assets/native-v100/live.jpg",
+      "frame_index": "assets/native-v100/live-frames.json",
+      "stage_states": "assets/native-v100/live-stages.json",
+      "receipt": "artifacts/benchmark-v100.json",
+      "video_frames": 673,
+      "video_fps": 12,
+      "video_duration_s": 56.083333333333336,
+      "recorded_native_span_s": 56.000002920627594,
+      "video_sha256": "45b77d3a43d179d7a5e9bb1e36d8aaf0aae26c6c209d1f5f184ff37fabd4b909",
+      "raw_frame_index_sha256": "c67d3f6ac3e1801d7b5ccfcb0c94c0e033bb3d3a5f4d2ba333c6d563b6e28417",
+      "stages": [
+        {
+          "id": "approach",
+          "label": "接近",
+          "native_start_s": 0.0,
+          "native_end_s": 10.000000521540642,
+          "video_seek_s": 0.0,
+          "source_start_cursor": 0,
+          "source_end_cursor": 2400,
+          "registered_entities": 65,
+          "archive_state_sha256": "fd15f392317f85b52d4092d9b4739a404155418f33db5ba417e728061e7e6ac2"
+        },
+        {
+          "id": "hold",
+          "label": "抓取前保持",
+          "native_start_s": 10.000000521540642,
+          "native_end_s": 10.1250005280599,
+          "video_seek_s": 10.0
+        },
+        {
+          "id": "grasp",
+          "label": "抓取",
+          "native_start_s": 10.1250005280599,
+          "native_end_s": 16.125000840984285,
+          "video_seek_s": 10.166666666666666,
+          "source_start_cursor": 2400,
+          "source_end_cursor": 3840,
+          "registered_entities": 65,
+          "archive_state_sha256": "3ba64930c35f687f5c64b55a49045e5d740220db1c9d330b936500ab3a5cfaa4"
+        },
+        {
+          "id": "lift",
+          "label": "提起",
+          "native_start_s": 16.125000840984285,
+          "native_end_s": 19.125000997446477,
+          "video_seek_s": 16.166666666666668,
+          "source_start_cursor": 3840,
+          "source_end_cursor": 4560,
+          "registered_entities": 65,
+          "archive_state_sha256": "6ddfe21fb6b9946f078542a691b19f9716f9487014e2badffb5433ae260b7a87"
+        },
+        {
+          "id": "transport",
+          "label": "运送",
+          "native_start_s": 19.125000997446477,
+          "native_end_s": 27.12500141467899,
+          "video_seek_s": 19.166666666666668,
+          "source_start_cursor": 4560,
+          "source_end_cursor": 6480,
+          "registered_entities": 65,
+          "archive_state_sha256": "5c56460353441dd13970f911e1551ef6f2eb560bbba96e10c36c3609ccde07f6"
+        },
+        {
+          "id": "place_release",
+          "label": "天平释放",
+          "native_start_s": 27.12500141467899,
+          "native_end_s": 33.125001727603376,
+          "video_seek_s": 27.166666666666668,
+          "source_start_cursor": 6480,
+          "source_end_cursor": 7920,
+          "registered_entities": 65,
+          "archive_state_sha256": "dc8fc734e9b4f28e6cedae22643dd04f57b8585568c612f586b8f5f7c5588719"
+        },
+        {
+          "id": "regrasp",
+          "label": "再次抓取",
+          "native_start_s": 33.125001727603376,
+          "native_end_s": 40.125002092681825,
+          "video_seek_s": 33.166666666666664,
+          "source_start_cursor": 7920,
+          "source_end_cursor": 9600,
+          "registered_entities": 65,
+          "archive_state_sha256": "613cb09d960d60910b60f2a8832963e99433f1611a10d7c58be298f0f7373618"
+        },
+        {
+          "id": "return",
+          "label": "放回",
+          "native_start_s": 40.125002092681825,
+          "native_end_s": 53.07083610119298,
+          "video_seek_s": 40.166666666666664,
+          "source_start_cursor": 9600,
+          "source_end_cursor": 12707,
+          "registered_entities": 65,
+          "archive_state_sha256": "84251fa3142999c9919bb2fcd1ed211304951f04d85c77bc41fff91499e36fcf"
+        },
+        {
+          "id": "retreat",
+          "label": "退出",
+          "native_start_s": 53.07083610119298,
+          "native_end_s": 56.07083625765517,
+          "video_seek_s": 53.083333333333336,
+          "source_start_cursor": 12707,
+          "source_end_cursor": 13427,
+          "registered_entities": 65,
+          "archive_state_sha256": "72ea5169c5db2bb2c34928e3006ad45bc2de16ddc9dbc9bd2dae03751fd42438"
+        }
+      ],
+      "gates": [
+        [
+          "阶段完整状态保存",
+          "8 个实际完成边界 × 65 实体",
+          "已保存"
+        ],
+        [
+          "源动作执行",
+          "13,427 条；起点 0，完整余程目标 13,427 条",
+          "完成"
+        ],
+        [
+          "恢复初态",
+          "全登记实体、观测速度、原控制目标与游标",
+          "参照"
+        ],
+        [
+          "匹配保持",
+          "30 原生步，保持时间计入任务钟",
+          "参照"
+        ],
+        [
+          "七阶段严格状态",
+          "位置1mm / 姿态0.5° / 保存关节坐标0.0001；驱动状态相等",
+          "参照"
+        ],
+        [
+          "原生录像",
+          "673帧 /12fps /H264完整解码",
+          "通过"
+        ],
+        [
+          "V99附加放回条件",
+          "0.426647 mm /1mm；历史任务门槛20mm另列",
+          "通过"
+        ]
+      ],
+      "video_scope": "240Hz原生状态/接触与12fps被动RGB。任务时间沿用保存前缀；视频时间从本片段0开始。未执行的余程不生成录像。",
+      "resource_scope": "本条件GPU分配时长上界 0.145564小时；模型调用0，训练0。私有固定动作对照。"
+    },
+    {
+      "id": "V100-cold",
+      "short_title": "固定全通道 · 冷重建",
+      "title": "私有全动作通道对照 · 冷重建完整余程",
+      "camera_label": "Station A · 重建实验室",
+      "scope": "151源文件事先封存；记录并固定所有关节目标及SDK底层输入。私有验证器对照，不向Agent提供未来动作；不增加常规冷重建覆盖。任务钟保留保存前缀，保持30步计时，预热与停机按暂停策略排除。",
+      "verdict_label": "固定动作严格对照通过",
+      "next_stage_pose_control_pass": true,
+      "task_time_offset_s": 10.000000521540642,
+      "video": "assets/native-v100/cold.mp4",
+      "poster": "assets/native-v100/cold.jpg",
+      "frame_index": "assets/native-v100/cold-frames.json",
+      "stage_states": "assets/native-v100/cold-stages.json",
+      "receipt": "artifacts/benchmark-v100.json",
+      "video_frames": 553,
+      "video_fps": 12,
+      "video_duration_s": 46.083333333333336,
+      "recorded_native_span_s": 46.00000239908695,
+      "video_sha256": "a8febd74274f0e220e4180ee9751a32364a09b4f7d07e219f1e60f41b175e9f6",
+      "raw_frame_index_sha256": "e62ac97871aca3730b3cd11c772feefaecb28df20721b9d7b49d9eca8a88f013",
+      "stages": [
+        {
+          "id": "hold",
+          "label": "抓取前保持",
+          "native_start_s": 0.0,
+          "native_end_s": 0.12500000651925802,
+          "video_seek_s": 0.0
+        },
+        {
+          "id": "grasp",
+          "label": "抓取",
+          "native_start_s": 0.12500000651925802,
+          "native_end_s": 6.125000319443643,
+          "video_seek_s": 0.16666666666666666,
+          "source_start_cursor": 2400,
+          "source_end_cursor": 3840,
+          "registered_entities": 65,
+          "archive_state_sha256": "9a4d7346d8118d549d4fffb60ce3b12f2213a5796fe34b74edb37726ae4c7ed6"
+        },
+        {
+          "id": "lift",
+          "label": "提起",
+          "native_start_s": 6.125000319443643,
+          "native_end_s": 9.125000475905836,
+          "video_seek_s": 6.166666666666667,
+          "source_start_cursor": 3840,
+          "source_end_cursor": 4560,
+          "registered_entities": 65,
+          "archive_state_sha256": "24e7f89e5421abb1484b9f16555d0afea254b8f21d0a31c317018e0dac257557"
+        },
+        {
+          "id": "transport",
+          "label": "运送",
+          "native_start_s": 9.125000475905836,
+          "native_end_s": 17.12500089313835,
+          "video_seek_s": 9.166666666666666,
+          "source_start_cursor": 4560,
+          "source_end_cursor": 6480,
+          "registered_entities": 65,
+          "archive_state_sha256": "06ce69db3891053c65415e9eae5b72783d5e5d9d37ceea57684bba6b7fc1de88"
+        },
+        {
+          "id": "place_release",
+          "label": "天平释放",
+          "native_start_s": 17.12500089313835,
+          "native_end_s": 23.125001206062734,
+          "video_seek_s": 17.166666666666668,
+          "source_start_cursor": 6480,
+          "source_end_cursor": 7920,
+          "registered_entities": 65,
+          "archive_state_sha256": "5b60b54b3f39b9d80737bff4c073702b5f825eb9aa243498d638da9b18637b34"
+        },
+        {
+          "id": "regrasp",
+          "label": "再次抓取",
+          "native_start_s": 23.125001206062734,
+          "native_end_s": 30.125001571141183,
+          "video_seek_s": 23.166666666666668,
+          "source_start_cursor": 7920,
+          "source_end_cursor": 9600,
+          "registered_entities": 65,
+          "archive_state_sha256": "a703f0f40974e52e413a544c946f5b95c9425a5bfe887d219038d64f6881dbff"
+        },
+        {
+          "id": "return",
+          "label": "放回",
+          "native_start_s": 30.125001571141183,
+          "native_end_s": 43.07083557965234,
+          "video_seek_s": 30.166666666666668,
+          "source_start_cursor": 9600,
+          "source_end_cursor": 12707,
+          "registered_entities": 65,
+          "archive_state_sha256": "63f1cf2480b12c6453b41b4ed1f2bb4afd2c885f7345b77676f7bd3a757a5eaa"
+        },
+        {
+          "id": "retreat",
+          "label": "退出",
+          "native_start_s": 43.07083557965234,
+          "native_end_s": 46.07083573611453,
+          "video_seek_s": 43.083333333333336,
+          "source_start_cursor": 12707,
+          "source_end_cursor": 13427,
+          "registered_entities": 65,
+          "archive_state_sha256": "ffa80b7d4f899990f32f565dc22d56a57ea00f38c1df4f9d908b38ff0e474d9a"
+        }
+      ],
+      "gates": [
+        [
+          "阶段完整状态保存",
+          "7 个实际完成边界 × 65 实体",
+          "已保存"
+        ],
+        [
+          "源动作执行",
+          "11,027 条；起点 2,400，完整余程目标 11,027 条",
+          "完成"
+        ],
+        [
+          "恢复初态",
+          "全登记实体、观测速度、原控制目标与游标",
+          "通过"
+        ],
+        [
+          "匹配保持",
+          "30 原生步，保持时间计入任务钟",
+          "通过"
+        ],
+        [
+          "七阶段严格状态",
+          "位置1mm / 姿态0.5° / 保存关节坐标0.0001；驱动状态相等",
+          "通过"
+        ],
+        [
+          "原生录像",
+          "553帧 /12fps /H264完整解码",
+          "通过"
+        ],
+        [
+          "V99附加放回条件",
+          "0.353397 mm /1mm；历史任务门槛20mm另列",
+          "通过"
+        ]
+      ],
+      "video_scope": "240Hz原生状态/接触与12fps被动RGB。任务时间沿用保存前缀；视频时间从本片段0开始。未执行的余程不生成录像。",
+      "resource_scope": "本条件GPU分配时长上界 0.134104小时；模型调用0，训练0。私有固定动作对照。"
+    },
     {
       "id": "V99-live",
       "short_title": "抓取前 · 连续对照",
@@ -1715,7 +2018,7 @@
     ],
     [
       "可核验原生录像",
-      "14 条"
+      "16 条"
     ],
     [
       "物理日志 / 视频采样",
@@ -1888,7 +2191,25 @@
     "assets/native-v99/aligned-comparison.mp4": "5a41846a9c3a0b82723f0589bc721c0b5d80cabc1b96dea5b1e0146e53cfbba0",
     "assets/native-v99/aligned-comparison.jpg": "a63dbcd5eaaf76281322e9c241682c2659b2249b72a7ecf1e67b8a85c257c958",
     "artifacts/v99-aligned-replay.json": "874657913505b471963a60e81ad241869441ae18e250f7aa25d62bebb236409a",
-    "assets/papers/papera-cold-continuation-v99.pdf": "e194e1efc29c376e1827180b918c022915b900113a2afa9f8cf87e6ea3871845"
+    "assets/papers/papera-cold-continuation-v99.pdf": "e194e1efc29c376e1827180b918c022915b900113a2afa9f8cf87e6ea3871845",
+    "assets/native-v100/live.mp4": "45b77d3a43d179d7a5e9bb1e36d8aaf0aae26c6c209d1f5f184ff37fabd4b909",
+    "assets/native-v100/live.jpg": "d716f42b5acf4f3c7604e21bd743ed10f5d068244a2fb561288df5fdcbadc3ed",
+    "assets/native-v100/live-frames.json": "76ad6061e3ccd4e5748a4d85f23816bb32d4ed8c9a7e9c623dde1ee9be1f01e0",
+    "assets/native-v100/live-stages.json": "cb52a42a458d192a866719d2cebb8667c3c86ced0e25abaefeaa47a191234769",
+    "assets/native-v100/cold.mp4": "a8febd74274f0e220e4180ee9751a32364a09b4f7d07e219f1e60f41b175e9f6",
+    "assets/native-v100/cold.jpg": "2c79620bbfe674ebc9e01a46b73fe97cc5fe92ac8e82cdbebe0c7deecf6c32e5",
+    "assets/native-v100/cold-frames.json": "354af3e950043bb91b80be09d6508321b2344d636b3a84bca72e1964101bf49d",
+    "assets/native-v100/cold-stages.json": "e08b50cf9a2df38b763c8fef329f61f19e180fc9a395fd7306e34b3e897dc659",
+    "assets/native-v100/stage-endpoints.csv": "65c2978bb4e62c2b7356da930ebc0ef6a3de72870ec8b1826b42084806493e7c",
+    "assets/native-v100/stage-endpoints.png": "2bf4fdd0c02ff4e149e383b64c5137f2f8e7c9ad3651e23b684064300fac7f8e",
+    "assets/native-v100/stage-endpoints.pdf": "4237de923e7ea3a8e9f17ec5cc32238f354c6f2872e8c4cab72f967dd808e3c7",
+    "artifacts/benchmark-v100.json": "50aa54f38c5f4a56bfa16e841eb2e1f1eacef626de2e0af611954119e05c2758",
+    "assets/native-v100/aligned-comparison.mp4": "cf15637ae61574c0191224cd2a006dc0a488ed42035c018fd92b44a6d7d5512b",
+    "assets/native-v100/aligned-comparison.jpg": "8fac071834673154fe93ae9a67b1d44b95d10a28896ea42d244a553757b254c8",
+    "artifacts/v100-aligned-replay.json": "27359a221bdaefa200ee9ec5253515af3df4b4b2cea653a8f2e5242f45513830",
+    "assets/native-v100/fixed-action-method.png": "437580fd2e1f0734ee53d96c5669728a5113749f7b115bdc8d133f23806d27b2",
+    "assets/native-v100/fixed-action-method.pdf": "e70b027d3880c0c0bdcefd1169bd8205f461d3a69aa3953557bef9b8d9c09edb",
+    "assets/papers/papera-fixed-action-v100.pdf": "6e0ac5fa2ffce2efa777c5123b923aabc7b263ce18eb6f34a47bf4bf43db0ab9"
   },
   "total_new_GPU_hours_upper_bound": 1.3767351368327054,
   "scope": "Three previous native-video records and nine balanced fixed-condition trials, including retained endpoint failures. No new cold restart, agent memory, chemical timing, randomized causal or M1 admission.",
@@ -2177,5 +2498,153 @@
     "comparison_video": "assets/native-v99/aligned-comparison.mp4",
     "comparison_poster": "assets/native-v99/aligned-comparison.jpg",
     "comparison_receipt": "artifacts/v99-aligned-replay.json"
+  },
+  "fixed_action_control": {
+    "schema": "chemrm-public-fixed-action-v100",
+    "rows": [
+      {
+        "phase": "live",
+        "run_id": "V100-live",
+        "source_start": 0,
+        "source_commands": 13427,
+        "committed_boundaries": 8,
+        "expected_boundaries": 8,
+        "initial_gate": "pass",
+        "hold_gate": "pass",
+        "strict_gate": "reference",
+        "full_tail_complete": true,
+        "final_return_error_mm": 0.42664663738333375
+      },
+      {
+        "phase": "cold",
+        "run_id": "V100-cold",
+        "source_start": 2400,
+        "source_commands": 11027,
+        "committed_boundaries": 7,
+        "expected_boundaries": 7,
+        "initial_gate": "pass",
+        "hold_gate": "pass",
+        "strict_gate": "pass",
+        "full_tail_complete": true,
+        "final_return_error_mm": 0.3533967230117856
+      }
+    ],
+    "stage_rows": [
+      {
+        "stage_id": "grasp",
+        "label": "抓取",
+        "position_max_mm": 0.18549214443555773,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 2.0887693494842097e-06,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      },
+      {
+        "stage_id": "lift",
+        "label": "提起",
+        "position_max_mm": 0.2383447175055989,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 1.6801059246063232e-06,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      },
+      {
+        "stage_id": "transport",
+        "label": "运送",
+        "position_max_mm": 0.2590811447616661,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 4.298985004425049e-06,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      },
+      {
+        "stage_id": "place_release",
+        "label": "天平释放",
+        "position_max_mm": 0.2783111860426947,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 3.1762202183927e-06,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      },
+      {
+        "stage_id": "regrasp",
+        "label": "再次抓取",
+        "position_max_mm": 0.28638066220389224,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 3.6247074604034424e-06,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      },
+      {
+        "stage_id": "return",
+        "label": "放回",
+        "position_max_mm": 0.34966458162992536,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 9.5367431640625e-07,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      },
+      {
+        "stage_id": "retreat",
+        "label": "退出",
+        "position_max_mm": 0.43096215843999025,
+        "orientation_max_deg": 0.15250380706489916,
+        "joint_coordinate_max": 5.772151325800223e-07,
+        "drive_state_equal": true,
+        "strict_pass": true,
+        "pose_drive_pass": true
+      }
+    ],
+    "initial_gate_pass": true,
+    "matched_hold_pass": true,
+    "full_tail_task_clock_matches": true,
+    "strict_endpoints_pass": true,
+    "cold_restart_boundaries_added": 0,
+    "verified_boundaries": 1,
+    "task_boundaries": 8,
+    "source_pins_sha256": "e30134642881d7301e6ade8f8f345ee6f39303d1a72feec6d4b85825d717fb4f",
+    "reader_source_sha256": "a95f7a6a47137e1faf7175e4ca2eabe4914a53881ea92b02be448e52e478f9fe",
+    "gpu_hours": 0.27966817703279145,
+    "scientific_admission": false,
+    "training_admission": false,
+    "full_benchmark_pass": false,
+    "scope": "固定所有实际关节输入的私有机制对照；不是自主反馈策略恢复、化学计时或Agent记忆证据。常规冷重建覆盖仍1/8。",
+    "chart": "assets/native-v100/stage-endpoints.png",
+    "chart_pdf": "assets/native-v100/stage-endpoints.pdf",
+    "csv": "assets/native-v100/stage-endpoints.csv",
+    "private_validator_only": true,
+    "agent_visible_actions": false,
+    "fixed_action_boundary_pass": true,
+    "applied_action_trace_equal": true,
+    "status": "PASS_SCOPED_FIXED_ACTION_COLD_FULL_TAIL",
+    "action_trace_review": {
+      "cold": {
+        "actions_sha256": "f29d888d2e694dab614613061614e72ff97e999580b3abf618b643327a44163a",
+        "agent_visible": false,
+        "all_recorded_stage_targets_match": true,
+        "all_targets_and_simulator_inputs_equal": true,
+        "private_validator_only": true,
+        "rows": 11057,
+        "start_canonical_step": 2400
+      },
+      "live": {
+        "actions_sha256": "998ee395281ed1b7c0d53e616d28dfa3fa9d4bc647094403dc145d47ffd0f76e",
+        "agent_visible": false,
+        "all_recorded_stage_targets_match": true,
+        "all_targets_and_simulator_inputs_equal": true,
+        "private_validator_only": true,
+        "rows": 13457,
+        "start_canonical_step": 0
+      }
+    },
+    "comparison_video": "assets/native-v100/aligned-comparison.mp4",
+    "comparison_poster": "assets/native-v100/aligned-comparison.jpg",
+    "comparison_receipt": "artifacts/v100-aligned-replay.json"
   }
 }

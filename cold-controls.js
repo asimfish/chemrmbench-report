@@ -32,8 +32,8 @@ function validate(data,runs){
   return data;
 }
 function validateFrames(run,frames){
-  if(!['V99-live','V99-cold'].includes(run.id)||!Number.isFinite(run.task_time_offset_s)||!Array.isArray(frames)||!frames.length)throw Error('invalid V99 task clock');
-  const cold=run.id==='V99-cold',start=cold?2400:0;
+  if(!['V99-live','V99-cold','V100-live','V100-cold'].includes(run.id)||!Number.isFinite(run.task_time_offset_s)||!Array.isArray(frames)||!frames.length)throw Error('invalid restored task clock');
+  const cold=run.id.endsWith('-cold'),start=cold?2400:0;
   if(Math.abs(run.task_time_offset_s-(cold?10:0))>1e-5||frames[0].source_command_cursor!==start)throw Error('restored task clock or source cursor reset');
   for(const f of frames)if(!Number.isFinite(f.task_time_s)||!Number.isInteger(f.physics_tick)||f.physics_tick<0||Math.abs(f.native_elapsed_s-f.physics_tick/240)>1e-5||Math.abs(f.task_time_s-run.task_time_offset_s-f.native_elapsed_s)>1e-7)throw Error('task/native frame time inconsistent');
   return frames;

@@ -1,0 +1,203 @@
+{
+  "schema": "chemrm-v100-independent-fixed-action-cold-full-tail-review",
+  "status": "PASS_SCOPED_FIXED_ACTION_COLD_FULL_TAIL",
+  "reviewed_at_utc": "2026-10-15T16:47:22.905606+00:00",
+  "source_pins_sha256": "e30134642881d7301e6ade8f8f345ee6f39303d1a72feec6d4b85825d717fb4f",
+  "reviewer_source_sha256": "a95f7a6a47137e1faf7175e4ca2eabe4914a53881ea92b02be448e52e478f9fe",
+  "pinned_files_verified": 151,
+  "reader_sealed_before_collection": true,
+  "initial_gate_pass": true,
+  "matched_hold_pass": true,
+  "all_seven_strict_endpoints_pass": true,
+  "all_seven_pose_drive_endpoints_pass": true,
+  "full_tail_task_clock_matches": true,
+  "applied_action_trace_equal": true,
+  "action_trace_review": {
+    "cold": {
+      "actions_sha256": "f29d888d2e694dab614613061614e72ff97e999580b3abf618b643327a44163a",
+      "agent_visible": false,
+      "all_recorded_stage_targets_match": true,
+      "all_targets_and_simulator_inputs_equal": true,
+      "private_validator_only": true,
+      "rows": 11057,
+      "start_canonical_step": 2400
+    },
+    "live": {
+      "actions_sha256": "998ee395281ed1b7c0d53e616d28dfa3fa9d4bc647094403dc145d47ffd0f76e",
+      "agent_visible": false,
+      "all_recorded_stage_targets_match": true,
+      "all_targets_and_simulator_inputs_equal": true,
+      "private_validator_only": true,
+      "rows": 13457,
+      "start_canonical_step": 0
+    }
+  },
+  "fixed_action_boundary_pass": true,
+  "private_validator_only": true,
+  "agent_visible_actions": false,
+  "cold_restart_boundaries_added": 0,
+  "cold_restart_verified_boundaries": 1,
+  "task_boundaries": 8,
+  "phases": {
+    "cold": {
+      "complete_tail": true,
+      "exit_code": 0,
+      "hold_samples": 30,
+      "mechanism": {
+        "bilateral_contact_fraction": 1.0,
+        "final_return_error_m": 0.0003533967230117856,
+        "full_source_tail_completed": true,
+        "maximum_relative_displacement_m": 0.0005507614944218482,
+        "passed": true,
+        "scientific_admission": false,
+        "transport_source_commands": 1920
+      },
+      "native_clock_samples": 11057,
+      "registered_entities": 65,
+      "source_commands": 11027,
+      "source_start": 2400,
+      "timed_out": false
+    },
+    "live": {
+      "complete_tail": true,
+      "exit_code": 0,
+      "hold_samples": 30,
+      "mechanism": {
+        "bilateral_contact_fraction": 1.0,
+        "final_return_error_m": 0.00042664663738333376,
+        "full_source_tail_completed": true,
+        "maximum_relative_displacement_m": 0.0005768224482348834,
+        "passed": true,
+        "scientific_admission": false,
+        "transport_source_commands": 1920
+      },
+      "native_clock_samples": 13457,
+      "registered_entities": 65,
+      "source_commands": 13427,
+      "source_start": 0,
+      "timed_out": false
+    }
+  },
+  "allocated_gpu_hours_upper_bound": 0.27966817703279145,
+  "model_calls": 0,
+  "training_jobs": 0,
+  "scientific_admission": false,
+  "training_admission": false,
+  "formal_M1_admission": false,
+  "full_benchmark_pass": false,
+  "hidden_solver_state_restored": false,
+  "agent_memory_or_original_event_deadline_tested": false,
+  "rows": [
+    {
+      "phase": "live",
+      "run_id": "V100-live",
+      "source_start": 0,
+      "source_commands": 13427,
+      "committed_boundaries": 8,
+      "expected_boundaries": 8,
+      "initial_gate": "pass",
+      "hold_gate": "pass",
+      "strict_gate": "reference",
+      "full_tail_complete": true,
+      "final_return_error_mm": 0.42664663738333375
+    },
+    {
+      "phase": "cold",
+      "run_id": "V100-cold",
+      "source_start": 2400,
+      "source_commands": 11027,
+      "committed_boundaries": 7,
+      "expected_boundaries": 7,
+      "initial_gate": "pass",
+      "hold_gate": "pass",
+      "strict_gate": "pass",
+      "full_tail_complete": true,
+      "final_return_error_mm": 0.3533967230117856
+    }
+  ],
+  "stage_rows": [
+    {
+      "stage_id": "grasp",
+      "label": "抓取",
+      "position_max_mm": 0.18549214443555773,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 2.0887693494842097e-06,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "lift",
+      "label": "提起",
+      "position_max_mm": 0.2383447175055989,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 1.6801059246063232e-06,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "transport",
+      "label": "运送",
+      "position_max_mm": 0.2590811447616661,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 4.298985004425049e-06,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "place_release",
+      "label": "天平释放",
+      "position_max_mm": 0.2783111860426947,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 3.1762202183927e-06,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "regrasp",
+      "label": "再次抓取",
+      "position_max_mm": 0.28638066220389224,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 3.6247074604034424e-06,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "return",
+      "label": "放回",
+      "position_max_mm": 0.34966458162992536,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 9.5367431640625e-07,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "retreat",
+      "label": "退出",
+      "position_max_mm": 0.43096215843999025,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 5.772151325800223e-07,
+      "drive_state_equal": true,
+      "strict_pass": true,
+      "pose_drive_pass": true
+    }
+  ],
+  "raw_review_receipt_sha256": "592d52f0a82818ae1dd31e22d3b3a55cdc5ddbb9d2b4c9b1ab6f6c0605cba51a",
+  "raw_preservation": {
+    "status": "PASS_ALL_RAW_BUNDLE_BYTES_VERIFIED",
+    "tar_sha256": "b5209b7cc93a0f786ecc20ef58a3ee71258dece981996f8610cec6ba7a9c1d2c",
+    "tar_bytes": 1801093120,
+    "file_count": 1650,
+    "raw_manifest_sha256": "330b3c32520f4e1eb648df77cf6f92efa4903bd95f5dbe3e160a9de3f5b8f50e",
+    "source_files_verified": 151,
+    "source_pins_sha256": "e30134642881d7301e6ade8f8f345ee6f39303d1a72feec6d4b85825d717fb4f",
+    "reader_sealed_before_collection": true,
+    "all_member_bytes_verified": true,
+    "native_workers_closed": 2
+  }
+}
