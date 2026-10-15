@@ -225,6 +225,27 @@ class PublicBoundary(unittest.TestCase):
             c['working_root_allowlist']=[str(working)]
             with patch('pathlib.Path.read_bytes',return_value=str(working).encode()):self.assertEqual(live_runs(c)[0]['id'],'V98-R2')
 
+    def test_waiting_between_native_workers_is_visible_without_claiming_gpu_allocation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            exp=Path(temporary);raw=exp/'cohort';raw.mkdir()
+            phases=['r1_no_write','r1_read_only_sham','r1_single_pose_write','r2_read_only_sham','r2_single_pose_write','r2_no_write','r3_single_pose_write','r3_no_write','r3_read_only_sham']
+            atomic_json(raw/'r1_no_write_running.json',{'pid':12345})
+            atomic_json(raw/'r1_no_write_resource.json',{'exit_code':0})
+            (raw/'r1_no_write').mkdir();atomic_json(raw/'r1_no_write/RESULT.json',{})
+            source=raw/'same_source_resume.py';source.write_text('# declared private collector\n')
+            atomic_json(raw/'SAME_SOURCE_RESUME_PREDECLARED.json',{'orchestrator_source_sha256':digest(source)})
+            atomic_json(raw/'SUPERVISOR_RUNNING.json',{'pid':12345,'root':str(raw),'resource_wait_is_not_native_allocation':True})
+            c={'experiment_root':str(exp),'development_checks':[{'id':'V98-R5','path':str(raw),'phases':phases}]}
+            args=[b'python3',str(source).encode(),b'--root',str(raw).encode()]
+            with patch('export_dashboard.supervisor_args',return_value=args):
+                active=live_runs(c)[0]
+            self.assertEqual(active['state'],'waiting_resource');self.assertEqual(active['committed_stages'],1)
+            self.assertNotIn('gpu_allocated',active)
+            for command in [[b'python3',b'foreign.py',b'--root',str(raw).encode()],args[:-1]]:
+                with patch('export_dashboard.supervisor_args',return_value=command):self.assertEqual(live_runs(c),[])
+            atomic_json(raw/'SUPERVISOR_CLOSED.json',{'native_cohort_closed':False})
+            with patch('export_dashboard.supervisor_args',return_value=args):self.assertEqual(live_runs(c),[])
+
     def test_single_cold_child_progress_uses_nested_output_without_granting_archive_admission(self):
         with tempfile.TemporaryDirectory() as temporary:
             exp=Path(temporary);raw=exp/'trial';raw.mkdir();(raw/'parent').mkdir()

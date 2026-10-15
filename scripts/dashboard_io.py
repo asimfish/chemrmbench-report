@@ -169,7 +169,7 @@ def validate_public(data):
     for run in data['active_runs']:
         fields(run, 'run')
         identifier(run['id'])
-        if run['state'] not in ('collecting', 'interrupted', 'awaiting_seal'):
+        if run['state'] not in ('collecting', 'waiting_resource', 'interrupted', 'awaiting_seal'):
             raise ValueError('unknown live state')
         number(run['planned_stages'], high=32, integer=True)
         number(run['committed_stages'], high=run['planned_stages'], integer=True)

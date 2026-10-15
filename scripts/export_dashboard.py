@@ -118,6 +118,27 @@ def load_closed(config):
     return latest, counts, notes, data['created_at_utc']
 
 
+def supervisor_args(pid):
+    return Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')
+
+
+def waiting_supervisor(raw):
+    running=raw/'SUPERVISOR_RUNNING.json'
+    declaration=raw/'SAME_SOURCE_RESUME_PREDECLARED.json'
+    source=raw/'same_source_resume.py'
+    if not running.exists() or not declaration.exists() or (raw/'SUPERVISOR_CLOSED.json').exists():
+        return False
+    info=read_json(running);pre=read_json(declaration)
+    if (info.get('resource_wait_is_not_native_allocation') is not True or
+            info.get('root')!=str(raw) or pre.get('orchestrator_source_sha256')!=digest(source)):
+        return False
+    try:
+        args=supervisor_args(number(info['pid'],integer=True))
+    except (OSError,ValueError):
+        return False
+    return str(source).encode() in args and b'--root' in args and args[args.index(b'--root')+1:args.index(b'--root')+2]==[str(raw).encode()]
+
+
 def live_runs(config):
     result = []
     for registration in config.get('live_runs', []):
@@ -202,8 +223,9 @@ def live_runs(config):
             if phases==repeated:
                 entry['outcome']='native_pass' if result_path.exists() else 'native_failed' if (output/'ERROR.json').exists() else 'pending'
             stage_list.append(entry)
-        if alive:
-            result.append({'id': identifier(registration['id']), 'state': 'collecting',
+        waiting=phases==repeated and not alive and waiting_supervisor(raw)
+        if alive or waiting:
+            result.append({'id': identifier(registration['id']), 'state': 'waiting_resource' if waiting else 'collecting',
                            'stages': stage_list, 'committed_stages': sum(s['committed'] for s in stage_list),
                            'planned_stages': len(phases)})
     return result
