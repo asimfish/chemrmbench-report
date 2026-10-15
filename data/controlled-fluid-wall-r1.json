@@ -1,0 +1,193 @@
+{
+  "status": "LOCAL_NATIVE_WALL_ABLATION_COMPLETED_PHYSICS_OPEN",
+  "created_at_utc": "2026-10-15T16:30:51.130886+00:00",
+  "title": "Density loss persists without wall coupling",
+  "native_backend": "pinned SPlisHSPlasH DFSPH + Weiler2018,1728 local fixture particles",
+  "intervention": "Only register the unchanged full80 boundary or register none. Both arms initialize fresh; detached zero arrays and raw map samples are observational in none. No pressure parameter, spacing, gravity or threshold changed.",
+  "budgets": {
+    "CPU_cores": 1,
+    "RAM_GiB": 8,
+    "service_wall_limit_s": 300,
+    "per_native_arm_wall_limit_s": 45,
+    "steps_per_arm": 20,
+    "physical_time_s": 0.02,
+    "automatic_retries": 0
+  },
+  "checks": {
+    "compile_zero": [
+      28,
+      28
+    ],
+    "compile_distinct_readonly": [
+      10,
+      10
+    ],
+    "full80_compatibility": [
+      13,
+      13
+    ],
+    "producer_dynamic": [
+      29,
+      29
+    ],
+    "distinct_readonly_dynamic": [
+      27,
+      27
+    ]
+  },
+  "compatibility": {
+    "full80_all_181_records_1728_particles_36_fields_bitwise_equal_prior": true,
+    "all36_initial_fields_equal_between_arms": true,
+    "ordered_initial_operator_inputs_equal": true,
+    "complete_native_checkpoint_claimed": false,
+    "first_any_field_difference": {
+      "record": 90,
+      "step": 9,
+      "stage": "terminal",
+      "time": 0.010000000000000002
+    },
+    "first_native_wall_application": {
+      "record": 90,
+      "step": 9,
+      "stage": "terminal",
+      "time": 0.010000000000000002
+    },
+    "first_field_group_differences": {
+      "all_motion": {
+        "record": 92,
+        "step": 10,
+        "stage": "divergence",
+        "time": 0.010000000000000002
+      },
+      "all_positions": {
+        "record": 98,
+        "step": 10,
+        "stage": "integrated",
+        "time": 0.011000000000000003
+      },
+      "all_velocity": {
+        "record": 92,
+        "step": 10,
+        "stage": "divergence",
+        "time": 0.010000000000000002
+      },
+      "fixed_cohort_density": {
+        "record": 108,
+        "step": 11,
+        "stage": "terminal",
+        "time": 0.012000000000000004
+      }
+    }
+  },
+  "results": {
+    "full80": {
+      "first_cohort_loss_time_s": 0.016000000000000007,
+      "terminal": {
+        "arm": "full80",
+        "record": 180,
+        "step": 19,
+        "stage": "terminal",
+        "time_s": 0.02000000000000001,
+        "fresh_native_density": true,
+        "fixed_cohort_count": 512,
+        "rho_ratio_min": 0.9313092722389246,
+        "rho_ratio_mean": 0.9501043780116907,
+        "rho_ratio_max": 0.9856751830953141,
+        "in_0p95_1p01_count": 200,
+        "native_active_wall_all_count": 288,
+        "native_active_wall_cohort_count": 0,
+        "wall_reaction_x_N": 3.114667372602152e-17,
+        "wall_reaction_y_N": -0.03045734953847496,
+        "wall_reaction_z_N": 3.2739133923962934e-17,
+        "wall_reaction_norm_N": 0.03045734953847496,
+        "wall_source_torque_norm_Nm": 6.253334867951374e-18,
+        "cohort_relative_to_all_COM_speed_rms_m_s": 0.026972711962710248,
+        "cohort_relative_to_own_COM_speed_rms_m_s": 0.02675488388446251,
+        "all_COM_vx_m_s": 2.7345365598243748e-18,
+        "all_COM_vy_m_s": -0.1851129542781291,
+        "all_COM_vz_m_s": -1.1831378755578834e-17,
+        "cohort_pressureRho2_positive_count": 0,
+        "cohort_pressureRho2_mean": 0.0,
+        "all_pressureRho2_positive_count": 0,
+        "all_particle_rms_speed_m_s": 0.1910643211512566,
+        "physical_admission": false
+      },
+      "timepoints": 21
+    },
+    "none": {
+      "first_cohort_loss_time_s": 0.016000000000000007,
+      "terminal": {
+        "arm": "none",
+        "record": 180,
+        "step": 19,
+        "stage": "terminal",
+        "time_s": 0.02000000000000001,
+        "fresh_native_density": true,
+        "fixed_cohort_count": 512,
+        "rho_ratio_min": 0.9335979088295601,
+        "rho_ratio_mean": 0.94388672307564,
+        "rho_ratio_max": 0.9551379910090303,
+        "in_0p95_1p01_count": 136,
+        "native_active_wall_all_count": 0,
+        "native_active_wall_cohort_count": 0,
+        "wall_reaction_x_N": 0.0,
+        "wall_reaction_y_N": 0.0,
+        "wall_reaction_z_N": 0.0,
+        "wall_reaction_norm_N": 0.0,
+        "wall_source_torque_norm_Nm": 0.0,
+        "cohort_relative_to_all_COM_speed_rms_m_s": 0.004015607423322619,
+        "cohort_relative_to_own_COM_speed_rms_m_s": 0.004015607423322619,
+        "all_COM_vx_m_s": -4.281241760022602e-18,
+        "all_COM_vy_m_s": -0.19619999999999982,
+        "all_COM_vz_m_s": 3.590576584859808e-20,
+        "cohort_pressureRho2_positive_count": 0,
+        "cohort_pressureRho2_mean": 0.0,
+        "all_pressureRho2_positive_count": 0,
+        "all_particle_rms_speed_m_s": 0.19629977858203732,
+        "physical_admission": false
+      },
+      "timepoints": 21
+    }
+  },
+  "paired_terminal_effects_full80_minus_none": {
+    "mean_density_ratio": 0.006217654936050643,
+    "in_band_particle_count": 64,
+    "minimum_density_ratio": -0.0022886365906354955,
+    "maximum_density_ratio": 0.030537192086283804
+  },
+  "mechanism_evidence": {
+    "both_first_fixed_cohort_loss_ms": 16,
+    "none_all_applied_wall_density_gradient_projection_force_torque_zero": true,
+    "full80_fixed_cohort_direct_active_wall_count_zero_through20ms": true,
+    "all_fluid_pressureRho2_positive_count_zero_at_fresh2_to20ms": true,
+    "pressure_storage_scope": "These are saved pressureRho2 values at fresh endpoints, not a proof that every intervening pressure acceleration or all forces are zero.",
+    "interpretation": "Wall coupling is not necessary for this fixed-cohort density loss in this initialized fixture: none also first loses the same unchanged band at16ms and continues to20ms. At20ms the full80 wall arm raises the mean by approximately0.006218 and retains64 more cohort particles in band, while its minimum is lower and its spread wider. This does not establish that wall coupling is globally beneficial or physically calibrated.",
+    "prior_initial_pressure_evidence": "Existing one-step algebra independently showed the first pressure increment causes the initial relative expansion; the current no-wall control extends evidence that late loss can occur without wall coupling. It does not prove that the initial pressure increment is the sole cause of all later deformation."
+  },
+  "physical_admission": false,
+  "full_reference_reproduction": false,
+  "original_eight_qualified": 0,
+  "contact_validated": false,
+  "longterm_stability_proven": false,
+  "original_paper_experimental_volume_verified": false,
+  "next_frontier": [
+    "Diagnose the initial-pressure-induced expansion and subsequent pressure/divergence/viscosity contributions on actual no-wall records without changing gates.",
+    "Compare this local initial state/force model with the original MATTERIX task; no radius/spacing fitting or pressure clamp removal solely to pass density.",
+    "Keep original wall-motion and fluid transfer acceptance separate; this diagnostic does not upgrade any original physical gate."
+  ],
+  "artifacts": {
+    "timeline_csv": "density_wall_control_timeline.csv",
+    "independent_review": "result.json"
+  },
+  "artifact_sha256": {
+    "density_wall_control_timeline.csv": "3958f16a826ec8cc40c9dc6b83264f667774da1982191b83c96cd3223f468eba",
+    "result.json": "8292ce854e19ae3da6c54a2b88903f985b8f28ab581312df4f11c03c8740e396"
+  },
+  "source_receipts": {
+    "evidence/native_densitymap_no_wall_20261016_compile_protocol_r2.json": "53a42d7cbdfdc867590c510e784b72c871b772c452031178f6a57a9dd99c6d83",
+    "evidence/native_densitymap_no_wall_20261016_dynamic_protocol_r2.json": "58e15c27d23b75ea34df990060b0fda74e44038dcd6347d7840c7e1e51a50b44",
+    "runs/native_densitymap_no_wall_20261016_dynamic_r2/execution.json": "fce63ca4bafe06ebb4d3d2a1791d29871621aa44113119eb5f69e60202da6e63",
+    "runs/native_densitymap_no_wall_20261016_dynamic_r2/dynamic_audit.json": "1e7bd7b0c5c879498dea2a965206a14a5b84fd79ba54d5c623c9a503fae76125",
+    "runs/native_densitymap_no_wall_20261016_dynamic_r2/compat_audit.json": "802b32321de20361d9b62173298009fcfe5224438ee043cfbc8b538b5df59fcc"
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "created_at_utc": "2026-10-15T16:25:51.749609+00:00",
+  "scope": "One local UR5e/Robotiq rigid-only source-scene pickup prefix; measured command, EE arrival, pad contact and object lift",
+  "full_auto_engineering_reproduction": false,
+  "original_GRID_runtime": false,
+  "full_reference_reproduction": false,
+  "training_admitted": false,
+  "source_scene_relative_path": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml",
+  "source_scene_sha256": "1737e9db48fd92eb48984081d824343d13fdd2a08b18d18def71213fd767c068",
+  "protocol_relative_path": "evidence/auto_pickup_arrival_protocol_20261016_r1.json",
+  "protocol_sha256": "f4d379500ca60bbd566885958308ebd52cbfe03fa7d025be28b15410cc842b9a",
+  "producer_saved_log_audit": {
+    "relative_path": "evidence/auto_pickup_arrival_audit_20261016_r1.json",
+    "sha256": "111482342358b11b6d1defeb7a914434b40edf43cb8012fee70228755cbb8479",
+    "checks_passed": 53,
+    "checks_total": 53,
+    "independent_native_recomputation": false,
+    "native_calls": 0
+  },
+  "trial_scope": {
+    "positive_local_fixture_runs": 1,
+    "negative_task_dependency_controls": 1,
+    "seeds_evaluated": 1,
+    "success_rate_estimate_claimed": false
+  },
+  "control": "R3 gravity compensation in original actuator ctrl limits, source gains/damping/force limits unchanged; native actuator contact only, no object attachment, teleport or postinitialization pose writes",
+  "timing": {
+    "settle_s": 0.5,
+    "motion_s": 2.0,
+    "close_s": 1.0,
+    "loaded_hold_s": 1.0,
+    "branch_horizon_s": 10.0,
+    "arrival_wait_s": 1.0
+  },
+  "dt_s": 0.002,
+  "arrival_limits": {
+    "position_m": 0.01,
+    "rotation_rad": 0.02,
+    "translation_speed_m_s": 0.01,
+    "angular_speed_rad_s": 0.05,
+    "hold_s": 0.05,
+    "max_sample_gap_s": 0.002000001,
+    "timeout_s": 1.0
+  },
+  "effect_limits": {
+    "prelift_opposed_continuous_s": 0.2,
+    "minimum_sustained_lift_m": 0.05,
+    "loaded_hold_opposed_fraction": 0.95
+  },
+  "loaded_hold_scope": "Inclusive501 samples at500Hz span1s.95% opposed-contact requirement is distinct from continuous-contact claim; actual loss counts and longest sample gap are reported.",
+  "negative_control_scope": "Same initial state, targets, arrival gates and 10s horizon; gripper publication suppressed with ctrl=0. It must obey grasp gate, so it is allowed to terminate workflow before lift while native measured-joint hold continues. No invented lift command or claimed paired lift path.",
+  "branches": [
+    {
+      "mode": "measured_contact",
+      "native_steps": 5000,
+      "observation_samples": 5001,
+      "actual_native_seconds": 10.000000000000009,
+      "plot_csv_rows": 1006,
+      "raw_log_relative_path": "runs/auto_pickup_arrival_20261016_r1/measured_contact_observations.jsonl",
+      "raw_log_sha256": "9a98661c011f52a1e13532a067282aeeea9453963a836ee35000c9b3a5cc1684",
+      "raw_log_bytes": 348685550,
+      "commands_issued": [
+        "approach",
+        "close",
+        "lift"
+      ],
+      "outcome": {
+        "mode": "measured_contact",
+        "actual_native_seconds": 10.000000000000009,
+        "samples": 5001,
+        "arrivals": [
+          {
+            "kind": "approach",
+            "first_measured_arrival_s": 2.775999999999916
+          },
+          {
+            "kind": "lift",
+            "first_measured_arrival_s": 6.053999999999555
+          }
+        ],
+        "grasp_verified": true,
+        "lift_command_issued": true,
+        "object_effect_verified": true,
+        "minimum_lift_during_loaded_hold_m": 0.1252445091696894,
+        "loaded_hold_opposed_fraction": 1.0,
+        "loaded_hold_actual_sample_span_s": 0.9999999999998899,
+        "loaded_hold_contact_loss_samples": 0,
+        "loaded_hold_longest_loss_run_samples": 0,
+        "loaded_hold_longest_loss_sample_span_s": 0.0,
+        "stop_reason": null,
+        "safety_failure": null
+      },
+      "events": [
+        {
+          "kind": "settled_object_reference",
+          "command_id": null,
+          "sample_id": "measured_contact:000250",
+          "sim_time_s": 0.5000000000000003
+        },
+        {
+          "kind": "command_published",
+          "command_id": "measured_contact:command:0:approach",
+          "sample_id": "measured_contact:000250",
+          "sim_time_s": 0.5000000000000003
+        },
+        {
+          "kind": "endpoint_arrival_window_opened",
+          "command_id": "measured_contact:command:0:approach",
+          "sample_id": "measured_contact:001250",
+          "sim_time_s": 2.4999999999999463
+        },
+        {
+          "kind": "hold_completed",
+          "command_id": "measured_contact:command:0:approach",
+          "sample_id": "measured_contact:001388",
+          "sim_time_s": 2.775999999999916,
+          "metrics": {
+            "position_m": 0.0014700493563675181,
+            "rotation_rad": 0.00020648293008880797,
+            "translation_speed_m_s": 0.0076637770474091765,
+            "angular_speed_rad_s": 0.0005522960740708131
+          },
+          "continuous_inside_since_s": 2.7259999999999214
+        },
+        {
+          "kind": "command_published",
+          "command_id": "measured_contact:command:1:close",
+          "sample_id": "measured_contact:001388",
+          "sim_time_s": 2.775999999999916
+        },
+        {
+          "kind": "opposed_grasp_verified",
+          "command_id": "measured_contact:command:1:close",
+          "sample_id": "measured_contact:001888",
+          "sim_time_s": 3.7759999999998057,
+          "continuous_inside_since_s": 2.9199999999999
+        },
+        {
+          "kind": "command_published",
+          "command_id": "measured_contact:command:2:lift",
+          "sample_id": "measured_contact:001888",
+          "sim_time_s": 3.7759999999998057
+        },
+        {
+          "kind": "endpoint_arrival_window_opened",
+          "command_id": "measured_contact:command:2:lift",
+          "sample_id": "measured_contact:002888",
+          "sim_time_s": 5.775999999999586
+        },
+        {
+          "kind": "hold_completed",
+          "command_id": "measured_contact:command:2:lift",
+          "sample_id": "measured_contact:003027",
+          "sim_time_s": 6.053999999999555,
+          "metrics": {
+            "position_m": 0.0015937934198177453,
+            "rotation_rad": 9.863718985503684e-05,
+            "translation_speed_m_s": 0.007716334041981574,
+            "angular_speed_rad_s": 0.0005538608108949297
+          },
+          "continuous_inside_since_s": 6.003999999999561
+        },
+        {
+          "kind": "loaded_hold_started",
+          "command_id": "measured_contact:command:2:lift",
+          "sample_id": "measured_contact:003027",
+          "sim_time_s": 6.053999999999555
+        },
+        {
+          "kind": "object_effect_verified",
+          "command_id": "measured_contact:command:2:lift",
+          "sample_id": "measured_contact:003527",
+          "sim_time_s": 7.053999999999445,
+          "minimum_sustained_lift_m": 0.1252445091696894,
+          "opposed_fraction": 1.0,
+          "hold_samples": 501,
+          "hold_duration_s": 0.9999999999998899,
+          "contact_loss_samples": 0,
+          "longest_loss_run_samples": 0,
+          "longest_loss_sample_span_s": 0.0
+        }
+      ],
+      "maximum_object_lift_m_over_observed_horizon": 0.12670671735637157,
+      "max_native_pad_normal_force_N": {
+        "left": 68.71707606499064,
+        "right": 70.6418958921065
+      },
+      "settled_object_z_m": -0.00048781433409883257,
+      "final_object_z_m": 0.12620162433609539
+    },
+    {
+      "mode": "no_close",
+      "native_steps": 5000,
+      "observation_samples": 5001,
+      "actual_native_seconds": 10.000000000000009,
+      "plot_csv_rows": 1003,
+      "raw_log_relative_path": "runs/auto_pickup_arrival_20261016_r1/no_close_observations.jsonl",
+      "raw_log_sha256": "a0bf23b3ccbf8390c69294a3a257fa34c02514a5e360722429efc20ee864a302",
+      "raw_log_bytes": 299558717,
+      "commands_issued": [
+        "approach",
+        "close"
+      ],
+      "outcome": {
+        "mode": "no_close",
+        "actual_native_seconds": 10.000000000000009,
+        "samples": 5001,
+        "arrivals": [
+          {
+            "kind": "approach",
+            "first_measured_arrival_s": 2.775999999999916
+          }
+        ],
+        "grasp_verified": false,
+        "lift_command_issued": false,
+        "object_effect_verified": false,
+        "minimum_lift_during_loaded_hold_m": null,
+        "loaded_hold_opposed_fraction": null,
+        "loaded_hold_actual_sample_span_s": null,
+        "loaded_hold_contact_loss_samples": 0,
+        "loaded_hold_longest_loss_run_samples": 0,
+        "loaded_hold_longest_loss_sample_span_s": 0.0,
+        "stop_reason": "grasp_timeout",
+        "safety_failure": null
+      },
+      "events": [
+        {
+          "kind": "settled_object_reference",
+          "command_id": null,
+          "sample_id": "no_close:000250",
+          "sim_time_s": 0.5000000000000003
+        },
+        {
+          "kind": "command_published",
+          "command_id": "no_close:command:0:approach",
+          "sample_id": "no_close:000250",
+          "sim_time_s": 0.5000000000000003
+        },
+        {
+          "kind": "endpoint_arrival_window_opened",
+          "command_id": "no_close:command:0:approach",
+          "sample_id": "no_close:001250",
+          "sim_time_s": 2.4999999999999463
+        },
+        {
+          "kind": "hold_completed",
+          "command_id": "no_close:command:0:approach",
+          "sample_id": "no_close:001388",
+          "sim_time_s": 2.775999999999916,
+          "metrics": {
+            "position_m": 0.0014700493563675181,
+            "rotation_rad": 0.00020648293008880797,
+            "translation_speed_m_s": 0.0076637770474091765,
+            "angular_speed_rad_s": 0.0005522960740708131
+          },
+          "continuous_inside_since_s": 2.7259999999999214
+        },
+        {
+          "kind": "command_suppressed",
+          "command_id": "no_close:command:1:close",
+          "sample_id": "no_close:001388",
+          "sim_time_s": 2.775999999999916
+        },
+        {
+          "kind": "grasp_timeout",
+          "command_id": "no_close:command:1:close",
+          "sample_id": "no_close:001888",
+          "sim_time_s": 3.7759999999998057
+        }
+      ],
+      "maximum_object_lift_m_over_observed_horizon": 1.2484135575049936e-05,
+      "max_native_pad_normal_force_N": {
+        "left": 0.0,
+        "right": 0.0
+      },
+      "settled_object_z_m": -0.00048781433409883257,
+      "final_object_z_m": -0.00047667154999771904
+    }
+  ],
+  "plot_csv": {
+    "relative_path": "evidence/auto_pickup_arrival_timeseries_20261016_r1.csv",
+    "sha256": "93b6f4b2824de7fc5be52cb6518ba4d1b0feff805c66713df77644f917387d96",
+    "bytes": 800614,
+    "sampling": "Every fifth native sample(100Hz) plus all actual event samples; original500Hz raw retained",
+    "source_locator": "mode,sim_step,sample_id,source_line_1based",
+    "endpoint_error_scope": "Distance to actual command's requested final endpoint, not intermediate smooth trajectory. Blank before command or in terminal measured-joint hold; errors alone do not imply arrival."
+  },
+  "pre_run_risk_outcome": "H1 observed in this local run: measured approach and lift/contact/effect gates pass. Prior concern that eliminating old6.6mm static EE bias could remove contact was not observed. This is not a universal friction/timestep/material result.",
+  "limitations": [
+    "No original GRID runtime, four original harnesses, cameras, perception or learned policy",
+    "No fluid, pour, transfer, release or combined MATTERIX episode",
+    "Local rigid contact model has no glass fracture/material force safety validation",
+    "Negative no_close is a dependency-gate test; it does not execute the same arm lift without closure",
+    "2ms samples do not prove intersample safety; one fixture is not a statistical benchmark"
+  ]
+}

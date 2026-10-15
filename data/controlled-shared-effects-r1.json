@@ -1,0 +1,171 @@
+{
+  "created_at_utc": "2026-10-15T16:29:22.361638+00:00",
+  "title": "Observed robot effects enter the shared offline contract",
+  "status": "SCOPED_OFFLINE_MAPPING_AND_INDEPENDENT_SAMPLED_EFFECT_CHECKS_PASS",
+  "scope": "Two new independent saved local Auto rigid pickup branches; no combined MATTERIX/Auto world, original GRID runtime, live adapter, liquid, cameras, agent, training or full reference reproduction.",
+  "checks_passed": 50,
+  "checks_total": 50,
+  "actual_observations": 10002,
+  "actual_command_records": 5,
+  "offline_event_envelopes": 10007,
+  "new_actual_native_runs_by_adapter": 0,
+  "native_steps_executed_by_adapter": 0,
+  "native_forward_calls_by_adapter": 0,
+  "branches": [
+    {
+      "mode": "measured_contact",
+      "observations": 5001,
+      "commands": 3,
+      "envelopes": 5004,
+      "motion_outcomes": [
+        {
+          "command_id": "measured_contact:command:0:approach",
+          "kind": "approach",
+          "verdict": "pass",
+          "first_measured_hold_sample_id": "measured_contact:001388",
+          "first_measured_hold_time_s": 2.775999999999916,
+          "hold_start_time_s": 2.7259999999999214,
+          "independent_of_command_return": true
+        },
+        {
+          "command_id": "measured_contact:command:2:lift",
+          "kind": "lift",
+          "verdict": "pass",
+          "first_measured_hold_sample_id": "measured_contact:003027",
+          "first_measured_hold_time_s": 6.053999999999555,
+          "hold_start_time_s": 6.003999999999561,
+          "independent_of_command_return": true
+        }
+      ],
+      "prelift_opposed_contact_intervals": [
+        {
+          "start_sample_id": "measured_contact:001460",
+          "end_sample_id": "measured_contact:001888",
+          "start_s": 2.9199999999999,
+          "end_s": 3.7759999999998057,
+          "samples": 429,
+          "scope": "Observed positive normal force on both pads; not no-slip or intersample grasp proof"
+        }
+      ],
+      "loaded_object_effect": {
+        "verdict": "pass",
+        "loaded_hold_samples": 501,
+        "minimum_lift_m": 0.1252445091696894,
+        "opposed_fraction": 1.0,
+        "contact_loss_samples": 0,
+        "continuous_sampled_opposed_contact": true,
+        "longest_contact_loss_run_samples": 0,
+        "longest_contact_loss_sample_span_s": 0.0,
+        "observed_hold_span_s": 0.9999999999998899,
+        "start_sample_id": "measured_contact:003027",
+        "end_sample_id": "measured_contact:003527"
+      },
+      "terminal_phase": "completed_hold",
+      "stop_reason": null
+    },
+    {
+      "mode": "no_close",
+      "observations": 5001,
+      "commands": 2,
+      "envelopes": 5003,
+      "motion_outcomes": [
+        {
+          "command_id": "no_close:command:0:approach",
+          "kind": "approach",
+          "verdict": "pass",
+          "first_measured_hold_sample_id": "no_close:001388",
+          "first_measured_hold_time_s": 2.775999999999916,
+          "hold_start_time_s": 2.7259999999999214,
+          "independent_of_command_return": true
+        }
+      ],
+      "prelift_opposed_contact_intervals": [],
+      "loaded_object_effect": {
+        "verdict": "not_executed",
+        "loaded_hold_samples": 0,
+        "minimum_lift_m": null,
+        "opposed_fraction": null,
+        "contact_loss_samples": null,
+        "continuous_sampled_opposed_contact": false
+      },
+      "terminal_phase": "terminal_hold",
+      "stop_reason": "grasp_timeout"
+    }
+  ],
+  "rejected_evidence_cases": {
+    "passed": 11,
+    "total": 11,
+    "scope": "Offline mutation guards and explicitly constructed acknowledgement/contact counterexamples using actual sample structure. These are not additional native experiments.",
+    "ids": [
+      "missing_actual_ctrl",
+      "ack_is_not_arrival",
+      "ack_is_not_object_lift",
+      "different_clock_id_cannot_merge",
+      "different_episode_id_cannot_merge",
+      "contact_loss_breaks_persistence",
+      "future_observation_causality",
+      "offline_relabelled_arrival",
+      "offline_training_claim",
+      "offline_online_agent_claim",
+      "raw_payload_mutation"
+    ]
+  },
+  "provenance_guards": [
+    "Frozen raw SHA and original JSONL line/JSON pointer retained",
+    "Every observation actual ctrl matches logged actual driver",
+    "Driver input resolves prior actual observation; collector monotonic ordering retained",
+    "Native clock domains and episodes remain separate",
+    "Contact-force aggregates recalculated from saved native contact forces; arrival errors, speed norms and sampled holds from saved pose/twist; object lift from saved positions and baseline. No independent native force, pose or velocity reconstruction.",
+    "Serialization roundtrip preserves every raw payload",
+    "Original schemas and source files unchanged"
+  ],
+  "performance": {
+    "wall_s": 27.133234438020736,
+    "process_peak_rss_kib": 40320,
+    "cpu_s_from_systemd": 26.055,
+    "capture_bytes": 648580139,
+    "implementation": "Streaming saved JSONL; one raw row plus lightweight observed vectors retained",
+    "resource_budget": {
+      "CPUQuota": "100%",
+      "MemoryMax": "8G",
+      "RuntimeMaxSec": 180
+    }
+  },
+  "previous_adapter": "The initial 128MiB input adapter was not executed against oversized 348.7/299.6MB traces. Its frozen protocol remains preserved; v2 was separately frozen and run once.",
+  "interpretation": "The local positive pickup has sampled measured arrival and object-height/contact evidence, and the no-close branch stops at its grasp gate. The shared contract can carry these distinct observed effects. It does not create or prove a joint MATTERIX/Auto episode.",
+  "limitations": [
+    "Positive pad contact is not a no-slip grasp theorem",
+    "A 500Hz sampled hold is not proof between samples",
+    "Loaded contact-fraction and all-sample contact are reported separately",
+    "Collector/native clocks have not been cross-calibrated",
+    "Future MATTERIX effect admission requires native fluid/object measurements and same-world causal evidence"
+  ],
+  "old_64_matterix_and_2299_auto_mapping_reexecuted": false,
+  "joint_episode_created": false,
+  "online_closed_loop_verified": false,
+  "physical_fluid_accepted": false,
+  "training_admitted": false,
+  "full_reference_reproduction": false,
+  "evidence": [
+    {
+      "path": "evidence/shared_effects_20261016_r1/adapter-protocol-v2.json",
+      "sha256": "77c6db6f7e4947b7b9856c7466b9bf0170079dfbb0a8bcf43a068d8d8644e4b8",
+      "bytes": 4299
+    },
+    {
+      "path": "evidence/shared_effects_20261016_r1/actual-v2/result.json",
+      "sha256": "e5b5717a3a053d357f6f728d5fdb1400a725ffb864ed0f069b14ff0f3c9de452",
+      "bytes": 5919
+    },
+    {
+      "path": "evidence/shared_effects_20261016_r1/actual-v2/outcome-receipts.json",
+      "sha256": "9909735c19738e164d13f4729efa7c57921aa6e35b67f88eda758d3ef3ba1281",
+      "bytes": 4739
+    },
+    {
+      "path": "evidence/shared_effects_20261016_r1/effect-semantics-agreement.json",
+      "sha256": "6b2230572492d663e65ac95142b0b4b3d184834221ce741af1e6f4d319d2e0bc",
+      "bytes": 2533
+    }
+  ]
+}
