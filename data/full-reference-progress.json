@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-15T07:22:29.817825+00:00",
+  "exported_at_utc": "2026-10-15T08:29:57.836906+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -412,6 +412,64 @@
     }
   ],
   "modules": [
+    {
+      "id": "parallel-reference-contract",
+      "title": "Two references · shared task, time and verifier interface",
+      "evidence_sha256": "b819fe8946beda76f300fa1f47e08a646c8c251feb3cb861ce373c21f75abab5",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "metrics": {
+        "MATTERIX_events": 64,
+        "Auto_transitions": 2299,
+        "offline_checks": 27,
+        "separate_episodes": 2,
+        "joint_native_episodes": 0
+      },
+      "scope": "Both reference lines advanced in actual separate experiments. A shared event interface preserves64 MATTERIX semantic events and2299 Auto transitions with27 offline checks. Separate clock domains and source provenance remain explicit. The new parallel-reproduction.html page contains the results, downloadable figures and next joint task.",
+      "remaining": "Offline mapping is not a joint rollout or online agent loop. The planned combined task needs one native state/time owner, independently measured effects, deadlines and legal recovery. Original36 requirements remain open; Paper B owns learning updates."
+    },
+    {
+      "id": "auto-gravity-feedforward-measured-arrival",
+      "title": "Auto local control · three measured targets with gravity feedforward",
+      "evidence_sha256": "bde553346827c5b3f96119c4653bef0cfa7b99b868fd5ac9e4aa7445361046a6",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "metrics": {
+        "branches": 4,
+        "seconds_per_branch": 3,
+        "observations": 6004,
+        "independent_log_checks": 84,
+        "root_arrival_checks": 14,
+        "measured_targets_completed": 3,
+        "fixed_schedule_targets_completed": 1,
+        "planned_targets": 3,
+        "third_hold_time_s": 1.592
+      },
+      "scope": "A single local empty-gripper UR5e sequence preserves original actuator limits, targets, budgets and arrival thresholds. Gravity feedforward plus measured feedback completes three50ms sampled holds at0.510,1.022,1.592s; fixed200ms publication confirms only the last target. Suppression and cancellation remain negative.84 log checks and14 separate root window checks verify saved evidence.",
+      "remaining": "R2 without feedforward retains all timeout failures and72 passing log checks. These counts are not episode success rates or proof between2ms samples. Original GRID runtime, full-task scenes, perception, recovery, policy learning and original data remain incomplete. See parallel-reproduction.html#auto-feedforward."
+    },
+    {
+      "id": "fluid-native-fma-paired-equivalence",
+      "title": "MATTERIX line · explicit FMA resolves recorded cross-path discrepancy",
+      "evidence_sha256": "b819fe8946beda76f300fa1f47e08a646c8c251feb3cb861ce373c21f75abab5",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "metrics": {
+        "producer_checks": 48,
+        "independent_checks": 47,
+        "common_endpoints": 61,
+        "fields_per_endpoint": 36,
+        "completed_ms": 20,
+        "max_field_difference": 0,
+        "old_first_failure_ms": 18,
+        "old_paired_prefix_ms": 17,
+        "terminal_in_band": 200,
+        "fixed_cohort": 512,
+        "original_physical_tests_qualified": 0
+      },
+      "scope": "Only two staged arithmetic updates change to explicit source-native FMA. All61 corresponding records and36 fields agree bitwise, reaction endpoints agree, and the candidate whole binary equals the frozen whole baseline. Full20ms numerical equivalence is now observed for this local fixture.",
+      "remaining": "The previous39/40 and40/41 failed audits remain unchanged. This is not a general arithmetic or physical guarantee: density still ends200/512 in the reference band, and0/8 original physical flow tests are qualified. This local SPlisHSPlasH control is not an original-paper experimental reproduction. See parallel-reproduction.html#matterix."
+    },
     {
       "id": "fluid-coherent80-control-failed-pair",
       "title": "Complete 80³ map · activation shifts, paired-field gate fails",
