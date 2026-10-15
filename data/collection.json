@@ -1,7 +1,7 @@
 {
   "schema": "chemrmbench-live-dashboard-v1",
-  "sampled_at_utc": "2026-10-15T16:25:08+00:00",
-  "published_at_utc": "2026-10-15T16:25:12+00:00",
+  "sampled_at_utc": "2026-10-15T16:29:20+00:00",
+  "published_at_utc": "2026-10-15T16:29:24+00:00",
   "source_updated_at_utc": "2026-10-12T14:34:35.171556+00:00",
   "collector": {
     "state": "healthy"
@@ -96,25 +96,46 @@
     "benchmark_complete": false,
     "conference_ready": false
   },
-  "active_runs": [],
+  "active_runs": [
+    {
+      "id": "V100",
+      "state": "collecting",
+      "stages": [
+        {
+          "label": "完整八阶段原生录像",
+          "duration_s": 0.0,
+          "committed": false,
+          "outcome": "pending"
+        },
+        {
+          "label": "抓取前冷重建与完整余程",
+          "duration_s": 0.0,
+          "committed": false,
+          "outcome": "pending"
+        }
+      ],
+      "committed_stages": 0,
+      "planned_stages": 2
+    }
+  ],
   "gpus": [
     {
       "index": 0,
       "name": "RTX 5090",
-      "utilization_percent": 3.0,
-      "memory_used_mib": 8030.0,
+      "utilization_percent": 42.0,
+      "memory_used_mib": 8561.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 42.0,
-      "sampled_at_utc": "2026-10-15T16:25:08+00:00"
+      "temperature_c": 43.0,
+      "sampled_at_utc": "2026-10-15T16:29:20+00:00"
     },
     {
       "index": 1,
       "name": "RTX 5090",
-      "utilization_percent": 1.0,
-      "memory_used_mib": 7693.0,
+      "utilization_percent": 2.0,
+      "memory_used_mib": 10367.0,
       "memory_total_mib": 32607.0,
-      "temperature_c": 43.0,
-      "sampled_at_utc": "2026-10-15T16:25:08+00:00"
+      "temperature_c": 42.0,
+      "sampled_at_utc": "2026-10-15T16:29:20+00:00"
     }
   ],
   "tasks": [
