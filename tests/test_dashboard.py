@@ -13,6 +13,33 @@ from publish_dashboard import publish
 
 
 class PublicBoundary(unittest.TestCase):
+    def test_cold_pair_progress_preserves_refusal_and_verifies_waiting_owner(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            raw=Path(temporary)/'v99';raw.mkdir();(raw/'live').mkdir();(raw/'cold').mkdir()
+            config={'experiment_root':temporary,'development_checks':[{'id':'V99','path':str(raw),'phases':['live','cold']}]}
+            atomic_json(raw/'live_running.json',{'pid':12345})
+            atomic_json(raw/'live_resource.json',{'exit_code':0});atomic_json(raw/'live/RESULT.json',{})
+            atomic_json(raw/'cold_running.json',{'pid':12345})
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                active=live_runs(config)[0]
+            self.assertEqual(active['committed_stages'],1);self.assertEqual(active['planned_stages'],2)
+            self.assertEqual(active['stages'][1]['outcome'],'pending')
+            atomic_json(raw/'cold/ERROR.json',{'status':'REFUSED_MATCHED_HOLD'})
+            with patch('pathlib.Path.read_bytes',return_value=str(raw).encode()):
+                active=live_runs(config)[0]
+            self.assertEqual(active['stages'][1]['outcome'],'native_failed');self.assertFalse(active['stages'][1]['committed'])
+            atomic_json(raw/'cold_resource.json',{'exit_code':1})
+            self.assertEqual(live_runs(config),[])
+            source=raw/'collect_owned.py';source.write_text('# frozen collector\n')
+            atomic_json(raw/'source_pins.json',{'files':{'collect_owned.py':digest(source)}})
+            atomic_json(raw/'PREDECLARED.json',{'source_pins_sha256':digest(raw/'source_pins.json')})
+            atomic_json(raw/'SUPERVISOR_RUNNING.json',{'pid':12345,'root':str(raw),'no_model_or_training_job':True})
+            args=[b'python3',str(source).encode(),b'--root',str(raw).encode()]
+            with patch('export_dashboard.supervisor_args',return_value=args):
+                self.assertEqual(live_runs(config)[0]['state'],'waiting_resource')
+            source.write_text('# changed source cannot claim waiting ownership\n')
+            with patch('export_dashboard.supervisor_args',return_value=args):self.assertEqual(live_runs(config),[])
+
     def setUp(self):
         self.public = read_json(Path(__file__).resolve().parents[1] / 'data/collection.json')
 

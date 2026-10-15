@@ -139,6 +139,18 @@ def waiting_supervisor(raw):
     return str(source).encode() in args and b'--root' in args and args[args.index(b'--root')+1:args.index(b'--root')+2]==[str(raw).encode()]
 
 
+def waiting_cold_pair(raw):
+    running=raw/'SUPERVISOR_RUNNING.json';source=raw/'collect_owned.py'
+    if not running.exists() or (raw/'SUPERVISOR_CLOSED.json').exists():return False
+    info=read_json(running);pre=read_json(raw/'PREDECLARED.json');pins_path=raw/'source_pins.json'
+    if info.get('root')!=str(raw) or info.get('no_model_or_training_job') is not True:return False
+    if digest(pins_path)!=pre['source_pins_sha256']:return False
+    if digest(source)!=read_json(pins_path)['files'].get('collect_owned.py'):return False
+    try:args=supervisor_args(number(info['pid'],integer=True))
+    except (OSError,ValueError):return False
+    return str(source).encode() in args and b'--root' in args and args[args.index(b'--root')+1:args.index(b'--root')+2]==[str(raw).encode()]
+
+
 def live_runs(config):
     result = []
     for registration in config.get('live_runs', []):
@@ -175,15 +187,15 @@ def live_runs(config):
                   'r3_single_pose_write','r3_no_write','r3_read_only_sham']
         leader=('live_a' if phases==['live_a','live_b'] else
                 'live_control' if phases==['live_control','same_process_restore'] else
-                'live' if phases==['live','single_pose'] else
+                'live' if phases in (['live','single_pose'],['live','cold']) else
                 'r1_no_write' if phases==repeated else
                 'single_pose' if phases==['single_pose'] else 'parent')
         parent_running = raw / (leader+'_running.json')
-        if not parent_running.exists():
+        if not parent_running.exists() and phases!=['live','cold']:
             continue
         stage_list = []
         alive = False
-        if phases not in (repeated,['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['live_control','same_process_restore'],['live','single_pose'],['single_pose'],['parent','child_expired','child_retry'],
+        if phases not in (repeated,['live','cold'],['parent','child'],['parent','no_fault_first'],['live_a','live_b'],['live_control','same_process_restore'],['live','single_pose'],['single_pose'],['parent','child_expired','child_retry'],
                           ['parent','child_expired_resource_retry1','child_retry'],
                           ['parent','child_interrupted','child_retry'],
                           ['parent','no_fault_first','recovery_first','recovery_retry','expired_first']):
@@ -194,7 +206,7 @@ def live_runs(config):
                 'recovery_first':'可行中断证据保存','recovery_retry':'保留原期限重试',
                 'expired_first':'原期限过期拒绝','live_a':'连续运行基线 A','live_b':'连续运行基线 B',
                 'live_control':'不中断物理对照','same_process_restore':'同进程状态恢复对照',
-                'live':'完整八阶段原生录像','single_pose':'单项位姿写入录像与门槛'}
+                'live':'完整八阶段原生录像','single_pose':'单项位姿写入录像与门槛','cold':'抓取前冷重建与完整余程'}
         labels.update({name:'第'+name[1]+'轮 · '+{'no_write':'不写状态','read_only_sham':'只读空操作','single_pose_write':'单项位姿写入'}[name[3:]] for name in repeated})
         matched_paths={'no_fault_first':'branches/no_fault/child_first',
                        'recovery_first':'branches/recovery/child_first',
@@ -220,10 +232,11 @@ def live_runs(config):
                          account['phase_callbacks'].get('TAIL_COMMANDS',0)==0 and
                          not (output/'task/agent/dispatch.json').exists())
             entry={'label': labels[phase], 'duration_s': 0.0, 'committed': result_path.exists() or refused}
-            if phases==repeated:
+            if phases==repeated or phases==['live','cold']:
                 entry['outcome']='native_pass' if result_path.exists() else 'native_failed' if (output/'ERROR.json').exists() else 'pending'
             stage_list.append(entry)
         waiting=phases==repeated and not alive and waiting_supervisor(raw)
+        if phases==['live','cold'] and not alive:waiting=waiting_cold_pair(raw)
         if alive or waiting:
             result.append({'id': identifier(registration['id']), 'state': 'waiting_resource' if waiting else 'collecting',
                            'stages': stage_list, 'committed_stages': sum(s['committed'] for s in stage_list),
