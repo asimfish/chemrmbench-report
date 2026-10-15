@@ -1,0 +1,109 @@
+{
+  "status": "20MS_ARITHMETIC_CANDIDATE_NUMERICALLY_AUDITED_PHYSICAL_REPRODUCTION_INCOMPLETE",
+  "created_at_utc": "2026-10-15T07:45:28.313831+00:00",
+  "experiment": "Same coherent80 map and local1728-particle mass-volume fixture; two staged AXPYs now use explicit FMA matching native whole arithmetic.",
+  "bounded_execution": {
+    "native_run_count": 2,
+    "steps_per_branch": 20,
+    "requested_horizon_s": 0.02,
+    "actual_terminal_time_s": 0.02000000000000001,
+    "staged_records": 181,
+    "whole_records": 61,
+    "first_failure_staged": "",
+    "first_failure_whole": "",
+    "binary_sha256": "e72ece21d98b8b624a782224653b02df4129f7c2cf72ab86fc8a08bc9b66faef",
+    "inputs_unchanged_after": true
+  },
+  "audit_counts": {
+    "producer": {
+      "passed": 48,
+      "total": 48
+    },
+    "distinct_independent": {
+      "passed": 47,
+      "total": 47
+    }
+  },
+  "endpoint_result": {
+    "paired_records": 61,
+    "pair_all36_bitwise_count": 61,
+    "pair_max36_relative": 0.0,
+    "pair_max_force_error_N": 0.0,
+    "pair_max_torque_error_Nm": 0.0,
+    "old_whole_all36_bitwise_count": 61,
+    "old_whole_max36_relative": 0.0,
+    "old_whole_max_force_error_N": 0.0,
+    "old_whole_max_torque_error_Nm": 0.0,
+    "field_relative_gate_unchanged": 1e-10
+  },
+  "preserved_old_failure": {
+    "checks_passed": 40,
+    "checks_total": 41,
+    "failure_still_recorded": true,
+    "last_fully_paired_step_time_ms": 17,
+    "first_failed_zero_based_step": 17,
+    "first_failed_stage": "whole_integrated",
+    "first_failed_time_ms": 18.00000000000001,
+    "first_failed_all36_relative": 1.270811852709955e-10,
+    "failed_endpoint_count": 7,
+    "note": "step17 is zero-based; first threshold failure is at18ms. The original trace/report is immutable."
+  },
+  "independent_numerics": {
+    "max_Weiler_relative_residual": 9.760691135824272e-15,
+    "unchanged_Weiler_limit": 1e-14,
+    "max_density_replay_relative": 8.055077781447817e-16
+  },
+  "density_and_wall_diagnostics": {
+    "fixed_cohort_count": 512,
+    "fixed_initial_ids_never_reselected": true,
+    "terminal_density_ratio_min_mean_max": [
+      0.9313092722389246,
+      0.9501043780116907,
+      0.9856751830953141
+    ],
+    "terminal_in_0p95_to_1p01_count": 200,
+    "first_band_occupancy_loss_ms": 16.000000000000007,
+    "first_band_occupancy_loss_count": 456,
+    "first_native_activation_ms": 10.000000000000002,
+    "first_native_active_count": 144,
+    "terminal_native_active_count": 288,
+    "contact_validated": false
+  },
+  "interpretation": "This arithmetic intervention removes the measured whole/staged disagreement in this fixed20ms fixture while the frozen native-whole trajectory is unchanged. This does not establish universal arithmetic equivalence, density relaxation, equilibrium, calibrated liquid/contact physics, or complete reproduction of either paper.",
+  "claims": {
+    "physical_admission": false,
+    "full_reference_reproduction": false,
+    "original_eight_qualified": 0,
+    "density_transient_resolved": false,
+    "longterm_stability_verified": false,
+    "universal_FMA_fix_claimed": false,
+    "global_angular_conservation_claimed": false
+  },
+  "artifacts": {
+    "endpoint_csv": {
+      "file": "native_densitymap_full80_arithmetic_endpoints_r1.csv",
+      "rows": 61,
+      "sha256": "cd2c6e8a7945077d69ad2af16ac190dedba1894ee30ae4269fb2988e99b60a03"
+    },
+    "producer_audit": {
+      "file": "native_densitymap_external_review_20261015_full80_arithmetic_dynamic_audit_r1.json",
+      "sha256": "391249f6e9b8a2062a186b73be2e19dc12cb7add86cfa64f429487d41f708b4a"
+    },
+    "independent_audit": {
+      "file": "native_densitymap_full80_arithmetic_independent_result_review_r1.json",
+      "sha256": "78d703f065e3781c4a0330cbf659b1e66a27ba5ee1c23caa43bbf9e803bf7d5c"
+    },
+    "preserved_failed_R1_audit": {
+      "file": "native_densitymap_external_review_20261015_full80_dynamic_r1.json",
+      "sha256": "7b5c7ca05567d669a81c754a6dcd02b999102d398b933439f1f5c13e6ad6f104"
+    },
+    "protocol": {
+      "file": "native_densitymap_external_review_20261015_full80_arithmetic_dynamic_protocol_r1.json",
+      "sha256": "c1017af052f951d8a83ae9acc67c0bbb1642173f79c7b6053e03349795788098"
+    },
+    "execution": {
+      "file": "runs/native_densitymap_full80_arithmetic_dynamic_r1/execution.json",
+      "sha256": "ffaebb2a1a76df4bcd488ab6ccb020636511100972769d1ae283cdc2470d1d56"
+    }
+  }
+}

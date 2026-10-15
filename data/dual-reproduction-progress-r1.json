@@ -1,0 +1,139 @@
+{
+  "created_at_utc": "2026-10-15T07:45:21.348952+00:00",
+  "scope": "Actual separate experiments and offline integration contract; not a joint native episode",
+  "matterix": {
+    "local_fixture": true,
+    "steps_per_path": 20,
+    "common_records": 61,
+    "fields_per_record": 36,
+    "producer_checks": [
+      48,
+      48
+    ],
+    "independent_checks": [
+      47,
+      47
+    ],
+    "root_raw_paired_all36_bitwise": true,
+    "root_whole_binary_identical_to_baseline": true,
+    "maximum_relative_error": 0,
+    "frozen_limit": 1e-10,
+    "baseline_failure_preserved": true,
+    "baseline_first_failure_ms": 18,
+    "candidate_paired_prefix_ms": 20,
+    "cohort_in_band_at_20ms": 200,
+    "cohort_count": 512,
+    "mean_density_ratio_at_20ms": 0.9501043780116912,
+    "physical_admission": false,
+    "original_physical_tests_qualified": 0
+  },
+  "auto": {
+    "scope": "Local MuJoCo UR5e, not original GRID runtime",
+    "branches": [
+      {
+        "mode": "fixed_200ms",
+        "steps": 1500,
+        "native_seconds": 2.999999999999891,
+        "command_records": 3,
+        "arrivals": 0,
+        "last_status": "timeout",
+        "safety_failure": null
+      },
+      {
+        "mode": "measured_arrival",
+        "steps": 1500,
+        "native_seconds": 2.999999999999891,
+        "command_records": 1,
+        "arrivals": 0,
+        "last_status": "timeout",
+        "safety_failure": null
+      },
+      {
+        "mode": "suppressed_command",
+        "steps": 1500,
+        "native_seconds": 2.999999999999891,
+        "command_records": 1,
+        "arrivals": 0,
+        "last_status": "timeout",
+        "safety_failure": null
+      },
+      {
+        "mode": "cancel_50ms",
+        "steps": 1500,
+        "native_seconds": 2.999999999999891,
+        "command_records": 1,
+        "arrivals": 0,
+        "last_status": "cancelled",
+        "safety_failure": null
+      }
+    ],
+    "independent_log_checks": [
+      72,
+      72
+    ],
+    "observations": 6004,
+    "all_target_success": false,
+    "first_target_timeout_position_mm": 12.229606083848486,
+    "first_target_timeout_rotation_rad": 0.026854001442485828,
+    "limits": {
+      "position_m": 0.01,
+      "rotation_rad": 0.02,
+      "translation_speed_m_s": 0.01,
+      "angular_speed_rad_s": 0.05,
+      "hold_s": 0.05,
+      "max_sample_gap_s": 0.002000001,
+      "timeout_s": 1.0
+    },
+    "original_GRID_reproduction": false,
+    "training_admitted": false
+  },
+  "integration": {
+    "MATTERIX_events": 64,
+    "Auto_transitions": 2299,
+    "checks": [
+      27,
+      27
+    ],
+    "separate_episodes": 2,
+    "joint_episode_created": false,
+    "online_agent_calls": 0,
+    "new_training": false
+  },
+  "next_steps": [
+    "Explain and test pressure-induced density expansion with frozen controls.",
+    "Test the control-bias hypothesis without widening arrival tolerances.",
+    "Connect measured native receipts to the common task interface before a combined same-world task."
+  ],
+  "full_reference_reproduction": false,
+  "source_sha256": {
+    "fluid_producer": "391249f6e9b8a2062a186b73be2e19dc12cb7add86cfa64f429487d41f708b4a",
+    "fluid_independent": "78d703f065e3781c4a0330cbf659b1e66a27ba5ee1c23caa43bbf9e803bf7d5c",
+    "fluid_execution": "ffaebb2a1a76df4bcd488ab6ccb020636511100972769d1ae283cdc2470d1d56",
+    "old_fluid_producer": "67a5fb59944c9106376e8bf947d945ac17d1e732a5bc395807086086966669ba",
+    "auto_audit": "c90a38276dcf6849fcee80e8be407e1bac9a11b48eebe17919be4552f107ce92",
+    "auto_execution": "8ca4dcc1872636b67e9e63bd8a0893fd2eb7baa8788a14e44608d4f7b5703d75",
+    "auto_protocol": "1670159c76252f2c91c47770a61d817edb5949e9548bad11630899331f734e7b",
+    "interface": "4a96984523a7a0f35ef5b311a25d4011fd17fe3c72fc4f11aef623374b61b35d",
+    "interface_delivery": "c91301b6baa4c017cf0f8c43f0d0d8828c56004bba95029a2add47bc9338cc33",
+    "density": "44df107c0eff0065fdda833adfde5897d2fd950d6dc639a9e2ca80c5cacded98",
+    "measured_arrival_observations": "a1f6b758fa9c113f8101bde670a5f7901089b550637594cb28206b415779a340",
+    "suppressed_command_observations": "06417541eb24e77c661918a2bb9e5cfe31d15f0e35cff068d82c23f0fba46bed"
+  },
+  "generation_r1_artifacts_sha256": {
+    "auto-arrival-errors.csv": "df2a4fb785664f62bcb16c22756ae79eee9023dd48493eb1c5db079934a078bc",
+    "auto-arrival.pdf": "be3087480041218a944de8ffd1a92203e5c67c65414b7f226ee22c0e8d9652eb",
+    "auto-arrival.png": "7e04b9a2a5c244761f31d1af8819e111a9b361392281a2ea5afa6b379bc8ecb3",
+    "fluid-arithmetic.png": "08890de76e8435ff225361f69fb820630b95a79aaadf340ae924aec7a250cd8f",
+    "fluid-arithmetic.pdf": "8434758c22fe9d90a6344f0f1a98116750a4a3b91afd7a60b8145391c31cb9e2",
+    "fluid-paired-fields.csv": "55ae1118500161003105bd3def1ae6bb2fef7b410da6936fa41d91287ade1cf0"
+  },
+  "website_artifacts_sha256": {
+    "assets/reproduction/full/dual-fluid-arithmetic-r1.png": "7bf54ddaffd4cf99d4675d8d9abd650c3895883a0c3b4724b4df182288a42513",
+    "assets/reproduction/full/dual-fluid-arithmetic-r1.pdf": "d0b70272795db66e870c0dddc2a26e2233120fa2187b4e1d5f1c804eaba55911",
+    "assets/reproduction/full/dual-auto-arrival-r1.png": "7e04b9a2a5c244761f31d1af8819e111a9b361392281a2ea5afa6b379bc8ecb3",
+    "assets/reproduction/full/dual-auto-arrival-r1.pdf": "be3087480041218a944de8ffd1a92203e5c67c65414b7f226ee22c0e8d9652eb",
+    "assets/reproduction/full/dual-fluid-fields-r1.csv": "55ae1118500161003105bd3def1ae6bb2fef7b410da6936fa41d91287ade1cf0",
+    "assets/reproduction/full/dual-auto-arrival-errors-r1.csv": "df2a4fb785664f62bcb16c22756ae79eee9023dd48493eb1c5db079934a078bc"
+  },
+  "figure_revision_note": "Final published figure assets are separately hashed; preserved generation R1 assets remain in the local evidence archive."
+}

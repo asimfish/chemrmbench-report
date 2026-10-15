@@ -1,0 +1,250 @@
+{
+  "scope": "Local gravity-feedforward controller counterfactual with measured arrival; not original GRID reproduction",
+  "checks": {
+    "r2:fixed_200ms:command:0:independent_first_hold": true,
+    "r2:fixed_200ms:command:1:independent_first_hold": true,
+    "r2:fixed_200ms:command:2:independent_first_hold": true,
+    "r2:measured_arrival:command:0:independent_first_hold": true,
+    "r2:suppressed_command:command:0:independent_first_hold": true,
+    "r2:cancel_50ms:command:0:independent_first_hold": true,
+    "r3:fixed_200ms:command:0:independent_first_hold": true,
+    "r3:fixed_200ms:command:1:independent_first_hold": true,
+    "r3:fixed_200ms:command:2:independent_first_hold": true,
+    "r3:measured_arrival:command:0:independent_first_hold": true,
+    "r3:measured_arrival:command:1:independent_first_hold": true,
+    "r3:measured_arrival:command:2:independent_first_hold": true,
+    "r3:suppressed_command:command:0:independent_first_hold": true,
+    "r3:cancel_50ms:command:0:independent_first_hold": true
+  },
+  "checks_passed": 14,
+  "checks_total": 14,
+  "frozen_log_audit": [
+    84,
+    84
+  ],
+  "branches": [
+    {
+      "revision": 2,
+      "mode": "fixed_200ms",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "superseded_before_arrival",
+          "terminal_s": 0.20000000000000015
+        },
+        {
+          "index": 1,
+          "published_s": 0.20000000000000015,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "superseded_before_arrival",
+          "terminal_s": 0.4000000000000003
+        },
+        {
+          "index": 2,
+          "published_s": 0.4000000000000003,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "timeout",
+          "terminal_s": 1.400000000000001
+        }
+      ],
+      "arrivals": 0
+    },
+    {
+      "revision": 2,
+      "mode": "measured_arrival",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "timeout",
+          "terminal_s": 1.0000000000000007
+        }
+      ],
+      "arrivals": 0
+    },
+    {
+      "revision": 2,
+      "mode": "suppressed_command",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "suppressed_negative_control",
+          "arrival_s": null,
+          "terminal_kind": "timeout",
+          "terminal_s": 1.0000000000000007
+        }
+      ],
+      "arrivals": 0
+    },
+    {
+      "revision": 2,
+      "mode": "cancel_50ms",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "cancelled",
+          "terminal_s": 0.05000000000000003
+        }
+      ],
+      "arrivals": 0
+    },
+    {
+      "revision": 3,
+      "mode": "fixed_200ms",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "superseded_before_arrival",
+          "terminal_s": 0.20000000000000015
+        },
+        {
+          "index": 1,
+          "published_s": 0.20000000000000015,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "superseded_before_arrival",
+          "terminal_s": 0.4000000000000003
+        },
+        {
+          "index": 2,
+          "published_s": 0.4000000000000003,
+          "publication_status": "published",
+          "arrival_s": 0.9240000000000007,
+          "terminal_kind": "hold_completed",
+          "terminal_s": 0.9240000000000007
+        }
+      ],
+      "arrivals": 1
+    },
+    {
+      "revision": 3,
+      "mode": "measured_arrival",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "published",
+          "arrival_s": 0.5100000000000003,
+          "terminal_kind": "hold_completed",
+          "terminal_s": 0.5100000000000003
+        },
+        {
+          "index": 1,
+          "published_s": 0.5100000000000003,
+          "publication_status": "published",
+          "arrival_s": 1.0220000000000007,
+          "terminal_kind": "hold_completed",
+          "terminal_s": 1.0220000000000007
+        },
+        {
+          "index": 2,
+          "published_s": 1.0220000000000007,
+          "publication_status": "published",
+          "arrival_s": 1.5920000000000012,
+          "terminal_kind": "hold_completed",
+          "terminal_s": 1.5920000000000012
+        }
+      ],
+      "arrivals": 3
+    },
+    {
+      "revision": 3,
+      "mode": "suppressed_command",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "suppressed_negative_control",
+          "arrival_s": null,
+          "terminal_kind": "timeout",
+          "terminal_s": 1.0000000000000007
+        }
+      ],
+      "arrivals": 0
+    },
+    {
+      "revision": 3,
+      "mode": "cancel_50ms",
+      "steps": 1500,
+      "native_seconds": 2.999999999999891,
+      "commands": [
+        {
+          "index": 0,
+          "published_s": 0.0,
+          "publication_status": "published",
+          "arrival_s": null,
+          "terminal_kind": "cancelled",
+          "terminal_s": 0.05000000000000003
+        }
+      ],
+      "arrivals": 0
+    }
+  ],
+  "initial_states_targets_gates_and_budgets_unchanged": true,
+  "native_force_limits_retained": true,
+  "external_applied_force_zero": true,
+  "new_hyperparameter_sweep": false,
+  "baseline_negative_retained": true,
+  "source_sha256": {
+    "evidence/auto_arrival_native_audit_20261015_r3.json": "9fb566f5c2e4e8da75257207ae8877e42de43fe4facd7398657989c52bd7fc18",
+    "auto_arrival_native_probe_20261015_r2/fixed_200ms_result.json": "9012d1ea859227cd6cde8c5daf86aca3b9dfd9e7d8ed8f4c97ff8fa474c7c9f7",
+    "auto_arrival_native_probe_20261015_r2/fixed_200ms_observations.jsonl": "fa19b27808993702dbf474f266bf6d52c618825505b9d546a5f78342c0e20f4e",
+    "auto_arrival_native_probe_20261015_r2/measured_arrival_result.json": "2deab253b2312dce1242a5af2e07617039443afa0908929cb6dbbd9c4866594b",
+    "auto_arrival_native_probe_20261015_r2/measured_arrival_observations.jsonl": "a1f6b758fa9c113f8101bde670a5f7901089b550637594cb28206b415779a340",
+    "auto_arrival_native_probe_20261015_r2/suppressed_command_result.json": "7aad857eea3ea0237326ac945535db8b6cb362d7dc67da7e8c8739d4371998b5",
+    "auto_arrival_native_probe_20261015_r2/suppressed_command_observations.jsonl": "06417541eb24e77c661918a2bb9e5cfe31d15f0e35cff068d82c23f0fba46bed",
+    "auto_arrival_native_probe_20261015_r2/cancel_50ms_result.json": "eb17197202f19002b9bc239c5ee94375a3b17695830072d2a19f1627a5d96a5a",
+    "auto_arrival_native_probe_20261015_r2/cancel_50ms_observations.jsonl": "a99728b39a98f0c19b6ca8ef70545f7230241b608ab9ef02eb642a019cbac26d",
+    "auto_arrival_native_probe_20261015_r3/fixed_200ms_result.json": "8604c25da90080097e38cb5777acd9969b8a00a257f70e803881f63569e39c65",
+    "auto_arrival_native_probe_20261015_r3/fixed_200ms_observations.jsonl": "29390d789a1be4c321c9275d7e35c646582f27d956a554d0efdfa801d44dd00e",
+    "auto_arrival_native_probe_20261015_r3/measured_arrival_result.json": "c58d2fdb1e222ab934df31e6dac667acb98ae2e740d09ea743489b4c4a2097b3",
+    "auto_arrival_native_probe_20261015_r3/measured_arrival_observations.jsonl": "387bbd68e89b4f34ef5963de94f7470739fc5ed29d2d2a7985c43b415a1b0e59",
+    "auto_arrival_native_probe_20261015_r3/suppressed_command_result.json": "daae8264c77973cbff8aa31620cbc0f9c1a906bbd84c84a429ad5411c3504d7c",
+    "auto_arrival_native_probe_20261015_r3/suppressed_command_observations.jsonl": "cf41162b5be5ebb1badca3056527597cbcb7be7e39a1c233bba3db11ed4ca28d",
+    "auto_arrival_native_probe_20261015_r3/cancel_50ms_result.json": "10f5d5fefe9496eb8092c46f6c477405ab24373f103ea904ea39a6c9dab94abb",
+    "auto_arrival_native_probe_20261015_r3/cancel_50ms_observations.jsonl": "c707fa5f616c67a1d80bab9edce70d54d345f027e43515f675f03e1a22f65dd3"
+  },
+  "full_reference_reproduction": false,
+  "training_admitted": false,
+  "generation_r1_artifacts_sha256": {
+    "first-target.csv": "e0d608f03b3a32557c90b914aba2691b94e0561efc56a573d72499336c68d08a",
+    "auto-feedforward.pdf": "4f9eaf26c7693b95e30823cd3d82247d3cfbf92c9899f3e6c0b1a4094ebfb6da",
+    "auto-feedforward.png": "1d99c3a881ae9b1b91793b2df50e813563ae1a18c313b025137db5fa4f6639af",
+    "command-events.csv": "13a3e0e9e6cd12be3d2648a1714a42f8a64f3bd591b6b6994b94a3e3ca8ef20a"
+  },
+  "website_artifacts_sha256": {
+    "assets/reproduction/full/auto-feedforward-r1.png": "1b958a61ee458a315ffe692fb51029d27c2117a1a82da693daf2c978cd30ceed",
+    "assets/reproduction/full/auto-feedforward-r1.pdf": "cd3f1359f3919be2d4ab7f912a536da2cf16a6319c6d06993b62f4898bea9dd6",
+    "assets/reproduction/full/auto-feedforward-first-target-r1.csv": "e0d608f03b3a32557c90b914aba2691b94e0561efc56a573d72499336c68d08a",
+    "assets/reproduction/full/auto-feedforward-command-events-r1.csv": "13a3e0e9e6cd12be3d2648a1714a42f8a64f3bd591b6b6994b94a3e3ca8ef20a"
+  },
+  "figure_revision_note": "Final published figure assets are separately hashed; preserved generation R1 assets remain in the local evidence archive."
+}

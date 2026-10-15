@@ -1,0 +1,112 @@
+{
+  "status": "READONLY_FIRST_STEP_PRESSURE_CONTRAST_COMPLETE",
+  "title": "First-step pressure contribution in a shared saved state",
+  "sample": {
+    "fixture": "Local complete80-map fluid diagnostic; not original paper liquid experiment",
+    "particles": 1728,
+    "fixed_reported_cohort": 512,
+    "source_step_zero_based": 0,
+    "saved_record_ids": [
+      0,
+      6,
+      7,
+      8,
+      9
+    ],
+    "algebraic_prediction_horizon_s": 0.001,
+    "new_trajectory": false
+  },
+  "numerical_checks": {
+    "calculator_passed": 23,
+    "calculator_total": 23,
+    "output_review_passed": 21,
+    "output_review_total": 21,
+    "full_pressure_prediction_all5184_positions_match_observed_uint64": true,
+    "prepressure_fresh_native_density_replay_relative": 4.4238538389273296e-16,
+    "full_pressure_fresh_native_density_replay_relative": 6.652301080568089e-16,
+    "density_replay_gate_unchanged": 1e-10,
+    "output_review_is_not_independent_FMA_or_density_rerun": true
+  },
+  "fixed512_results": {
+    "prepressure_fluid_density_ratio": {
+      "min": 1.0038514517417754,
+      "mean": 1.0038514517417756,
+      "max": 1.0038514517417756
+    },
+    "observed_pressure_increment_fluid_density_ratio": {
+      "min": 0.99997600585437,
+      "mean": 1.0007514208497157,
+      "max": 1.001358487397578
+    },
+    "omitted_saved_pressure_increment_fluid_density_ratio": {
+      "min": 1.0038514517417754,
+      "mean": 1.0038514517417756,
+      "max": 1.0038514517417756
+    },
+    "full_minus_omitted_density_ratio": {
+      "min": -0.0038754458874056263,
+      "mean": -0.0031000308920596177,
+      "max": -0.0024929643441973237
+    },
+    "full_pressure_in_band": 512,
+    "omitted_pressure_in_band": 512,
+    "band": [
+      0.95,
+      1.01
+    ],
+    "band_is_diagnostic": true,
+    "outward_pressure_increment_count": 512,
+    "full_relative_displacement_RMS_m": 3.98214899497349e-06,
+    "omitted_relative_displacement_RMS_m": 1.9302452938334863e-17
+  },
+  "neighbor_and_bin_observations": {
+    "omitted_all1728_neighbor_masks_unchanged": true,
+    "omitted_all1728_common_neighbor_kernel_bins_unchanged": true,
+    "full_lost_or_gained_fixed512_neighbors": [
+      0,
+      0
+    ],
+    "full_retained_neighbor_weight_change_fixed512_mean": -0.0031000308920597483,
+    "omitted_density_change_fixed512": {
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+    }
+  },
+  "interpretation": "In this shared first-step state, the saved pressure increment accounts for the observed decrease of fixed-cohort fresh fluid-kernel density through relative deformation. Omitting only that increment leaves the fluid density unchanged and preserves all neighbor masks and common-neighbor kernel bins. This is a one-step algebraic contrast; it does not establish a replacement solver treatment or explain all later16\u201320ms evolution.",
+  "limits": [
+    "Full-pressure coordinates first match the observed integrated state bitwise; fresh fluid density is recomputed, not taken from stale stored integrated rho.",
+    "Both arms remain512/512 in[0.95,1.01] at this first step; later20ms band occupancy remains200/512 in the unchanged native run.",
+    "Initial relaxation from about1.00385 toward1.00075 is not itself evidence of a physical defect.",
+    "No counterfactual boundary-map or wall-density contribution was evaluated.",
+    "No new native trajectory, solver call or dynamical integration; no universal or physical reproduction claim."
+  ],
+  "claims": {
+    "native_simulation_invocations": 0,
+    "solver_calls": 0,
+    "dynamic_integration_steps": 0,
+    "physical_admission": false,
+    "full_reference_reproduction": false,
+    "original_eight_qualified": 0,
+    "later_density_decline_resolved": false
+  },
+  "artifacts": {
+    "result": {
+      "file": "native_densitymap_prepressure_algebraic_r1/result.json",
+      "sha256": "d9c5cccb341874660efc07c5259f5a839299144d332a296a99f1f624e0817693"
+    },
+    "particles_csv": {
+      "file": "native_densitymap_prepressure_algebraic_r1/particles.csv",
+      "rows": 1728,
+      "sha256": "9347a926c049f2445acb2583584fe32de0bd620d9026dae0ea2a8ccbad46ec2f"
+    },
+    "protocol": {
+      "file": "native_densitymap_prepressure_algebraic_protocol_r1.json",
+      "sha256": "4dad3ebcb108d8d76ead93f05560666d3c60def988507aeb5301ca2970001053"
+    },
+    "output_review": {
+      "file": "native_densitymap_prepressure_algebraic_output_review_r1.json",
+      "sha256": "b9a8738a09f8113c739568546a94a862805c0cf8477250ea63fd9ff69a18e0f4"
+    }
+  }
+}
