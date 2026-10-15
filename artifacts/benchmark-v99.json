@@ -1,0 +1,183 @@
+{
+  "schema": "chemrm-v99-independent-cold-full-tail-review",
+  "status": "FAIL_UNLOADED_COLD_FULL_TAIL",
+  "reviewed_at_utc": "2026-10-15T09:01:28.777876+00:00",
+  "reader_sealed_before_collection": true,
+  "reviewer_source_sha256": "e1b6e132f76ee3dd84539e01900f08d17407ef0d62a797de9f9efe7813702569",
+  "source_pins_sha256": "074e274865116c4c679508c6b916038f7a29a17870da06175b7aac9b3f3ae916",
+  "pinned_files_verified": 132,
+  "initial_gate_pass": true,
+  "matched_hold_pass": true,
+  "all_seven_strict_endpoints_pass": false,
+  "all_seven_pose_drive_endpoints_pass": true,
+  "full_tail_task_clock_matches": true,
+  "cold_restoration_writer_calls": 167,
+  "allocated_gpu_hours_upper_bound": 0.2126255625540701,
+  "cold_restart_boundaries_added": 0,
+  "cold_restart_verified_boundaries": 1,
+  "task_boundaries": 8,
+  "model_calls": 0,
+  "training_jobs": 0,
+  "hidden_solver_state_restored": false,
+  "agent_memory_or_original_event_deadline_tested": false,
+  "scientific_admission": false,
+  "training_admission": false,
+  "formal_M1_admission": false,
+  "full_benchmark_pass": false,
+  "raw_review_receipt_sha256": "0264a1242da504584fa2e83b1e7fd99c733da5e73817f18362202cde3f41e3a1",
+  "rows": [
+    {
+      "phase": "live",
+      "run_id": "V99-live",
+      "source_start": 0,
+      "source_commands": 13427,
+      "committed_boundaries": 8,
+      "expected_boundaries": 8,
+      "initial_gate": "pass",
+      "hold_gate": "pass",
+      "strict_gate": "reference",
+      "full_tail_complete": true,
+      "final_return_error_mm": 0.42664663738333375
+    },
+    {
+      "phase": "cold",
+      "run_id": "V99-cold",
+      "source_start": 2400,
+      "source_commands": 11027,
+      "committed_boundaries": 7,
+      "expected_boundaries": 7,
+      "initial_gate": "pass",
+      "hold_gate": "pass",
+      "strict_gate": "fail",
+      "full_tail_complete": true,
+      "final_return_error_mm": 0.4673298667122222
+    }
+  ],
+  "stage_rows": [
+    {
+      "stage_id": "grasp",
+      "label": "抓取",
+      "position_max_mm": 0.18549214443555773,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 2.0887693494842097e-06,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "lift",
+      "label": "提起",
+      "position_max_mm": 0.2383447175055989,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 1.4435499906539917e-06,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "transport",
+      "label": "运送",
+      "position_max_mm": 0.2590811447616661,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 3.959983587265015e-06,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "place_release",
+      "label": "天平释放",
+      "position_max_mm": 0.2783111860426947,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 3.2186508178710938e-06,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "regrasp",
+      "label": "再次抓取",
+      "position_max_mm": 0.28638066220389224,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 3.373250365257263e-06,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "return",
+      "label": "放回",
+      "position_max_mm": 0.34966458162992536,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 1.1920928955078125e-06,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    },
+    {
+      "stage_id": "retreat",
+      "label": "退出",
+      "position_max_mm": 0.43096215843999025,
+      "orientation_max_deg": 0.15250380706489916,
+      "joint_coordinate_max": 5.772151325800223e-07,
+      "drive_state_equal": false,
+      "strict_pass": false,
+      "pose_drive_pass": true
+    }
+  ],
+  "phases": {
+    "cold": {
+      "complete_tail": true,
+      "exit_code": 1,
+      "hold_samples": 30,
+      "mechanism": {
+        "bilateral_contact_fraction": 1.0,
+        "final_return_error_m": 0.0004673298667122222,
+        "full_source_tail_completed": true,
+        "maximum_relative_displacement_m": 0.0005710018690737489,
+        "passed": true,
+        "scientific_admission": false,
+        "transport_source_commands": 1920
+      },
+      "native_clock_samples": 11057,
+      "registered_entities": 65,
+      "source_commands": 11027,
+      "source_start": 2400,
+      "timed_out": false
+    },
+    "live": {
+      "complete_tail": true,
+      "exit_code": 0,
+      "hold_samples": 30,
+      "mechanism": {
+        "bilateral_contact_fraction": 1.0,
+        "final_return_error_m": 0.00042664663738333376,
+        "full_source_tail_completed": true,
+        "maximum_relative_displacement_m": 0.0005768224482348834,
+        "passed": true,
+        "scientific_admission": false,
+        "transport_source_commands": 1920
+      },
+      "native_clock_samples": 13457,
+      "registered_entities": 65,
+      "source_commands": 13427,
+      "source_start": 0,
+      "timed_out": false
+    }
+  },
+  "scope": "Numerical projection of the sealed readout. No private paths, host records, prompts or process identifiers.",
+  "historical_task_return_limit_mm": 20,
+  "prospective_v99_completion_limit_mm": 1,
+  "raw_preservation": {
+    "status": "PASS_ALL_RAW_BUNDLE_BYTES_VERIFIED",
+    "tar_sha256": "3b59b837aab6c52e7d2481ee51252375b28bdb4a2c169cf3b3bdc0d8d108487c",
+    "tar_bytes": 1536860160,
+    "file_count": 1614,
+    "raw_manifest_sha256": "e7c0f30dcda83da15b94bf96f2471d92b9f7bba0979a965b47e59b570d7d0116",
+    "source_files_verified": 132,
+    "source_pins_sha256": "074e274865116c4c679508c6b916038f7a29a17870da06175b7aac9b3f3ae916",
+    "reader_sealed_before_collection": true,
+    "all_member_bytes_verified": true,
+    "native_workers_closed": 2
+  }
+}
