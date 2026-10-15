@@ -1,0 +1,339 @@
+{
+  "status": "FULL80_DYNAMIC_COMPLETE_BUT_FROZEN_PAIRED_FIELD_GATE_FAILED",
+  "generated_at_utc": "2026-10-14T19:08:47.906860+00:00",
+  "native_execution": {
+    "staged_steps": 20,
+    "whole_steps": 20,
+    "staged_first_online_failure": "",
+    "whole_first_online_failure": "",
+    "both_return_zero": true,
+    "timed_out": false,
+    "inputs_unchanged": true,
+    "branch_wall_seconds": {
+      "staged": 1.6875768266618252,
+      "whole": 1.7991860639303923
+    },
+    "runtime_success_is_not_full_validation": true
+  },
+  "producer_audit": {
+    "checks_passed": 39,
+    "checks_total": 40,
+    "failed_checks": [
+      "whole_staged_same_candidate_fields"
+    ],
+    "audit_invocations": 1,
+    "all_checks_passed": false,
+    "audit_process_exit0_is_not_all_checks_passed": true
+  },
+  "independent_checks": {
+    "passed": 40,
+    "total": 41,
+    "all_passed": false
+  },
+  "static_checks": {
+    "producer": 38,
+    "independent": 38,
+    "contact_validated": false
+  },
+  "map_fields": {
+    "fields": 2,
+    "resolution": [
+      80,
+      80,
+      80
+    ],
+    "nodes_per_field": 3680721,
+    "cells_per_field": 512000,
+    "own_SDF_used_to_integrate_density": true,
+    "Gauss_degree": 50,
+    "factor": 5,
+    "source_multiplier": 0.8,
+    "SDF80_fixed_samples_bitwise": 36288,
+    "SDF_scalar_max_abs_identity_error": 0,
+    "SDF_gradient_max_abs_identity_error": 0
+  },
+  "initial_raw_samples": {
+    "SDF_support_window_count": 0,
+    "raw_density_not_above_source_cutoff_count": 1728,
+    "normal_not_above_source_cutoff_count": 0,
+    "native_active_count": 0,
+    "negative": 0,
+    "zero": 1000,
+    "positive_le_1e_minus6": 728,
+    "above_1e_minus6": 0,
+    "reason_counts": {
+      "outside_upper_support": 1728
+    },
+    "no_rows_removed": true,
+    "negative_values_clamped": false
+  },
+  "failure": {
+    "frozen_field_gate": 1e-10,
+    "field_comparisons": 2196,
+    "violating_field_records": 21,
+    "violating_columns": [
+      "boundary_gradient_x",
+      "boundary_gradient_z",
+      "raw_density_gradient_x",
+      "raw_density_gradient_z"
+    ],
+    "first_violation": {
+      "whole_record": 53,
+      "staged_record": 161,
+      "step": 17,
+      "stage": "whole_integrated",
+      "time_s": 0.01800000000000001,
+      "column": 35,
+      "field": "raw_density_gradient_z",
+      "max_abs_error": 2.455992616676734e-13,
+      "staged_max_abs_scale": 0.0019326170207174481,
+      "max_relative_error": 1.270811852709955e-10,
+      "frozen_relative_gate": 1e-10,
+      "passed": false,
+      "max_error_particle_id": 728,
+      "staged_value_at_max_error": -1.4034243523867052e-13,
+      "whole_value_at_max_error": 1.0525682642900288e-13,
+      "staged_xyz": [
+        0.009471685314448572,
+        0.0013478827875851092,
+        0.013237030172857975
+      ],
+      "whole_xyz": [
+        0.009471685314448574,
+        0.0013478827875851092,
+        0.013237030172857975
+      ],
+      "particle_position_delta_m": [
+        1.734723475976807e-18,
+        0.0,
+        0.0
+      ],
+      "particle_max_abs_position_delta_m": 1.734723475976807e-18,
+      "all_particles_max_abs_position_delta_m": 6.938893903907228e-18,
+      "all_particles_max_abs_velocity_delta_m_s": 1.942890293094024e-16,
+      "clock_exact": true
+    },
+    "maximum_relative_violation": {
+      "whole_record": 57,
+      "staged_record": 171,
+      "step": 18,
+      "stage": "whole_terminal",
+      "time_s": 0.01900000000000001,
+      "column": 24,
+      "field": "boundary_gradient_z",
+      "max_abs_error": 8.069690026223564e-13,
+      "staged_max_abs_scale": 0.001995535874074937,
+      "max_relative_error": 4.0438711882162474e-10,
+      "frozen_relative_gate": 1e-10,
+      "passed": false,
+      "max_error_particle_id": 1304,
+      "staged_value_at_max_error": -1.9507598498175203e-11,
+      "whole_value_at_max_error": -1.8700629495552847e-11,
+      "staged_xyz": [
+        0.014513679236124687,
+        0.001160972241936849,
+        0.013240585531562522
+      ],
+      "whole_xyz": [
+        0.014513679236124687,
+        0.0011609722419368468,
+        0.013240585531562522
+      ],
+      "particle_position_delta_m": [
+        0.0,
+        -2.168404344971009e-18,
+        0.0
+      ],
+      "particle_max_abs_position_delta_m": 2.168404344971009e-18,
+      "all_particles_max_abs_position_delta_m": 6.938893903907228e-18,
+      "all_particles_max_abs_velocity_delta_m_s": 4.510281037539698e-16,
+      "clock_exact": true
+    },
+    "attribution": "Saved-array localization only; small absolute magnitude is not an exemption from the frozen relative gate. No claim of root cause without separate source/replay evidence."
+  },
+  "paired_prefix_ms": 17,
+  "terminal20ms": {
+    "coherent40": {
+      "record": 180,
+      "stage": "terminal",
+      "step": 19,
+      "time_s": 0.02000000000000001,
+      "passed": true,
+      "bulk_ratio_min_mean_max": [
+        0.9313770975777825,
+        0.9500588434533336,
+        0.985311523292089
+      ],
+      "bulk_in_0p95_to_1p01_count": 200,
+      "bulk_count": 512,
+      "global_max_density_ratio": 0.985311523292089,
+      "speed_rms_m_s": 0.19124543163152805,
+      "speed_max_m_s": 0.280989820179376,
+      "kinetic_energy_J": 6.1720000514881e-05,
+      "SDF_only_support_window_count": 288,
+      "exactbox_support_window_count": 288,
+      "native_applied_active_count": 288,
+      "projection_gate_vacuous": false,
+      "contact_validated": false,
+      "native_predicate_count": 288,
+      "native_predicate_matches_applied": true,
+      "raw_density_negative_count": 428,
+      "raw_density_zero_count": 900,
+      "raw_density_positive_le_1e_minus6_count": 0,
+      "raw_density_above_1e_minus6_count": 400,
+      "inactive_reason_counts": {
+        "at_or_below_near_safety_threshold": 0,
+        "outside_upper_support": 1440,
+        "density_not_above_source_cutoff": 0,
+        "normal_not_above_source_cutoff": 0,
+        "active": 288
+      },
+      "new_metric_is_blocking_physical_gate": false
+    },
+    "coherent80": {
+      "record": 180,
+      "stage": "terminal",
+      "step": 19,
+      "time_s": 0.02000000000000001,
+      "passed": true,
+      "bulk_ratio_min_mean_max": [
+        0.9313092722389246,
+        0.9501043780116907,
+        0.9856751830953141
+      ],
+      "bulk_in_0p95_to_1p01_count": 200,
+      "bulk_count": 512,
+      "global_max_density_ratio": 0.9856751830953141,
+      "speed_rms_m_s": 0.1910643211512566,
+      "speed_max_m_s": 0.2822207550026514,
+      "kinetic_energy_J": 6.16031575036715e-05,
+      "SDF_only_support_window_count": 288,
+      "exactbox_support_window_count": 288,
+      "native_applied_active_count": 288,
+      "projection_gate_vacuous": false,
+      "contact_validated": false,
+      "native_predicate_count": 288,
+      "native_predicate_matches_applied": true,
+      "raw_density_negative_count": 0,
+      "raw_density_zero_count": 900,
+      "raw_density_positive_le_1e_minus6_count": 540,
+      "raw_density_above_1e_minus6_count": 288,
+      "inactive_reason_counts": {
+        "at_or_below_near_safety_threshold": 0,
+        "outside_upper_support": 1440,
+        "density_not_above_source_cutoff": 0,
+        "normal_not_above_source_cutoff": 0,
+        "active": 288
+      },
+      "new_metric_is_blocking_physical_gate": false
+    }
+  },
+  "activation": {
+    "coherent80_first_events_including_failed_fresh_record": {
+      "native_applied_active_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      },
+      "SDF_only_support_window_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      },
+      "exactbox_support_window_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      }
+    },
+    "coherent80_first_events_admitted_step_prefix": {
+      "native_applied_active_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      },
+      "SDF_only_support_window_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      },
+      "exactbox_support_window_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      }
+    },
+    "coherent40_first_events": {
+      "native_applied_active_count": {
+        "time_s": 0.004,
+        "record": 36,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 4
+      },
+      "SDF_only_support_window_count": {
+        "time_s": 0,
+        "record": 0,
+        "stage": "initial",
+        "snapshot_passed": true,
+        "count": 8
+      },
+      "exactbox_support_window_count": {
+        "time_s": 0.010000000000000002,
+        "record": 90,
+        "stage": "terminal",
+        "snapshot_passed": true,
+        "count": 144
+      }
+    }
+  },
+  "negative_result": "Both resolutions first lose full512 occupancy at16ms and end20ms at200/512. Increasing map resolution did not resolve this density-band transient.",
+  "window_scope": "Full80 native activation and SDF-only/exactbox windows first occur at10ms on its own saved trajectory. Full40 native activation was4ms and SDF-only window0ms; these are separate predicates, not ground-truth contact timing or a counterfactual trajectory experiment.",
+  "claims": {
+    "physical_admission": false,
+    "original_eight_qualified": 0,
+    "full_reference_reproduction": false,
+    "equilibrium": false,
+    "contact_validated": false,
+    "resolution_fixes_density_transient": false,
+    "complete_pair_numeric_gate_pass": false,
+    "scientific_tolerances_changed": false,
+    "native_reruns": 0
+  },
+  "retained_limits": [
+    "Only20ms, not a long-term stability or equilibrium test.",
+    "Fixed512 density-band occupancy is reported throughout; it is not silently promoted into a changed original online gate or equilibrium evidence.",
+    "Whole internal phases are not observed; only admitted common endpoints are compared.",
+    "Saved raw .cdm samples are replayed, not independently interpolated from grid.",
+    "Independent CG reconstruction lacks saved native Ax/b vectors; no bitwise native-CG attestation.",
+    "Fixed reaction-wall geometry is externally held, not a fully coupled moving rigid body.",
+    "Clear assertions lack immediate raw before/after snapshots."
+  ],
+  "source_sha256": {
+    "native_densitymap_full80_dynamic_delivery_r1.json": "1b97a30f30c93f83458d98f518130e909f7424542824d7cd0deb58414e945c90",
+    "native_densitymap_external_review_20261015_full80_dynamic_r1.json": "7b5c7ca05567d669a81c754a6dcd02b999102d398b933439f1f5c13e6ad6f104",
+    "native_densitymap_full80_dynamic_root_result_review_r1.json": "c1c9ad55701a4d6c9d96000e56388ce56556f85f7381cbad2d86bd53646f8f3b",
+    "native_densitymap_full80_static_delivery_r2.json": "c0cfe85c5845905f8b00d6db2597f10862a67e64ce83c6755868eee84914da93",
+    "native_densitymap_external_review_20261015_full80_static_r3.json": "3bfe95656d2ac96ad94c6aeaf4108e8675550f1a5402d4d18234a0c67e3c8dbe"
+  },
+  "assets_sha256": {
+    "assets/reproduction/full/fluid-sdf-grid-convergence-r2.png": "a9059907a0cfe47f9121453c70bd7b979ecb50120fddbd4032f6b24e763ed1cf",
+    "assets/reproduction/full/fluid-sdf-grid-convergence-r2.pdf": "17e305e7b632a4eb1b44c2bb1719c478b152cb9097784fb4c4686a93d0b7466c",
+    "assets/reproduction/full/fluid-full80-comparison-r1.png": "7022d80b49bb867adf404075228fb6e69180f488031ed3bfbe4d30f823752aaa",
+    "assets/reproduction/full/fluid-full80-comparison-r1.pdf": "0c34b44ae8c83cc01e0e91e5c87240b226f6d9b7d83fac220e6289609484b158",
+    "assets/reproduction/full/fluid-full80-matched20ms-r1.csv": "7f5b3af96076a1fd119a12c235cd44c458e109128d19d009ff2c99cfd56fef88",
+    "assets/reproduction/full/fluid-full80-field-errors-r1.csv": "b6ed458081faa46469dcb9c615255ece2820a41f9c16d2308278995c38cf7e40"
+  }
+}

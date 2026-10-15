@@ -1,0 +1,119 @@
+{
+  "status": "SDF_GEOMETRY_RESOLUTION_EFFECT_MEASURED_NOT_PHYSICAL_ADMISSION",
+  "table": [
+    {
+      "resolution": 40,
+      "samples": 36288,
+      "MAE_mm": 0.05458148221065119,
+      "RMSE_mm": 0.1313903013215691,
+      "max_abs_error_mm": 0.6068507945471702,
+      "SDF_window_false_positive_particle_times": 280,
+      "SDF_window_false_negative_particle_times": 0,
+      "SDF_window_t0_count": 8,
+      "first_observed_SDF_window_ms": 0.0,
+      "unique_nearest_face_samples": 33020,
+      "tied_nearest_faces_samples": 3268,
+      "exact_affine_cell_samples": 26936,
+      "nonaffine_or_cross_surface_cell_samples": 9352,
+      "affine_cell_max_abs_error_mm": 1.1243176528674681e-13,
+      "tied_nearest_faces_MAE_mm": 0.3062329657731641,
+      "unique_face_normal_angle_mean_deg": 4.891517975360474,
+      "unique_face_normal_angle_max_deg": 54.52892144185579,
+      "direct_mesh_vs_exact_max_abs_m": 9.530137096147584e-17,
+      "SDF_build_seconds": 0.056941721
+    },
+    {
+      "resolution": 80,
+      "samples": 36288,
+      "MAE_mm": 0.0196491315279065,
+      "RMSE_mm": 0.054728761243119345,
+      "max_abs_error_mm": 0.30059984163821435,
+      "SDF_window_false_positive_particle_times": 0,
+      "SDF_window_false_negative_particle_times": 0,
+      "SDF_window_t0_count": 0,
+      "first_observed_SDF_window_ms": 10.000000000000002,
+      "unique_nearest_face_samples": 33020,
+      "tied_nearest_faces_samples": 3268,
+      "exact_affine_cell_samples": 29892,
+      "nonaffine_or_cross_surface_cell_samples": 6396,
+      "affine_cell_max_abs_error_mm": 8.966351966455122e-14,
+      "tied_nearest_faces_MAE_mm": 0.13995168152798074,
+      "unique_face_normal_angle_mean_deg": 2.7681356999972624,
+      "unique_face_normal_angle_max_deg": 54.35362181332821,
+      "direct_mesh_vs_exact_max_abs_m": 9.530137096147584e-17,
+      "SDF_build_seconds": 0.43428921
+    },
+    {
+      "resolution": 160,
+      "samples": 36288,
+      "MAE_mm": 0.008462378070653398,
+      "RMSE_mm": 0.02580833944730804,
+      "max_abs_error_mm": 0.15104252989241435,
+      "SDF_window_false_positive_particle_times": 0,
+      "SDF_window_false_negative_particle_times": 0,
+      "SDF_window_t0_count": 0,
+      "first_observed_SDF_window_ms": 10.000000000000002,
+      "unique_nearest_face_samples": 33020,
+      "tied_nearest_faces_samples": 3268,
+      "exact_affine_cell_samples": 31148,
+      "nonaffine_or_cross_surface_cell_samples": 5140,
+      "affine_cell_max_abs_error_mm": 1.1872013788716274e-13,
+      "tied_nearest_faces_MAE_mm": 0.07030173418358816,
+      "unique_face_normal_angle_mean_deg": 1.7517568712355722,
+      "unique_face_normal_angle_max_deg": 54.00623955337905,
+      "direct_mesh_vs_exact_max_abs_m": 9.530137096147584e-17,
+      "SDF_build_seconds": 3.570323494
+    }
+  ],
+  "sample_design": {
+    "primary_time_count": 21,
+    "particles_per_time": 1728,
+    "particle_time_count": 36288,
+    "positions": "Same frozen mass-volume native trajectory for all resolutions; no recomputed trajectories.",
+    "counts": "FP/FN and classification counts count particle-time samples, not distinct particles.",
+    "subsets": "Predeclared classifications; unique/tied face subsets fixed across grids. Affine/nonaffine cell classification depends on resolution and is reported separately."
+  },
+  "baseline40": {
+    "checks_passed": 17,
+    "checks_total": 17,
+    "pointwise_bitwise_saved_positions": 418176,
+    "scope": "Both scalar and raw SDF gradient match original complete map and all242 saved records bitwise. Serialized field0 domain/cells/nodes/cell_map also match byte-for-byte."
+  },
+  "independent_checks": 54,
+  "scope_of_first_time": {
+    "original40_SDF_support_window_first_sample_ms": 0,
+    "original40_SDF_window_t0_particles": 8,
+    "prior_complete_native_map_first_activation_ms": 4,
+    "80_and160_SDF_support_window_first_sample_ms": 10,
+    "exact_box_support_window_first_sample_ms_on_same_trajectory": 10,
+    "interpretation": "Support-window samples are geometric predicates, not complete boundary activation or contact times. No old density is coupled to80/160."
+  },
+  "findings": [
+    "All three predeclared resolutions were completed and reported without an error-driven resolution search.",
+    "At the same saved positions, aggregate scalar errors decrease with refinement;80 and160 have zero SDF-window FP/FN on these36288 particle-times.",
+    "Direct mesh distance agrees with exact box to at most9.530137096147584e-17m. The40 field0 replay is exact, limiting mesh/replay mismatch as an explanation for the measured interpolation discrepancy.",
+    "Cells whose8corners are inside and share a nearest face have scalar errors near floating-point scale. The remaining cells carry the large interpolation errors; this supports a nonsmooth-cell interpolation mechanism for the sampled SDF error.",
+    "Residual160 maximum scalar error remains0.15104252989241435mm. Across all uniquely nearest-face samples, maximum normal-angle discrepancy remains54.00623955337905degrees; this uses a broader set than the previous native-active subset.",
+    "No exact nearest-face normal angle is assigned to the3268 tied-face samples. No zero or<=1e-6 nonzero gradients occurred in the fixed primary samples."
+  ],
+  "limitations": [
+    "Zero window mismatches is a finite-sample result on a previously generated native trajectory, not a global geometry bound.",
+    "No density or density-gradient field was refined, integrated, interpolated at new resolutions, or mixed with newSDF.",
+    "No new force, pressure, viscosity, conservation, equilibrium, long-term stability, or task-level reproduction claim is supported.",
+    "The prior fixed-cohort density decline512→200/512 remains unresolved; this diagnostic does not establish its cause.",
+    "No predeclared physical angular/error acceptance gate exists for this diagnostic; no best-resolution admission is inferred."
+  ],
+  "pointwise_scope": "Strict increases in scalar error occur only at floating-point scale in common affine cells (at most5.56e-17m); aggregate improvement is not a claim that every bitwise difference improves.",
+  "physical_admission": false,
+  "full_reference_reproduction": false,
+  "new_integrations": 0,
+  "new_density_fields": 0,
+  "source_sha256": {
+    "native_densitymap_sdf_convergence_delivery_r1.json": "6735797d47e6389b2430031af78f1d302665ad5f010b2fb5bb95c5117acb4171",
+    "native_densitymap_external_review_20261015_sdf_results_r1.json": "115d374ac083c96fb21fcf9e50b6afa8764f8fd518effb9b05de7759ca7e8e0a",
+    "native_densitymap_external_review_20261015_sdf_nonmonotonic_r1.json": "de31fb50207fc8c0ed441c8a9745af91ad31de77468d5a1ab49972fde648c022"
+  },
+  "artifacts": {
+    "assets/reproduction/full/fluid-sdf-grid-convergence-r1.csv": "8dbb14db3d2f5b7e2282dce1ddd5902a16d57a0d2807beb8bf5d896fcd268d35"
+  }
+}
