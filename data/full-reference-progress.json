@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "title": "Full reference reproduction · detailed audit",
-  "exported_at_utc": "2026-10-15T16:42:18.904426+00:00",
+  "exported_at_utc": "2026-10-15T16:49:13.497073+00:00",
   "full_reference_reproduction": false,
   "requirements": [
     {
@@ -412,6 +412,67 @@
     }
   ],
   "modules": [
+    {
+      "id": "auto-measured-contact-object-lift",
+      "title": "Auto local rigid pickup · measured contact and object lift",
+      "evidence_sha256": "05054a4c9da8cf5e4b51a9d2b6312a870933b97e5576cd5eba72abc584dc97a4",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "metrics": {
+        "native_branches": 2,
+        "seconds_per_branch": 10,
+        "observations": 10002,
+        "producer_log_checks": 53,
+        "loaded_hold_samples": 501,
+        "loaded_hold_s": 1,
+        "minimum_lift_mm": 125.24450916968941,
+        "opposed_contact_fraction": 1,
+        "loaded_contact_loss_samples": 0
+      },
+      "scope": "One local UR5e/Robotiq fixture uses actual contact: measured approach at2.776s, sampled opposed-pad gate at3.776s, lift arrival at6.054s and object-effect hold at7.054s. Minimum125.2445mm lift over501 samples spanning1s. The no-close branch times out before lift; it is a dependency control, not a matched arm-lift ablation. Figures, CSV and neutral-glass actual-state replay are on controlled-effects.html#pickup.",
+      "remaining": "One fixture is not a success rate. Sampled positive normal force does not prove no slip, intersample contact or real-glass force safety. Original GRID runtime/four harnesses, perception, liquid transfer, release and recovery remain open."
+    },
+    {
+      "id": "fluid-no-wall-matched-density-control",
+      "title": "MATTERIX diagnostic · density loss persists without wall coupling",
+      "evidence_sha256": "a00ec4d62f861414523a5e041a9205017a61d736f8d0b51fb52f845008ce429e",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "metrics": {
+        "native_arms": 2,
+        "steps_per_arm": 20,
+        "fixed_cohort": 512,
+        "compatibility_records": 181,
+        "fields_per_record": 36,
+        "producer_checks": 29,
+        "independent_checks": 27,
+        "first_band_loss_ms": 16,
+        "full80_terminal_in_band": 200,
+        "no_wall_terminal_in_band": 136,
+        "original_physical_tests_qualified": 0
+      },
+      "scope": "Both arms start from identical fresh initialization. The new full80 wall control matches all181x1728x36 prior fields bitwise before the no-wall run. Both first lose full diagnostic-band occupancy at16ms. At20ms, wall/no-wall counts are200/136. Wall coupling is not necessary for this decline in this initialized local fixture. See controlled-effects.html#wall-control.",
+      "remaining": "Higher wall-arm mean/count coexist with lower minimum and wider spread; no global improvement or calibration claim. No-wall contact gates are inapplicable. Initial pressure and later pressure/divergence/viscosity still need attribution and original-task alignment. Original physical-flow gates remain0/8."
+    },
+    {
+      "id": "shared-observed-object-effects-offline",
+      "title": "Shared interface · actual sampled effects, offline only",
+      "evidence_sha256": "a44331d0593f64700ee469b7e9159fee9e6f0dfddbbca3e2f71f8e005b6a4818",
+      "subsystem_passed": true,
+      "full_reference_accepted": false,
+      "metrics": {
+        "actual_observations": 10002,
+        "command_records": 5,
+        "offline_envelopes": 10007,
+        "checks": 50,
+        "rejection_controls": 11,
+        "separate_episodes": 2,
+        "joint_episodes": 0,
+        "new_native_steps": 0
+      },
+      "scope": "A streaming offline adapter preserves actual controls, prior-observation links, source hashes and separate clocks. It independently aggregates saved pad-force records and calculates arrival/effect criteria from logged state; it does not independently recompute native contact forces.50 checks include11 offline rejection controls, some constructed. See controlled-effects.html#shared-effects.",
+      "remaining": "No joint world, live adapter, online agent call, physical liquid transfer or training admission. Next requires one continuous world and clock with observed effect dependencies; original acceptance for each reference remains separate."
+    },
     {
       "id": "parallel-reference-contract",
       "title": "Two references · shared task, time and verifier interface",
