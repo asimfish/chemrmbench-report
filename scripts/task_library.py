@@ -27,7 +27,7 @@ def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     for path in sorted(ROOT.glob('*/manifest.jsonl')):
         config=read(path.parent/'collection.json',{})
-        if config.get('backend')!='isaac':continue
+        if config.get('backend')!='isaac' or config.get('collection_kind')=='view':continue
         rows=[]
         for line in path.read_text().splitlines():
             try:rows.append(json.loads(line))
