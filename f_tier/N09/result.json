@@ -1,0 +1,253 @@
+{
+  "id": "N09",
+  "status": "F_PASS",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "created_utc": "2026-10-19T10:03:53.797873+00:00",
+  "scope": "Incremental MATTERIX semantic-manager cost in original heat-transfer task. Same physical objects/sensors are allocated in both modes, only semantic-manager step is omitted in physics-only. Native direct physics/scene loop, not whole robot-policy wall time.",
+  "protocol": {
+    "scales_num_envs": [
+      1,
+      8,
+      32
+    ],
+    "configured_task_assets_per_env": 4,
+    "seeds": [
+      100,
+      101,
+      102
+    ],
+    "warmup_steps": 200,
+    "timed_steps": 1000,
+    "repeats_per_mode": 3,
+    "physics_dt_s": 0.004,
+    "mode_order": "Off/on for repeats0,2; on/off for repeat1",
+    "timer": "perf_counter enclosing1000steps, torch.cuda.synchronize before and after",
+    "optimization_performed": false
+  },
+  "criteria": [
+    {
+      "metric": "three scene scales and paired modes, three repeats1000steps each",
+      "local_threshold": {
+        "scales": [
+          1,
+          8,
+          32
+        ],
+        "modes": 2,
+        "repeats": 3,
+        "timed_steps": 1000
+      },
+      "value": 18,
+      "pass": true
+    },
+    {
+      "metric": "warmup excluded, synchronized GPU timing",
+      "local_threshold": {
+        "warmup_steps": 200
+      },
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "paired modes same reset physics initial conditions",
+      "local_threshold": {
+        "max_absolute_state_difference": 1e-06
+      },
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "metric": "all native final states finite",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "median, mean and sample standard deviation reported with hardware metadata",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    }
+  ],
+  "summary": [
+    {
+      "num_envs": 1,
+      "configured_task_assets": 4,
+      "physics-only": {
+        "wall_s": [
+          33.38619604500127,
+          14.385024970004451,
+          13.724127547000535
+        ],
+        "median_wall_s": 14.385024970004451,
+        "mean_wall_s": 20.498449520668753,
+        "stdev_wall_s": 11.166006636551716,
+        "median_aggregate_env_steps_per_s": 69.51673716835339
+      },
+      "physics+semantics": {
+        "wall_s": [
+          21.43694911300554,
+          59.38697921599669,
+          20.834702348001883
+        ],
+        "median_wall_s": 21.43694911300554,
+        "mean_wall_s": 33.88621022566804,
+        "stdev_wall_s": 22.086366600576696,
+        "median_aggregate_env_steps_per_s": 46.64842906182541
+      },
+      "semantic_incremental_overhead_percent": 49.02267571801724
+    },
+    {
+      "num_envs": 8,
+      "configured_task_assets": 32,
+      "physics-only": {
+        "wall_s": [
+          100.22666775899415,
+          14.004483813012484,
+          51.75605521000398
+        ],
+        "median_wall_s": 51.75605521000398,
+        "mean_wall_s": 55.32906892733687,
+        "stdev_wall_s": 43.22199754027874,
+        "median_aggregate_env_steps_per_s": 154.5712857662628
+      },
+      "physics+semantics": {
+        "wall_s": [
+          22.62822378599958,
+          22.589521816000342,
+          128.96888893199502
+        ],
+        "median_wall_s": 22.62822378599958,
+        "mean_wall_s": 58.06221151133165,
+        "stdev_wall_s": 61.40698699324964,
+        "median_aggregate_env_steps_per_s": 353.5407849797614
+      },
+      "semantic_incremental_overhead_percent": -56.27907943489142
+    },
+    {
+      "num_envs": 32,
+      "configured_task_assets": 128,
+      "physics-only": {
+        "wall_s": [
+          91.35524123300274,
+          15.94645685100113,
+          15.919461805009632
+        ],
+        "median_wall_s": 15.94645685100113,
+        "mean_wall_s": 41.0737199630045,
+        "stdev_wall_s": 43.54507685263733,
+        "median_aggregate_env_steps_per_s": 2006.7153662408095
+      },
+      "physics+semantics": {
+        "wall_s": [
+          49.287663754992536,
+          28.815211138993618,
+          121.04860354500124
+        ],
+        "median_wall_s": 49.287663754992536,
+        "mean_wall_s": 66.38382614632913,
+        "stdev_wall_s": 48.435098276594424,
+        "median_aggregate_env_steps_per_s": 649.2496816053408
+      },
+      "semantic_incremental_overhead_percent": 209.08222569766787
+    }
+  ],
+  "paired_final_physical_state_max_difference": 0.03803367726504803,
+  "final_state_difference_note": "Observed identical root reset states do not reset all GPU solver caches. Final states may differ slightly; this is a descriptive shared-load timing comparison, not an isolated causal estimate of semantic overhead.",
+  "hardware": {
+    "gpu": "index, name, driver_version, memory.total [MiB], memory.free [MiB], utilization.gpu [%]\n0, NVIDIA GeForce RTX 5090, 570.124.06, 32607 MiB, 13779 MiB, 91 %\n1, NVIDIA GeForce RTX 5090, 570.124.06, 32607 MiB, 12993 MiB, 31 %\n",
+    "cpu_model": "AMD Ryzen Threadripper 7960X 24-Cores",
+    "cpu_logical_count": 48,
+    "cpu_affinity_count": 48,
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "shared_machine": true,
+    "other_tasks_not_stopped": true,
+    "comment": "Shared GPU jobs may vary; paired modes counterbalanced; no isolated-hardware or original-paper hardware claim.",
+    "shared_compute_processes_at_snapshot": [
+      {
+        "executable_basename": "vrwebhelper",
+        "used_GPU_memory": "23 MiB"
+      },
+      {
+        "executable_basename": "vrwebhelper",
+        "used_GPU_memory": "14 MiB"
+      },
+      {
+        "executable_basename": "rustdesk",
+        "used_GPU_memory": "537 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "10016 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "1000 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "5417 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "8076 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "248 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "248 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "10147 MiB"
+      },
+      {
+        "executable_basename": "python",
+        "used_GPU_memory": "248 MiB"
+      }
+    ],
+    "snapshot_scope": "Initial hardware snapshot; external workloads ended or changed during experiment. Process file paths are intentionally omitted from the result."
+  },
+  "video": "f_tier/N09/video.mp4",
+  "video_kind": "Measured performance chart animation, not rendered task episode",
+  "evidence": [
+    "f_tier/N09/scale_1.json",
+    "f_tier/N09/scale_8.json",
+    "f_tier/N09/scale_32.json"
+  ],
+  "differences": [
+    "RTX5090 with current local driver differs from original paper hardware.",
+    "Heat-transfer test task replication scales cloned scenes; four configured task assets per scene (beaker, plate, table, robot), excluding the shared ground and robot link count; original full-lab benchmark configuration not recovered.",
+    "Includes original sensors and their updates in both variants; isolates semantic-manager update cost only.",
+    "Shared workstation with active unrelated user tasks; no process stopped or clocks locked, absolute throughput may vary."
+  ],
+  "full_reference_complete": false,
+  "interpretation": "Shared-load variance can dominate paired medians, including negative apparent semantic overhead. These measurements validate execution and reporting of the local benchmark; they do not establish a causal speedup or isolated semantic overhead.",
+  "F_acceptance_review": {
+    "reviewer": "root independent saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T10:12:26.438672+00:00",
+    "passed": true,
+    "video_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 990,
+          "height": 528,
+          "duration": "8.000000",
+          "nb_read_frames": "160"
+        }
+      ]
+    },
+    "visual_review": "Final keyframe inspected; video scope explicitly stated.",
+    "checks": [
+      "All18 native samples:3scales x2modes x3seeds",
+      "1000timedsteps and200warmup excluded per sample",
+      "Independent median,mean,sampleSD,throughput recomputation",
+      "Exact paired initial physical states; finite final states",
+      "Shared-load variance and noncausal interpretation retained"
+    ]
+  }
+}

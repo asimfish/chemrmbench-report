@@ -2,16 +2,19 @@
   "date": "2026-10-19",
   "acceptance_tier": "F",
   "total": 36,
-  "F_PASS": 5,
+  "F_PASS": 8,
   "new_F_PASS": [
     "N06",
     "A07",
-    "A08"
+    "A08",
+    "N09",
+    "N16",
+    "A11"
   ],
   "O_complete": false,
   "artifacts": {
     "f-scoreboard.html": "448491277792afd93c801d0799a1a8ee0761582795cedb5844d59e72a0ba006f",
-    "data/f-tier-scoreboard.json": "ca467e82ac1ef2e259e3711c4d6292c93034bcdae8ca91bf047f708bcb53df65",
+    "data/f-tier-scoreboard.json": "302221b45a28cfdd6f7c9bd8aa005a210119ad947456ddb71cd0de6dca148f23",
     "f_tier/N20/result.json": "2cee371aacc51cd9f1a43ccdef092e905a047d55ece1cb80a7869b86dd63cbbe",
     "f_tier/N22/result.json": "42354ab471a5cb5e2774a93e55addc431afbebf14958eb69c39f9585e8ac811e",
     "f_tier/N06/result.json": "5df3dc6844f358eff98d8311801a079d4777a885d0883ef156a67b5b7486bbda",
@@ -19,7 +22,29 @@
     "f_tier/A07/result.json": "f91051dfd5f54ba45d3672d29b73d8f7fdae4c23dc117b3b893b1e8a4b32b12f",
     "f_tier/A07/video.mp4": "4e90be4ebd2c69892c97a43001f38c9895fc0fd364da09df6ea2f5648ae73bee",
     "f_tier/A08/result.json": "6eda0e8f741d00a95a524c1383a7c7fd246fb7318dd4d30eb82d5ecd5db35880",
-    "f_tier/A08/video.mp4": "b0cd2120778713d2a7953ec82eaf5b2d61fd45ce0a8e9b60790f0cb80f91b89f"
+    "f_tier/A08/video.mp4": "b0cd2120778713d2a7953ec82eaf5b2d61fd45ce0a8e9b60790f0cb80f91b89f",
+    "f_tier/N09/result.json": "432ae7554b5dc0b1578422ae141dd87a15502f1bdce70f57fa140d102f2ffc8f",
+    "f_tier/N09/video.mp4": "41a3eb7326ad06b0f4306062945a20ad14f98f85755b346ac1db0618b17ce104",
+    "f_tier/N16/result.json": "48dd749b8f83461d551d38102defd06465f9c355e74169120406a495f6bd21a7",
+    "f_tier/N16/video.mp4": "d04ed86d949a2acde4ebea19db1d91a692da7ac375f36dd93bef1efc8fa5dcd4",
+    "f_tier/A11/result.json": "ab820f4336290cebef76122b0a093a0297097aab862d09bb13a118f96b31608c",
+    "f_tier/A11/video.mp4": "7e213d64d7739dd34f11f9d095208c798ac10f55043cacaf94cae785d5419821"
   },
-  "hash_policy": "Once per consolidated daily release, no per-run file hash pipeline."
+  "hash_policy": "One daily manifest, incrementally hashing only new or changed artifacts at consolidated release; prior hashes reused.",
+  "latest_batch": [
+    "N09",
+    "N16",
+    "A11"
+  ],
+  "accepted_ids": [
+    "N06",
+    "N09",
+    "N16",
+    "N20",
+    "N22",
+    "A07",
+    "A08",
+    "A11"
+  ],
+  "updated_at_utc": "2026-10-19T10:13:05.525426+00:00"
 }

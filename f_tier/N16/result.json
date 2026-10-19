@@ -1,0 +1,180 @@
+{
+  "id": "N16",
+  "status": "F_PASS",
+  "scope": "Qualitative native function reconstruction with declared configuration differences",
+  "protocol": {
+    "dt_s": 0.008333333333333333,
+    "max_seconds": 35.0,
+    "positive": "close gripper and execute original HSM",
+    "negative": "same native path, no-close gripper",
+    "local_thresholds": {
+      "min_lift_m": 0.05,
+      "placement_error_m": 0.01,
+      "negative_lift_limit_m": 0.02
+    },
+    "object_pose_writes_after_initialization": false,
+    "grasp_constraints": false,
+    "controller": "Original matterix_sm StateMachine + local joint-drive/IK adapter",
+    "robot": "NVIDIA Panda native parallel hand, replacing Robotiq for local F-tier functions"
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.1468083244562149,
+    "positive_placement_error_m": 0.003962995820962129,
+    "positive_terminal_gripper_contact_fraction": 0.0,
+    "negative_peak_lift_m": 0.0005238708853721602
+  },
+  "gates": {
+    "lift": true,
+    "placement": true,
+    "released": true,
+    "negative_rejected": true,
+    "run_complete": true
+  },
+  "observations": [
+    {
+      "case": "positive",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.1468083244562149,
+      "terminal_position_m": [
+        0.05068432589371999,
+        -0.20390346435209114,
+        0.08000001007070144
+      ],
+      "goal_error_m": 0.003962995820962129,
+      "measured_mass_kg": 0.199997171612771,
+      "expected_mass_kg": 0.1,
+      "mass_relative_error": 0.99997171612771,
+      "terminal_speed_m_s": 0.0015877176121633955,
+      "terminal_gripper_contact_samples": 0
+    },
+    {
+      "case": "no_close",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.0005238708853721602,
+      "terminal_position_m": [
+        1.7501417378584543,
+        -0.4000148482620716,
+        0.08000041681031386
+      ],
+      "goal_error_m": 0.3606813029949936,
+      "measured_mass_kg": 0.0,
+      "expected_mass_kg": 0.1,
+      "mass_relative_error": 1.0,
+      "terminal_speed_m_s": 0.0036982386130255955,
+      "terminal_gripper_contact_samples": 0
+    }
+  ],
+  "differences": [
+    "Locally reconstructed hollow beaker/funnel geometry, not author labware CAD.",
+    "Contents are represented by rigid lumped mass; this task does not validate liquid flow.",
+    "NVIDIA standard Panda parallel hand replaces the author Robotiq; arm gravity compensation is represented by disabled link gravity.",
+    "Reconstructed scale uses native support contact impulses; this is not an author calibrated scale.",
+    "One local positive and one negative scene; no statistical success rate claim."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "video": "video.mp4"
+  },
+  "video_frames": 116,
+  "native_steps": 1399,
+  "wall_s": 38.56084896100219,
+  "full_original_reproduction": false,
+  "native_setup": {
+    "reported_physics_dt_s": 0.008333333333333333,
+    "meters_per_unit": 1.0,
+    "bodies": [
+      {
+        "case": "positive",
+        "native_mass_kg": [
+          [
+            0.10000000149011612
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial0/Beaker"
+        ],
+        "authored_collider_count": 96,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial0/Beaker",
+            "mass": 0.10000000149011612,
+            "density": 0.0
+          }
+        ]
+      },
+      {
+        "case": "no_close",
+        "native_mass_kg": [
+          [
+            0.10000000149011612
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial1/Beaker"
+        ],
+        "authored_collider_count": 96,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial1/Beaker",
+            "mass": 0.10000000149011612,
+            "density": 0.0
+          }
+        ]
+      }
+    ],
+    "physics_scenes": [
+      {
+        "path": "/physicsScene",
+        "magnitude": 9.8100004196167,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "native_clock": {
+    "callbacks": 1399,
+    "sum_dt_s": 11.658333941362798,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "non_gating_observations": {
+    "support_force_readout": "Upright compound funnel gives an implied scale mass near0.2kg although native mass is0.1kg; contact manifold aggregation remains unresolved in N18. This weighing observation is retained and is not an N16 acceptance metric.",
+    "generic_threshold_applicability": "protocol.local_thresholds.mass_relative_error is an unused common-runner N18 threshold; N16 gates contain no weighing criterion."
+  },
+  "weighing_observation_scope": "Support-force mass readout is incorrect (~2x) and is preserved as a known failure; weighing is not an N16 acceptance criterion. N18 remains unaccepted.",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "reviewer": "root independent saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T10:12:26.438672+00:00",
+    "passed": true,
+    "video_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 960,
+          "height": 720,
+          "duration": "11.600000",
+          "nb_read_frames": "116"
+        }
+      ]
+    },
+    "visual_review": "Final keyframe inspected; video scope explicitly stated.",
+    "checks": [
+      "2798saved native records:1399each branch",
+      "Peaklift and final120samples recomputed without producer import",
+      "Positive lift146.808mm; final1s maximum positionerror3.96320mm andzero grippercontact",
+      "No-close peaklift0.523871mm rejected byphysicalverifier despiteHSMcompletion"
+    ],
+    "metrics": {
+      "positive_peak_lift_m": 0.1468083244562149,
+      "positive_max_final_1s_error_m": 0.003963191311396264,
+      "negative_peak_lift_m": 0.0005238708853721602
+    }
+  }
+}

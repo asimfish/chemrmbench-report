@@ -1,0 +1,471 @@
+{
+  "id": "A11",
+  "status": "F_PASS",
+  "protocol": {
+    "scope": "Local agent-built harness diagnosis, correction and reuse, with controlled native evidence",
+    "local_thresholds": {
+      "matched_successes_before": 0,
+      "matched_successes_after": 4,
+      "matched_trials": 4,
+      "unchanged_robot_max_qpos_delta": 1e-10,
+      "reused_robot_count": 2
+    },
+    "controller_only_comparison": "Same saved UR5e learned policy parameters, same XML physics, same initial observations/commands, same known moving-cup seeds9301..9304, 2.4s/1200-step budgets; only servo bias-passive correction differs",
+    "known_scene_disposition": "These four diagnostic scenes are posthoc regression controls, not blind heldout; A04 fresh evaluation uses9401..9404"
+  },
+  "checks": {
+    "retained_real_failed_native_attempt": true,
+    "same_policy_models_initial_states": true,
+    "matched_failure_before_success_after": true,
+    "same_shared_correction_actually_executes_on_both_robots": true,
+    "unaffected_robot_trajectory_preserved": true
+  },
+  "metrics": {
+    "before_matched_successes": 0,
+    "after_matched_successes": 4,
+    "matched_n": 4,
+    "before_mean_position_rmse_m": 0.038061756448829295,
+    "after_mean_position_rmse_m": 0.01188733277028933,
+    "unaffected_UR5e_max_native_qpos_difference": 0.0,
+    "policy_parameter_identity": {
+      "mean": true,
+      "std": true,
+      "action_scale": true,
+      "p0": true,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    "new_counterfactual_native_episodes": 5,
+    "new_counterfactual_native_steps": 6000,
+    "fluid_task_episodes": 0
+  },
+  "failed_hypothesis": {
+    "actual_initial_assumption": "A common full qfrc_bias/stiffness servo offset works unchanged for both public robot models",
+    "observed_discriminator": "UR5e\u2192Flexiv transfer failed 0/4 while Flexiv had existing native body gravity compensation; native passive torque already cancels much of bias",
+    "root_cause_in_scope": "Repeated compensation of Flexiv native passive gravity component",
+    "correction": "At zero-velocity scratch state offset=(qfrc_bias\u2212qfrc_passive)/kp; UR5e native passive is zero so its trajectory is unchanged"
+  },
+  "force_attribution": [
+    {
+      "robot": "ur5e",
+      "body_gravcomp_sum": 0.0,
+      "qfrc_bias_arm_Nm": [
+        0.0,
+        -22.714468351578496,
+        -19.73129120167129,
+        -2.413612415261774,
+        0.0007330102096492208,
+        -2.144719105531685e-15
+      ],
+      "qfrc_passive_arm_Nm": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corrected_residual_arm_Nm": [
+        0.0,
+        -22.714468351578496,
+        -19.73129120167129,
+        -2.413612415261774,
+        0.0007330102096492208,
+        -2.144719105531685e-15
+      ]
+    },
+    {
+      "robot": "flexiv",
+      "body_gravcomp_sum": 7.0,
+      "qfrc_bias_arm_Nm": [
+        0.0,
+        35.38871029482863,
+        -1.5462068816951022,
+        -18.835556475117524,
+        -2.2072051305771523,
+        3.542821834497933,
+        4.923280975045507e-14
+      ],
+      "qfrc_passive_arm_Nm": [
+        0.0,
+        30.53799003130776,
+        -1.037998814313981,
+        -15.363179262975505,
+        -1.5941540688779172,
+        2.406802285821675,
+        6.14153558352473e-14
+      ],
+      "corrected_residual_arm_Nm": [
+        0.0,
+        4.850720263520866,
+        -0.5082080673811211,
+        -3.4723772121420193,
+        -0.6130510616992351,
+        1.1360195486762579,
+        -1.2182546084792236e-14
+      ]
+    }
+  ],
+  "matched_trials": [
+    {
+      "seed": 9301,
+      "before": {
+        "robot": "flexiv",
+        "seed": 9301,
+        "phase": "transfer_from_ur5e",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.03787111361165837,
+        "terminal_500ms_position_rmse_m": 0.021917780857470183,
+        "maximum_position_error_m": 0.05488204472324711,
+        "rotation_rmse_deg": 4.428016019467845,
+        "receiver_xy_travel_extent_m": [
+          0.027677996138750105,
+          0.03496407216146091
+        ],
+        "receiver_path_length_m": 0.08086865480107873,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A04/pilot_repeated_gravity_compensation/flexiv_transferfrom_ur5e_9301.npz",
+        "local_tracking_success": false,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "after": {
+        "robot": "flexiv",
+        "seed": 9301,
+        "phase": "matched_controller_fix",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.014244243831734893,
+        "terminal_500ms_position_rmse_m": 0.01391493358799446,
+        "maximum_position_error_m": 0.019467046946054486,
+        "rotation_rmse_deg": 0.9888785713826374,
+        "receiver_xy_travel_extent_m": [
+          0.027677996138750105,
+          0.03496407216146091
+        ],
+        "receiver_path_length_m": 0.08086865480107873,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A11/flexiv_matched_9301.npz",
+        "local_tracking_success": true,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "initial_observation_identical": true,
+      "initial_command_identical": true
+    },
+    {
+      "seed": 9302,
+      "before": {
+        "robot": "flexiv",
+        "seed": 9302,
+        "phase": "transfer_from_ur5e",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.04091908338084543,
+        "terminal_500ms_position_rmse_m": 0.026444167482746122,
+        "maximum_position_error_m": 0.05734512227168734,
+        "rotation_rmse_deg": 4.338687654990858,
+        "receiver_xy_travel_extent_m": [
+          0.03262524387703075,
+          0.035499818205841666
+        ],
+        "receiver_path_length_m": 0.07430042728807242,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A04/pilot_repeated_gravity_compensation/flexiv_transferfrom_ur5e_9302.npz",
+        "local_tracking_success": false,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "after": {
+        "robot": "flexiv",
+        "seed": 9302,
+        "phase": "matched_controller_fix",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.011866726858962817,
+        "terminal_500ms_position_rmse_m": 0.009256392118155992,
+        "maximum_position_error_m": 0.019319340164924287,
+        "rotation_rmse_deg": 1.0280723185743545,
+        "receiver_xy_travel_extent_m": [
+          0.03262524387703075,
+          0.035499818205841666
+        ],
+        "receiver_path_length_m": 0.07430042728807242,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A11/flexiv_matched_9302.npz",
+        "local_tracking_success": true,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "initial_observation_identical": true,
+      "initial_command_identical": true
+    },
+    {
+      "seed": 9303,
+      "before": {
+        "robot": "flexiv",
+        "seed": 9303,
+        "phase": "transfer_from_ur5e",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.033108397262432566,
+        "terminal_500ms_position_rmse_m": 0.030900416845875033,
+        "maximum_position_error_m": 0.04338143770794798,
+        "rotation_rmse_deg": 4.506284880969709,
+        "receiver_xy_travel_extent_m": [
+          0.02820108115954756,
+          0.028415053878191432
+        ],
+        "receiver_path_length_m": 0.07502823595816481,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A04/pilot_repeated_gravity_compensation/flexiv_transferfrom_ur5e_9303.npz",
+        "local_tracking_success": false,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "after": {
+        "robot": "flexiv",
+        "seed": 9303,
+        "phase": "matched_controller_fix",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.010758663273094137,
+        "terminal_500ms_position_rmse_m": 0.013593545079145009,
+        "maximum_position_error_m": 0.017163525828744544,
+        "rotation_rmse_deg": 0.5995943887876057,
+        "receiver_xy_travel_extent_m": [
+          0.02820108115954756,
+          0.028415053878191432
+        ],
+        "receiver_path_length_m": 0.07502823595816481,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A11/flexiv_matched_9303.npz",
+        "local_tracking_success": true,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "initial_observation_identical": true,
+      "initial_command_identical": true
+    },
+    {
+      "seed": 9304,
+      "before": {
+        "robot": "flexiv",
+        "seed": 9304,
+        "phase": "transfer_from_ur5e",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.0403484315403808,
+        "terminal_500ms_position_rmse_m": 0.02737526862933009,
+        "maximum_position_error_m": 0.062039065070880826,
+        "rotation_rmse_deg": 4.284355526185261,
+        "receiver_xy_travel_extent_m": [
+          0.027463399785104092,
+          0.021574558811540884
+        ],
+        "receiver_path_length_m": 0.05672214448609935,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A04/pilot_repeated_gravity_compensation/flexiv_transferfrom_ur5e_9304.npz",
+        "local_tracking_success": false,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "after": {
+        "robot": "flexiv",
+        "seed": 9304,
+        "phase": "matched_controller_fix",
+        "training": false,
+        "beta": null,
+        "steps": 60,
+        "raw_training_samples": 0,
+        "admitted_training_samples": 0,
+        "quarantined_training_samples": 0,
+        "student_executed_states": 60,
+        "student_actions_different_from_labels": null,
+        "expert_query_count": 0,
+        "position_rmse_m": 0.010679697117365465,
+        "terminal_500ms_position_rmse_m": 0.01317945862042596,
+        "maximum_position_error_m": 0.019590560797740804,
+        "rotation_rmse_deg": 0.6546492620357607,
+        "receiver_xy_travel_extent_m": [
+          0.027463399785104092,
+          0.021574558811540884
+        ],
+        "receiver_path_length_m": 0.05672214448609935,
+        "rigid_valid_episode": true,
+        "native_steps": 1200,
+        "data": "f_tier/A11/flexiv_matched_9304.npz",
+        "local_tracking_success": true,
+        "liquid_success": null,
+        "spill_fraction": null,
+        "fluid_task_evaluated": false,
+        "admission_failure_reasons": []
+      },
+      "initial_observation_identical": true,
+      "initial_command_identical": true
+    }
+  ],
+  "unaffected_UR5e": {
+    "robot": "ur5e",
+    "seed": 9301,
+    "phase": "unchanged_UR5e_control",
+    "training": false,
+    "beta": null,
+    "steps": 60,
+    "raw_training_samples": 0,
+    "admitted_training_samples": 0,
+    "quarantined_training_samples": 0,
+    "student_executed_states": 60,
+    "student_actions_different_from_labels": null,
+    "expert_query_count": 0,
+    "position_rmse_m": 0.007046994359202348,
+    "terminal_500ms_position_rmse_m": 0.0036466665766892287,
+    "maximum_position_error_m": 0.017874445819668915,
+    "rotation_rmse_deg": 0.10298209743272221,
+    "receiver_xy_travel_extent_m": [
+      0.027677996140484218,
+      0.03496407216143951
+    ],
+    "receiver_path_length_m": 0.08086865480104664,
+    "rigid_valid_episode": true,
+    "native_steps": 1200,
+    "data": "f_tier/A11/ur5e_unaffected_control.npz",
+    "local_tracking_success": true,
+    "liquid_success": null,
+    "spill_fraction": null,
+    "fluid_task_evaluated": false,
+    "admission_failure_reasons": []
+  },
+  "agent_tool_evidence": {
+    "completeness": "Selected actual commands and actual source snapshots from this agent session; not a full platform audit log; no invented call IDs or call timestamps",
+    "actual_tools": [
+      {
+        "tool": "functions.exec / exec_command",
+        "action": "Read auto_repro_bc_dagger_r1.py/r2.py, auto_repro_learning_env_r4.py and retained old learning receipt/results"
+      },
+      {
+        "tool": "functions.exec / apply_patch",
+        "action": "Create f_tier/a04_policy_pilot.py with full-bias initial servo and run real CPU native BC/DAgger"
+      },
+      {
+        "tool": "functions.exec / exec_command",
+        "action": "Run native force probe: inspect qfrc_bias, qfrc_passive and qfrc_gravcomp at same zero-velocity scratch state"
+      },
+      {
+        "tool": "functions.exec / exec_command",
+        "action": "Move complete 60-episode first attempt to pilot_repeated_gravity_compensation; copy original runner unchanged"
+      },
+      {
+        "tool": "functions.exec / apply_patch",
+        "action": "Correct residual gravity equation; preserve old eval as regression and freeze fresh final9401..9404 seeds; no hyperparameter change"
+      },
+      {
+        "tool": "functions.exec / exec_command",
+        "action": "Execute corrected60episode batch, then five matched native counterfactual episodes via f_tier/engineering_reuse.py"
+      }
+    ],
+    "actual_code_diff": "f_tier/A11/actual_code_change.patch",
+    "retained_initial_code": "f_tier/A04/pilot_repeated_gravity_compensation/runner.py",
+    "actual_corrected_code": "f_tier/a04_policy_pilot.py"
+  },
+  "declared_differences": [
+    "Agent engineering evidence reconstructed from this actual tool session and native files; no claim to original proprietary GRID engineering traces",
+    "Rigid moving-cup tracking is the physical outcome here; no fluid success, spill or complete pour claim",
+    "A human supplied task/acceptance guidance; diagnosis and code patch were executed by this agent, not an independently benchmarked autonomous-agent population",
+    "Local four-seed correction demonstration and two adapters; no general compounding-intelligence scaling claim"
+  ],
+  "evidence": [
+    "f_tier/A04/pilot_repeated_gravity_compensation/result.json",
+    "f_tier/A04/result.json",
+    "f_tier/A11/actual_code_change.patch"
+  ],
+  "video": "f_tier/A11/video.mp4",
+  "runner": "f_tier/engineering_reuse.py",
+  "completed_at_utc": "2026-10-19T09:49:05.682966+00:00",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independent NumPy saved-record calculation",
+    "reviewed_at_utc": "2026-10-19T09:53:36.472279+00:00",
+    "before_after_successes": [
+      0,
+      4
+    ],
+    "matched_n": 4,
+    "same_initial_observation_command": true,
+    "same_policy_all_parameters": true,
+    "unaffected_UR5e_whole_qpos_identical": true,
+    "scope": "Real agent-built local correction and two-robot rigid reuse; not full learned pouring."
+  }
+}
