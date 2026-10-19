@@ -1,0 +1,2930 @@
+{
+  "id": "A05",
+  "status": "RUNNING",
+  "F_PASS": false,
+  "scope_status": "COMPLETED_STUDY_FAILED_PREDECLARED_LOCAL_GATES",
+  "checks": {
+    "actual_RGB_training_and_exported_control": true,
+    "all_three_disjoint_heldout_attempts_preserved": true,
+    "at_least_one_complete_heldout_pickup_and_stir": false,
+    "untrained_actual_physical_negative_preserved": true,
+    "actual_masked_RGB_control_preserved": true
+  },
+  "protocol": {
+    "status": "RUNNING",
+    "task": "Native free4mm stirringrod pickup anddryincupmotion; RGB policy outputs3D absolute EEtarget+gripper at20Hz, uprightorientationfixed",
+    "demonstration_replacement": "Simulation scriptdemos replaceunavailableGELLO data",
+    "train_seeds": [
+      1401,
+      1402,
+      1403,
+      1404,
+      1405,
+      1406,
+      1407,
+      1408,
+      1409,
+      1410,
+      1411,
+      1412
+    ],
+    "validation_seeds": [
+      9101,
+      9102,
+      9103
+    ],
+    "heldout_seeds": [
+      9501,
+      9502,
+      9503
+    ],
+    "negative_conditions": [
+      {
+        "untrained_policy_seed": 9501
+      },
+      {
+        "trained_policy_masked_RGB_seed": 9501
+      }
+    ],
+    "native_horizon_s": 15.8,
+    "physics_dt_s": 0.001,
+    "local_physical_thresholds": {
+      "hold_min_rod_lift_m": 0.08,
+      "stir_seconds_min": 5,
+      "in_cup_tip_fraction_min": 0.95,
+      "tip_XY_path_m_min": 0.15
+    },
+    "source_and_cup_initial_xy_jitter_m": [
+      -0.018,
+      0.018
+    ],
+    "vision": "Actual96x96RGB, CNNabsoluteEEtarget+gripper fromcurrentobservedrobotEEposition/velocity andphaseclock; no objectposes enterlearnedcontrol;150mm/s targetratebound.",
+    "training_resources": "CPUonly, oneworker andsingleTorchthread; no GPU",
+    "differences": [
+      "Dryrigidtool motion only, no liquidviscosity/mixing",
+      "Localfixedguide andnoncollidingorangeband visualcue",
+      "PublicUR5e/Robotiq andsource4mmstirrer, notoriginalGRID/GELLOcalibration",
+      "Initial robot pregrasp staging uses known simulation source position once before t0; learned policy controls subsequent descent, grasp, transfer and stirring. No arbitrary initial robot-pose or vision-only localization claim."
+    ],
+    "validation_boundary": "Validationmay diagnose train/controlcorrectness beforeformal freeze; finalheldoutmodels fixed andall attempts retained.",
+    "training_recipe": {
+      "architecture": "3 RGB convolutions8/16/16 + normalized20Dproprio/phase ->128ReLU ->4velocity/gripper actions",
+      "epochs": 120,
+      "batch_size": 64,
+      "Adam_learning_rate": 0.0007,
+      "seed": 71,
+      "policy_computation": "TorchCPUtraining, independently checked NumPyCPU inference; fixedupright EE orientation",
+      "action_space": "absolute",
+      "context_mode": "current",
+      "image_mode": "rgb",
+      "rate_limit_m_s": 0.15,
+      "selected_model_directory": "models_rgb_student_repair",
+      "original_expert_samples": 3792,
+      "additional_onpolicy_teacher_queries": 948,
+      "additional_onpolicy_admitted_samples": 948,
+      "actual_student_executed_states": 492
+    },
+    "development_validation_boundary": "9101-9103 are repeatedly observed development validation. Formal9501-9503 and controls remain unexecuted until final model freeze.",
+    "representation_correction": {
+      "utc": "2026-10-19T13:05:17.657418+00:00",
+      "baseline_model": "f_tier/A05/models_rgb_bc/trained.npz",
+      "baseline_failure_evidence": "f_tier/A05/validation_evaluation.json",
+      "same_fixed_expert_data": true,
+      "no_replacement_or_new_expert_episodes": true,
+      "candidate_model": "f_tier/A05/models_rgb_absolute/trained.npz",
+      "change": "CNN directly produces absolute EE target+gripper, avoiding cumulative velocity integration. Targets reconstructed from initial native robot EE and recorded executed velocities; no GT object goal labels.",
+      "hypothesis": "Velocity BC execution accumulated off-distribution errors; absolute command representation may reduce compounding. Actual validation will decide; no superiority claim from training loss."
+    },
+    "input_representation_candidate": {
+      "frozen_utc": "2026-10-19T13:16:47.059826+00:00",
+      "hypothesis": "Dynamic robotproprioception and raw grey-arm appearance allow off-distribution feedback; use initial observedEE anchor and chromaticity RGB to reduce this confound. This is one bounded candidate, not an establishedcausal explanation.",
+      "hypothesis_declared_before_implementation_in_parent_message": true,
+      "implementation_prepared_before_this_file_freeze": true,
+      "training_or_native_candidate_evaluation_before_this_freeze": false,
+      "model_directory": "f_tier/A05/models_rgb_anchor",
+      "unchanged_fixed_expert_seeds": [
+        1401,
+        1402,
+        1403,
+        1404,
+        1405,
+        1406,
+        1407,
+        1408,
+        1409,
+        1410,
+        1411,
+        1412
+      ],
+      "new_native_demonstrations": 0,
+      "new_training_student_states": 0,
+      "context": "First3inputs=onceobservedinitialrobotEE; next3=0; priorgripper and phase/oscillator unchanged",
+      "RGB_transform": "Subtractperpixel minimum RGB channel, retain actual colorcues; no simulatedsegmentation orobjectpose inputs",
+      "output": "CNNabsoluteexecutedEEtarget+gripper at20Hz; same fixeduprightIKadapter",
+      "no_online_GT_object_inputs": true,
+      "epochs": 120,
+      "seed": 71,
+      "validation_seeds": [
+        9101,
+        9102,
+        9103
+      ],
+      "formal_heldout_unexecuted": true,
+      "stop_rule": "Ifthiscandidatefails, nofurtherunbounded architecture/colorsearch; propose bounded student-state labels on existing trainseeds beforecontinuing."
+    },
+    "action_bounds": {
+      "absolute_EE_workspace_m": [
+        [
+          0.25,
+          0.75
+        ],
+        [
+          -0.05,
+          0.45
+        ],
+        [
+          0.06,
+          0.5
+        ]
+      ],
+      "gripper": [
+        0,
+        1
+      ],
+      "orientation": "Fixedupright originalrobotadapter"
+    },
+    "preserved_development_validation_files": [
+      "f_tier/A05/validation_evaluation.json",
+      "f_tier/A05/validation_absolute_evaluation.json",
+      "f_tier/A05/validation_anchor_evaluation.json"
+    ],
+    "student_state_repair": {
+      "frozen_utc": "2026-10-19T13:26:47.981321+00:00",
+      "training_seeds": [
+        1401,
+        1405,
+        1409
+      ],
+      "episodes_per_seed": 1,
+      "beta": 0.5,
+      "maximum_new_labels": 948,
+      "teacher_definition": "actualsuccessfulexecutedcmd c_ref +1*(actualrecordedEE p_ref - currentobservedrobotEE), workspaceclamp then150mm/s peraxis targetratebound; gripperfromactualreference. Localtrajectorytracker, nottaskrecoveryexpert/originalauthorteacher.",
+      "same_native_grid": "20Hz, exacttimestampnearestmatch tolerance1e-8s, nointerpolation",
+      "reference_consistency_preflight": "f_tier/A05/teacher_preflight.json",
+      "data_admission": "Finitepostactionnativestate andexecutedreachableIK; allfailed/unedmittedstatesretained",
+      "student_model": "f_tier/A05/models_rgb_absolute/trained.npz",
+      "retrain_model": "f_tier/A05/models_rgb_student_repair",
+      "retraining_rounds": 1,
+      "epochs": 120,
+      "seed": 71,
+      "context_mode": "current",
+      "image_mode": "rgb",
+      "target_rate_limit_m_s": 0.15,
+      "no_validation_or_heldout_training_data": true,
+      "causal_boundary": "Addedstudent-state data andrate-boundedadapter jointlyrepair engineering; nodata-matchedDAggerbenefitclaim"
+    },
+    "video_selection": "All3fixedheldoutseeds9501/02/03 insection1, then pairedseed9501 RGB/untrained/masked insection2. One31.8s actualnative replay, no result-basedselection."
+  },
+  "training": {
+    "seed": 71,
+    "CPU_only": true,
+    "torch_threads": 1,
+    "epochs": 120,
+    "batch_size": 64,
+    "learning_rate": 0.0007,
+    "samples": 4740,
+    "admitted": [
+      {
+        "seed": 1401,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1401",
+        "samples": 316
+      },
+      {
+        "seed": 1402,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1402",
+        "samples": 316
+      },
+      {
+        "seed": 1403,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1403",
+        "samples": 316
+      },
+      {
+        "seed": 1404,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1404",
+        "samples": 316
+      },
+      {
+        "seed": 1405,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1405",
+        "samples": 316
+      },
+      {
+        "seed": 1406,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1406",
+        "samples": 316
+      },
+      {
+        "seed": 1407,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1407",
+        "samples": 316
+      },
+      {
+        "seed": 1408,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1408",
+        "samples": 316
+      },
+      {
+        "seed": 1409,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1409",
+        "samples": 316
+      },
+      {
+        "seed": 1410,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1410",
+        "samples": 316
+      },
+      {
+        "seed": 1411,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1411",
+        "samples": 316
+      },
+      {
+        "seed": 1412,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1412",
+        "samples": 316
+      }
+    ],
+    "rejected": [],
+    "training_wall_s": 136.750187231999,
+    "training_history": [
+      {
+        "epoch": 1,
+        "normalized_action_MSE": 0.31559488135802594
+      },
+      {
+        "epoch": 2,
+        "normalized_action_MSE": 0.027683403762646868
+      },
+      {
+        "epoch": 3,
+        "normalized_action_MSE": 0.013569284253066036
+      },
+      {
+        "epoch": 4,
+        "normalized_action_MSE": 0.007980909860861892
+      },
+      {
+        "epoch": 5,
+        "normalized_action_MSE": 0.005328393380554543
+      },
+      {
+        "epoch": 6,
+        "normalized_action_MSE": 0.0034534539003711084
+      },
+      {
+        "epoch": 7,
+        "normalized_action_MSE": 0.0025575531575875946
+      },
+      {
+        "epoch": 8,
+        "normalized_action_MSE": 0.002157458736569098
+      },
+      {
+        "epoch": 9,
+        "normalized_action_MSE": 0.0018059049907851697
+      },
+      {
+        "epoch": 10,
+        "normalized_action_MSE": 0.0014886558035247122
+      },
+      {
+        "epoch": 11,
+        "normalized_action_MSE": 0.0014955443868468583
+      },
+      {
+        "epoch": 12,
+        "normalized_action_MSE": 0.0011965674826608114
+      },
+      {
+        "epoch": 13,
+        "normalized_action_MSE": 0.0011319469714552981
+      },
+      {
+        "epoch": 14,
+        "normalized_action_MSE": 0.0009973730927555259
+      },
+      {
+        "epoch": 15,
+        "normalized_action_MSE": 0.0009067458177244739
+      },
+      {
+        "epoch": 16,
+        "normalized_action_MSE": 0.0009340404786802199
+      },
+      {
+        "epoch": 17,
+        "normalized_action_MSE": 0.0007892990682297681
+      },
+      {
+        "epoch": 18,
+        "normalized_action_MSE": 0.0007900342557437812
+      },
+      {
+        "epoch": 19,
+        "normalized_action_MSE": 0.0007418084302661696
+      },
+      {
+        "epoch": 20,
+        "normalized_action_MSE": 0.0007957774988583874
+      },
+      {
+        "epoch": 21,
+        "normalized_action_MSE": 0.0006764518507443887
+      },
+      {
+        "epoch": 22,
+        "normalized_action_MSE": 0.0006670393895078843
+      },
+      {
+        "epoch": 23,
+        "normalized_action_MSE": 0.0006048856267422135
+      },
+      {
+        "epoch": 24,
+        "normalized_action_MSE": 0.0005333511070407267
+      },
+      {
+        "epoch": 25,
+        "normalized_action_MSE": 0.0005918950744303345
+      },
+      {
+        "epoch": 26,
+        "normalized_action_MSE": 0.0006563064586498896
+      },
+      {
+        "epoch": 27,
+        "normalized_action_MSE": 0.0004914050806119236
+      },
+      {
+        "epoch": 28,
+        "normalized_action_MSE": 0.00047280899684223887
+      },
+      {
+        "epoch": 29,
+        "normalized_action_MSE": 0.0005175093977509719
+      },
+      {
+        "epoch": 30,
+        "normalized_action_MSE": 0.0004493942107997426
+      },
+      {
+        "epoch": 31,
+        "normalized_action_MSE": 0.0005302453325680194
+      },
+      {
+        "epoch": 32,
+        "normalized_action_MSE": 0.00044855341130576806
+      },
+      {
+        "epoch": 33,
+        "normalized_action_MSE": 0.0005102718597349714
+      },
+      {
+        "epoch": 34,
+        "normalized_action_MSE": 0.00039926052969322393
+      },
+      {
+        "epoch": 35,
+        "normalized_action_MSE": 0.00043768241015687304
+      },
+      {
+        "epoch": 36,
+        "normalized_action_MSE": 0.0003761154224699214
+      },
+      {
+        "epoch": 37,
+        "normalized_action_MSE": 0.00038357361635873056
+      },
+      {
+        "epoch": 38,
+        "normalized_action_MSE": 0.00037261797820084297
+      },
+      {
+        "epoch": 39,
+        "normalized_action_MSE": 0.0004147866954619285
+      },
+      {
+        "epoch": 40,
+        "normalized_action_MSE": 0.0003511005554142907
+      },
+      {
+        "epoch": 41,
+        "normalized_action_MSE": 0.0004202497074329432
+      },
+      {
+        "epoch": 42,
+        "normalized_action_MSE": 0.00035273508440883915
+      },
+      {
+        "epoch": 43,
+        "normalized_action_MSE": 0.00037458630522834883
+      },
+      {
+        "epoch": 44,
+        "normalized_action_MSE": 0.00044325338605347283
+      },
+      {
+        "epoch": 45,
+        "normalized_action_MSE": 0.0004682674841355544
+      },
+      {
+        "epoch": 46,
+        "normalized_action_MSE": 0.00035107838964229255
+      },
+      {
+        "epoch": 47,
+        "normalized_action_MSE": 0.0003630275753098795
+      },
+      {
+        "epoch": 48,
+        "normalized_action_MSE": 0.0003370221657948647
+      },
+      {
+        "epoch": 49,
+        "normalized_action_MSE": 0.0003534244060052661
+      },
+      {
+        "epoch": 50,
+        "normalized_action_MSE": 0.0003423554233357876
+      },
+      {
+        "epoch": 51,
+        "normalized_action_MSE": 0.00031219139537491095
+      },
+      {
+        "epoch": 52,
+        "normalized_action_MSE": 0.0003273155074075399
+      },
+      {
+        "epoch": 53,
+        "normalized_action_MSE": 0.00028772936734313906
+      },
+      {
+        "epoch": 54,
+        "normalized_action_MSE": 0.0003140555123920368
+      },
+      {
+        "epoch": 55,
+        "normalized_action_MSE": 0.00041974931288528243
+      },
+      {
+        "epoch": 56,
+        "normalized_action_MSE": 0.0003132102251979267
+      },
+      {
+        "epoch": 57,
+        "normalized_action_MSE": 0.0003318736993536778
+      },
+      {
+        "epoch": 58,
+        "normalized_action_MSE": 0.00037998333779647
+      },
+      {
+        "epoch": 59,
+        "normalized_action_MSE": 0.0003493201104483964
+      },
+      {
+        "epoch": 60,
+        "normalized_action_MSE": 0.00036900054804886445
+      },
+      {
+        "epoch": 61,
+        "normalized_action_MSE": 0.0003146312375261177
+      },
+      {
+        "epoch": 62,
+        "normalized_action_MSE": 0.0003048242432166496
+      },
+      {
+        "epoch": 63,
+        "normalized_action_MSE": 0.00026941823695475855
+      },
+      {
+        "epoch": 64,
+        "normalized_action_MSE": 0.0003407295906763005
+      },
+      {
+        "epoch": 65,
+        "normalized_action_MSE": 0.0003883972634337371
+      },
+      {
+        "epoch": 66,
+        "normalized_action_MSE": 0.0006481536072659216
+      },
+      {
+        "epoch": 67,
+        "normalized_action_MSE": 0.00045518975366960095
+      },
+      {
+        "epoch": 68,
+        "normalized_action_MSE": 0.0002463037189624748
+      },
+      {
+        "epoch": 69,
+        "normalized_action_MSE": 0.0002585709804545239
+      },
+      {
+        "epoch": 70,
+        "normalized_action_MSE": 0.00026490046509604446
+      },
+      {
+        "epoch": 71,
+        "normalized_action_MSE": 0.00028119867147862094
+      },
+      {
+        "epoch": 72,
+        "normalized_action_MSE": 0.0002953204297596188
+      },
+      {
+        "epoch": 73,
+        "normalized_action_MSE": 0.0002678518524179274
+      },
+      {
+        "epoch": 74,
+        "normalized_action_MSE": 0.0002534635533737844
+      },
+      {
+        "epoch": 75,
+        "normalized_action_MSE": 0.0002485351640935437
+      },
+      {
+        "epoch": 76,
+        "normalized_action_MSE": 0.0005278476885149554
+      },
+      {
+        "epoch": 77,
+        "normalized_action_MSE": 0.0002546570028393541
+      },
+      {
+        "epoch": 78,
+        "normalized_action_MSE": 0.00025063564328924764
+      },
+      {
+        "epoch": 79,
+        "normalized_action_MSE": 0.0002972795339121939
+      },
+      {
+        "epoch": 80,
+        "normalized_action_MSE": 0.0002586706734767364
+      },
+      {
+        "epoch": 81,
+        "normalized_action_MSE": 0.0002398853634905565
+      },
+      {
+        "epoch": 82,
+        "normalized_action_MSE": 0.0002448006328131477
+      },
+      {
+        "epoch": 83,
+        "normalized_action_MSE": 0.0002445579936751459
+      },
+      {
+        "epoch": 84,
+        "normalized_action_MSE": 0.00040711496194298006
+      },
+      {
+        "epoch": 85,
+        "normalized_action_MSE": 0.0003595068384962007
+      },
+      {
+        "epoch": 86,
+        "normalized_action_MSE": 0.0002701186071634332
+      },
+      {
+        "epoch": 87,
+        "normalized_action_MSE": 0.00023761658532886847
+      },
+      {
+        "epoch": 88,
+        "normalized_action_MSE": 0.000247886075988463
+      },
+      {
+        "epoch": 89,
+        "normalized_action_MSE": 0.000227455296632264
+      },
+      {
+        "epoch": 90,
+        "normalized_action_MSE": 0.0003480281303178682
+      },
+      {
+        "epoch": 91,
+        "normalized_action_MSE": 0.0002155079160223102
+      },
+      {
+        "epoch": 92,
+        "normalized_action_MSE": 0.0002420013176472779
+      },
+      {
+        "epoch": 93,
+        "normalized_action_MSE": 0.00027777253789385145
+      },
+      {
+        "epoch": 94,
+        "normalized_action_MSE": 0.00022773953162787976
+      },
+      {
+        "epoch": 95,
+        "normalized_action_MSE": 0.0002065281229209595
+      },
+      {
+        "epoch": 96,
+        "normalized_action_MSE": 0.00025747644513678927
+      },
+      {
+        "epoch": 97,
+        "normalized_action_MSE": 0.00019563934642955158
+      },
+      {
+        "epoch": 98,
+        "normalized_action_MSE": 0.00024997691906554395
+      },
+      {
+        "epoch": 99,
+        "normalized_action_MSE": 0.00019625730941859014
+      },
+      {
+        "epoch": 100,
+        "normalized_action_MSE": 0.0002295353466827611
+      },
+      {
+        "epoch": 101,
+        "normalized_action_MSE": 0.0002324427579326225
+      },
+      {
+        "epoch": 102,
+        "normalized_action_MSE": 0.00020425169937949203
+      },
+      {
+        "epoch": 103,
+        "normalized_action_MSE": 0.00020961216466701768
+      },
+      {
+        "epoch": 104,
+        "normalized_action_MSE": 0.0002708178642058533
+      },
+      {
+        "epoch": 105,
+        "normalized_action_MSE": 0.000250631423307512
+      },
+      {
+        "epoch": 106,
+        "normalized_action_MSE": 0.00020605640184774774
+      },
+      {
+        "epoch": 107,
+        "normalized_action_MSE": 0.00021974363296493134
+      },
+      {
+        "epoch": 108,
+        "normalized_action_MSE": 0.0002989624002859987
+      },
+      {
+        "epoch": 109,
+        "normalized_action_MSE": 0.00027149755098534756
+      },
+      {
+        "epoch": 110,
+        "normalized_action_MSE": 0.00018112656655711542
+      },
+      {
+        "epoch": 111,
+        "normalized_action_MSE": 0.00019162790993482016
+      },
+      {
+        "epoch": 112,
+        "normalized_action_MSE": 0.00023431615379736228
+      },
+      {
+        "epoch": 113,
+        "normalized_action_MSE": 0.000212705276787619
+      },
+      {
+        "epoch": 114,
+        "normalized_action_MSE": 0.0002760208568944427
+      },
+      {
+        "epoch": 115,
+        "normalized_action_MSE": 0.00022250215507226402
+      },
+      {
+        "epoch": 116,
+        "normalized_action_MSE": 0.00021094631446419353
+      },
+      {
+        "epoch": 117,
+        "normalized_action_MSE": 0.0001790471158797444
+      },
+      {
+        "epoch": 118,
+        "normalized_action_MSE": 0.0001778652135001295
+      },
+      {
+        "epoch": 119,
+        "normalized_action_MSE": 0.00019480488263070583
+      },
+      {
+        "epoch": 120,
+        "normalized_action_MSE": 0.00037600648585011406
+      }
+    ],
+    "architecture": "RGB96x96 conv3x8k5s2/8x16k3s2/16x16k3s2 ReLU + normalized20Dcontext ->128ReLU ->4actions",
+    "untrained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/untrained.npz",
+    "trained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+    "torch_numpy_action_max_abs_error_on_8_training_inputs": 1.1920928955078125e-07,
+    "heldout_used": false,
+    "control": "3D EE absolute and gripper throughout task, fixed upright orientation",
+    "action_space": "absolute",
+    "context_mode": "current",
+    "image_mode": "rgb",
+    "rate_limit_m_s": 0.15,
+    "actual_executed_command_reconstruction": [
+      {
+        "seed": 1401,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 8.881784197001252e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1058862159352145e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1402,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1058862159352145e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1403,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1404,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1032841307212493e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1405,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 6.661338147750939e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1032841307212493e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1406,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 3.3306690738754696e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1407,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 1.3322676295501878e-15,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1032841307212493e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1408,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 3.885780586188048e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1409,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1410,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 6.661338147750939e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1411,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 1.1102230246251565e-15,
+        "velocity_roundtrip_max_abs_error_m_s": 1.096345236817342e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1412,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 7.771561172376096e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      }
+    ],
+    "on_policy_repairs": [
+      {
+        "seed": 1401,
+        "source": "f_tier/A05/runs/repair_mix_1401",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 163,
+        "admitted_student_states": 163,
+        "student_executed_targets_different_from_labels": 163,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1405,
+        "source": "f_tier/A05/runs/repair_mix_1405",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 157,
+        "admitted_student_states": 157,
+        "student_executed_targets_different_from_labels": 157,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1409,
+        "source": "f_tier/A05/runs/repair_mix_1409",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 172,
+        "admitted_student_states": 172,
+        "student_executed_targets_different_from_labels": 172,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      }
+    ],
+    "additional_student_state_teacher_queries": 948,
+    "causal_boundary": "Additionalonpolicydata andboundedtargetadapter arean engineeringrepair, notadata-matchedDAggercausal comparison"
+  },
+  "metrics": {
+    "heldout_successes": 0,
+    "heldout_trials": 3,
+    "heldout_success_rate": 0.0,
+    "heldout_success_Wilson95pct": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ]
+  },
+  "all_heldout_and_negative_attempts": [
+    {
+      "mode": "policy",
+      "seed": 9501,
+      "argv": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+        "--seed",
+        "9501",
+        "--label",
+        "heldout_policy_9501",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "returncode": 0,
+      "wall_s": 78.84117606800282,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_policy_9501/metrics.json",
+      "physical_success": false,
+      "observed_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "error": null,
+      "physical_metrics": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 74.52680981000594,
+        "hold_min_rod_lift_m": 0.06660936782257752,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3452763963895616,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "local_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "protocol": {
+        "mode": "policy",
+        "seed": 9501,
+        "layout": {
+          "source_xy": [
+            0.5015938275009197,
+            0.10340404284903154
+          ],
+          "cup_xy": [
+            0.5446438403366228,
+            0.21648378938614066
+          ],
+          "shaft_diameter_m": 0.004,
+          "shaft_capsule_length_m": 0.164,
+          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
+          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
+          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
+        },
+        "native_dt_s": 0.001,
+        "policy_hz": 20,
+        "rigid_physics_only": true,
+        "liquid_viscosity_simulated": false,
+        "runtime_object_pose_writes": false,
+        "RGB_input": true,
+        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+        "action_representation": "absolute",
+        "policy_context_mode": "current",
+        "RGB_preprocessing": "rgb",
+        "policy_per_axis_target_rate_limit_m_s": 0.15,
+        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
+        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
+        "differences": [
+          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
+          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
+          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
+        ]
+      }
+    },
+    {
+      "mode": "policy",
+      "seed": 9502,
+      "argv": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+        "--seed",
+        "9502",
+        "--label",
+        "heldout_policy_9502",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "returncode": 0,
+      "wall_s": 72.11936459699064,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_policy_9502/metrics.json",
+      "physical_success": false,
+      "observed_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "error": null,
+      "physical_metrics": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 67.79715656700137,
+        "hold_min_rod_lift_m": -0.00010043245514686217,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0005039372874654951,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "local_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "protocol": {
+        "mode": "policy",
+        "seed": 9502,
+        "layout": {
+          "source_xy": [
+            0.498242616487829,
+            0.12989783697537646
+          ],
+          "cup_xy": [
+            0.5572361478806366,
+            0.236630646988178
+          ],
+          "shaft_diameter_m": 0.004,
+          "shaft_capsule_length_m": 0.164,
+          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
+          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
+          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
+        },
+        "native_dt_s": 0.001,
+        "policy_hz": 20,
+        "rigid_physics_only": true,
+        "liquid_viscosity_simulated": false,
+        "runtime_object_pose_writes": false,
+        "RGB_input": true,
+        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+        "action_representation": "absolute",
+        "policy_context_mode": "current",
+        "RGB_preprocessing": "rgb",
+        "policy_per_axis_target_rate_limit_m_s": 0.15,
+        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
+        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
+        "differences": [
+          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
+          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
+          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
+        ]
+      }
+    },
+    {
+      "mode": "policy",
+      "seed": 9503,
+      "argv": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+        "--seed",
+        "9503",
+        "--label",
+        "heldout_policy_9503",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "returncode": 0,
+      "wall_s": 70.11703105499328,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_policy_9503/metrics.json",
+      "physical_success": false,
+      "observed_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "error": null,
+      "physical_metrics": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 67.17352070201014,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "local_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "protocol": {
+        "mode": "policy",
+        "seed": 9503,
+        "layout": {
+          "source_xy": [
+            0.48290961953669376,
+            0.1342212368995749
+          ],
+          "cup_xy": [
+            0.5381088011582076,
+            0.23024520106225604
+          ],
+          "shaft_diameter_m": 0.004,
+          "shaft_capsule_length_m": 0.164,
+          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
+          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
+          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
+        },
+        "native_dt_s": 0.001,
+        "policy_hz": 20,
+        "rigid_physics_only": true,
+        "liquid_viscosity_simulated": false,
+        "runtime_object_pose_writes": false,
+        "RGB_input": true,
+        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+        "action_representation": "absolute",
+        "policy_context_mode": "current",
+        "RGB_preprocessing": "rgb",
+        "policy_per_axis_target_rate_limit_m_s": 0.15,
+        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
+        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
+        "differences": [
+          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
+          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
+          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
+        ]
+      }
+    },
+    {
+      "mode": "untrained",
+      "seed": 9501,
+      "argv": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+        "--seed",
+        "9501",
+        "--label",
+        "heldout_untrained_9501",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/untrained.npz"
+      ],
+      "returncode": 0,
+      "wall_s": 67.41008825400786,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_untrained_9501/metrics.json",
+      "physical_success": false,
+      "observed_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "error": null,
+      "physical_metrics": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 64.63268111500656,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "local_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "protocol": {
+        "mode": "policy",
+        "seed": 9501,
+        "layout": {
+          "source_xy": [
+            0.5015938275009197,
+            0.10340404284903154
+          ],
+          "cup_xy": [
+            0.5446438403366228,
+            0.21648378938614066
+          ],
+          "shaft_diameter_m": 0.004,
+          "shaft_capsule_length_m": 0.164,
+          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
+          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
+          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
+        },
+        "native_dt_s": 0.001,
+        "policy_hz": 20,
+        "rigid_physics_only": true,
+        "liquid_viscosity_simulated": false,
+        "runtime_object_pose_writes": false,
+        "RGB_input": true,
+        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/untrained.npz",
+        "action_representation": "absolute",
+        "policy_context_mode": "current",
+        "RGB_preprocessing": "rgb",
+        "policy_per_axis_target_rate_limit_m_s": 0.15,
+        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
+        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
+        "differences": [
+          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
+          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
+          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
+        ]
+      }
+    },
+    {
+      "mode": "masked",
+      "seed": 9501,
+      "argv": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+        "--seed",
+        "9501",
+        "--label",
+        "heldout_masked_9501",
+        "--mode",
+        "masked",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "returncode": 0,
+      "wall_s": 67.76078205498925,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_masked_9501/metrics.json",
+      "physical_success": false,
+      "observed_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "error": null,
+      "physical_metrics": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 64.40258775898837,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "local_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "protocol": {
+        "mode": "masked",
+        "seed": 9501,
+        "layout": {
+          "source_xy": [
+            0.5015938275009197,
+            0.10340404284903154
+          ],
+          "cup_xy": [
+            0.5446438403366228,
+            0.21648378938614066
+          ],
+          "shaft_diameter_m": 0.004,
+          "shaft_capsule_length_m": 0.164,
+          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
+          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
+          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
+        },
+        "native_dt_s": 0.001,
+        "policy_hz": 20,
+        "rigid_physics_only": true,
+        "liquid_viscosity_simulated": false,
+        "runtime_object_pose_writes": false,
+        "RGB_input": true,
+        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+        "action_representation": "absolute",
+        "policy_context_mode": "current",
+        "RGB_preprocessing": "rgb",
+        "policy_per_axis_target_rate_limit_m_s": 0.15,
+        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
+        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
+        "differences": [
+          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
+          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
+          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "stage": "validation",
+    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+    "attempts": [
+      {
+        "mode": "policy",
+        "seed": 9101,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9101",
+          "--label",
+          "validation_repair_policy_9101",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 69.4645254299976,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_repair_policy_9101/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9102,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9102",
+          "--label",
+          "validation_repair_policy_9102",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 71.15465270000277,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_repair_policy_9102/metrics.json",
+        "physical_success": true,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9103,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9103",
+          "--label",
+          "validation_repair_policy_9103",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 71.6266977070045,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_repair_policy_9103/metrics.json",
+        "physical_success": true,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "error": null
+      }
+    ],
+    "complete": true
+  },
+  "preserved_velocity_representation_development_failure": {
+    "stage": "validation",
+    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz",
+    "attempts": [
+      {
+        "mode": "policy",
+        "seed": 9101,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9101",
+          "--label",
+          "validation_policy_9101",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 77.80119918000128,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_policy_9101/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9102,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9102",
+          "--label",
+          "validation_policy_9102",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 70.31436540499271,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_policy_9102/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9103,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9103",
+          "--label",
+          "validation_policy_9103",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 68.64949306400376,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_policy_9103/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      }
+    ],
+    "complete": true
+  },
+  "preserved_dynamic_absolute_development_validation": {
+    "stage": "validation",
+    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz",
+    "attempts": [
+      {
+        "mode": "policy",
+        "seed": 9101,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9101",
+          "--label",
+          "validation_absolute_policy_9101",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 96.88845168698754,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_absolute_policy_9101/metrics.json",
+        "physical_success": true,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9102,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9102",
+          "--label",
+          "validation_absolute_policy_9102",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 73.3551341949933,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_absolute_policy_9102/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9103,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9103",
+          "--label",
+          "validation_absolute_policy_9103",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 70.09244845400099,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_absolute_policy_9103/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      }
+    ],
+    "complete": true
+  },
+  "preserved_anchor_chroma_development_validation": {
+    "stage": "validation",
+    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz",
+    "attempts": [
+      {
+        "mode": "policy",
+        "seed": 9101,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9101",
+          "--label",
+          "validation_anchor_policy_9101",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 73.97053111800051,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_anchor_policy_9101/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9102,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9102",
+          "--label",
+          "validation_anchor_policy_9102",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 73.35146976400574,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_anchor_policy_9102/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      },
+      {
+        "mode": "policy",
+        "seed": 9103,
+        "argv": [
+          "/tmp/chem_fluids/bin/python",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
+          "--seed",
+          "9103",
+          "--label",
+          "validation_anchor_policy_9103",
+          "--mode",
+          "policy",
+          "--rgb",
+          "--policy",
+          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz"
+        ],
+        "returncode": 0,
+        "wall_s": 69.30096358200535,
+        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_anchor_policy_9103/metrics.json",
+        "physical_success": false,
+        "observed_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "error": null
+      }
+    ],
+    "complete": true
+  },
+  "declared_differences": [
+    "Dryrigidtool motion only, no liquidviscosity/mixing",
+    "Localfixedguide andnoncollidingorangeband visualcue",
+    "PublicUR5e/Robotiq andsource4mmstirrer, notoriginalGRID/GELLOcalibration",
+    "Initial robot pregrasp staging uses known simulation source position once before t0; learned policy controls subsequent descent, grasp, transfer and stirring. No arbitrary initial robot-pose or vision-only localization claim.",
+    "Actual RGB plus robot proprioception and prescribed skill phase/oscillator; not an unconstrained end-to-end task planner",
+    "Localtrajectoryfeedbackteacher and additionalstudent-state data with150mm/s boundedtargetadapter areanengineeringrepair; nodata-matchedDAggercausalgainclaim",
+    "Local CPU-trained convolutional behavioral cloning, not original GELLO demonstrations, original GRID training or original policyweights",
+    "Final selectedmodelinput is rgb with current robotproprioception; priorfailedrepresentations are separatelypreserved.",
+    "A maskedRGB task outcome that does not degrade success cannot establish a visual-information benefit; this control is reported without forcing a benefit claim",
+    "3 heldout seeds are a small functional validation, not paper-scale robustness or generalization proof",
+    "All ground-truth object poses during policy rollout serve verifier only; once-before-t0 arm pregrasp initialization is separately declared"
+  ],
+  "evidence": [
+    "f_tier/A05/protocol.json",
+    "f_tier/A05/collection_progress.json",
+    "f_tier/A05/models_rgb_student_repair/training.json",
+    "f_tier/A05/heldout_freeze.json",
+    "f_tier/A05/heldout_evaluation.json",
+    "f_tier/A05/validation_evaluation.json",
+    "f_tier/A05/native_stir.py",
+    "f_tier/A05/train_vision.py",
+    "f_tier/A05/vision_policy.py"
+  ],
+  "recompute": "MUJOCO_GL=disable /tmp/chem_fluids/bin/python f_tier/A05/recompute_stir.py <run_directory>",
+  "video": "f_tier/A05/video.mp4",
+  "video_selection": "All3fixedheldoutseeds9501/02/03 insection1, then pairedseed9501 RGB/untrained/masked insection2. One31.8s actualnative replay, no result-basedselection.",
+  "visual_ablation_interpretation": "Bothpairedconditionsfailed;visualcontributioninconclusive.",
+  "failure_analysis": {
+    "analysis_type": "Read-only existing recorded native proprioception/RGB/commands, no newtraining/nativeepisodes/oracletrajectories",
+    "pregrasp_scope_s": [
+      0,
+      2.75
+    ],
+    "training_bank": "Original12RGBdemonstrations+3mixedstudent-state rollouts,4740samples; developmentvalidation/heldout neverincluded",
+    "state_alignment": "SourceXY translated only forposthoc task-coordinate coverage andcounterfactual tracker analysis; GTsource metadata used here isnot alearner input ortraininglabel",
+    "counterfactual_teacher_limit": "Source-aligned12successfultrainingreference trackers onheldoutstates; approximate transplantedreference envelope, not groundtruthunseenexpert or task recovery oracle.150mm/s boundedtarget step, nointerpolation. Notusedfortraining.",
+    "diagnostic_threshold": "1mm envelopeexcess onlylocates firstmeaningful divergence; not anewacceptancegate anddoesnotchange80mm liftthreshold",
+    "initial_layout_training_LOO_nearest_4D_distance_range_mm": [
+      7.632355918105361,
+      25.898832755290517
+    ],
+    "image_limit": "RawpixelMAEdescribes recordedinput variation only; itdoesnotisolateimage/phase/proprio causalcontributions.",
+    "root_finite_difference_observation": "Initialtarget vsEEpositionJacobiandiagonal approximately .64/.43/.54; thisdoesnot establishgain>1 or auniqueinstabilitycause. Image/phase/propriocoupling remainsuncertain.",
+    "attempts": [
+      {
+        "seed": 9501,
+        "strict_physical_success": false,
+        "actual_metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 74.52680981000594,
+          "hold_min_rod_lift_m": 0.06660936782257752,
+          "stir_seconds": 6,
+          "in_cup_tip_fraction": 1,
+          "tip_XY_path_m": 0.3452763963895616,
+          "stir_opposed_pad_contact_fraction": 1,
+          "policy_samples": 316
+        },
+        "nearest_original_training_layout_seed": 1403,
+        "nearest_initial_layout_4D_distance_mm": 16.04540448264185,
+        "layout_inside_training_axis_bounds": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "selected_pregrasp_observations_and_actions": {
+          "0.0": {
+            "t_s": 0,
+            "input_EE_world_m": [
+              0.5015938689003606,
+              0.10340426251562537,
+              0.2405000657696564
+            ],
+            "executed_target_world_m": [
+              0.5005294680595398,
+              0.10361123830080032,
+              0.2378585934638977
+            ],
+            "source_xy_m": [
+              0.5015938275009197,
+              0.10340404284903154
+            ],
+            "input_EE_source_xy_error_mm": [
+              4.139944087544478e-05,
+              0.00021966659383143572
+            ],
+            "executed_target_source_xy_error_mm": [
+              -1.0643594413799473,
+              0.2071954517687824
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              0,
+              0,
+              0
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              0.8070788427229081,
+              0.2070186935820839,
+              2.6414565824455782
+            ],
+            "native_after_vs_executed_target_error_mm": 2.2645715094226175,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              2.8553473418044897,
+              2.8553597612823602,
+              2.855367437598303
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.01408179011195898,
+            "gripper_command_fraction": 0.00025409460067749023,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0,
+              0.01965947262942791
+            ]
+          },
+          "0.5000000000000003": {
+            "t_s": 0.5000000000000003,
+            "input_EE_world_m": [
+              0.4931358109313016,
+              0.10463970494572569,
+              0.21324710261814608
+            ],
+            "executed_target_world_m": [
+              0.4888060688972473,
+              0.10752058029174805,
+              0.1920415687561035
+            ],
+            "source_xy_m": [
+              0.5015938275009197,
+              0.10340404284903154
+            ],
+            "input_EE_source_xy_error_mm": [
+              -8.458016569618144,
+              1.2356620966941512
+            ],
+            "executed_target_source_xy_error_mm": [
+              -12.787758603672428,
+              4.116537442716506
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              8.14742117985584,
+              1.2356480068140692,
+              27.252893531744288
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              12.173493854213845,
+              3.671366396063136,
+              47.54428335095018
+            ],
+            "native_after_vs_executed_target_error_mm": 17.04758074287708,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              17.781023761522096,
+              17.781024311566163,
+              17.781024704709605
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.03224514052271843,
+            "gripper_command_fraction": 0.0023002028465270996,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0.0007411095430143178,
+              0.019510257989168167
+            ]
+          },
+          "1.9999999999998905": {
+            "t_s": 1.9999999999998905,
+            "input_EE_world_m": [
+              0.4956569581552507,
+              0.1128613500447158,
+              0.12721425476995435
+            ],
+            "executed_target_world_m": [
+              0.49759936332702637,
+              0.11014916747808456,
+              0.1263132095336914
+            ],
+            "source_xy_m": [
+              0.5015938275009197,
+              0.10340404284903154
+            ],
+            "input_EE_source_xy_error_mm": [
+              -5.93686934566906,
+              9.457307195684258
+            ],
+            "executed_target_source_xy_error_mm": [
+              -3.994464173893375,
+              6.745124629053024
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              5.289035845353229,
+              9.443764042022629,
+              2.2253104613548516
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              3.5177192731733475,
+              6.133244795652234,
+              0
+            ],
+            "native_after_vs_executed_target_error_mm": 2.6929154765630834,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              9.935964166922025,
+              9.937316385779678,
+              9.938389269256204
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.015512804500758648,
+            "gripper_command_fraction": 0.9952508211135864,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0.0022785039618611336,
+              0.024027125909924507
+            ]
+          }
+        },
+        "first_state_outside_empirical_aligned_training_envelope_by_over1mm": {
+          "t_s": 0.10000000000000007,
+          "input_EE_world_m": [
+            0.5008912113589722,
+            0.1035298480706134,
+            0.23882162762832118
+          ],
+          "executed_target_world_m": [
+            0.4976107180118561,
+            0.10360286384820938,
+            0.23104724287986755
+          ],
+          "source_xy_m": [
+            0.5015938275009197,
+            0.10340404284903154
+          ],
+          "input_EE_source_xy_error_mm": [
+            -0.7026161419475541,
+            0.1258052215818567
+          ],
+          "executed_target_source_xy_error_mm": [
+            -3.983109489063663,
+            0.19882099917784002
+          ],
+          "source_aligned_state_envelope_excess_mm": [
+            0.5997672570050572,
+            0.12561030660708516,
+            1.678443709013433
+          ],
+          "source_aligned_command_envelope_excess_mm": [
+            3.0089518944512728,
+            0.1987255043314068,
+            9.279727935791016
+          ],
+          "native_after_vs_executed_target_error_mm": 6.607680870177441,
+          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+            12.081613957729072,
+            12.081623930524234,
+            12.081629998797018
+          ],
+          "closest_training_raw_RGB_MAE_0to1": 0.014512413181364536,
+          "gripper_command_fraction": 0.002803027629852295,
+          "next_native_pad_forces_N": [
+            0,
+            0
+          ]
+        },
+        "first_command_outside_empirical_aligned_training_envelope_by_over1mm": {
+          "t_s": 0,
+          "input_EE_world_m": [
+            0.5015938689003606,
+            0.10340426251562537,
+            0.2405000657696564
+          ],
+          "executed_target_world_m": [
+            0.5005294680595398,
+            0.10361123830080032,
+            0.2378585934638977
+          ],
+          "source_xy_m": [
+            0.5015938275009197,
+            0.10340404284903154
+          ],
+          "input_EE_source_xy_error_mm": [
+            4.139944087544478e-05,
+            0.00021966659383143572
+          ],
+          "executed_target_source_xy_error_mm": [
+            -1.0643594413799473,
+            0.2071954517687824
+          ],
+          "source_aligned_state_envelope_excess_mm": [
+            0,
+            0,
+            0
+          ],
+          "source_aligned_command_envelope_excess_mm": [
+            0.8070788427229081,
+            0.2070186935820839,
+            2.6414565824455782
+          ],
+          "native_after_vs_executed_target_error_mm": 2.2645715094226175,
+          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+            2.8553473418044897,
+            2.8553597612823602,
+            2.855367437598303
+          ],
+          "closest_training_raw_RGB_MAE_0to1": 0.01408179011195898,
+          "gripper_command_fraction": 0.00025409460067749023,
+          "next_native_pad_forces_N": [
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 9502,
+        "strict_physical_success": false,
+        "actual_metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 67.79715656700137,
+          "hold_min_rod_lift_m": -0.00010043245514686217,
+          "stir_seconds": 6,
+          "in_cup_tip_fraction": 0,
+          "tip_XY_path_m": 0.0005039372874654951,
+          "stir_opposed_pad_contact_fraction": 0,
+          "policy_samples": 316
+        },
+        "nearest_original_training_layout_seed": 1411,
+        "nearest_initial_layout_4D_distance_mm": 17.21159241134892,
+        "layout_inside_training_axis_bounds": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "selected_pregrasp_observations_and_actions": {
+          "0.0": {
+            "t_s": 0,
+            "input_EE_world_m": [
+              0.49824264444319055,
+              0.12989804347326653,
+              0.2405000649762312
+            ],
+            "executed_target_world_m": [
+              0.4984634220600128,
+              0.1300819367170334,
+              0.23963643610477448
+            ],
+            "source_xy_m": [
+              0.498242616487829,
+              0.12989783697537646
+            ],
+            "input_EE_source_xy_error_mm": [
+              2.795536152566669e-05,
+              0.00020649789006510488
+            ],
+            "executed_target_source_xy_error_mm": [
+              0.22080557218379093,
+              0.18409974165692344
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              0,
+              0,
+              0
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              0.22077150591581773,
+              0.18392298347022495,
+              0.8636139415688082
+            ],
+            "native_after_vs_executed_target_error_mm": 0.725071678021577,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              0.9101620126574365,
+              0.9101668303883746,
+              0.9101722005735232
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.01601349748671055,
+            "gripper_command_fraction": 0,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0,
+              0.01965947262942791
+            ]
+          },
+          "0.5000000000000003": {
+            "t_s": 0.5000000000000003,
+            "input_EE_world_m": [
+              0.4993094167245769,
+              0.12808945737502905,
+              0.22954234813497967
+            ],
+            "executed_target_world_m": [
+              0.5006378889083862,
+              0.1266000121831894,
+              0.2175348848104477
+            ],
+            "source_xy_m": [
+              0.498242616487829,
+              0.12989783697537646
+            ],
+            "input_EE_source_xy_error_mm": [
+              1.066800236747878,
+              -1.8083796003474095
+            ],
+            "executed_target_source_xy_error_mm": [
+              2.395272420557204,
+              -3.297824792187071
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              1.0668006943724273,
+              1.3631765769301085,
+              10.957648014910697
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              2.0846807900588016,
+              1.7112624866343351,
+              22.050967296605993
+            ],
+            "native_after_vs_executed_target_error_mm": 9.516752625780226,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              13.886527092152592,
+              13.886527233478605,
+              13.886527489747968
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.012476880103349686,
+            "gripper_command_fraction": 0,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0.0007411095430143178,
+              0.019510257989168167
+            ]
+          },
+          "1.9999999999998905": {
+            "t_s": 1.9999999999998905,
+            "input_EE_world_m": [
+              0.512991525763758,
+              0.11808197515333449,
+              0.1366668594376778
+            ],
+            "executed_target_world_m": [
+              0.511262834072113,
+              0.11637071520090103,
+              0.13703760504722595
+            ],
+            "source_xy_m": [
+              0.498242616487829,
+              0.12989783697537646
+            ],
+            "input_EE_source_xy_error_mm": [
+              14.748909275928924,
+              -11.815861822041974
+            ],
+            "executed_target_source_xy_error_mm": [
+              13.02021758428401,
+              -13.52712177447543
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              15.143142717434054,
+              11.050025563114712,
+              6.966309234563734
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              13.10067447008928,
+              9.706509757354848,
+              9.918698599642727
+            ],
+            "native_after_vs_executed_target_error_mm": 1.9340836467315994,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              12.19320086919174,
+              12.19320086919174,
+              12.19320086919174
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.01896020397543907,
+            "gripper_command_fraction": 1,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0.0022785039618611336,
+              0.024027125909924507
+            ]
+          }
+        },
+        "first_state_outside_empirical_aligned_training_envelope_by_over1mm": {
+          "t_s": 0.1500000000000001,
+          "input_EE_world_m": [
+            0.4983642114035987,
+            0.12977053002551858,
+            0.23946212007353684
+          ],
+          "executed_target_world_m": [
+            0.498513400554657,
+            0.12912583351135254,
+            0.23605646193027496
+          ],
+          "source_xy_m": [
+            0.498242616487829,
+            0.12989783697537646
+          ],
+          "input_EE_source_xy_error_mm": [
+            0.12159491576968495,
+            -0.1273069498578805
+          ],
+          "executed_target_source_xy_error_mm": [
+            0.27078406682795597,
+            -0.7720034640239237
+          ],
+          "source_aligned_state_envelope_excess_mm": [
+            0.12156577157718118,
+            0,
+            1.004730991536168
+          ],
+          "source_aligned_command_envelope_excess_mm": [
+            0.2707781108434726,
+            0,
+            3.894910216331482
+          ],
+          "native_after_vs_executed_target_error_mm": 2.7157027203167305,
+          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+            5.568618439492705,
+            5.568624064072308,
+            5.56862793552643
+          ],
+          "closest_training_raw_RGB_MAE_0to1": 0.015270685777068138,
+          "gripper_command_fraction": 0,
+          "next_native_pad_forces_N": [
+            0,
+            0
+          ]
+        },
+        "first_command_outside_empirical_aligned_training_envelope_by_over1mm": {
+          "t_s": 0.05000000000000004,
+          "input_EE_world_m": [
+            0.4982944209544623,
+            0.12993844390319748,
+            0.24032678194344462
+          ],
+          "executed_target_world_m": [
+            0.4984252452850342,
+            0.12958690524101257,
+            0.2387588620185852
+          ],
+          "source_xy_m": [
+            0.498242616487829,
+            0.12989783697537646
+          ],
+          "input_EE_source_xy_error_mm": [
+            0.0518044666332762,
+            0.04060692782101305
+          ],
+          "executed_target_source_xy_error_mm": [
+            0.18262879720515324,
+            -0.31093173436388954
+          ],
+          "source_aligned_state_envelope_excess_mm": [
+            0.0517371784362064,
+            0.040395526094430534,
+            0.1733414251088028
+          ],
+          "source_aligned_command_envelope_excess_mm": [
+            0.12292251705708912,
+            0,
+            1.5955263917403761
+          ],
+          "native_after_vs_executed_target_error_mm": 1.2665363069920994,
+          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+            1.9476930376685215,
+            1.9476975267764243,
+            1.9477009018113371
+          ],
+          "closest_training_raw_RGB_MAE_0to1": 0.015974491834640503,
+          "gripper_command_fraction": 0,
+          "next_native_pad_forces_N": [
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 9503,
+        "strict_physical_success": false,
+        "actual_metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 67.17352070201014,
+          "hold_min_rod_lift_m": 1.6209256159527285e-14,
+          "stir_seconds": 6,
+          "in_cup_tip_fraction": 0,
+          "tip_XY_path_m": 0,
+          "stir_opposed_pad_contact_fraction": 0,
+          "policy_samples": 316
+        },
+        "nearest_original_training_layout_seed": 1410,
+        "nearest_initial_layout_4D_distance_mm": 17.26335907807256,
+        "layout_inside_training_axis_bounds": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "selected_pregrasp_observations_and_actions": {
+          "0.0": {
+            "t_s": 0,
+            "input_EE_world_m": [
+              0.48290965341592773,
+              0.1342214495987463,
+              0.24050006881104177
+            ],
+            "executed_target_world_m": [
+              0.48350927233695984,
+              0.13246291875839233,
+              0.2407909482717514
+            ],
+            "source_xy_m": [
+              0.48290961953669376,
+              0.1342212368995749
+            ],
+            "input_EE_source_xy_error_mm": [
+              3.3879233973799217e-05,
+              0.00021269917138688754
+            ],
+            "executed_target_source_xy_error_mm": [
+              0.5996528002660817,
+              -1.7583181411825743
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              0,
+              0,
+              0
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              0.5996187339981085,
+              1.1073172204441317,
+              0
+            ],
+            "native_after_vs_executed_target_error_mm": 1.4845050273608968,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              1.880532293028309,
+              1.880545633702284,
+              1.8805547541642067
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.012072638608515263,
+            "gripper_command_fraction": 0.0029552578926086426,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0,
+              0.01965947262942791
+            ]
+          },
+          "0.5000000000000003": {
+            "t_s": 0.5000000000000003,
+            "input_EE_world_m": [
+              0.4864127965506682,
+              0.12929517886038688,
+              0.2407733258682034
+            ],
+            "executed_target_world_m": [
+              0.48780834674835205,
+              0.12754032015800476,
+              0.2380797415971756
+            ],
+            "source_xy_m": [
+              0.48290961953669376,
+              0.1342212368995749
+            ],
+            "input_EE_source_xy_error_mm": [
+              3.5031770139744567,
+              -4.926058039188025
+            ],
+            "executed_target_source_xy_error_mm": [
+              4.898727211658294,
+              -6.680916741570147
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              3.503177471599006,
+              4.480855015770723,
+              0.0398016381376598
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              4.588135581159891,
+              5.094354436017412,
+              1.5061105098780891
+            ],
+            "native_after_vs_executed_target_error_mm": 2.7481248753817193,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              11.08918998944146,
+              11.089190047376041,
+              11.089190124910141
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.012186110019683838,
+            "gripper_command_fraction": 0,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0.0007411095430143178,
+              0.019510257989168167
+            ]
+          },
+          "1.9999999999998905": {
+            "t_s": 1.9999999999998905,
+            "input_EE_world_m": [
+              0.5020792110861815,
+              0.1160057047614056,
+              0.1249937586163962
+            ],
+            "executed_target_world_m": [
+              0.5093402862548828,
+              0.11243131011724472,
+              0.13394808769226074
+            ],
+            "source_xy_m": [
+              0.48290961953669376,
+              0.1342212368995749
+            ],
+            "input_EE_source_xy_error_mm": [
+              19.16959154948772,
+              -18.2155321381693
+            ],
+            "executed_target_source_xy_error_mm": [
+              26.430666718189055,
+              -21.789926782330188
+            ],
+            "source_aligned_state_envelope_excess_mm": [
+              19.56382499099285,
+              17.449695879242043,
+              4.445806614913006
+            ],
+            "source_aligned_command_envelope_excess_mm": [
+              26.511123603994324,
+              17.969314765209603,
+              6.8291812446775175
+            ],
+            "native_after_vs_executed_target_error_mm": 9.388884209830335,
+            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+              13.386045756203112,
+              13.386671785520843,
+              13.387462941846346
+            ],
+            "closest_training_raw_RGB_MAE_0to1": 0.013613720424473286,
+            "gripper_command_fraction": 1,
+            "next_native_pad_forces_N": [
+              0,
+              0
+            ],
+            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
+              0.0022785039618611336,
+              0.024027125909924507
+            ]
+          }
+        },
+        "first_state_outside_empirical_aligned_training_envelope_by_over1mm": {
+          "t_s": 0.1500000000000001,
+          "input_EE_world_m": [
+            0.483615062713039,
+            0.13268483408869194,
+            0.2407162776719816
+          ],
+          "executed_target_world_m": [
+            0.48547834157943726,
+            0.12997779250144958,
+            0.24112331867218018
+          ],
+          "source_xy_m": [
+            0.48290961953669376,
+            0.1342212368995749
+          ],
+          "input_EE_source_xy_error_mm": [
+            0.705443176345244,
+            -1.5364028108829642
+          ],
+          "executed_target_source_xy_error_mm": [
+            2.5687220427434987,
+            -4.243444398125323
+          ],
+          "source_aligned_state_envelope_excess_mm": [
+            0.7054140321527402,
+            1.0123208677355748,
+            0.07326070823893138
+          ],
+          "source_aligned_command_envelope_excess_mm": [
+            2.5687160867590153,
+            1.6051208826078356,
+            0
+          ],
+          "native_after_vs_executed_target_error_mm": 2.5784742233996982,
+          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+            6.6958193264984125,
+            6.695824543244615,
+            6.6958276866062585
+          ],
+          "closest_training_raw_RGB_MAE_0to1": 0.01210880745202303,
+          "gripper_command_fraction": 0.0014878511428833008,
+          "next_native_pad_forces_N": [
+            0,
+            0
+          ]
+        },
+        "first_command_outside_empirical_aligned_training_envelope_by_over1mm": {
+          "t_s": 0,
+          "input_EE_world_m": [
+            0.48290965341592773,
+            0.1342214495987463,
+            0.24050006881104177
+          ],
+          "executed_target_world_m": [
+            0.48350927233695984,
+            0.13246291875839233,
+            0.2407909482717514
+          ],
+          "source_xy_m": [
+            0.48290961953669376,
+            0.1342212368995749
+          ],
+          "input_EE_source_xy_error_mm": [
+            3.3879233973799217e-05,
+            0.00021269917138688754
+          ],
+          "executed_target_source_xy_error_mm": [
+            0.5996528002660817,
+            -1.7583181411825743
+          ],
+          "source_aligned_state_envelope_excess_mm": [
+            0,
+            0,
+            0
+          ],
+          "source_aligned_command_envelope_excess_mm": [
+            0.5996187339981085,
+            1.1073172204441317,
+            0
+          ],
+          "native_after_vs_executed_target_error_mm": 1.4845050273608968,
+          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
+            1.880532293028309,
+            1.880545633702284,
+            1.8805547541642067
+          ],
+          "closest_training_raw_RGB_MAE_0to1": 0.012072638608515263,
+          "gripper_command_fraction": 0.0029552578926086426,
+          "next_native_pad_forces_N": [
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "interpretation": "Initial source/cup layout values each exceed one empirical training coordinate bound, although nearest layout and initial rawRGB distances are within training leave-one-out ranges. The small initial command bias precedes source-aligned state-envelope departure at 0.10/0.15/0.15s. Mixed training does not cover these later drift states; this supports examining additional on-policy coverage, without proving a unique cause or that beta0 labels on the same3 initial layouts will solve generalization.",
+    "root_native_replay_observation": {
+      "at_native_0_5s": {
+        "EE_delta_z_mm": [
+          -27.253,
+          -10.958,
+          0.273
+        ],
+        "EE_delta_XY_norm_mm": [
+          8.55,
+          2.1,
+          6.04
+        ]
+      },
+      "at_native_2_0s": {
+        "EE_to_source_XY_norm_mm": [
+          11.166,
+          18.898,
+          26.444
+        ]
+      },
+      "source": "Root read-only replay of the same saved native trajectories; values rounded."
+    },
+    "frozen_network_input_decomposition": {
+      "method": "ReadonlyexactShapleydecomposition ofchanges in thefrozenNN andboundedadapter betweenactualobservedinputsatt0and0.45s;8raw/16bounded crossedinputcombinations perseed. No nativeepisode/training/newheldout.",
+      "limitation": "Crossedinputs can beoffthejointobservationmanifold. These allocate fixedfunctionoutputchanges, not causalphysicalfailureeffects or proofs ofauniquegain mechanism.",
+      "coordinate_order": "worldXYZ mm",
+      "attempts": [
+        {
+          "seed": 9501,
+          "native_end_s": 0.45000000000000034,
+          "phase": "settle, beforeapproach; phaseblockchangesonlyprogressu, noonehot/oscillatorchange",
+          "raw_target_change_mm": [
+            -11.316537857055664,
+            2.951890230178833,
+            -38.31702470779419
+          ],
+          "raw_block_contributions_mm": {
+            "RGB": [
+              -1.005813479423523,
+              -0.1757231851418813,
+              -9.133594731489817
+            ],
+            "robotproprio+priorgripper": [
+              -10.421156883239746,
+              3.2501022020975747,
+              -29.4392059246699
+            ],
+            "settleprogress_u": [
+              0.11043250560760497,
+              -0.12248878677686054,
+              0.25577594836552936
+            ]
+          },
+          "bounded_executed_target_change_mm": [
+            -11.316537857055664,
+            2.951890230178833,
+            -38.31702470779419
+          ],
+          "bounded_block_contributions_mm": {
+            "RGB": [
+              -0.6680786609649658,
+              -0.1757231851418813,
+              -4.530842226113246
+            ],
+            "robotproprio+priorgripper": [
+              -7.100628530471553,
+              3.2501022020975747,
+              -5.926041524971892
+            ],
+            "settleprogress_u": [
+              0.07608532905578613,
+              -0.12248878677686054,
+              0.18930062651634216
+            ],
+            "previouscommand_rate_limiter_state": [
+              -3.6239159946749306,
+              0.0,
+              -28.049441583225388
+            ]
+          },
+          "decomposition_sum_max_abs_error_m": 6.938893903907228e-18,
+          "endpoint_recorded_action_max_abs_error": 0.0
+        },
+        {
+          "seed": 9502,
+          "native_end_s": 0.45000000000000034,
+          "phase": "settle, beforeapproach; phaseblockchangesonlyprogressu, noonehot/oscillatorchange",
+          "raw_target_change_mm": [
+            1.6497671604156494,
+            -3.1093955039978027,
+            -17.160624265670776
+          ],
+          "raw_block_contributions_mm": {
+            "RGB": [
+              0.12227396170298258,
+              -1.9698614875475564,
+              -4.715921978155771
+            ],
+            "robotproprio+priorgripper": [
+              1.119131843249003,
+              -1.3835976521174111,
+              -13.028080264727274
+            ],
+            "settleprogress_u": [
+              0.4083613554636637,
+              0.2440636356671651,
+              0.58337797721227
+            ]
+          },
+          "bounded_executed_target_change_mm": [
+            1.6497671604156494,
+            -3.1093955039978027,
+            -17.160624265670776
+          ],
+          "bounded_block_contributions_mm": {
+            "RGB": [
+              0.1222739617029826,
+              -1.9698614875475564,
+              -3.139800081650416
+            ],
+            "robotproprio+priorgripper": [
+              1.119131843249003,
+              -1.3835976521174111,
+              -6.885354525240301
+            ],
+            "settleprogress_u": [
+              0.40836135546366376,
+              0.24406363566716513,
+              0.39306655526161194
+            ],
+            "previouscommand_rate_limiter_state": [
+              0.0,
+              0.0,
+              -7.5285362140416705
+            ]
+          },
+          "decomposition_sum_max_abs_error_m": 4.336808689942018e-19,
+          "endpoint_recorded_action_max_abs_error": 0.0
+        },
+        {
+          "seed": 9503,
+          "native_end_s": 0.45000000000000034,
+          "phase": "settle, beforeapproach; phaseblockchangesonlyprogressu, noonehot/oscillatorchange",
+          "raw_target_change_mm": [
+            4.11948561668396,
+            -4.5585036277771,
+            -0.6032288074493408
+          ],
+          "raw_block_contributions_mm": {
+            "RGB": [
+              0.1780589421590169,
+              -1.4161144693692524,
+              -1.2460996707280476
+            ],
+            "robotproprio+priorgripper": [
+              3.7313153346379595,
+              -3.199045856793721,
+              0.5146364370981852
+            ],
+            "settleprogress_u": [
+              0.21011133988698322,
+              0.05665669838587442,
+              0.12823442618052164
+            ]
+          },
+          "bounded_executed_target_change_mm": [
+            4.11948561668396,
+            -4.5585036277771,
+            -0.6032288074493408
+          ],
+          "bounded_block_contributions_mm": {
+            "RGB": [
+              0.1780589421590169,
+              -1.4161144693692522,
+              -1.2460996707280478
+            ],
+            "robotproprio+priorgripper": [
+              3.73131533463796,
+              -3.199045856793721,
+              0.5146364370981853
+            ],
+            "settleprogress_u": [
+              0.21011133988698324,
+              0.05665669838587443,
+              0.12823442618052164
+            ],
+            "previouscommand_rate_limiter_state": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "decomposition_sum_max_abs_error_m": 8.673617379884035e-19,
+          "endpoint_recorded_action_max_abs_error": 0.0
+        }
+      ],
+      "proprioception_disaggregation": {
+        "method": "Samefrozenfunctionendpoint decomposition, splitcurrentEEposition/linearvelocity/priorgripper. Rawoutputonly; finitevelocityJacobian epsilon0.1mm/s, unitsseconds.",
+        "limitation": "Networkinputdependence, not isolatedclosedloopcausality. Actualpositionservo,RGBfeedback andrateboundcouplethe dynamics.",
+        "attempts": [
+          {
+            "seed": 9501,
+            "raw_target_0to0_45s_change_mm": [
+              -11.316537857055664,
+              2.951890230178833,
+              -38.31702470779419
+            ],
+            "raw_change_block_contributions_mm": {
+              "RGB": [
+                -1.0041862726211548,
+                -0.19087009131908417,
+                -9.23478528857231
+              ],
+              "EEposition": [
+                -5.66055327653885,
+                2.734291801850001,
+                -13.781806329886118
+              ],
+              "EElinearvelocity": [
+                -4.76241558790207,
+                0.6056776891152065,
+                -15.506315231323242
+              ],
+              "previousgripper": [
+                -0.011118253072102863,
+                -0.03371747831503551,
+                -0.11483008662859599
+              ],
+              "settleprogress_u": [
+                0.12173553307851159,
+                -0.16349169115225476,
+                0.32071222861607873
+              ]
+            },
+            "sum_error_m": 1.734723475976807e-18,
+            "initial_raw_target_Jacobian_wrt_EElinearvelocity_seconds": [
+              [
+                0.21308660507202148,
+                -0.03904104232788086,
+                0.0032782554626464844
+              ],
+              [
+                0.024475157260894775,
+                0.1401454210281372,
+                0.0024959444999694824
+              ],
+              [
+                0.0006705522537231445,
+                0.039264559745788574,
+                0.2317875623703003
+              ]
+            ]
+          },
+          {
+            "seed": 9502,
+            "raw_target_0to0_45s_change_mm": [
+              1.6497671604156494,
+              -3.1093955039978027,
+              -17.160624265670776
+            ],
+            "raw_change_block_contributions_mm": {
+              "RGB": [
+                0.12596448262532553,
+                -1.9731099406878152,
+                -4.703202595313391
+              ],
+              "EEposition": [
+                0.2132306496302287,
+                -0.5483875672022501,
+                -4.677480707565944
+              ],
+              "EElinearvelocity": [
+                0.9027371803919475,
+                -0.837219258149465,
+                -8.367984245220821
+              ],
+              "previousgripper": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "settleprogress_u": [
+                0.40783484776814777,
+                0.24932126204172766,
+                0.5880432824293773
+              ]
+            },
+            "sum_error_m": 0.0,
+            "initial_raw_target_Jacobian_wrt_EElinearvelocity_seconds": [
+              [
+                0.21353363990783691,
+                -0.036656856536865234,
+                0.00521540641784668
+              ],
+              [
+                0.019744038581848145,
+                0.1418590545654297,
+                0.005513429641723633
+              ],
+              [
+                -0.007078051567077637,
+                0.04477798938751221,
+                0.24020671844482422
+              ]
+            ]
+          },
+          {
+            "seed": 9503,
+            "raw_target_0to0_45s_change_mm": [
+              4.11948561668396,
+              -4.5585036277771,
+              -0.6032288074493408
+            ],
+            "raw_change_block_contributions_mm": {
+              "RGB": [
+                0.1800864934921265,
+                -1.4176535109678907,
+                -1.2541172405083976
+              ],
+              "EEposition": [
+                2.130218843619029,
+                -2.302998552719752,
+                1.205482085545858
+              ],
+              "EElinearvelocity": [
+                1.60763015349706,
+                -0.9011109670003256,
+                -0.6504761675993602
+              ],
+              "previousgripper": [
+                -0.001469254493713379,
+                -0.00607768694559733,
+                -0.017767896254857383
+              ],
+              "settleprogress_u": [
+                0.20301938056945798,
+                0.06933708985646567,
+                0.1136504113674164
+              ]
+            },
+            "sum_error_m": 8.673617379884035e-19,
+            "initial_raw_target_Jacobian_wrt_EElinearvelocity_seconds": [
+              [
+                0.18611550331115723,
+                -0.03516674041748047,
+                0.00864267349243164
+              ],
+              [
+                0.05148351192474365,
+                0.13478100299835205,
+                -0.0014901161193847656
+              ],
+              [
+                0.03501772880554199,
+                0.036209821701049805,
+                0.22120773792266846
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "next_study_status": "NOT_STARTED_WAITING_DESIGN_DECISION",
+  "acceptance_decision": "FAIL:0of3fixedheldoutmeetallpredeclaredlocalgates;80mmliftgateunchanged;noformalreruns/posttesttraining"
+}

@@ -1,0 +1,2582 @@
+{
+  "id": "A04",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "scope_status": "FORMAL_EXPERIMENT_COMPLETE_CANDIDATE_AWAITING_ROOT_REVIEW",
+  "full_original_auto_engineering_reproduced": false,
+  "checks": {
+    "two_robots_BC9_and_DAgger9_fitted_from_nine_episodes": true,
+    "actual_student_visited_states_labeled_and_admitted": true,
+    "all32_fixed_disjoint_formal_attempts_preserved": true,
+    "heldout_student_expert_query_count_zero": true,
+    "at_least_one_complete_physical_DAgger_success_each_robot": true
+  },
+  "protocol": {
+    "scope": "Learned6D pourfeedback during8.5..15s; scripted pickup/transfer/return. Not end-to-end.",
+    "frozen_experiment": "f_tier/A04/coupled_learning/protocol.json",
+    "started_utc": "2026-10-19T11:31:02.032822+00:00",
+    "ended_utc": "2026-10-19T13:21:13.661391+00:00",
+    "train_seeds": [
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ],
+    "heldout_seeds": [
+      9401,
+      9402,
+      9403,
+      9404
+    ],
+    "formal_heldout_attempts": 32,
+    "native_horizon_s": 23,
+    "particles": 240,
+    "initial_fluid_volume_m3": 3.75e-06,
+    "device": "CPU",
+    "motion_distribution": {
+      "amplitude_m": [
+        0.009,
+        0.015
+      ],
+      "angular_frequency_rad_s": [
+        0.55,
+        0.85
+      ]
+    },
+    "same_episode_budget_control": "BC9 and DAgger9 each9training episodes perrobot; actual labels and distinctshared data costs separately reported",
+    "local_physical_gates": {
+      "full_native23s": true,
+      "receiver_path_m_min": 0.02,
+      "received_fraction_min": 0.8,
+      "spill_fraction_max": 0.1,
+      "scope_particle_penetrations_max": 0
+    },
+    "weight_sharing_between_robots": false,
+    "observation_dim": 18,
+    "action_dim": 6,
+    "architecture": "Normalized state MLP18x64x6,tanh;50epochsAdam seed71, refit from aggregated dataset at eachround",
+    "physics": "Same actual A01MuJoCo/WarpDFSPH Coupled; native adaptiveCFL clock; motion via generalizedforces, no runtimeposes injected",
+    "A01_dependency_boundary": "Coarse physical function and coupling demonstrated; independent three-resolution A01 validation status is reported separately by parent."
+  },
+  "metrics": {
+    "formal_student_trials": 24,
+    "formal_oracle_trials": 8,
+    "formal_student_expert_queries": 0,
+    "groups": [
+      {
+        "robot": "ur5e",
+        "name": "BC3",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 0,
+        "conservative_all_started_denominator": 4,
+        "conservative_interrupted_as_failure_success_rate": 1.0,
+        "conservative_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9402,
+          9404,
+          9403,
+          9401
+        ]
+      },
+      {
+        "robot": "ur5e",
+        "name": "BC9",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 2,
+        "conservative_all_started_denominator": 6,
+        "conservative_interrupted_as_failure_success_rate": 0.6666666666666666,
+        "conservative_wilson_95pct": [
+          0.299993315138392,
+          0.9032285888942195
+        ],
+        "mean_receiver_fraction": 0.9989583333333334,
+        "mean_spill_fraction": 0.0010416666666666667,
+        "seeds": [
+          9401,
+          9402,
+          9404,
+          9403
+        ]
+      },
+      {
+        "robot": "ur5e",
+        "name": "DAgger9",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 4,
+        "conservative_all_started_denominator": 8,
+        "conservative_interrupted_as_failure_success_rate": 0.5,
+        "conservative_wilson_95pct": [
+          0.21521606221387757,
+          0.7847839377861224
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9404,
+          9403,
+          9402,
+          9401
+        ]
+      },
+      {
+        "robot": "ur5e",
+        "name": "script_expert",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 0,
+        "conservative_all_started_denominator": 4,
+        "conservative_interrupted_as_failure_success_rate": 1.0,
+        "conservative_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9402,
+          9403,
+          9404,
+          9401
+        ]
+      },
+      {
+        "robot": "flexiv",
+        "name": "BC3",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 0,
+        "conservative_all_started_denominator": 4,
+        "conservative_interrupted_as_failure_success_rate": 1.0,
+        "conservative_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9402,
+          9401,
+          9403,
+          9404
+        ]
+      },
+      {
+        "robot": "flexiv",
+        "name": "BC9",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 0,
+        "conservative_all_started_denominator": 4,
+        "conservative_interrupted_as_failure_success_rate": 1.0,
+        "conservative_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9402,
+          9401,
+          9404,
+          9403
+        ]
+      },
+      {
+        "robot": "flexiv",
+        "name": "DAgger9",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 0,
+        "conservative_all_started_denominator": 4,
+        "conservative_interrupted_as_failure_success_rate": 1.0,
+        "conservative_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9402,
+          9401,
+          9403,
+          9404
+        ]
+      },
+      {
+        "robot": "flexiv",
+        "name": "script_expert",
+        "attempted": 4,
+        "planned": 4,
+        "successes": 4,
+        "success_rate": 1.0,
+        "success_rate_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "administratively_interrupted_attempts": 0,
+        "conservative_all_started_denominator": 4,
+        "conservative_interrupted_as_failure_success_rate": 1.0,
+        "conservative_wilson_95pct": [
+          0.5101091635454027,
+          1
+        ],
+        "mean_receiver_fraction": 1.0,
+        "mean_spill_fraction": 0.0,
+        "seeds": [
+          9402,
+          9401,
+          9403,
+          9404
+        ]
+      }
+    ],
+    "training_budgets_by_model": [
+      {
+        "robot": "ur5e",
+        "model": "bc3",
+        "training_episodes": 3,
+        "admitted_samples": 1950,
+        "actual_teacher_queries": 1950,
+        "student_executed_states": 0,
+        "student_actions_different_from_labels": 0,
+        "admitted_student_states": 0,
+        "fit": "f_tier/A04/coupled_learning/ur5e/bc3_fit.json"
+      },
+      {
+        "robot": "ur5e",
+        "model": "bc9",
+        "training_episodes": 9,
+        "admitted_samples": 5850,
+        "actual_teacher_queries": 5850,
+        "student_executed_states": 0,
+        "student_actions_different_from_labels": 0,
+        "admitted_student_states": 0,
+        "fit": "f_tier/A04/coupled_learning/ur5e/bc9_fit.json"
+      },
+      {
+        "robot": "ur5e",
+        "model": "dagger_round1",
+        "training_episodes": 6,
+        "admitted_samples": 3900,
+        "actual_teacher_queries": 3900,
+        "student_executed_states": 968,
+        "student_actions_different_from_labels": 968,
+        "admitted_student_states": 968,
+        "fit": "f_tier/A04/coupled_learning/ur5e/dagger_round1_fit.json"
+      },
+      {
+        "robot": "ur5e",
+        "model": "dagger9",
+        "training_episodes": 9,
+        "admitted_samples": 5850,
+        "actual_teacher_queries": 5850,
+        "student_executed_states": 2918,
+        "student_actions_different_from_labels": 2918,
+        "admitted_student_states": 2918,
+        "fit": "f_tier/A04/coupled_learning/ur5e/dagger9_fit.json"
+      },
+      {
+        "robot": "flexiv",
+        "model": "bc3",
+        "training_episodes": 3,
+        "admitted_samples": 1950,
+        "actual_teacher_queries": 1950,
+        "student_executed_states": 0,
+        "student_actions_different_from_labels": 0,
+        "admitted_student_states": 0,
+        "fit": "f_tier/A04/coupled_learning/flexiv/bc3_fit.json"
+      },
+      {
+        "robot": "flexiv",
+        "model": "bc9",
+        "training_episodes": 9,
+        "admitted_samples": 5850,
+        "actual_teacher_queries": 5850,
+        "student_executed_states": 0,
+        "student_actions_different_from_labels": 0,
+        "admitted_student_states": 0,
+        "fit": "f_tier/A04/coupled_learning/flexiv/bc9_fit.json"
+      },
+      {
+        "robot": "flexiv",
+        "model": "dagger_round1",
+        "training_episodes": 6,
+        "admitted_samples": 3900,
+        "actual_teacher_queries": 3900,
+        "student_executed_states": 968,
+        "student_actions_different_from_labels": 968,
+        "admitted_student_states": 968,
+        "fit": "f_tier/A04/coupled_learning/flexiv/dagger_round1_fit.json"
+      },
+      {
+        "robot": "flexiv",
+        "model": "dagger9",
+        "training_episodes": 9,
+        "admitted_samples": 5850,
+        "actual_teacher_queries": 5850,
+        "student_executed_states": 2918,
+        "student_actions_different_from_labels": 2918,
+        "admitted_student_states": 2918,
+        "fit": "f_tier/A04/coupled_learning/flexiv/dagger9_fit.json"
+      }
+    ],
+    "actual_distinct_training_teacher_queries": 19500
+  },
+  "all_formal_attempts": [
+    {
+      "robot": "ur5e",
+      "seed": 9402,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000417672383158,
+        "native_steps": 12745,
+        "receiver_xy_path_m": 0.1542002226833435,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37227943781322825,
+        "min_dt_s": 0.0004067700782993763,
+        "wall_run_s": 509.09504279799876
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99818327622788,
+        "period_std_s": 0.00017890598269402154,
+        "max_lateness_s": 0.0019583823252240506
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9404,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00042480034388,
+        "native_steps": 12745,
+        "receiver_xy_path_m": 0.23757280432383257,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37232536278111544,
+        "min_dt_s": 0.000407534669575308,
+        "wall_run_s": 510.48144059299375
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99815227275018,
+        "period_std_s": 0.00015967344437073255,
+        "max_lateness_s": 0.001972963980756859
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9403,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00051079701305,
+        "native_steps": 12831,
+        "receiver_xy_path_m": 0.22465458421866505,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3716718959619909,
+        "min_dt_s": 0.00040666210740748467,
+        "wall_run_s": 511.5789596350078
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99777822677554,
+        "period_std_s": 0.00019385082431903328,
+        "max_lateness_s": 0.0019845362725803284
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9401,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001233925488176,
+        "native_steps": 12732,
+        "receiver_xy_path_m": 0.26030889676039215,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3736421028433793,
+        "min_dt_s": 0.00040644001553065455,
+        "wall_run_s": 513.6074386249966
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99463306105197,
+        "period_std_s": 0.00019792101504076035,
+        "max_lateness_s": 0.0019922400734309065
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9401,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_BC9_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00118888150375,
+        "native_steps": 12797,
+        "receiver_xy_path_m": 0.26049376883557135,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3742760985928712,
+        "min_dt_s": 0.0004075534902913933,
+        "wall_run_s": 519.0766119830078
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.9948289690025,
+        "period_std_s": 0.00019250907110838645,
+        "max_lateness_s": 0.001986126452649728
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9402,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_BC9_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00121130695688,
+        "native_steps": 16557,
+        "receiver_xy_path_m": 0.15370063764518402,
+        "final_receiver_fraction": 0.9958333333333333,
+        "final_spill_fraction": 0.004166666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37553537031215983,
+        "min_dt_s": 0.00023021145617345114,
+        "wall_run_s": 547.1601394460013
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99747094181276,
+        "period_std_s": 0.00045728733299437785,
+        "max_lateness_s": 0.0019818081341984595
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9404,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_BC9_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001844665312372,
+        "native_steps": 12737,
+        "receiver_xy_path_m": 0.2362730521368412,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.371989805045517,
+        "min_dt_s": 0.0004067748871183034,
+        "wall_run_s": 504.4089121300058
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99197687119398,
+        "period_std_s": 0.00016987402973620098,
+        "max_lateness_s": 0.0019455361161693219
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9404,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000783469067624,
+        "native_steps": 12768,
+        "receiver_xy_path_m": 0.23653911595738678,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37203086748874903,
+        "min_dt_s": 0.00040765784963480453,
+        "wall_run_s": 504.9703642950044
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99659224719903,
+        "period_std_s": 0.00017322518331454613,
+        "max_lateness_s": 0.001968485205125603
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9403,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001815284424072,
+        "native_steps": 12780,
+        "receiver_xy_path_m": 0.22418360474173588,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3717595296953133,
+        "min_dt_s": 0.0004077853048138852,
+        "wall_run_s": 504.96090221700433
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.9921046494084,
+        "period_std_s": 0.00018674629881565113,
+        "max_lateness_s": 0.001960439269163672
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9402,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00009076752504,
+        "native_steps": 12769,
+        "receiver_xy_path_m": 0.15419827109649725,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3723859381915769,
+        "min_dt_s": 0.0004075542176937137,
+        "wall_run_s": 506.5510911040037
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99960518848766,
+        "period_std_s": 0.00016552180551472303,
+        "max_lateness_s": 0.0019937232547935224
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9403,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_BC9_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001200648470245,
+        "native_steps": 12779,
+        "receiver_xy_path_m": 0.22494609083246142,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37173463592426437,
+        "min_dt_s": 0.00040720982380228156,
+        "wall_run_s": 506.56573535599455
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99477779134457,
+        "period_std_s": 0.00019791013568606217,
+        "max_lateness_s": 0.0019582358096226216
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9401,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000252357596,
+        "native_steps": 12746,
+        "receiver_xy_path_m": 0.26086271060162397,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3722887669869706,
+        "min_dt_s": 0.00040780610722471764,
+        "wall_run_s": 511.16256370600604
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99890232785582,
+        "period_std_s": 0.0001892188216459809,
+        "max_lateness_s": 0.001960482924182827
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9402,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000536422435058,
+        "native_steps": 12754,
+        "receiver_xy_path_m": 0.1542057288916989,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37256682379473327,
+        "min_dt_s": 0.00040695203646881893,
+        "wall_run_s": 530.4294677920116
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99766676851203,
+        "period_std_s": 0.000186367543772932,
+        "max_lateness_s": 0.0019762213876628465
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9403,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000808418767555,
+        "native_steps": 12777,
+        "receiver_xy_path_m": 0.2240991233772679,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3736875486310747,
+        "min_dt_s": 0.0004079031411841074,
+        "wall_run_s": 534.265166733996
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99648373057252,
+        "period_std_s": 0.0001906539837539671,
+        "max_lateness_s": 0.0019999554336429526
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9404,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00051089436617,
+        "native_steps": 12746,
+        "receiver_xy_path_m": 0.23590959359174016,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37171230363311014,
+        "min_dt_s": 0.00040783200666540717,
+        "wall_run_s": 533.4588336729939
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99777780333581,
+        "period_std_s": 0.0001718857873488381,
+        "max_lateness_s": 0.0019552670664815253
+      }
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9401,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00012686956062,
+        "native_steps": 12761,
+        "receiver_xy_path_m": 0.2610544250632877,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37656248508305445,
+        "min_dt_s": 0.0004076227492172422,
+        "wall_run_s": 539.3627872119978
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99944815632664,
+        "period_std_s": 0.00018279065162825857,
+        "max_lateness_s": 0.0019398087869930691
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9402,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00070085365366,
+        "native_steps": 12864,
+        "receiver_xy_path_m": 0.15419159045179648,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3738254375914265,
+        "min_dt_s": 0.0004123932286652905,
+        "wall_run_s": 547.9355338380119
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99695157769165,
+        "period_std_s": 0.00012637040789843722,
+        "max_lateness_s": 0.0017828088881666308
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9401,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00088997516708,
+        "native_steps": 12897,
+        "receiver_xy_path_m": 0.2581154011518597,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36692024774462895,
+        "min_dt_s": 0.00041360010174091774,
+        "wall_run_s": 555.4833432860032
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99612900949877,
+        "period_std_s": 0.0001520610645682055,
+        "max_lateness_s": 0.001966180620378566
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9403,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00105511800988,
+        "native_steps": 12853,
+        "receiver_xy_path_m": 0.2252943381918573,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3673111293276048,
+        "min_dt_s": 0.00041153242320283453,
+        "wall_run_s": 542.5886534540041
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99541074559444,
+        "period_std_s": 0.00012152399375238024,
+        "max_lateness_s": 0.001966724430429778
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9404,
+      "name": "BC3",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001521206017745,
+        "native_steps": 12792,
+        "receiver_xy_path_m": 0.23508126756016007,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3662694767890183,
+        "min_dt_s": 0.0004136326766344845,
+        "wall_run_s": 539.6343631689961
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99338362170941,
+        "period_std_s": 0.00011577506411727137,
+        "max_lateness_s": 0.001781161630580539
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9402,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000025372332853,
+        "native_steps": 12825,
+        "receiver_xy_path_m": 0.15421155972744638,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3738254375914265,
+        "min_dt_s": 0.0004125099429905628,
+        "wall_run_s": 537.8477393119974
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99988963764743,
+        "period_std_s": 0.00012338416300396247,
+        "max_lateness_s": 0.0017828088881666308
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9401,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00152873825302,
+        "native_steps": 12950,
+        "receiver_xy_path_m": 0.2586939760820497,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3684618320460238,
+        "min_dt_s": 0.00041243801137364616,
+        "wall_run_s": 542.8711450170085
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99335086296163,
+        "period_std_s": 0.00014540839826533046,
+        "max_lateness_s": 0.0019761121088528455
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9404,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00074672411503,
+        "native_steps": 12780,
+        "receiver_xy_path_m": 0.23695699998745207,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36606718605357896,
+        "min_dt_s": 0.0004122110424486752,
+        "wall_run_s": 536.6665113190102
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99675206671624,
+        "period_std_s": 0.00012100487720492562,
+        "max_lateness_s": 0.001781161630580539
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9403,
+      "name": "BC9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000350386148288,
+        "native_steps": 12822,
+        "receiver_xy_path_m": 0.22611344527273186,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36807352746400196,
+        "min_dt_s": 0.0004130442667337307,
+        "wall_run_s": 541.2827554539981
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99847594254803,
+        "period_std_s": 0.00014194118257728812,
+        "max_lateness_s": 0.0018538747139515976
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9402,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000431713189304,
+        "native_steps": 12839,
+        "receiver_xy_path_m": 0.15418676491763159,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3738254375914265,
+        "min_dt_s": 0.0004132890372897775,
+        "wall_run_s": 542.6607176960097
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99812220494728,
+        "period_std_s": 0.00011903576621361968,
+        "max_lateness_s": 0.0017828088881666308
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9401,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001228213395137,
+        "native_steps": 12960,
+        "receiver_xy_path_m": 0.25877210027274733,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36876294497553724,
+        "min_dt_s": 0.00041394284974306773,
+        "wall_run_s": 547.964241670008
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.994657904381,
+        "period_std_s": 0.0001329944202331934,
+        "max_lateness_s": 0.0018974378944314196
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9403,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00181833730096,
+        "native_steps": 12829,
+        "receiver_xy_path_m": 0.225570985486739,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3685230748852682,
+        "min_dt_s": 0.00041204040440468115,
+        "wall_run_s": 547.4337642839964
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99209137235563,
+        "period_std_s": 0.00013710615917788432,
+        "max_lateness_s": 0.0018183373031490646
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9404,
+      "name": "DAgger9",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00162491704597,
+        "native_steps": 12857,
+        "receiver_xy_path_m": 0.23631470089083134,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36527729754427635,
+        "min_dt_s": 0.00041272290731405475,
+        "wall_run_s": 547.7168770509888
+      },
+      "expert_queries": 0,
+      "student_executed_states": 650,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99293256978645,
+        "period_std_s": 0.00013279672272746313,
+        "max_lateness_s": 0.001781161630580539
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9402,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9402/metrics.json",
+      "metrics": {
+        "native_seconds": 23.001937681321966,
+        "native_steps": 12831,
+        "receiver_xy_path_m": 0.15415171559673313,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3738254375914265,
+        "min_dt_s": 0.0004128267197130473,
+        "wall_run_s": 540.2770800760045
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99157234440685,
+        "period_std_s": 0.00012399857244939618,
+        "max_lateness_s": 0.0019376813241542834
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9401,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9401/metrics.json",
+      "metrics": {
+        "native_seconds": 23.000859868433228,
+        "native_steps": 12944,
+        "receiver_xy_path_m": 0.2595374976085759,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36914683629997236,
+        "min_dt_s": 0.00041539437752029045,
+        "wall_run_s": 548.5062525179965
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99625995531201,
+        "period_std_s": 0.0001350560269972324,
+        "max_lateness_s": 0.0019164897991981178
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9403,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9403/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00123705778491,
+        "native_steps": 12836,
+        "receiver_xy_path_m": 0.22525362398148596,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3683495059534879,
+        "min_dt_s": 0.0004142387246941278,
+        "wall_run_s": 515.3651272599964
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99461943791104,
+        "period_std_s": 0.00014014692750279973,
+        "max_lateness_s": 0.0018200599323403566
+      }
+    },
+    {
+      "robot": "flexiv",
+      "seed": 9404,
+      "name": "script_expert",
+      "physical_success": true,
+      "exit_code": 0,
+      "evidence": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9404/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00019279674738,
+        "native_steps": 12830,
+        "receiver_xy_path_m": 0.23520564100653854,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36641175736944803,
+        "min_dt_s": 0.00041210454156243113,
+        "wall_run_s": 513.8941971880122
+      },
+      "expert_queries": 650,
+      "student_executed_states": 0,
+      "native_command_timing": {
+        "domain": "Shared native simulation clock, not wallclock or real hardware",
+        "command_count": 2300,
+        "actual_hz": 99.99916139569123,
+        "period_std_s": 0.00012444638911214426,
+        "max_lateness_s": 0.001781161630580539
+      }
+    }
+  ],
+  "administratively_interrupted_attempts": [
+    {
+      "robot": "ur5e",
+      "seed": 9403,
+      "name": "BC9",
+      "label": "eval_BC9_9403",
+      "observed_cause": "Toolsession56106 reportedexit143 consistentwithSIGTERM; originundetermined. Root andworker sentno termination.",
+      "observed_utc": "2026-10-19T12:36:57.715817+00:00",
+      "partial_directory": "f_tier/A04/coupled_learning/ur5e/eval_BC9_9403",
+      "last_flushed_trace": {
+        "time_s": "17.000033074277145",
+        "phase": "return_above_source",
+        "source_count": "0",
+        "receiver_count": "240",
+        "spill_count": "0",
+        "support_N": "1.1189796082515997",
+        "receiver_x": "0.5472809813880478",
+        "receiver_y": "0.21767022529816066",
+        "receiver_z": "0.001217121051349764",
+        "tube_z": "0.13588564916125795",
+        "ee_x": "0.4976006407097162",
+        "ee_y": "0.12462968682724117",
+        "ee_z": "0.21276702640458134",
+        "native_steps": "9771",
+        "ever_native_solid_penetration_particles": "0",
+        "max_CFL": "0.37173463592426437",
+        "min_dt_s": "0.00040720982380228156"
+      },
+      "policy": "f_tier/A04/coupled_learning/ur5e/bc9.npz",
+      "physical_outcome": "UNOBSERVED_FULL_HORIZON; retained asfailure inconservative allstarted denominator",
+      "control_or_policy_modified_before_restart": false
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9404,
+      "name": "BC9",
+      "label": "eval_BC9_9404",
+      "observed_cause": "Toolsession56106 reportedexit143 consistentwithSIGTERM; originundetermined. Root andworker sentno termination.",
+      "observed_utc": "2026-10-19T12:36:57.738639+00:00",
+      "partial_directory": "f_tier/A04/coupled_learning/ur5e/eval_BC9_9404",
+      "last_flushed_trace": {
+        "time_s": "16.90004154270235",
+        "phase": "return_above_source",
+        "source_count": "0",
+        "receiver_count": "240",
+        "spill_count": "0",
+        "support_N": "1.4803396386644883",
+        "receiver_x": "0.5352214241778683",
+        "receiver_y": "0.21915149199615466",
+        "receiver_z": "0.0012455848869514976",
+        "tube_z": "0.13734835272521043",
+        "ee_x": "0.4961373458616095",
+        "ee_y": "0.12644785361696367",
+        "ee_z": "0.21416695971721134",
+        "native_steps": "9686",
+        "ever_native_solid_penetration_particles": "0",
+        "max_CFL": "0.371989805045517",
+        "min_dt_s": "0.0004067748871183034"
+      },
+      "policy": "f_tier/A04/coupled_learning/ur5e/bc9.npz",
+      "physical_outcome": "UNOBSERVED_FULL_HORIZON; retained asfailure inconservative allstarted denominator",
+      "control_or_policy_modified_before_restart": false
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9401,
+      "name": "DAgger9",
+      "label": "eval_DAgger9_9401",
+      "observed_cause": "Toolsession56106 reportedexit143 consistentwithSIGTERM; originundetermined. Root andworker sentno termination.",
+      "observed_utc": "2026-10-19T12:36:57.761788+00:00",
+      "partial_directory": "f_tier/A04/coupled_learning/ur5e/eval_DAgger9_9401",
+      "last_flushed_trace": {
+        "time_s": "16.600895269695446",
+        "phase": "return_above_source",
+        "source_count": "0",
+        "receiver_count": "240",
+        "spill_count": "0",
+        "support_N": "1.7992549476404838",
+        "receiver_x": "0.5499329753177035",
+        "receiver_y": "0.2161190338400946",
+        "receiver_z": "0.0011039117542521522",
+        "tube_z": "0.1438888479079498",
+        "ee_x": "0.4907852837287244",
+        "ee_y": "0.14226028701220014",
+        "ee_z": "0.22078911669129048",
+        "native_steps": "9542",
+        "ever_native_solid_penetration_particles": "0",
+        "max_CFL": "0.3722887669869706",
+        "min_dt_s": "0.00040780610722471764"
+      },
+      "policy": "f_tier/A04/coupled_learning/ur5e/dagger9.npz",
+      "physical_outcome": "UNOBSERVED_FULL_HORIZON; retained asfailure inconservative allstarted denominator",
+      "control_or_policy_modified_before_restart": false
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9402,
+      "name": "DAgger9",
+      "label": "eval_DAgger9_9402",
+      "observed_cause": "Toolsession56106 reportedexit143 consistentwithSIGTERM; originundetermined. Root andworker sentno termination.",
+      "observed_utc": "2026-10-19T12:36:57.790293+00:00",
+      "partial_directory": "f_tier/A04/coupled_learning/ur5e/eval_DAgger9_9402",
+      "last_flushed_trace": {
+        "time_s": "16.200202288315275",
+        "phase": "return_above_source",
+        "source_count": "0",
+        "receiver_count": "240",
+        "spill_count": "0",
+        "support_N": "1.0818006844343215",
+        "receiver_x": "0.5303041369397825",
+        "receiver_y": "0.2072634485438893",
+        "receiver_z": "0.001204852130623994",
+        "tube_z": "0.15611326751587534",
+        "ee_x": "0.48185066004882865",
+        "ee_y": "0.16043880188380427",
+        "ee_z": "0.23282917547346219",
+        "native_steps": "9369",
+        "ever_native_solid_penetration_particles": "0",
+        "max_CFL": "0.3723859381915769",
+        "min_dt_s": "0.0004075542176937137"
+      },
+      "policy": "f_tier/A04/coupled_learning/ur5e/dagger9.npz",
+      "physical_outcome": "UNOBSERVED_FULL_HORIZON; retained asfailure inconservative allstarted denominator",
+      "control_or_policy_modified_before_restart": false
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9403,
+      "name": "DAgger9",
+      "label": "eval_DAgger9_9403",
+      "observed_cause": "Toolsession56106 reportedexit143 consistentwithSIGTERM; originundetermined. Root andworker sentno termination.",
+      "observed_utc": "2026-10-19T12:36:57.811878+00:00",
+      "partial_directory": "f_tier/A04/coupled_learning/ur5e/eval_DAgger9_9403",
+      "last_flushed_trace": {
+        "time_s": "16.000817701817674",
+        "phase": "return_above_source",
+        "source_count": "0",
+        "receiver_count": "240",
+        "spill_count": "0",
+        "support_N": "1.0886919741607255",
+        "receiver_x": "0.5380484870657587",
+        "receiver_y": "0.2198186281528579",
+        "receiver_z": "0.001223951168945481",
+        "tube_z": "0.1624987954270557",
+        "ee_x": "0.47351505364700247",
+        "ee_y": "0.18094566362999975",
+        "ee_z": "0.2392879003410609",
+        "native_steps": "9270",
+        "ever_native_solid_penetration_particles": "0",
+        "max_CFL": "0.3717595296953133",
+        "min_dt_s": "0.0004077853048138852"
+      },
+      "policy": "f_tier/A04/coupled_learning/ur5e/dagger9.npz",
+      "physical_outcome": "UNOBSERVED_FULL_HORIZON; retained asfailure inconservative allstarted denominator",
+      "control_or_policy_modified_before_restart": false
+    },
+    {
+      "robot": "ur5e",
+      "seed": 9404,
+      "name": "DAgger9",
+      "label": "eval_DAgger9_9404",
+      "observed_cause": "Toolsession56106 reportedexit143 consistentwithSIGTERM; originundetermined. Root andworker sentno termination.",
+      "observed_utc": "2026-10-19T12:36:57.832170+00:00",
+      "partial_directory": "f_tier/A04/coupled_learning/ur5e/eval_DAgger9_9404",
+      "last_flushed_trace": {
+        "time_s": "12.400984376586237",
+        "phase": "pour_hold",
+        "source_count": "0",
+        "receiver_count": "240",
+        "spill_count": "0",
+        "support_N": "4.318554269671579",
+        "receiver_x": "0.5475319458325791",
+        "receiver_y": "0.19846088314765445",
+        "receiver_z": "0.0027569888090045",
+        "tube_z": "0.2760864677915158",
+        "ee_x": "0.47751323578930494",
+        "ee_y": "0.19851697677531369",
+        "ee_z": "0.25441501795694277",
+        "native_steps": "7468",
+        "ever_native_solid_penetration_particles": "0",
+        "max_CFL": "0.37203086748874903",
+        "min_dt_s": "0.00040765784963480453"
+      },
+      "policy": "f_tier/A04/coupled_learning/ur5e/dagger9.npz",
+      "physical_outcome": "UNOBSERVED_FULL_HORIZON; retained asfailure inconservative allstarted denominator",
+      "control_or_policy_modified_before_restart": false
+    }
+  ],
+  "total_started_formal_attempts": 38,
+  "actual_distinct_training_episodes": [
+    {
+      "robot": "ur5e",
+      "label": "expert_1011",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1012",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1013",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1013",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1011",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1012",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1016",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1018",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1014",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1017",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1015",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1019",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1014",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1015",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1016",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1018",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1017",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1019",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_half_1014",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_half_1016",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_half_1015",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_half_1015",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_half_1014",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_half_1016",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_student_1019",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_student_1018",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_student_1017",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_student_1018",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_student_1019",
+      "queries": 650,
+      "admitted": 650
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_student_1017",
+      "queries": 650,
+      "admitted": 650
+    }
+  ],
+  "data_reuse_boundary": "The initial3expert episodes perrobot are shared byBC3,BC9,DAgger9; per-model label budgets are not independent compute totals.",
+  "oracle_comparator_boundary": "Script expert heldout rollouts intentionally query the same teacher after all learned fits are frozen; their labels are never used to fit models.",
+  "declared_differences": [
+    "Only4heldout seeds perrobot, report wide confidence intervals; not paper-scale robustness",
+    "State-based hybrid controller rather than visual end-to-end policy",
+    "Coarse240particles3.75mL; separateA01 multiresolution validation remains independent",
+    "Different actual label budgets after failures are disclosed; matched9episode control does not imply equalteacherquery count",
+    "Independent local state-based reconstruction, not originalGRID implementation/weights/datasets",
+    "Only native8.5..15s feedback is learned; pickup/transfer/return remain scripted; no end-to-end or in-context-learning claim",
+    "Same initialsource/cup poses across seeds; actual movingreceiver trajectories vary. No arbitraryinitialpose/sourceorientation generalization claim",
+    "Separate policy weights perrobot; robotadapter reuse and common semantics, not zero-shot policyweight transfer",
+    "Particle collision scope containers,bench,floor; excludesfluidrobot/rack; diagnostic particle rendering",
+    "BC9/DAgger comparison is descriptive on fixedsmall heldout set; no superiority or statisticalsignificance claim required"
+  ],
+  "earlier_failure_archive": "f_tier/A04/coupled_learning_prephysics_initialization_failure",
+  "earlier_failure_boundary": "Six startup attempts failed before anynative step or training sample due to observingzero site matrices before initial IK. Preserved; fixed initialsetup observation guard before this experiment. No heldout attempt was used for correction.",
+  "evidence": [
+    "f_tier/A04/coupled_learning/protocol.json",
+    "f_tier/A04/coupled_learning/attempts.jsonl",
+    "f_tier/A04/coupled_learning/infrastructure_interruptions.jsonl",
+    "f_tier/A04/coupled_learning/evaluation_continuation.json",
+    "f_tier/A04/coupled_learning/experiment_metrics.json",
+    "f_tier/A04/coupled_moving_receiver/learned_executor.py",
+    "f_tier/A04/coupled_moving_receiver/learned_task.py"
+  ],
+  "recompute": "MUJOCO_GL=disable /tmp/chem_fluids/bin/python f_tier/A04/coupled_moving_receiver/summarize_experiment.py; recompute_learning.py <run> reconstructs native observations/labels/actions",
+  "video": "f_tier/A04/video.mp4",
+  "video_selection": "All4comparators on bothrobots, prespecified heldout seed9401; two sections script_expert/BC3 then BC9/DAgger9; no best-case selection. Actual nearest native frames, terminalhold labeled.",
+  "comparison_interpretation": "Functional completion; currentfixed heldoutevaluation didnotdemonstrateDAgger superiorityoverequal9episodeBC. Both haveceiling successrates on bothrobots.",
+  "old_rigid_pilot_excluded_from_formal_fluid_denominators": true,
+  "training_data_manifest": [
+    {
+      "robot": "ur5e",
+      "label": "expert_1011",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1011/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1011/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1012",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1012/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1012/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1013",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1013/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1013/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1013",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1013/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1013/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1011",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1011/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1011/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1012",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1012/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1012/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1016",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1016/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1016/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1018",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1018/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1018/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1014",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1014/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1014/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1017",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1017/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1017/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1015",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1015/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1015/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "expert_1019",
+      "data": "f_tier/A04/coupled_learning/ur5e/expert_1019/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/expert_1019/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1014",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1014/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1014/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1015",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1015/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1015/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1016",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1016/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1016/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1018",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1018/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1018/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1017",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1017/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1017/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "expert_1019",
+      "data": "f_tier/A04/coupled_learning/flexiv/expert_1019/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/expert_1019/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_half_1014",
+      "data": "f_tier/A04/coupled_learning/ur5e/dagger_half_1014/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/dagger_half_1014/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_half_1016",
+      "data": "f_tier/A04/coupled_learning/ur5e/dagger_half_1016/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/dagger_half_1016/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_half_1015",
+      "data": "f_tier/A04/coupled_learning/ur5e/dagger_half_1015/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/dagger_half_1015/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_half_1015",
+      "data": "f_tier/A04/coupled_learning/flexiv/dagger_half_1015/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/dagger_half_1015/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_half_1014",
+      "data": "f_tier/A04/coupled_learning/flexiv/dagger_half_1014/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/dagger_half_1014/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_half_1016",
+      "data": "f_tier/A04/coupled_learning/flexiv/dagger_half_1016/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/dagger_half_1016/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_student_1019",
+      "data": "f_tier/A04/coupled_learning/ur5e/dagger_student_1019/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/dagger_student_1019/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_student_1018",
+      "data": "f_tier/A04/coupled_learning/ur5e/dagger_student_1018/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/dagger_student_1018/metrics.json"
+    },
+    {
+      "robot": "ur5e",
+      "label": "dagger_student_1017",
+      "data": "f_tier/A04/coupled_learning/ur5e/dagger_student_1017/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/ur5e/dagger_student_1017/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_student_1018",
+      "data": "f_tier/A04/coupled_learning/flexiv/dagger_student_1018/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/dagger_student_1018/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_student_1019",
+      "data": "f_tier/A04/coupled_learning/flexiv/dagger_student_1019/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/dagger_student_1019/metrics.json"
+    },
+    {
+      "robot": "flexiv",
+      "label": "dagger_student_1017",
+      "data": "f_tier/A04/coupled_learning/flexiv/dagger_student_1017/learning_data.npz",
+      "metrics": "f_tier/A04/coupled_learning/flexiv/dagger_student_1017/metrics.json"
+    }
+  ],
+  "frozen_models": [
+    {
+      "robot": "ur5e",
+      "name": "bc3",
+      "weights": "f_tier/A04/coupled_learning/ur5e/bc3.npz",
+      "fit": "f_tier/A04/coupled_learning/ur5e/bc3_fit.json"
+    },
+    {
+      "robot": "ur5e",
+      "name": "bc9",
+      "weights": "f_tier/A04/coupled_learning/ur5e/bc9.npz",
+      "fit": "f_tier/A04/coupled_learning/ur5e/bc9_fit.json"
+    },
+    {
+      "robot": "ur5e",
+      "name": "dagger9",
+      "weights": "f_tier/A04/coupled_learning/ur5e/dagger9.npz",
+      "fit": "f_tier/A04/coupled_learning/ur5e/dagger9_fit.json"
+    },
+    {
+      "robot": "flexiv",
+      "name": "bc3",
+      "weights": "f_tier/A04/coupled_learning/flexiv/bc3.npz",
+      "fit": "f_tier/A04/coupled_learning/flexiv/bc3_fit.json"
+    },
+    {
+      "robot": "flexiv",
+      "name": "bc9",
+      "weights": "f_tier/A04/coupled_learning/flexiv/bc9.npz",
+      "fit": "f_tier/A04/coupled_learning/flexiv/bc9_fit.json"
+    },
+    {
+      "robot": "flexiv",
+      "name": "dagger9",
+      "weights": "f_tier/A04/coupled_learning/flexiv/dagger9.npz",
+      "fit": "f_tier/A04/coupled_learning/flexiv/dagger9_fit.json"
+    }
+  ],
+  "previous_tracking_only_pilot": "f_tier/A04/rigid_tracking_pilot_measurement.json",
+  "previous_tracking_only_pilot_video": "f_tier/A04/rigid_tracking_pilot_video.mp4",
+  "differences": [
+    "Only4heldout seeds perrobot, report wide confidence intervals; not paper-scale robustness",
+    "State-based hybrid controller rather than visual end-to-end policy",
+    "Coarse240particles3.75mL; separateA01 multiresolution validation remains independent",
+    "Different actual label budgets after failures are disclosed; matched9episode control does not imply equalteacherquery count",
+    "Independent local state-based reconstruction, not originalGRID implementation/weights/datasets",
+    "Only native8.5..15s feedback is learned; pickup/transfer/return remain scripted; no end-to-end or in-context-learning claim",
+    "Same initialsource/cup poses across seeds; actual movingreceiver trajectories vary. No arbitraryinitialpose/sourceorientation generalization claim",
+    "Separate policy weights perrobot; robotadapter reuse and common semantics, not zero-shot policyweight transfer",
+    "Particle collision scope containers,bench,floor; excludesfluidrobot/rack; diagnostic particle rendering",
+    "BC9/DAgger comparison is descriptive on fixedsmall heldout set; no superiority or statisticalsignificance claim required"
+  ],
+  "video_kind": "Two four-panel sections,all8comparators on both robots at fixed9401; all231actual native states each; diagnostic particle projection;0new physics/no interpolation.",
+  "video_frames": 462,
+  "criteria": [
+    {
+      "metric": "two_robots_BC9_and_DAgger9_fitted_from_nine_episodes",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "actual_student_visited_states_labeled_and_admitted",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "all32_fixed_disjoint_formal_attempts_preserved",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "heldout_student_expert_query_count_zero",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "at_least_one_complete_physical_DAgger_success_each_robot",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    }
+  ],
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "metrics_passed": true,
+    "video_review_pending": false,
+    "reviewer": "root independently reimplemented native state observations, teacher law, frozen MLP outputs, training normalizers, physical final particle membership and full32 seed coverage; no producer summary/recompute import",
+    "script": "f_tier/review_learning.py",
+    "formal_cases": [
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000417672383158,
+        "native_steps": 12745,
+        "receiver_path_m": 0.1542002226833435,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC3",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00042480034388,
+        "native_steps": 12745,
+        "receiver_path_m": 0.23757280432383257,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC3",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00051079701305,
+        "native_steps": 12831,
+        "receiver_path_m": 0.22465458421866505,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC3",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001233925488176,
+        "native_steps": 12732,
+        "receiver_path_m": 0.26030889676039215,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC3",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_BC3_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00118888150375,
+        "native_steps": 12797,
+        "receiver_path_m": 0.26049376883557135,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC9",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_BC9_9401"
+      },
+      {
+        "counts": {
+          "receiver": 239,
+          "source": 0,
+          "spill": 1
+        },
+        "native_s": 23.00121130695688,
+        "native_steps": 16557,
+        "receiver_path_m": 0.15370063764518402,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC9",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_BC9_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001844665312372,
+        "native_steps": 12737,
+        "receiver_path_m": 0.2362730521368412,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC9",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_BC9_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000783469067624,
+        "native_steps": 12768,
+        "receiver_path_m": 0.23653911595738678,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "DAgger9",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001815284424072,
+        "native_steps": 12780,
+        "receiver_path_m": 0.22418360474173588,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "DAgger9",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00009076752504,
+        "native_steps": 12769,
+        "receiver_path_m": 0.15419827109649725,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "DAgger9",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001200648470245,
+        "native_steps": 12779,
+        "receiver_path_m": 0.22494609083246142,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "BC9",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_BC9_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000252357596,
+        "native_steps": 12746,
+        "receiver_path_m": 0.26086271060162397,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "DAgger9",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/SIGTERM_restarts/ur5e/eval_DAgger9_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000536422435058,
+        "native_steps": 12754,
+        "receiver_path_m": 0.1542057288916989,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "script_expert",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000808418767555,
+        "native_steps": 12777,
+        "receiver_path_m": 0.2240991233772679,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "script_expert",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00051089436617,
+        "native_steps": 12746,
+        "receiver_path_m": 0.23590959359174016,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "script_expert",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00012686956062,
+        "native_steps": 12761,
+        "receiver_path_m": 0.2610544250632877,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "ur5e",
+        "name": "script_expert",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/ur5e/eval_script_expert_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00070085365366,
+        "native_steps": 12864,
+        "receiver_path_m": 0.15419159045179648,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC3",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00088997516708,
+        "native_steps": 12897,
+        "receiver_path_m": 0.2581154011518597,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC3",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00105511800988,
+        "native_steps": 12853,
+        "receiver_path_m": 0.2252943381918573,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC3",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001521206017745,
+        "native_steps": 12792,
+        "receiver_path_m": 0.23508126756016007,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC3",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC3_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000025372332853,
+        "native_steps": 12825,
+        "receiver_path_m": 0.15421155972744638,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC9",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00152873825302,
+        "native_steps": 12950,
+        "receiver_path_m": 0.2586939760820497,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC9",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00074672411503,
+        "native_steps": 12780,
+        "receiver_path_m": 0.23695699998745207,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC9",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000350386148288,
+        "native_steps": 12822,
+        "receiver_path_m": 0.22611344527273186,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "BC9",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_BC9_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000431713189304,
+        "native_steps": 12839,
+        "receiver_path_m": 0.15418676491763159,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "DAgger9",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001228213395137,
+        "native_steps": 12960,
+        "receiver_path_m": 0.25877210027274733,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "DAgger9",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00181833730096,
+        "native_steps": 12829,
+        "receiver_path_m": 0.225570985486739,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "DAgger9",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00162491704597,
+        "native_steps": 12857,
+        "receiver_path_m": 0.23631470089083134,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "DAgger9",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_DAgger9_9404"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.001937681321966,
+        "native_steps": 12831,
+        "receiver_path_m": 0.15415171559673313,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "script_expert",
+        "seed": 9402,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9402"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.000859868433228,
+        "native_steps": 12944,
+        "receiver_path_m": 0.2595374976085759,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "script_expert",
+        "seed": 9401,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9401"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00123705778491,
+        "native_steps": 12836,
+        "receiver_path_m": 0.22525362398148596,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "script_expert",
+        "seed": 9403,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9403"
+      },
+      {
+        "counts": {
+          "receiver": 240,
+          "source": 0,
+          "spill": 0
+        },
+        "native_s": 23.00019279674738,
+        "native_steps": 12830,
+        "receiver_path_m": 0.23520564100653854,
+        "reported_cumulative_scope_penetrations": 0,
+        "robot": "flexiv",
+        "name": "script_expert",
+        "seed": 9404,
+        "directory": "f_tier/A04/coupled_learning/flexiv/eval_script_expert_9404"
+      }
+    ],
+    "training_budgets": [
+      {
+        "robot": "ur5e",
+        "model": "bc3",
+        "episodes": 3,
+        "labels": 1950,
+        "student_states": 0
+      },
+      {
+        "robot": "ur5e",
+        "model": "bc9",
+        "episodes": 9,
+        "labels": 5850,
+        "student_states": 0
+      },
+      {
+        "robot": "ur5e",
+        "model": "dagger9",
+        "episodes": 9,
+        "labels": 5850,
+        "student_states": 2918
+      },
+      {
+        "robot": "flexiv",
+        "model": "bc3",
+        "episodes": 3,
+        "labels": 1950,
+        "student_states": 0
+      },
+      {
+        "robot": "flexiv",
+        "model": "bc9",
+        "episodes": 9,
+        "labels": 5850,
+        "student_states": 0
+      },
+      {
+        "robot": "flexiv",
+        "model": "dagger9",
+        "episodes": 9,
+        "labels": 5850,
+        "student_states": 2918
+      }
+    ],
+    "distinct_training_episodes": 30,
+    "distinct_training_teacher_queries": 19500,
+    "formal_student_teacher_queries": 0,
+    "formal_oracle_teacher_queries_excluded_from_training": 5200,
+    "max_native_observation_reconstruction_error": 0.0,
+    "conservative_groups": [
+      {
+        "robot": "ur5e",
+        "name": "BC3",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 0,
+        "all_started": 4,
+        "conservative_success_rate": 1.0
+      },
+      {
+        "robot": "ur5e",
+        "name": "BC9",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 2,
+        "all_started": 6,
+        "conservative_success_rate": 0.6666666666666666
+      },
+      {
+        "robot": "ur5e",
+        "name": "DAgger9",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 4,
+        "all_started": 8,
+        "conservative_success_rate": 0.5
+      },
+      {
+        "robot": "ur5e",
+        "name": "script_expert",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 0,
+        "all_started": 4,
+        "conservative_success_rate": 1.0
+      },
+      {
+        "robot": "flexiv",
+        "name": "BC3",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 0,
+        "all_started": 4,
+        "conservative_success_rate": 1.0
+      },
+      {
+        "robot": "flexiv",
+        "name": "BC9",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 0,
+        "all_started": 4,
+        "conservative_success_rate": 1.0
+      },
+      {
+        "robot": "flexiv",
+        "name": "DAgger9",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 0,
+        "all_started": 4,
+        "conservative_success_rate": 1.0
+      },
+      {
+        "robot": "flexiv",
+        "name": "script_expert",
+        "completed_successes": 4,
+        "completed_trials": 4,
+        "interrupted": 0,
+        "all_started": 4,
+        "conservative_success_rate": 1.0
+      }
+    ],
+    "video_probe": {
+      "codec_name": "h264",
+      "width": 1600,
+      "height": 960,
+      "r_frame_rate": "10/1",
+      "duration": "46.200000",
+      "nb_frames": "462"
+    },
+    "interpretation": "Both9episode BC and DAgger ceiling success; no DAgger superiority or confidence-interval narrowing from repeated interrupted attempts.",
+    "native_state_records_reconstructed": 36400,
+    "video_review": "Root inspected encoded12s,35s,44s frames: all8fixed9401 panels, pouring and returned robot views; state counts/learned window/expert-query boundary and diagnostic X-Z particle rendering labeled. Frame-map1848panel samples covers each8x231 original native states exactly;0new physics/no interpolation.",
+    "video_frame_map": "f_tier/A04/video-frame-map.json",
+    "limitations": [
+      "6earlier expert training archives contain state observations/labels and10Hz native replay but not every learning-state qpos; all available complete qpos/qvel archives independently reconstructed.",
+      "Cumulative scope flags are logged pernative step; independent particle partition verified final saved states, not unsaved substep collision forces.",
+      "Only four heldout seeds per robot/comparator;8/8groups ceiling success, no method superiority proved.",
+      "Six interrupted evals retained separately and as failures in conservative denominators; known SIGTERM-style exit143, origin unresolved.",
+      "State policy observes simulator object/goal state; no visual-policy or zero-shot cross-robot-weight-transfer claim."
+    ]
+  },
+  "accepted_at_utc": "2026-10-19T13:29:14.304376+00:00",
+  "derived_measurement_figure": "f_tier/A04/learning_results.pdf",
+  "derived_figure_scope": "Same accepted32completed/38started native trials and actualpermodel teacher-label budgets; no new experiment or fit."
+}

@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "reviewer": "Root independent raw-array particle partition/gross-wall observer, command journal/native clocks, actual finger contact loss/recovery, and independently rebuilt primary thermal propagator; no new simulation.",
+  "physics_steps": 19955,
+  "observations": 3991,
+  "native_s": 66.51666827732697,
+  "final_particle_counts": {
+    "source": 0,
+    "receiver": 125,
+    "boundary_ambiguous": 0,
+    "transit": 0,
+    "spill_near_table": 0,
+    "outside_unresolved": 0
+  },
+  "max_lift_m": 0.2397681941986084,
+  "source_return_error_m": 0.005445119610211138,
+  "max_thermal_replay_error_C": 3.943512183468556e-13,
+  "final_plate_beaker_solution_C": [
+    30.840698179698673,
+    29.4587110028018,
+    28.00774929263372
+  ],
+  "final_heater_on": false,
+  "contact_fraction_while_heating": 1.0,
+  "applied_commands": 3993,
+  "observed_effect_commands": 3367,
+  "fault_open_applied_native_s": 7.65000018524006,
+  "first_physical_contact_loss_native_s": 7.6666668523103,
+  "fault_close_applied_native_s": 7.700000186450779,
+  "first_physical_contact_recovery_native_s": 7.750000187661499,
+  "video_probe": {
+    "codec_name": "h264",
+    "width": 960,
+    "height": 640,
+    "r_frame_rate": "5/1",
+    "duration": "68.400000",
+    "nb_frames": "342"
+  },
+  "all_five_local_gates": true,
+  "limitations": [
+    "Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.",
+    "Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.",
+    "Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.",
+    "Parameter mass bookkeeping, not a calibrated physical volume/density measurement.",
+    "Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.",
+    "Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim.",
+    "Scripted local workflow and known pose00 fixture; no learned agent or unseen-task generalization claim.",
+    "Original scale1 public cup is42mm inner diameter, not calibrated500mL capacity.",
+    "Original PBD defaults+isosurface/smoothing; smoothed display-point observer and gross wall gate, not raw subparticle penetration.",
+    "N07 effective nonreciprocal thermal fit, not recovered author parameters/calorimetric identification.",
+    "Fault recovered while cup remains table-supported; no airborne drop-recovery claim.",
+    "One local native episode, optional blocked negative, no statistical success-rate estimate.",
+    "GPU static table contact tensor filtering fails even for actual child collider; support guard uses raw native actual-table contact impulse. Absolute GPU support reading ~26.50N differs from CPU2.943N and is not calibrated or interpreted as weight; only support presence is used."
+  ],
+  "visual_review": {
+    "passed": true,
+    "viewed": [
+      "combined/runs/positive/root_fault.png",
+      "combined/runs/positive/root_pour.png",
+      "combined/runs/positive/root_heat.png",
+      "combined/runs/positive/root_terminal.png"
+    ],
+    "scope": "Four actual native video frames inspected: glass/tool/receiver-on-IKA geometry, full-transfer label, continuing heat and exact28.01C heater-off terminal. Not exhaustive frame-by-frame or original visual identity."
+  },
+  "timing_interpretation": "Ordinary6mm EE receipts indicate target arrival/already within tolerance, not separately identified motion latency. Finger open/close applied-to-first observed effect16.667/50ms; observed at60Hz. Heater switch receipt16.667ms is semantic observation, not hardware thermal delay.",
+  "prior_failed_attempts": [
+    {
+      "result": "combined/runs/attempt_001_static_support_root_filter_empty/result.json",
+      "preserved": true
+    },
+    {
+      "result": "combined/runs/attempt_002_GPU_static_child_filter_empty/result.json",
+      "preserved": true
+    },
+    {
+      "result": "combined/runs/attempt_003_receiver_tipped_during_transport/result.json",
+      "preserved": true
+    }
+  ]
+}
