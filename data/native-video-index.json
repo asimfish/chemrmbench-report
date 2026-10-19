@@ -147,10 +147,10 @@
   },
   {
     "id": "delayed_cue_memory",
-    "title": "T8 · 短暂提示后记住目标瓶",
-    "station_a": "assets/native-v01/t8-station-a-web.mp4",
-    "wrist": "assets/native-v01/t8-wrist-web.mp4",
-    "scope": "三只相同瓶子、1秒提示、3秒保留间隔后选瓶入托盘，8阶段、放置误差0.99mm。当前是真值专家物理资格录像，不是模型记忆成绩。提示后像素检查尚未通过，渲染配置修复中，暂停随机化批次。逐帧无损RGB用于检查，网页MP4仅供展示。",
+    "title": "T8 · 受控恒定光照下的短暂提示记忆",
+    "station_a": "assets/native-v01/t8-ambient-station-a-web.mp4",
+    "wrist": "assets/native-v01/t8-ambient-wrist-web.mp4",
+    "scope": "受控恒定光照录像：保留场景几何和物理，关闭直接光照、GI、反射和AO，画面较暗。三种布局的不同提示对照，在提示熄灭后两路无损RGB最大像素差均为0（门槛2/255）。整任务40.36秒、8阶段，离线判分与完整视频解码通过；20个随机seed正在采集。当前是真值专家数据，不是模型记忆成绩。网页为H.264展示编码。",
     "stages": [
       {
         "name": "cue_observed",

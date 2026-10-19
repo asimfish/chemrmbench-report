@@ -71,7 +71,7 @@ def collect_task_library():
         state=('needs_expert_fix' if n and successes/n<.8 else
                'batch_collected' if unique>=20 else 'collecting' if task_id in active else
                'needs_expert_fix' if calibration and not n else
-               'smoke_passed' if qualified else 'planned')
+               'smoke_passed' if qualified else 'needs_expert_fix' if all_rows else 'planned')
         tasks.append({'number':number,'id':task_id,'title':title,'dimension':dimension,
             'status':state,'dataset_attempts':n,'dataset_unique_seeds':unique,'target_unique_seeds':20,
             'successes':successes,'success_rate':successes/n if n else None,
@@ -84,6 +84,7 @@ def collect_task_library():
             'calibration_trials':calibration,
             'memory_gate_attempts':sum(r['memory_gate'] for r in all_rows),
             'memory_layout_gates_passed':sum(r.get('passed') is True for r in memory_gates.get('layouts',[])) if number=='T8' else None,
+            'observation_profile':memory_gates.get('profile') if number=='T8' else None,
             'render_diagnostic_attempts':sum(r['diagnostic_prefix'] for r in all_rows),
             'failure_reasons':dict(Counter(v for r in rows for v in r['failure_reasons'])),
             'trials':rows,'engineering_only':number in {'T3','T6','T7'}})
@@ -93,5 +94,5 @@ def collect_task_library():
             'dataset_attempts':sum(t['dataset_attempts'] for t in tasks),
             'calibration_attempts':sum(t['calibration_attempts'] for t in tasks),
             'benchmark_complete':False,'conference_ready':False,
-            'scope':'Native scripted expert development. M1, calibrated chemistry and model comparisons are pending.',
+            'scope':'Native privileged expert development. T8 uses controlled ambient lighting with per-layout pixel controls; agent memory results, chemistry calibration and model comparisons are pending.',
             'cold_restore_boundaries':{'verified':1,'total':8}}
