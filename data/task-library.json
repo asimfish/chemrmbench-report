@@ -1,28 +1,28 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-19T12:03:29.309087+00:00",
+  "updated_at_utc": "2026-10-19T12:18:27.823299+00:00",
   "tasks": [
     {
       "number": "T2",
       "id": "bottle_balance",
       "title": "瓶子 → 天平 → 返回",
       "dimension": "M0 / T0 · 八阶段长任务",
-      "status": "collecting",
-      "dataset_attempts": 17,
-      "dataset_unique_seeds": 17,
+      "status": "batch_collected",
+      "dataset_attempts": 20,
+      "dataset_unique_seeds": 20,
       "target_unique_seeds": 20,
-      "successes": 16,
-      "success_rate": 0.9411764705882353,
+      "successes": 17,
+      "success_rate": 0.85,
       "status_counts": {
-        "success": 16,
-        "fail": 1
+        "success": 17,
+        "fail": 3
       },
-      "verified_dataset_attempts": 5,
+      "verified_dataset_attempts": 16,
       "qualification_attempts": 1,
       "qualification_safe_successes": 1,
       "render_diagnostic_attempts": 0,
       "failure_reasons": {
-        "return": 1
+        "return": 3
       },
       "trials": [
         {
@@ -111,7 +111,7 @@
           "placement_error_mm": 0.984,
           "return_error_mm": 0.55,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -126,7 +126,7 @@
           "placement_error_mm": 1.873,
           "return_error_mm": 0.835,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -141,7 +141,7 @@
           "placement_error_mm": 1.174,
           "return_error_mm": 0.773,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -156,7 +156,7 @@
           "placement_error_mm": 1.867,
           "return_error_mm": 0.44,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -171,7 +171,7 @@
           "placement_error_mm": 1.456,
           "return_error_mm": 0.434,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -186,7 +186,7 @@
           "placement_error_mm": 0.981,
           "return_error_mm": 0.565,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -201,7 +201,7 @@
           "placement_error_mm": 1.068,
           "return_error_mm": 0.977,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -216,7 +216,7 @@
           "placement_error_mm": 1.262,
           "return_error_mm": 0.608,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -231,7 +231,7 @@
           "placement_error_mm": 0.696,
           "return_error_mm": 0.883,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -246,7 +246,7 @@
           "placement_error_mm": 1.48,
           "return_error_mm": 0.169,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -278,6 +278,55 @@
           "placement_error_mm": 1.363,
           "return_error_mm": 0.74,
           "stage_count": 8,
+          "recording_verified": true,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 18,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "fail",
+          "safe_success": false,
+          "wall_time_s": 417.03,
+          "placement_error_mm": 1.119,
+          "return_error_mm": 1.124,
+          "stage_count": 8,
+          "recording_verified": false,
+          "failure_reasons": [
+            "return"
+          ],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 17,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "fail",
+          "safe_success": false,
+          "wall_time_s": 395.01,
+          "placement_error_mm": 1.081,
+          "return_error_mm": 1.071,
+          "stage_count": 8,
+          "recording_verified": false,
+          "failure_reasons": [
+            "return"
+          ],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 19,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 424.28,
+          "placement_error_mm": 1.022,
+          "return_error_mm": 0.787,
+          "stage_count": 8,
           "recording_verified": false,
           "failure_reasons": [],
           "visual_contrast_flag": false
@@ -291,13 +340,13 @@
       "title": "烧杯抓取与放置",
       "dimension": "M0 / T0 · 基础物理对照",
       "status": "collecting",
-      "dataset_attempts": 4,
-      "dataset_unique_seeds": 4,
+      "dataset_attempts": 8,
+      "dataset_unique_seeds": 8,
       "target_unique_seeds": 20,
-      "successes": 4,
+      "successes": 8,
       "success_rate": 1.0,
       "status_counts": {
-        "success": 4
+        "success": 8
       },
       "verified_dataset_attempts": 0,
       "qualification_attempts": 3,
@@ -364,6 +413,66 @@
           "recording_verified": false,
           "failure_reasons": [],
           "visual_contrast_flag": false
+        },
+        {
+          "seed": 4,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 378.38,
+          "placement_error_mm": 1.694,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 5,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 381.66,
+          "placement_error_mm": 1.308,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 6,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 379.4,
+          "placement_error_mm": 1.278,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 7,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 375.65,
+          "placement_error_mm": 1.317,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
         }
       ],
       "engineering_only": false
@@ -381,7 +490,7 @@
       "success_rate": null,
       "status_counts": {},
       "verified_dataset_attempts": 0,
-      "qualification_attempts": 0,
+      "qualification_attempts": 1,
       "qualification_safe_successes": 0,
       "render_diagnostic_attempts": 0,
       "failure_reasons": {},
@@ -490,7 +599,7 @@
     }
   ],
   "native_tasks_with_dataset": 2,
-  "dataset_attempts": 21,
+  "dataset_attempts": 28,
   "benchmark_complete": false,
   "conference_ready": false,
   "scope": "Native scripted expert development. M1, calibrated chemistry and model comparisons are pending.",
