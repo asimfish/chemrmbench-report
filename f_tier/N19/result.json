@@ -1,0 +1,188 @@
+{
+  "id": "N19",
+  "status": "F_PASS",
+  "scope": "Qualitative native function reconstruction with declared configuration differences",
+  "protocol": {
+    "dt_s": 0.008333333333333333,
+    "max_seconds": 35.0,
+    "positive": "close gripper and execute original HSM",
+    "negative": "same native path, no-close gripper",
+    "local_thresholds": {
+      "min_lift_m": 0.05,
+      "placement_error_m": 0.01,
+      "negative_lift_limit_m": 0.02,
+      "retained_sample_count": 8,
+      "sample_xy_error_m": 0.006,
+      "sample_local_z_error_m": 0.012
+    },
+    "object_pose_writes_after_initialization": false,
+    "grasp_constraints": false,
+    "controller": "Original matterix_sm StateMachine + local joint-drive/IK adapter",
+    "robot": "NVIDIA Panda native parallel hand, replacing Robotiq for local F-tier functions"
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.1440115851163864,
+    "positive_placement_error_m": 0.0065491603852734495,
+    "positive_terminal_gripper_contact_fraction": 0.0,
+    "negative_peak_lift_m": 8.760094642637495e-06,
+    "minimum_retained_sample_count_last_1s": 8
+  },
+  "gates": {
+    "lift": true,
+    "placement": true,
+    "released": true,
+    "negative_rejected": true,
+    "run_complete": true,
+    "samples_retained": true
+  },
+  "observations": [
+    {
+      "case": "positive",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.1440115851163864,
+      "terminal_position_m": [
+        0.049733924493193624,
+        -0.1934562468280395,
+        0.07999996580183506
+      ],
+      "goal_error_m": 0.0065491603852734495,
+      "measured_mass_kg": 0.15999633166970664,
+      "expected_mass_kg": 0.08,
+      "mass_relative_error": 0.999954145871333,
+      "terminal_speed_m_s": 0.0008336648359230445,
+      "terminal_gripper_contact_samples": 0
+    },
+    {
+      "case": "no_close",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 8.760094642637495e-06,
+      "terminal_position_m": [
+        1.7499999970197677,
+        -0.4000000034769376,
+        0.07999999107172091
+      ],
+      "goal_error_m": 0.3605551269953539,
+      "measured_mass_kg": 0.0,
+      "expected_mass_kg": 0.08,
+      "mass_relative_error": 1.0,
+      "terminal_speed_m_s": 0.0006513991209266672,
+      "terminal_gripper_contact_samples": 0
+    }
+  ],
+  "differences": [
+    "Local rigid rack and 8 independent 10g sample tubes; no attachment/weld and no runtime object pose commands.",
+    "Sample contents are included in rigid tube masses; no fluid simulation is claimed.",
+    "Original Matterix HSM with NVIDIA Panda native hand and local motion adapter.",
+    "Local retention thresholds: all8 tube centers within6mm XY and12mm Z of their own rack pockets during the terminal1s."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "video": "video.mp4"
+  },
+  "video_frames": 117,
+  "native_steps": 1412,
+  "wall_s": 38.817963980996865,
+  "full_original_reproduction": false,
+  "non_gating_observations": {
+    "support_force_readout": "Original observation compared support mass with rack-only80g, excluding eight10g tubes. Correct full load160g agrees with159.996g readout; N18 compound-beaker failure remains separate."
+  },
+  "native_setup": {
+    "reported_physics_dt_s": 0.008333333333333333,
+    "meters_per_unit": 1.0,
+    "bodies": [
+      {
+        "case": "positive",
+        "native_mass_kg": [
+          [
+            0.07999999821186066
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial0/Beaker"
+        ],
+        "authored_collider_count": 37,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial0/Beaker",
+            "mass": 0.07999999821186066,
+            "density": 0.0
+          }
+        ]
+      },
+      {
+        "case": "no_close",
+        "native_mass_kg": [
+          [
+            0.07999999821186066
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial1/Beaker"
+        ],
+        "authored_collider_count": 37,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial1/Beaker",
+            "mass": 0.07999999821186066,
+            "density": 0.0
+          }
+        ]
+      }
+    ],
+    "physics_scenes": [
+      {
+        "path": "/physicsScene",
+        "magnitude": 9.8100004196167,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "native_clock": {
+    "callbacks": 1412,
+    "sum_dt_s": 11.766667280346155,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "reviewer": "root independent saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T10:33:25.492554+00:00",
+    "passed": true,
+    "raw_records_checked": 2824,
+    "metrics": {
+      "positive_peak_lift_m": 0.1440115851163864,
+      "positive_max_final_1s_error_m": 0.0065493815433715855,
+      "positive_terminal_contact_samples": 0,
+      "negative_peak_lift_m": 8.760094642637495e-06,
+      "minimum_retained_samples_entire_positive": 8,
+      "maximum_pocket_xy_error_m": 0.003128032625434609,
+      "maximum_pocket_z_error_m": 0.0005855659998491858
+    },
+    "retention_recalculation": "Independently invert saved rack quaternion and transform all8 samplecenters for every native observation, not just terminalwindow.",
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "frames": 117,
+      "duration_s": 11.7
+    },
+    "visual_review": "Viewed native transport and terminal frames, rack airborne with8independent samples and finalhandwithdrawn."
+  },
+  "support_mass_accounting": {
+    "original_observation_expected_mass_is": "rack_only",
+    "rack_mass_kg": 0.08,
+    "sample_count": 8,
+    "individual_sample_mass_kg": 0.01,
+    "correct_total_expected_mass_kg": 0.16,
+    "positive_support_implied_mass_kg": 0.15999633166970664,
+    "correct_total_mass_relative_error": 2.2927064333502778e-05,
+    "gating": false,
+    "note": "The apparent2x factor relative to rack-only mass is expected because8sampletubes contribute80g; this N19 readout is not evidence of the N18 compound-contact problem."
+  }
+}

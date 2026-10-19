@@ -1,0 +1,171 @@
+{
+  "id": "N17",
+  "status": "F_PASS",
+  "scope": "Qualitative native function reconstruction with declared configuration differences",
+  "protocol": {
+    "dt_s": 0.008333333333333333,
+    "max_seconds": 35.0,
+    "positive": "close gripper and execute original HSM",
+    "negative": "same native path, no-close gripper",
+    "local_thresholds": {
+      "min_lift_m": 0.05,
+      "placement_error_m": 0.01,
+      "negative_lift_limit_m": 0.02
+    },
+    "object_pose_writes_after_initialization": false,
+    "grasp_constraints": false,
+    "controller": "Original matterix_sm StateMachine + local joint-drive/IK adapter",
+    "robot": "NVIDIA Panda native parallel hand, replacing Robotiq for local F-tier functions"
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.1715221834182739,
+    "positive_placement_error_m": 0.004779886254779635,
+    "positive_terminal_gripper_contact_fraction": 0.0,
+    "negative_peak_lift_m": 0.005079990327358244
+  },
+  "gates": {
+    "lift": true,
+    "placement": true,
+    "released": true,
+    "negative_rejected": true,
+    "run_complete": true
+  },
+  "observations": [
+    {
+      "case": "positive",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.1715221834182739,
+      "terminal_position_m": [
+        0.13891699376205605,
+        -0.2146555783847968,
+        0.10705001478393873
+      ],
+      "goal_error_m": 0.004779886254779635,
+      "measured_mass_kg": 0.3000000746040331,
+      "expected_mass_kg": 0.1,
+      "mass_relative_error": 2.000000746040331,
+      "terminal_speed_m_s": 0.00014475141192507175,
+      "terminal_gripper_contact_samples": 0
+    },
+    {
+      "case": "no_close",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.005079990327358244,
+      "terminal_position_m": [
+        1.750748989979426,
+        -0.40004391024510066,
+        0.08000001162290574
+      ],
+      "goal_error_m": 0.285067582284968,
+      "measured_mass_kg": 0.0,
+      "expected_mass_kg": 0.1,
+      "mass_relative_error": 1.0,
+      "terminal_speed_m_s": 0.0001339824203593014,
+      "terminal_gripper_contact_samples": 0
+    }
+  ],
+  "differences": [
+    "Locally reconstructed hollow beaker/funnel geometry, not author labware CAD.",
+    "Contents are represented by rigid lumped mass; this task does not validate liquid flow.",
+    "NVIDIA standard Panda parallel hand replaces the author Robotiq; arm gravity compensation is represented by disabled link gravity.",
+    "Reconstructed scale uses native support contact impulses; this is not an author calibrated scale.",
+    "One local positive and one negative scene; no statistical success rate claim.",
+    "A local rigid OT2 cup holder raises the receiving support to the predeclared 107.05mm goal bottom; the original deck geometry and remaining collisions are unchanged. Two original front service panels are rotated together with their collision meshes to a fixed open loading configuration at initialization; original OT2 deck and other colliders retained. This is not the author automatic door mechanism and does not validate any door-operation requirement."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "video": "video.mp4"
+  },
+  "video_frames": 157,
+  "native_steps": 1890,
+  "wall_s": 52.61408310299157,
+  "full_original_reproduction": false,
+  "non_gating_observations": {
+    "support_force_readout": "Support-force implied mass is diagnostic only; N18 compound manifold aggregation remains unresolved and is not a gate for N17."
+  },
+  "native_setup": {
+    "reported_physics_dt_s": 0.008333333333333333,
+    "meters_per_unit": 1.0,
+    "bodies": [
+      {
+        "case": "positive",
+        "native_mass_kg": [
+          [
+            0.10000000149011612
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial0/Beaker"
+        ],
+        "authored_collider_count": 65,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial0/Beaker",
+            "mass": 0.10000000149011612,
+            "density": 0.0
+          }
+        ]
+      },
+      {
+        "case": "no_close",
+        "native_mass_kg": [
+          [
+            0.10000000149011612
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial1/Beaker"
+        ],
+        "authored_collider_count": 65,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial1/Beaker",
+            "mass": 0.10000000149011612,
+            "density": 0.0
+          }
+        ]
+      }
+    ],
+    "physics_scenes": [
+      {
+        "path": "/physicsScene",
+        "magnitude": 9.8100004196167,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "native_clock": {
+    "callbacks": 1890,
+    "sum_dt_s": 15.75000082142651,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "reviewer": "root independent saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T10:31:20.118735+00:00",
+    "passed": true,
+    "raw_records_checked": 3780,
+    "metrics": {
+      "positive_peak_lift_m": 0.1715221834182739,
+      "positive_max_final_1s_error_m": 0.004779971884923409,
+      "positive_terminal_contact_samples": 0,
+      "negative_peak_lift_m": 0.005079990327358244
+    },
+    "native_clock_callbacks": 1890,
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "frames": 157,
+      "duration_s": 15.7
+    },
+    "visual_review": "Actual beaker upright on declared local OT2 holder; hand retreated. Service panels visibly open, original deck retained."
+  }
+}

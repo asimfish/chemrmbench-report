@@ -1,0 +1,323 @@
+{
+  "id": "A02",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "scope": "Continuous loaded dual-Flexiv rack extraction, physical handoff, receiver transport, pour, untilt and suspended return. One positive and one no-close prerequisite negative; independent local reconstruction.",
+  "protocol": {
+    "native_rigid_dt_s": "adaptive; synchronized to Warp per step;<=2ms cap",
+    "EE_control_interval_s": 0.02,
+    "robot_model": "Existing reference_scene_suite_r3 dualFlexiv+Robotiq",
+    "rack": "Local open-bottom16segment hole and two supporting posts, real static collision shapes; source bench carries initial tube weight.",
+    "object_pose_writes_after_initialization": false,
+    "object_attachments": false,
+    "gravity_feedforward": "Native residual qfrc_bias minus qfrc_passive; source gravcomp not double-counted.",
+    "CFL_lambda": 0.4,
+    "fluid_particles": 240,
+    "fluid_initial_volume_ml": 3.75,
+    "mouth_pivot_offset_m": [
+      -0.08203054586190836,
+      0,
+      0.24
+    ],
+    "local_thresholds": true,
+    "held_out_generalization": false,
+    "negative_scope": "No-close input tested through physical extraction attempt; no handoff/pour is claimed for this negative."
+  },
+  "rigid_prefix": {
+    "positive": {
+      "case": "positive",
+      "status": "RIGID_PREFIX_PASS",
+      "error": null,
+      "native_s": 20.00000000000146,
+      "native_steps": 20000,
+      "peak_lift_m": 0.1901064689692851,
+      "wall_s": 36.53393656499975,
+      "object_pose_writes_after_init": false,
+      "attachments": false,
+      "fluid_task_executed": false,
+      "F_PASS": false
+    },
+    "negative": {
+      "case": "negative_no_close",
+      "status": "RIGID_PREFIX_PASS",
+      "error": null,
+      "native_s": 7.500000000000839,
+      "native_steps": 7500,
+      "peak_lift_m": -0.0020601000000000005,
+      "wall_s": 9.212565936992178,
+      "object_pose_writes_after_init": false,
+      "attachments": false,
+      "fluid_task_executed": false,
+      "F_PASS": false
+    }
+  },
+  "video": "f_tier/A02/video.mp4",
+  "video_kind": "39s actual saved MuJoCo qpos and Warp particle-state rendering:31.5s positive+7.5s negative,10fps; no replayed dynamics or interpolation. Native clocks labelled.",
+  "video_frames": 390,
+  "evidence": [
+    "f_tier/A02/positive/trace.jsonl",
+    "f_tier/A02/negative_no_close/trace.jsonl",
+    "f_tier/A02/positive/native-states.npz",
+    "f_tier/A02/negative_no_close/native-states.npz"
+  ],
+  "differences": [
+    "Independent MuJoCo3.3.7/Warp1.9.1 reconstruction; proprietary GRID unavailable.",
+    "Existing source-linked Flexiv/Robotiq models, simplified local open-bottom rack rather than author rack CAD.",
+    "Vessel walls and bottoms thickened outward6.5mm with original empty inertia retained;3.75mL local fluid fill.",
+    "Fluid collision validation includes tube/beaker walls/bottoms,bench_top,floor only; no fluid-rack or fluid-robot boundaries. No global collision-free claim.",
+    "Sim-observed object poses and script expert; no trained policy, perception or cross-robot skill-reuse acceptance.",
+    "Pour mouth calibrated upstream57.03mm using failed saved landing offsets; task-specific repair, not held-out generalization.",
+    "Opaque blue labware/particle point rendering differs from original material and continuous liquid appearance.",
+    "One continuous positive and one no-close prerequisite control, not statistical success-rate evidence."
+  ],
+  "pending": [],
+  "coupled_attempts": {
+    "positive": {
+      "case": "positive",
+      "status": "NATIVE_TASK_FAILED",
+      "error": "Receiver/spill functional gates failed",
+      "native_s": 31.500654610599994,
+      "native_steps": 28532,
+      "peak_lift_m": 0.27962503895678775,
+      "wall_s": 856.4841834889958,
+      "object_pose_writes_after_init": false,
+      "attachments": false,
+      "fluid_task_executed": true,
+      "F_PASS": false,
+      "fluid_particles": 240,
+      "handoff_source_fraction": 1.0,
+      "final_source_count": 0,
+      "final_receiver_count": 22,
+      "final_spill_count": 218,
+      "native_solid_penetration_particles": 0,
+      "max_CFL": 0.3743165618672544,
+      "collision_scope": "tube/beaker walls andbottoms,bench_top,floor;fluid-rack/robotboundaries notimplemented",
+      "video": "f_tier/A02/coupled_positive/video.mp4"
+    },
+    "coupled_no_close": {
+      "case": "negative_no_close",
+      "status": "COUPLED_CANDIDATE_PASS",
+      "error": null,
+      "native_s": 7.501674229519518,
+      "native_steps": 3756,
+      "peak_lift_m": -0.002448288171322463,
+      "wall_s": 277.6202596189978,
+      "object_pose_writes_after_init": false,
+      "attachments": false,
+      "fluid_task_executed": true,
+      "F_PASS": false,
+      "fluid_particles": 240,
+      "handoff_source_fraction": null,
+      "final_source_count": 240,
+      "final_receiver_count": 0,
+      "final_spill_count": 0,
+      "native_solid_penetration_particles": 0,
+      "max_CFL": 0.31929705102615097,
+      "mouth_pivot_offset_m": [
+        -0.025,
+        0,
+        0.24
+      ],
+      "collision_scope": "tube/beaker walls andbottoms,bench_top,floor;fluid-rack/robotboundaries notimplemented",
+      "video": "f_tier/A02/coupled_no_close/video.mp4"
+    },
+    "coupled_aligned_positive": {
+      "case": "positive",
+      "status": "COUPLED_CANDIDATE_PASS",
+      "error": null,
+      "native_s": 31.50049334206946,
+      "native_steps": 19492,
+      "peak_lift_m": 0.27933986801937044,
+      "wall_s": 773.6112351539923,
+      "object_pose_writes_after_init": false,
+      "attachments": false,
+      "fluid_task_executed": true,
+      "F_PASS": false,
+      "fluid_particles": 240,
+      "handoff_source_fraction": 1.0,
+      "final_source_count": 0,
+      "final_receiver_count": 236,
+      "final_spill_count": 4,
+      "native_solid_penetration_particles": 0,
+      "max_CFL": 0.37616551691454747,
+      "mouth_pivot_offset_m": [
+        -0.08203054586190836,
+        0,
+        0.24
+      ],
+      "collision_scope": "tube/beaker walls andbottoms,bench_top,floor;fluid-rack/robotboundaries notimplemented",
+      "video": "f_tier/A02/coupled_aligned_positive/video.mp4"
+    }
+  },
+  "failure_diagnosis": {
+    "source": "f_tier/A02/coupled_positive/replay_diagnosis.json",
+    "receiver_plane_samples_Hz": 10,
+    "median_landing_offset_xy_m": [
+      0.057030545861908366,
+      -0.000354719033526546
+    ],
+    "receiver_max_motion_m": 0.0002816855046860627,
+    "grasp_rotation_max_change_rad": 0.016208189134177715,
+    "grasp_translation_max_change_m": 0.003010496982779699,
+    "counterfactual": {
+      "attempt": "coupled_aligned_positive",
+      "changed_parameter": "mouth_pivot_X_relative_to_receiver",
+      "old_m": -0.025,
+      "new_m": -0.08203054586190836,
+      "all_other_task_physics_and_pour_parameters_unchanged": true,
+      "prediction": "If global jet offset dominates, shifting mouth upstream by saved median landing error should center the jet. Saved samples predict98.33% geometrically inside42mm; a new native run must test this, not a claimed result."
+    }
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "created_utc": "2026-10-19T11:21:16.295178+00:00",
+  "metrics": {
+    "native_duration_s": 31.50049334206946,
+    "native_integrator_steps": 19492,
+    "raw_control_observations": 1575,
+    "saved_native_frames": 315,
+    "peak_lift_m": 0.27933986801937044,
+    "final_source_count": 0,
+    "final_receiver_count": 236,
+    "final_spill_count": 4,
+    "max_scoped_particle_penetrations_saved_frames": 0,
+    "max_CFL": 0.37616551691454747,
+    "exclusive_receiver_contact_fraction": 1.0,
+    "handoff_source_fraction_min": 1.0,
+    "receiver_fraction": 0.9833333333333333,
+    "spill_fraction": 0.016666666666666666,
+    "minimum_sender_hold_lift_m": 0.12049742453819354
+  },
+  "negative_metrics": {
+    "native_duration_s": 7.501674229519518,
+    "native_integrator_steps": 3756,
+    "raw_control_observations": 375,
+    "saved_native_frames": 75,
+    "peak_lift_m": -0.002448288171322463,
+    "final_source_count": 240,
+    "final_receiver_count": 0,
+    "final_spill_count": 0,
+    "max_scoped_particle_penetrations_saved_frames": 0,
+    "max_CFL": 0.31929705102615097
+  },
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root, independent from producer metrics: replay of recorded MuJoCo qpos, particle states and50Hz contact trace",
+    "script": "f_tier/a02_acceptance_recompute.py",
+    "local_thresholds": true,
+    "scope": "Body-local tube/beaker solids and bench/floor only; native integrated counter covers all substeps, independent point-in-solid recomputation covers saved10Hz states. No global robot/fluid collision or visual identity claim.",
+    "cases": {
+      "coupled_aligned_positive": {
+        "observed": {
+          "native_duration_s": 31.50049334206946,
+          "native_integrator_steps": 19492,
+          "raw_control_observations": 1575,
+          "saved_native_frames": 315,
+          "peak_lift_m": 0.27933986801937044,
+          "final_source_count": 0,
+          "final_receiver_count": 236,
+          "final_spill_count": 4,
+          "max_scoped_particle_penetrations_saved_frames": 0,
+          "max_CFL": 0.37616551691454747,
+          "exclusive_receiver_contact_fraction": 1.0,
+          "handoff_source_fraction_min": 1.0,
+          "receiver_fraction": 0.9833333333333333,
+          "spill_fraction": 0.016666666666666666,
+          "minimum_sender_hold_lift_m": 0.12049742453819354
+        },
+        "checks": {
+          "all_saved_native_states_finite": true,
+          "all_saved_scoped_penetrations_zero": true,
+          "all_substep_producer_scoped_counter_zero": true,
+          "lift_at_least50mm": true,
+          "exclusive_receiver_hold_at_least95percent": true,
+          "loaded_handoff_retains95percent": true,
+          "complete_all_phases": true,
+          "receiver_at_least50percent": true,
+          "spill_at_most10percent": true
+        }
+      },
+      "coupled_no_close": {
+        "observed": {
+          "native_duration_s": 7.501674229519518,
+          "native_integrator_steps": 3756,
+          "raw_control_observations": 375,
+          "saved_native_frames": 75,
+          "peak_lift_m": -0.002448288171322463,
+          "final_source_count": 240,
+          "final_receiver_count": 0,
+          "final_spill_count": 0,
+          "max_scoped_particle_penetrations_saved_frames": 0,
+          "max_CFL": 0.31929705102615097
+        },
+        "checks": {
+          "all_saved_native_states_finite": true,
+          "all_saved_scoped_penetrations_zero": true,
+          "all_substep_producer_scoped_counter_zero": true,
+          "no_close_lift_below20mm": true,
+          "no_receiver_transfer": true
+        }
+      }
+    },
+    "failed_vs_aligned_initial_states_exactly_identical": {
+      "qpos": true,
+      "qvel": true,
+      "fluid": true
+    },
+    "video_checked": true,
+    "video_probe": {
+      "width": 1040,
+      "height": 720,
+      "duration": "39.000000",
+      "nb_frames": "390"
+    },
+    "visual_review": "Root inspected actual pouring and no-close frames: physical tube retention/tilt/stream into target and empty gripper above unmoved rack. Particle point rendering is explicit, not a continuous-surface renderer."
+  },
+  "prior_rigid_prefix_video": "f_tier/A02/rigid-prefix-video.mp4",
+  "criteria": [
+    {
+      "metric": "complete loaded native rack/handoff/pour/return",
+      "local_threshold": "all phases; sustained lift>=50mm,exclusive receiver hold>=1s",
+      "value": {
+        "duration_s": 31.50049334206946,
+        "min_sender_hold_lift_m": 0.12049742453819354,
+        "receiver_hold_contact_fraction": 1.0
+      },
+      "pass": true
+    },
+    {
+      "metric": "liquid retained through handoff",
+      "local_threshold": ">=95percent",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "metric": "final receiver and spill",
+      "local_threshold": {
+        "receiver_min": 0.5,
+        "spill_max": 0.1
+      },
+      "value": {
+        "receiver": 0.9833333333333333,
+        "spill": 0.016666666666666666
+      },
+      "pass": true
+    },
+    {
+      "metric": "fluid wall/bottom/bench/floor penetration only",
+      "local_threshold": 0,
+      "value": 0,
+      "pass": true
+    },
+    {
+      "metric": "no-close control rejects rack pickup and video/differences documented",
+      "local_threshold": "no lift>=20mm;0receiver;video present",
+      "value": {
+        "peak_lift_m": -0.002448288171322463,
+        "receiver": 0
+      },
+      "pass": true
+    }
+  ],
+  "retained_failed_attempt": "f_tier/A02/coupled_positive/metrics.json",
+  "retained_failed_attempt_video": "f_tier/A02/coupled_positive/video.mp4"
+}
