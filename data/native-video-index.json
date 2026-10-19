@@ -53,7 +53,7 @@
     "title": "T1 · 烧杯抓放（零随机化冒烟）",
     "station_a": "assets/native-v01/t1-station-a-web.mp4",
     "wrist": "assets/native-v01/t1-wrist-web.mp4",
-    "scope": "原生零随机化专家资格轨迹，34.09秒、6阶段。烧杯保留SafeLab几何与质量，使用不透明磨砂蓝材质提高可见性。物理判分、双路视频和视觉检查通过；随机化20个seed正在采集。网页为H.264展示编码。",
+    "scope": "原生零随机化资格录像，34.09秒、6阶段。保留SafeLab烧杯几何与质量，使用不透明磨砂蓝材质。随机化20个seed已完成：19成功、1条IK错误；40段录像与20条判定均已离线复核。网页为H.264展示编码。",
     "stages": [
       {
         "name": "approach",
@@ -84,6 +84,35 @@
         "name": "retreat",
         "time_s": 34.083333,
         "step": 8180
+      }
+    ]
+  },
+  {
+    "id": "press",
+    "title": "T4 · 提示后物理按压（资格录像）",
+    "station_a": "assets/native-v01/t4-station-a-web.mp4",
+    "wrist": "assets/native-v01/t4-wrist-web.mp4",
+    "scope": "原生资格录像：真实搅拌器左侧控制键，提示后2.2875秒按下，物理按钮合力峰值24.52N，满足3秒/25N判据。双路录像及离线判定通过；随机提示时刻的20个seed批采进行中。原始NAS录像保留，网页为H.264编码。",
+    "stages": [
+      {
+        "name": "ready",
+        "time_s": 0.0,
+        "step": 0
+      },
+      {
+        "name": "wait_cue",
+        "time_s": 4.55,
+        "step": 1092
+      },
+      {
+        "name": "press",
+        "time_s": 6.8375,
+        "step": 1641
+      },
+      {
+        "name": "retreat",
+        "time_s": 8.0375,
+        "step": 1929
       }
     ]
   }

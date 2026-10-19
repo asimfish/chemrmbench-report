@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
 const labels={planned:'尚未原生采集',collecting:'采集中',batch_collected:'已采满 20 个 seed',smoke_passed:'原生冒烟通过',needs_expert_fix:'需修复专家'};
-const stageNames={approach:'接近',grasp:'抓取',lift:'提起',transport:'运送',place_release:'放置与松爪',regrasp:'再次抓取',return:'返回',retreat:'撤退'};
+const stageNames={ready:'就绪',wait_cue:'提示出现',press:'物理按压',approach:'接近',grasp:'抓取',lift:'提起',transport:'运送',place_release:'放置与松爪',regrasp:'再次抓取',return:'返回',retreat:'撤退'};
 async function refreshStats(){
  try{
   const response=await fetch('data/task-library.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
