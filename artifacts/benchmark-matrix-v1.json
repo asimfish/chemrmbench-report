@@ -1,0 +1,659 @@
+{
+  "schema": "chemrm-contract-matrix-v1",
+  "status": "PASS_ALL_RELEASES_INDEPENDENTLY_REPLAYED",
+  "releases": [
+    {
+      "path": "graph/reference",
+      "backend": "graph-contract",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 24,
+      "release_sha256": "283e6b132ab8647278fb86b3808928cd1da21e89da72c56cae6801b027e631a5",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "graph-reference",
+        "splits": {
+          "closed": {
+            "episodes": 12,
+            "valid": 12,
+            "successful": 12
+          },
+          "compositional-held-out": {
+            "episodes": 8,
+            "valid": 8,
+            "successful": 8
+          },
+          "open": {
+            "episodes": 4,
+            "valid": 4,
+            "successful": 4
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "graph/abstain",
+      "backend": "graph-contract",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 24,
+      "release_sha256": "8596f6cfc11ff60d184e1ff97735dd446a766c403f6d735f806e984b96388e34",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "graph-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 12,
+            "valid": 0,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 8,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 4,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 24,
+          "instrumentation_invalid": 24
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed0/reference",
+      "backend": "task-contract",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "0296b6306460d7c498a352353b78f3e24b8b39d687bddfd43a4c2cebba70215d",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed0-reference",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 3
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed0/abstain",
+      "backend": "task-contract",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "154a72c07821a7960bf2cec2077e9894839828611a3580bfe40fb8ebde16c94e",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed0-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 1,
+          "late": 1,
+          "response_lag": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed1/reference",
+      "backend": "task-contract",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "dd4a059e89df2fd79a7f8780f331d565576530855915da731109872f9dba2efb",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed1-reference",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 3
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed1/abstain",
+      "backend": "task-contract",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "b7a6b234d59bdb56bcf1563bab1b5cf3ba15b7acbad60f1eed696b6f1f2c201c",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed1-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 1,
+          "late": 1,
+          "response_lag": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed19/reference",
+      "backend": "task-contract",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "b7db3b081841fe8960670c123fae1f24f362eac8def1274f9c0acda77ad0635a",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed19-reference",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 3
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed19/abstain",
+      "backend": "task-contract",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "9660594dab54fe078927771aacc0009d209398a6829d229869cafd9a525bd45b",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed19-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 1,
+          "late": 1,
+          "response_lag": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed35/reference",
+      "backend": "task-contract",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "c664fa8291c467363249f8b735c8acf762197b60654b7ff130f76221cc86c714",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed35-reference",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 3
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed35/abstain",
+      "backend": "task-contract",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "df9ffd7be3285b7cfe8aa9b9493ca338c2d67d311b6039410da2c80eaa9da682",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed35-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 1,
+          "late": 1,
+          "response_lag": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed71/reference",
+      "backend": "task-contract",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "c378ed5e68f08221a2b28bb689663c863e67d52f2ccb9c43f152cd1773cd082e",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed71-reference",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 3
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "timing/seed71/abstain",
+      "backend": "task-contract",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 3,
+      "release_sha256": "e0565fa6bad1ab71f4dc3fb41b3a703f77e3de2b30a5e96e7cfa9080cf0b1b2d",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "timing-seed71-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 3,
+            "valid": 3,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 1,
+          "late": 1,
+          "response_lag": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "thermal/reference",
+      "backend": "thermal-dose",
+      "policy": "reference",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 1,
+      "release_sha256": "2adca729a6bcd42caf05aded4f53d42ba61a8142972c4f36eeb9d3f0e789f984",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "thermal-reference",
+        "splits": {
+          "closed": {
+            "episodes": 1,
+            "valid": 1,
+            "successful": 1
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {},
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "thermal/abstain",
+      "backend": "thermal-dose",
+      "policy": "abstain",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 1,
+      "release_sha256": "93aa4b12641267b31d5bc3b4f31523038ed193c81e90b6cc6f2cd2a4f0dc69e2",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "thermal-abstain",
+        "splits": {
+          "closed": {
+            "episodes": 1,
+            "valid": 0,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "incomplete": 1,
+          "instrumentation_invalid": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    },
+    {
+      "path": "thermal/high-rate",
+      "backend": "thermal-dose",
+      "policy": "high-rate",
+      "status": "PASS_RELEASE_INTEGRITY_AND_REPLAY",
+      "episodes_replayed": 1,
+      "release_sha256": "a9a050e23720dc9391c00818ab300af0189f908fdfafb390d3b756434a6572dd",
+      "summary": {
+        "schema": "chemrmbench-release-v1",
+        "release_id": "thermal-high-rate",
+        "splits": {
+          "closed": {
+            "episodes": 1,
+            "valid": 1,
+            "successful": 0
+          },
+          "compositional-held-out": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          },
+          "open": {
+            "episodes": 0,
+            "valid": 0,
+            "successful": 0
+          }
+        },
+        "failure_episode_counts": {
+          "rate_breach": 1,
+          "smoke": 1
+        },
+        "admission": {
+          "scientific_admission": false,
+          "training_admission": false,
+          "formal_M1_admission": false,
+          "full_benchmark_pass": false
+        },
+        "native_workers": 0,
+        "model_calls": 0,
+        "training_jobs": 0,
+        "statistical_scope": "Descriptive contract instances; not independent native samples or causal effects"
+      },
+      "scope": "Correct evidence and regrading, including failures; not scientific admission"
+    }
+  ],
+  "episodes": 81,
+  "release_count": 15,
+  "native_workers": 0,
+  "model_calls": 0,
+  "training_jobs": 0,
+  "scientific_admission": false,
+  "formal_M1_admission": false,
+  "full_benchmark_pass": false,
+  "scope": "CPU software contracts and incorrect controls; seeds/splits do not establish native statistical evidence"
+}

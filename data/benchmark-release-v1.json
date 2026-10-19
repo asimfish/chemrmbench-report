@@ -1,0 +1,85 @@
+{
+  "schema": "chemrm-public-release-progress-v1",
+  "contract": {
+    "release_count": 15,
+    "episodes": 81,
+    "status": "PASS_ALL_RELEASES_INDEPENDENTLY_REPLAYED"
+  },
+  "native": {
+    "runs": 16,
+    "stage_projections": 81,
+    "assets_verified": 69,
+    "ordinary_restart_boundaries": 1,
+    "task_boundaries": 8
+  },
+  "matrix_rows": [
+    {
+      "group": "公开任务图",
+      "policy": "参考策略",
+      "episodes": 24,
+      "successful": 24,
+      "detail": "closed / compositional / open 的软件语义合同"
+    },
+    {
+      "group": "公开任务图",
+      "policy": "弃权",
+      "episodes": 24,
+      "successful": 0,
+      "detail": "incomplete + instrumentation_invalid，保留全部24条"
+    },
+    {
+      "group": "C5 / C6 / C13",
+      "policy": "参考策略",
+      "episodes": 15,
+      "successful": 15,
+      "detail": "5个seed的事件、持续时间与记忆软件合同"
+    },
+    {
+      "group": "C5 / C6 / C13",
+      "policy": "弃权",
+      "episodes": 15,
+      "successful": 0,
+      "detail": "incomplete / late / response_lag，保留全部15条"
+    },
+    {
+      "group": "合成热剂量",
+      "policy": "参考策略",
+      "episodes": 1,
+      "successful": 1,
+      "detail": "剂量、时间与安全合同；参数未标定"
+    },
+    {
+      "group": "合成热剂量",
+      "policy": "弃权",
+      "episodes": 1,
+      "successful": 0,
+      "detail": "incomplete + instrumentation_invalid"
+    },
+    {
+      "group": "合成热剂量",
+      "policy": "过快速率",
+      "episodes": 1,
+      "successful": 0,
+      "detail": "rate_breach + smoke，正确记录的负结果"
+    }
+  ],
+  "toolkit": {
+    "archive": "chemrmbench-toolkit-v1.tar.gz",
+    "bytes": 493853,
+    "sha256": "69f2d600b9188293882a5b2648454a9739710abd3021560ed1607dab144ae417",
+    "source_commit": "2af136326e14b6963dcea96104757c036d42c52c",
+    "releases": 15,
+    "episodes": 81,
+    "native_raw_included": false
+  },
+  "full_benchmark_pass": false,
+  "formal_M1_admission": false,
+  "training_admission": false,
+  "tests": {
+    "related_cpu_passed": 352
+  },
+  "next_native": "V101_DESIGN_ONLY_NOT_LAUNCHED",
+  "new_native_workers": 0,
+  "model_calls": 0,
+  "training_jobs": 0
+}

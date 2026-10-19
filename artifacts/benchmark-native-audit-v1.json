@@ -1,0 +1,177 @@
+{
+  "schema": "chemrm-native-evidence-audit-v1",
+  "status": "PASS_EXISTING_NATIVE_EVIDENCE_ASSOCIATIONS",
+  "manifest_sha256": "4bd268dcba0b329d454fcd7d00382ee58adf62911faa3992ecc3c96052a02115",
+  "runs": [
+    {
+      "id": "V100-live",
+      "frames": 673,
+      "stages": 8,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "PASS_SCOPED_FIXED_ACTION_COLD_FULL_TAIL",
+      "video": "assets/native-v100/live.mp4",
+      "video_sha256": "45b77d3a43d179d7a5e9bb1e36d8aaf0aae26c6c209d1f5f184ff37fabd4b909"
+    },
+    {
+      "id": "V100-cold",
+      "frames": 553,
+      "stages": 7,
+      "decoded": true,
+      "task_time_offset_s": 10.000000521540642,
+      "receipt_status": "PASS_SCOPED_FIXED_ACTION_COLD_FULL_TAIL",
+      "video": "assets/native-v100/cold.mp4",
+      "video_sha256": "a8febd74274f0e220e4180ee9751a32364a09b4f7d07e219f1e60f41b175e9f6"
+    },
+    {
+      "id": "V99-live",
+      "frames": 673,
+      "stages": 8,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "FAIL_UNLOADED_COLD_FULL_TAIL",
+      "video": "assets/native-v99/live.mp4",
+      "video_sha256": "69e6a1c904690d278c558877d7f70b0f6be86d7ed1c35848fa2a052d7a1c4038"
+    },
+    {
+      "id": "V99-cold",
+      "frames": 553,
+      "stages": 7,
+      "decoded": true,
+      "task_time_offset_s": 10.000000521540642,
+      "receipt_status": "FAIL_UNLOADED_COLD_FULL_TAIL",
+      "video": "assets/native-v99/cold.mp4",
+      "video_sha256": "ed9024a18966b3732851c451b4ab84b5be295c08ac3199296d5d09b06e9d0948"
+    },
+    {
+      "id": "V97-live",
+      "frames": 673,
+      "stages": 8,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "FAIL_SINGLE_POSE_MATCHED_NEXT_STAGE_ENDPOINT",
+      "video": "assets/native-v97/live.mp4",
+      "video_sha256": "794f18a65b971840f38e66e87fc97fef8e7e1f0d9e4d97318e00e14ea0563397"
+    },
+    {
+      "id": "V97-single-pose",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "FAIL_SINGLE_POSE_MATCHED_NEXT_STAGE_ENDPOINT",
+      "video": "assets/native-v97/single-pose.mp4",
+      "video_sha256": "55dede9388fc6ccac60ff833bf771550b054701f5b300de4aa0f6e68e4c37436"
+    },
+    {
+      "id": "V96-refused",
+      "frames": 229,
+      "stages": 3,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REFUSED_PREINTERVENTION_SOURCE_IDENTITY",
+      "video": "assets/native-v96/single-pose.mp4",
+      "video_sha256": "7ad0530c52bac54fbd2406148def4c592932fb3a13c558aedcebd06939df6e68"
+    },
+    {
+      "id": "V98-r1-no-write",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r1-no-write.mp4",
+      "video_sha256": "89ded844a2d4ab4f9f7a7fe7311f2bd0ed6b4a6739ff2c4534dd1606ae930505"
+    },
+    {
+      "id": "V98-r1-read-only-sham",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r1-read-only-sham.mp4",
+      "video_sha256": "2bd1beb0e9c0c29c27aec615597c326dacf319d03c72eff5890bca40808a8571"
+    },
+    {
+      "id": "V98-r1-single-pose-write",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r1-single-pose-write.mp4",
+      "video_sha256": "4f6579c8565dfb132edff398062d26b6c71d1e8b78aa034fc85ec1da2b53c3c5"
+    },
+    {
+      "id": "V98-r2-read-only-sham",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r2-read-only-sham.mp4",
+      "video_sha256": "639e51617c6e1fc475a0b957f16c98e40edba5dc34d878e948fc9a0a59524472"
+    },
+    {
+      "id": "V98-r2-single-pose-write",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r2-single-pose-write.mp4",
+      "video_sha256": "8738f64456344196e8f530483535b397b7eb07bf055a90a1fe6674045424061e"
+    },
+    {
+      "id": "V98-r2-no-write",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r2-no-write.mp4",
+      "video_sha256": "f82579b92d39c353f926ae81219a0344813fd878dc3213713257e080cd760f73"
+    },
+    {
+      "id": "V98-r3-single-pose-write",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r3-single-pose-write.mp4",
+      "video_sha256": "1b4ff91f4883a1d338ae142200706343d3ff7dc016aebd6463e3d27b17340cc4"
+    },
+    {
+      "id": "V98-r3-no-write",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r3-no-write.mp4",
+      "video_sha256": "bd336baab783e95aa71442400b477779fbf66d8f2a297146a82cdb18c12b69c0"
+    },
+    {
+      "id": "V98-r3-read-only-sham",
+      "frames": 326,
+      "stages": 4,
+      "decoded": true,
+      "task_time_offset_s": 0.0,
+      "receipt_status": "REPEATED_FIXED_CONDITION_POSE_WRITE_FAILURE_WITH_EXACT_SKIP_MITIGATION",
+      "video": "assets/native-v98/r3-read-only-sham.mp4",
+      "video_sha256": "6c00bc359d237e8cfa409558721e51cc9c96ebf5fca20308709b19ae9bb292ba"
+    }
+  ],
+  "assets_verified": 69,
+  "full_video_decode": true,
+  "stage_projections": 81,
+  "ordinary_restart_boundaries": 1,
+  "task_boundaries": 8,
+  "scientific_admission": false,
+  "training_admission": false,
+  "full_benchmark_pass": false,
+  "new_native_workers": 0,
+  "scope": "Original videos/receipts/frame clocks/stage projections only; no new physics or raw-state restoration revalidation"
+}
