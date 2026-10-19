@@ -1,4 +1,4 @@
-"""Publish ONLY the reviewed public JSON to an unprotected Pages branch.
+"""Publish only reviewed public progress projections to the Pages branch.
 
 Credentials stay in Git's existing credential helper. No shell construction,
 force push, raw evidence copy, or branch protection changes are performed.
@@ -13,6 +13,7 @@ import subprocess
 import urllib.request
 
 from dashboard_io import atomic_json, read_json, utcnow, validate_public
+from task_library import collect_task_library
 
 
 def git(site, *args):
@@ -58,9 +59,10 @@ def publish(config):
     data['published_at_utc'] = utcnow()
     target = site / 'data/collection.json'
     atomic_json(target, data)
-    git(site, 'add', '--', 'data/collection.json')
+    atomic_json(site / 'data/task-library.json', collect_task_library())
+    git(site, 'add', '--', 'data/collection.json', 'data/task-library.json')
     paths = git(site, 'diff', '--cached', '--name-only').splitlines()
-    if paths != ['data/collection.json']:
+    if not set(paths).issubset({'data/collection.json', 'data/task-library.json'}) or 'data/collection.json' not in paths:
         raise ValueError('unexpected staged publication paths')
     git(site, 'commit', '-m', '[dashboard/chore]: Refresh verified experiment progress')
     git(site, 'push', 'origin', config['pages_branch'])

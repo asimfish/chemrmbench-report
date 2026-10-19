@@ -1,0 +1,80 @@
+"""Public task-library projection: selected statistics, never raw task truth."""
+from collections import Counter
+from datetime import datetime, timezone
+import json
+from pathlib import Path
+import re
+
+ROOT=Path('/mnt/nas/data/lyf/chem_mem/paperA-experiments/chemrmbench_v0_1_20261019')
+CATALOG=[
+ ('T2','bottle_balance','瓶子 → 天平 → 返回','M0 / T0 · 八阶段长任务'),
+ ('T1','pick_place','烧杯抓取与放置','M0 / T0 · 基础物理对照'),
+ ('T4','press','提示后按压','T-dl · 3 秒响应窗口'),
+ ('T6','timed_stirring','按钮启停搅拌','T-dur · 4 / 8 / 12 秒'),
+ ('T7','endpoint_stop','颜色端点停止','T-event · 零超量、5 秒内完成'),
+ ('T8','delayed_cue_memory','延迟线索选瓶','M1 · 3 / 10 / 20 秒延迟'),
+ ('T3','pour','限时倾倒','T-dur · 2 / 4 / 6 秒；工程级'),
+ ('T5','open_cabinet','开启铰接装置','M0 / T0 · ≥70% 行程、保持0.5秒'),
+]
+
+
+def read(path, default=None):
+    try:return json.loads(path.read_text())
+    except (OSError,ValueError):return default
+
+
+def collect_task_library():
+    ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
+    for path in sorted(ROOT.glob('*/manifest.jsonl')):
+        config=read(path.parent/'collection.json',{})
+        if config.get('backend')!='isaac':continue
+        rows=[]
+        for line in path.read_text().splitlines():
+            try:rows.append(json.loads(line))
+            except ValueError:continue  # In-progress append; retain complete rows.
+        if len(rows)<len(config.get('tasks',[]))*config.get('episodes_per_task',0):
+            active.update(set(config.get('tasks',[]))&ids)
+        for row in rows:
+            if row.get('task_id') not in ids or row.get('variant')=='replay_zero':continue
+            episode=Path(row['directory']);verdict=read(episode/'verdict.json',{})
+            metrics=verdict.get('metrics',{})
+            records[row['task_id']].append({
+                'seed':row['seed'],'variant':row.get('variant'),
+                'dataset':row.get('variant')=='default',
+                'status':row['status'],'safe_success':verdict.get('safe_success') is True,
+                'wall_time_s':round(row['wall_time_s'],2),
+                'placement_error_mm':round(metrics['placement_error_m']*1000,3)
+                    if metrics.get('placement_error_m') is not None else None,
+                'return_error_mm':round(metrics['return_error_m']*1000,3)
+                    if metrics.get('return_error_m') is not None else None,
+                'stage_count':metrics.get('stage_count'),
+                'recording_verified':read(episode/'acceptance.json',{}).get('passed') is True,
+                'failure_reasons':[v for v in row.get('failure_reasons',[])
+                    if re.fullmatch('[a-z_]{1,60}',v)],
+                'visual_contrast_flag':read(episode.parent.parent/'visual_review.json',{}).get('status')=='LOW_CONTRAST',
+            })
+    tasks=[]
+    for number,task_id,title,dimension in CATALOG:
+        all_rows=records[task_id];rows=[r for r in all_rows if r['dataset']]
+        successes=sum(r['status']=='success' for r in rows)
+        n=len(rows);unique=len({r['seed'] for r in rows})
+        qualified=any(r['safe_success'] and not r['visual_contrast_flag'] for r in all_rows)
+        state=('needs_expert_fix' if n and successes/n<.8 else
+               'batch_collected' if unique>=20 else 'collecting' if task_id in active else
+               'smoke_passed' if qualified else 'planned')
+        tasks.append({'number':number,'id':task_id,'title':title,'dimension':dimension,
+            'status':state,'dataset_attempts':n,'dataset_unique_seeds':unique,'target_unique_seeds':20,
+            'successes':successes,'success_rate':successes/n if n else None,
+            'status_counts':dict(Counter(r['status'] for r in rows)),
+            'verified_dataset_attempts':sum(r['recording_verified'] for r in rows),
+            'qualification_attempts':len(all_rows)-n,'qualification_safe_successes':sum(
+                r['safe_success'] for r in all_rows if not r['dataset']),
+            'failure_reasons':dict(Counter(v for r in rows for v in r['failure_reasons'])),
+            'trials':rows,'engineering_only':number in {'T3','T7'}})
+    return {'schema_version':'chemrmbench-task-library-0.1',
+            'updated_at_utc':datetime.now(timezone.utc).isoformat(),
+            'tasks':tasks,'native_tasks_with_dataset':sum(t['dataset_attempts']>0 for t in tasks),
+            'dataset_attempts':sum(t['dataset_attempts'] for t in tasks),
+            'benchmark_complete':False,'conference_ready':False,
+            'scope':'Native scripted expert development. M1, calibrated chemistry and model comparisons are pending.',
+            'cold_restore_boundaries':{'verified':1,'total':8}}
