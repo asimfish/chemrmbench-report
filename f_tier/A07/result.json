@@ -1,0 +1,283 @@
+{
+  "id": "A07",
+  "status": "F_PASS",
+  "protocol": {
+    "model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml",
+    "simulator": "MuJoCo 3.3.7",
+    "seed": 7108,
+    "native_steps": 5500,
+    "duration_s": 11.0,
+    "physics_dt_s": 0.002,
+    "calibration_observation": "Native controller EE pose in world + simulated visible fiducial at EE expressed in fixed camera; Gaussian observation noise .2 mm/axis and .08 degree/rotation-vector-axis",
+    "fit": "Mean camera-to-world rotation candidates projected to SO(3) by SVD, then least-squares mean translation; training samples only",
+    "split": "Pilot: 21 train + 10 validation. Final: twelve fresh independent native poses on a different trajectory, new observation noise seed 7109; estimator frozen from original 21 training samples. No refit.",
+    "local_thresholds": {
+      "heldout_min_count": 12,
+      "negative_translation_rmse_min_m": 0.01,
+      "translation_rmse_max_m": 0.002,
+      "rotation_rmse_max_deg": 0.5,
+      "minimum_rmse_reduction_fraction": 0.8
+    },
+    "independent_heldout_seed": 7109
+  },
+  "metrics": {
+    "training_count": 21,
+    "heldout_count": 12,
+    "uncorrected_negative": {
+      "count": 12,
+      "translation_rmse_m": 0.05064110182847476,
+      "translation_max_m": 0.05310454916822477,
+      "rotation_rmse_deg": 7.085788420300373,
+      "rotation_max_deg": 7.14174710211558
+    },
+    "corrected_heldout": {
+      "count": 12,
+      "translation_rmse_m": 0.00023100062292204408,
+      "translation_max_m": 0.000397820367733689,
+      "rotation_rmse_deg": 0.1290798850343405,
+      "rotation_max_deg": 0.20374295533857226
+    },
+    "estimated_vs_true_translation_m": 0.0003207965822440146,
+    "estimated_vs_true_rotation_deg": 0.018706689033009306,
+    "native_world_workspace_extent_m": [
+      0.0970093683403303,
+      0.11627430077054306,
+      0.11420871013344658
+    ],
+    "camera_to_world_ground_truth": {
+      "rotation": [
+        [
+          0.9078003754287368,
+          0.2936466487744927,
+          0.2994497020117972
+        ],
+        [
+          0.33137300464924613,
+          -0.9398468881712475,
+          -0.08294431013971602
+        ],
+        [
+          0.2570805518921551,
+          0.17452642338148244,
+          -0.9504999302369741
+        ]
+      ],
+      "translation_m": [
+        0.85,
+        -0.55,
+        0.8
+      ]
+    },
+    "injected_prior": {
+      "rotation": [
+        [
+          0.8610115722578695,
+          0.36706854693185215,
+          0.3520223775434883
+        ],
+        [
+          0.3881801415892132,
+          -0.9215123860426632,
+          0.011449892826416726
+        ],
+        [
+          0.3285958765928292,
+          0.12678960613274556,
+          -0.9359215488826473
+        ]
+      ],
+      "translation_m": [
+        0.875,
+        -0.5680000000000001,
+        0.8200000000000001
+      ]
+    },
+    "repaired_extrinsic": {
+      "rotation": [
+        [
+          0.90779599185444,
+          0.29363140253119807,
+          0.29947794012343565
+        ],
+        [
+          0.3314469541824098,
+          -0.9397932283127228,
+          -0.08325625850802156
+        ],
+        [
+          0.25700068820183747,
+          0.17484074886911388,
+          -0.9504637598555086
+        ]
+      ],
+      "translation_m": [
+        0.8499818447094295,
+        -0.5497747001461145,
+        0.8002276418424695
+      ]
+    }
+  },
+  "checks": {
+    "independent_heldout_count_at_least_12": true,
+    "negative_translation_rmse_above_10mm": true,
+    "heldout_translation_rmse_below_2mm": true,
+    "heldout_rotation_rmse_below_0p5deg": true,
+    "translation_improves_at_least_80pct": true
+  },
+  "declared_differences": [
+    "Local calibration harness reconstruction; not original GRID controller or real camera calibration",
+    "Camera observations are simulated fiducial SE(3) measurements derived from actual integrated native controller poses; no image detector is evaluated",
+    "Known injection 25,-18,20 mm translation and 4,-3,5 degree axis-angle rotation; local noise and tolerances explicitly chosen",
+    "One deterministic seed/trajectory; original author's assets/data unavailable; no real robot or cross-robot calibration acceptance"
+  ],
+  "evidence": [
+    "f_tier/A07/observations.csv",
+    "f_tier/A07/heldout_observations.csv"
+  ],
+  "video": "f_tier/A07/video.mp4",
+  "runner": "f_tier/harness_experiments.py",
+  "completed_at_utc": "2026-10-19T09:37:39.785602+00:00",
+  "videos_are_native_saved_state_replays": true,
+  "wall_clock_realtime_control_tested": false,
+  "pilot_validation": {
+    "training_count": 21,
+    "validation_count": 10,
+    "metrics": {
+      "training_count": 21,
+      "heldout_count": 10,
+      "uncorrected_negative": {
+        "count": 10,
+        "translation_rmse_m": 0.049865508803783626,
+        "translation_max_m": 0.05394554761915918,
+        "rotation_rmse_deg": 7.093273470719392,
+        "rotation_max_deg": 7.199909766883146
+      },
+      "corrected_heldout": {
+        "count": 10,
+        "translation_rmse_m": 0.00035818499109744554,
+        "translation_max_m": 0.0006248470309378974,
+        "rotation_rmse_deg": 0.15924979697724378,
+        "rotation_max_deg": 0.2638311532046977
+      },
+      "estimated_vs_true_translation_m": 0.0003207965822440146,
+      "estimated_vs_true_rotation_deg": 0.018706689033009306,
+      "native_world_workspace_extent_m": [
+        0.0970093683403303,
+        0.11627430077054306,
+        0.11420871013344658
+      ],
+      "camera_to_world_ground_truth": {
+        "rotation": [
+          [
+            0.9078003754287368,
+            0.2936466487744927,
+            0.2994497020117972
+          ],
+          [
+            0.33137300464924613,
+            -0.9398468881712475,
+            -0.08294431013971602
+          ],
+          [
+            0.2570805518921551,
+            0.17452642338148244,
+            -0.9504999302369741
+          ]
+        ],
+        "translation_m": [
+          0.85,
+          -0.55,
+          0.8
+        ]
+      },
+      "injected_prior": {
+        "rotation": [
+          [
+            0.8610115722578695,
+            0.36706854693185215,
+            0.3520223775434883
+          ],
+          [
+            0.3881801415892132,
+            -0.9215123860426632,
+            0.011449892826416726
+          ],
+          [
+            0.3285958765928292,
+            0.12678960613274556,
+            -0.9359215488826473
+          ]
+        ],
+        "translation_m": [
+          0.875,
+          -0.5680000000000001,
+          0.8200000000000001
+        ]
+      },
+      "repaired_extrinsic": {
+        "rotation": [
+          [
+            0.90779599185444,
+            0.29363140253119807,
+            0.29947794012343565
+          ],
+          [
+            0.3314469541824098,
+            -0.9397932283127228,
+            -0.08325625850802156
+          ],
+          [
+            0.25700068820183747,
+            0.17484074886911388,
+            -0.9504637598555086
+          ]
+        ],
+        "translation_m": [
+          0.8499818447094295,
+          -0.5497747001461145,
+          0.8002276418424695
+        ]
+      }
+    },
+    "checks": {
+      "heldout_count_at_least_8": true,
+      "negative_translation_rmse_above_10mm": true,
+      "heldout_translation_rmse_below_2mm": true,
+      "heldout_rotation_rmse_below_0p5deg": true,
+      "translation_improves_at_least_80pct": true
+    },
+    "disposition": "Insufficient twelve-pose heldout requirement; used only as pilot validation"
+  },
+  "video_scope": "Final twelve-pose heldout trajectory, actual native saved-state replay; pilot validation remains in CSV/result history",
+  "video_metadata": {
+    "frames": 31,
+    "fps": 10,
+    "duration_s": 3.1,
+    "width": 800,
+    "height": 420,
+    "native_sample_stride_steps": 50
+  },
+  "F_acceptance_review": {
+    "reviewer": "root distinct saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T09:39:55.244278+00:00",
+    "passed": true,
+    "metrics": {
+      "train": 21,
+      "heldout": 12,
+      "translation_rmse_m": 0.00023100062292204408,
+      "rotation_rmse_deg": 0.12907988503434054
+    },
+    "video_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 800,
+          "height": 420,
+          "duration": "3.100000",
+          "nb_read_frames": "31"
+        }
+      ]
+    },
+    "scope": "Declared adapted functional simulation, not original implementation/hardware identity."
+  }
+}

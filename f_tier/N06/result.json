@@ -1,0 +1,162 @@
+{
+  "id": "N06",
+  "status": "F_PASS",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "created_utc": "2026-10-19T09:34:39.335519+00:00",
+  "scope": "Native physical placement and contact-gated heat/reaction reconstruction, descriptive comparison to the already fitted fig5a_1 calibration curve. Not an independent prediction test.",
+  "protocol": {
+    "source": "references/43588_2025_924_MOESM4_ESM.zip::fig5a_1.csv",
+    "trajectory": "runs/organic_native_2000s_r4/trajectory.jsonl",
+    "parameters": "semantic_runs/organic_equation_reconstruction_r3/calibrated_effective_parameters.json",
+    "parameters_refitted": false,
+    "source_grid": "4ms",
+    "native_control_grid": "20ms",
+    "comparison": "Reference linearly interpolated to all 100000 native control observations; all source units retained."
+  },
+  "criteria": [
+    {
+      "metric": "one complete native 2000s run with no reset",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "HSM pick/place success plus final plate contact",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "solution temperature RMSE C and product RMSE source units (calibration trace)",
+      "local_threshold": {
+        "temperature_C": 1.0,
+        "product_source_units": 0.05
+      },
+      "value": {
+        "temperature_C": 0.07440175735660472,
+        "product_source_units": 0.00026155291141681476
+      },
+      "pass": true
+    },
+    {
+      "metric": "heater command event timing error s",
+      "local_threshold": 0.02,
+      "value": 0.01200000000000001,
+      "pass": true
+    },
+    {
+      "metric": "species conservation; heater-off and no-contact negative controls",
+      "local_threshold": {
+        "conservation": 1e-10,
+        "negative_product": 1e-12
+      },
+      "value": {
+        "conservation": 2.220446049250313e-16,
+        "negative_product": 0.0
+      },
+      "pass": true
+    }
+  ],
+  "metrics": {
+    "fluidA/Temperature": {
+      "RMSE": 0.07440175735660472,
+      "MAE": 0.007158254084856279,
+      "max_absolute_error": 1.6714884235340364,
+      "final_error": -0.0014115079213468107
+    },
+    "fluidA/CCCl": {
+      "RMSE": 0.00026155291141681476,
+      "MAE": 0.00021119321634405935,
+      "max_absolute_error": 0.0006868063898967103,
+      "final_error": -0.00042405569853898317
+    },
+    "beaker_500ml/Temperature": {
+      "RMSE": 0.11854551950559536,
+      "MAE": 0.00761670361568609,
+      "max_absolute_error": 4.780511856079102,
+      "final_error": -0.0017141599968013566
+    },
+    "scale_ika/Temperature": {
+      "RMSE": 0.004548511342946663,
+      "MAE": 0.0025091428366938026,
+      "max_absolute_error": 0.08392721847996398,
+      "final_error": -0.002016114476710129
+    }
+  },
+  "events": [
+    {
+      "name": "heater_on",
+      "source_s": 2.008,
+      "native_effect_s": 2.02,
+      "error_s": 0.01200000000000001
+    },
+    {
+      "name": "heater_off",
+      "source_s": 1010.6080000000001,
+      "native_effect_s": 1010.62,
+      "error_s": 0.011999999999943611
+    },
+    {
+      "name": "native_contact_vs_source_heating_proxy",
+      "source_s": 8.148,
+      "native_effect_s": 9.120000000000001,
+      "error_s": 0.9720000000000013,
+      "proxy_limitation": "Source CSV does not record attributed physical contact; onset of beaker heating is only a proxy."
+    },
+    {
+      "name": "first_solution_30C",
+      "source_s": 11.392,
+      "native_effect_s": 12.14,
+      "error_s": 0.7480000000000011
+    },
+    {
+      "name": "first_solution_40C",
+      "source_s": 17.952,
+      "native_effect_s": 18.18,
+      "error_s": 0.22799999999999798
+    },
+    {
+      "name": "first_solution_50C",
+      "source_s": 31.728,
+      "native_effect_s": 31.76,
+      "error_s": 0.03200000000000003
+    }
+  ],
+  "negative_control": "heater_off_shadow and no_contact_shadow share this physical trajectory; not independent physical trials",
+  "video": "f_tier/N06/video.mp4",
+  "video_kind": "Animated measured time series, not a rendered robot episode",
+  "differences": [
+    "Effective thermal and kinetic parameters calibrated to fig5a_1; original author parameters unavailable.",
+    "Native scene is the public heat-transfer Franka task; original workflow and exact source controller timing differ.",
+    "Source literal chemical labels retained; chemical identity and reciprocal calorimetry unverified."
+  ],
+  "evidence": [
+    "runs/organic_native_2000s_r4/status.json",
+    "runs/organic_native_2000s_r4/trajectory.jsonl",
+    "evidence/organic_native_2000s_r4_analysis.json"
+  ],
+  "original_identity_tier": "BLOCKED: author thermal/kinetic configuration missing",
+  "full_reference_complete": false,
+  "F_acceptance_review": {
+    "reviewer": "root distinct saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T09:39:55.558817+00:00",
+    "passed": true,
+    "metrics": {
+      "temperature": 0.07440175735660472,
+      "product": 0.00026155291141681476,
+      "native_trace_samples_checked": 101
+    },
+    "video_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 1100,
+          "height": 440,
+          "duration": "12.000000",
+          "nb_read_frames": "240"
+        }
+      ]
+    },
+    "scope": "Declared adapted functional simulation, not original implementation/hardware identity."
+  }
+}

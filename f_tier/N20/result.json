@@ -1,0 +1,22 @@
+{
+  "id": "N20",
+  "status": "F_PASS",
+  "acceptance_level": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_minimum_acceptance": [
+    "Complete physical wellplate pickup,transport,release inOT2",
+    "Local lift\u226550mm,pose\u22645mm,stable terminalplacement",
+    "Usable observed wells; positive+negative/video fromexistingacceptedrun"
+  ],
+  "evidence_paths": [
+    "evidence/matterix_liquid_station_published_function_coverage_r1.json",
+    "evidence/ot2_three_labware_pair_independent_review_r9_restart1.json",
+    "evidence/ot2_three_labware_complete_video_visual_review_r1.json"
+  ],
+  "video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+  "declared_differences": [
+    "LocalPanda/Robotiqfixture,declaredsupportgeometry",
+    "N22finiteconservativeparcelsemantics;notPBDorcalibratedmicrolitres"
+  ],
+  "migrated_existing_acceptance": true,
+  "new_native_run": false
+}

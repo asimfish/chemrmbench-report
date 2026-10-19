@@ -1,0 +1,116 @@
+{
+  "id": "A08",
+  "status": "F_PASS",
+  "protocol": {
+    "model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml",
+    "simulator": "MuJoCo 3.3.7",
+    "seed": 7108,
+    "physics_dt_s": 0.002,
+    "local_thresholds": {
+      "fault_frequency_min_hz": 75,
+      "fixed_frequency_absolute_error_max_hz": 0.5,
+      "native_p95_period_error_max_s": 0.002,
+      "native_period_error_must_decrease": true,
+      "native_command_to_2mm_effect_max_s": 0.5
+    },
+    "clock": "native MuJoCo simulation time; monotonic host timestamps also recorded, not used as real-time throughput claim",
+    "injection": "Bypass 50 Hz driver rate limiter: publication intervals 4,8,6,10,4,6 ms repeating",
+    "repair": "Simulation-clock phase-locked limiter publishes actual actuator ctrl every 10 physics steps (20 ms)",
+    "negative_control": "Identical command and initial state with rate limiter disabled; native integration never paused"
+  },
+  "metrics": {
+    "fault_unrepaired": {
+      "native_command_count": 632,
+      "native_steps": 2000,
+      "duration_s": 3.999999999999781,
+      "frequency_hz": 157.98698047071468,
+      "target_frequency_hz": 50.0,
+      "interval_mean_s": 0.006329635499207262,
+      "interval_std_s": 0.002134701520187869,
+      "p95_absolute_jitter_s": 0.01600000000000044,
+      "first_step_publication_s": 0.6020000000000004,
+      "first_observed_2mm_effect_s": 0.6300000000000004,
+      "command_to_observed_2mm_effect_s": 0.028000000000000025,
+      "finite_native_state": true,
+      "final_joint0_offset_rad": 0.03499999897085715
+    },
+    "repaired": {
+      "native_command_count": 201,
+      "native_steps": 2000,
+      "duration_s": 3.999999999999781,
+      "frequency_hz": 50.000000000002736,
+      "target_frequency_hz": 50.0,
+      "interval_mean_s": 0.019999999999998908,
+      "interval_std_s": 1.1081489600999902e-15,
+      "p95_absolute_jitter_s": 2.203098814490545e-15,
+      "first_step_publication_s": 0.6000000000000004,
+      "first_observed_2mm_effect_s": 0.6280000000000004,
+      "command_to_observed_2mm_effect_s": 0.028000000000000025,
+      "finite_native_state": true,
+      "final_joint0_offset_rad": 0.03499999898132167
+    }
+  },
+  "checks": {
+    "fault_is_detectable_overspeed": true,
+    "repaired_rate_within_1pct": true,
+    "repaired_p95_jitter_at_most_2ms": true,
+    "repair_reduces_jitter": true,
+    "both_branches_show_real_motion_within_500ms": true
+  },
+  "declared_differences": [
+    "Local timing harness reconstruction; original GRID runtime unavailable",
+    "50 Hz and jitter/effect tolerances are local thresholds, not original paper values",
+    "Tests simulation-clock command scheduling; no real robot, hardware/network clock or physical deployment latency claim",
+    "Same rigid UR5e scene, no fluid or trained policy; no claim of task-success benefit from changing rate"
+  ],
+  "evidence": [
+    "f_tier/A08/fault_unrepaired_commands.csv",
+    "f_tier/A08/fault_unrepaired_observations.csv",
+    "f_tier/A08/repaired_commands.csv",
+    "f_tier/A08/repaired_observations.csv"
+  ],
+  "video": "f_tier/A08/video.mp4",
+  "runner": "f_tier/harness_experiments.py",
+  "completed_at_utc": "2026-10-19T09:38:02.279682+00:00",
+  "videos_are_native_saved_state_replays": true,
+  "wall_clock_realtime_control_tested": false,
+  "video_metadata": {
+    "frames": 81,
+    "fps": 20,
+    "duration_s": 4.05,
+    "width": 800,
+    "height": 420,
+    "native_sample_stride_steps": 25
+  },
+  "F_acceptance_review": {
+    "reviewer": "root distinct saved-record recomputation",
+    "reviewed_at_utc": "2026-10-19T09:39:55.373043+00:00",
+    "passed": true,
+    "metrics": {
+      "fault_unrepaired": {
+        "frequency_hz": 157.98698047071468,
+        "jitter_p95_s": 0.01600000000000044,
+        "effect_delay_s": 0.028000000000000025,
+        "rows": 2001
+      },
+      "repaired": {
+        "frequency_hz": 50.000000000002736,
+        "jitter_p95_s": 2.203098814490545e-15,
+        "effect_delay_s": 0.028000000000000025,
+        "rows": 2001
+      }
+    },
+    "video_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 800,
+          "height": 420,
+          "duration": "4.050000",
+          "nb_read_frames": "81"
+        }
+      ]
+    },
+    "scope": "Declared adapted functional simulation, not original implementation/hardware identity."
+  }
+}
