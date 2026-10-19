@@ -1,0 +1,191 @@
+{
+  "id": "N07",
+  "status": "F_PASS",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "created_utc": "2026-10-19T11:49:27.486366+00:00",
+  "scope": "Independent physical primary40C native run, same effective parameters previously fit only to fig5a_1; fig5a_3 was held out from fitting but previously inspected.",
+  "protocol": {
+    "duration_s": 2000.0,
+    "physics_dt_s": 0.004,
+    "control_dt_s": 0.02,
+    "chemistry_dt_s": 0.004,
+    "seed": 1,
+    "parameter_file": "semantic_runs/organic_equation_reconstruction_r3/calibrated_effective_parameters.json",
+    "source_curve": "references/43588_2025_924_MOESM4_ESM.zip::fig5a_3.csv",
+    "parameters_refitted": false,
+    "evaluation_grid": "1Hz uniform t=1..2000, both curves linearly interpolated",
+    "negative_controls": "Heater-off and no-contact semantic shadows, not separate physical episodes."
+  },
+  "criteria": [
+    {
+      "metric": "independent native40C complete without reset; process exit status separately UNOBSERVED",
+      "local_threshold": {
+        "duration_s": 2000,
+        "native_physics_steps": 500000,
+        "control_steps": 100000
+      },
+      "value": {
+        "duration_s": 2000.0,
+        "native_physics_steps": 500000,
+        "control_steps": 100000
+      },
+      "pass": true
+    },
+    {
+      "metric": "same calibration parameters, primary40C not a shadow",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "native upstream HSM pick/place and terminal attributed contact",
+      "local_threshold": true,
+      "value": true,
+      "pass": true
+    },
+    {
+      "metric": "held-out setpoint source-curve RMSE",
+      "local_threshold": {
+        "temperature_C": 1.0,
+        "product_source_units": 0.05
+      },
+      "value": {
+        "temperature_C": 0.025519322683557003,
+        "product_source_units": 0.009933992634620135
+      },
+      "pass": true
+    },
+    {
+      "metric": "sampled species balance and semantic negative controls",
+      "local_threshold": {
+        "conservation": 1e-10,
+        "negative_product": 1e-12
+      },
+      "value": {
+        "conservation": 2.220446049250313e-16,
+        "negative_product": 0.0
+      },
+      "pass": true
+    }
+  ],
+  "metrics": {
+    "solution_temperature_RMSE_C": 0.025519322683557003,
+    "solution_temperature_MAE_C": 0.006829510150141413,
+    "product_RMSE_source_units": 0.009933992634620135,
+    "product_final_error_source_units": 0.01057691955118939,
+    "peak_solution_C": 36.407037151324225,
+    "final_product": 0.2559786149218635,
+    "sampled_species_conservation_max": 2.220446049250313e-16,
+    "negative_product_max": 0.0,
+    "duration_s": 2000.0,
+    "native_physics_steps": 500000,
+    "control_steps": 100000,
+    "saved_observations": 3471,
+    "first_native_plate_contact_s": 9.120000000000001,
+    "workflow_success_s": 11.52,
+    "CPU_wall_s": 7899.704646728991,
+    "native_process_exit_code": null,
+    "native_exit_status": "UNOBSERVED",
+    "launcher_tool_session_exitcode": 143
+  },
+  "events": [
+    {
+      "name": "heater_on",
+      "requested_s": 2.008,
+      "submitted_s": 2.02,
+      "semantic_effect_s": 2.02,
+      "first_observed_s": 2.04,
+      "integrated_interval_s": [
+        2.02,
+        2.04
+      ],
+      "quantization_delay_s": 0.01200000000000001
+    },
+    {
+      "name": "heater_off",
+      "requested_s": 1010.608,
+      "submitted_s": 1010.62,
+      "semantic_effect_s": 1010.62,
+      "first_observed_s": 1010.64,
+      "integrated_interval_s": [
+        1010.62,
+        1010.64
+      ],
+      "quantization_delay_s": 0.012000000000057298
+    }
+  ],
+  "video": "f_tier/N07/video.mp4",
+  "video_kind": "Animated measured time series, not rendered robot replay",
+  "evidence": [
+    "f_tier/N07/status.json",
+    "f_tier/N07/trajectory.jsonl",
+    "f_tier/N07/process.json"
+  ],
+  "differences": [
+    "Effective nonreciprocal thermal reconstruction and literal source chemical names, original parameters/chemical identities unavailable.",
+    "Public native MATTERIX heat-transfer scene rather than unavailable original chemical implementation.",
+    "Independent40C native experiment uses same seed1, CPU PhysX, 4ms physics and20ms control.",
+    "No refit; source40C trace previously inspected, so not blind evaluation.",
+    "Native process exit status unobserved; launcher reported143 after complete2000s/500000steps. Postprocessor missing-exit-record failure preserved; no clean-exit claim."
+  ],
+  "original_identity_tier": "BLOCKED: author thermal/kinetic configuration missing",
+  "full_reference_complete": false,
+  "attempts": [
+    {
+      "backend": "GPU",
+      "status": "ABORTED_FOR_MEASURED_SLOW_THROUGHPUT",
+      "evidence": "f_tier/N07/gpu_throughput_attempt/status.json",
+      "notes": "No state resumed; no completed2000s or success claim."
+    },
+    {
+      "backend": "CPU",
+      "status": "COMPLETED",
+      "evidence": "f_tier/N07/status.json"
+    }
+  ],
+  "acceptance_decision": {
+    "clean_exit_gate": {
+      "original_criterion": {
+        "metric": "independent native40C complete, no reset and observed clean native exit (exit status currently unobserved)",
+        "local_threshold": {
+          "duration_s": 2000,
+          "native_physics_steps": 500000,
+          "control_steps": 100000
+        },
+        "value": {
+          "duration_s": 2000.0,
+          "native_physics_steps": 500000,
+          "control_steps": 100000
+        },
+        "pass": false
+      },
+      "decision": "Exit status is unobserved, not zero. Completed native physics/function is independently established. Clean launcher shutdown is not a minimum F function requirement. No physical failure or trajectory truncation is concealed."
+    }
+  },
+  "F_PASS": true,
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recomputed held-out source interpolation/RMSE, species balance, raw step-time ordering and final native HSM/contact; no rerun",
+    "script": "f_tier/review_completed.py",
+    "observed": {
+      "raw_rows": 3471,
+      "native_steps": 500000,
+      "control_steps": 100000,
+      "duration_s": 2000.0,
+      "solution_RMSE_C": 0.025519322683557003,
+      "product_RMSE_source_units": 0.009933992634620135,
+      "species_balance_max": 2.220446049250313e-16,
+      "native_exit_code": null,
+      "launcher_exit_code": 143
+    },
+    "video_probe": {
+      "width": 1100,
+      "height": 440,
+      "duration": "12.000000",
+      "nb_frames": "240"
+    },
+    "visual_check": "Root inspected source/native curve figure; video animates measured curves rather than rendered robot physics.",
+    "scope": "Same effective parameters, separate40C native trial, no refit; source trace previously seen, semantic shadows are not independent physical negatives."
+  },
+  "accepted_at_utc": "2026-10-19T11:54:01.536534+00:00"
+}

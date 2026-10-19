@@ -1,0 +1,182 @@
+{
+  "id": "N15",
+  "status": "F_PASS",
+  "metrics": {
+    "observed_angle_span_deg": 90.0000096593464,
+    "plateau_count": 7,
+    "angle_flow_r2": 0.9999999999999973,
+    "maximum_plateau_angle_error_deg": 0.2258115280110286,
+    "negative_maximum_flow_ml_s": 0.0
+  },
+  "gates": {
+    "native_turn": true,
+    "flow_coupled": true,
+    "angle_tracking": true,
+    "closed_negative_zero": true,
+    "complete": true
+  },
+  "plateaus": [
+    {
+      "target_deg": 0,
+      "observed_angle_deg": 0.2258115280110286,
+      "flow_ml_s": 0.0
+    },
+    {
+      "target_deg": 15,
+      "observed_angle_deg": 14.93143561237372,
+      "flow_ml_s": 0.8062254532052359
+    },
+    {
+      "target_deg": 30,
+      "observed_angle_deg": 29.931532768418094,
+      "flow_ml_s": 1.6442197077328546
+    },
+    {
+      "target_deg": 45,
+      "observed_angle_deg": 44.931509924797936,
+      "flow_ml_s": 2.4822072583685997
+    },
+    {
+      "target_deg": 60,
+      "observed_angle_deg": 59.92999153643411,
+      "flow_ml_s": 3.3201112590186646
+    },
+    {
+      "target_deg": 75,
+      "observed_angle_deg": 74.92924588278132,
+      "flow_ml_s": 4.15805842920566
+    },
+    {
+      "target_deg": 90,
+      "observed_angle_deg": 89.88380261433768,
+      "flow_ml_s": 4.9935082651203135
+    }
+  ],
+  "native_steps": 2210,
+  "native_clock": {
+    "callbacks": 2210,
+    "sum_dt_s": 18.416667627170682,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "wall_s": 7.565567935002036,
+  "protocol": {
+    "physics": "CPU native PhysX; passive revolute valve moved by Panda finger contact",
+    "flow_model": "Local semantic q=5*clip(angle_deg-.5,0,89.5)/89.5 mL/s; volume ledger integrates observed q against native dt. No CFD claim.",
+    "runtime_object_pose_writes": false,
+    "attachments": false,
+    "local_thresholds": {
+      "angle_span_deg": 60,
+      "plateaus": 5,
+      "angle_flow_r2": 0.99,
+      "angle_error_deg": 5,
+      "closed_flow_ml_s": 0
+    }
+  },
+  "differences": [
+    "Local passive lever valve, sink and drying geometry; original author device implementation unavailable.",
+    "Local declared linear angle-flow semantic model, not independently measured hydraulic behavior; R2 validates data coupling only.",
+    "Standard NVIDIA Panda hand replaces author hardware; original Matterix HSM primitives retained.",
+    "Water is a scalar conserved delivery ledger; no liquid free-surface/particle water dynamics in this test."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "scene": "scene.usda",
+    "video": "video.mp4"
+  },
+  "video_status": "READY_NATIVE_STATE_REPLAY",
+  "native_replay": {
+    "body_names": [
+      "panda_link0",
+      "panda_link1",
+      "panda_link2",
+      "panda_link3",
+      "panda_link4",
+      "panda_link5",
+      "panda_link6",
+      "panda_link7",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "body_paths": {
+      "positive": {
+        "panda_link0": "/World/Trial0/Panda/panda_link0",
+        "panda_link1": "/World/Trial0/Panda/panda_link1",
+        "panda_link2": "/World/Trial0/Panda/panda_link2",
+        "panda_link3": "/World/Trial0/Panda/panda_link3",
+        "panda_link4": "/World/Trial0/Panda/panda_link4",
+        "panda_link5": "/World/Trial0/Panda/panda_link5",
+        "panda_link6": "/World/Trial0/Panda/panda_link6",
+        "panda_link7": "/World/Trial0/Panda/panda_link7",
+        "panda_hand": "/World/Trial0/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial0/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial0/Panda/panda_rightfinger"
+      },
+      "closed_negative": {
+        "panda_link0": "/World/Trial1/Panda/panda_link0",
+        "panda_link1": "/World/Trial1/Panda/panda_link1",
+        "panda_link2": "/World/Trial1/Panda/panda_link2",
+        "panda_link3": "/World/Trial1/Panda/panda_link3",
+        "panda_link4": "/World/Trial1/Panda/panda_link4",
+        "panda_link5": "/World/Trial1/Panda/panda_link5",
+        "panda_link6": "/World/Trial1/Panda/panda_link6",
+        "panda_link7": "/World/Trial1/Panda/panda_link7",
+        "panda_hand": "/World/Trial1/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial1/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial1/Panda/panda_rightfinger"
+      }
+    },
+    "link_pose_row_key": "native_robot_link_poses_xyzw",
+    "object_path": {
+      "positive": "/World/Trial0/Knob",
+      "closed_negative": "/World/Trial1/Knob"
+    },
+    "sample_dt_s": 0.1,
+    "interpolation": false
+  },
+  "observations": {
+    "positive_native_finger_contact_peak_N": {
+      "left": 14.173461430205677,
+      "right": 14.215126943261213
+    },
+    "integrated_flow_volume_ml": 46.95253600453168,
+    "recorded_terminal_volume_ml": 46.95253600453168,
+    "negative_terminal_volume_ml": 0.0,
+    "ledger_difference_ml": 0.0,
+    "native_time_integration_note": "Nominal simulation dt1/120s, native callback dt differs by float32 rounding only; no independent hydraulic mass measurement."
+  },
+  "video_frames": 224,
+  "video_kind": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views. Stream cylinder is a declared visualization of recorded scalar semantic flow, not CFD.",
+  "video_render_manifest": "f_tier/N15/video_render.json",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recomputed 4420 raw quaternion angles, observed-angle semantic flow and cumulative volume, native contact and video mapping",
+    "script": "f_tier/review_completed.py",
+    "observed": {
+      "raw_rows": 4420,
+      "steps_per_case": 2210,
+      "passive_undriven_revolute_joint": true,
+      "plateau_count": 7,
+      "maximum_plateau_error_deg": 0.2258115280110286,
+      "angle_flow_R2": 0.9999999999999973,
+      "integrated_volume_ml": 46.95253600453168,
+      "positive_left_peak_N": 14.173461430205677,
+      "positive_right_peak_N": 14.215126943261213,
+      "negative_max_flow_ml_s": 0.0
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "22.400000",
+      "nb_frames": "224"
+    },
+    "visual_check": "Root inspected turned/open positive stream and closed/no-stream negative keyframes.",
+    "scope": "Native contact actuation plus declared linear semantic flow; R2 is a coupling check, not independent hydraulic validation."
+  },
+  "accepted_at_utc": "2026-10-19T11:53:58.367812+00:00",
+  "video": "f_tier/N15/video.mp4"
+}

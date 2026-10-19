@@ -1,0 +1,429 @@
+{
+  "id": "N13",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "protocol": {
+    "physics": "CPU PhysX,originalIsaac Panda native USD",
+    "planner": "OfficialcuRobo v0.7.8 commitd64c4b0,seed1319,7jointpath",
+    "world": "Reconstructed hood cuboids shared exactly by planner and native scene",
+    "dt_s": 0.008333333333333333,
+    "steps": 570,
+    "object_or_robot_state_writes_after_initialization": false,
+    "control": "Native implicit joint position drives; arm link gravity disabled, no torque/pose teleport",
+    "local_thresholds": {
+      "terminal_hand_position_m": 0.01,
+      "unintended_hood_contacts": 0
+    },
+    "collision_observable": "All robot contact reports with actual contact points, including self/hood/world; intended fixedbase-bench mount excluded. Zero-point LOST events retained separately."
+  },
+  "metrics": {
+    "positive": {
+      "max_terminal_hand_error_m": 8.486335846001237e-05,
+      "terminal_hand_pose_xyzw": [
+        0.35405799746513367,
+        0.1933998167514801,
+        0.5991849899291992,
+        0.9703922867774963,
+        0.2402494102716446,
+        0.024066736921668053,
+        -0.00633283844217658
+      ],
+      "native_robot_contacts": 0
+    },
+    "blocked_goal": {
+      "max_terminal_hand_error_m": 0.3110893849025103,
+      "terminal_hand_pose_xyzw": [
+        0.11058096587657928,
+        2.0,
+        0.5907122492790222,
+        0.919264018535614,
+        0.38077154755592346,
+        -0.09223411977291107,
+        -0.038204461336135864
+      ],
+      "native_robot_contacts": 0
+    }
+  },
+  "checks": {
+    "positive_native_target_within10mm": true,
+    "zero_unintended_hood_contacts": true,
+    "blocked_goal_plan_rejected": true,
+    "blocked_goal_no_joint_command": true,
+    "native_physics_clock": true
+  },
+  "native_clock": {
+    "callbacks": 570,
+    "sum_dt_s": 4.750000247731805
+  },
+  "wall_s": 1.0357688670046628,
+  "link_names": [
+    "panda_link0",
+    "panda_link1",
+    "panda_link2",
+    "panda_link3",
+    "panda_link4",
+    "panda_link5",
+    "panda_link6",
+    "panda_link7",
+    "panda_hand",
+    "panda_leftfinger",
+    "panda_rightfinger"
+  ],
+  "contacts": [],
+  "differences": [
+    "Local cuboid hood reconstruction; no original CAD/layout identity.",
+    "cuRobo sphere model plans in its sourcePanda URDF; nativeIsaac USD executes and independently checks physical hood contacts.",
+    "Arm link gravity disabled for local gravity compensation; no object-grasp or chemical/combined episode acceptance.",
+    "Blocked-goal control holds start configuration because planner rejects route, not a physical collision stunt."
+  ],
+  "paths": {
+    "trace": "f_tier/N13/trace.jsonl",
+    "scene": "f_tier/N13/scene.usda",
+    "planner": "f_tier/N13/planner-metrics.json"
+  },
+  "zero_point_contact_events": [
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_link7",
+        "/World/Trial1/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_link7/collisions/collisions",
+        "/World/Trial1/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_hand",
+        "/World/Trial1/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_hand/collisions/collisions",
+        "/World/Trial1/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_link5",
+        "/World/Trial1/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_link5/collisions/collisions",
+        "/World/Trial1/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_link7",
+        "/World/Trial0/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_link7/collisions/collisions",
+        "/World/Trial0/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_hand",
+        "/World/Trial0/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_hand/collisions/collisions",
+        "/World/Trial0/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_link5",
+        "/World/Trial0/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_link5/collisions/collisions",
+        "/World/Trial0/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_link7",
+        "/World/Trial1/Panda/panda_link5"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_link7/collisions/collisions",
+        "/World/Trial1/Panda/panda_link5/collisions/collisions"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_hand",
+        "/World/Trial1/Panda/panda_link5"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_hand/collisions/collisions",
+        "/World/Trial1/Panda/panda_link5/collisions/collisions"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_link7",
+        "/World/Trial0/Panda/panda_link5"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_link7/collisions/collisions",
+        "/World/Trial0/Panda/panda_link5/collisions/collisions"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_hand",
+        "/World/Trial0/Panda/panda_link5"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_hand/collisions/collisions",
+        "/World/Trial0/Panda/panda_link5/collisions/collisions"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_link6",
+        "/World/Trial0/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_link6/collisions/collisions",
+        "/World/Trial0/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_leftfinger",
+        "/World/Trial0/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_leftfinger/collisions/collisions",
+        "/World/Trial0/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_rightfinger",
+        "/World/Trial0/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_rightfinger/collisions/collisions",
+        "/World/Trial0/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_link6",
+        "/World/Trial1/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_link6/collisions/collisions",
+        "/World/Trial1/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_leftfinger",
+        "/World/Trial1/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_leftfinger/collisions/collisions",
+        "/World/Trial1/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_rightfinger",
+        "/World/Trial1/hood_roof"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_rightfinger/collisions/collisions",
+        "/World/Trial1/hood_roof"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "blocked_goal",
+      "actors": [
+        "/World/Trial1/Panda/panda_leftfinger",
+        "/World/Trial1/Panda/panda_link5"
+      ],
+      "colliders": [
+        "/World/Trial1/Panda/panda_leftfinger/collisions/collisions",
+        "/World/Trial1/Panda/panda_link5/collisions/collisions"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    },
+    {
+      "step": 1,
+      "case": "positive",
+      "actors": [
+        "/World/Trial0/Panda/panda_leftfinger",
+        "/World/Trial0/Panda/panda_link5"
+      ],
+      "colliders": [
+        "/World/Trial0/Panda/panda_leftfinger/collisions/collisions",
+        "/World/Trial0/Panda/panda_link5/collisions/collisions"
+      ],
+      "contact_points": 0,
+      "type": "ContactEventType.CONTACT_LOST"
+    }
+  ],
+  "scope": "OfficialcuRobo v1 planned native Panda reach within reconstructed hood and blocked-goal control; original hood CAD not claimed.",
+  "video_status": "READY_NATIVE_STATE_REPLAY",
+  "native_replay": {
+    "physics_engine": "CPU PhysX native dynamics",
+    "sample_dt_s": 0.1,
+    "interpolation": false,
+    "physics_rerun": false,
+    "body_names": [
+      "panda_link0",
+      "panda_link1",
+      "panda_link2",
+      "panda_link3",
+      "panda_link4",
+      "panda_link5",
+      "panda_link6",
+      "panda_link7",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "body_paths": {
+      "positive": {
+        "panda_link0": "/World/Trial0/Panda/panda_link0",
+        "panda_link1": "/World/Trial0/Panda/panda_link1",
+        "panda_link2": "/World/Trial0/Panda/panda_link2",
+        "panda_link3": "/World/Trial0/Panda/panda_link3",
+        "panda_link4": "/World/Trial0/Panda/panda_link4",
+        "panda_link5": "/World/Trial0/Panda/panda_link5",
+        "panda_link6": "/World/Trial0/Panda/panda_link6",
+        "panda_link7": "/World/Trial0/Panda/panda_link7",
+        "panda_hand": "/World/Trial0/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial0/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial0/Panda/panda_rightfinger"
+      },
+      "blocked_goal": {
+        "panda_link0": "/World/Trial1/Panda/panda_link0",
+        "panda_link1": "/World/Trial1/Panda/panda_link1",
+        "panda_link2": "/World/Trial1/Panda/panda_link2",
+        "panda_link3": "/World/Trial1/Panda/panda_link3",
+        "panda_link4": "/World/Trial1/Panda/panda_link4",
+        "panda_link5": "/World/Trial1/Panda/panda_link5",
+        "panda_link6": "/World/Trial1/Panda/panda_link6",
+        "panda_link7": "/World/Trial1/Panda/panda_link7",
+        "panda_hand": "/World/Trial1/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial1/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial1/Panda/panda_rightfinger"
+      }
+    },
+    "link_pose_row_key": "native_robot_link_poses_xyzw",
+    "negative_world_translation_m": [
+      0.0,
+      2.0,
+      0.0
+    ],
+    "object_path": {}
+  },
+  "video_frames": 87,
+  "video_kind": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+  "video_render_manifest": "f_tier/N13/video_render.json",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "/root/f_w2_thermal_perf",
+    "observed": {
+      "raw_rows": 1140,
+      "steps_per_case": 570,
+      "time_index_max_error_s": 0.0,
+      "positive_terminal_max_error_m": 8.486335846001238e-05,
+      "positive_final_error_m": 8.203695e-05,
+      "declared_error_max_difference_m": 5.55e-17,
+      "true_robot_contacts": 0,
+      "zero_point_CONTACT_LOST_events": 18,
+      "callbacks": 570,
+      "callback_time_s": 4.7500002477,
+      "video_frames": 87,
+      "video_duration_s": 8.7
+    },
+    "checks": {
+      "frozen_same_goal_in_both_cases": true,
+      "positive_210_waypoint_endpoint_matches": true,
+      "negative_all570_targets_hold_start": true,
+      "negative_IK_FAIL": true,
+      "zero_point_lost_events_excluded_from_actual_contacts": true,
+      "actual_11_link_video_pose_mapping": true,
+      "video_zero_new_physics_and_no_interpolation": true
+    },
+    "visual_check": "Independent reviewer inspected initial, terminal and blocked-goal images; hood interior visible.",
+    "scope": "Official cuRobo v0.7.8 with local cuboid hood and native Panda; no payload grasp, original CAD identity or combined episode."
+  },
+  "accepted_at_utc": "2026-10-19T11:53:57.953713+00:00",
+  "video": "f_tier/N13/video.mp4"
+}
