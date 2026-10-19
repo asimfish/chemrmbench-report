@@ -1,0 +1,448 @@
+{
+  "id": "N01",
+  "status": "F_PASS",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "scope": "Whole-lab geometry composition and native RTX station inspection; no integrated dynamics or device task acceptance.",
+  "protocol": {
+    "scene": "assets/scenes/full_lab_candidate_r12/full_lab.usda",
+    "negative_control": "Not applicable to static inventory inspection; physical task controls are required under their own function IDs.",
+    "physics_steps": 0,
+    "local_thresholds": {
+      "required_inventory_count": 15,
+      "views": 10,
+      "stage_meters_per_unit": 1.0
+    }
+  },
+  "metrics": {
+    "counts": {
+      "fume_hoods": 4,
+      "liquid_station": 1,
+      "solid_station": 1,
+      "glovebox": 1,
+      "wash_and_dry_station": 1,
+      "fixed_arms": 5,
+      "KUKA_KMR_geometry": 1
+    },
+    "elements": [
+      {
+        "path": "/World/Stations/FumeHood1",
+        "bounds_min_m": [
+          -4.10525784316583,
+          -3.66455003920407,
+          -1.472848599764825e-19
+        ],
+        "bounds_max_m": [
+          -3.4947421568341754,
+          -2.335449960795932,
+          1.7918747790129768
+        ]
+      },
+      {
+        "path": "/World/Stations/FumeHood2",
+        "bounds_min_m": [
+          -4.10525784316583,
+          -1.6645500392040702,
+          2.236320435410316e-16
+        ],
+        "bounds_max_m": [
+          -3.494742156834175,
+          -0.3354499607959318,
+          1.791874779012977
+        ]
+      },
+      {
+        "path": "/World/Stations/FumeHood3",
+        "bounds_min_m": [
+          -4.10525784316583,
+          0.33544996079592976,
+          3.3221620919771317e-18
+        ],
+        "bounds_max_m": [
+          -3.4947421568341754,
+          1.664550039204068,
+          1.7918747790129768
+        ]
+      },
+      {
+        "path": "/World/Stations/FumeHood4",
+        "bounds_min_m": [
+          -4.10525784316583,
+          2.33544996079593,
+          5.056885567953939e-18
+        ],
+        "bounds_max_m": [
+          -3.494742156834175,
+          3.664550039204068,
+          1.7918747790129768
+        ]
+      },
+      {
+        "path": "/World/Stations/OT2",
+        "bounds_min_m": [
+          -0.46215000152587893,
+          -1.7348500061035155,
+          0.8200000011880344
+        ],
+        "bounds_max_m": [
+          0.1621500015258789,
+          -1.1674000078683988,
+          1.481999955873604
+        ]
+      },
+      {
+        "path": "/World/Stations/SolidDispenser",
+        "bounds_min_m": [
+          0.8950000059604646,
+          -0.5150000001490116,
+          0.8350000023841857
+        ],
+        "bounds_max_m": [
+          1.3449999940395356,
+          -0.11000000238418578,
+          1.7500000059604646
+        ]
+      },
+      {
+        "path": "/World/Stations/AuthorTorontoGlovebox",
+        "bounds_min_m": [
+          -0.7223221718745934,
+          3.1396252544308023,
+          0.8349999995529651
+        ],
+        "bounds_max_m": [
+          1.246202678839802,
+          4.01751822492067,
+          1.8160749652741481
+        ]
+      },
+      {
+        "path": "/World/Stations/Wash",
+        "bounds_min_m": [
+          3.1774999998137354,
+          0.6874999998137356,
+          0.8299999940395355
+        ],
+        "bounds_max_m": [
+          3.98799999922514,
+          2.3825000001862646,
+          1.1460000007599591
+        ]
+      },
+      {
+        "path": "/World/Stations/DryingRack",
+        "bounds_min_m": [
+          3.844999994635582,
+          0.44999999999999996,
+          1.12
+        ],
+        "bounds_max_m": [
+          4.139999999552965,
+          2.95,
+          2.12
+        ]
+      },
+      {
+        "path": "/World/Robots/PandaLiquid",
+        "bounds_min_m": [
+          -1.6520678358338539,
+          -2.218863954498387,
+          0.8349999850988388
+        ],
+        "bounds_max_m": [
+          -0.955336871790546,
+          -1.820539387202384,
+          1.7038403733088043
+        ]
+      },
+      {
+        "path": "/World/Robots/PandaSolid",
+        "bounds_min_m": [
+          1.7742537620561871,
+          -0.9004494182290823,
+          0.8349999850988388
+        ],
+        "bounds_max_m": [
+          2.4329093264219823,
+          -0.48235399518044214,
+          1.7038403733088032
+        ]
+      },
+      {
+        "path": "/World/Robots/UR3eHood",
+        "bounds_min_m": [
+          -3.8639929771398736,
+          -3.1762638286788696,
+          0.8955600578765064
+        ],
+        "bounds_max_m": [
+          -3.621945944633558,
+          -2.716012290418148,
+          1.3305179354498138
+        ]
+      },
+      {
+        "path": "/World/Robots/UR3eGloveboxLeft",
+        "bounds_min_m": [
+          -0.10202257695103248,
+          3.3643910902155674,
+          0.8445249991970136
+        ],
+        "bounds_max_m": [
+          0.1400244555552835,
+          3.824642628476286,
+          1.2794828767703204
+        ]
+      },
+      {
+        "path": "/World/Robots/UR3eGloveboxRight",
+        "bounds_min_m": [
+          0.6599755444447163,
+          3.3643910902155674,
+          0.8445249991970136
+        ],
+        "bounds_max_m": [
+          0.9020225769510322,
+          3.824642628476286,
+          1.2794828767703212
+        ]
+      },
+      {
+        "path": "/World/Robots/KMR",
+        "bounds_min_m": [
+          -0.5406888723373413,
+          -3.6150032758712767,
+          -3.1131430766606627e-10
+        ],
+        "bounds_max_m": [
+          1.160052626957672,
+          -2.9845516264438627,
+          1.4932763404766416
+        ]
+      }
+    ],
+    "meters_per_unit": 1.0,
+    "composition_errors": [],
+    "collision_prims": 372
+  },
+  "checks": {
+    "all_required_geometry_present": true,
+    "metric_stage_and_no_composition_errors": true,
+    "all10_native_views_captured": true,
+    "zero_physics_steps_and_scope_declared": true
+  },
+  "views": [
+    {
+      "id": "overview",
+      "keyframe": "f_tier/N01/overview.png",
+      "native_image_std_0_255": 20.53110406810401,
+      "eye_m": [
+        7,
+        -10,
+        7
+      ],
+      "target_m": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "hood_1",
+      "keyframe": "f_tier/N01/hood_1.png",
+      "native_image_std_0_255": 25.90801275729054,
+      "eye_m": [
+        -0.8,
+        -4.5,
+        2.3
+      ],
+      "target_m": [
+        -3.8,
+        -3,
+        1.1
+      ]
+    },
+    {
+      "id": "hood_2",
+      "keyframe": "f_tier/N01/hood_2.png",
+      "native_image_std_0_255": 29.209764727804902,
+      "eye_m": [
+        -0.8,
+        -2.5,
+        2.3
+      ],
+      "target_m": [
+        -3.8,
+        -1,
+        1.1
+      ]
+    },
+    {
+      "id": "hood_3",
+      "keyframe": "f_tier/N01/hood_3.png",
+      "native_image_std_0_255": 27.36303725057063,
+      "eye_m": [
+        -0.8,
+        -0.5,
+        2.3
+      ],
+      "target_m": [
+        -3.8,
+        1,
+        1.1
+      ]
+    },
+    {
+      "id": "hood_4",
+      "keyframe": "f_tier/N01/hood_4.png",
+      "native_image_std_0_255": 24.111490650260244,
+      "eye_m": [
+        -0.8,
+        1.5,
+        2.3
+      ],
+      "target_m": [
+        -3.8,
+        3,
+        1.1
+      ]
+    },
+    {
+      "id": "liquid",
+      "keyframe": "f_tier/N01/liquid.png",
+      "native_image_std_0_255": 43.129723200164136,
+      "eye_m": [
+        1.5,
+        -4,
+        2.5
+      ],
+      "target_m": [
+        -0.6,
+        -1.6,
+        1.1
+      ]
+    },
+    {
+      "id": "solid",
+      "keyframe": "f_tier/N01/solid.png",
+      "native_image_std_0_255": 39.421608244730166,
+      "eye_m": [
+        4,
+        -3,
+        2.3
+      ],
+      "target_m": [
+        1.55,
+        -0.55,
+        1.2
+      ]
+    },
+    {
+      "id": "glovebox",
+      "keyframe": "f_tier/N01/glovebox.png",
+      "native_image_std_0_255": 26.70277982489159,
+      "eye_m": [
+        1,
+        1,
+        2.2
+      ],
+      "target_m": [
+        0.4,
+        3.6,
+        1.4
+      ]
+    },
+    {
+      "id": "wash_dry",
+      "keyframe": "f_tier/N01/wash_dry.png",
+      "native_image_std_0_255": 37.10447084422373,
+      "eye_m": [
+        1,
+        0,
+        2.4
+      ],
+      "target_m": [
+        3.6,
+        1.7,
+        1.1
+      ]
+    },
+    {
+      "id": "mobile",
+      "keyframe": "f_tier/N01/mobile.png",
+      "native_image_std_0_255": 31.563277977659226,
+      "eye_m": [
+        2.2,
+        -5.3,
+        1.9
+      ],
+      "target_m": [
+        0,
+        -3.2,
+        0.9
+      ]
+    }
+  ],
+  "video": "f_tier/N01/video.mp4",
+  "video_kind": "Static native camera views held2seconds each; no task playback or interpolated dynamics.",
+  "wall_s": 34.223914791989955,
+  "completed_at_utc": "2026-10-19T11:33:24.242861+00:00",
+  "differences": [
+    "Reuses existing r12 local room layout, independent NAS hood CAD and original repository Toronto glovebox CAD; exact laboratory metric layout unavailable.",
+    "Five fixed arms use two adapted Panda/Robotiq and three UR3e; glovebox end-effectors and several device internals remain simplified or absent.",
+    "KUKA KMR is a source-linked independent geometric/kinematic reconstruction with coarse base collider; native mobile articulation and transport are not validated by N01.",
+    "Solid dispenser and washing/drying fixtures are local geometry; their physical behaviors require N10/N15/N21.",
+    "Existing native full-lab one-step initialization evidence is retained; this static inspection does not establish whole-lab settling or multi-agent task execution."
+  ],
+  "full_reference_complete": false,
+  "F_PASS": true,
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently loaded source USD with CPU bindings, recalculated15 visible-geometry bounds/372 colliders/metric units/prim composition errors, and PNG pixel stats",
+    "source_USD_recompute": {
+      "independent_source_USD_inventory_count": 15,
+      "colliders": 372,
+      "meters_per_unit": 1.0,
+      "composition_errors": 0,
+      "all15_bounds_match": true,
+      "paths": [
+        "/World/Stations/FumeHood1",
+        "/World/Stations/FumeHood2",
+        "/World/Stations/FumeHood3",
+        "/World/Stations/FumeHood4",
+        "/World/Stations/OT2",
+        "/World/Stations/SolidDispenser",
+        "/World/Stations/AuthorTorontoGlovebox",
+        "/World/Stations/Wash",
+        "/World/Stations/DryingRack",
+        "/World/Robots/PandaLiquid",
+        "/World/Robots/PandaSolid",
+        "/World/Robots/UR3eHood",
+        "/World/Robots/UR3eGloveboxLeft",
+        "/World/Robots/UR3eGloveboxRight",
+        "/World/Robots/KMR"
+      ]
+    },
+    "bounding_box_purpose": "time0/default+render to match rendered geometry; proxy/guide shapes have distinct extents and are not silently substituted",
+    "native_views_independently_read": {
+      "overview": 20.53110406810401,
+      "hood_1": 25.90801275729054,
+      "hood_2": 29.209764727804902,
+      "hood_3": 27.36303725057063,
+      "hood_4": 24.111490650260244,
+      "liquid": 43.129723200164136,
+      "solid": 39.421608244730166,
+      "glovebox": 26.70277982489159,
+      "wash_dry": 37.10447084422373,
+      "mobile": 31.563277977659226
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "20.000000",
+      "nb_frames": "200"
+    },
+    "visual_review": "Root inspected all10 native images: overview,each4hoods,liquid,solid,glovebox,wash/dry,KMR. Required geometry is visible. No integrated physics or device workflow claim.",
+    "negative_control": "Not applicable to static assembly inventory; device tasks have separate controls."
+  },
+  "accepted_at_utc": "2026-10-19T11:45:03.590807+00:00"
+}

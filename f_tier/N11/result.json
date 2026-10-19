@@ -1,0 +1,183 @@
+{
+  "id": "N11",
+  "status": "F_PASS",
+  "metrics": {
+    "positive_peak_lift_m": 0.20380766510963438,
+    "takeover_hold_max_position_error_m": 0.0084051630106905,
+    "takeover_hold_duration_s": 1.5,
+    "terminal_goal_error_m": 0.008304827404478242,
+    "negative_sender_release_count": 0
+  },
+  "gates": {
+    "lift": true,
+    "receiver_only_hold": true,
+    "placed_and_released": true,
+    "negative_rejected": true,
+    "positive_hsms_complete": true
+  },
+  "native_steps": 2865,
+  "wall_s": 28.660756522003794,
+  "native_clock": {
+    "callbacks": 2865,
+    "sum_dt_s": 23.875001245178282,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "protocol": {
+    "positive": "Giver lifts cup; receiver closes; giver releases and withdraws; receiver holds1.5s then places and releases",
+    "negative": "Same paths but receiver fingers stay open; actual dual-finger contact verifier blocks sender release and retains the payload",
+    "local_thresholds": {
+      "lift_m": 0.05,
+      "receiver_hold_error_m": 0.01,
+      "receiver_hold_s": 1.4,
+      "final_placement_m": 0.01,
+      "negative_sender_release_count": 0
+    },
+    "runtime_object_pose_writes": false,
+    "attachment_constraints": false,
+    "physics_device": "cpu"
+  },
+  "differences": [
+    "Two standard NVIDIA Panda parallel hands replace author dual-arm hardware/end effectors.",
+    "Local100g hollow rigid beaker and table fixtures, not original author CAD.",
+    "Original Matterix HSM primitives with local joint-drive adapter and fixed phase coordination.",
+    "One local positive and no-close control; no statistical success-rate claim."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "scene": "scene.usda",
+    "video": "video.mp4"
+  },
+  "video_status": "READY_NATIVE_STATE_REPLAY",
+  "observations": {
+    "receiver_only_hold": {
+      "start_s": 12.3,
+      "end_s": 13.791666666666666,
+      "sample_count": 180,
+      "giver_max_contact_N": 0.0,
+      "receiver_both_fingers_contact_fraction": 1.0
+    }
+  },
+  "native_replay": {
+    "body_names": [
+      "panda_link0",
+      "panda_link1",
+      "panda_link2",
+      "panda_link3",
+      "panda_link4",
+      "panda_link5",
+      "panda_link6",
+      "panda_link7",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "role_body_paths": {
+      "positive": {
+        "giver": {
+          "panda_link0": "/World/Trial0/giver/panda_link0",
+          "panda_link1": "/World/Trial0/giver/panda_link1",
+          "panda_link2": "/World/Trial0/giver/panda_link2",
+          "panda_link3": "/World/Trial0/giver/panda_link3",
+          "panda_link4": "/World/Trial0/giver/panda_link4",
+          "panda_link5": "/World/Trial0/giver/panda_link5",
+          "panda_link6": "/World/Trial0/giver/panda_link6",
+          "panda_link7": "/World/Trial0/giver/panda_link7",
+          "panda_hand": "/World/Trial0/giver/panda_hand",
+          "panda_leftfinger": "/World/Trial0/giver/panda_leftfinger",
+          "panda_rightfinger": "/World/Trial0/giver/panda_rightfinger"
+        },
+        "receiver": {
+          "panda_link0": "/World/Trial0/receiver/panda_link0",
+          "panda_link1": "/World/Trial0/receiver/panda_link1",
+          "panda_link2": "/World/Trial0/receiver/panda_link2",
+          "panda_link3": "/World/Trial0/receiver/panda_link3",
+          "panda_link4": "/World/Trial0/receiver/panda_link4",
+          "panda_link5": "/World/Trial0/receiver/panda_link5",
+          "panda_link6": "/World/Trial0/receiver/panda_link6",
+          "panda_link7": "/World/Trial0/receiver/panda_link7",
+          "panda_hand": "/World/Trial0/receiver/panda_hand",
+          "panda_leftfinger": "/World/Trial0/receiver/panda_leftfinger",
+          "panda_rightfinger": "/World/Trial0/receiver/panda_rightfinger"
+        }
+      },
+      "receiver_no_close": {
+        "giver": {
+          "panda_link0": "/World/Trial1/giver/panda_link0",
+          "panda_link1": "/World/Trial1/giver/panda_link1",
+          "panda_link2": "/World/Trial1/giver/panda_link2",
+          "panda_link3": "/World/Trial1/giver/panda_link3",
+          "panda_link4": "/World/Trial1/giver/panda_link4",
+          "panda_link5": "/World/Trial1/giver/panda_link5",
+          "panda_link6": "/World/Trial1/giver/panda_link6",
+          "panda_link7": "/World/Trial1/giver/panda_link7",
+          "panda_hand": "/World/Trial1/giver/panda_hand",
+          "panda_leftfinger": "/World/Trial1/giver/panda_leftfinger",
+          "panda_rightfinger": "/World/Trial1/giver/panda_rightfinger"
+        },
+        "receiver": {
+          "panda_link0": "/World/Trial1/receiver/panda_link0",
+          "panda_link1": "/World/Trial1/receiver/panda_link1",
+          "panda_link2": "/World/Trial1/receiver/panda_link2",
+          "panda_link3": "/World/Trial1/receiver/panda_link3",
+          "panda_link4": "/World/Trial1/receiver/panda_link4",
+          "panda_link5": "/World/Trial1/receiver/panda_link5",
+          "panda_link6": "/World/Trial1/receiver/panda_link6",
+          "panda_link7": "/World/Trial1/receiver/panda_link7",
+          "panda_hand": "/World/Trial1/receiver/panda_hand",
+          "panda_leftfinger": "/World/Trial1/receiver/panda_leftfinger",
+          "panda_rightfinger": "/World/Trial1/receiver/panda_rightfinger"
+        }
+      }
+    },
+    "object_path": {
+      "positive": "/World/Trial0/Cup",
+      "receiver_no_close": "/World/Trial1/Cup"
+    },
+    "sample_dt_s": 0.1,
+    "interpolation": false
+  },
+  "video_frames": 278,
+  "video_kind": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+  "video_render_manifest": "f_tier/N11/video_render.json",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recalculated120Hz raw body poses/contact forces/actual actuator targets and video-frame mapping",
+    "script": "f_tier/review_native_batch.py",
+    "checks": {
+      "producer_gates": true,
+      "lift_at_least50mm": true,
+      "held1p5s_within10mm": true,
+      "receiver_alone_holds": true,
+      "positive_placed_released": true,
+      "negative_actually_blocks_sender_release": true
+    },
+    "observed": {
+      "positive_peak_lift_m": 0.20380766510963438,
+      "raw_observations": 5730,
+      "physics_steps": 2865,
+      "duration_s": 23.875,
+      "hold_max_3D_error_m": 0.0084051630106905,
+      "hold_seconds": 1.5,
+      "giver_max_contact_N": 0.0,
+      "receiver_bilateral_contact_fraction": 1.0,
+      "final_goal_error_m": 0.008304827404478242,
+      "negative_rejected_observations": 1423,
+      "negative_giver_actuator_targets_remain_closed": true,
+      "negative_minimum_terminal_cup_z_m": 0.24803930521011353
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "27.800000",
+      "nb_frames": "278"
+    },
+    "visual_check": "Root inspected native-state positive handoff/rack placement and actual withheld-release/no-close negative images.",
+    "scope": "Local physical functions and declared substitute robots/fixtures, no author configuration identity."
+  },
+  "accepted_at_utc": "2026-10-19T11:39:46.260175+00:00",
+  "video": "f_tier/N11/video.mp4"
+}

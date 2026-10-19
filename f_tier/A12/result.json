@@ -1,0 +1,229 @@
+{
+  "id": "A12",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "scope_status": "TWO_FRESH_ENGINEERING_WINDOWS_FIRST_PHYSICAL_PASS_PENDING_ROOT_REVIEW",
+  "protocol": {
+    "scope": "Real incremental development of a moving-receiver coupled fluid task, then second-robot reuse through adapter; first-pass engineering windows measured prospectively",
+    "time_sources": "Host UTC and monotonic start/end; actual instrumented subprocess RUSAGE_CHILDREN user/system CPU and wall; native sim time separately",
+    "task": "23 s pickup, pour into force-driven native free cup, return tube; same3.75mL initial fill240particles",
+    "local_thresholds": {
+      "distinct_robot_task_windows": 2,
+      "native_horizon_s": 23.0,
+      "receiver_xy_path_m_min": 0.02,
+      "received_fraction_min": 0.8,
+      "spill_fraction_max": 0.1
+    },
+    "differences": [
+      "Local scripted expert, not original GRID policy or learned A04 result",
+      "Uses pre-existing public robot models/controller/solver; incremental integration cost, not from-zero",
+      "A01 solver supervision, waits and tool/model time included in gross wall; separate API/human subtimings unknown",
+      "No causal cost savings or author speedup claimed; one deterministic task seed per robot",
+      "Particle collision scope containers,bench,floor; no fluid robot/rack boundaries",
+      "Diagnostic particle video rather than original liquid photoreal renderer"
+    ]
+  },
+  "engineering_windows": [
+    {
+      "id": "moving_receiver_ur5e_coupled",
+      "task": "Reuse existing native coupled fluid solver and controller artifacts to implement UR5e transfer into an actually moving free receiver",
+      "start_utc": "2026-10-19T10:59:32.417314+00:00",
+      "start_unix_s": 1792407572.4173396,
+      "start_monotonic_s": 85047.841408441,
+      "end_utc": "2026-10-19T11:10:04.995275+00:00",
+      "status": "FIRST_PHYSICAL_PASS_CANDIDATE",
+      "parallel_work": "A01 1920/15360 CUDA runs and CPU coupling pair continue during this window; all monitoring/coding/waiting retained in wall duration",
+      "api_subtimings": null,
+      "human_time_s": null,
+      "human_time_boundary": "No historical human effort reconstructed; no new interactive human intervention so far, standing instructions and supervisor messages are not zero human effort",
+      "tool_events": [],
+      "thresholds_local": {
+        "full_native_horizon_s": 23.0,
+        "receiver_xy_path_m_min": 0.02,
+        "final_receiver_fraction_min": 0.8,
+        "final_spill_fraction_max": 0.1,
+        "native_collision_scope_penetration_particles_max": 0
+      },
+      "differences": [
+        "Local scripted expert; no GRID policy or learned A04 claim",
+        "External conveyor generalized force drives a native free receiving cup; no runtime pose writes",
+        "Only containers/bench/floor have fluid collision boundaries"
+      ],
+      "tool_events_file": "f_tier/A12/engineering_command_events.jsonl",
+      "tool_event_coverage": "Exact instrumented task subprocess argv/run wall/child CPU; source creation, syntax check and A01 supervision also occurred in this inclusive window, their separate CPU/API durations are unmeasured.",
+      "setup_events": [
+        {
+          "observed_activity": "Create independent expert_task.py and record_command.py; py_compile both; launch recorded first_native_attempt subprocess",
+          "source_paths": [
+            "f_tier/A04/coupled_moving_receiver/expert_task.py",
+            "f_tier/A12/record_command.py"
+          ],
+          "separate_elapsed_s": null
+        }
+      ],
+      "end_monotonic_s": 85680.419338103,
+      "end_unix_s": 1792408204.9952931,
+      "elapsed_wall_s": 632.5779296620021,
+      "first_pass_evidence": "f_tier/A04/coupled_moving_receiver/ur5e_seed12011/metrics.json",
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      }
+    },
+    {
+      "id": "moving_receiver_flexiv_coupled",
+      "task": "Reuse validated moving-cup native task on Flexiv through a robot adapter",
+      "start_utc": "2026-10-19T11:11:37.972689+00:00",
+      "start_unix_s": 1792408297.9727046,
+      "start_monotonic_s": 85773.396773801,
+      "end_utc": "2026-10-19T11:22:32.793584+00:00",
+      "status": "FIRST_PHYSICAL_PASS_CANDIDATE",
+      "parallel_work": "A01 fine-resolution native run continues; monitoring/waiting retained in inclusive wall window",
+      "api_subtimings": null,
+      "human_time_s": null,
+      "human_time_boundary": "No reconstructed historical or total human effort; no new interactive human action measured",
+      "reuse_boundary": "UR5e task and pre-existing rigid Flexiv adapter/assets already exist. Some general next-robot reuse planning occurred within the preceding gross UR5e window. This window starts before fresh Flexiv task asset inspection/code edits and measures incremental integration, not from-zero robot creation.",
+      "tool_events_file": "f_tier/A12/engineering_command_events.jsonl",
+      "tool_event_coverage": "Exact instrumented commands/runtime child CPU; source editing/API/monitoring separate CPU unmeasured, included in gross wall",
+      "thresholds_local": {
+        "full_native_horizon_s": 23.0,
+        "receiver_xy_path_m_min": 0.02,
+        "final_receiver_fraction_min": 0.8,
+        "final_spill_fraction_max": 0.1,
+        "native_collision_scope_penetration_particles_max": 0
+      },
+      "differences": [
+        "Local script expert and pre-existing public Flexiv model; no authorspeedup or new A04 policy result"
+      ],
+      "end_monotonic_s": 86428.217646836,
+      "end_unix_s": 1792408952.7936032,
+      "elapsed_wall_s": 654.8208730350016,
+      "first_pass_evidence": "f_tier/A04/coupled_moving_receiver/flexiv/flexiv_seed12011/metrics.json",
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      }
+    }
+  ],
+  "metrics": {
+    "first_engineering_window_wall_s": 632.5779296620021,
+    "second_engineering_window_wall_s": 654.8208730350016,
+    "overall_first_start_to_second_end_wall_s": 1380.3762383949943,
+    "inter_window_gap_s": 92.97743569799059,
+    "task_subprocess_user_cpu_s": 1041.082331,
+    "task_subprocess_system_cpu_s": 3.209392,
+    "source_editing_separate_cpu_s": null,
+    "agent_api_compute_s": null,
+    "platform_roundtrip_s": null,
+    "human_time_s": null,
+    "claimed_author_speedup": null
+  },
+  "actual_instrumented_command_events": "f_tier/A12/engineering_command_events.jsonl",
+  "first_physical_passes": [
+    {
+      "robot": "UR5e",
+      "evidence": "f_tier/A04/coupled_moving_receiver/ur5e_seed12011/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00179356542229,
+        "native_steps": 12808,
+        "receiver_xy_path_m": 0.18580148345738218,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3714647901086538,
+        "min_dt_s": 0.0004121714157117356,
+        "wall_run_s": 513.3343812210078
+      },
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "source_video": "f_tier/A04/coupled_moving_receiver/ur5e_seed12011/video.mp4"
+    },
+    {
+      "robot": "Flexiv",
+      "evidence": "f_tier/A04/coupled_moving_receiver/flexiv/flexiv_seed12011/metrics.json",
+      "metrics": {
+        "native_seconds": 23.00047323404141,
+        "native_steps": 13048,
+        "receiver_xy_path_m": 0.18643150375069625,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36452685858952716,
+        "min_dt_s": 0.00037731643031323165,
+        "wall_run_s": 529.7948085259995
+      },
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "source_video": "f_tier/A04/coupled_moving_receiver/flexiv/flexiv_seed12011/video.mp4"
+    }
+  ],
+  "failure": "First Flexiv launch failed on an inherited spotlight target wrist_2_link; retained. Remapped visual target to base, unchanged physics, second launch passed.",
+  "previous_execution_only_measurement": "f_tier/A12/execution_only_measurement.json",
+  "frozen_first_pass_sources": "f_tier/A12/first_pass_sources",
+  "recompute": "MUJOCO_GL=disable /tmp/chem_fluids/bin/python f_tier/A12/recompute_engineering.py",
+  "video": "f_tier/A12/video.mp4",
+  "checks": {
+    "fresh_two_windows_prospectively_timed": true,
+    "actual_new_task_and_robot_adapter_code": true,
+    "both_tasks_full_horizon_physical_gate": true,
+    "same_executor_fluid_and_world_reused": true,
+    "observed_costs_only_no_imputed_author_speedup": true
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recomputed both clock domains, measured subprocess CPU including failed launch, and native MuJoCo state/particle receiver membership/actual cup path",
+    "script": "f_tier/review_native_batch.py",
+    "observed_windows": [
+      {
+        "window": "moving_receiver_ur5e_coupled",
+        "gross_wall_s": 632.5779296620021,
+        "native_s": 23.00179356542229,
+        "receiver_count": 240,
+        "spill_count": 0,
+        "cup_path_m": 0.18580148345738218
+      },
+      {
+        "window": "moving_receiver_flexiv_coupled",
+        "gross_wall_s": 654.8208730350016,
+        "native_s": 23.00047323404141,
+        "receiver_count": 240,
+        "spill_count": 0,
+        "cup_path_m": 0.18643150375069625
+      }
+    ],
+    "overall_wall_s": 1380.3762383949943,
+    "inter_window_gap_s": 92.97743569799059,
+    "task_subprocess_user_cpu_s": 1041.082331,
+    "task_subprocess_system_cpu_s": 3.209392,
+    "all_instrumented_commands_user_cpu_s": 1188.2049550000002,
+    "all_instrumented_commands_system_cpu_s": 7.548719,
+    "recorded_command_events": 8,
+    "failed_task_command_events": 1,
+    "unknown_API_and_human_cost_preserved": true,
+    "video_probe": {
+      "width": 800,
+      "height": 480,
+      "duration": "46.200000",
+      "nb_frames": "462"
+    },
+    "scope": "Measures local incremental engineering windows, inclusive parallel supervision/wait; existing models/controller/solver reused. No from-zero engineering or author speedup claim. Task wrapper cleanup outlives first physical-pass timestamp by about0.3s; subprocess CPU covers full child lifetime."
+  },
+  "accepted_at_utc": "2026-10-19T11:39:48.608983+00:00"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "N05",
+  "status": "F_PASS",
+  "scope": "Continuous native robot placement of plate,reservoir andtiprack, followed without reset by OT2 semantic pipetting in their actual measured frames.",
+  "new_native_run": false,
+  "protocol": {
+    "physics_dt_s": 0.0016666666666666668,
+    "full_native_pair_seconds_each": 208.5,
+    "positive": "All3physicalsetup then64OT2semantic events",
+    "negative": "Same complete native rigid motion, aspiration disabled; zero delivery",
+    "local_thresholds": {
+      "placement_XY_m": 0.005,
+      "placement_Z_m": 0.005,
+      "orientation_rad": 0.1,
+      "terminal_speed_m_s": 0.02
+    },
+    "fluid_scope": "Finite conservative semantic parcels; no physical liquid-flow case here. MATTERIX physical liquid/PBD belongs separately toN04."
+  },
+  "metrics": {
+    "completed_physical_labware_count": 3,
+    "native_steps_each": 125100,
+    "semantic_events_each": 64,
+    "positive_wells_model_uL": [
+      400.0,
+      400.0,
+      400.0,
+      400.0,
+      400.0,
+      400.0
+    ],
+    "negative_wells_model_uL": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact_parcel_conservation": true
+  },
+  "evidence": [
+    "runs/ot2_repro_three_labware_complete_positive_r9_restart1",
+    "runs/ot2_repro_three_labware_complete_noasp_r9_restart1",
+    "evidence/ot2_three_labware_pair_independent_review_r9_restart1.json"
+  ],
+  "differences": [
+    "Local fixtures/poses/masses/parallel-gripoverlay; exact authorCAD/rack seating and FR3 real deployment not reproduced.",
+    "Python/CPU finite conservative semantic parcels and instantaneous transfers, notPBD aspiration or calibrated physical microlitres.",
+    "Legacy600Hz trial-relative trace excludes warmup and has no retrospectively added native callback counter.",
+    "Video is the existing native recorded-state positive replay; full matched negative remains separately audited in raw evidence.",
+    "Shares one complete208.5s physical episode withN20/N22 coverage; no claim of a new independent experiment."
+  ],
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root requirement-by-requirement F coverage review of existing completed pair and prior independent native/event/encoded-video audits; no repeat simulation or per-file hashes",
+    "existing_native_pair": [
+      {
+        "path": "runs/ot2_repro_three_labware_complete_positive_r9_restart1",
+        "duration_s": 208.5,
+        "completed_objects": [
+          "plate",
+          "reservoir",
+          "rack"
+        ],
+        "pipetting_executed": true
+      },
+      {
+        "path": "runs/ot2_repro_three_labware_complete_noasp_r9_restart1",
+        "duration_s": 208.5,
+        "completed_objects": [
+          "plate",
+          "reservoir",
+          "rack"
+        ],
+        "pipetting_executed": true
+      }
+    ],
+    "prior_independent_pair_review": "evidence/ot2_three_labware_pair_independent_review_r9_restart1.json",
+    "prior_complete_video_review": "evidence/ot2_three_labware_complete_video_visual_review_r1.json",
+    "all3_simultaneous_observed_placement_gates_passed": true,
+    "all64_geometry_semantics_events_and_parcel_ids_independently_audited": true,
+    "positive_destination_model_uL": [
+      400.0,
+      400.0,
+      400.0,
+      400.0,
+      400.0,
+      400.0
+    ],
+    "no_aspiration_destination_model_uL": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shared_evidence_notice": "Same208.5s episode also suppliesN20 wellplate placement andN22 pipette semantics. Coverage of another requirement, not a new independent episode or extra sample."
+  },
+  "accepted_at_utc": "2026-10-19T11:45:04.221914+00:00",
+  "video": "f_tier/N05/video.mp4"
+}

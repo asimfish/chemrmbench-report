@@ -1,0 +1,281 @@
+{
+  "id": "N18",
+  "status": "F_PASS",
+  "scope": "Qualitative native function reconstruction with declared configuration differences",
+  "protocol": {
+    "dt_s": 0.008333333333333333,
+    "max_seconds": 35.0,
+    "positive": "close gripper and execute original HSM",
+    "negative": "same native path, no-close gripper",
+    "local_thresholds": {
+      "min_lift_m": 0.05,
+      "placement_error_m": 0.01,
+      "mass_relative_error": 0.02,
+      "negative_lift_limit_m": 0.02
+    },
+    "object_pose_writes_after_initialization": false,
+    "grasp_constraints": false,
+    "controller": "Original matterix_sm StateMachine + local joint-drive/IK adapter",
+    "robot": "NVIDIA Panda native parallel hand, replacing Robotiq for local F-tier functions",
+    "mass_error_statistic": "Maximum nominal-stiffness mass relative error over terminal1s, independently measured empty tare; no fitted CUDA gain used."
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.1445715856552124,
+    "positive_placement_error_m": 0.00567707243044745,
+    "positive_terminal_gripper_contact_fraction": 0.0,
+    "negative_peak_lift_m": 0.004984153509140013,
+    "positive_mass_relative_error": 4.729737653071235e-05
+  },
+  "gates": {
+    "lift": true,
+    "placement": true,
+    "released": true,
+    "negative_rejected": true,
+    "run_complete": true,
+    "weighing": true
+  },
+  "observations": [
+    {
+      "case": "positive",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.1445715856552124,
+      "terminal_position_m": [
+        0.05085851869856318,
+        -0.20520306900143623,
+        0.07789757996797561
+      ],
+      "goal_error_m": 0.00567707243044745,
+      "measured_mass_kg": 0.2199919996235673,
+      "expected_mass_kg": 0.22,
+      "mass_relative_error": 3.636534742135716e-05,
+      "maximum_terminal_mass_relative_error": 4.729737653071235e-05,
+      "terminal_speed_m_s": 0.03658332280412314,
+      "terminal_gripper_contact_samples": 0
+    },
+    {
+      "case": "no_close",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.004984153509140013,
+      "terminal_position_m": [
+        1.750157927473386,
+        -0.40012390315532687,
+        0.08000002913177014
+      ],
+      "goal_error_m": 0.3607552605842942,
+      "measured_mass_kg": 0.0,
+      "expected_mass_kg": 0.22,
+      "mass_relative_error": 1.0,
+      "maximum_terminal_mass_relative_error": 1.0,
+      "terminal_speed_m_s": 0.00021386750370238914,
+      "terminal_gripper_contact_samples": 0
+    }
+  ],
+  "differences": [
+    "Locally reconstructed hollow beaker/funnel geometry, not author labware CAD.",
+    "Contents are represented by rigid lumped mass; this task does not validate liquid flow.",
+    "NVIDIA standard Panda parallel hand replaces the author Robotiq; arm gravity compensation is represented by disabled link gravity.",
+    "Local CPU-only native mechanical spring scale: k1000N/m,80Ns/m damping,1kg platform, actual empty tare2s. The nominal stiffness formula was independently validated on150g/300g/compound220g and frozen before delivery. OldCUDA gain failed to transfer and is not used. This is not author scale hardware.",
+    "One local positive and one negative scene; no statistical success rate claim.",
+    "Video replays exact saved CPU PhysX body poses at10Hz with zero new physics; ends with2s held positive and2s held negative views. Full negative motion remains in raw trace."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "video": "video.mp4"
+  },
+  "video_frames": 150,
+  "native_steps": 1322,
+  "wall_s": 15.13462181999057,
+  "full_original_reproduction": false,
+  "mechanical_scale": {
+    "stiffness_N_m": 1000.0,
+    "damping_Ns_m": 80.0,
+    "empty_tare": "spring_tare.json",
+    "calibration": "mechanical_scale_cpu_protocol.json",
+    "held_out_validation": "spring_probe_cpu_mode_heldout_failed/spring_probe.json",
+    "calibration_trace": "spring_probe_cpu_mode_heldout_failed/spring_probe_trace.json",
+    "readout": "mass_kg=1000*(actual_empty_platform_z-current_platform_z)/9.81",
+    "platform_geometry": "Unscaled rigid-body Xform with local child Cube, identical to calibration fixture",
+    "native_platform_masses_kg": [
+      [
+        [
+          1.0
+        ]
+      ],
+      [
+        [
+          1.0
+        ]
+      ]
+    ]
+  },
+  "native_replay": {
+    "physics_engine": "CPU PhysX native dynamics",
+    "sample_dt_s": 0.1,
+    "interpolation": false,
+    "physics_rerun": false,
+    "body_names": [
+      "panda_link0",
+      "panda_link1",
+      "panda_link2",
+      "panda_link3",
+      "panda_link4",
+      "panda_link5",
+      "panda_link6",
+      "panda_link7",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "body_paths": {
+      "positive": {
+        "panda_link0": "/World/Trial0/Panda/panda_link0",
+        "panda_link1": "/World/Trial0/Panda/panda_link1",
+        "panda_link2": "/World/Trial0/Panda/panda_link2",
+        "panda_link3": "/World/Trial0/Panda/panda_link3",
+        "panda_link4": "/World/Trial0/Panda/panda_link4",
+        "panda_link5": "/World/Trial0/Panda/panda_link5",
+        "panda_link6": "/World/Trial0/Panda/panda_link6",
+        "panda_link7": "/World/Trial0/Panda/panda_link7",
+        "panda_hand": "/World/Trial0/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial0/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial0/Panda/panda_rightfinger"
+      },
+      "no_close": {
+        "panda_link0": "/World/Trial1/Panda/panda_link0",
+        "panda_link1": "/World/Trial1/Panda/panda_link1",
+        "panda_link2": "/World/Trial1/Panda/panda_link2",
+        "panda_link3": "/World/Trial1/Panda/panda_link3",
+        "panda_link4": "/World/Trial1/Panda/panda_link4",
+        "panda_link5": "/World/Trial1/Panda/panda_link5",
+        "panda_link6": "/World/Trial1/Panda/panda_link6",
+        "panda_link7": "/World/Trial1/Panda/panda_link7",
+        "panda_hand": "/World/Trial1/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial1/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial1/Panda/panda_rightfinger"
+      }
+    },
+    "link_pose_row_key": "native_robot_link_poses_xyzw",
+    "object_path": {
+      "positive": "/World/Trial0/Beaker",
+      "no_close": "/World/Trial1/Beaker"
+    },
+    "platform_path": {
+      "positive": "/World/Trial0/Scale",
+      "no_close": "/World/Trial1/Scale"
+    }
+  },
+  "video_status": "READY_NATIVE_STATE_REPLAY",
+  "video_kind": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+  "native_setup": {
+    "reported_physics_dt_s": 0.008333333333333333,
+    "meters_per_unit": 1.0,
+    "bodies": [
+      {
+        "case": "positive",
+        "native_mass_kg": [
+          [
+            0.2199999988079071
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial0/Beaker"
+        ],
+        "authored_collider_count": 65,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial0/Beaker",
+            "mass": 0.2199999988079071,
+            "density": 0.0
+          }
+        ]
+      },
+      {
+        "case": "no_close",
+        "native_mass_kg": [
+          [
+            0.2199999988079071
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial1/Beaker"
+        ],
+        "authored_collider_count": 65,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial1/Beaker",
+            "mass": 0.2199999988079071,
+            "density": 0.0
+          }
+        ]
+      }
+    ],
+    "physics_scenes": [
+      {
+        "path": "/physicsScene",
+        "magnitude": 9.8100004196167,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "native_clock": {
+    "callbacks": 1322,
+    "sum_dt_s": 11.016667241230607,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "video_render_manifest": "f_tier/N18/video_render.json",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recalculated raw native120Hz poses/contact data; N18 empty-tare and independent-mass traces recomputed without producer scale_mass field",
+    "script": "f_tier/w1_cpu_acceptance_recompute.py",
+    "checks": {
+      "native_positive_complete": true,
+      "minimum50mm_lift": true,
+      "terminal1s_released": true,
+      "all_original_producer_gates": true,
+      "mass_error_at_most2percent": true,
+      "placement_within10mm": true,
+      "no_close_cannot_lift20mm": true,
+      "empty_negative_distinguishes_payload": true,
+      "independent_mass_controls_pass": true,
+      "negative_sequence_complete": true,
+      "video_has_exact_saved_native_states_and_labels": true
+    },
+    "observed": {
+      "positive_peak_lift_m": 0.1445715856552124,
+      "positive_terminal_gripper_contact_fraction": 0.0,
+      "native_steps": 1322,
+      "raw_case_observations": 2644,
+      "native_duration_s": 11.016666666666666,
+      "maximum_terminal_mass_relative_error": 4.729737653075272e-05,
+      "terminal_mass_mean_kg": 0.2199919996235673,
+      "empty_negative_maximum_absolute_mass_kg": 0.0,
+      "placement_error_m": 0.00567707243044745,
+      "no_close_peak_lift_m": 0.004984153509140013,
+      "independent_nominal_validation_errors": {
+        "cube150g": 7.790705803667475e-05,
+        "cube300g": 6.271729127427239e-05,
+        "compound_beaker220g": 0.00016590989236320297
+      }
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "15.000000",
+      "nb_frames": "150"
+    },
+    "visual_check": "Inspected positive terminal seating/support and negative physically blocked vial/empty platform images; local segmented opaque labware is explicitly different from author glass.",
+    "scope": "Functional local qualitative reconstruction; no original hardware/CAD identity or statistical generalization claim."
+  },
+  "video": "f_tier/N18/video.mp4",
+  "accepted_at_utc": "2026-10-19T11:27:06.974543+00:00"
+}

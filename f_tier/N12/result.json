@@ -1,0 +1,522 @@
+{
+  "id": "N12",
+  "status": "F_PASS",
+  "scope": "Qualitative native function reconstruction with declared configuration differences",
+  "protocol": {
+    "dt_s": 0.008333333333333333,
+    "max_seconds": 35.0,
+    "positive": "close gripper and execute original HSM",
+    "negative": "Close gripper and carry vial, then inject30mm X error into final target; same physical hole",
+    "local_thresholds": {
+      "min_lift_m": 0.05,
+      "positive_xy_error_m": 0.0022,
+      "min_positive_insertion_depth_m": 0.023,
+      "max_biased_insertion_depth_m": 0.01
+    },
+    "object_pose_writes_after_initialization": false,
+    "grasp_constraints": false,
+    "controller": "Original matterix_sm StateMachine + local joint-drive/IK adapter",
+    "robot": "NVIDIA Panda native parallel hand, replacing Robotiq for local F-tier functions",
+    "lower_controller": "Native hand Jacobian shifted to finger center; DLS lambda0.01, whole-vector joint-target slew0.7rad/s and Cartesian target increment limit30mm/s. Other phases retain prepared joint targets.",
+    "grasp_pose_source": "One native EE/object pose observation after lift; fixed measured grasp transform corrects future robot IK/HSM goals. No runtime object pose writes.",
+    "controller_position_threshold_m": 0.0005,
+    "controller_settling_time_s": 0.2,
+    "terminal_statistics": "XY maximum error, minimum positive insertion depth, maximum biased-control depth over terminal1s."
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.14974979877471922,
+    "positive_xy_insertion_error_m": 0.0003237426653847178,
+    "positive_insertion_depth_m": 0.024999897480010982,
+    "positive_terminal_gripper_contact_fraction": 0.0,
+    "biased_control_insertion_depth_m": -0.00019690066576004417
+  },
+  "gates": {
+    "lift": true,
+    "insertion": true,
+    "released": true,
+    "negative_rejected": true,
+    "run_complete": true
+  },
+  "observations": [
+    {
+      "case": "positive",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.14974979877471922,
+      "terminal_position_m": [
+        0.04995735473930836,
+        -0.20032060084243616,
+        0.08000002106030782
+      ],
+      "goal_error_m": 0.00032342467264227944,
+      "measured_mass_kg": 0.020000006012413477,
+      "expected_mass_kg": 0.02,
+      "mass_relative_error": 3.006206738404016e-07,
+      "terminal_speed_m_s": 0.0008157461502668727,
+      "terminal_gripper_contact_samples": 0
+    },
+    {
+      "case": "position_bias",
+      "hsm_success": false,
+      "hsm_failure": true,
+      "max_lift_m": 0.1497714352607727,
+      "terminal_position_m": [
+        1.4793870548407237,
+        -0.1946865689009428,
+        0.10519706948349873
+      ],
+      "goal_error_m": 0.03907331381918354,
+      "measured_mass_kg": 0.0,
+      "expected_mass_kg": 0.02,
+      "mass_relative_error": 1.0,
+      "terminal_speed_m_s": 0.11010808378392654,
+      "terminal_gripper_contact_samples": 120
+    }
+  ],
+  "differences": [
+    "Local16mm-diameter90mm vial and19mm square rack hole,25mm insertion depth; these are reconstructed functional fixtures, not author CAD.",
+    "Original Matterix HSM and native Panda hand with local IK adapter; local thresholds.",
+    "Position-bias control carries vial physically and commands final target30mm X off-hole; HSM collision timeout is an expected rejection.",
+    "Native joint/contact dynamics; no attachment constraint or runtime object pose writes. One-shot simulator-ground-truth grasp frame estimation after lift corrects subsequent robot goals; this local object-centric adapter is not claimed as author code.",
+    "Video replays exact saved CPU PhysX body poses at10Hz with zero new physics; ends with2s held positive and2s held negative views. Full negative motion remains in raw trace."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "video": "video.mp4"
+  },
+  "video_frames": 256,
+  "native_steps": 2596,
+  "wall_s": 12.2774158300017,
+  "full_original_reproduction": false,
+  "non_gating_observations": {
+    "support_force_readout": "Support-force implied mass is diagnostic only; N18 compound manifold aggregation remains unresolved and is not a gate for N12."
+  },
+  "grasp_frame_adapter": [
+    {
+      "case": "positive",
+      "observed_step": 734,
+      "ee_world_m": [
+        0.35004077425440655,
+        -0.39997366346658536,
+        0.2897048517027617
+      ],
+      "object_pose_xyzw": [
+        0.3500707149505615,
+        -0.4000486135482788,
+        0.22965116798877716,
+        0.00018699621432460845,
+        -0.00010294776438968256,
+        -4.5741660869680345e-05,
+        1.0
+      ],
+      "object_in_ee_translation_m": [
+        2.651559793933435e-05,
+        7.942873126857466e-05,
+        0.060053679567359075
+      ],
+      "object_in_ee_rotation": [
+        [
+          0.9999999888672259,
+          -1.2278442762298948e-05,
+          -0.00014871041552051587
+        ],
+        [
+          -1.2233922137935157e-05,
+          -0.9999999551124111,
+          0.0002993751934304241
+        ],
+        [
+          -0.00014871408470644088,
+          -0.0002993733707859031,
+          -0.999999944129851
+        ]
+      ],
+      "desired_object_bottom_m": [
+        0.05,
+        -0.2,
+        0.08
+      ],
+      "ee_goal_rotation": [
+        [
+          0.9999999888672259,
+          -1.2233922137935157e-05,
+          -0.00014871408470644088
+        ],
+        [
+          -1.2278442762298948e-05,
+          -0.9999999551124111,
+          -0.0002993733707859031
+        ],
+        [
+          -0.00014871041552051587,
+          0.0002993751934304241,
+          -0.999999944129851
+        ]
+      ],
+      "robot_goals": [
+        {
+          "phase": "translate",
+          "ee_target_w_m": [
+            0.04998241620207089,
+            -0.19990259247424638,
+            0.2900536563763048
+          ],
+          "q": [
+            1.0195629956583026,
+            0.2211738883466471,
+            0.4986169619656395,
+            -1.9130159223678733,
+            -0.12199953633022938,
+            2.1043999458830736,
+            2.355618164283532
+          ],
+          "position_residual_m": 1.5439820631391436e-10
+        },
+        {
+          "phase": "lower",
+          "ee_target_w_m": [
+            0.04998241620207089,
+            -0.19990259247424638,
+            0.14005365637630485
+          ],
+          "q": [
+            1.339727327490613,
+            0.417846717637218,
+            0.15213965485703257,
+            -2.0220668302722498,
+            -0.09446969530552284,
+            2.433101735722952,
+            2.3362090003896285
+          ],
+          "position_residual_m": 2.6320879301108555e-10
+        },
+        {
+          "phase": "release",
+          "ee_target_w_m": [
+            0.04998241620207089,
+            -0.19990259247424638,
+            0.14005365637630485
+          ],
+          "q": [
+            1.339727327490613,
+            0.417846717637218,
+            0.15213965485703257,
+            -2.0220668302722498,
+            -0.09446969530552284,
+            2.433101735722952,
+            2.3362090003896285
+          ],
+          "position_residual_m": 2.6320879301108555e-10
+        },
+        {
+          "phase": "retreat",
+          "ee_target_w_m": [
+            0.04998241620207089,
+            -0.19990259247424638,
+            0.3000536563763048
+          ],
+          "q": [
+            1.2993000533853958,
+            0.18971910535869882,
+            0.19979475460204424,
+            -1.900695288089371,
+            -0.04288010679617299,
+            2.086023377003331,
+            2.302162421549109
+          ],
+          "position_residual_m": 2.8365709041721125e-11
+        }
+      ]
+    },
+    {
+      "case": "position_bias",
+      "observed_step": 734,
+      "ee_world_m": [
+        1.7500410978619267,
+        -0.3999733995289568,
+        0.2897052391541545
+      ],
+      "object_pose_xyzw": [
+        1.750070333480835,
+        -0.40004801750183105,
+        0.2296515852212906,
+        0.00018945292686112225,
+        -0.0001063667587004602,
+        -4.4756587158190086e-05,
+        1.0
+      ],
+      "object_in_ee_translation_m": [
+        2.572988127215199e-05,
+        7.919806225657648e-05,
+        0.06005364967170288
+      ],
+      "object_in_ee_rotation": [
+        [
+          0.9999999880060187,
+          -1.4447316226391397e-05,
+          -0.0001542051806927245
+        ],
+        [
+          -1.440065306376524e-05,
+          -0.9999999541125671,
+          0.0003026011978810303
+        ],
+        [
+          -0.00015420954539184086,
+          -0.0003025989735963294,
+          -0.9999999423266371
+        ]
+      ],
+      "desired_object_bottom_m": [
+        1.48,
+        -0.2,
+        0.08
+      ],
+      "ee_goal_rotation": [
+        [
+          0.9999999880060187,
+          -1.440065306376524e-05,
+          -0.00015420954539184086
+        ],
+        [
+          -1.4447316226391397e-05,
+          -0.9999999541125671,
+          -0.0003025989735963294
+        ],
+        [
+          -0.0001542051806927245,
+          0.0003026011978810303,
+          -0.9999999423266371
+        ]
+      ],
+      "robot_goals": [
+        {
+          "phase": "translate",
+          "ee_target_w_m": [
+            1.4799835321055552,
+            -0.19990262939689854,
+            0.29005362621045944
+          ],
+          "q": [
+            0.7860623005795947,
+            0.2635542983309011,
+            0.7024518040590213,
+            -1.8977252401639504,
+            -0.19520501585946054,
+            2.0921941321498023,
+            2.354873280766183
+          ],
+          "position_residual_m": 1.5422785683234845e-10
+        },
+        {
+          "phase": "lower",
+          "ee_target_w_m": [
+            1.4799835321055552,
+            -0.19990262939689854,
+            0.14005362621045944
+          ],
+          "q": [
+            0.9415760834931979,
+            0.4815976587077454,
+            0.5167143733258341,
+            -1.9992411334670814,
+            -0.3436927694357162,
+            2.3954746975063737,
+            2.4505724724783406
+          ],
+          "position_residual_m": 2.187187832300298e-10
+        },
+        {
+          "phase": "release",
+          "ee_target_w_m": [
+            1.4799835321055552,
+            -0.19990262939689854,
+            0.14005362621045944
+          ],
+          "q": [
+            0.9415760834931979,
+            0.4815976587077454,
+            0.5167143733258341,
+            -1.9992411334670814,
+            -0.3436927694357162,
+            2.3954746975063737,
+            2.4505724724783406
+          ],
+          "position_residual_m": 2.187187832300298e-10
+        },
+        {
+          "phase": "retreat",
+          "ee_target_w_m": [
+            1.4799835321055552,
+            -0.19990262939689854,
+            0.30005362621045945
+          ],
+          "q": [
+            0.8972389830733183,
+            0.23118557767178594,
+            0.5802706983137741,
+            -1.8857715552238743,
+            -0.1438673384607075,
+            2.0754226962559295,
+            2.3205930502366225
+          ],
+          "position_residual_m": 1.670243565687765e-10
+        }
+      ]
+    }
+  ],
+  "native_replay": {
+    "physics_engine": "CPU PhysX native dynamics",
+    "sample_dt_s": 0.1,
+    "interpolation": false,
+    "physics_rerun": false,
+    "body_names": [
+      "panda_link0",
+      "panda_link1",
+      "panda_link2",
+      "panda_link3",
+      "panda_link4",
+      "panda_link5",
+      "panda_link6",
+      "panda_link7",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "body_paths": {
+      "positive": {
+        "panda_link0": "/World/Trial0/Panda/panda_link0",
+        "panda_link1": "/World/Trial0/Panda/panda_link1",
+        "panda_link2": "/World/Trial0/Panda/panda_link2",
+        "panda_link3": "/World/Trial0/Panda/panda_link3",
+        "panda_link4": "/World/Trial0/Panda/panda_link4",
+        "panda_link5": "/World/Trial0/Panda/panda_link5",
+        "panda_link6": "/World/Trial0/Panda/panda_link6",
+        "panda_link7": "/World/Trial0/Panda/panda_link7",
+        "panda_hand": "/World/Trial0/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial0/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial0/Panda/panda_rightfinger"
+      },
+      "position_bias": {
+        "panda_link0": "/World/Trial1/Panda/panda_link0",
+        "panda_link1": "/World/Trial1/Panda/panda_link1",
+        "panda_link2": "/World/Trial1/Panda/panda_link2",
+        "panda_link3": "/World/Trial1/Panda/panda_link3",
+        "panda_link4": "/World/Trial1/Panda/panda_link4",
+        "panda_link5": "/World/Trial1/Panda/panda_link5",
+        "panda_link6": "/World/Trial1/Panda/panda_link6",
+        "panda_link7": "/World/Trial1/Panda/panda_link7",
+        "panda_hand": "/World/Trial1/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial1/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial1/Panda/panda_rightfinger"
+      }
+    },
+    "link_pose_row_key": "native_robot_link_poses_xyzw",
+    "object_path": {
+      "positive": "/World/Trial0/Beaker",
+      "position_bias": "/World/Trial1/Beaker"
+    }
+  },
+  "video_status": "READY_NATIVE_STATE_REPLAY",
+  "video_kind": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+  "native_setup": {
+    "reported_physics_dt_s": 0.008333333333333333,
+    "meters_per_unit": 1.0,
+    "bodies": [
+      {
+        "case": "positive",
+        "native_mass_kg": [
+          [
+            0.019999999552965164
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial0/Beaker"
+        ],
+        "authored_collider_count": 1,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial0/Beaker",
+            "mass": 0.019999999552965164,
+            "density": 0.0
+          }
+        ]
+      },
+      {
+        "case": "position_bias",
+        "native_mass_kg": [
+          [
+            0.019999999552965164
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial1/Beaker"
+        ],
+        "authored_collider_count": 1,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial1/Beaker",
+            "mass": 0.019999999552965164,
+            "density": 0.0
+          }
+        ]
+      }
+    ],
+    "physics_scenes": [
+      {
+        "path": "/physicsScene",
+        "magnitude": 9.8100004196167,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "native_clock": {
+    "callbacks": 2596,
+    "sum_dt_s": 21.63333446159959,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "video_render_manifest": "f_tier/N12/video_render.json",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recalculated raw native120Hz poses/contact data; N18 empty-tare and independent-mass traces recomputed without producer scale_mass field",
+    "script": "f_tier/w1_cpu_acceptance_recompute.py",
+    "checks": {
+      "native_positive_complete": true,
+      "minimum50mm_lift": true,
+      "terminal1s_released": true,
+      "all_original_producer_gates": true,
+      "xy_within2p2mm": true,
+      "insertion_at_least23mm": true,
+      "position_bias_rejected": true,
+      "video_has_exact_saved_native_states_and_labels": true
+    },
+    "observed": {
+      "positive_peak_lift_m": 0.14974979877471922,
+      "positive_terminal_gripper_contact_fraction": 0.0,
+      "native_steps": 2596,
+      "raw_case_observations": 5192,
+      "native_duration_s": 21.633333333333333,
+      "maximum_terminal_XY_m": 0.0003237426653847178,
+      "minimum_terminal_insertion_depth_m": 0.024999897480010982,
+      "maximum_biased_depth_m": -0.00019690066576004417
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "25.600000",
+      "nb_frames": "256"
+    },
+    "visual_check": "Inspected positive terminal seating/support and negative physically blocked vial/empty platform images; local segmented opaque labware is explicitly different from author glass.",
+    "scope": "Functional local qualitative reconstruction; no original hardware/CAD identity or statistical generalization claim."
+  },
+  "video": "f_tier/N12/video.mp4",
+  "accepted_at_utc": "2026-10-19T11:27:06.765197+00:00"
+}

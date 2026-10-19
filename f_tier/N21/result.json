@@ -1,0 +1,242 @@
+{
+  "id": "N21",
+  "status": "F_PASS",
+  "scope": "Qualitative native function reconstruction with declared configuration differences",
+  "protocol": {
+    "dt_s": 0.008333333333333333,
+    "max_seconds": 35.0,
+    "positive": "close gripper and execute original HSM",
+    "negative": "same native path, no-close gripper",
+    "local_thresholds": {
+      "min_lift_m": 0.05,
+      "placement_error_m": 0.01,
+      "negative_lift_limit_m": 0.02,
+      "stable_s": 1.0,
+      "native_support_contact_fraction": 0.95
+    },
+    "object_pose_writes_after_initialization": false,
+    "grasp_constraints": false,
+    "controller": "Original matterix_sm StateMachine + local joint-drive/IK adapter",
+    "robot": "NVIDIA Panda native parallel hand, replacing Robotiq for local F-tier functions"
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.24385966181755064,
+    "positive_placement_error_m": 0.005986887006990463,
+    "positive_terminal_gripper_contact_fraction": 0.0,
+    "negative_peak_lift_m": 0.006248651146888731,
+    "terminal_native_support_contact_fraction": 1.0
+  },
+  "gates": {
+    "lift": true,
+    "placement": true,
+    "released": true,
+    "negative_rejected": true,
+    "run_complete": true,
+    "native_rack_support": true
+  },
+  "observations": [
+    {
+      "case": "positive",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.24385966181755064,
+      "terminal_position_m": [
+        0.04913264255349835,
+        -0.2059236225982507,
+        0.08000003459552923
+      ],
+      "goal_error_m": 0.0059867865861165425,
+      "measured_mass_kg": 0.09999925142196502,
+      "expected_mass_kg": 0.1,
+      "mass_relative_error": 7.485780349897331e-06,
+      "terminal_speed_m_s": 0.0001465311536188665,
+      "terminal_gripper_contact_samples": 0
+    },
+    {
+      "case": "no_close",
+      "hsm_success": true,
+      "hsm_failure": false,
+      "max_lift_m": 0.006248651146888731,
+      "terminal_position_m": [
+        1.749708491563797,
+        -0.40009381497899693,
+        0.08000003782411416
+      ],
+      "goal_error_m": 0.3603646968118508,
+      "measured_mass_kg": 0.0,
+      "expected_mass_kg": 0.1,
+      "mass_relative_error": 1.0,
+      "terminal_speed_m_s": 0.00027188784765668855,
+      "terminal_gripper_contact_samples": 0
+    }
+  ],
+  "differences": [
+    "Local open draining rack with7rails,4legs and rear pegs160mm behind cup target; initial95mm clearance fixture blocked descent and is preserved; no original author rack CAD or evaporation/drying kinetics claim.",
+    "Local100g hollow rigid beaker; opaque cyan material and segmented convex shell, not original glass CAD.",
+    "Original Matterix HSM + NVIDIA Panda native parallel hand; CPU PhysX joint drives and contact.",
+    "One positive and same-path no-close control; no statistical success rate claim."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "video": "video.mp4"
+  },
+  "video_frames": 162,
+  "native_steps": 1475,
+  "wall_s": 19.01107235699601,
+  "full_original_reproduction": false,
+  "non_gating_observations": {
+    "support_force_readout": "Support-force implied mass is diagnostic only; N18 compound manifold aggregation remains unresolved and is not a gate for N21."
+  },
+  "native_replay": {
+    "physics_engine": "CPU PhysX native dynamics",
+    "sample_dt_s": 0.1,
+    "interpolation": false,
+    "physics_rerun": false,
+    "body_names": [
+      "panda_link0",
+      "panda_link1",
+      "panda_link2",
+      "panda_link3",
+      "panda_link4",
+      "panda_link5",
+      "panda_link6",
+      "panda_link7",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "body_paths": {
+      "positive": {
+        "panda_link0": "/World/Trial0/Panda/panda_link0",
+        "panda_link1": "/World/Trial0/Panda/panda_link1",
+        "panda_link2": "/World/Trial0/Panda/panda_link2",
+        "panda_link3": "/World/Trial0/Panda/panda_link3",
+        "panda_link4": "/World/Trial0/Panda/panda_link4",
+        "panda_link5": "/World/Trial0/Panda/panda_link5",
+        "panda_link6": "/World/Trial0/Panda/panda_link6",
+        "panda_link7": "/World/Trial0/Panda/panda_link7",
+        "panda_hand": "/World/Trial0/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial0/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial0/Panda/panda_rightfinger"
+      },
+      "no_close": {
+        "panda_link0": "/World/Trial1/Panda/panda_link0",
+        "panda_link1": "/World/Trial1/Panda/panda_link1",
+        "panda_link2": "/World/Trial1/Panda/panda_link2",
+        "panda_link3": "/World/Trial1/Panda/panda_link3",
+        "panda_link4": "/World/Trial1/Panda/panda_link4",
+        "panda_link5": "/World/Trial1/Panda/panda_link5",
+        "panda_link6": "/World/Trial1/Panda/panda_link6",
+        "panda_link7": "/World/Trial1/Panda/panda_link7",
+        "panda_hand": "/World/Trial1/Panda/panda_hand",
+        "panda_leftfinger": "/World/Trial1/Panda/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial1/Panda/panda_rightfinger"
+      }
+    },
+    "link_pose_row_key": "native_robot_link_poses_xyzw",
+    "object_path": {
+      "positive": "/World/Trial0/Beaker",
+      "no_close": "/World/Trial1/Beaker"
+    }
+  },
+  "video_status": "READY_NATIVE_STATE_REPLAY",
+  "video_kind": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+  "native_setup": {
+    "reported_physics_dt_s": 0.008333333333333333,
+    "meters_per_unit": 1.0,
+    "bodies": [
+      {
+        "case": "positive",
+        "native_mass_kg": [
+          [
+            0.10000000149011612
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial0/Beaker"
+        ],
+        "authored_collider_count": 65,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial0/Beaker",
+            "mass": 0.10000000149011612,
+            "density": 0.0
+          }
+        ]
+      },
+      {
+        "case": "no_close",
+        "native_mass_kg": [
+          [
+            0.10000000149011612
+          ]
+        ],
+        "authored_rigid_bodies": [
+          "/World/Trial1/Beaker"
+        ],
+        "authored_collider_count": 65,
+        "authored_mass_prims": [
+          {
+            "path": "/World/Trial1/Beaker",
+            "mass": 0.10000000149011612,
+            "density": 0.0
+          }
+        ]
+      }
+    ],
+    "physics_scenes": [
+      {
+        "path": "/physicsScene",
+        "magnitude": 9.8100004196167,
+        "direction": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  "native_clock": {
+    "callbacks": 1475,
+    "sum_dt_s": 12.291667307727039,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "video_render_manifest": "f_tier/N21/video_render.json",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recalculated120Hz raw body poses/contact forces/actual actuator targets and video-frame mapping",
+    "script": "f_tier/review_native_batch.py",
+    "checks": {
+      "producer_gates": true,
+      "lift_at_least50mm": true,
+      "placement_within10mm": true,
+      "released_contact_zero": true,
+      "rack_support_at_least95percent": true,
+      "no_close_lift_rejected": true
+    },
+    "observed": {
+      "positive_peak_lift_m": 0.24385966181755064,
+      "raw_observations": 2950,
+      "physics_steps": 1475,
+      "duration_s": 12.291666666666666,
+      "max_terminal_placement_error_m": 0.005986887006990463,
+      "terminal_pad_contact_fraction": 0.0,
+      "native_rack_support_fraction": 1.0,
+      "no_close_peak_lift_m": 0.006248651146888731
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "16.200000",
+      "nb_frames": "162"
+    },
+    "visual_check": "Root inspected native-state positive handoff/rack placement and actual withheld-release/no-close negative images.",
+    "scope": "Local physical functions and declared substitute robots/fixtures, no author configuration identity."
+  },
+  "accepted_at_utc": "2026-10-19T11:39:46.508630+00:00",
+  "video": "f_tier/N21/video.mp4"
+}
