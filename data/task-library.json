@@ -1,6 +1,6 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-19T19:18:29.050718+00:00",
+  "updated_at_utc": "2026-10-19T19:33:30.755255+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2079,15 +2079,15 @@
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
       "status": "needs_expert_fix",
-      "dataset_attempts": 1,
+      "dataset_attempts": 2,
       "dataset_unique_seeds": 1,
       "target_unique_seeds": 20,
       "successes": 0,
       "success_rate": 0.0,
       "status_counts": {
-        "fail": 1
+        "fail": 2
       },
-      "verified_dataset_attempts": 0,
+      "verified_dataset_attempts": 1,
       "qualification_attempts": 11,
       "qualification_safe_successes": 2,
       "calibration_attempts": 0,
@@ -2099,7 +2099,7 @@
       "render_diagnostic_attempts": 0,
       "failure_reasons": {
         "completed": 1,
-        "particle_fractions": 1,
+        "particle_fractions": 2,
         "source_released": 1,
         "stages": 1,
         "incomplete": 1,
@@ -2127,6 +2127,25 @@
             "stages",
             "incomplete",
             "safety_force"
+          ],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 0,
+          "variant": "default",
+          "dataset": true,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "fail",
+          "safe_success": false,
+          "wall_time_s": 556.44,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 8,
+          "recording_verified": true,
+          "failure_reasons": [
+            "particle_fractions"
           ],
           "visual_contrast_flag": false
         }
@@ -2504,7 +2523,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 121,
+  "dataset_attempts": 122,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
