@@ -1,0 +1,8615 @@
+{
+  "id": "A03",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "protocol": {
+    "episodes": 6,
+    "robots": [
+      "UR5e",
+      "Flexiv Rizon4"
+    ],
+    "seeds": [
+      1011,
+      1012,
+      1013
+    ],
+    "acceptance_scope": "Three actual moving-receiver trajectories per robot, identical initial source/cup pose; not arbitrary initial-pose or source-rotation generalization.",
+    "shared_executor": "f_tier/A04/coupled_moving_receiver/learned_executor.py",
+    "shared_feedback": "f_tier/A04/coupled_moving_receiver/learned_task.py LearnedController object-frame law, beta1/no learned weights",
+    "robot_adapter": "UR5e pour_runner.Controller versus flexiv_task.FlexivController/build_flexiv; shared world, fluid and task sequence",
+    "local_thresholds": {
+      "receiver_fraction_min": 0.5,
+      "spill_fraction_max": 0.1,
+      "loaded_lift_m_min": 0.05
+    },
+    "runtime_object_pose_writes": false,
+    "attachments": false
+  },
+  "trials": [
+    {
+      "robot": "ur5e",
+      "seed": 1011,
+      "directory": "f_tier/A04/coupled_learning/ur5e/expert_1011",
+      "native_s": 23.000087159739223,
+      "native_steps": 12753,
+      "minimum_loaded_hold_lift_m": 0.11615510733551952,
+      "receiver_path_m": 0.17698886722958074,
+      "receiver_initial_xyz": [
+        0.5400022319321872,
+        0.21999999563181447,
+        0.005911400003961586
+      ],
+      "receiver_final_xyz": [
+        0.5325433979030295,
+        0.2016315164845545,
+        0.001218077854270748
+      ],
+      "amplitude_m": 0.01070474904210262,
+      "angular_frequency_rad_s": 0.7189970606528187,
+      "final": {
+        "receiver": 240,
+        "source": 0,
+        "spill": 0,
+        "tube_xyz": [
+          0.49989549098555197,
+          0.11998131396445104,
+          0.0039075034811630995
+        ],
+        "cup_xyz": [
+          0.5325433979030295,
+          0.2016315164845545,
+          0.001218077854270748
+        ]
+      },
+      "gripper_final_command": 0.0,
+      "passed": true
+    },
+    {
+      "robot": "ur5e",
+      "seed": 1012,
+      "directory": "f_tier/A04/coupled_learning/ur5e/expert_1012",
+      "native_s": 23.000011095812162,
+      "native_steps": 12776,
+      "minimum_loaded_hold_lift_m": 0.11618075063557987,
+      "receiver_path_m": 0.1978031563876208,
+      "receiver_initial_xyz": [
+        0.5400024646015931,
+        0.21999999473906062,
+        0.0059114000048305975
+      ],
+      "receiver_final_xyz": [
+        0.5316803850474598,
+        0.2161084060898196,
+        0.0012256307676810519
+      ],
+      "amplitude_m": 0.010837922899623834,
+      "angular_frequency_rad_s": 0.7841940053133977,
+      "final": {
+        "receiver": 240,
+        "source": 0,
+        "spill": 0,
+        "tube_xyz": [
+          0.4999108099795045,
+          0.11996915454894287,
+          0.0039044972673429137
+        ],
+        "cup_xyz": [
+          0.5316803850474598,
+          0.2161084060898196,
+          0.0012256307676810519
+        ]
+      },
+      "gripper_final_command": 0.0,
+      "passed": true
+    },
+    {
+      "robot": "ur5e",
+      "seed": 1013,
+      "directory": "f_tier/A04/coupled_learning/ur5e/expert_1013",
+      "native_s": 23.000139929399328,
+      "native_steps": 12783,
+      "minimum_loaded_hold_lift_m": 0.11615851664373515,
+      "receiver_path_m": 0.18851384303182195,
+      "receiver_initial_xyz": [
+        0.5400022903191798,
+        0.21999999642341142,
+        0.0059114000041715605
+      ],
+      "receiver_final_xyz": [
+        0.5475858284494447,
+        0.21771069750285418,
+        0.0012110227359928619
+      ],
+      "amplitude_m": 0.013766957491837126,
+      "angular_frequency_rad_s": 0.5736938414722769,
+      "final": {
+        "receiver": 240,
+        "source": 0,
+        "spill": 0,
+        "tube_xyz": [
+          0.49991654971761795,
+          0.11997738850656606,
+          0.0039160593446811364
+        ],
+        "cup_xyz": [
+          0.5475858284494447,
+          0.21771069750285418,
+          0.0012110227359928619
+        ]
+      },
+      "gripper_final_command": 0.0,
+      "passed": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 1011,
+      "directory": "f_tier/A04/coupled_learning/flexiv/expert_1011",
+      "native_s": 23.000525096648193,
+      "native_steps": 12772,
+      "minimum_loaded_hold_lift_m": 0.1143209363388355,
+      "receiver_path_m": 0.1770279154905927,
+      "receiver_initial_xyz": [
+        0.5400022319321872,
+        0.21999999563181447,
+        0.005911400003961586
+      ],
+      "receiver_final_xyz": [
+        0.5325414423508565,
+        0.20165219583295843,
+        0.0012113015758068568
+      ],
+      "amplitude_m": 0.01070474904210262,
+      "angular_frequency_rad_s": 0.7189970606528187,
+      "final": {
+        "receiver": 240,
+        "source": 0,
+        "spill": 0,
+        "tube_xyz": [
+          0.502914987589911,
+          0.1211987350429054,
+          0.003913945021793964
+        ],
+        "cup_xyz": [
+          0.5325414423508565,
+          0.20165219583295843,
+          0.0012113015758068568
+        ]
+      },
+      "gripper_final_command": 0.0,
+      "passed": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 1012,
+      "directory": "f_tier/A04/coupled_learning/flexiv/expert_1012",
+      "native_s": 23.001472910303022,
+      "native_steps": 13746,
+      "minimum_loaded_hold_lift_m": 0.10999608065780392,
+      "receiver_path_m": 0.1998878723393563,
+      "receiver_initial_xyz": [
+        0.5400024646015931,
+        0.21999999473906062,
+        0.0059114000048305975
+      ],
+      "receiver_final_xyz": [
+        0.5316995025701762,
+        0.21612251518985975,
+        0.0012284576943605912
+      ],
+      "amplitude_m": 0.010837922899623834,
+      "angular_frequency_rad_s": 0.7841940053133977,
+      "final": {
+        "receiver": 239,
+        "source": 0,
+        "spill": 1,
+        "tube_xyz": [
+          0.5028057744329253,
+          0.12111406644354099,
+          0.003910669855798919
+        ],
+        "cup_xyz": [
+          0.5316995025701762,
+          0.21612251518985975,
+          0.0012284576943605912
+        ]
+      },
+      "gripper_final_command": 0.0,
+      "passed": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 1013,
+      "directory": "f_tier/A04/coupled_learning/flexiv/expert_1013",
+      "native_s": 23.0007454828745,
+      "native_steps": 12815,
+      "minimum_loaded_hold_lift_m": 0.11473082827297605,
+      "receiver_path_m": 0.18692369829484884,
+      "receiver_initial_xyz": [
+        0.5400022903191798,
+        0.21999999642341142,
+        0.0059114000041715605
+      ],
+      "receiver_final_xyz": [
+        0.5475927625262578,
+        0.21771625715606116,
+        0.0012095738949389851
+      ],
+      "amplitude_m": 0.013766957491837126,
+      "angular_frequency_rad_s": 0.5736938414722769,
+      "final": {
+        "receiver": 240,
+        "source": 0,
+        "spill": 0,
+        "tube_xyz": [
+          0.5027130074910924,
+          0.1216005453606887,
+          0.0038970009298654033
+        ],
+        "cup_xyz": [
+          0.5475927625262578,
+          0.21771625715606116,
+          0.0012095738949389851
+        ]
+      },
+      "gripper_final_command": 0.0,
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "full_trials": 6,
+    "successful_trials": 6,
+    "minimum_receiver_fraction": 0.9958333333333333,
+    "maximum_spill_fraction": 0.004166666666666667
+  },
+  "differences": [
+    "Independent MuJoCo/Warp reconstruction, original GRID unavailable; 240 particles/3.75mL coarse liquid.",
+    "All6 reused from A04 expert training data, no new/heldout episodes; A12 engineering video uses different earlier seeds.",
+    "Only moving receiver trajectory varies; identical initial source/cup pose, no arbitrary initial pose or source orientation claim.",
+    "Native cup motion uses generalized external force; privileged cup state, no visual perception.",
+    "Fluid collision scope containers/bench/floor, excludes robot/rack; rigid robot contacts remain native.",
+    "Scripted task and object-frame feedback skill, no learned-policy or weight-transfer claim."
+  ],
+  "video": "f_tier/A03/video.mp4",
+  "video_kind": "All six full recorded native state trajectories,10fps, no interpolation or new dynamics.",
+  "video_frames": 1386,
+  "video_render": {
+    "physics_steps": 0,
+    "interpolation": false,
+    "frames": [
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 0,
+        "native_s": 0.01
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 1,
+        "native_s": 0.10112002067797377
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 2,
+        "native_s": 0.20112002067797385
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 3,
+        "native_s": 0.30112002067797394
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 4,
+        "native_s": 0.40112002067797403
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 5,
+        "native_s": 0.5011200206779741
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 6,
+        "native_s": 0.6011200206779742
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 7,
+        "native_s": 0.7011200206779743
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 8,
+        "native_s": 0.8011200206779744
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 9,
+        "native_s": 0.9011200206779745
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 10,
+        "native_s": 1.0011200206779745
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 11,
+        "native_s": 1.1011200206779745
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 12,
+        "native_s": 1.2011200206779746
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 13,
+        "native_s": 1.3011200206779747
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 14,
+        "native_s": 1.4011200206779748
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 15,
+        "native_s": 1.501120020677975
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 16,
+        "native_s": 1.601120020677975
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 17,
+        "native_s": 1.701120020677975
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 18,
+        "native_s": 1.8011200206779752
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 19,
+        "native_s": 1.9011200206779753
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 20,
+        "native_s": 2.001120020677975
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 21,
+        "native_s": 2.101120020677964
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 22,
+        "native_s": 2.201120020677953
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 23,
+        "native_s": 2.301120020677942
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 24,
+        "native_s": 2.401120020677931
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 25,
+        "native_s": 2.50112002067792
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 26,
+        "native_s": 2.601120020677909
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 27,
+        "native_s": 2.701276818201973
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 28,
+        "native_s": 2.801099769300989
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 29,
+        "native_s": 2.9011896523837475
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 30,
+        "native_s": 3.0011896523837365
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 31,
+        "native_s": 3.1011896523837255
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 32,
+        "native_s": 3.2011896523837144
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 33,
+        "native_s": 3.3011896523837034
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 34,
+        "native_s": 3.4011896523836924
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 35,
+        "native_s": 3.5011896523836814
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 36,
+        "native_s": 3.6011896523836704
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 37,
+        "native_s": 3.7011896523836594
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 38,
+        "native_s": 3.8011896523836484
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 39,
+        "native_s": 3.9011896523836374
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 40,
+        "native_s": 4.001189652383626
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 41,
+        "native_s": 4.101189652383615
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 42,
+        "native_s": 4.201189652383604
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 43,
+        "native_s": 4.301189652383593
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 44,
+        "native_s": 4.401189652383582
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 45,
+        "native_s": 4.501189652383571
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 46,
+        "native_s": 4.60118965238356
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 47,
+        "native_s": 4.701189652383549
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 48,
+        "native_s": 4.801189652383538
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 49,
+        "native_s": 4.901189652383527
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 50,
+        "native_s": 5.001189652383516
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 51,
+        "native_s": 5.101189652383505
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 52,
+        "native_s": 5.201189652383494
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 53,
+        "native_s": 5.301189652383483
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 54,
+        "native_s": 5.401189652383472
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 55,
+        "native_s": 5.501189652383461
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 56,
+        "native_s": 5.60118965238345
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 57,
+        "native_s": 5.701189652383439
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 58,
+        "native_s": 5.801189652383428
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 59,
+        "native_s": 5.901189652383417
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 60,
+        "native_s": 6.001189652383406
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 61,
+        "native_s": 6.101189652383395
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 62,
+        "native_s": 6.201189652383384
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 63,
+        "native_s": 6.301189652383373
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 64,
+        "native_s": 6.401189652383362
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 65,
+        "native_s": 6.501189652383351
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 66,
+        "native_s": 6.60118965238334
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 67,
+        "native_s": 6.701189652383329
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 68,
+        "native_s": 6.801189652383318
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 69,
+        "native_s": 6.901189652383307
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 70,
+        "native_s": 7.001189652383296
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 71,
+        "native_s": 7.101189652383285
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 72,
+        "native_s": 7.201189652383274
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 73,
+        "native_s": 7.301189652383263
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 74,
+        "native_s": 7.401189652383252
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 75,
+        "native_s": 7.501189652383241
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 76,
+        "native_s": 7.60118965238323
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 77,
+        "native_s": 7.701189652383219
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 78,
+        "native_s": 7.801189652383208
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 79,
+        "native_s": 7.901189652383197
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 80,
+        "native_s": 8.001189652383186
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 81,
+        "native_s": 8.10118965238322
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 82,
+        "native_s": 8.201189652383253
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 83,
+        "native_s": 8.301189652383286
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 84,
+        "native_s": 8.40118965238332
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 85,
+        "native_s": 8.501189652383353
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 86,
+        "native_s": 8.601189652383386
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 87,
+        "native_s": 8.70118965238342
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 88,
+        "native_s": 8.801189652383453
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 89,
+        "native_s": 8.901189652383486
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 90,
+        "native_s": 9.00118965238352
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 91,
+        "native_s": 9.101189652383553
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 92,
+        "native_s": 9.201123728372288
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 93,
+        "native_s": 9.300988407970111
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 94,
+        "native_s": 9.40130010791872
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 95,
+        "native_s": 9.50180670500539
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 96,
+        "native_s": 9.601430798110297
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 97,
+        "native_s": 9.700720044691474
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 98,
+        "native_s": 9.801080930902643
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 99,
+        "native_s": 9.9004703805155
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 100,
+        "native_s": 10.001869456365295
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 101,
+        "native_s": 10.101869456365328
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 102,
+        "native_s": 10.201869456365362
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 103,
+        "native_s": 10.301291972221897
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 104,
+        "native_s": 10.400828653370622
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 105,
+        "native_s": 10.500338557338635
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 106,
+        "native_s": 10.600036466768774
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 107,
+        "native_s": 10.700082205450729
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 108,
+        "native_s": 10.800295848646321
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 109,
+        "native_s": 10.900355616721978
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 110,
+        "native_s": 11.000311744405854
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 111,
+        "native_s": 11.101223621655189
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 112,
+        "native_s": 11.200355105074776
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 113,
+        "native_s": 11.301305411582197
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 114,
+        "native_s": 11.400263078693294
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 115,
+        "native_s": 11.500263078693328
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 116,
+        "native_s": 11.600263078693361
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 117,
+        "native_s": 11.700263078693395
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 118,
+        "native_s": 11.800263078693428
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 119,
+        "native_s": 11.900263078693461
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 120,
+        "native_s": 12.000263078693495
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 121,
+        "native_s": 12.100263078693528
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 122,
+        "native_s": 12.200263078693562
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 123,
+        "native_s": 12.300263078693595
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 124,
+        "native_s": 12.400263078693628
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 125,
+        "native_s": 12.500263078693662
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 126,
+        "native_s": 12.600263078693695
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 127,
+        "native_s": 12.700263078693729
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 128,
+        "native_s": 12.800263078693762
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 129,
+        "native_s": 12.900263078693795
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 130,
+        "native_s": 13.000263078693829
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 131,
+        "native_s": 13.100263078693862
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 132,
+        "native_s": 13.200263078693895
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 133,
+        "native_s": 13.300263078693929
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 134,
+        "native_s": 13.400263078693962
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 135,
+        "native_s": 13.500263078693996
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 136,
+        "native_s": 13.600263078694029
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 137,
+        "native_s": 13.700263078694062
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 138,
+        "native_s": 13.800263078694096
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 139,
+        "native_s": 13.90026307869413
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 140,
+        "native_s": 14.000263078694163
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 141,
+        "native_s": 14.100263078694196
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 142,
+        "native_s": 14.20026307869423
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 143,
+        "native_s": 14.300263078694263
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 144,
+        "native_s": 14.400263078694296
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 145,
+        "native_s": 14.50026307869433
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 146,
+        "native_s": 14.600263078694363
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 147,
+        "native_s": 14.700263078694396
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 148,
+        "native_s": 14.80026307869443
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 149,
+        "native_s": 14.900263078694463
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 150,
+        "native_s": 15.000263078694497
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 151,
+        "native_s": 15.10026307869453
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 152,
+        "native_s": 15.200263078694563
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 153,
+        "native_s": 15.300263078694597
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 154,
+        "native_s": 15.40026307869463
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 155,
+        "native_s": 15.500263078694664
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 156,
+        "native_s": 15.600263078694697
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 157,
+        "native_s": 15.70026307869473
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 158,
+        "native_s": 15.800263078694764
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 159,
+        "native_s": 15.900263078694797
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 160,
+        "native_s": 16.00026307869483
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 161,
+        "native_s": 16.100263078694773
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 162,
+        "native_s": 16.200263078694718
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 163,
+        "native_s": 16.300263078694663
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 164,
+        "native_s": 16.400263078694607
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 165,
+        "native_s": 16.50026307869455
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 166,
+        "native_s": 16.600263078694496
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 167,
+        "native_s": 16.70026307869444
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 168,
+        "native_s": 16.800263078694385
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 169,
+        "native_s": 16.90026307869433
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 170,
+        "native_s": 17.000263078694275
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 171,
+        "native_s": 17.10026307869422
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 172,
+        "native_s": 17.200263078694164
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 173,
+        "native_s": 17.30026307869411
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 174,
+        "native_s": 17.400263078694053
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 175,
+        "native_s": 17.500263078693997
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 176,
+        "native_s": 17.600263078693942
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 177,
+        "native_s": 17.700263078693887
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 178,
+        "native_s": 17.80026307869383
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 179,
+        "native_s": 17.900263078693776
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 180,
+        "native_s": 18.00026307869372
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 181,
+        "native_s": 18.100263078693665
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 182,
+        "native_s": 18.20026307869361
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 183,
+        "native_s": 18.300263078693554
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 184,
+        "native_s": 18.4002630786935
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 185,
+        "native_s": 18.500263078693443
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 186,
+        "native_s": 18.600263078693388
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 187,
+        "native_s": 18.700263078693332
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 188,
+        "native_s": 18.800263078693277
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 189,
+        "native_s": 18.90026307869322
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 190,
+        "native_s": 19.000263078693166
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 191,
+        "native_s": 19.100087159741385
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 192,
+        "native_s": 19.20008715974133
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 193,
+        "native_s": 19.300087159741274
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 194,
+        "native_s": 19.40008715974122
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 195,
+        "native_s": 19.500087159741163
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 196,
+        "native_s": 19.600087159741108
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 197,
+        "native_s": 19.700087159741052
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 198,
+        "native_s": 19.800087159740997
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 199,
+        "native_s": 19.90008715974094
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 200,
+        "native_s": 20.000087159740886
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 201,
+        "native_s": 20.10008715974083
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 202,
+        "native_s": 20.200087159740775
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 203,
+        "native_s": 20.30008715974072
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 204,
+        "native_s": 20.400087159740664
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 205,
+        "native_s": 20.50008715974061
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 206,
+        "native_s": 20.600087159740553
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 207,
+        "native_s": 20.700087159740498
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 208,
+        "native_s": 20.800087159740443
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 209,
+        "native_s": 20.900087159740387
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 210,
+        "native_s": 21.000087159740332
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 211,
+        "native_s": 21.100087159740276
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 212,
+        "native_s": 21.20008715974022
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 213,
+        "native_s": 21.300087159740166
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 214,
+        "native_s": 21.40008715974011
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 215,
+        "native_s": 21.500087159740055
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 216,
+        "native_s": 21.60008715974
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 217,
+        "native_s": 21.700087159739944
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 218,
+        "native_s": 21.80008715973989
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 219,
+        "native_s": 21.900087159739833
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 220,
+        "native_s": 22.000087159739778
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 221,
+        "native_s": 22.100087159739722
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 222,
+        "native_s": 22.200087159739667
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 223,
+        "native_s": 22.30008715973961
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 224,
+        "native_s": 22.400087159739556
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 225,
+        "native_s": 22.5000871597395
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 226,
+        "native_s": 22.600087159739445
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 227,
+        "native_s": 22.70008715973939
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 228,
+        "native_s": 22.800087159739334
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 229,
+        "native_s": 22.90008715973928
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1011,
+        "index": 230,
+        "native_s": 23.000087159739223
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 0,
+        "native_s": 0.01
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 1,
+        "native_s": 0.10065934245398991
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 2,
+        "native_s": 0.20065934245399
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 3,
+        "native_s": 0.30065934245399006
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 4,
+        "native_s": 0.40065934245399015
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 5,
+        "native_s": 0.5006593424539902
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 6,
+        "native_s": 0.6006593424539903
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 7,
+        "native_s": 0.7006593424539904
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 8,
+        "native_s": 0.8006593424539905
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 9,
+        "native_s": 0.9006593424539906
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 10,
+        "native_s": 1.0006593424539907
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 11,
+        "native_s": 1.1006593424539908
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 12,
+        "native_s": 1.2006593424539909
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 13,
+        "native_s": 1.300659342453991
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 14,
+        "native_s": 1.400659342453991
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 15,
+        "native_s": 1.5006593424539911
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 16,
+        "native_s": 1.6006593424539912
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 17,
+        "native_s": 1.7006593424539913
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 18,
+        "native_s": 1.8006593424539914
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 19,
+        "native_s": 1.9006593424539915
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 20,
+        "native_s": 2.0006593424539916
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 21,
+        "native_s": 2.1006593424539806
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 22,
+        "native_s": 2.2006593424539695
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 23,
+        "native_s": 2.3006593424539585
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 24,
+        "native_s": 2.4006593424539475
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 25,
+        "native_s": 2.5006593424539365
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 26,
+        "native_s": 2.6006593424539255
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 27,
+        "native_s": 2.700334545206741
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 28,
+        "native_s": 2.800761684188549
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 29,
+        "native_s": 2.9005079846105946
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 30,
+        "native_s": 3.0005079846105835
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 31,
+        "native_s": 3.1005079846105725
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 32,
+        "native_s": 3.2005079846105615
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 33,
+        "native_s": 3.3005079846105505
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 34,
+        "native_s": 3.4005079846105395
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 35,
+        "native_s": 3.5005079846105285
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 36,
+        "native_s": 3.6005079846105175
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 37,
+        "native_s": 3.7005079846105065
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 38,
+        "native_s": 3.8005079846104954
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 39,
+        "native_s": 3.9005079846104844
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 40,
+        "native_s": 4.000507984610474
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 41,
+        "native_s": 4.100507984610463
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 42,
+        "native_s": 4.200507984610452
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 43,
+        "native_s": 4.300507984610441
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 44,
+        "native_s": 4.40050798461043
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 45,
+        "native_s": 4.500507984610419
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 46,
+        "native_s": 4.600507984610408
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 47,
+        "native_s": 4.700507984610397
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 48,
+        "native_s": 4.800507984610386
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 49,
+        "native_s": 4.900507984610375
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 50,
+        "native_s": 5.000507984610364
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 51,
+        "native_s": 5.100507984610353
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 52,
+        "native_s": 5.200507984610342
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 53,
+        "native_s": 5.300507984610331
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 54,
+        "native_s": 5.40050798461032
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 55,
+        "native_s": 5.500507984610309
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 56,
+        "native_s": 5.600507984610298
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 57,
+        "native_s": 5.700507984610287
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 58,
+        "native_s": 5.800507984610276
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 59,
+        "native_s": 5.900507984610265
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 60,
+        "native_s": 6.000507984610254
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 61,
+        "native_s": 6.100507984610243
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 62,
+        "native_s": 6.200507984610232
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 63,
+        "native_s": 6.3005079846102205
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 64,
+        "native_s": 6.4005079846102095
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 65,
+        "native_s": 6.5005079846101985
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 66,
+        "native_s": 6.6005079846101875
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 67,
+        "native_s": 6.7005079846101765
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 68,
+        "native_s": 6.8005079846101655
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 69,
+        "native_s": 6.9005079846101545
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 70,
+        "native_s": 7.0005079846101435
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 71,
+        "native_s": 7.100507984610132
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 72,
+        "native_s": 7.200507984610121
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 73,
+        "native_s": 7.30050798461011
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 74,
+        "native_s": 7.400507984610099
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 75,
+        "native_s": 7.500507984610088
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 76,
+        "native_s": 7.600507984610077
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 77,
+        "native_s": 7.700507984610066
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 78,
+        "native_s": 7.800507984610055
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 79,
+        "native_s": 7.900507984610044
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 80,
+        "native_s": 8.000507984610033
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 81,
+        "native_s": 8.100507984610067
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 82,
+        "native_s": 8.2005079846101
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 83,
+        "native_s": 8.300507984610134
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 84,
+        "native_s": 8.400507984610167
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 85,
+        "native_s": 8.5005079846102
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 86,
+        "native_s": 8.600507984610234
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 87,
+        "native_s": 8.700507984610267
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 88,
+        "native_s": 8.8005079846103
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 89,
+        "native_s": 8.900507984610334
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 90,
+        "native_s": 9.000507984610367
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 91,
+        "native_s": 9.1005079846104
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 92,
+        "native_s": 9.200507984610434
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 93,
+        "native_s": 9.300388783121058
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 94,
+        "native_s": 9.401654138212152
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 95,
+        "native_s": 9.501263186869824
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 96,
+        "native_s": 9.60076420277333
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 97,
+        "native_s": 9.700157725598428
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 98,
+        "native_s": 9.800717850970972
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 99,
+        "native_s": 9.901006983654419
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 100,
+        "native_s": 10.000628360596716
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 101,
+        "native_s": 10.1006226180179
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 102,
+        "native_s": 10.200622618017933
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 103,
+        "native_s": 10.301145347152909
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 104,
+        "native_s": 10.40073416152465
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 105,
+        "native_s": 10.5002016438837
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 106,
+        "native_s": 10.60012732656028
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 107,
+        "native_s": 10.700323297268529
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 108,
+        "native_s": 10.800267837535628
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 109,
+        "native_s": 10.90040415911602
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 110,
+        "native_s": 11.000179614029364
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 111,
+        "native_s": 11.100340059339054
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 112,
+        "native_s": 11.200264700049786
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 113,
+        "native_s": 11.300254665368811
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 114,
+        "native_s": 11.400713838853076
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 115,
+        "native_s": 11.500487401690043
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 116,
+        "native_s": 11.600487401690076
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 117,
+        "native_s": 11.70048740169011
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 118,
+        "native_s": 11.800487401690143
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 119,
+        "native_s": 11.900487401690176
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 120,
+        "native_s": 12.00048740169021
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 121,
+        "native_s": 12.100487401690243
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 122,
+        "native_s": 12.200487401690276
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 123,
+        "native_s": 12.30048740169031
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 124,
+        "native_s": 12.400487401690343
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 125,
+        "native_s": 12.500487401690377
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 126,
+        "native_s": 12.60048740169041
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 127,
+        "native_s": 12.700487401690443
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 128,
+        "native_s": 12.800487401690477
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 129,
+        "native_s": 12.90048740169051
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 130,
+        "native_s": 13.000487401690544
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 131,
+        "native_s": 13.100487401690577
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 132,
+        "native_s": 13.20048740169061
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 133,
+        "native_s": 13.300487401690644
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 134,
+        "native_s": 13.400487401690677
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 135,
+        "native_s": 13.50048740169071
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 136,
+        "native_s": 13.600487401690744
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 137,
+        "native_s": 13.700487401690777
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 138,
+        "native_s": 13.80048740169081
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 139,
+        "native_s": 13.900487401690844
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 140,
+        "native_s": 14.000487401690878
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 141,
+        "native_s": 14.100487401690911
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 142,
+        "native_s": 14.200487401690944
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 143,
+        "native_s": 14.300487401690978
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 144,
+        "native_s": 14.400487401691011
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 145,
+        "native_s": 14.500487401691045
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 146,
+        "native_s": 14.600487401691078
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 147,
+        "native_s": 14.700487401691111
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 148,
+        "native_s": 14.800487401691145
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 149,
+        "native_s": 14.900487401691178
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 150,
+        "native_s": 15.000487401691212
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 151,
+        "native_s": 15.100487401691245
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 152,
+        "native_s": 15.200487401691278
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 153,
+        "native_s": 15.300487401691312
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 154,
+        "native_s": 15.400487401691345
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 155,
+        "native_s": 15.500487401691379
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 156,
+        "native_s": 15.600487401691412
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 157,
+        "native_s": 15.700487401691445
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 158,
+        "native_s": 15.800487401691479
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 159,
+        "native_s": 15.900487401691512
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 160,
+        "native_s": 16.000487401691544
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 161,
+        "native_s": 16.10048740169149
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 162,
+        "native_s": 16.200487401691433
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 163,
+        "native_s": 16.300487401691377
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 164,
+        "native_s": 16.400487401691322
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 165,
+        "native_s": 16.500487401691267
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 166,
+        "native_s": 16.60048740169121
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 167,
+        "native_s": 16.700487401691156
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 168,
+        "native_s": 16.8004874016911
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 169,
+        "native_s": 16.900487401691045
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 170,
+        "native_s": 17.00048740169099
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 171,
+        "native_s": 17.100487401690934
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 172,
+        "native_s": 17.20048740169088
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 173,
+        "native_s": 17.300487401690823
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 174,
+        "native_s": 17.400487401690768
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 175,
+        "native_s": 17.500487401690712
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 176,
+        "native_s": 17.600487401690657
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 177,
+        "native_s": 17.7004874016906
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 178,
+        "native_s": 17.800487401690546
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 179,
+        "native_s": 17.90048740169049
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 180,
+        "native_s": 18.000487401690435
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 181,
+        "native_s": 18.10048740169038
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 182,
+        "native_s": 18.200487401690324
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 183,
+        "native_s": 18.30048740169027
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 184,
+        "native_s": 18.400487401690214
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 185,
+        "native_s": 18.500487401690158
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 186,
+        "native_s": 18.600487401690103
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 187,
+        "native_s": 18.700487401690047
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 188,
+        "native_s": 18.800487401689992
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 189,
+        "native_s": 18.900487401689936
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 190,
+        "native_s": 19.00048740168988
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 191,
+        "native_s": 19.100249635210552
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 192,
+        "native_s": 19.200249635210497
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 193,
+        "native_s": 19.30024963521044
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 194,
+        "native_s": 19.400249635210386
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 195,
+        "native_s": 19.50024963521033
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 196,
+        "native_s": 19.600249635210275
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 197,
+        "native_s": 19.70024963521022
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 198,
+        "native_s": 19.800249635210164
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 199,
+        "native_s": 19.90024963521011
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 200,
+        "native_s": 20.000249635210054
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 201,
+        "native_s": 20.100249635209998
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 202,
+        "native_s": 20.200249635209943
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 203,
+        "native_s": 20.300249635209887
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 204,
+        "native_s": 20.400249635209832
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 205,
+        "native_s": 20.500249635209776
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 206,
+        "native_s": 20.60024963520972
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 207,
+        "native_s": 20.700249635209666
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 208,
+        "native_s": 20.80075717557631
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 209,
+        "native_s": 20.900011095813326
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 210,
+        "native_s": 21.00001109581327
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 211,
+        "native_s": 21.100011095813215
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 212,
+        "native_s": 21.20001109581316
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 213,
+        "native_s": 21.300011095813105
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 214,
+        "native_s": 21.40001109581305
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 215,
+        "native_s": 21.500011095812994
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 216,
+        "native_s": 21.60001109581294
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 217,
+        "native_s": 21.700011095812883
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 218,
+        "native_s": 21.800011095812827
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 219,
+        "native_s": 21.900011095812772
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 220,
+        "native_s": 22.000011095812717
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 221,
+        "native_s": 22.10001109581266
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 222,
+        "native_s": 22.200011095812606
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 223,
+        "native_s": 22.30001109581255
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 224,
+        "native_s": 22.400011095812495
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 225,
+        "native_s": 22.50001109581244
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 226,
+        "native_s": 22.600011095812384
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 227,
+        "native_s": 22.70001109581233
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 228,
+        "native_s": 22.800011095812273
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 229,
+        "native_s": 22.900011095812218
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1012,
+        "index": 230,
+        "native_s": 23.000011095812162
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 0,
+        "native_s": 0.01
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 1,
+        "native_s": 0.10063864107625134
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 2,
+        "native_s": 0.20063864107625143
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 3,
+        "native_s": 0.3006386410762515
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 4,
+        "native_s": 0.4006386410762516
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 5,
+        "native_s": 0.5006386410762517
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 6,
+        "native_s": 0.6006386410762518
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 7,
+        "native_s": 0.7006386410762518
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 8,
+        "native_s": 0.8006386410762519
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 9,
+        "native_s": 0.900638641076252
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 10,
+        "native_s": 1.000638641076252
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 11,
+        "native_s": 1.100638641076252
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 12,
+        "native_s": 1.2006386410762522
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 13,
+        "native_s": 1.3006386410762523
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 14,
+        "native_s": 1.4006386410762524
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 15,
+        "native_s": 1.5006386410762524
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 16,
+        "native_s": 1.6006386410762525
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 17,
+        "native_s": 1.7006386410762526
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 18,
+        "native_s": 1.8006386410762527
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 19,
+        "native_s": 1.9006386410762528
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 20,
+        "native_s": 2.000638641076253
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 21,
+        "native_s": 2.100638641076242
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 22,
+        "native_s": 2.200638641076231
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 23,
+        "native_s": 2.30063864107622
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 24,
+        "native_s": 2.400638641076209
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 25,
+        "native_s": 2.500638641076198
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 26,
+        "native_s": 2.600638641076187
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 27,
+        "native_s": 2.7006808469256494
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 28,
+        "native_s": 2.8006803221053476
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 29,
+        "native_s": 2.9004428940908067
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 30,
+        "native_s": 3.0004428940907957
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 31,
+        "native_s": 3.1004428940907847
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 32,
+        "native_s": 3.2004428940907736
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 33,
+        "native_s": 3.3004428940907626
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 34,
+        "native_s": 3.4004428940907516
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 35,
+        "native_s": 3.5004428940907406
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 36,
+        "native_s": 3.6004428940907296
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 37,
+        "native_s": 3.7004428940907186
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 38,
+        "native_s": 3.8004428940907076
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 39,
+        "native_s": 3.9004428940906966
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 40,
+        "native_s": 4.0004428940906855
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 41,
+        "native_s": 4.1004428940906745
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 42,
+        "native_s": 4.2004428940906635
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 43,
+        "native_s": 4.3004428940906525
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 44,
+        "native_s": 4.4004428940906415
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 45,
+        "native_s": 4.5004428940906305
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 46,
+        "native_s": 4.6004428940906195
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 47,
+        "native_s": 4.7004428940906084
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 48,
+        "native_s": 4.800442894090597
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 49,
+        "native_s": 4.900442894090586
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 50,
+        "native_s": 5.000442894090575
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 51,
+        "native_s": 5.100442894090564
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 52,
+        "native_s": 5.200442894090553
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 53,
+        "native_s": 5.300442894090542
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 54,
+        "native_s": 5.400442894090531
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 55,
+        "native_s": 5.50044289409052
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 56,
+        "native_s": 5.600442894090509
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 57,
+        "native_s": 5.700442894090498
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 58,
+        "native_s": 5.800442894090487
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 59,
+        "native_s": 5.900442894090476
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 60,
+        "native_s": 6.000442894090465
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 61,
+        "native_s": 6.100442894090454
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 62,
+        "native_s": 6.200442894090443
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 63,
+        "native_s": 6.300442894090432
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 64,
+        "native_s": 6.400442894090421
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 65,
+        "native_s": 6.50044289409041
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 66,
+        "native_s": 6.600442894090399
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 67,
+        "native_s": 6.700442894090388
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 68,
+        "native_s": 6.800442894090377
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 69,
+        "native_s": 6.900442894090366
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 70,
+        "native_s": 7.000442894090355
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 71,
+        "native_s": 7.100442894090344
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 72,
+        "native_s": 7.200442894090333
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 73,
+        "native_s": 7.300442894090322
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 74,
+        "native_s": 7.400442894090311
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 75,
+        "native_s": 7.5004428940903
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 76,
+        "native_s": 7.600442894090289
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 77,
+        "native_s": 7.700442894090278
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 78,
+        "native_s": 7.800442894090267
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 79,
+        "native_s": 7.900442894090256
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 80,
+        "native_s": 8.000442894090245
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 81,
+        "native_s": 8.100442894090278
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 82,
+        "native_s": 8.200442894090312
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 83,
+        "native_s": 8.300442894090345
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 84,
+        "native_s": 8.400442894090379
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 85,
+        "native_s": 8.500442894090412
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 86,
+        "native_s": 8.600442894090445
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 87,
+        "native_s": 8.700442894090479
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 88,
+        "native_s": 8.800442894090512
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 89,
+        "native_s": 8.900442894090546
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 90,
+        "native_s": 9.000442894090579
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 91,
+        "native_s": 9.100442894090612
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 92,
+        "native_s": 9.200435661532829
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 93,
+        "native_s": 9.300233759282708
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 94,
+        "native_s": 9.400870848139464
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 95,
+        "native_s": 9.501151063156785
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 96,
+        "native_s": 9.600944499677096
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 97,
+        "native_s": 9.700363552832613
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 98,
+        "native_s": 9.801089199541176
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 99,
+        "native_s": 9.90111026811433
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 100,
+        "native_s": 10.001000847316037
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 101,
+        "native_s": 10.10100084731607
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 102,
+        "native_s": 10.201000847316104
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 103,
+        "native_s": 10.30075017757327
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 104,
+        "native_s": 10.400009485241899
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 105,
+        "native_s": 10.500157753604084
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 106,
+        "native_s": 10.600313476811934
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 107,
+        "native_s": 10.700298065939123
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 108,
+        "native_s": 10.800370804379266
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 109,
+        "native_s": 10.900186931267658
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 110,
+        "native_s": 11.0003670101788
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 111,
+        "native_s": 11.100046408079587
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 112,
+        "native_s": 11.200756792348974
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 113,
+        "native_s": 11.300971761723256
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 114,
+        "native_s": 11.40176203405914
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 115,
+        "native_s": 11.5003065662233
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 116,
+        "native_s": 11.600306566223333
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 117,
+        "native_s": 11.700306566223366
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 118,
+        "native_s": 11.8003065662234
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 119,
+        "native_s": 11.900306566223433
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 120,
+        "native_s": 12.000306566223466
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 121,
+        "native_s": 12.1003065662235
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 122,
+        "native_s": 12.200306566223533
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 123,
+        "native_s": 12.300306566223567
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 124,
+        "native_s": 12.4003065662236
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 125,
+        "native_s": 12.500306566223633
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 126,
+        "native_s": 12.600306566223667
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 127,
+        "native_s": 12.7003065662237
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 128,
+        "native_s": 12.800306566223734
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 129,
+        "native_s": 12.900306566223767
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 130,
+        "native_s": 13.0003065662238
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 131,
+        "native_s": 13.100306566223834
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 132,
+        "native_s": 13.200306566223867
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 133,
+        "native_s": 13.3003065662239
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 134,
+        "native_s": 13.400306566223934
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 135,
+        "native_s": 13.500306566223967
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 136,
+        "native_s": 13.600306566224
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 137,
+        "native_s": 13.700306566224034
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 138,
+        "native_s": 13.800306566224068
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 139,
+        "native_s": 13.900306566224101
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 140,
+        "native_s": 14.000306566224134
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 141,
+        "native_s": 14.100306566224168
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 142,
+        "native_s": 14.200306566224201
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 143,
+        "native_s": 14.300306566224235
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 144,
+        "native_s": 14.400306566224268
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 145,
+        "native_s": 14.500306566224301
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 146,
+        "native_s": 14.600306566224335
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 147,
+        "native_s": 14.700306566224368
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 148,
+        "native_s": 14.800306566224402
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 149,
+        "native_s": 14.900306566224435
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 150,
+        "native_s": 15.000306566224468
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 151,
+        "native_s": 15.100306566224502
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 152,
+        "native_s": 15.200306566224535
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 153,
+        "native_s": 15.300306566224569
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 154,
+        "native_s": 15.400306566224602
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 155,
+        "native_s": 15.500306566224635
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 156,
+        "native_s": 15.600306566224669
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 157,
+        "native_s": 15.700306566224702
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 158,
+        "native_s": 15.800306566224736
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 159,
+        "native_s": 15.900306566224769
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 160,
+        "native_s": 16.0003065662248
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 161,
+        "native_s": 16.100306566224745
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 162,
+        "native_s": 16.20030656622469
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 163,
+        "native_s": 16.300306566224634
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 164,
+        "native_s": 16.40030656622458
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 165,
+        "native_s": 16.500306566224523
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 166,
+        "native_s": 16.600306566224468
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 167,
+        "native_s": 16.700306566224413
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 168,
+        "native_s": 16.800306566224357
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 169,
+        "native_s": 16.9003065662243
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 170,
+        "native_s": 17.000306566224246
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 171,
+        "native_s": 17.10030656622419
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 172,
+        "native_s": 17.200306566224135
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 173,
+        "native_s": 17.30030656622408
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 174,
+        "native_s": 17.400306566224025
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 175,
+        "native_s": 17.50030656622397
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 176,
+        "native_s": 17.600306566223914
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 177,
+        "native_s": 17.70030656622386
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 178,
+        "native_s": 17.800306566223803
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 179,
+        "native_s": 17.900306566223747
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 180,
+        "native_s": 18.000306566223692
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 181,
+        "native_s": 18.100306566223637
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 182,
+        "native_s": 18.20030656622358
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 183,
+        "native_s": 18.300306566223526
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 184,
+        "native_s": 18.40030656622347
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 185,
+        "native_s": 18.500306566223415
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 186,
+        "native_s": 18.60030656622336
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 187,
+        "native_s": 18.700306566223304
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 188,
+        "native_s": 18.80030656622325
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 189,
+        "native_s": 18.900306566223193
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 190,
+        "native_s": 19.000306566223138
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 191,
+        "native_s": 19.100144762216157
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 192,
+        "native_s": 19.2001447622161
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 193,
+        "native_s": 19.300144762216046
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 194,
+        "native_s": 19.40014476221599
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 195,
+        "native_s": 19.500144762215935
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 196,
+        "native_s": 19.60014476221588
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 197,
+        "native_s": 19.700144762215825
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 198,
+        "native_s": 19.80014476221577
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 199,
+        "native_s": 19.900144762215714
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 200,
+        "native_s": 20.00014476221566
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 201,
+        "native_s": 20.100144762215603
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 202,
+        "native_s": 20.200144762215547
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 203,
+        "native_s": 20.300144762215492
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 204,
+        "native_s": 20.400144762215437
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 205,
+        "native_s": 20.500139929400714
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 206,
+        "native_s": 20.600139929400658
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 207,
+        "native_s": 20.700139929400603
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 208,
+        "native_s": 20.800139929400547
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 209,
+        "native_s": 20.900139929400492
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 210,
+        "native_s": 21.000139929400437
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 211,
+        "native_s": 21.10013992940038
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 212,
+        "native_s": 21.200139929400326
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 213,
+        "native_s": 21.30013992940027
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 214,
+        "native_s": 21.400139929400215
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 215,
+        "native_s": 21.50013992940016
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 216,
+        "native_s": 21.600139929400104
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 217,
+        "native_s": 21.70013992940005
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 218,
+        "native_s": 21.800139929399993
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 219,
+        "native_s": 21.900139929399938
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 220,
+        "native_s": 22.000139929399882
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 221,
+        "native_s": 22.100139929399827
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 222,
+        "native_s": 22.20013992939977
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 223,
+        "native_s": 22.300139929399716
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 224,
+        "native_s": 22.40013992939966
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 225,
+        "native_s": 22.500139929399605
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 226,
+        "native_s": 22.60013992939955
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 227,
+        "native_s": 22.700139929399494
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 228,
+        "native_s": 22.80013992939944
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 229,
+        "native_s": 22.900139929399383
+      },
+      {
+        "robot": "ur5e",
+        "seed": 1013,
+        "index": 230,
+        "native_s": 23.000139929399328
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 0,
+        "native_s": 0.01
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 1,
+        "native_s": 0.10112002067797377
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 2,
+        "native_s": 0.20112002067797385
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 3,
+        "native_s": 0.30112002067797394
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 4,
+        "native_s": 0.40112002067797403
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 5,
+        "native_s": 0.5011200206779741
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 6,
+        "native_s": 0.6011200206779742
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 7,
+        "native_s": 0.7011200206779743
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 8,
+        "native_s": 0.8011200206779744
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 9,
+        "native_s": 0.9011200206779745
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 10,
+        "native_s": 1.0011200206779745
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 11,
+        "native_s": 1.1011200206779745
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 12,
+        "native_s": 1.2011200206779746
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 13,
+        "native_s": 1.3011200206779747
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 14,
+        "native_s": 1.4011200206779748
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 15,
+        "native_s": 1.501120020677975
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 16,
+        "native_s": 1.601120020677975
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 17,
+        "native_s": 1.701120020677975
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 18,
+        "native_s": 1.8011200206779752
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 19,
+        "native_s": 1.9011200206779753
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 20,
+        "native_s": 2.001120020677975
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 21,
+        "native_s": 2.101120020677964
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 22,
+        "native_s": 2.201120020677953
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 23,
+        "native_s": 2.301120020677942
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 24,
+        "native_s": 2.401120020677931
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 25,
+        "native_s": 2.50112002067792
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 26,
+        "native_s": 2.601120020677909
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 27,
+        "native_s": 2.700208734804123
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 28,
+        "native_s": 2.80077083439805
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 29,
+        "native_s": 2.9003281384817217
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 30,
+        "native_s": 3.0003281384817106
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 31,
+        "native_s": 3.1003281384816996
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 32,
+        "native_s": 3.2003281384816886
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 33,
+        "native_s": 3.3003281384816776
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 34,
+        "native_s": 3.4003281384816666
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 35,
+        "native_s": 3.5003281384816556
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 36,
+        "native_s": 3.6003281384816446
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 37,
+        "native_s": 3.7003281384816336
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 38,
+        "native_s": 3.8003281384816225
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 39,
+        "native_s": 3.9003281384816115
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 40,
+        "native_s": 4.000328138481601
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 41,
+        "native_s": 4.10032813848159
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 42,
+        "native_s": 4.200328138481579
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 43,
+        "native_s": 4.300328138481568
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 44,
+        "native_s": 4.400328138481557
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 45,
+        "native_s": 4.500328138481546
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 46,
+        "native_s": 4.600328138481535
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 47,
+        "native_s": 4.700328138481524
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 48,
+        "native_s": 4.800328138481513
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 49,
+        "native_s": 4.900328138481502
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 50,
+        "native_s": 5.000328138481491
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 51,
+        "native_s": 5.10032813848148
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 52,
+        "native_s": 5.200328138481469
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 53,
+        "native_s": 5.300328138481458
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 54,
+        "native_s": 5.400328138481447
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 55,
+        "native_s": 5.500328138481436
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 56,
+        "native_s": 5.600328138481425
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 57,
+        "native_s": 5.700328138481414
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 58,
+        "native_s": 5.800328138481403
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 59,
+        "native_s": 5.900328138481392
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 60,
+        "native_s": 6.000328138481381
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 61,
+        "native_s": 6.10032813848137
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 62,
+        "native_s": 6.200328138481359
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 63,
+        "native_s": 6.300328138481348
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 64,
+        "native_s": 6.400328138481337
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 65,
+        "native_s": 6.500328138481326
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 66,
+        "native_s": 6.600328138481315
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 67,
+        "native_s": 6.700328138481304
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 68,
+        "native_s": 6.800328138481293
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 69,
+        "native_s": 6.900328138481282
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 70,
+        "native_s": 7.000328138481271
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 71,
+        "native_s": 7.1003281384812595
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 72,
+        "native_s": 7.2003281384812485
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 73,
+        "native_s": 7.3003281384812375
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 74,
+        "native_s": 7.4003281384812265
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 75,
+        "native_s": 7.5003281384812155
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 76,
+        "native_s": 7.6003281384812045
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 77,
+        "native_s": 7.7003281384811935
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 78,
+        "native_s": 7.8003281384811824
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 79,
+        "native_s": 7.900328138481171
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 80,
+        "native_s": 8.00032813848116
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 81,
+        "native_s": 8.100328138481194
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 82,
+        "native_s": 8.200328138481227
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 83,
+        "native_s": 8.30032813848126
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 84,
+        "native_s": 8.400328138481294
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 85,
+        "native_s": 8.500328138481327
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 86,
+        "native_s": 8.60032813848136
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 87,
+        "native_s": 8.700328138481394
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 88,
+        "native_s": 8.800328138481428
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 89,
+        "native_s": 8.900328138481461
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 90,
+        "native_s": 9.000328138481494
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 91,
+        "native_s": 9.100328138481528
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 92,
+        "native_s": 9.200328138481561
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 93,
+        "native_s": 9.300328138481595
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 94,
+        "native_s": 9.400328138481628
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 95,
+        "native_s": 9.500328138481661
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 96,
+        "native_s": 9.600328138481695
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 97,
+        "native_s": 9.700328138481728
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 98,
+        "native_s": 9.800328138481762
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 99,
+        "native_s": 9.900328138481795
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 100,
+        "native_s": 10.000328138481828
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 101,
+        "native_s": 10.100328138481862
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 102,
+        "native_s": 10.200328138481895
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 103,
+        "native_s": 10.300328138481929
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 104,
+        "native_s": 10.400021641705477
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 105,
+        "native_s": 10.500159519978542
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 106,
+        "native_s": 10.60022235090833
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 107,
+        "native_s": 10.700407982171807
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 108,
+        "native_s": 10.800323820631048
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 109,
+        "native_s": 10.900006434104405
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 110,
+        "native_s": 11.000363344950879
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 111,
+        "native_s": 11.100169475148423
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 112,
+        "native_s": 11.200246943268931
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 113,
+        "native_s": 11.300592775272342
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 114,
+        "native_s": 11.400878724554415
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 115,
+        "native_s": 11.5013981051106
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 116,
+        "native_s": 11.601398105110633
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 117,
+        "native_s": 11.701398105110666
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 118,
+        "native_s": 11.8013981051107
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 119,
+        "native_s": 11.901398105110733
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 120,
+        "native_s": 12.001398105110766
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 121,
+        "native_s": 12.1013981051108
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 122,
+        "native_s": 12.201398105110833
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 123,
+        "native_s": 12.301398105110867
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 124,
+        "native_s": 12.4013981051109
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 125,
+        "native_s": 12.501398105110933
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 126,
+        "native_s": 12.601398105110967
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 127,
+        "native_s": 12.701398105111
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 128,
+        "native_s": 12.801398105111033
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 129,
+        "native_s": 12.901398105111067
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 130,
+        "native_s": 13.0013981051111
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 131,
+        "native_s": 13.101398105111134
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 132,
+        "native_s": 13.201398105111167
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 133,
+        "native_s": 13.3013981051112
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 134,
+        "native_s": 13.401398105111234
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 135,
+        "native_s": 13.501398105111267
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 136,
+        "native_s": 13.6013981051113
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 137,
+        "native_s": 13.701398105111334
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 138,
+        "native_s": 13.801398105111367
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 139,
+        "native_s": 13.9013981051114
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 140,
+        "native_s": 14.001398105111434
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 141,
+        "native_s": 14.101398105111468
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 142,
+        "native_s": 14.201398105111501
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 143,
+        "native_s": 14.301398105111534
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 144,
+        "native_s": 14.401398105111568
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 145,
+        "native_s": 14.501398105111601
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 146,
+        "native_s": 14.601398105111635
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 147,
+        "native_s": 14.701398105111668
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 148,
+        "native_s": 14.801398105111701
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 149,
+        "native_s": 14.901398105111735
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 150,
+        "native_s": 15.001398105111768
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 151,
+        "native_s": 15.101398105111802
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 152,
+        "native_s": 15.201398105111835
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 153,
+        "native_s": 15.301398105111868
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 154,
+        "native_s": 15.401398105111902
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 155,
+        "native_s": 15.501398105111935
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 156,
+        "native_s": 15.601398105111969
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 157,
+        "native_s": 15.701398105112002
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 158,
+        "native_s": 15.801398105112035
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 159,
+        "native_s": 15.901398105112069
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 160,
+        "native_s": 16.001398105112102
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 161,
+        "native_s": 16.101398105112047
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 162,
+        "native_s": 16.20139810511199
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 163,
+        "native_s": 16.301398105111936
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 164,
+        "native_s": 16.40139810511188
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 165,
+        "native_s": 16.501398105111825
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 166,
+        "native_s": 16.60139810511177
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 167,
+        "native_s": 16.701398105111714
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 168,
+        "native_s": 16.80139810511166
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 169,
+        "native_s": 16.901398105111603
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 170,
+        "native_s": 17.001398105111548
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 171,
+        "native_s": 17.101398105111492
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 172,
+        "native_s": 17.201398105111437
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 173,
+        "native_s": 17.30139810511138
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 174,
+        "native_s": 17.401398105111326
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 175,
+        "native_s": 17.50139810511127
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 176,
+        "native_s": 17.601398105111215
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 177,
+        "native_s": 17.70139810511116
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 178,
+        "native_s": 17.801398105111105
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 179,
+        "native_s": 17.90139810511105
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 180,
+        "native_s": 18.001398105110994
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 181,
+        "native_s": 18.10139810511094
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 182,
+        "native_s": 18.201398105110883
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 183,
+        "native_s": 18.301398105110827
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 184,
+        "native_s": 18.401398105110772
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 185,
+        "native_s": 18.501398105110717
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 186,
+        "native_s": 18.60139810511066
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 187,
+        "native_s": 18.701398105110606
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 188,
+        "native_s": 18.80139810511055
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 189,
+        "native_s": 18.901398105110495
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 190,
+        "native_s": 19.00139810511044
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 191,
+        "native_s": 19.100525096650355
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 192,
+        "native_s": 19.2005250966503
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 193,
+        "native_s": 19.300525096650244
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 194,
+        "native_s": 19.40052509665019
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 195,
+        "native_s": 19.500525096650133
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 196,
+        "native_s": 19.600525096650077
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 197,
+        "native_s": 19.700525096650022
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 198,
+        "native_s": 19.800525096649967
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 199,
+        "native_s": 19.90052509664991
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 200,
+        "native_s": 20.000525096649856
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 201,
+        "native_s": 20.1005250966498
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 202,
+        "native_s": 20.200525096649745
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 203,
+        "native_s": 20.30052509664969
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 204,
+        "native_s": 20.400525096649634
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 205,
+        "native_s": 20.50052509664958
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 206,
+        "native_s": 20.600525096649523
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 207,
+        "native_s": 20.700525096649468
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 208,
+        "native_s": 20.800525096649412
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 209,
+        "native_s": 20.900525096649357
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 210,
+        "native_s": 21.0005250966493
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 211,
+        "native_s": 21.100525096649246
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 212,
+        "native_s": 21.20052509664919
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 213,
+        "native_s": 21.300525096649135
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 214,
+        "native_s": 21.40052509664908
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 215,
+        "native_s": 21.500525096649024
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 216,
+        "native_s": 21.60052509664897
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 217,
+        "native_s": 21.700525096648914
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 218,
+        "native_s": 21.800525096648858
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 219,
+        "native_s": 21.900525096648803
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 220,
+        "native_s": 22.000525096648747
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 221,
+        "native_s": 22.100525096648692
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 222,
+        "native_s": 22.200525096648636
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 223,
+        "native_s": 22.30052509664858
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 224,
+        "native_s": 22.400525096648526
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 225,
+        "native_s": 22.50052509664847
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 226,
+        "native_s": 22.600525096648415
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 227,
+        "native_s": 22.70052509664836
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 228,
+        "native_s": 22.800525096648304
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 229,
+        "native_s": 22.90052509664825
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1011,
+        "index": 230,
+        "native_s": 23.000525096648193
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 0,
+        "native_s": 0.01
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 1,
+        "native_s": 0.10065934245398991
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 2,
+        "native_s": 0.20065934245399
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 3,
+        "native_s": 0.30065934245399006
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 4,
+        "native_s": 0.40065934245399015
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 5,
+        "native_s": 0.5006593424539902
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 6,
+        "native_s": 0.6006593424539903
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 7,
+        "native_s": 0.7006593424539904
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 8,
+        "native_s": 0.8006593424539905
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 9,
+        "native_s": 0.9006593424539906
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 10,
+        "native_s": 1.0006593424539907
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 11,
+        "native_s": 1.1006593424539908
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 12,
+        "native_s": 1.2006593424539909
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 13,
+        "native_s": 1.300659342453991
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 14,
+        "native_s": 1.400659342453991
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 15,
+        "native_s": 1.5006593424539911
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 16,
+        "native_s": 1.6006593424539912
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 17,
+        "native_s": 1.7006593424539913
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 18,
+        "native_s": 1.8006593424539914
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 19,
+        "native_s": 1.9006593424539915
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 20,
+        "native_s": 2.0006593424539916
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 21,
+        "native_s": 2.1006593424539806
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 22,
+        "native_s": 2.2006593424539695
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 23,
+        "native_s": 2.3006593424539585
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 24,
+        "native_s": 2.4006593424539475
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 25,
+        "native_s": 2.5006593424539365
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 26,
+        "native_s": 2.6006593424539255
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 27,
+        "native_s": 2.700950198943231
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 28,
+        "native_s": 2.800685446539258
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 29,
+        "native_s": 2.9005924589543453
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 30,
+        "native_s": 3.0003942020482084
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 31,
+        "native_s": 3.1003942020481974
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 32,
+        "native_s": 3.2003942020481864
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 33,
+        "native_s": 3.3003942020481754
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 34,
+        "native_s": 3.4003942020481643
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 35,
+        "native_s": 3.5003942020481533
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 36,
+        "native_s": 3.6003942020481423
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 37,
+        "native_s": 3.7003942020481313
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 38,
+        "native_s": 3.8003942020481203
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 39,
+        "native_s": 3.9003942020481093
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 40,
+        "native_s": 4.000394202048098
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 41,
+        "native_s": 4.100679359235917
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 42,
+        "native_s": 4.200679359235906
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 43,
+        "native_s": 4.300679359235895
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 44,
+        "native_s": 4.400679359235884
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 45,
+        "native_s": 4.500679359235873
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 46,
+        "native_s": 4.600679359235862
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 47,
+        "native_s": 4.700679359235851
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 48,
+        "native_s": 4.80067935923584
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 49,
+        "native_s": 4.900679359235829
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 50,
+        "native_s": 5.000679359235818
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 51,
+        "native_s": 5.100679359235807
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 52,
+        "native_s": 5.200679359235796
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 53,
+        "native_s": 5.300679359235785
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 54,
+        "native_s": 5.400679359235774
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 55,
+        "native_s": 5.500679359235763
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 56,
+        "native_s": 5.600679359235752
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 57,
+        "native_s": 5.700679359235741
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 58,
+        "native_s": 5.80067935923573
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 59,
+        "native_s": 5.900679359235719
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 60,
+        "native_s": 6.000679359235708
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 61,
+        "native_s": 6.100679359235697
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 62,
+        "native_s": 6.200679359235686
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 63,
+        "native_s": 6.300679359235675
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 64,
+        "native_s": 6.400679359235664
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 65,
+        "native_s": 6.500679359235653
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 66,
+        "native_s": 6.600679359235642
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 67,
+        "native_s": 6.700679359235631
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 68,
+        "native_s": 6.80067935923562
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 69,
+        "native_s": 6.900679359235609
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 70,
+        "native_s": 7.000679359235598
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 71,
+        "native_s": 7.100679359235587
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 72,
+        "native_s": 7.200679359235576
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 73,
+        "native_s": 7.3006793592355645
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 74,
+        "native_s": 7.4006793592355535
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 75,
+        "native_s": 7.5006793592355425
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 76,
+        "native_s": 7.6006793592355315
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 77,
+        "native_s": 7.7006793592355205
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 78,
+        "native_s": 7.8006793592355095
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 79,
+        "native_s": 7.9006793592354985
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 80,
+        "native_s": 8.000679359235487
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 81,
+        "native_s": 8.10067935923552
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 82,
+        "native_s": 8.200679359235554
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 83,
+        "native_s": 8.300679359235588
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 84,
+        "native_s": 8.400679359235621
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 85,
+        "native_s": 8.500679359235654
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 86,
+        "native_s": 8.600679359235688
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 87,
+        "native_s": 8.700679359235721
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 88,
+        "native_s": 8.800679359235755
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 89,
+        "native_s": 8.900679359235788
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 90,
+        "native_s": 9.000679359235821
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 91,
+        "native_s": 9.100679359235855
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 92,
+        "native_s": 9.200679359235888
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 93,
+        "native_s": 9.300679359235922
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 94,
+        "native_s": 9.400679359235955
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 95,
+        "native_s": 9.500679359235988
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 96,
+        "native_s": 9.600679359236022
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 97,
+        "native_s": 9.700679359236055
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 98,
+        "native_s": 9.800679359236089
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 99,
+        "native_s": 9.900679359236122
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 100,
+        "native_s": 10.000679359236155
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 101,
+        "native_s": 10.100679359236189
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 102,
+        "native_s": 10.200679359236222
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 103,
+        "native_s": 10.300679359236256
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 104,
+        "native_s": 10.401060664285378
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 105,
+        "native_s": 10.500128463138097
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 106,
+        "native_s": 10.600175616967224
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 107,
+        "native_s": 10.700188090711539
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 108,
+        "native_s": 10.800028447286694
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 109,
+        "native_s": 10.900403472263813
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 110,
+        "native_s": 11.000024002362407
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 111,
+        "native_s": 11.100417633907206
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 112,
+        "native_s": 11.200048885498592
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 113,
+        "native_s": 11.300474293832838
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 114,
+        "native_s": 11.400420015875346
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 115,
+        "native_s": 11.501310812239248
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 116,
+        "native_s": 11.601507355623866
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 117,
+        "native_s": 11.7015073556239
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 118,
+        "native_s": 11.801507355623933
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 119,
+        "native_s": 11.901507355623966
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 120,
+        "native_s": 12.001507355624
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 121,
+        "native_s": 12.101507355624033
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 122,
+        "native_s": 12.201507355624067
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 123,
+        "native_s": 12.3015073556241
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 124,
+        "native_s": 12.401507355624133
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 125,
+        "native_s": 12.501507355624167
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 126,
+        "native_s": 12.6015073556242
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 127,
+        "native_s": 12.701507355624233
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 128,
+        "native_s": 12.80135886888992
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 129,
+        "native_s": 12.901312095584348
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 130,
+        "native_s": 13.00028294425114
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 131,
+        "native_s": 13.10060335116279
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 132,
+        "native_s": 13.20006201864223
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 133,
+        "native_s": 13.300840346329586
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 134,
+        "native_s": 13.401727306839202
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 135,
+        "native_s": 13.50113670268157
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 136,
+        "native_s": 13.600825932762483
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 137,
+        "native_s": 13.700976433665007
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 138,
+        "native_s": 13.800598655742599
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 139,
+        "native_s": 13.900497606167825
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 140,
+        "native_s": 14.000164470535822
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 141,
+        "native_s": 14.100024818280874
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 142,
+        "native_s": 14.200078661572238
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 143,
+        "native_s": 14.300066254615816
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 144,
+        "native_s": 14.40130661785935
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 145,
+        "native_s": 14.501581520590543
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 146,
+        "native_s": 14.60139286014452
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 147,
+        "native_s": 14.701392860144553
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 148,
+        "native_s": 14.801392860144587
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 149,
+        "native_s": 14.90139286014462
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 150,
+        "native_s": 15.001392860144653
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 151,
+        "native_s": 15.101392860144687
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 152,
+        "native_s": 15.20139286014472
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 153,
+        "native_s": 15.301392860144754
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 154,
+        "native_s": 15.401392860144787
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 155,
+        "native_s": 15.50139286014482
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 156,
+        "native_s": 15.601392860144854
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 157,
+        "native_s": 15.701392860144887
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 158,
+        "native_s": 15.80139286014492
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 159,
+        "native_s": 15.901392860144954
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 160,
+        "native_s": 16.001392860144986
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 161,
+        "native_s": 16.10139286014493
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 162,
+        "native_s": 16.201392860144875
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 163,
+        "native_s": 16.30139286014482
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 164,
+        "native_s": 16.401392860144764
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 165,
+        "native_s": 16.50139286014471
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 166,
+        "native_s": 16.601392860144653
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 167,
+        "native_s": 16.701392860144598
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 168,
+        "native_s": 16.801392860144542
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 169,
+        "native_s": 16.901392860144487
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 170,
+        "native_s": 17.00139286014443
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 171,
+        "native_s": 17.101392860144376
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 172,
+        "native_s": 17.20139286014432
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 173,
+        "native_s": 17.301392860144265
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 174,
+        "native_s": 17.40139286014421
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 175,
+        "native_s": 17.501392860144154
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 176,
+        "native_s": 17.6013928601441
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 177,
+        "native_s": 17.701392860144043
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 178,
+        "native_s": 17.801392860143988
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 179,
+        "native_s": 17.901392860143932
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 180,
+        "native_s": 18.001392860143877
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 181,
+        "native_s": 18.10139286014382
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 182,
+        "native_s": 18.201392860143766
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 183,
+        "native_s": 18.30139286014371
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 184,
+        "native_s": 18.401392860143655
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 185,
+        "native_s": 18.5013928601436
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 186,
+        "native_s": 18.601392860143545
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 187,
+        "native_s": 18.70139286014349
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 188,
+        "native_s": 18.801392860143434
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 189,
+        "native_s": 18.90139286014338
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 190,
+        "native_s": 19.001392860143323
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 191,
+        "native_s": 19.100982633216283
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 192,
+        "native_s": 19.200135225756217
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 193,
+        "native_s": 19.300132900389904
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 194,
+        "native_s": 19.40013290038985
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 195,
+        "native_s": 19.500132900389794
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 196,
+        "native_s": 19.600132900389738
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 197,
+        "native_s": 19.700132900389683
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 198,
+        "native_s": 19.800132900389627
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 199,
+        "native_s": 19.900132900389572
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 200,
+        "native_s": 20.000132900389517
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 201,
+        "native_s": 20.10013290038946
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 202,
+        "native_s": 20.200132900389406
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 203,
+        "native_s": 20.30013290038935
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 204,
+        "native_s": 20.400132900389295
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 205,
+        "native_s": 20.50013290038924
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 206,
+        "native_s": 20.601837092717517
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 207,
+        "native_s": 20.701472910304297
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 208,
+        "native_s": 20.80147291030424
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 209,
+        "native_s": 20.901472910304186
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 210,
+        "native_s": 21.00147291030413
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 211,
+        "native_s": 21.101472910304075
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 212,
+        "native_s": 21.20147291030402
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 213,
+        "native_s": 21.301472910303964
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 214,
+        "native_s": 21.40147291030391
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 215,
+        "native_s": 21.501472910303853
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 216,
+        "native_s": 21.601472910303798
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 217,
+        "native_s": 21.701472910303742
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 218,
+        "native_s": 21.801472910303687
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 219,
+        "native_s": 21.90147291030363
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 220,
+        "native_s": 22.001472910303576
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 221,
+        "native_s": 22.10147291030352
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 222,
+        "native_s": 22.201472910303465
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 223,
+        "native_s": 22.30147291030341
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 224,
+        "native_s": 22.401472910303355
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 225,
+        "native_s": 22.5014729103033
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 226,
+        "native_s": 22.601472910303244
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 227,
+        "native_s": 22.70147291030319
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 228,
+        "native_s": 22.801472910303133
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 229,
+        "native_s": 22.901472910303077
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1012,
+        "index": 230,
+        "native_s": 23.001472910303022
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 0,
+        "native_s": 0.01
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 1,
+        "native_s": 0.10063864107625134
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 2,
+        "native_s": 0.20063864107625143
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 3,
+        "native_s": 0.3006386410762515
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 4,
+        "native_s": 0.4006386410762516
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 5,
+        "native_s": 0.5006386410762517
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 6,
+        "native_s": 0.6006386410762518
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 7,
+        "native_s": 0.7006386410762518
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 8,
+        "native_s": 0.8006386410762519
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 9,
+        "native_s": 0.900638641076252
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 10,
+        "native_s": 1.000638641076252
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 11,
+        "native_s": 1.100638641076252
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 12,
+        "native_s": 1.2006386410762522
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 13,
+        "native_s": 1.3006386410762523
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 14,
+        "native_s": 1.4006386410762524
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 15,
+        "native_s": 1.5006386410762524
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 16,
+        "native_s": 1.6006386410762525
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 17,
+        "native_s": 1.7006386410762526
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 18,
+        "native_s": 1.8006386410762527
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 19,
+        "native_s": 1.9006386410762528
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 20,
+        "native_s": 2.000638641076253
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 21,
+        "native_s": 2.100638641076242
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 22,
+        "native_s": 2.200638641076231
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 23,
+        "native_s": 2.30063864107622
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 24,
+        "native_s": 2.400638641076209
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 25,
+        "native_s": 2.500638641076198
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 26,
+        "native_s": 2.600638641076187
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 27,
+        "native_s": 2.7015271055164143
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 28,
+        "native_s": 2.8011320034604847
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 29,
+        "native_s": 2.90001276934591
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 30,
+        "native_s": 3.000012769345899
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 31,
+        "native_s": 3.100012769345888
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 32,
+        "native_s": 3.200012769345877
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 33,
+        "native_s": 3.300012769345866
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 34,
+        "native_s": 3.400012769345855
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 35,
+        "native_s": 3.500012769345844
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 36,
+        "native_s": 3.600012769345833
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 37,
+        "native_s": 3.700012769345822
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 38,
+        "native_s": 3.800012769345811
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 39,
+        "native_s": 3.9000127693457998
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 40,
+        "native_s": 4.000012769345789
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 41,
+        "native_s": 4.100012769345778
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 42,
+        "native_s": 4.200012769345767
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 43,
+        "native_s": 4.300012769345756
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 44,
+        "native_s": 4.400012769345745
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 45,
+        "native_s": 4.500012769345734
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 46,
+        "native_s": 4.600012769345723
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 47,
+        "native_s": 4.700012769345712
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 48,
+        "native_s": 4.800012769345701
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 49,
+        "native_s": 4.90001276934569
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 50,
+        "native_s": 5.000012769345679
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 51,
+        "native_s": 5.100012769345668
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 52,
+        "native_s": 5.200012769345657
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 53,
+        "native_s": 5.300012769345646
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 54,
+        "native_s": 5.400012769345635
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 55,
+        "native_s": 5.5000127693456236
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 56,
+        "native_s": 5.6000127693456125
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 57,
+        "native_s": 5.7000127693456015
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 58,
+        "native_s": 5.8000127693455905
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 59,
+        "native_s": 5.9000127693455795
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 60,
+        "native_s": 6.0000127693455685
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 61,
+        "native_s": 6.1000127693455575
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 62,
+        "native_s": 6.2000127693455465
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 63,
+        "native_s": 6.3000127693455354
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 64,
+        "native_s": 6.400012769345524
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 65,
+        "native_s": 6.500012769345513
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 66,
+        "native_s": 6.600012769345502
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 67,
+        "native_s": 6.700012769345491
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 68,
+        "native_s": 6.80001276934548
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 69,
+        "native_s": 6.900012769345469
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 70,
+        "native_s": 7.000012769345458
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 71,
+        "native_s": 7.100012769345447
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 72,
+        "native_s": 7.200012769345436
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 73,
+        "native_s": 7.300012769345425
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 74,
+        "native_s": 7.400012769345414
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 75,
+        "native_s": 7.500012769345403
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 76,
+        "native_s": 7.600012769345392
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 77,
+        "native_s": 7.700012769345381
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 78,
+        "native_s": 7.80001276934537
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 79,
+        "native_s": 7.900012769345359
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 80,
+        "native_s": 8.000012769345348
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 81,
+        "native_s": 8.100012769345382
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 82,
+        "native_s": 8.200012769345415
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 83,
+        "native_s": 8.300012769345448
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 84,
+        "native_s": 8.400012769345482
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 85,
+        "native_s": 8.500012769345515
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 86,
+        "native_s": 8.600012769345549
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 87,
+        "native_s": 8.700012769345582
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 88,
+        "native_s": 8.800012769345615
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 89,
+        "native_s": 8.900012769345649
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 90,
+        "native_s": 9.000012769345682
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 91,
+        "native_s": 9.100012769345716
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 92,
+        "native_s": 9.200012769345749
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 93,
+        "native_s": 9.300012769345782
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 94,
+        "native_s": 9.400012769345816
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 95,
+        "native_s": 9.50001276934585
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 96,
+        "native_s": 9.600012769345883
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 97,
+        "native_s": 9.700012769345916
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 98,
+        "native_s": 9.80001276934595
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 99,
+        "native_s": 9.900012769345983
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 100,
+        "native_s": 10.000012769346016
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 101,
+        "native_s": 10.10001276934605
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 102,
+        "native_s": 10.200012769346083
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 103,
+        "native_s": 10.300012769346116
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 104,
+        "native_s": 10.400883427585407
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 105,
+        "native_s": 10.500442362060106
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 106,
+        "native_s": 10.600188021060069
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 107,
+        "native_s": 10.700070824672936
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 108,
+        "native_s": 10.80010527583545
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 109,
+        "native_s": 10.900190952878596
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 110,
+        "native_s": 11.000013822255081
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 111,
+        "native_s": 11.100111883807937
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 112,
+        "native_s": 11.200815130671463
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 113,
+        "native_s": 11.300536828040265
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 114,
+        "native_s": 11.401351235588542
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 115,
+        "native_s": 11.500946241594036
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 116,
+        "native_s": 11.60094624159407
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 117,
+        "native_s": 11.700946241594103
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 118,
+        "native_s": 11.800946241594136
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 119,
+        "native_s": 11.90094624159417
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 120,
+        "native_s": 12.000946241594203
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 121,
+        "native_s": 12.100946241594237
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 122,
+        "native_s": 12.20094624159427
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 123,
+        "native_s": 12.300946241594303
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 124,
+        "native_s": 12.400946241594337
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 125,
+        "native_s": 12.50094624159437
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 126,
+        "native_s": 12.600946241594404
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 127,
+        "native_s": 12.700946241594437
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 128,
+        "native_s": 12.80094624159447
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 129,
+        "native_s": 12.900946241594504
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 130,
+        "native_s": 13.000946241594537
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 131,
+        "native_s": 13.10094624159457
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 132,
+        "native_s": 13.200946241594604
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 133,
+        "native_s": 13.300946241594637
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 134,
+        "native_s": 13.40094624159467
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 135,
+        "native_s": 13.500946241594704
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 136,
+        "native_s": 13.600946241594738
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 137,
+        "native_s": 13.700946241594771
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 138,
+        "native_s": 13.800946241594804
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 139,
+        "native_s": 13.900946241594838
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 140,
+        "native_s": 14.000946241594871
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 141,
+        "native_s": 14.100946241594905
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 142,
+        "native_s": 14.200946241594938
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 143,
+        "native_s": 14.300946241594971
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 144,
+        "native_s": 14.400946241595005
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 145,
+        "native_s": 14.500946241595038
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 146,
+        "native_s": 14.600946241595071
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 147,
+        "native_s": 14.700946241595105
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 148,
+        "native_s": 14.800946241595138
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 149,
+        "native_s": 14.900946241595172
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 150,
+        "native_s": 15.000946241595205
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 151,
+        "native_s": 15.100946241595238
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 152,
+        "native_s": 15.200946241595272
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 153,
+        "native_s": 15.300946241595305
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 154,
+        "native_s": 15.400946241595339
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 155,
+        "native_s": 15.500946241595372
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 156,
+        "native_s": 15.600946241595405
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 157,
+        "native_s": 15.700946241595439
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 158,
+        "native_s": 15.800946241595472
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 159,
+        "native_s": 15.900946241595506
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 160,
+        "native_s": 16.00094624159554
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 161,
+        "native_s": 16.100946241595484
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 162,
+        "native_s": 16.200946241595428
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 163,
+        "native_s": 16.300946241595373
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 164,
+        "native_s": 16.400946241595317
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 165,
+        "native_s": 16.500946241595262
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 166,
+        "native_s": 16.600946241595206
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 167,
+        "native_s": 16.70094624159515
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 168,
+        "native_s": 16.800946241595096
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 169,
+        "native_s": 16.90094624159504
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 170,
+        "native_s": 17.000946241594985
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 171,
+        "native_s": 17.10094624159493
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 172,
+        "native_s": 17.200946241594874
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 173,
+        "native_s": 17.30094624159482
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 174,
+        "native_s": 17.400946241594763
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 175,
+        "native_s": 17.500946241594708
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 176,
+        "native_s": 17.600946241594652
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 177,
+        "native_s": 17.700946241594597
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 178,
+        "native_s": 17.80094624159454
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 179,
+        "native_s": 17.900946241594486
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 180,
+        "native_s": 18.00094624159443
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 181,
+        "native_s": 18.100946241594375
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 182,
+        "native_s": 18.20094624159432
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 183,
+        "native_s": 18.300946241594264
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 184,
+        "native_s": 18.40094624159421
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 185,
+        "native_s": 18.500946241594153
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 186,
+        "native_s": 18.600946241594098
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 187,
+        "native_s": 18.700946241594043
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 188,
+        "native_s": 18.800946241593987
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 189,
+        "native_s": 18.90094624159393
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 190,
+        "native_s": 19.000946241593876
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 191,
+        "native_s": 19.10074548287666
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 192,
+        "native_s": 19.200745482876606
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 193,
+        "native_s": 19.30074548287655
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 194,
+        "native_s": 19.400745482876495
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 195,
+        "native_s": 19.50074548287644
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 196,
+        "native_s": 19.600745482876384
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 197,
+        "native_s": 19.70074548287633
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 198,
+        "native_s": 19.800745482876273
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 199,
+        "native_s": 19.900745482876218
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 200,
+        "native_s": 20.000745482876162
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 201,
+        "native_s": 20.100745482876107
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 202,
+        "native_s": 20.20074548287605
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 203,
+        "native_s": 20.300745482875996
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 204,
+        "native_s": 20.40074548287594
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 205,
+        "native_s": 20.500745482875885
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 206,
+        "native_s": 20.60074548287583
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 207,
+        "native_s": 20.700745482875774
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 208,
+        "native_s": 20.80074548287572
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 209,
+        "native_s": 20.900745482875664
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 210,
+        "native_s": 21.000745482875608
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 211,
+        "native_s": 21.100745482875553
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 212,
+        "native_s": 21.200745482875497
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 213,
+        "native_s": 21.300745482875442
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 214,
+        "native_s": 21.400745482875386
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 215,
+        "native_s": 21.50074548287533
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 216,
+        "native_s": 21.600745482875276
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 217,
+        "native_s": 21.70074548287522
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 218,
+        "native_s": 21.800745482875165
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 219,
+        "native_s": 21.90074548287511
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 220,
+        "native_s": 22.000745482875054
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 221,
+        "native_s": 22.100745482875
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 222,
+        "native_s": 22.200745482874943
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 223,
+        "native_s": 22.300745482874888
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 224,
+        "native_s": 22.400745482874832
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 225,
+        "native_s": 22.500745482874777
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 226,
+        "native_s": 22.60074548287472
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 227,
+        "native_s": 22.700745482874666
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 228,
+        "native_s": 22.80074548287461
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 229,
+        "native_s": 22.900745482874555
+      },
+      {
+        "robot": "flexiv",
+        "seed": 1013,
+        "index": 230,
+        "native_s": 23.0007454828745
+      }
+    ]
+  },
+  "negative_control": {
+    "applicability": "This item establishes shared-function portability across two robot adapters; the robot change is the functional comparison. No fault-effect or learned-policy superiority is inferred; no additional negative episode claimed."
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently replayed actual saved MuJoCo qpos and particle positions for final membership, sustained loaded lift, release, clock and actual receiver trajectory",
+    "script": "f_tier/a03_review_render.py",
+    "video_probe": {
+      "width": 800,
+      "height": 550,
+      "duration": "138.600000",
+      "nb_frames": "1386"
+    },
+    "visual_check": "Root inspected actual Flexiv pouring and all six full episodes were encoded with per-robot/seed/native-time labels.",
+    "scope": "Three distinct actual moving-target trajectories per robot, identical initial poses. Existing A04 teacher episodes reused; no heldout or source-orientation generalization claim."
+  },
+  "accepted_at_utc": "2026-10-19T12:05:08.451914+00:00"
+}

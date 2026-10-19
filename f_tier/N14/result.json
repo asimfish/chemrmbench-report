@@ -1,0 +1,233 @@
+{
+  "id": "N14",
+  "status": "F_PASS",
+  "metrics": {
+    "peak_payload_lift_m": 0.1578645992279053,
+    "arrival": {
+      "base_goal_error_m": 0.00014399768443269095,
+      "payload_max_placement_error_m": 0.005841527162112103
+    },
+    "maximum_carried_grasp_translation_drift_m": 0.008016132879812914,
+    "terminal": {
+      "gripper_contact_fraction": 0.0,
+      "support_contact_fraction": 1.0
+    },
+    "blocked": {
+      "minimum_clearance_m": 0.06769128155708315,
+      "rejected": true,
+      "minimum_terminal_payload_z_m": 0.8778060078620911,
+      "obstacle_actual_contact_events": 0
+    }
+  },
+  "gates": {
+    "lift": true,
+    "arrival": true,
+    "carried_payload": true,
+    "released_stable": true,
+    "blocked_control": true
+  },
+  "native_steps": 2748,
+  "native_clock": {
+    "callbacks": 2748,
+    "sum_dt_s": 22.90000119432807,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "wall_s": 23.901157318003243,
+  "protocol": {
+    "frozen_before_native_execution_utc": "2026-10-19T11:53:41.830272+00:00",
+    "source_urdf": "assets/third_party/guided_tamp_kmr_r1/guided_tamp_benchmark/models/data/robots/kuka_kmr_iiwa/kuka_kmr_iiwa.urdf",
+    "scope": "Source constrained SE2 planar base joints+iiwa7+Panda hand; native force drives and real100g payload; no mecanum wheel contact claim.",
+    "source_cup_bottom_m": [
+      0.7,
+      -0.2,
+      0.72
+    ],
+    "goal_cup_bottom_m": [
+      0.7,
+      0.8,
+      0.72
+    ],
+    "base_goal_translation_m": [
+      0,
+      1,
+      0
+    ],
+    "local_gates": [
+      {
+        "id": "lift",
+        "minimum_lift_m": 0.05
+      },
+      {
+        "id": "arrival",
+        "base_goal_error_m": 0.03,
+        "payload_terminal_placement_error_m": 0.03
+      },
+      {
+        "id": "carried_payload",
+        "maximum_relative_grasp_translation_drift_m": 0.015
+      },
+      {
+        "id": "released_stable",
+        "terminal_duration_s": 1,
+        "gripper_contact_fraction": 0,
+        "destination_support_contact_fraction": 0.95
+      },
+      {
+        "id": "blocked_control",
+        "minimum_base_hull_obstacle_clearance_m": 0.02,
+        "must_reject_arrival": true,
+        "payload_retained": true
+      }
+    ],
+    "negative": "Same source pick and requested base goal, but known physical obstacle blocks route; privileged obstacle guard stops before contact, keeps payload held, and refuses arrival.",
+    "no_runtime_object_pose_writes": true,
+    "no_attachments": true
+  },
+  "workflow_events": {
+    "positive": [],
+    "blocked_route": [
+      {
+        "t_s": 8.066666666666666,
+        "observed_base_pose_xyzw": [
+          2.9999992847442627,
+          0.2550565302371979,
+          0.0,
+          1.6258579226859082e-13,
+          0.0,
+          1.3638685913974768e-06,
+          1.0
+        ],
+        "observed_hull_clearance_m": 0.07944346976280214,
+        "requested_goal_y_m": 1.0,
+        "decision": "STOP_AND_RETAIN_PAYLOAD",
+        "held_joint_target_y_m": 0.2550565302371979
+      }
+    ]
+  },
+  "differences": [
+    "Pinned GuidedTAMP KMR model uses world-constrained x/y/yaw native joints, not physical mecanum wheel contact.",
+    "Source280kg base and100N planar force limit retained; coarse base hull excludes onlyGround contact because source planar constraints support Z; hull-obstacle/payload contacts remain enabled.",
+    "Native source iiwa7+Panda hand; DAE hand visual meshes replaced by sibling collisionSTL, no attachment or runtime object pose commands.",
+    "Local100g hollow rigid cup/two station pedestals and privileged geometric obstacle guard; no fluid/real lidar claim.",
+    "Link gravity disabled as local arm/base compensation; selfcollision disabled for source import configuration.",
+    "No USD textures/MDL BSDF translation; constant resolved color/fallback gray, display-only floor. Geometry and native poses retained."
+  ],
+  "paths": {
+    "trace": "trace.jsonl",
+    "scene": "scene.usda",
+    "video": "video.mp4"
+  },
+  "video_status": "READY_SOURCE_VISUAL_CPU_NATIVE_REPLAY",
+  "native_replay": {
+    "body_names": [
+      "world",
+      "help_link_0",
+      "help_link_1",
+      "kmr_link",
+      "iiwa_link_0",
+      "iiwa_link_1",
+      "iiwa_link_2",
+      "iiwa_link_3",
+      "iiwa_link_4",
+      "iiwa_link_5",
+      "iiwa_link_6",
+      "iiwa_link_7",
+      "iiwa_link_ee",
+      "panda_hand",
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ],
+    "body_paths": {
+      "positive": {
+        "world": "/World/Trial0/KMR/world",
+        "help_link_0": "/World/Trial0/KMR/help_link_0",
+        "help_link_1": "/World/Trial0/KMR/help_link_1",
+        "kmr_link": "/World/Trial0/KMR/kmr_link",
+        "iiwa_link_0": "/World/Trial0/KMR/iiwa_link_0",
+        "iiwa_link_1": "/World/Trial0/KMR/iiwa_link_1",
+        "iiwa_link_2": "/World/Trial0/KMR/iiwa_link_2",
+        "iiwa_link_3": "/World/Trial0/KMR/iiwa_link_3",
+        "iiwa_link_4": "/World/Trial0/KMR/iiwa_link_4",
+        "iiwa_link_5": "/World/Trial0/KMR/iiwa_link_5",
+        "iiwa_link_6": "/World/Trial0/KMR/iiwa_link_6",
+        "iiwa_link_7": "/World/Trial0/KMR/iiwa_link_7",
+        "iiwa_link_ee": "/World/Trial0/KMR/iiwa_link_ee",
+        "panda_hand": "/World/Trial0/KMR/panda_hand",
+        "panda_leftfinger": "/World/Trial0/KMR/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial0/KMR/panda_rightfinger"
+      },
+      "blocked_route": {
+        "world": "/World/Trial1/KMR/world",
+        "help_link_0": "/World/Trial1/KMR/help_link_0",
+        "help_link_1": "/World/Trial1/KMR/help_link_1",
+        "kmr_link": "/World/Trial1/KMR/kmr_link",
+        "iiwa_link_0": "/World/Trial1/KMR/iiwa_link_0",
+        "iiwa_link_1": "/World/Trial1/KMR/iiwa_link_1",
+        "iiwa_link_2": "/World/Trial1/KMR/iiwa_link_2",
+        "iiwa_link_3": "/World/Trial1/KMR/iiwa_link_3",
+        "iiwa_link_4": "/World/Trial1/KMR/iiwa_link_4",
+        "iiwa_link_5": "/World/Trial1/KMR/iiwa_link_5",
+        "iiwa_link_6": "/World/Trial1/KMR/iiwa_link_6",
+        "iiwa_link_7": "/World/Trial1/KMR/iiwa_link_7",
+        "iiwa_link_ee": "/World/Trial1/KMR/iiwa_link_ee",
+        "panda_hand": "/World/Trial1/KMR/panda_hand",
+        "panda_leftfinger": "/World/Trial1/KMR/panda_leftfinger",
+        "panda_rightfinger": "/World/Trial1/KMR/panda_rightfinger"
+      }
+    },
+    "object_path": {
+      "positive": "/World/Trial0/Cup",
+      "blocked_route": "/World/Trial1/Cup"
+    },
+    "link_pose_row_key": "native_robot_link_poses_xyzw",
+    "sample_dt_s": 0.1,
+    "interpolation": false,
+    "case_translation_m": {
+      "positive": [
+        0.0,
+        0,
+        0
+      ],
+      "blocked_route": [
+        3.0,
+        0,
+        0
+      ]
+    }
+  },
+  "video_frames": 498,
+  "video_kind": "CPU rendering of same-source USD visual geometry with actual native PhysX poses, no new physics or interpolation.",
+  "video_render_manifest": "f_tier/N14/video_render.json",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recomputed120Hz base/payload/support/negative guard and originalURDF FK grasp drift, plus native-video mapping",
+    "script": "f_tier/review_pose_mobile.py",
+    "observed": {
+      "raw_rows": 5496,
+      "native_steps": 2748,
+      "duration_s": 22.9,
+      "payload_lift_m": 0.1578645992279053,
+      "base_max_terminal_error_m": 0.00014399768443269095,
+      "payload_max_terminal_error_m": 0.005841527162112103,
+      "support_fraction": 1.0,
+      "hand_contact_fraction": 0.0,
+      "blocked_min_clearance_m": 0.06769128155708315,
+      "URDF_to_native_hand_max_position_error_m": 4.7472902629203687e-07,
+      "maximum_carried_grasp_drift_m": 0.00801604438403435
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "49.800000",
+      "nb_frames": "498"
+    },
+    "visual_check": "Root inspected actual source-model KMR and held100g cup in CPU visual preview; all source geometry retained with declared render differences.",
+    "scope": "Constrained SE2 source base joints and native force drives, no mecanum wheel-contact or real lidar claim."
+  },
+  "accepted_at_utc": "2026-10-19T12:21:50.494897+00:00",
+  "video": "f_tier/N14/video.mp4"
+}

@@ -1,0 +1,106 @@
+{
+  "id": "N02",
+  "status": "F_PASS",
+  "scope": "Privileged simulation observation substitute drives physical pick/place; original transparent perception failure remains unrepaired.",
+  "protocol": {
+    "native_evidence_reused": "f_tier/N03/result.json",
+    "observation_action_chain": "f_tier/N03/observation_action_chain.json",
+    "native_observation_kind": "Direct native PhysX transform after1s settling, before solving each HSM target/IK; copied simulator truth, not RGBD/model perception.",
+    "no_new_independent_trials": "Shares the exact12 N03 physical trials; do not add them to N03 counts as additional experiments.",
+    "legacy_source_protocol": "evidence/foundationpose_beaker_pair_protocol_r2.json",
+    "local_thresholds": {
+      "native_lift_m": 0.05,
+      "native_placement_error_m": 0.01,
+      "legacy_translation_error_m": 0.01,
+      "legacy_ADD_S_fraction_diameter": 0.1
+    }
+  },
+  "metrics": {
+    "shared_native_successes": 12,
+    "shared_native_attempts": 12,
+    "maximum_privileged_observation_position_error_m": 0.0,
+    "maximum_privileged_observation_orientation_error_rad": 0.0,
+    "legacy_pose_passes": {
+      "glass": "0/5",
+      "opaque": "5/5"
+    }
+  },
+  "legacy_results_unchanged": {
+    "glass": {
+      "source": "runs/foundationpose_beaker_glass_r2/result.json",
+      "passes": 0,
+      "frames": 5,
+      "translation_errors_m": [
+        0.15549753545702835,
+        0.18817376335666203,
+        0.21401604448004777,
+        0.25200213051226683,
+        0.2861356718990902
+      ],
+      "ADD_S_m": [
+        0.11599332905403853,
+        0.14825853858390114,
+        0.17286538870679294,
+        0.20890550093425417,
+        0.24215597470112155
+      ],
+      "oracle_first_frame_mask": true,
+      "ground_truth_pose_given_to_estimator": false,
+      "scope": "Static MATTERIX beaker fixture; five camera views and oracle first-frame mask, no learned segmentation or robot control"
+    },
+    "opaque": {
+      "source": "runs/foundationpose_beaker_opaque_r2/result.json",
+      "passes": 5,
+      "frames": 5,
+      "translation_errors_m": [
+        0.0004700442608839984,
+        0.0004479544849401988,
+        0.0004607282359515956,
+        0.0005717525300498018,
+        0.00047195503618286164
+      ],
+      "ADD_S_m": [
+        0.0023833485928573257,
+        0.0028593895720445974,
+        0.002214890225035604,
+        0.0031656576063904813,
+        0.0015947005621527867
+      ],
+      "oracle_first_frame_mask": true,
+      "ground_truth_pose_given_to_estimator": false,
+      "scope": "Static MATTERIX beaker fixture; five camera views and oracle first-frame mask, no learned segmentation or robot control"
+    }
+  },
+  "differences": [
+    "No FoundationPose transparency repair or successful glass robot perception is claimed.",
+    "Five legacy frames per material are correlated camera views of one static beaker with oracle initial mask, not five independent instances.",
+    "New robot controls use local opaque100g cup and privileged simulation poses, reusing N03 SE2 trial family.",
+    "N02 and N03 cover distinct F requirements but share one native dataset and video; no duplicate experiment count."
+  ],
+  "full_original_perception_reproduced": false,
+  "paths": {
+    "trace": "f_tier/N03/trace.jsonl",
+    "observation_action_chain": "f_tier/N03/observation_action_chain.json",
+    "video": "f_tier/N03/video.mp4"
+  },
+  "video_status": "READY_SHARED_N03_RECORDED_STATE_VIDEO",
+  "video": "f_tier/N02/video.mp4",
+  "video_kind": "Exact same N03 twelve-trial video copied for item navigation; zero new episodes.",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root reused the once-only N03 native observation/action audit and unchanged legacy glass/opaque control evidence",
+    "script": "f_tier/review_pose_mobile.py",
+    "observed": {
+      "shared_native_trials": 12,
+      "shared_successes": 12,
+      "additional_trials": 0,
+      "native_observation_error_m": 0.0,
+      "legacy_glass_passes": "0/5",
+      "legacy_opaque_passes": "5/5"
+    },
+    "scope": "F-level privileged simulator observation substitute only; transparent FoundationPose failure remains, no model repair. Five legacy views per material are correlated and had an oracle first-frame mask."
+  },
+  "accepted_at_utc": "2026-10-19T12:21:48.748709+00:00"
+}

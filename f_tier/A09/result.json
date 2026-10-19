@@ -1,0 +1,997 @@
+{
+  "id": "A09",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "protocol": {
+    "id": "A09",
+    "status": "RUNNING",
+    "physics": "MuJoCo CPU; official source-linked UR5e/Robotiq assets",
+    "depth": "Native OSMesa RGB/depth; declared affine depth distortion injected, table-plane geometric calibration; no learned monocular depth identity claim",
+    "local_thresholds": {
+      "heldout_table_plane_RMSE_m": 0.01,
+      "positive_target_error_m": 0.01,
+      "positive_obstacle_contacts": 0
+    },
+    "minimum_acceptance": [
+      "Observed depth reconstructs table and uncatalogued obstacle without truth segmentation IDs",
+      "Heldout table residual after repair at most10mm; report uncorrected negative",
+      "Geometry repair changes actually executed collision-aware route",
+      "One complete native positive and unrepaired/omitted-obstacle control; report all attempts",
+      "Video/keyframes and explicit local depth/hardware/configuration differences"
+    ],
+    "planned_motion": {
+      "start": [
+        0.4,
+        -0.22,
+        0.24
+      ],
+      "goal": [
+        0.6,
+        0.22,
+        0.24
+      ]
+    },
+    "differences": [
+      "Local raster-depth sensor replaces unavailable original depth model.",
+      "Unknown obstacle is absent from baseline collision catalog but visible to depth camera; no inference of optically invisible surfaces.",
+      "Known horizontal tabletop datum and calibrated camera transform; not simultaneous extrinsic calibration.",
+      "No liquid, learned policy, original GRID or combined MATTERIX-world episode claim."
+    ]
+  },
+  "depth_metrics": {
+    "status": "DEPTH_PREFLIGHT_NOT_PHYSICAL_ACCEPTANCE",
+    "train_pixels": 21347,
+    "heldout_table_pixels": 5596,
+    "affine_calibration": [
+      0.9263881031298797,
+      -0.02374399261663142
+    ],
+    "raw_plane_RMSE_m": 0.10341139134589519,
+    "repaired_plane_RMSE_m": 0.0002282121760901099,
+    "obstacle_observed_points": 5020,
+    "observed_obstacle_min_m": [
+      0.4155034063174545,
+      -0.06545365151076568,
+      0.05230586504419051
+    ],
+    "observed_obstacle_max_m": [
+      0.584037795212524,
+      0.1418389568757924,
+      0.3502873704328973
+    ],
+    "geometry_estimator_truth_ids_used": false
+  },
+  "metrics": {
+    "omitted_obstacle": {
+      "native_steps": 790,
+      "native_s": 1.5800000000000012,
+      "contact_events": 4,
+      "contact_records": [
+        {
+          "step": 787,
+          "time_s": 1.5740000000000012,
+          "contacts": [
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.00016470079146799817
+            },
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0001372658488829916
+            }
+          ]
+        },
+        {
+          "step": 788,
+          "time_s": 1.5760000000000012,
+          "contacts": [
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0007138883386932862
+            },
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0006799551988615169
+            }
+          ]
+        },
+        {
+          "step": 789,
+          "time_s": 1.5780000000000012,
+          "contacts": [
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0011981290430028615
+            },
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0011502209628020774
+            }
+          ]
+        },
+        {
+          "step": 790,
+          "time_s": 1.5800000000000012,
+          "contacts": [
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0016289889454458998
+            },
+            {
+              "geom1": "uncatalogued_obstacle",
+              "geom2": null,
+              "penetration_m": 0.0015599090054590427
+            }
+          ]
+        }
+      ],
+      "verifier_rejected": true,
+      "terminal_goal_error_m": 0.391311312710122,
+      "terminal_hold_max_error_m": 0.4832608620807228,
+      "frames": 16
+    },
+    "depth_repaired": {
+      "native_steps": 3500,
+      "native_s": 6.999999999999451,
+      "contact_events": 0,
+      "contact_records": [],
+      "verifier_rejected": false,
+      "terminal_goal_error_m": 6.212751359005493e-06,
+      "terminal_hold_max_error_m": 0.0010824813177571888,
+      "frames": 71
+    }
+  },
+  "checks": {
+    "heldout_depth_plane": true,
+    "observed_obstacle": true,
+    "changed_plan": true,
+    "native_positive_reached": true,
+    "negative_rejected": true
+  },
+  "wall_s": 0.9178438530070707,
+  "video": "f_tier/A09/video.mp4",
+  "differences": [
+    "Local raster-depth sensor replaces unavailable original depth model.",
+    "Unknown obstacle is absent from baseline collision catalog but visible to depth camera; no inference of optically invisible surfaces.",
+    "Known horizontal tabletop datum and calibrated camera transform; not simultaneous extrinsic calibration.",
+    "No liquid, learned policy, original GRID or combined MATTERIX-world episode claim.",
+    "Conservative axis-aligned obstacle envelope from visible points may also include robot pixels; local box approximation is not full shape reconstruction.",
+    "Depth-scale/bias fault is a declared synthetic sensor/model-error surrogate; no learned monocular depth model evaluated.",
+    "Two prephysics planning failures retained; no physical episodes discarded. One positive and one contact-rejected negative, not a success-rate/generalization study."
+  ],
+  "native_state_writes_after_initialization": false,
+  "video_frames": 127,
+  "video_render": {
+    "physics_steps": 0,
+    "interpolation": false,
+    "frames": [
+      {
+        "case": "omitted_obstacle",
+        "index": 0,
+        "native_s": 0.01,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 1,
+        "native_s": 0.11000000000000008,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 2,
+        "native_s": 0.21000000000000016,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 3,
+        "native_s": 0.3100000000000002,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 4,
+        "native_s": 0.4100000000000003,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 5,
+        "native_s": 0.5100000000000003,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 6,
+        "native_s": 0.6100000000000004,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 7,
+        "native_s": 0.7100000000000005,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 8,
+        "native_s": 0.8100000000000006,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 9,
+        "native_s": 0.9100000000000007,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 10,
+        "native_s": 1.0100000000000007,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 11,
+        "native_s": 1.1100000000000008,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 12,
+        "native_s": 1.2100000000000009,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 13,
+        "native_s": 1.310000000000001,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 14,
+        "native_s": 1.410000000000001,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": false
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "omitted_obstacle",
+        "index": 15,
+        "native_s": 1.5100000000000011,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 16,
+        "native_s": 0.01,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 17,
+        "native_s": 0.11000000000000008,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 18,
+        "native_s": 0.21000000000000016,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 19,
+        "native_s": 0.3100000000000002,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 20,
+        "native_s": 0.4100000000000003,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 21,
+        "native_s": 0.5100000000000003,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 22,
+        "native_s": 0.6100000000000004,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 23,
+        "native_s": 0.7100000000000005,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 24,
+        "native_s": 0.8100000000000006,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 25,
+        "native_s": 0.9100000000000007,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 26,
+        "native_s": 1.0100000000000007,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 27,
+        "native_s": 1.1100000000000008,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 28,
+        "native_s": 1.2100000000000009,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 29,
+        "native_s": 1.310000000000001,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 30,
+        "native_s": 1.410000000000001,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 31,
+        "native_s": 1.5100000000000011,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 32,
+        "native_s": 1.6100000000000012,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 33,
+        "native_s": 1.7100000000000013,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 34,
+        "native_s": 1.8100000000000014,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 35,
+        "native_s": 1.9100000000000015,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 36,
+        "native_s": 2.0100000000000002,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 37,
+        "native_s": 2.109999999999989,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 38,
+        "native_s": 2.209999999999978,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 39,
+        "native_s": 2.309999999999967,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 40,
+        "native_s": 2.409999999999956,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 41,
+        "native_s": 2.509999999999945,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 42,
+        "native_s": 2.609999999999934,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 43,
+        "native_s": 2.709999999999923,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 44,
+        "native_s": 2.809999999999912,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 45,
+        "native_s": 2.909999999999901,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 46,
+        "native_s": 3.00999999999989,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 47,
+        "native_s": 3.109999999999879,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 48,
+        "native_s": 3.209999999999868,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 49,
+        "native_s": 3.309999999999857,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 50,
+        "native_s": 3.409999999999846,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 51,
+        "native_s": 3.509999999999835,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 52,
+        "native_s": 3.609999999999824,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 53,
+        "native_s": 3.709999999999813,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 54,
+        "native_s": 3.809999999999802,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 55,
+        "native_s": 3.909999999999791,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 56,
+        "native_s": 4.00999999999978,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 57,
+        "native_s": 4.109999999999769,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 58,
+        "native_s": 4.209999999999758,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 59,
+        "native_s": 4.309999999999747,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 60,
+        "native_s": 4.409999999999736,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 61,
+        "native_s": 4.509999999999725,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 62,
+        "native_s": 4.609999999999714,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 63,
+        "native_s": 4.709999999999703,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 64,
+        "native_s": 4.809999999999692,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 65,
+        "native_s": 4.909999999999681,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 66,
+        "native_s": 5.00999999999967,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 67,
+        "native_s": 5.109999999999659,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 68,
+        "native_s": 5.209999999999648,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 69,
+        "native_s": 5.309999999999637,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 70,
+        "native_s": 5.409999999999626,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 71,
+        "native_s": 5.509999999999615,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 72,
+        "native_s": 5.609999999999604,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 73,
+        "native_s": 5.709999999999593,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 74,
+        "native_s": 5.809999999999582,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 75,
+        "native_s": 5.909999999999571,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 76,
+        "native_s": 6.00999999999956,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 77,
+        "native_s": 6.109999999999549,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 78,
+        "native_s": 6.209999999999538,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 79,
+        "native_s": 6.309999999999527,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 80,
+        "native_s": 6.409999999999516,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 81,
+        "native_s": 6.509999999999505,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 82,
+        "native_s": 6.609999999999494,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 83,
+        "native_s": 6.709999999999483,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 84,
+        "native_s": 6.809999999999472,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 85,
+        "native_s": 6.909999999999461,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": false
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      },
+      {
+        "case": "depth_repaired",
+        "index": 86,
+        "native_s": 6.999999999999451,
+        "held": true
+      }
+    ],
+    "negative_last_saved_qpos_s": 1.51,
+    "negative_native_contact_start_s": 1.574,
+    "negative_native_stop_s": 1.58,
+    "negative_final_collision_pose_not_saved": true
+  },
+  "video_kind": "Exact saved MuJoCo native qpos replay at10Hz;2s held final positive/last sampled negative states,0newphysics/nointerpolation. Negative final70ms not recorded in pose video, raw contact log remains.",
+  "prephysics_attempts": [
+    {
+      "evidence": "f_tier/A09/prephysics_ik_failure",
+      "native_steps": 0,
+      "failure": "Handwritten DLS branch failed a reachable pose; existing UR5e source Controller solved exactpose with51nm error; reused existing adapter."
+    },
+    {
+      "evidence": "f_tier/A09/prephysics_high_route_unreachable",
+      "native_steps": 0,
+      "failure": "Overhead clearance200mm route not kinematically reachable;90mm route collision-checked feasible before physical trial. Fixed acceptance gates/scene/start/goal unchanged."
+    }
+  ],
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "/root/f_w2_thermal_perf",
+    "observed": {
+      "train_pixels": 21347,
+      "heldout_pixels": 5596,
+      "train_test_overlap": 0,
+      "raw_plane_RMSE_m": 0.10341139134589519,
+      "repaired_plane_RMSE_m": 0.0002282121760901099,
+      "raw_trace_rows": 858,
+      "positive_native_steps": 3500,
+      "positive_s": 7.0,
+      "positive_hold_max_goal_error_m": 0.0010824813177571888,
+      "positive_final_goal_error_m": 6.212751359005493e-06,
+      "positive_obstacle_contacts": 0,
+      "negative_native_steps": 790,
+      "negative_s": 1.58,
+      "negative_contact_steps": [
+        787,
+        788,
+        789,
+        790
+      ],
+      "all87_saved_pose_FK_joint_match_max_error": 0.0,
+      "video_frames": 127,
+      "video_FPS": 10,
+      "video_s": 12.7
+    },
+    "checks": {
+      "independent_LS_and_heldout_RMSE_recompute": true,
+      "estimator_uses_no_truth_segmentation_ids": true,
+      "all_saved_native_FK_consistent": true,
+      "true_negative_contacts_then_verifier_rejection": true,
+      "zero_physics_video_and_no_interpolation": true,
+      "negative_last_sample_label_corrected": true
+    },
+    "visual_check": "Independent reviewer inspected positive terminal, RGB observation, and corrected last-sampled negative image; raw contact/stop timestamp is separate from earlier negative pose video.",
+    "scope": "Local calibrated RGB-D/depth-affine-error surrogate and known horizontal table datum; axis-aligned visible-point envelope. No original monocular model identity or optically hidden-surface inference."
+  },
+  "accepted_at_utc": "2026-10-19T12:10:18.777882+00:00"
+}
