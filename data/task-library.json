@@ -1,6 +1,6 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-19T13:10:37.395863+00:00",
+  "updated_at_utc": "2026-10-19T13:18:28.180509+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -667,19 +667,87 @@
       "id": "press",
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
-      "status": "collecting",
-      "dataset_attempts": 0,
-      "dataset_unique_seeds": 0,
+      "status": "needs_expert_fix",
+      "dataset_attempts": 4,
+      "dataset_unique_seeds": 4,
       "target_unique_seeds": 20,
-      "successes": 0,
-      "success_rate": null,
-      "status_counts": {},
+      "successes": 3,
+      "success_rate": 0.75,
+      "status_counts": {
+        "success": 3,
+        "fail": 1
+      },
       "verified_dataset_attempts": 0,
       "qualification_attempts": 4,
       "qualification_safe_successes": 1,
       "render_diagnostic_attempts": 0,
-      "failure_reasons": {},
-      "trials": [],
+      "failure_reasons": {
+        "safety_force": 1
+      },
+      "trials": [
+        {
+          "seed": 0,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 364.96,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 1,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 365.31,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 2,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 279.46,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 3,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "fail",
+          "safe_success": false,
+          "wall_time_s": 286.64,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [
+            "safety_force"
+          ],
+          "visual_contrast_flag": false
+        }
+      ],
       "engineering_only": false
     },
     {
@@ -687,7 +755,7 @@
       "id": "timed_stirring",
       "title": "按钮启停搅拌",
       "dimension": "T-dur · 4 / 8 / 12 秒",
-      "status": "collecting",
+      "status": "planned",
       "dataset_attempts": 0,
       "dataset_unique_seeds": 0,
       "target_unique_seeds": 20,
@@ -695,7 +763,7 @@
       "success_rate": null,
       "status_counts": {},
       "verified_dataset_attempts": 0,
-      "qualification_attempts": 1,
+      "qualification_attempts": 2,
       "qualification_safe_successes": 0,
       "render_diagnostic_attempts": 0,
       "failure_reasons": {},
@@ -715,7 +783,7 @@
       "success_rate": null,
       "status_counts": {},
       "verified_dataset_attempts": 0,
-      "qualification_attempts": 0,
+      "qualification_attempts": 1,
       "qualification_safe_successes": 0,
       "render_diagnostic_attempts": 0,
       "failure_reasons": {},
@@ -783,8 +851,8 @@
       "engineering_only": false
     }
   ],
-  "native_tasks_with_dataset": 2,
-  "dataset_attempts": 40,
+  "native_tasks_with_dataset": 3,
+  "dataset_attempts": 44,
   "benchmark_complete": false,
   "conference_ready": false,
   "scope": "Native scripted expert development. M1, calibrated chemistry and model comparisons are pending.",
