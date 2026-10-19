@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
 const labels={planned:'尚未原生采集',collecting:'采集中',batch_collected:'已采满 20 个 seed',smoke_passed:'原生冒烟通过',needs_expert_fix:'需修复专家'};
-const stageNames={ready:'就绪',wait_cue:'提示出现',press:'物理按压',approach:'接近',grasp:'抓取',lift:'提起',transport:'运送',place_release:'放置与松爪',regrasp:'再次抓取',return:'返回',retreat:'撤退'};
+const stageNames={ready:'就绪',wait_cue:'提示出现',press:'物理按压',endpoint_observed:'颜色端点',stopped:'完成',cue_observed:'提示熄灭',retention_end:'保留结束',approach:'接近',grasp:'抓取',lift:'提起',transport:'运送',place_release:'放置与松爪',regrasp:'再次抓取',return:'返回',retreat:'撤退'};
 async function refreshStats(){
  try{
   const response=await fetch('data/task-library.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
@@ -16,7 +16,7 @@ async function refreshStats(){
    const progress=document.createElement('div');progress.className='progress';const fill=document.createElement('i');fill.style.width=Math.min(100,task.dataset_unique_seeds/20*100)+'%';progress.append(fill);
    const counts=document.createElement('p');counts.className='task-metrics';counts.textContent=`${task.dataset_unique_seeds} / 20 个唯一 seed　·　随机化尝试 ${task.dataset_attempts}`;
    const rate=document.createElement('p');rate.textContent=task.dataset_attempts?`成功 ${task.successes} / ${task.dataset_attempts}（${(task.success_rate*100).toFixed(1)}%） · 失败 ${task.status_counts.fail||0} · 报错 ${task.status_counts.error||0}`:'随机化成功率尚未测量';
-   const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 零随机化冒烟 ${task.qualification_attempts} 次，物理安全成功 ${task.qualification_safe_successes} 次`+(task.render_diagnostic_attempts?` · 另有 ${task.render_diagnostic_attempts} 次短前缀渲染诊断`:'');
+   const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 资格检查 ${task.qualification_attempts} 次，物理安全成功 ${task.qualification_safe_successes} 次`+(task.calibration_attempts?` · 历史专家校准 ${task.calibration_attempts} 条（成功 ${task.calibration_status_counts.success||0} / 失败 ${task.calibration_status_counts.fail||0} / 报错 ${task.calibration_status_counts.error||0}）`:'')+(task.memory_gate_attempts?` · 像素门槛前缀 ${task.memory_gate_attempts} 条`:'')+(task.id==='delayed_cue_memory'?` · 提示后像素门槛 ${task.memory_layout_gates_passed||0}/3 布局`:'')+(task.render_diagnostic_attempts?` · 另有 ${task.render_diagnostic_attempts} 次短前缀渲染诊断`:'');
    card.append(top,title,dimension,progress,counts,rate,evidence);return card;
   }));
  }catch(error){$('updated').textContent='暂未读取到最新统计，请稍后刷新；视频仍可观看。';}

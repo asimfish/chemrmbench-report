@@ -89,10 +89,10 @@
   },
   {
     "id": "press",
-    "title": "T4 · 提示后物理按压（资格录像）",
-    "station_a": "assets/native-v01/t4-station-a-web.mp4",
-    "wrist": "assets/native-v01/t4-wrist-web.mp4",
-    "scope": "原生资格录像：真实搅拌器左侧控制键，提示后2.2875秒按下，物理按钮合力峰值24.52N，满足3秒/25N判据。双路录像及离线判定通过；随机提示时刻的20个seed批采进行中。原始NAS录像保留，网页为H.264编码。",
+    "title": "T4 · 提示后物理按键（3mm准备间隙）",
+    "station_a": "assets/native-v01/t4-near-station-a-web.mp4",
+    "wrist": "assets/native-v01/t4-near-wrist-web.mp4",
+    "scope": "明确声明的3mm初始准备间隙，3秒响应窗口和25N上限保持不变。零随机化资格录像：响应2.067秒、峰值16.49N，双路录像及独立判定通过；新的20-seed批次采集中。旧5cm姿态的10次校准（4成功、6失败）单独保留，不计入新批次。",
     "stages": [
       {
         "name": "ready",
@@ -106,13 +106,91 @@
       },
       {
         "name": "press",
-        "time_s": 6.8375,
-        "step": 1641
+        "time_s": 6.616667,
+        "step": 1588
       },
       {
         "name": "retreat",
-        "time_s": 8.0375,
-        "step": 1929
+        "time_s": 7.816667,
+        "step": 1876
+      }
+    ]
+  },
+  {
+    "id": "endpoint_stop",
+    "title": "T7 · 颜色端点与物理完成按钮",
+    "station_a": "assets/native-v01/t7-station-a-web.mp4",
+    "wrist": "assets/native-v01/t7-wrist-web.mp4",
+    "scope": "工程端点任务：左键计次加液、容器蓝→红后零超量，右键完成延迟3.467秒，峰值20.73N。双路录像与离线判定通过，20个随机种子采集中。未模拟真实化学反应。",
+    "stages": [
+      {
+        "name": "ready",
+        "time_s": 0.0,
+        "step": 0
+      },
+      {
+        "name": "endpoint_observed",
+        "time_s": 18.366667,
+        "step": 4408
+      },
+      {
+        "name": "stopped",
+        "time_s": 21.833333,
+        "step": 5240
+      },
+      {
+        "name": "retreat",
+        "time_s": 23.033333,
+        "step": 5528
+      }
+    ]
+  },
+  {
+    "id": "delayed_cue_memory",
+    "title": "T8 · 短暂提示后记住目标瓶",
+    "station_a": "assets/native-v01/t8-station-a-web.mp4",
+    "wrist": "assets/native-v01/t8-wrist-web.mp4",
+    "scope": "三只相同瓶子、1秒提示、3秒保留间隔后选瓶入托盘，8阶段、放置误差0.99mm。当前是真值专家的物理任务资格录像，不是模型记忆成绩。逐帧无损RGB用于像素门槛；3个布局的门槛仍待验收，网页MP4用于展示。",
+    "stages": [
+      {
+        "name": "cue_observed",
+        "time_s": 2.270833,
+        "step": 545
+      },
+      {
+        "name": "retention_end",
+        "time_s": 5.270833,
+        "step": 1265
+      },
+      {
+        "name": "approach",
+        "time_s": 14.354167,
+        "step": 3445
+      },
+      {
+        "name": "grasp",
+        "time_s": 20.354167,
+        "step": 4885
+      },
+      {
+        "name": "lift",
+        "time_s": 23.354167,
+        "step": 5605
+      },
+      {
+        "name": "transport",
+        "time_s": 31.354167,
+        "step": 7525
+      },
+      {
+        "name": "place_release",
+        "time_s": 37.354167,
+        "step": 8965
+      },
+      {
+        "name": "retreat",
+        "time_s": 40.354167,
+        "step": 9685
       }
     ]
   }
