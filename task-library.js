@@ -20,9 +20,12 @@ async function refreshStats(){
    const dimension=document.createElement('p');dimension.textContent=task.dimension;
    const progress=document.createElement('div');progress.className='progress';const fill=document.createElement('i');fill.style.width=Math.min(100,task.dataset_unique_seeds/20*100)+'%';progress.append(fill);
    const counts=document.createElement('p');counts.className='task-metrics';counts.textContent=`${task.dataset_unique_seeds} / 20 个唯一 seed　·　随机化尝试 ${task.dataset_attempts}`;
-   const rate=document.createElement('p');rate.textContent=task.dataset_attempts?`成功 ${task.successes} / ${task.dataset_attempts}（${(task.success_rate*100).toFixed(1)}%） · 失败 ${task.status_counts.fail||0} · 报错 ${task.status_counts.error||0}`:'随机化成功率尚未测量';
-   const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 资格检查 ${task.qualification_attempts} 次，物理安全成功 ${task.qualification_safe_successes} 次`+(task.calibration_attempts?` · 历史专家校准 ${task.calibration_attempts} 条（成功 ${task.calibration_status_counts.success||0} / 失败 ${task.calibration_status_counts.fail||0} / 报错 ${task.calibration_status_counts.error||0}）`:'')+(task.memory_gate_attempts?` · 像素门槛前缀 ${task.memory_gate_attempts} 条`:'')+(task.id==='delayed_cue_memory'?` · 提示后像素门槛 ${task.memory_layout_gates_passed||0}/3 布局`:'')+(task.render_diagnostic_attempts?` · 另有 ${task.render_diagnostic_attempts} 次短前缀渲染诊断`:'');
-   card.append(top,title,dimension,progress,counts,rate,evidence);return card;
+   const rate=document.createElement('p');rate.textContent=task.dataset_attempts?`验收成功 ${task.successes} / ${task.dataset_attempts}（${(task.success_rate*100).toFixed(1)}%） · 失败 ${task.status_counts.fail||0} · 报错 ${task.status_counts.error||0}`:'随机化成功率尚未测量';
+   const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 资格检查 ${task.qualification_attempts} 次，验收成功 ${task.qualification_safe_successes} 次`+(task.calibration_attempts?` · 历史专家校准 ${task.calibration_attempts} 条（成功 ${task.calibration_status_counts.success||0} / 失败 ${task.calibration_status_counts.fail||0} / 报错 ${task.calibration_status_counts.error||0}）`:'')+(task.memory_gate_attempts?` · 像素门槛前缀 ${task.memory_gate_attempts} 条`:'')+(task.id==='delayed_cue_memory'?` · 提示后像素门槛 ${task.memory_layout_gates_passed||0}/3 布局`:'')+(task.render_diagnostic_attempts?` · 另有 ${task.render_diagnostic_attempts} 次短前缀渲染诊断`:'');
+   card.append(top,title,dimension,progress,counts,rate,evidence);
+   if(task.runtime_rejections){const runtime=document.createElement('p');runtime.textContent=`粒子运行时拒绝 ${task.runtime_rejections} 次；原始测量保留，未计为成功。`;card.append(runtime);}
+   if(task.primary_cohort){const cohort=document.createElement('p');cohort.textContent=`固定配置批次：成功 ${task.primary_cohort.successes}/20，失败 ${task.primary_cohort.failures}，报错 ${task.primary_cohort.errors}。`;card.append(cohort);}
+   return card;
   }));
  }catch(error){$('updated').textContent='暂未读取到最新统计，请稍后刷新；视频仍可观看。';}
 }

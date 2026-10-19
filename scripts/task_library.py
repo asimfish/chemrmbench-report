@@ -23,6 +23,34 @@ def read(path, default=None):
     except (OSError,ValueError):return default
 
 
+def particle_runtime_supported(row,episode):
+    if row['task_id']!='pour':return None
+    report=read(episode/'privileged/particle_runtime.json')
+    if report is not None:
+        return report.get('supported') is True and report.get('unsupported_messages')==[]
+    # Older raw verdicts predate runtime admission. Export only a boolean,
+    # never the private log, asset paths, hidden cues or arbitrary messages.
+    try:
+        log=Path(row['worker_log']).resolve()
+        if not log.is_relative_to(ROOT.resolve()) or not log.is_file() or log.stat().st_size>8*1024**2:return None
+        text=log.read_text(errors='replace')
+    except (OSError,KeyError):return None
+    return not any(marker in text for marker in (
+        'failed to cook GPU-compatible mesh','Non-GPU-compatible convex mesh'))
+
+
+def primary_pour_cohort():
+    report=read(ROOT/'T3_BATCH_REPORT.json',{})
+    counts=[report.get(k) for k in ('successes','failures','errors')]
+    if (report.get('seeds')!=list(range(20)) or
+            any(type(v) is not int or not 0<=v<=20 for v in counts) or sum(counts)!=20):return None
+    return {'attempts':20,'successes':counts[0],'failures':counts[1],'errors':counts[2],
+            'recording_accepted':report.get('acceptance_passed') is True,
+            'runtime_supported':type(report.get('unsupported_gpu_geometry_warning_count')) is int
+                and report['unsupported_gpu_geometry_warning_count']==0,
+            'expert_threshold_passed':counts[0]>=16}
+
+
 def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
@@ -42,13 +70,18 @@ def collect_task_library():
             metadata=read(episode/'task.json',{})
             purpose=row.get('collection_purpose',metadata.get('collection_purpose'))
             metrics=verdict.get('metrics',{})
+            supported=particle_runtime_supported(row,episode)
+            rejected=row['task_id']=='pour' and supported is not True
             records[row['task_id']].append({
                 'seed':row['seed'],'variant':row.get('variant'),
                 'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration',
                 'calibration':config.get('collection_kind')=='expert_calibration',
                 'memory_gate':purpose=='memory_leak_gate',
                 'diagnostic_prefix':config.get('max_steps')==1,
-                'status':row['status'],'safe_success':verdict.get('safe_success') is True,
+                'status':'error' if rejected else row['status'],
+                'measured_status':row['status'],'particle_runtime_supported':supported,
+                'runtime_rejected':rejected,
+                'safe_success':verdict.get('safe_success') is True and not rejected,
                 'wall_time_s':round(row['wall_time_s'],2),
                 'placement_error_mm':round(metrics['placement_error_m']*1000,3)
                     if metrics.get('placement_error_m') is not None else None,
@@ -57,7 +90,9 @@ def collect_task_library():
                 'stage_count':metrics.get('stage_count'),
                 'recording_verified':read(episode/'acceptance.json',{}).get('passed') is True,
                 'failure_reasons':[v for v in row.get('failure_reasons',[])
-                    if re.fullmatch('[a-z_]{1,60}',v)],
+                    if re.fullmatch('[a-z_]{1,60}',v)]+(
+                        ['unsupported_particle_geometry' if supported is False else 'particle_runtime_unverified']
+                        if rejected else []),
                 'visual_contrast_flag':read(episode.parent.parent/'visual_review.json',{}).get('status') in {
                     'LOW_CONTRAST','VISUAL_UNACCEPTED','TARGET_NOT_VISIBLE'},
             })
@@ -68,12 +103,19 @@ def collect_task_library():
         successes=sum(r['status']=='success' for r in rows)
         n=len(rows);unique=len({r['seed'] for r in rows})
         qualified=any(r['safe_success'] and not r['visual_contrast_flag'] and not r['diagnostic_prefix'] for r in all_rows)
-        state=('needs_expert_fix' if n and successes/n<.8 else
-               'batch_collected' if unique>=20 else 'collecting' if task_id in active else
+        primary=primary_pour_cohort() if task_id=='pour' else None
+        if task_id in active:state='collecting'
+        elif primary:
+            state='batch_collected' if all(primary[k] for k in (
+                'recording_accepted','runtime_supported','expert_threshold_passed')) else 'needs_expert_fix'
+        else:state=('needs_expert_fix' if n and successes/n<.8 else
+               'batch_collected' if unique>=20 else
                'needs_expert_fix' if calibration and not n else
                'smoke_passed' if qualified else 'needs_expert_fix' if all_rows else 'planned')
         tasks.append({'number':number,'id':task_id,'title':title,'dimension':dimension,
             'status':state,'dataset_attempts':n,'dataset_unique_seeds':unique,'target_unique_seeds':20,
+            'primary_cohort':primary,
+            'runtime_rejections':sum(r['runtime_rejected'] for r in all_rows),
             'successes':successes,'success_rate':successes/n if n else None,
             'status_counts':dict(Counter(r['status'] for r in rows)),
             'verified_dataset_attempts':sum(r['recording_verified'] for r in rows),

@@ -235,52 +235,52 @@
   },
   {
     "id": "pour",
-    "title": "T3 · 限时倾倒（开发录像，未完成验收）",
-    "station_a": "assets/native-v01/t3-qualified-station-a-web.mp4",
-    "wrist": "assets/native-v01/t3-qualified-wrist-web.mp4",
-    "source_evidence_id": "t3_smoke_r8",
-    "source_commit": "4d886c10",
-    "scope": "v8零随机化开发录像，完整8阶段：接收124/125、溢出1/125，2秒倾倒误差16.7毫秒、接触峰值10.64N；6秒轨迹也满足这些测量阈值，两者离线重算和双路解码通过。但粒子/凸体兼容性警告仍待原生复验，不能据此宣称任务完成验收。随机化尝试暴露夹持预紧力丢失和落点偏移，失败全部保留；修复后批次尚未完成。工程级粒子计数，未进行化学、体积或流体受力标定。",
+    "title": "T3 · 限时倾倒（随机化 seed 0，原生冒烟通过）",
+    "station_a": "assets/native-v01/t3-random-station-a-web.mp4",
+    "wrist": "assets/native-v01/t3-random-wrist-web.mp4",
+    "source_evidence_id": "t3_seed0_r4",
+    "source_commit": "5cf756a9e3046a51ee2c05330fdac2e4219421cd",
+    "scope": "修复后随机化 seed 0，完整8阶段，接收124/125、溢出0.8%；2秒倾倒在240Hz物理时钟下误差0 tick，接触峰值10.42N。台面与玻璃碰撞体使用几何等价box；全程无GPU几何兼容性错误，离线判定精确一致，两路640×400/20fps录像完整。剩余19个seed正在采集，尚非20-seed结果。工程级粒子计数，未进行化学、体积或流体受力标定。",
     "stages": [
       {
         "name": "approach",
-        "time_s": 10.083333333333082,
-        "step": 2420
+        "step": 2420,
+        "time_s": 10.083333333333082
       },
       {
         "name": "grasp",
-        "time_s": 18.08333333333263,
-        "step": 4340
+        "step": 4340,
+        "time_s": 18.08333333333263
       },
       {
         "name": "lift",
-        "time_s": 21.083333333332458,
-        "step": 5060
+        "step": 5060,
+        "time_s": 21.083333333332458
       },
       {
         "name": "transport",
-        "time_s": 32.0833333333319,
-        "step": 7700
+        "step": 7700,
+        "time_s": 32.0833333333319
       },
       {
         "name": "tilt_started",
-        "time_s": 32.96249999999927,
-        "step": 7911
+        "step": 7910,
+        "time_s": 32.9583333333326
       },
       {
         "name": "tilt_ended",
-        "time_s": 34.94583333333418,
-        "step": 8387
+        "step": 8390,
+        "time_s": 34.95833333333419
       },
       {
         "name": "place_release",
-        "time_s": 51.28333333334718,
-        "step": 12308
+        "step": 12308,
+        "time_s": 51.28333333334718
       },
       {
         "name": "retreat",
-        "time_s": 54.28333333334957,
-        "step": 13028
+        "step": 13028,
+        "time_s": 54.28333333334957
       }
     ]
   }
