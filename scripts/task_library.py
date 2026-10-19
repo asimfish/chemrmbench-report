@@ -41,6 +41,7 @@ def collect_task_library():
             records[row['task_id']].append({
                 'seed':row['seed'],'variant':row.get('variant'),
                 'dataset':row.get('variant')=='default',
+                'diagnostic_prefix':config.get('max_steps')==1,
                 'status':row['status'],'safe_success':verdict.get('safe_success') is True,
                 'wall_time_s':round(row['wall_time_s'],2),
                 'placement_error_mm':round(metrics['placement_error_m']*1000,3)
@@ -51,14 +52,15 @@ def collect_task_library():
                 'recording_verified':read(episode/'acceptance.json',{}).get('passed') is True,
                 'failure_reasons':[v for v in row.get('failure_reasons',[])
                     if re.fullmatch('[a-z_]{1,60}',v)],
-                'visual_contrast_flag':read(episode.parent.parent/'visual_review.json',{}).get('status')=='LOW_CONTRAST',
+                'visual_contrast_flag':read(episode.parent.parent/'visual_review.json',{}).get('status') in {
+                    'LOW_CONTRAST','VISUAL_UNACCEPTED','TARGET_NOT_VISIBLE'},
             })
     tasks=[]
     for number,task_id,title,dimension in CATALOG:
         all_rows=records[task_id];rows=[r for r in all_rows if r['dataset']]
         successes=sum(r['status']=='success' for r in rows)
         n=len(rows);unique=len({r['seed'] for r in rows})
-        qualified=any(r['safe_success'] and not r['visual_contrast_flag'] for r in all_rows)
+        qualified=any(r['safe_success'] and not r['visual_contrast_flag'] and not r['diagnostic_prefix'] for r in all_rows)
         state=('needs_expert_fix' if n and successes/n<.8 else
                'batch_collected' if unique>=20 else 'collecting' if task_id in active else
                'smoke_passed' if qualified else 'planned')
@@ -67,8 +69,9 @@ def collect_task_library():
             'successes':successes,'success_rate':successes/n if n else None,
             'status_counts':dict(Counter(r['status'] for r in rows)),
             'verified_dataset_attempts':sum(r['recording_verified'] for r in rows),
-            'qualification_attempts':len(all_rows)-n,'qualification_safe_successes':sum(
-                r['safe_success'] for r in all_rows if not r['dataset']),
+            'qualification_attempts':sum(not r['dataset'] and not r['diagnostic_prefix'] for r in all_rows),
+            'qualification_safe_successes':sum(r['safe_success'] for r in all_rows if not r['dataset'] and not r['diagnostic_prefix']),
+            'render_diagnostic_attempts':sum(r['diagnostic_prefix'] for r in all_rows),
             'failure_reasons':dict(Counter(v for r in rows for v in r['failure_reasons'])),
             'trials':rows,'engineering_only':number in {'T3','T7'}})
     return {'schema_version':'chemrmbench-task-library-0.1',

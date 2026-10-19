@@ -16,7 +16,7 @@ async function refreshStats(){
    const progress=document.createElement('div');progress.className='progress';const fill=document.createElement('i');fill.style.width=Math.min(100,task.dataset_unique_seeds/20*100)+'%';progress.append(fill);
    const counts=document.createElement('p');counts.className='task-metrics';counts.textContent=`${task.dataset_unique_seeds} / 20 个唯一 seed　·　随机化尝试 ${task.dataset_attempts}`;
    const rate=document.createElement('p');rate.textContent=task.dataset_attempts?`成功 ${task.successes} / ${task.dataset_attempts}（${(task.success_rate*100).toFixed(1)}%） · 失败 ${task.status_counts.fail||0} · 报错 ${task.status_counts.error||0}`:'随机化成功率尚未测量';
-   const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 零随机化冒烟 ${task.qualification_attempts} 次，物理安全成功 ${task.qualification_safe_successes} 次`;
+   const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 零随机化冒烟 ${task.qualification_attempts} 次，物理安全成功 ${task.qualification_safe_successes} 次`+(task.render_diagnostic_attempts?` · 另有 ${task.render_diagnostic_attempts} 次短前缀渲染诊断`:'');
    card.append(top,title,dimension,progress,counts,rate,evidence);return card;
   }));
  }catch(error){$('updated').textContent='暂未读取到最新统计，请稍后刷新；视频仍可观看。';}
