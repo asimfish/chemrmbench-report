@@ -1,0 +1,1398 @@
+{
+  "id": "N04",
+  "status": "F_PASS",
+  "protocol": {
+    "engine": "Original public MATTERIX FluidSystem / native PhysX PBD",
+    "fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+    "material_and_render_defaults": "FluidCfg defaults, original anisotropy+smoothing+isosurface ON; no density, mass, contact-offset, cohesion, viscosity, friction or surface-tension modification",
+    "pose_scope": "Fixed supported tabletop SE(2) x/y/yaw poses; not unsupported full SO(3) orientations",
+    "cases": [
+      {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      },
+      {
+        "id": "pose_01",
+        "seed": 170401,
+        "source_xy": [
+          0.55959,
+          0.08574
+        ],
+        "source_yaw_deg": 25.292,
+        "receiver_xy": [
+          0.58432,
+          -0.14243
+        ],
+        "receiver_yaw_deg": -17.012
+      },
+      {
+        "id": "pose_02",
+        "seed": 170402,
+        "source_xy": [
+          0.43455,
+          0.10972
+        ],
+        "source_yaw_deg": -26.082,
+        "receiver_xy": [
+          0.49469,
+          -0.14933
+        ],
+        "receiver_yaw_deg": -6.843
+      },
+      {
+        "id": "pose_03",
+        "seed": 170403,
+        "source_xy": [
+          0.50039,
+          0.11247
+        ],
+        "source_yaw_deg": -9.277,
+        "receiver_xy": [
+          0.54959,
+          -0.19057
+        ],
+        "receiver_yaw_deg": 1.847
+      },
+      {
+        "id": "pose_04",
+        "seed": 170404,
+        "source_xy": [
+          0.53181,
+          0.15621
+        ],
+        "source_yaw_deg": 29.942,
+        "receiver_xy": [
+          0.57222,
+          -0.16158
+        ],
+        "receiver_yaw_deg": -6.815
+      },
+      {
+        "id": "pose_05",
+        "seed": 170405,
+        "source_xy": [
+          0.5423,
+          0.12368
+        ],
+        "source_yaw_deg": -15.754,
+        "receiver_xy": [
+          0.54126,
+          -0.22822
+        ],
+        "receiver_yaw_deg": 8.45
+      },
+      {
+        "id": "pose_06",
+        "seed": 170406,
+        "source_xy": [
+          0.44903,
+          0.16682
+        ],
+        "source_yaw_deg": 21.867,
+        "receiver_xy": [
+          0.47996,
+          -0.16108
+        ],
+        "receiver_yaw_deg": 17.555
+      },
+      {
+        "id": "pose_07",
+        "seed": 170407,
+        "source_xy": [
+          0.46291,
+          0.06699
+        ],
+        "source_yaw_deg": -11.674,
+        "receiver_xy": [
+          0.52517,
+          -0.1962
+        ],
+        "receiver_yaw_deg": 36.382
+      },
+      {
+        "id": "pose_08",
+        "seed": 170408,
+        "source_xy": [
+          0.45211,
+          0.12183
+        ],
+        "source_yaw_deg": 20.6,
+        "receiver_xy": [
+          0.53032,
+          -0.24074
+        ],
+        "receiver_yaw_deg": 16.997
+      },
+      {
+        "id": "pose_09",
+        "seed": 170409,
+        "source_xy": [
+          0.47695,
+          0.07224
+        ],
+        "source_yaw_deg": -5.562,
+        "receiver_xy": [
+          0.49702,
+          -0.15691
+        ],
+        "receiver_yaw_deg": 0.718
+      }
+    ],
+    "negative": "No tilt for pose_00; same pick, transport, hold and return primitives, omitting commanded tilt; arrival-dependent phase durations reported separately",
+    "controller": "Original HSM Move/Open/Close with side pick (20deg downward approach, EE grasp z=-20mm), native double-finger contact and mouth/table clearance verification, plus observed-cup-pose tilt feedback: local graspX axis (grasp frame rotated90deg about objectZ, negative tilt sign; perpendicular to finger closing axis),5degree waypoints held200ms, actual115+/-2deg about a fixed world mouth-center pivot then observed return (lift100mm, high translation, vertical descent); mouth pivot70mm above receiving mouth,15mm upstream along flow; orientation slip diagnostic only,15mm translation and sustained lift-loss guard. Dynamic cups, no weld/kinematic target/mid-episode object writes",
+    "fluid_initialization": "Original create_particles_grid with volume(0.020,0.020,0.020)m inside native scale1 beaker; default particle_mass1e-6kg and density1000 retained despite their known mismatch",
+    "observer": "Original get_current_pos_vel (PointInstancer positions); smoothing may shift display points. Gross wall gate only, not raw solver or subparticle penetration.",
+    "development_scope": "Controller tuned only on pose00, which is included in fixed10; not a held-out generalization estimate.",
+    "local_thresholds": {
+      "receiver_fraction_min": 0.5,
+      "spill_fraction_max": 0.1,
+      "boundary_ambiguous_fraction_max": 0.05,
+      "mass_accounting_relative_error_max": 0.01,
+      "gross_wall_leak_band_m": 0.004,
+      "gross_wall_leak_count_max": 0,
+      "physical_lift_min_m": 0.05,
+      "grasp_position_drift_max_m": 0.015,
+      "grasp_rotation_drift_diagnostic_only": true,
+      "grasp_azimuth_offset_deg": 90.0,
+      "tilt_sign": -1.0,
+      "mouth_pivot_above_receiver_m": 0.07,
+      "actual_tilt_target_deg": 115.0,
+      "tilt_waypoint_deg": 5.0,
+      "waypoint_hold_s": 0.2,
+      "final_source_position_error_max_m": 0.02,
+      "negative_receiver_fraction_max": 0.01,
+      "aggregate_min_successes": 1
+    },
+    "native_physics_dt_s": 0.0033333333333333335,
+    "control_decimation": 5,
+    "video_fps": 15,
+    "all_attempts_reported": true
+  },
+  "attempts": [
+    {
+      "case": {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 52.16666792985052,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.833333523012698,
+        "first_tilt_command_s": 14.366666666666667,
+        "observed_source_tilt5deg_s": 14.850000359583646,
+        "first_observed_receiver_entry_s": 22.066667200997472,
+        "observed_tilt_target_held_s": 25.050000606570393,
+        "observed_upright_held_s": 37.850000916514546
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15650,
+      "wall_s": 332.5724862789939,
+      "max_clock_error_s": 1.2631838544052698e-06,
+      "max_lift_m": 0.16304147243499756,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013983527285144721,
+        "minimum_tool_table_gap_m": 0.009173170785511334
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009173170785511334,
+      "max_observed_source_tilt_deg": 113.99864440344395,
+      "observation_archive": "f_tier/N04/pose_00_observations.npz",
+      "max_grasp_position_drift_m": 0.002999879688824655,
+      "max_grasp_rotation_drift_rad": 2.951265455299178e-05,
+      "final_source_position_error_m": 0.005457843188196421,
+      "final_source_upright_angle_rad": 1.7406954583751123e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_01",
+        "seed": 170401,
+        "source_xy": [
+          0.55959,
+          0.08574
+        ],
+        "source_yaw_deg": 25.292,
+        "receiver_xy": [
+          0.58432,
+          -0.14243
+        ],
+        "receiver_yaw_deg": -17.012
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 50.58333455817774,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.700000186450779,
+        "first_tilt_command_s": 13.35,
+        "observed_source_tilt5deg_s": 13.83333366829902,
+        "first_observed_receiver_entry_s": 20.80000050365925,
+        "observed_tilt_target_held_s": 23.68333390681073,
+        "observed_upright_held_s": 36.73333422280848
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15175,
+      "wall_s": 307.5780844539986,
+      "max_clock_error_s": 1.224844403679981e-06,
+      "max_lift_m": 0.16269950568675995,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013734441594807823,
+        "minimum_tool_table_gap_m": 0.009223609376080081
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009223609376080081,
+      "max_observed_source_tilt_deg": 114.060100807543,
+      "observation_archive": "f_tier/N04/pose_01_observations.npz",
+      "max_grasp_position_drift_m": 0.0030448568946185132,
+      "max_grasp_rotation_drift_rad": 0.00017571872307783442,
+      "final_source_position_error_m": 0.0045001511462032795,
+      "final_source_upright_angle_rad": 2.6033996083458806e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_02",
+        "seed": 170402,
+        "source_xy": [
+          0.43455,
+          0.10972
+        ],
+        "source_yaw_deg": -26.082,
+        "receiver_xy": [
+          0.49469,
+          -0.14933
+        ],
+        "receiver_yaw_deg": -6.843
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 51.55000124825165,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.883333524223417,
+        "first_tilt_command_s": 14.166666666666666,
+        "observed_source_tilt5deg_s": 14.650000354740769,
+        "first_observed_receiver_entry_s": 21.650000524241477,
+        "observed_tilt_target_held_s": 24.50000059325248,
+        "observed_upright_held_s": 37.31666757026687
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15465,
+      "wall_s": 326.70501409498684,
+      "max_clock_error_s": 1.2482516495992968e-06,
+      "max_lift_m": 0.16483063995838165,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013912492347715553,
+        "minimum_tool_table_gap_m": 0.009147735099059463
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009147735099059463,
+      "max_observed_source_tilt_deg": 114.02795725856883,
+      "observation_archive": "f_tier/N04/pose_02_observations.npz",
+      "max_grasp_position_drift_m": 0.002986576383315039,
+      "max_grasp_rotation_drift_rad": 2.242597082072116e-05,
+      "final_source_position_error_m": 0.005346767138689756,
+      "final_source_upright_angle_rad": 4.0994175048620755e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_03",
+        "seed": 170403,
+        "source_xy": [
+          0.50039,
+          0.11247
+        ],
+        "source_yaw_deg": -9.277,
+        "receiver_xy": [
+          0.54959,
+          -0.19057
+        ],
+        "receiver_yaw_deg": 1.847
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 51.48333457997069,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.750000187661499,
+        "first_tilt_command_s": 13.933333333333334,
+        "observed_source_tilt5deg_s": 14.416667015757412,
+        "first_observed_receiver_entry_s": 21.43333385232836,
+        "observed_tilt_target_held_s": 24.266667254269123,
+        "observed_upright_held_s": 37.066667564213276
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15445,
+      "wall_s": 357.39822004899906,
+      "max_clock_error_s": 1.2466373533470687e-06,
+      "max_lift_m": 0.1635206937789917,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013877961357752813,
+        "minimum_tool_table_gap_m": 0.009171538396551802
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009171538396551802,
+      "max_observed_source_tilt_deg": 114.00537112756409,
+      "observation_archive": "f_tier/N04/pose_03_observations.npz",
+      "max_grasp_position_drift_m": 0.0030062171409727793,
+      "max_grasp_rotation_drift_rad": 1.6587528319347772e-05,
+      "final_source_position_error_m": 0.005190302152186632,
+      "final_source_upright_angle_rad": 1.3323838097094576e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_04",
+        "seed": 170404,
+        "source_xy": [
+          0.53181,
+          0.15621
+        ],
+        "source_yaw_deg": 29.942,
+        "receiver_xy": [
+          0.57222,
+          -0.16158
+        ],
+        "receiver_yaw_deg": -6.815
+      },
+      "negative": false,
+      "success": false,
+      "full_native_robot_workflow": false,
+      "failure": "lost_grasp_observed_translation",
+      "native_s": 33.400000808760524,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.700000186450779,
+        "first_tilt_command_s": 13.766666666666666,
+        "observed_source_tilt5deg_s": 14.250000345055014,
+        "first_observed_receiver_entry_s": 21.48333385353908,
+        "observed_tilt_target_held_s": 23.83333391044289
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 10020,
+      "wall_s": 309.0519012720033,
+      "max_clock_error_s": 8.08760525217167e-07,
+      "max_lift_m": 0.12376347184181213,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.01388214022445429,
+        "minimum_tool_table_gap_m": 0.009112214080352083
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009112214080352083,
+      "max_observed_source_tilt_deg": 115.07174567274723,
+      "observation_archive": "f_tier/N04/pose_04_observations.npz",
+      "max_grasp_position_drift_m": 0.015106527328990824,
+      "max_grasp_rotation_drift_rad": 8.462541188596884e-05,
+      "final_source_position_error_m": 0.3230031728744507,
+      "final_source_upright_angle_rad": 0.7992598865596889,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_05",
+        "seed": 170405,
+        "source_xy": [
+          0.5423,
+          0.12368
+        ],
+        "source_yaw_deg": -15.754,
+        "receiver_xy": [
+          0.54126,
+          -0.22822
+        ],
+        "receiver_yaw_deg": 8.45
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 51.83333458844572,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.766666854731739,
+        "first_tilt_command_s": 14.066666666666666,
+        "observed_source_tilt5deg_s": 14.55000035231933,
+        "first_observed_receiver_entry_s": 21.5333338547498,
+        "observed_tilt_target_held_s": 24.48333392618224,
+        "observed_upright_held_s": 37.28333423612639
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15550,
+      "wall_s": 384.9293296139949,
+      "max_clock_error_s": 1.255112387354984e-06,
+      "max_lift_m": 0.1631792038679123,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013845252465928116,
+        "minimum_tool_table_gap_m": 0.009169971636475524
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009169971636475524,
+      "max_observed_source_tilt_deg": 113.99964234255592,
+      "observation_archive": "f_tier/N04/pose_05_observations.npz",
+      "max_grasp_position_drift_m": 0.003004245802557851,
+      "max_grasp_rotation_drift_rad": 2.974330890216765e-05,
+      "final_source_position_error_m": 0.005520709324628115,
+      "final_source_upright_angle_rad": 6.454112478407648e-07,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_06",
+        "seed": 170406,
+        "source_xy": [
+          0.44903,
+          0.16682
+        ],
+        "source_yaw_deg": 21.867,
+        "receiver_xy": [
+          0.47996,
+          -0.16108
+        ],
+        "receiver_yaw_deg": 17.555
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 51.35000124340877,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.716666853521019,
+        "first_tilt_command_s": 13.799999999999999,
+        "observed_source_tilt5deg_s": 14.266667012125254,
+        "first_observed_receiver_entry_s": 21.083333843853325,
+        "observed_tilt_target_held_s": 23.86666724458337,
+        "observed_upright_held_s": 37.033334230072796
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15405,
+      "wall_s": 312.83227827600786,
+      "max_clock_error_s": 1.24340876794804e-06,
+      "max_lift_m": 0.1646723747253418,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013923117299533253,
+        "minimum_tool_table_gap_m": 0.00914816609480747
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.00914816609480747,
+      "max_observed_source_tilt_deg": 114.14699979962063,
+      "observation_archive": "f_tier/N04/pose_06_observations.npz",
+      "max_grasp_position_drift_m": 0.003011642777137706,
+      "max_grasp_rotation_drift_rad": 1.7714061261750928e-05,
+      "final_source_position_error_m": 0.004675622098147869,
+      "final_source_upright_angle_rad": 2.7554660623588388e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_07",
+        "seed": 170407,
+        "source_xy": [
+          0.46291,
+          0.06699
+        ],
+        "source_yaw_deg": -11.674,
+        "receiver_xy": [
+          0.52517,
+          -0.1962
+        ],
+        "receiver_yaw_deg": 36.382
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 51.25000124098733,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.766666854731739,
+        "first_tilt_command_s": 13.9,
+        "observed_source_tilt5deg_s": 14.383333681616932,
+        "first_observed_receiver_entry_s": 21.38333385111764,
+        "observed_tilt_target_held_s": 24.233333920128644,
+        "observed_upright_held_s": 37.033334230072796
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15375,
+      "wall_s": 363.5139614249929,
+      "max_clock_error_s": 1.2409873306751251e-06,
+      "max_lift_m": 0.164089173078537,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013823518565476924,
+        "minimum_tool_table_gap_m": 0.009148773369698722
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009148773369698722,
+      "max_observed_source_tilt_deg": 114.01639390338474,
+      "observation_archive": "f_tier/N04/pose_07_observations.npz",
+      "max_grasp_position_drift_m": 0.0030017764420224207,
+      "max_grasp_rotation_drift_rad": 8.556118949716766e-05,
+      "final_source_position_error_m": 0.0050775036215782166,
+      "final_source_upright_angle_rad": 5.150113799477005e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_08",
+        "seed": 170408,
+        "source_xy": [
+          0.45211,
+          0.12183
+        ],
+        "source_yaw_deg": 20.6,
+        "receiver_xy": [
+          0.53032,
+          -0.24074
+        ],
+        "receiver_yaw_deg": 16.997
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 52.200001263991,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.750000187661499,
+        "first_tilt_command_s": 14.066666666666666,
+        "observed_source_tilt5deg_s": 14.53333368524909,
+        "first_observed_receiver_entry_s": 21.50000052060932,
+        "observed_tilt_target_held_s": 24.3833339237608,
+        "observed_upright_held_s": 37.53333424217999
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 15660,
+      "wall_s": 317.30176404600206,
+      "max_clock_error_s": 1.2639910025313839e-06,
+      "max_lift_m": 0.16385310888290405,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013849657735552839,
+        "minimum_tool_table_gap_m": 0.009110396822503475
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.009110396822503475,
+      "max_observed_source_tilt_deg": 114.08942638631365,
+      "observation_archive": "f_tier/N04/pose_08_observations.npz",
+      "max_grasp_position_drift_m": 0.0030382678288058585,
+      "max_grasp_rotation_drift_rad": 2.6048164023033052e-05,
+      "final_source_position_error_m": 0.00455118902027607,
+      "final_source_upright_angle_rad": 7.768637178979756e-07,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "pose_09",
+        "seed": 170409,
+        "source_xy": [
+          0.47695,
+          0.07224
+        ],
+        "source_yaw_deg": -5.562,
+        "receiver_xy": [
+          0.49702,
+          -0.15691
+        ],
+        "receiver_yaw_deg": 0.718
+      },
+      "negative": false,
+      "success": false,
+      "full_native_robot_workflow": false,
+      "failure": "hsm_failure_pick",
+      "native_s": 10.800000261515379,
+      "events_simulation_s": {},
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 3240,
+      "wall_s": 56.759997070999816,
+      "max_clock_error_s": 2.6151537824148363e-07,
+      "max_lift_m": 0.0,
+      "pick_verification": null,
+      "min_observed_tool_mesh_table_gap_m": 0.011632989263824087,
+      "max_observed_source_tilt_deg": 0.10876478775722558,
+      "observation_archive": "f_tier/N04/pose_09_observations.npz",
+      "max_grasp_position_drift_m": 0.0,
+      "max_grasp_rotation_drift_rad": 0.0,
+      "final_source_position_error_m": 0.0029999795369803905,
+      "final_source_upright_angle_rad": 2.128259358223857e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 1.0,
+        "receiver": 0.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    },
+    {
+      "case": {
+        "id": "no_tilt_negative",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072,
+        "negative": true
+      },
+      "negative": true,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 32.96666746493429,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.833333523012698,
+        "observed_upright_held_s": 18.616667117457837
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 9890,
+      "wall_s": 193.9931096169894,
+      "max_clock_error_s": 7.982676208939665e-07,
+      "max_lift_m": 0.16226594150066376,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013975931553575177,
+        "minimum_tool_table_gap_m": 0.0091718752748635
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.0091718752748635,
+      "max_observed_source_tilt_deg": 1.3180573364260313,
+      "observation_archive": "f_tier/N04/no_tilt_negative_observations.npz",
+      "max_grasp_position_drift_m": 0.0004240244495884838,
+      "max_grasp_rotation_drift_rad": 2.887219060347951e-05,
+      "final_source_position_error_m": 0.005589265841990709,
+      "final_source_upright_angle_rad": 2.479465461861183e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 1.0,
+        "receiver": 0.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true
+    }
+  ],
+  "video": "f_tier/N04/video.mp4",
+  "run_scope": "fixed10_and_negative",
+  "full_reference_complete": false,
+  "differences": [
+    "Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.",
+    "Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.",
+    "Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.",
+    "Parameter mass bookkeeping, not a calibrated physical volume/density measurement.",
+    "Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.",
+    "Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim."
+  ],
+  "updated_utc": "2026-10-19T12:40:22.721532+00:00",
+  "executed_fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+  "observed_fluid_defaults": {
+    "particle_contact_offset": 0.004,
+    "particle_mass": 1e-06,
+    "density": 1000,
+    "cohesion": 0.01,
+    "viscosity": 0.0091,
+    "surface_tension": 0.074,
+    "friction": 0.01,
+    "cfl_coefficient": 1.0
+  },
+  "cavity": {
+    "center_xy_m": [
+      -0.0014681306442667554,
+      -4.187198044292451e-10
+    ],
+    "radius_m": 0.02099509527788676,
+    "bottom_z_m": -0.035657,
+    "top_z_m": 0.013797,
+    "radius_profile_z_r_m": [
+      [
+        -0.035657,
+        0.015235136316641524
+      ],
+      [
+        -0.034843,
+        0.018038963414332615
+      ],
+      [
+        -0.032658,
+        0.019949019132282548
+      ],
+      [
+        -0.030384,
+        0.020995096071841367
+      ],
+      [
+        0.013797,
+        0.02099509527788676
+      ]
+    ],
+    "scale": 1.0,
+    "ring_fit_max_residual_m": 9.259842542047592e-09,
+    "conservative_cavity_capacity_ml": 67.36443616506743,
+    "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+    "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+  },
+  "observed_render_defaults": {
+    "transparent": true,
+    "color_rgb": [
+      0.85,
+      0.92,
+      0.96
+    ],
+    "native_attributes": {
+      "fluidRestOffset": 0.0023759999312460423,
+      "particleContactOffset": 0.004000000189989805,
+      "physxParticleAnisotropy:max": 3.75,
+      "physxParticleAnisotropy:min": 0.75,
+      "physxParticleAnisotropy:particleAnisotropyEnabled": true,
+      "physxParticleAnisotropy:scale": 2.5,
+      "physxParticleIsosurface:gridFilteringPasses": "GS",
+      "physxParticleIsosurface:gridSmoothingRadius": 0.0023759999312460423,
+      "physxParticleIsosurface:gridSpacing": 0.0021383999846875668,
+      "physxParticleIsosurface:isosurfaceEnabled": true,
+      "physxParticleIsosurface:maxSubgrids": 4096,
+      "physxParticleIsosurface:maxTriangles": 2097152,
+      "physxParticleIsosurface:maxVertices": 1048576,
+      "physxParticleIsosurface:numMeshNormalSmoothingPasses": 8,
+      "physxParticleIsosurface:numMeshSmoothingPasses": 8,
+      "physxParticleIsosurface:surfaceDistance": 0.0022571999579668045,
+      "physxParticleSmoothing:particleSmoothingEnabled": true,
+      "physxParticleSmoothing:strength": 0.5,
+      "solverPositionIterationCount": 32
+    }
+  },
+  "recorded_joint_names": [
+    "panda_joint1",
+    "panda_joint2",
+    "panda_joint3",
+    "panda_joint4",
+    "panda_joint5",
+    "panda_joint6",
+    "panda_joint7",
+    "panda_finger_joint1",
+    "panda_finger_joint2"
+  ],
+  "recorded_tool_bodies": [
+    "panda_hand",
+    "panda_leftfinger",
+    "panda_rightfinger"
+  ],
+  "native_geometry": {
+    "beaker": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460350076,
+        -0.02493543177843094,
+        -0.03684258460998536
+      ],
+      "body_frame_mesh_max_m": [
+        0.02864864468574529,
+        0.024935431778430942,
+        0.022848461568355564
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    },
+    "beaker_2": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460350024,
+        -0.024935431778430935,
+        -0.03684258460998536
+      ],
+      "body_frame_mesh_max_m": [
+        0.028648644685745264,
+        0.024935431778430946,
+        0.02284846156835556
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 6.245004513516506e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    }
+  },
+  "PBD_rigid_filter_audit": {
+    "non_particle_collision_enabled": true,
+    "filter_relationships_targeting_particles": [],
+    "scope": "Collision eligibility only; no direct PBD particle-rigid contact-pair API is claimed. Read-only tool clearance uses the convexHull approximation authored on the original colliders; no claim of exact native cooked shape/contact-offset equality.",
+    "cup_contact_sensor_filters": [
+      "/World/envs/env_.*/Articulations_robot/panda_leftfinger",
+      "/World/envs/env_.*/Articulations_robot/panda_rightfinger"
+    ]
+  },
+  "criteria": [
+    {
+      "metric": "All10 fixed native trials executed and honestly reported with Wilson95%",
+      "local_threshold": 10,
+      "value": 10,
+      "pass": true
+    },
+    {
+      "metric": "At least one complete physical robot pouring success under all stated per-trial gates",
+      "local_threshold": 1,
+      "value": 8,
+      "pass": true
+    },
+    {
+      "metric": "Successful cases mass accounting error<=1% and gross side/bottom leak beyond4mm=0",
+      "local_threshold": {
+        "mass_error": 0.01,
+        "gross_leak": 0
+      },
+      "value": [
+        {
+          "case": "pose_00",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_01",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_02",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_03",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_05",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_06",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_07",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        },
+        {
+          "case": "pose_08",
+          "mass_error": 0.0,
+          "gross_leak": 0
+        }
+      ],
+      "pass": true
+    },
+    {
+      "metric": "No-tilt negative completes native robot workflow with receiver<=1%",
+      "local_threshold": 0.01,
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "metric": "Native-frame video, original defaults and smoothed-observer differences disclosed",
+      "local_threshold": true,
+      "value": {
+        "video_frames": 7340,
+        "default_PBD": {
+          "particle_contact_offset": 0.004,
+          "particle_mass": 1e-06,
+          "density": 1000,
+          "cohesion": 0.01,
+          "viscosity": 0.0091,
+          "surface_tension": 0.074,
+          "friction": 0.01,
+          "cfl_coefficient": 1.0
+        }
+      },
+      "pass": true
+    }
+  ],
+  "successes": 8,
+  "trials": 10,
+  "success_rate": 0.8,
+  "wilson95": [
+    0.49016247153664183,
+    0.9433178485456247
+  ],
+  "video_frames": 7340,
+  "interpretation": "Functional F completion requires at least one complete successful episode and all10 attempts reported. The measured success rate and Wilson interval govern robustness; F_PASS alone makes no strong arbitrary-pose generalization or original-paper success-rate claim.",
+  "producer_verdict_before_root_review": "F_PASS",
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently reimplemented quaternion transforms, six-way particle partition, temporal gross-wall masks, native clocks, physical grasp drift, end-to-end criteria and Wilson interval; no producer partition import",
+    "script": "f_tier/review_pbd.py",
+    "cases": [
+      {
+        "case": "pose_00",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3130,
+        "physics_steps": 15650,
+        "native_s": 52.16666792985052,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.005457843003946975,
+        "max_lift_m": 0.16304147616028786,
+        "max_grasp_position_drift_m": 0.0029998796888246687,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_01",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3035,
+        "physics_steps": 15175,
+        "native_s": 50.58333455817774,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.004500150975057328,
+        "max_lift_m": 0.16269950941205025,
+        "max_grasp_position_drift_m": 0.0030448568946185132,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_02",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3093,
+        "physics_steps": 15465,
+        "native_s": 51.55000124825165,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.005346766949308857,
+        "max_lift_m": 0.16483064368367195,
+        "max_grasp_position_drift_m": 0.0029865763833150805,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_03",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3089,
+        "physics_steps": 15445,
+        "native_s": 51.48333457997069,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.005190302130257173,
+        "max_lift_m": 0.163520697504282,
+        "max_grasp_position_drift_m": 0.0030062171409727793,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_04",
+        "negative": false,
+        "success": false,
+        "failure": "lost_grasp_observed_translation",
+        "observations": 2004,
+        "physics_steps": 10020,
+        "native_s": 33.400000808760524,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.3230031662683888,
+        "max_lift_m": 0.12376347556710243,
+        "max_grasp_position_drift_m": 0.015106527328990853,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_05",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3110,
+        "physics_steps": 15550,
+        "native_s": 51.83333458844572,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.005520709237410995,
+        "max_lift_m": 0.1631792075932026,
+        "max_grasp_position_drift_m": 0.0030042458025578925,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_06",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3081,
+        "physics_steps": 15405,
+        "native_s": 51.35000124340877,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.004675622010041484,
+        "max_lift_m": 0.1646723784506321,
+        "max_grasp_position_drift_m": 0.0030116427771376504,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_07",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3075,
+        "physics_steps": 15375,
+        "native_s": 51.25000124098733,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.005077503431174553,
+        "max_lift_m": 0.16408917680382729,
+        "max_grasp_position_drift_m": 0.0030017764420224476,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_08",
+        "negative": false,
+        "success": true,
+        "failure": null,
+        "observations": 3132,
+        "physics_steps": 15660,
+        "native_s": 52.200001263991,
+        "counts": {
+          "source": 0,
+          "receiver": 125,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.004551189242708995,
+        "max_lift_m": 0.16385311260819435,
+        "max_grasp_position_drift_m": 0.0030382678288058576,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "pose_09",
+        "negative": false,
+        "success": false,
+        "failure": "hsm_failure_pick",
+        "observations": 648,
+        "physics_steps": 3240,
+        "native_s": 10.800000261515379,
+        "counts": {
+          "source": 125,
+          "receiver": 0,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.002999979497697273,
+        "max_lift_m": 0.0,
+        "max_grasp_position_drift_m": 0.0,
+        "gross_wall_leak_count": 0
+      },
+      {
+        "case": "no_tilt_negative",
+        "negative": true,
+        "success": true,
+        "failure": null,
+        "observations": 1978,
+        "physics_steps": 9890,
+        "native_s": 32.96666746493429,
+        "counts": {
+          "source": 125,
+          "receiver": 0,
+          "boundary_ambiguous": 0,
+          "transit": 0,
+          "spill_near_table": 0,
+          "outside_unresolved": 0
+        },
+        "final_position_error_m": 0.005589265664090516,
+        "max_lift_m": 0.16226594522595406,
+        "max_grasp_position_drift_m": 0.0004240244495884617,
+        "gross_wall_leak_count": 0
+      }
+    ],
+    "positive_successes": 8,
+    "positive_attempts": 10,
+    "wilson95": [
+      0.49016247153664183,
+      0.9433178485456247
+    ],
+    "video_probe": {
+      "codec_name": "h264",
+      "width": 960,
+      "height": 640,
+      "r_frame_rate": "15/1",
+      "nb_frames": "7340"
+    },
+    "video_review": "Four native frames include successful pour, untilt failure, pick failure and no-tilt return; map covers all11 full trajectories.",
+    "limitations": [
+      "Counts use upstream smoothed positions, gross4mm gate only.",
+      "8/10 is fixed-pose functional pilot including development pose00, not blind generalization.",
+      "125x1mg parameter mass ledger is not an independent scale or calibrated density."
+    ]
+  },
+  "accepted_at_utc": "2026-10-19T12:49:32.763839+00:00"
+}

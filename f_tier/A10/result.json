@@ -1,0 +1,293 @@
+{
+  "id": "A10",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "protocol": {
+    "id": "A10",
+    "status": "RUNNING",
+    "training_seeds": [
+      1011,
+      1012
+    ],
+    "development_check_seed": 1013,
+    "native_comparison_seed": 9411,
+    "model": "10-feature logistic RGB-D pixel classifier, native segmentation labels; observed sidewall circle fit",
+    "local_thresholds": {
+      "moving_receiver_max_error_m": 0.01,
+      "stale_negative_error_m_min": 0.01,
+      "nominal_inference_cadence_Hz": 100,
+      "positive_receiver_fraction_min": 0.5,
+      "positive_spill_fraction_max": 0.1,
+      "moving_receiver_max_error_scope": "All2300 consumed pre-action observations, including phases with zero tracking weight"
+    },
+    "task": "Same live UR5e coarse240particle pour, receiver forced sinusoidal motion amplitude35mm; robot tracks image-derived receiver center; stale-first-image control",
+    "differences": [
+      "Native rendered RGB-D replaces unavailable original monocular detector/tracker; calibrated fixed local camera.",
+      "Segmentation labels are simulator-generated training supervision; deployment uses RGB-D and camera geometry only.",
+      "Known cylindrical shape and local workspace ROI; no general object-category or camera-domain generalization.",
+      "Existing A04 expert states reused for training images; new fixed-seed comparison uses live dynamics, not playback.",
+      "Finite local experiment; no original model/data/hardware identity, no end-to-end learned policy."
+    ],
+    "initial_10Hz_protocol": {
+      "id": "A10",
+      "status": "RUNNING",
+      "training_seeds": [
+        1011,
+        1012
+      ],
+      "development_check_seed": 1013,
+      "native_comparison_seed": 9411,
+      "model": "10-feature logistic RGB-D pixel classifier, native segmentation labels; observed sidewall circle fit",
+      "local_thresholds": {
+        "moving_receiver_max_error_m": 0.01,
+        "stale_negative_error_m_min": 0.01,
+        "nominal_inference_cadence_Hz": 10,
+        "positive_receiver_fraction_min": 0.5,
+        "positive_spill_fraction_max": 0.1,
+        "moving_receiver_max_error_scope": "All2300 consumed pre-action observations, including phases with zero tracking weight"
+      },
+      "task": "Same live UR5e coarse240particle pour, receiver forced sinusoidal motion amplitude35mm; robot tracks image-derived receiver center; stale-first-image control",
+      "differences": [
+        "Native rendered RGB-D replaces unavailable original monocular detector/tracker; calibrated fixed local camera.",
+        "Segmentation labels are simulator-generated training supervision; deployment uses RGB-D and camera geometry only.",
+        "Known cylindrical shape and local workspace ROI; no general object-category or camera-domain generalization.",
+        "Existing A04 expert states reused for training images; new heldout comparison uses live dynamics, not playback.",
+        "Finite local experiment; no original model/data/hardware identity, no end-to-end learned policy."
+      ]
+    },
+    "sampling_fix": {
+      "reason": "Independent audit found max44.722mm causally held estimate error in15/2300 commands, despite3.744mm fresh-image error; original10Hz global10mm gate FAIL retained.",
+      "new_configuration": "Acquire RGB-D and run frozen tracker before every control command (nominal100nativeHz), no threshold/model/weight/physics/seed changes.",
+      "negative_reuse": "Original stale-first-image controller always consumes the same first image regardless of unused fresh-measurement frequency. Retain actual10Hz negative and disclose unequal observation count/wall cost; no compute-matched claim.",
+      "frozen_at_utc": "2026-10-19T12:30:13.040161+00:00"
+    },
+    "evaluation_scope": "Seed9411 is absent from classifier fitting, but its first10Hz failure informed the100Hz harness repair. This is a frozen-weight functional regression case, not blind whole-system generalization."
+  },
+  "training": "f_tier/A10/training-metrics.json",
+  "frozen_weights": "f_tier/A10/tracker.npz",
+  "attempts": [
+    {
+      "directory": "f_tier/A10/live_tracker",
+      "native_completed": true,
+      "metrics": {
+        "native_seconds": 23.001736220291445,
+        "native_steps": 13286,
+        "receiver_xy_path_m": 0.35208821656089073,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.370956048924099,
+        "min_dt_s": 0.00040831356944090523,
+        "wall_run_s": 594.5851677720057
+      },
+      "tracking": {
+        "sensor_frames": 228,
+        "control_commands": 2300,
+        "fresh_frame_max_error_m": 0.0037443722874382244,
+        "all_consumed_observations_mean_error_m": 0.003685204245036511,
+        "all_consumed_observations_p95_error_m": 0.0042522531614375665,
+        "all_consumed_observations_max_error_m": 0.04472214492602323,
+        "commands_over10mm": 15,
+        "max_consumed_image_age_native_s": 0.09999389306777573,
+        "nominal_sensor_Hz": 10,
+        "measured_sensor_Hz": 9.907586130419931,
+        "wall_pipeline_latency_mean_s": 0.28398114837750255,
+        "wall_pipeline_latency_p95_s": 0.33902879204761116,
+        "wall_pipeline_latency_max_s": 0.612575499995728,
+        "whole_run_sensor_throughput_per_wall_s": 0.3834606249166088
+      },
+      "global_observation_gate_passed": false,
+      "physical_spill_gate_passed": true,
+      "outcome": "FAILED all-command10mm gate, despite complete physical transfer; retained without reclassification"
+    },
+    {
+      "directory": "f_tier/A10/stale_first_image",
+      "native_completed": true,
+      "metrics": {
+        "native_seconds": 23.000035509864592,
+        "native_steps": 30610,
+        "receiver_xy_path_m": 0.3500102665536088,
+        "final_receiver_fraction": 0.8041666666666667,
+        "final_spill_fraction": 0.19583333333333333,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.384802151212638,
+        "min_dt_s": 0.00022575347406850288,
+        "wall_run_s": 800.3422433369997
+      },
+      "tracking": {
+        "sensor_frames": 223,
+        "control_commands": 2300,
+        "fresh_frame_max_error_m": 0.0037566859487377143,
+        "all_consumed_observations_mean_error_m": 0.029086835855766303,
+        "all_consumed_observations_p95_error_m": 0.036853762791412295,
+        "all_consumed_observations_max_error_m": 0.03899734563053139,
+        "commands_over10mm": 2076,
+        "max_consumed_image_age_native_s": 22.990215415574035,
+        "nominal_sensor_Hz": 10,
+        "measured_sensor_Hz": 9.66453801049106,
+        "wall_pipeline_latency_mean_s": 0.2761452198341137,
+        "wall_pipeline_latency_p95_s": 0.32448851959343294,
+        "wall_pipeline_latency_max_s": 0.4406832749955356,
+        "whole_run_sensor_throughput_per_wall_s": 0.2786308005812727
+      },
+      "global_observation_gate_passed": false,
+      "physical_spill_gate_passed": false,
+      "outcome": "Negative: constant first image, tracking and spill gates fail"
+    },
+    {
+      "directory": "f_tier/A10/live_tracker_control_refresh",
+      "native_completed": true,
+      "metrics": {
+        "native_seconds": 23.00147852268946,
+        "native_steps": 13234,
+        "receiver_xy_path_m": 0.351751605228135,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37105998476757623,
+        "min_dt_s": 0.0004087853037939685,
+        "wall_run_s": 1172.3026349819993
+      },
+      "tracking": {
+        "sensor_frames": 2300,
+        "control_commands": 2300,
+        "fresh_frame_max_error_m": 0.003963429236603373,
+        "all_consumed_observations_mean_error_m": 0.003664553745608459,
+        "all_consumed_observations_p95_error_m": 0.0037168843657190654,
+        "all_consumed_observations_max_error_m": 0.003963429236603373,
+        "commands_over10mm": 0,
+        "max_consumed_image_age_native_s": 0.0,
+        "nominal_sensor_Hz": 100,
+        "measured_sensor_Hz": 99.99356925789698,
+        "wall_pipeline_latency_mean_s": 0.28134570627292976,
+        "wall_pipeline_latency_p95_s": 0.34128043919845363,
+        "wall_pipeline_latency_max_s": 0.9965788790141232,
+        "whole_run_sensor_throughput_per_wall_s": 1.9619507210570388
+      },
+      "global_observation_gate_passed": true,
+      "physical_spill_gate_passed": true,
+      "outcome": "CANDIDATE: per-command fresh images, same frozen weights, native task, seed and10mm gate"
+    }
+  ],
+  "differences": [
+    "Native RGB-D and known camera/workspace/cylindrical prior instead of original unpublished tracker and GRID.",
+    "Initial fixture reference(.54,.22) comes from native setup; dynamic object pose is evaluator-only after forming observation and drives environment force.",
+    "Online perception renders only rigid scene; externalWarp liquid is not in RGB-D. Videos will separately draw liquid particles. No liquid optics/refraction robustness claim.",
+    "Sensor refresh is measured in native simulation time. Initial pipeline latency mean283.98ms and episode wall image rate.3835Hz; not real-time hardware tracking.",
+    "New per-control run changes observation count/cost; retained stale control consumes a constant first image independent of unused later image cadence. No compute-matched comparison claim.",
+    "Seed9411 was used to diagnose sampling-age failure and choose100Hz refresh; whole-system blind heldout generalization is not claimed.",
+    "Negative uses original10Hz observation acquisition but always consumes firstimage. Reuse is not compute-matched; repaired positive and negative have unequal observation/wall costs.",
+    "Online RGB-D lacks externalWarp liquid rendering. Finalvideo separately shows particle spheres; no refraction/liquid-optics robustness.",
+    "100Hz is native simulated-time cadence; positive pipeline mean~281ms and wall throughput~1.96images/s. No hardware real-time claim."
+  ],
+  "video": "f_tier/A10/video.mp4",
+  "video_frames": 693,
+  "video_kind": "All3 full native trajectories,10fps; actual qpos and240particle positions; zero new dynamics or interpolation.",
+  "run_scope": "One seeded physical comparison plus one sampling-repair regression; no statistical success-rate or learned-policy claim.",
+  "full_reference_complete": false,
+  "criteria": [
+    {
+      "metric": "Frozen trained RGB-D tracker; no runtime labels/refit/current dynamic object truth in robot tracking",
+      "local_threshold": true,
+      "pass": true
+    },
+    {
+      "metric": "All2300 causally consumed observations in repaired complete23s episode within10mm",
+      "local_threshold_m": 0.01,
+      "value_m": 0.003963429236603373,
+      "pass": true
+    },
+    {
+      "metric": "Positive receiver>=50%,spill<=10%,reported container/bench/floor penetration0",
+      "local_threshold": {
+        "receiver": 0.5,
+        "spill": 0.1,
+        "penetration": 0
+      },
+      "value": {
+        "native_seconds": 23.00147852268946,
+        "native_steps": 13234,
+        "receiver_xy_path_m": 0.351751605228135,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37105998476757623,
+        "min_dt_s": 0.0004087853037939685,
+        "wall_run_s": 1172.3026349819993
+      },
+      "pass": true
+    },
+    {
+      "metric": "Stale-image control records tracking>10mm and spill>10%; initial10Hz failure retained",
+      "local_threshold": {
+        "error_m_min": 0.01,
+        "spill_fraction_min": 0.1
+      },
+      "value": 0.19583333333333333,
+      "pass": true
+    },
+    {
+      "metric": "All3 full native videos; native cadence and wall costs separately reported",
+      "local_threshold": true,
+      "value": {
+        "frames": 693,
+        "wall_positive_s": 1172.3026349819993
+      },
+      "pass": true
+    }
+  ],
+  "video_probe": {
+    "codec_name": "h264",
+    "width": 800,
+    "height": 570,
+    "r_frame_rate": "10/1",
+    "nb_frames": "693"
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "/root/f_w1_manipulation independent read-only audit; root aggregate recomputation agrees",
+    "scope": "One F-tier frozen-weight regression and stale-image negative; not original model identity or statistical generalization",
+    "checks": {
+      "training": "Only seeds1011/1012 classifier fitting; dev1013 after weight save;10 coefficients unchanged throughout all3native runs",
+      "causality": "All2300 new sensor timestamps equal actual command timestamps; estimates formed before evaluator truth append; no future samples, sample hold or dynamic ground-truth fallback",
+      "consumed_error": {
+        "sensor_frames": 2300,
+        "control_commands": 2300,
+        "fresh_frame_max_error_m": 0.003963429236603373,
+        "all_consumed_observations_mean_error_m": 0.003664553745608459,
+        "all_consumed_observations_p95_error_m": 0.0037168843657190654,
+        "all_consumed_observations_max_error_m": 0.003963429236603373,
+        "commands_over10mm": 0,
+        "max_consumed_image_age_native_s": 0.0,
+        "nominal_sensor_Hz": 100,
+        "measured_sensor_Hz": 99.99356925789698,
+        "wall_pipeline_latency_mean_s": 0.28134570627292976,
+        "wall_pipeline_latency_p95_s": 0.34128043919845363,
+        "wall_pipeline_latency_max_s": 0.9965788790141232,
+        "whole_run_sensor_throughput_per_wall_s": 1.9619507210570388
+      },
+      "physical_final": "Independent actual MuJoCo qpos and particle positions:source0/receiver240/spill0/overlap0; all2300 count partitions sum240",
+      "native_clock": "13234steps,23.00147852268946s; maximum control lateness1.978835ms",
+      "failure_retention": "10Hz initial max44.7221449mm at15commands retained as failure; stale-first-image193/240receiver,47spill retained",
+      "video": "H264800x570,10fps693frames69.3s;3x231indices0..230 exactly match corresponding nativeNPZ times, six real frames visually inspected; no interpolation/new physics"
+    },
+    "evidence_paths": [
+      "f_tier/A10/training-metrics.json",
+      "f_tier/A10/tracker.npz",
+      "f_tier/A10/run_sources/ten_hz",
+      "f_tier/A10/live_tracker_control_refresh/perception.jsonl",
+      "f_tier/A10/live_tracker_control_refresh/command_timestamps.csv",
+      "f_tier/A10/live_tracker_control_refresh/native_states.npz",
+      "f_tier/A10/video-frame-map.json",
+      "f_tier/A10/visual_review.png"
+    ],
+    "limitations": [
+      "Known initial fixture/shape and calibrated renderedRGBD; no general monocular tracker or liquid-optics robustness.",
+      "Seed9411 informed harness repair, hence not blind whole-system heldout.",
+      "Native99.9936Hz does not imply wall/hardware100Hz;wall1.96195images/s,mean281.346ms pipeline.",
+      "Stale negative acquisition10Hz while repaired positive100Hz; unequal compute cost."
+    ]
+  },
+  "accepted_at_utc": "2026-10-19T13:00:10.874421+00:00"
+}

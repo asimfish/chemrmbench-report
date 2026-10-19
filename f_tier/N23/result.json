@@ -1,0 +1,738 @@
+{
+  "id": "N23",
+  "status": "F_PASS",
+  "metrics": {
+    "handoff": {
+      "receiver_only_hold_s": 1.5,
+      "giver_max_contact_N": 0.0,
+      "receiver_both_contact_fraction": 1.0
+    },
+    "recovery": {
+      "injected_close_failures": 1,
+      "sender_retained_at_failure": true,
+      "recovery_contact_verified": true,
+      "environment_resets_after_initialization": 0,
+      "existing_hsm_reinitializations": 0,
+      "mobile_hsm_initialization": "First initialization occurs only after physical intermediate guard"
+    },
+    "workflow": {
+      "mobile_started": true,
+      "intermediate_guard_event_count": 1
+    },
+    "transport": {
+      "base_y_displacement_m": 0.9999861478805542,
+      "maximum_grasp_drift_m": 0.009217167443570805
+    },
+    "terminal": {
+      "maximum_placement_error_m": 0.005587142865353078,
+      "gripper_contact_fraction": 0.0,
+      "destination_support_contact_fraction": 1.0
+    }
+  },
+  "gates": {
+    "physical_handoff": true,
+    "fault_recovery": true,
+    "guarded_workflow_handoff": true,
+    "mobile_transport": true,
+    "final_release": true
+  },
+  "events": [
+    {
+      "t_s": 9.208333333333334,
+      "event": "FAILED_RECEIVER_GRASP_SENDER_RETAINED",
+      "giver_left_N": 19.910026827944407,
+      "giver_right_N": 19.852925146423757,
+      "receiver_left_N": 0.0,
+      "receiver_right_N": 0.0,
+      "cup_pose_xyzw": [
+        0.24325083196163177,
+        -0.20585831999778748,
+        0.8873773217201233,
+        -0.002121167490258813,
+        0.04943711683154106,
+        -0.004728201311081648,
+        0.9987637996673584
+      ]
+    },
+    {
+      "t_s": 11.208333333333334,
+      "event": "RECOVER_CLOSE_RECEIVER",
+      "environment_reset": false,
+      "hsm_reset": false
+    },
+    {
+      "t_s": 11.316666666666666,
+      "event": "RECEIVER_CONTACT_VERIFIED_ALLOW_SENDER_RELEASE",
+      "left_N": 20.452160836739285,
+      "right_N": 20.29178473723484,
+      "contact_streak_steps": 10
+    },
+    {
+      "t_s": 16.183333333333334,
+      "event": "OBSERVED_RECEIVER_GRASP_FRAME_ADAPTED",
+      "delta_EE_goal_m": [
+        0.0035152672368692905,
+        -0.006069492243087456,
+        0.0029929672999314816
+      ]
+    },
+    {
+      "t_s": 29.258333333333333,
+      "event": "INITIALIZE_UNSTARTED_MOBILE_HSM",
+      "environment_reset": false,
+      "active_hsm_reinitialization": false
+    },
+    {
+      "t_s": 29.258333333333333,
+      "event": "INTERMEDIATE_VERIFIED_START_MOBILE",
+      "observation_xyzw": [
+        0.3502950072288513,
+        -0.04972171410918236,
+        0.720000147819519,
+        -1.714736157509833e-07,
+        -3.518784907896588e-08,
+        -0.00429463479667902,
+        0.9999908804893494
+      ],
+      "receiver_retreat_clearance_m": 0.36024339159704916
+    }
+  ],
+  "observation_action_chain": {
+    "t_s": 29.258333333333333,
+    "native_observation_xyzw": [
+      0.3502950072288513,
+      -0.04972171410918236,
+      0.720000147819519,
+      -1.714736157509833e-07,
+      -3.518784907896588e-08,
+      -0.00429463479667902,
+      0.9999908804893494
+    ],
+    "delta_from_nominal_m": [
+      0.00029500722885134056,
+      0.000278285890817645,
+      1.478195190696141e-07
+    ],
+    "waypoints": [
+      {
+        "phase": "home",
+        "point": [
+          0.3502950072288513,
+          -0.049721714109182386,
+          1.000000147819519
+        ],
+        "q": [
+          -0.5550589932771689,
+          -0.3521117930881443,
+          -0.3129606149138142,
+          1.7291751650765874,
+          0.12073894739091937,
+          -1.0791669747037926,
+          -0.12335160053761221
+        ]
+      },
+      {
+        "phase": "approach",
+        "point": [
+          0.3502950072288513,
+          -0.049721714109182386,
+          0.8700001478195191
+        ],
+        "q": [
+          -0.6037284510841834,
+          -0.5533659676753528,
+          -0.2580073458187607,
+          1.8304935653996872,
+          0.19147915455777773,
+          -0.7818893874216994,
+          -0.17746524905933217
+        ]
+      },
+      {
+        "phase": "insert",
+        "point": [
+          0.3502950072288513,
+          -0.049721714109182386,
+          0.7800001478195191
+        ],
+        "q": [
+          -0.6516048894352295,
+          -0.7318754691795323,
+          -0.19777982662684515,
+          1.8373014841275475,
+          0.23638902382674062,
+          -0.5952164495190292,
+          -0.21267308099029664
+        ]
+      },
+      {
+        "phase": "close",
+        "point": [
+          0.3502950072288513,
+          -0.049721714109182386,
+          0.7800001478195191
+        ],
+        "q": [
+          -0.6516048894352295,
+          -0.7318754691795323,
+          -0.19777982662684515,
+          1.8373014841275475,
+          0.23638902382674062,
+          -0.5952164495190292,
+          -0.21267308099029664
+        ]
+      },
+      {
+        "phase": "lift",
+        "point": [
+          0.3502950072288513,
+          -0.049721714109182386,
+          0.9400001478195191
+        ],
+        "q": [
+          -0.51760311671928,
+          -0.44331364337660667,
+          -0.3641192950372697,
+          1.789100267507042,
+          0.18981029518190398,
+          -0.9435228993004584,
+          -0.17765153825730767
+        ]
+      },
+      {
+        "phase": "carry_hold",
+        "point": [
+          0.3502950072288513,
+          0.9502782858908176,
+          0.9400001478195191
+        ],
+        "q": [
+          -0.51760311671928,
+          -0.44331364337660667,
+          -0.3641192950372697,
+          1.789100267507042,
+          0.18981029518190398,
+          -0.9435228993004584,
+          -0.17765153825730767
+        ]
+      },
+      {
+        "phase": "lower",
+        "point": [
+          0.35,
+          0.95,
+          0.78
+        ],
+        "q": [
+          -0.6209323641638291,
+          -0.7365261172164886,
+          -0.2376599604558036,
+          1.8373404026519464,
+          0.28355222410085923,
+          -0.6007504919425631,
+          -0.2505952341642795
+        ]
+      },
+      {
+        "phase": "release",
+        "point": [
+          0.35,
+          -0.05000000000000002,
+          0.78
+        ],
+        "q": [
+          -0.6209323641638291,
+          -0.7365261172164886,
+          -0.2376599604558036,
+          1.8373404026519464,
+          0.28355222410085923,
+          -0.6007504919425631,
+          -0.2505952341642795
+        ]
+      },
+      {
+        "phase": "retreat",
+        "point": [
+          0.35,
+          0.95,
+          1.0
+        ],
+        "q": [
+          -0.5026867459801149,
+          -0.3588113977755138,
+          -0.379618914707389,
+          1.7291517546422797,
+          0.14794207196649517,
+          -1.0818095473167086,
+          -0.14628147268673253
+        ]
+      }
+    ],
+    "planning_wall_s": 2.6898211469961097
+  },
+  "receiver_grasp_frame_adapter": {
+    "t_s": 16.183333333333334,
+    "observed_cup_pose_xyzw": [
+      0.24388298392295837,
+      -0.19376295804977417,
+      0.8859379291534424,
+      -0.0009126708609983325,
+      0.047010064125061035,
+      -0.005349502433091402,
+      0.9988796710968018
+    ],
+    "observed_EE_position_m": [
+      0.2504826027436393,
+      -0.19978871514014668,
+      0.9184627967780676
+    ],
+    "cup_in_EE_translation_m": [
+      0.032511095171956716,
+      -0.005996537749251146,
+      0.006693426389498537
+    ],
+    "cup_in_EE_rotation": [
+      [
+        0.09679208121295005,
+        0.003284322929549072,
+        -0.9952992043789447
+      ],
+      [
+        0.011000090509806366,
+        -0.9999370108457615,
+        -0.002229876592974261
+      ],
+      [
+        -0.9952438349586707,
+        -0.010732546936224633,
+        -0.09682211221110597
+      ]
+    ],
+    "desired_object_rotation": [
+      [
+        0.999941455132507,
+        0.01082064265580419,
+        0.0
+      ],
+      [
+        -0.01082064265580419,
+        0.999941455132507,
+        -0.0
+      ],
+      [
+        -0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "target_EE_rotation": [
+      [
+        0.09682195301816798,
+        0.0001794854382900738,
+        -0.9953017015954134
+      ],
+      [
+        0.0022367781265814467,
+        -0.9999974977145483,
+        3.725929279354941e-05
+      ],
+      [
+        -0.9952992043789447,
+        -0.002229876592974261,
+        -0.09682211221110597
+      ]
+    ],
+    "delta_EE_goal_m": [
+      0.0035152672368692905,
+      -0.006069492243087456,
+      0.0029929672999314816
+    ],
+    "robot_goals": [
+      {
+        "phase": "translate",
+        "point_m": [
+          0.35351526723686927,
+          -0.05606949224308746,
+          0.9029929672999315
+        ],
+        "joint_targets_rad": [
+          0.060055790525454615,
+          -0.2757863448106632,
+          0.30563272215296344,
+          -2.874035779352798,
+          -2.715319067357359,
+          2.189987272940025,
+          0.6479788699756426
+        ],
+        "residual": [
+          1.0188466736948953e-10,
+          -3.059857575649083e-10,
+          -2.0674861822556068e-10,
+          7.318399708514017e-10,
+          -4.576992488464083e-10,
+          1.8288050702610118e-11
+        ]
+      },
+      {
+        "phase": "lower",
+        "point_m": [
+          0.35351526723686927,
+          -0.05606949224308746,
+          0.7529929672999315
+        ],
+        "joint_targets_rad": [
+          0.0584543867754706,
+          0.3500704542218344,
+          0.2949590876334554,
+          -2.8068535073141105,
+          -2.797539862833639,
+          1.6331451587740553,
+          0.689173596119823
+        ],
+        "residual": [
+          1.6031274679972896e-07,
+          -4.065833068347957e-07,
+          6.567738664031708e-08,
+          8.37819894145693e-07,
+          5.128519357219474e-08,
+          -2.4415948762848733e-08
+        ]
+      },
+      {
+        "phase": "release",
+        "point_m": [
+          0.35351526723686927,
+          -0.05606949224308746,
+          0.7529929672999315
+        ],
+        "joint_targets_rad": [
+          0.058468817730460435,
+          0.3500688244098331,
+          0.2949430967564656,
+          -2.806853793157506,
+          -2.7975449801316055,
+          1.6331470793793301,
+          0.689179430063385
+        ],
+        "residual": [
+          4.1578956944121614e-10,
+          -9.843860448999209e-10,
+          2.2313262348916396e-10,
+          2.6980300349090084e-09,
+          1.4021392897532036e-10,
+          -8.478780264505075e-11
+        ]
+      },
+      {
+        "phase": "withdraw",
+        "point_m": [
+          0.4535152672368693,
+          -0.05606949224308746,
+          0.7529929672999315
+        ],
+        "joint_targets_rad": [
+          0.34890455087860994,
+          0.29419608780043693,
+          0.2602923458529362,
+          -3.03282537579064,
+          -2.5366060444323635,
+          1.4805100739786135,
+          0.8213011441016768
+        ],
+        "residual": [
+          -3.5151809241185106e-10,
+          -7.274362084919161e-10,
+          -6.366127625057061e-10,
+          1.2979697074506976e-09,
+          -5.777788821345453e-10,
+          -2.0556315455628034e-10
+        ]
+      },
+      {
+        "phase": "retreat",
+        "point_m": [
+          0.4535152672368693,
+          -0.05606949224308746,
+          1.0229929672999316
+        ],
+        "joint_targets_rad": [
+          0.4009621688392557,
+          -1.0400142173924083,
+          -0.07351530538523214,
+          -3.071542915807834,
+          -2.340096122801444,
+          2.6174804026111915,
+          0.022883092629503363
+        ],
+        "residual": [
+          3.2625041557210466e-10,
+          -9.578075832461508e-11,
+          1.5595413849212036e-10,
+          3.7217754456977124e-10,
+          2.429359725758772e-10,
+          -2.8359729233516707e-11
+        ]
+      },
+      {
+        "phase": "park",
+        "point_m": [
+          0.35351526723686927,
+          -0.20606949224308746,
+          1.0429929672999316
+        ],
+        "joint_targets_rad": [
+          0.5378552439595293,
+          -0.38509877378268553,
+          0.13144499121565772,
+          -2.6037242834511787,
+          -2.126707974309196,
+          2.349597702332832,
+          0.07288481294920125
+        ],
+        "residual": [
+          -1.9595436384634013e-14,
+          3.8441472227646045e-14,
+          -5.595524044110789e-14,
+          -1.1554947509345894e-13,
+          -1.2627507976987713e-13,
+          6.241635767830549e-14
+        ]
+      }
+    ]
+  },
+  "native_steps": 6523,
+  "native_clock": {
+    "callbacks": 6523,
+    "sum_dt_s": 54.35833616834134,
+    "dt_values_s": [
+      0.008333333767950535
+    ]
+  },
+  "wall_s": 49.18429552600719,
+  "protocol": {
+    "frozen_before_native_execution_utc": "2026-10-19T12:05:28.947267+00:00",
+    "scope": "Single native CPU world and clock; nested two-Panda handoff then KMR pickup/transport/place, with one forced-open receiver fault and recovery.",
+    "cup_mass_kg": 0.1,
+    "source_cup_bottom_m": [
+      0.35,
+      -0.4,
+      0.72
+    ],
+    "handoff_cup_bottom_m": [
+      0.25,
+      -0.2,
+      0.89
+    ],
+    "intermediate_cup_bottom_m": [
+      0.35,
+      -0.05,
+      0.72
+    ],
+    "destination_cup_bottom_m": [
+      0.35,
+      0.95,
+      0.72
+    ],
+    "local_gates": [
+      {
+        "id": "physical_handoff",
+        "sender_release_requires_receiver_both_contacts_N": 0.01,
+        "contact_streak_steps": 10,
+        "receiver_only_hold_s": 1.4
+      },
+      {
+        "id": "fault_recovery",
+        "forced_open_close_attempts": 1,
+        "sender_retains_payload_before_recovery": true,
+        "no_mid_episode_reset": true
+      },
+      {
+        "id": "guarded_workflow_handoff",
+        "intermediate_support_s": 1,
+        "support_force_N": 0.01,
+        "receiver_retreat_clearance_m": 0.25
+      },
+      {
+        "id": "mobile_transport",
+        "base_travel_m": 0.97,
+        "maximum_grasp_translation_drift_m": 0.015
+      },
+      {
+        "id": "final_release",
+        "placement_error_m": 0.03,
+        "terminal_stable_s": 1,
+        "gripper_contact_fraction": 0,
+        "support_contact_fraction": 0.95
+      }
+    ],
+    "object_pose_writes_after_initialization": false,
+    "attachments": false,
+    "world_owner": "One Isaac Lab SimulationContext/PhysX scene; original matterix_sm primitive HSMs.",
+    "differences": [
+      "Privileged contact/pose guards and local fixtures; no learned perception or full author laboratory layout identity.",
+      "Source constrained planar KMR base joints, not mecanum wheel contact; same N14 ground-pair filtering and gravity compensation.",
+      "Opaque local100g rigid cup and standard Panda hands replace author glass/hardware."
+    ]
+  },
+  "paths": {
+    "trace": "trace.jsonl",
+    "scene": "scene.usda",
+    "video": "video.mp4"
+  },
+  "video_status": "READY_SOURCE_VISUAL_CPU_NATIVE_REPLAY",
+  "native_replay": {
+    "role_body_names": {
+      "giver": [
+        "panda_link0",
+        "panda_link1",
+        "panda_link2",
+        "panda_link3",
+        "panda_link4",
+        "panda_link5",
+        "panda_link6",
+        "panda_link7",
+        "panda_hand",
+        "panda_leftfinger",
+        "panda_rightfinger"
+      ],
+      "receiver": [
+        "panda_link0",
+        "panda_link1",
+        "panda_link2",
+        "panda_link3",
+        "panda_link4",
+        "panda_link5",
+        "panda_link6",
+        "panda_link7",
+        "panda_hand",
+        "panda_leftfinger",
+        "panda_rightfinger"
+      ],
+      "mobile": [
+        "world",
+        "help_link_0",
+        "help_link_1",
+        "kmr_link",
+        "iiwa_link_0",
+        "iiwa_link_1",
+        "iiwa_link_2",
+        "iiwa_link_3",
+        "iiwa_link_4",
+        "iiwa_link_5",
+        "iiwa_link_6",
+        "iiwa_link_7",
+        "iiwa_link_ee",
+        "panda_hand",
+        "panda_leftfinger",
+        "panda_rightfinger"
+      ]
+    },
+    "role_body_paths": {
+      "episode": {
+        "giver": {
+          "panda_link0": "/World/giver/panda_link0",
+          "panda_link1": "/World/giver/panda_link1",
+          "panda_link2": "/World/giver/panda_link2",
+          "panda_link3": "/World/giver/panda_link3",
+          "panda_link4": "/World/giver/panda_link4",
+          "panda_link5": "/World/giver/panda_link5",
+          "panda_link6": "/World/giver/panda_link6",
+          "panda_link7": "/World/giver/panda_link7",
+          "panda_hand": "/World/giver/panda_hand",
+          "panda_leftfinger": "/World/giver/panda_leftfinger",
+          "panda_rightfinger": "/World/giver/panda_rightfinger"
+        },
+        "receiver": {
+          "panda_link0": "/World/receiver/panda_link0",
+          "panda_link1": "/World/receiver/panda_link1",
+          "panda_link2": "/World/receiver/panda_link2",
+          "panda_link3": "/World/receiver/panda_link3",
+          "panda_link4": "/World/receiver/panda_link4",
+          "panda_link5": "/World/receiver/panda_link5",
+          "panda_link6": "/World/receiver/panda_link6",
+          "panda_link7": "/World/receiver/panda_link7",
+          "panda_hand": "/World/receiver/panda_hand",
+          "panda_leftfinger": "/World/receiver/panda_leftfinger",
+          "panda_rightfinger": "/World/receiver/panda_rightfinger"
+        },
+        "mobile": {
+          "world": "/World/KMR/world",
+          "help_link_0": "/World/KMR/help_link_0",
+          "help_link_1": "/World/KMR/help_link_1",
+          "kmr_link": "/World/KMR/kmr_link",
+          "iiwa_link_0": "/World/KMR/iiwa_link_0",
+          "iiwa_link_1": "/World/KMR/iiwa_link_1",
+          "iiwa_link_2": "/World/KMR/iiwa_link_2",
+          "iiwa_link_3": "/World/KMR/iiwa_link_3",
+          "iiwa_link_4": "/World/KMR/iiwa_link_4",
+          "iiwa_link_5": "/World/KMR/iiwa_link_5",
+          "iiwa_link_6": "/World/KMR/iiwa_link_6",
+          "iiwa_link_7": "/World/KMR/iiwa_link_7",
+          "iiwa_link_ee": "/World/KMR/iiwa_link_ee",
+          "panda_hand": "/World/KMR/panda_hand",
+          "panda_leftfinger": "/World/KMR/panda_leftfinger",
+          "panda_rightfinger": "/World/KMR/panda_rightfinger"
+        }
+      }
+    },
+    "object_path": {
+      "episode": "/World/Cup"
+    },
+    "sample_dt_s": 0.1,
+    "interpolation": false
+  },
+  "control_details": {
+    "receiver_retreat": "Native hand Jacobian shifted to finger center, DLS damping0.01, whole-vector joint slew0.55rad/s and Cartesian increment60mm/s, withdraw/retreat only. Remaining phases use prepared drive targets.",
+    "receiver_observed_grasp_adapter": "Frozen on actual handoff grasp at first translate; desired upright cup pose transformed to EE goals, same HSM6mm/.03rad gates.",
+    "post_init_world_resets": 0,
+    "active_hsm_reinitializations": 0,
+    "mobile_hsm_first_initialization_event": "INITIALIZE_UNSTARTED_MOBILE_HSM"
+  },
+  "coordinator_scope": "Scripted nested state machines with native physical contact/pose guards; no LLM planner or trained policy in this functional reconstruction.",
+  "video_frames": 563,
+  "video_kind": "Exact native PhysX state playback with source USD visual geometry; 1x, no new physics or interpolation.",
+  "video_render_manifest": "f_tier/N23/video_render.json",
+  "video_material_differences": "No USD textures/MDL BSDF conversion; constant resolved/fallback colors and display floor. Source visual geometry and exact native world poses retained.",
+  "differences": [
+    "Privileged contact/pose guards and local fixtures; no learned perception or full author laboratory layout identity.",
+    "Source constrained planar KMR base joints, not mecanum wheel contact; same N14 ground-pair filtering and gravity compensation.",
+    "Opaque local100g rigid cup and standard Panda hands replace author glass/hardware.",
+    "No USD textures/MDL BSDF conversion; constant resolved/fallback colors and display floor. Source visual geometry and exact native world poses retained.",
+    "Scripted coordinator and native guards; no LLM/learned policy, no liquid or combined Auto+thermal episode claim.",
+    "Three earlier physical/IK failures and an occluded render attempt retained; final full native episode is a functional demonstration, not an estimated success rate."
+  ],
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root independently recomputed native120Hz fault/retention/recovery contacts, guard ordering and observation action causality, originalURDF mobile grasp drift and video mapping",
+    "script": "f_tier/review_nested.py",
+    "observed": {
+      "native_steps": 6523,
+      "duration_s": 54.358333333333334,
+      "failure_time_s": 9.208333333333334,
+      "reclose_s": 11.208333333333334,
+      "verified_recovery_s": 11.316666666666666,
+      "verified_contact_streak_steps": 10,
+      "receiver_alone_hold_s": 1.5,
+      "intermediate_support_pre_guard_s": 1.0,
+      "mobile_start_s": 29.258333333333333,
+      "native_base_travel_m": 0.9999861419200897,
+      "maximum_mobile_grasp_drift_m": 0.009217214102192624,
+      "URDF_to_native_hand_error_m": 4.810903905409687e-07,
+      "maximum_final_placement_error_m": 0.005587142865353078,
+      "destination_support_fraction": 1.0,
+      "final_hand_contact_fraction": 0.0
+    },
+    "video_probe": {
+      "width": 960,
+      "height": 720,
+      "duration": "56.300000",
+      "nb_frames": "563"
+    },
+    "visual_check": "Root inspected initial and final same-world three-robot views; camera switches preserve recorded poses and reveal final placement.",
+    "scope": "Same IsaacLab/PhysX world and clock with scripted nested HSMs; forced-open failure recovery without environment/activeHSM reset. This is N23, not the still-unrun specified Auto+PBD+thermal combined episode."
+  },
+  "accepted_at_utc": "2026-10-19T12:31:22.645428+00:00",
+  "video": "f_tier/N23/video.mp4"
+}
