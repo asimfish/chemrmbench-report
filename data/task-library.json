@@ -1,6 +1,6 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-19T18:48:34.605908+00:00",
+  "updated_at_utc": "2026-10-19T19:18:29.050718+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2078,13 +2078,15 @@
       "id": "pour",
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
-      "status": "smoke_passed",
-      "dataset_attempts": 0,
-      "dataset_unique_seeds": 0,
+      "status": "needs_expert_fix",
+      "dataset_attempts": 1,
+      "dataset_unique_seeds": 1,
       "target_unique_seeds": 20,
       "successes": 0,
-      "success_rate": null,
-      "status_counts": {},
+      "success_rate": 0.0,
+      "status_counts": {
+        "fail": 1
+      },
       "verified_dataset_attempts": 0,
       "qualification_attempts": 11,
       "qualification_safe_successes": 2,
@@ -2095,8 +2097,40 @@
       "memory_layout_gates_passed": null,
       "observation_profile": null,
       "render_diagnostic_attempts": 0,
-      "failure_reasons": {},
-      "trials": [],
+      "failure_reasons": {
+        "completed": 1,
+        "particle_fractions": 1,
+        "source_released": 1,
+        "stages": 1,
+        "incomplete": 1,
+        "safety_force": 1
+      },
+      "trials": [
+        {
+          "seed": 0,
+          "variant": "default",
+          "dataset": true,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "fail",
+          "safe_success": false,
+          "wall_time_s": 276.52,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 3,
+          "recording_verified": false,
+          "failure_reasons": [
+            "completed",
+            "particle_fractions",
+            "source_released",
+            "stages",
+            "incomplete",
+            "safety_force"
+          ],
+          "visual_contrast_flag": false
+        }
+      ],
       "engineering_only": true
     },
     {
@@ -2469,8 +2503,8 @@
       "engineering_only": false
     }
   ],
-  "native_tasks_with_dataset": 6,
-  "dataset_attempts": 120,
+  "native_tasks_with_dataset": 7,
+  "dataset_attempts": 121,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
