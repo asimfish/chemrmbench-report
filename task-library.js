@@ -3,8 +3,13 @@ const labels={planned:'尚未原生采集',collecting:'采集中',batch_collecte
 const stageNames={open:'开启',hold:'保持',release:'松爪',ready:'就绪',wait_cue:'提示出现',press:'物理按压',endpoint_observed:'颜色端点',stopped:'完成',cue_observed:'提示熄灭',retention_end:'保留结束',approach:'接近',grasp:'抓取',lift:'提起',transport:'运送',place_release:'放置与松爪',regrasp:'再次抓取',return:'返回',retreat:'撤退'};
 async function refreshStats(){
  try{
-  const response=await fetch('data/task-library.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);
-  const data=await response.json();$('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
+  let data;
+  const stamp=Date.now();
+  for(const url of ['https://raw.githubusercontent.com/asimfish/chemrmbench-report/main/data/task-library.json?t='+stamp,'data/task-library.json?t='+stamp]){
+   try{const signal=typeof AbortSignal!=='undefined' && typeof AbortSignal.timeout==='function'?AbortSignal.timeout(8000):undefined;const response=await fetch(url,{cache:'no-store',signal});if(!response.ok)continue;data=await response.json();if(Array.isArray(data.tasks))break;data=null;}catch(error){/* Retain the published snapshot as a fallback. */}
+  }
+  if(!data)throw Error('statistics unavailable');
+  $('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
   $('taskCards').replaceChildren(...data.tasks.map(task=>{
    const card=document.createElement('article');card.className='task';
