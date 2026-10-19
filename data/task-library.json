@@ -1,6 +1,6 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-19T12:18:27.823299+00:00",
+  "updated_at_utc": "2026-10-19T12:33:40.642310+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -17,7 +17,7 @@
         "success": 17,
         "fail": 3
       },
-      "verified_dataset_attempts": 16,
+      "verified_dataset_attempts": 20,
       "qualification_attempts": 1,
       "qualification_safe_successes": 1,
       "render_diagnostic_attempts": 0,
@@ -261,7 +261,7 @@
           "placement_error_mm": 0.952,
           "return_error_mm": 1.026,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [
             "return"
           ],
@@ -293,7 +293,7 @@
           "placement_error_mm": 1.119,
           "return_error_mm": 1.124,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [
             "return"
           ],
@@ -310,7 +310,7 @@
           "placement_error_mm": 1.081,
           "return_error_mm": 1.071,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [
             "return"
           ],
@@ -327,7 +327,7 @@
           "placement_error_mm": 1.022,
           "return_error_mm": 0.787,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         }
@@ -340,13 +340,13 @@
       "title": "烧杯抓取与放置",
       "dimension": "M0 / T0 · 基础物理对照",
       "status": "collecting",
-      "dataset_attempts": 8,
-      "dataset_unique_seeds": 8,
+      "dataset_attempts": 14,
+      "dataset_unique_seeds": 14,
       "target_unique_seeds": 20,
-      "successes": 8,
+      "successes": 14,
       "success_rate": 1.0,
       "status_counts": {
-        "success": 8
+        "success": 14
       },
       "verified_dataset_attempts": 0,
       "qualification_attempts": 3,
@@ -473,6 +473,96 @@
           "recording_verified": false,
           "failure_reasons": [],
           "visual_contrast_flag": false
+        },
+        {
+          "seed": 8,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 362.64,
+          "placement_error_mm": 1.031,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 9,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 369.54,
+          "placement_error_mm": 1.983,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 10,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 335.44,
+          "placement_error_mm": 0.957,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 11,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 339.65,
+          "placement_error_mm": 1.651,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 12,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 333.2,
+          "placement_error_mm": 0.853,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 13,
+          "variant": "default",
+          "dataset": true,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "safe_success": true,
+          "wall_time_s": 334.29,
+          "placement_error_mm": 1.493,
+          "return_error_mm": null,
+          "stage_count": 6,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
         }
       ],
       "engineering_only": false
@@ -482,7 +572,7 @@
       "id": "press",
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
-      "status": "planned",
+      "status": "collecting",
       "dataset_attempts": 0,
       "dataset_unique_seeds": 0,
       "target_unique_seeds": 20,
@@ -599,7 +689,7 @@
     }
   ],
   "native_tasks_with_dataset": 2,
-  "dataset_attempts": 28,
+  "dataset_attempts": 34,
   "benchmark_complete": false,
   "conference_ready": false,
   "scope": "Native scripted expert development. M1, calibrated chemistry and model comparisons are pending.",
