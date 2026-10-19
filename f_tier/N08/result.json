@@ -1,0 +1,1593 @@
+{
+  "id": "N08",
+  "status": "F_PASS",
+  "criteria": [
+    {
+      "metric": "Two actual native robot additions, one world/clock, both returned/released",
+      "local_threshold": "Both complete physical pour workflows; each received>=50%,spill<=10%,grasp drift<=15mm",
+      "value": [
+        {
+          "id": "first",
+          "success": true,
+          "native_s": 52.16666792985052,
+          "receiver_fraction": 1.0,
+          "spill_fraction": 0.0
+        },
+        {
+          "id": "second",
+          "success": true,
+          "native_s": 52.86666794680059,
+          "receiver_fraction": 1.0,
+          "spill_fraction": 0.0
+        }
+      ],
+      "pass": true
+    },
+    {
+      "metric": "Mass/species/charge and native parameter mass ledger",
+      "local_threshold": {
+        "numerical_relative_error": 1e-10,
+        "particle_quantization_relative_error": 0.01,
+        "confirmed_receiver_outflow": 0
+      },
+      "value": {
+        "mass_error_max": 4.059548312375346e-15,
+        "atom_charge_error_max": 7.186946219127398e-15,
+        "parameter_mass_quantization_relative_error": 0.001527349690036507,
+        "confirmed_receiver_outflow_count": 0
+      },
+      "pass": true
+    },
+    {
+      "metric": "Native timing and iodine color-proxy changes from observed doses",
+      "local_threshold": {
+        "native_clock_s": 1e-05,
+        "pre_second_alpha_min": 0.5,
+        "positive_final_alpha_max": 0.1
+      },
+      "value": {
+        "clock_error_s": 4.964756442404905e-06,
+        "before_second_alpha": 0.9981012743395737,
+        "positive_final_alpha": 0.0
+      },
+      "pass": true
+    },
+    {
+      "metric": "Omit-second native negative retains dark proxy and zero ascorbic ingress",
+      "local_threshold": {
+        "negative_final_alpha_min": 0.5,
+        "ascorbic_delivered_particles": 0
+      },
+      "value": {
+        "workflow_success": true,
+        "final_alpha": 0.9999993056777058,
+        "ascorbic_particles": 0
+      },
+      "pass": true
+    },
+    {
+      "metric": "Decodable native video and frozen configuration/differences disclosed",
+      "local_threshold": "All frame-map entries decoded; identical physical controller/protocol",
+      "value": {
+        "codec_name": "h264",
+        "profile": "High 4:4:4 Predictive",
+        "width": 960,
+        "height": 640,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "2/1",
+        "duration": "411.500000",
+        "nb_read_frames": "823"
+      },
+      "pass": true
+    }
+  ],
+  "episodes": [
+    {
+      "id": "two_additions",
+      "non_gated_all_cup_initial_to_final_displacement_m": {
+        "peroxide_source": 0.004761932417750359,
+        "receiver": 0.0013971965527161956,
+        "ascorbic_source": 0.004715615417808294
+      },
+      "non_gated_first_source_motion_after_its_return_m": 4.553188773570582e-06,
+      "max_first_source_motion_after_return_m": 4.665878350351704e-06,
+      "max_receiver_displacement_m": 0.0017945390427485108,
+      "all90_finite": true,
+      "observations": 12302,
+      "native_physics_steps": 61510,
+      "native_s": 205.0333382980898,
+      "native_clock_max_abs_error_s": 4.964756442404905e-06,
+      "control_stride_physics_steps": 5,
+      "per_stage_dose_recomputed": {
+        "dose_observer": "Configured parameter mass of persistent receiver ingress, not calibrated physical volume/density",
+        "confirmation_frames": 3,
+        "sources": {
+          "peroxide": {
+            "delivered_particle_count": 22,
+            "delivered_parameter_mass_kg": 2.2e-05
+          },
+          "ascorbic": {
+            "delivered_particle_count": 22,
+            "delivered_parameter_mass_kg": 2.2e-05
+          }
+        },
+        "first_deep_entry_s": {
+          "peroxide": 23.166667227633297,
+          "ascorbic": 125.36666970234364
+        },
+        "first_chemical_effect_s": {
+          "peroxide": 23.200000561773777,
+          "ascorbic": 125.40000303648412
+        },
+        "ingress_confirmation_delay_s": {
+          "peroxide": 0.033333334140479565,
+          "ascorbic": 0.033333334140479565
+        },
+        "limitation": "Ingress retained once counted; a future native experiment must separately reject or model subsequent receiver outflow. This adapter is not independent N08 experiment evidence."
+      },
+      "observed_events_reconstructed_from_native_points": [
+        {
+          "event_id": "peroxide:step6960",
+          "stage": "peroxide",
+          "native_physics_step": 6960,
+          "time_s": 23.200000561773777,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            5,
+            18,
+            20
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step6965",
+          "stage": "peroxide",
+          "native_physics_step": 6965,
+          "time_s": 23.216667228844017,
+          "mass_kg": 2e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            2,
+            6
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step6990",
+          "stage": "peroxide",
+          "native_physics_step": 6990,
+          "time_s": 23.300000564195216,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            0,
+            4,
+            16
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step6995",
+          "stage": "peroxide",
+          "native_physics_step": 6995,
+          "time_s": 23.316667231265455,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            1,
+            10,
+            17
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7020",
+          "stage": "peroxide",
+          "native_physics_step": 7020,
+          "time_s": 23.400000566616654,
+          "mass_kg": 4e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            3,
+            7,
+            13,
+            15
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7030",
+          "stage": "peroxide",
+          "native_physics_step": 7030,
+          "time_s": 23.433333900757134,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            9,
+            14,
+            19
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7045",
+          "stage": "peroxide",
+          "native_physics_step": 7045,
+          "time_s": 23.483333901967853,
+          "mass_kg": 4e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            8,
+            11,
+            12,
+            21
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37620",
+          "stage": "ascorbic",
+          "native_physics_step": 37620,
+          "time_s": 125.40000303648412,
+          "mass_kg": 2e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            4,
+            8
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37625",
+          "stage": "ascorbic",
+          "native_physics_step": 37625,
+          "time_s": 125.41666970355436,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            1,
+            2,
+            19
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37630",
+          "stage": "ascorbic",
+          "native_physics_step": 37630,
+          "time_s": 125.4333363706246,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            6,
+            17,
+            21
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37655",
+          "stage": "ascorbic",
+          "native_physics_step": 37655,
+          "time_s": 125.5166697059758,
+          "mass_kg": 4e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            5,
+            12,
+            13,
+            14
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37660",
+          "stage": "ascorbic",
+          "native_physics_step": 37660,
+          "time_s": 125.53333637304604,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            9,
+            11,
+            16
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37675",
+          "stage": "ascorbic",
+          "native_physics_step": 37675,
+          "time_s": 125.58333637425676,
+          "mass_kg": 2e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            7,
+            15
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37680",
+          "stage": "ascorbic",
+          "native_physics_step": 37680,
+          "time_s": 125.600003041327,
+          "mass_kg": 2e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            3,
+            10
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "ascorbic:step37690",
+          "stage": "ascorbic",
+          "native_physics_step": 37690,
+          "time_s": 125.63333637546748,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            0,
+            18,
+            20
+          ],
+          "confirmation_frames": 3
+        }
+      ],
+      "final_receiver_label_counts_conservative_band": {
+        "peroxide": 22,
+        "ascorbic": 22
+      },
+      "confirmed_receiver_outflow_count": 0,
+      "mass_error_max": 4.059548312375346e-15,
+      "atom_charge_error_max": 7.186946219127398e-15,
+      "minimum_species_mol": 0.0,
+      "particle_parameter_mass_kg": 8.999999999999999e-05,
+      "parameter_mass_quantization_relative_error": 0.001527349690036507,
+      "saved_alpha_replay_max_abs_error": 0.0,
+      "saved_final_species_replay_max_abs_error_mol": 0.0,
+      "native_workflow": {
+        "id": "two_additions",
+        "success": true,
+        "max_previous_source_after_return_displacement_m": 4.665878350351704e-06,
+        "max_receiver_displacement_m": 0.003014872781932354,
+        "native_s": 205.0333382980898,
+        "native_physics_steps": 61510,
+        "dose_attempts": [
+          {
+            "case": {
+              "id": "first",
+              "seed": 180800,
+              "source_xy": [
+                0.49834,
+                0.08501
+              ],
+              "source_yaw_deg": -23.674,
+              "receiver_xy": [
+                0.59734,
+                -0.17583
+              ],
+              "receiver_yaw_deg": -7.072
+            },
+            "negative": false,
+            "success": true,
+            "full_native_robot_workflow": true,
+            "failure": null,
+            "native_s": 52.16666792985052,
+            "events_simulation_s": {
+              "observed_source_lift50mm_s": 7.833333523012698,
+              "first_tilt_command_s": 14.366666666666667,
+              "observed_source_tilt5deg_s": 14.850000359583646,
+              "first_observed_receiver_entry_s": 23.166667227633297,
+              "observed_tilt_target_held_s": 25.050000606570393,
+              "observed_upright_held_s": 37.850000916514546
+            },
+            "event_observation_resolution_s": 0.016666666666666666,
+            "native_physics_steps": 15650,
+            "wall_s": 691.0685792000004,
+            "max_clock_error_s": 1.2631838544052698e-06,
+            "max_lift_m": 0.1630508452653885,
+            "pick_verification": {
+              "both_finger_contact_frames_over0.1N_last12": 12,
+              "mouth_disk_tool_triangle_clearance_m": 0.01392553079057273,
+              "minimum_tool_table_gap_m": 0.009175811052091344
+            },
+            "min_observed_tool_mesh_table_gap_m": 0.009175811052091344,
+            "max_observed_source_tilt_deg": 113.99833400785293,
+            "observation_archive": "f_tier/N08/native_smoke/two_additions_peroxide_observations.npz",
+            "max_grasp_position_drift_m": 0.0030001443357679904,
+            "max_grasp_rotation_drift_rad": 1.941330415642358e-05,
+            "final_source_position_error_m": 0.005463787820190191,
+            "final_source_upright_angle_rad": 4.964569583224611e-07,
+            "particle_count": 22,
+            "parameter_total_mass_kg": 2.2e-05,
+            "fractions": {
+              "source": 0.0,
+              "receiver": 1.0,
+              "boundary_ambiguous": 0.0,
+              "transit": 0.0,
+              "spill_near_table": 0.0,
+              "outside_unresolved": 0.0
+            },
+            "spill_fraction": 0.0,
+            "gross_wall_leak_count": 0,
+            "source_gross_leak_count": 0,
+            "receiver_gross_leak_count": 0,
+            "mass_accounting_relative_error": 0.0,
+            "particle_count_max_error": 0,
+            "all_particle_states_finite": true
+          },
+          {
+            "case": {
+              "id": "second",
+              "seed": 180800,
+              "source_xy": [
+                0.4,
+                0.18
+              ],
+              "source_yaw_deg": -23.674,
+              "receiver_xy": [
+                0.59734,
+                -0.17583
+              ],
+              "receiver_yaw_deg": -7.072
+            },
+            "negative": false,
+            "success": true,
+            "full_native_robot_workflow": true,
+            "failure": null,
+            "native_s": 52.86666794680059,
+            "events_simulation_s": {
+              "observed_source_lift50mm_s": 7.116666838992387,
+              "first_tilt_command_s": 14.4,
+              "observed_source_tilt5deg_s": 14.883333693724126,
+              "first_observed_receiver_entry_s": 23.200000561773777,
+              "observed_tilt_target_held_s": 25.033333939500153,
+              "observed_upright_held_s": 37.900000917725265
+            },
+            "event_observation_resolution_s": 0.016666666666666666,
+            "native_physics_steps": 15860,
+            "wall_s": 630.1984072610067,
+            "max_clock_error_s": 1.2801339224211006e-06,
+            "max_lift_m": 0.16666123270988464,
+            "pick_verification": {
+              "both_finger_contact_frames_over0.1N_last12": 12,
+              "mouth_disk_tool_triangle_clearance_m": 0.014501027655232743,
+              "minimum_tool_table_gap_m": 0.006145335713187337
+            },
+            "min_observed_tool_mesh_table_gap_m": 0.006145335713187337,
+            "max_observed_source_tilt_deg": 114.00017166729563,
+            "observation_archive": "f_tier/N08/native_smoke/two_additions_ascorbic_observations.npz",
+            "max_grasp_position_drift_m": 0.002991701011577753,
+            "max_grasp_rotation_drift_rad": 8.131851915106831e-05,
+            "final_source_position_error_m": 0.004516811575740576,
+            "final_source_upright_angle_rad": 2.733053330925451e-06,
+            "particle_count": 22,
+            "parameter_total_mass_kg": 2.2e-05,
+            "fractions": {
+              "source": 0.0,
+              "receiver": 1.0,
+              "boundary_ambiguous": 0.0,
+              "transit": 0.0,
+              "spill_near_table": 0.0,
+              "outside_unresolved": 0.0
+            },
+            "spill_fraction": 0.0,
+            "gross_wall_leak_count": 0,
+            "source_gross_leak_count": 0,
+            "receiver_gross_leak_count": 0,
+            "mass_accounting_relative_error": 0.0,
+            "particle_count_max_error": 0,
+            "all_particle_states_finite": true
+          }
+        ],
+        "first_addition_complete_s": 52.16666792985052,
+        "pre_second_observation": {
+          "time_s": 102.16666914056987,
+          "species_mol": {
+            "H2O": 0.003763504880514392,
+            "H2O2": 9.41150517604893e-07,
+            "I-": 1.7906343685431158e-06,
+            "I2": 2.1349482395107058e-08,
+            "AA": 0.0,
+            "DHA": 0.0,
+            "H+": 0.0,
+            "OH-": 4.2698964790214115e-08,
+            "K+": 1.8333333333333333e-06
+          },
+          "mass_kg": 6.813767174499999e-05,
+          "expected_mass_kg": 6.813767174500001e-05,
+          "mass_relative_error": 3.9779836348938055e-16,
+          "atom_charge_relative_error_max": 1.8480718849184733e-15,
+          "iodine_equivalent_mol_L": 0.0003133286161435903,
+          "uncalibrated_color_alpha": 0.9981012743395737,
+          "uncalibrated_rgb": [
+            0.07148100601513249,
+            0.06163290406796658,
+            0.16151898052834102
+          ],
+          "minimum_species_mol": 0.0,
+          "observed_transfer_packets": 8
+        },
+        "final_chemical_observation": {
+          "time_s": 205.0333382980898,
+          "species_mol": {
+            "H2O": 0.004974023497982499,
+            "H2O2": 9.189710928587297e-07,
+            "I-": 1.8333333333333316e-06,
+            "I2": 0.0,
+            "AA": 1.0564710928587361e-06,
+            "DHA": 4.3528907141271006e-08,
+            "H+": 0.0,
+            "OH-": 0.0,
+            "K+": 1.8333333333333333e-06
+          },
+          "mass_kg": 9.013767174500033e-05,
+          "expected_mass_kg": 9.013767174500002e-05,
+          "mass_relative_error": 3.4581337475789987e-15,
+          "atom_charge_relative_error_max": 6.545254592419594e-15,
+          "iodine_equivalent_mol_L": 0.0,
+          "uncalibrated_color_alpha": 0.0,
+          "uncalibrated_rgb": [
+            0.85,
+            0.92,
+            0.96
+          ],
+          "minimum_species_mol": 0.0,
+          "observed_transfer_packets": 16
+        },
+        "adapter": {
+          "dose_observer": "Configured parameter mass of persistent receiver ingress, not calibrated physical volume/density",
+          "confirmation_frames": 3,
+          "sources": {
+            "peroxide": {
+              "delivered_particle_count": 22,
+              "delivered_parameter_mass_kg": 2.2e-05
+            },
+            "ascorbic": {
+              "delivered_particle_count": 22,
+              "delivered_parameter_mass_kg": 2.2e-05
+            }
+          },
+          "first_deep_entry_s": {
+            "peroxide": 23.166667227633297,
+            "ascorbic": 125.36666970234364
+          },
+          "first_chemical_effect_s": {
+            "peroxide": 23.200000561773777,
+            "ascorbic": 125.40000303648412
+          },
+          "ingress_confirmation_delay_s": {
+            "peroxide": 0.033333334140479565,
+            "ascorbic": 0.033333334140479565
+          },
+          "limitation": "Ingress retained once counted; a future native experiment must separately reject or model subsequent receiver outflow. This adapter is not independent N08 experiment evidence."
+        },
+        "mass_error_max": 4.059548312375346e-15,
+        "atom_charge_error_max": 7.186946219127398e-15,
+        "minimum_species_mol": 0.0,
+        "native_clock_error_max_s": 4.964756442404905e-06,
+        "confirmed_receiver_outflow_count": 0,
+        "parameter_mass_quantization_relative_error": 0.001527349690036507,
+        "final_retained_native_parameter_mass_kg": 8.999999999999999e-05,
+        "local_color_thresholds": {
+          "before_second_alpha_min": 0.5,
+          "positive_final_alpha_max": 0.1,
+          "negative_final_alpha_min": 0.5
+        },
+        "observation_archive": "f_tier/N08/native_smoke/two_additions_world_observations.npz"
+      }
+    },
+    {
+      "id": "omit_second",
+      "non_gated_all_cup_initial_to_final_displacement_m": {
+        "peroxide_source": 0.004766363650560379,
+        "receiver": 0.00136514229234308,
+        "ascorbic_source": 0.0013649305328726768
+      },
+      "non_gated_first_source_motion_after_its_return_m": 1.1077086128352676e-06,
+      "max_first_source_motion_after_return_m": 1.4059306749913958e-06,
+      "max_receiver_displacement_m": 0.0013652053894475102,
+      "all90_finite": true,
+      "observations": 12430,
+      "native_physics_steps": 62150,
+      "native_s": 207.1666716830805,
+      "native_clock_max_abs_error_s": 5.016413808789366e-06,
+      "control_stride_physics_steps": 5,
+      "per_stage_dose_recomputed": {
+        "dose_observer": "Configured parameter mass of persistent receiver ingress, not calibrated physical volume/density",
+        "confirmation_frames": 3,
+        "sources": {
+          "peroxide": {
+            "delivered_particle_count": 22,
+            "delivered_parameter_mass_kg": 2.2e-05
+          },
+          "ascorbic": {
+            "delivered_particle_count": 0,
+            "delivered_parameter_mass_kg": 0.0
+          }
+        },
+        "first_deep_entry_s": {
+          "peroxide": 23.233333895914257
+        },
+        "first_chemical_effect_s": {
+          "peroxide": 23.266667230054736
+        },
+        "ingress_confirmation_delay_s": {
+          "peroxide": 0.033333334140479565
+        },
+        "limitation": "Ingress retained once counted; a future native experiment must separately reject or model subsequent receiver outflow. This adapter is not independent N08 experiment evidence."
+      },
+      "observed_events_reconstructed_from_native_points": [
+        {
+          "event_id": "peroxide:step6980",
+          "stage": "peroxide",
+          "native_physics_step": 6980,
+          "time_s": 23.266667230054736,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            10,
+            14,
+            18
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step6990",
+          "stage": "peroxide",
+          "native_physics_step": 6990,
+          "time_s": 23.300000564195216,
+          "mass_kg": 4e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            7,
+            13,
+            15,
+            21
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7005",
+          "stage": "peroxide",
+          "native_physics_step": 7005,
+          "time_s": 23.350000565405935,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            5,
+            16,
+            20
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7025",
+          "stage": "peroxide",
+          "native_physics_step": 7025,
+          "time_s": 23.416667233686894,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            0,
+            1,
+            3
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7035",
+          "stage": "peroxide",
+          "native_physics_step": 7035,
+          "time_s": 23.450000567827374,
+          "mass_kg": 4e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            2,
+            4,
+            11,
+            12
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7040",
+          "stage": "peroxide",
+          "native_physics_step": 7040,
+          "time_s": 23.466667234897614,
+          "mass_kg": 2e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            6,
+            8
+          ],
+          "confirmation_frames": 3
+        },
+        {
+          "event_id": "peroxide:step7045",
+          "stage": "peroxide",
+          "native_physics_step": 7045,
+          "time_s": 23.483333901967853,
+          "mass_kg": 3e-06,
+          "observer": "Recomputed from saved native smoothed points and receiver rigid poses; same3-frame confirmation",
+          "evidence_kind": "native_observed_transfer",
+          "observed_particle_indices": [
+            9,
+            17,
+            19
+          ],
+          "confirmation_frames": 3
+        }
+      ],
+      "final_receiver_label_counts_conservative_band": {
+        "peroxide": 22,
+        "ascorbic": 0
+      },
+      "confirmed_receiver_outflow_count": 0,
+      "mass_error_max": 3.9779836348938064e-16,
+      "atom_charge_error_max": 3.0031168129925193e-15,
+      "minimum_species_mol": 0.0,
+      "particle_parameter_mass_kg": 6.8e-05,
+      "parameter_mass_quantization_relative_error": 0.002020493824843506,
+      "saved_alpha_replay_max_abs_error": 0.0,
+      "saved_final_species_replay_max_abs_error_mol": 0.0,
+      "native_workflow": {
+        "id": "omit_second",
+        "success": true,
+        "max_previous_source_after_return_displacement_m": 1.4059306749913958e-06,
+        "max_receiver_displacement_m": 0.0030001425184309483,
+        "native_s": 207.1666716830805,
+        "native_physics_steps": 62150,
+        "dose_attempts": [
+          {
+            "case": {
+              "id": "first",
+              "seed": 180800,
+              "source_xy": [
+                0.49834,
+                0.08501
+              ],
+              "source_yaw_deg": -23.674,
+              "receiver_xy": [
+                0.59734,
+                -0.17583
+              ],
+              "receiver_yaw_deg": -7.072
+            },
+            "negative": false,
+            "success": true,
+            "full_native_robot_workflow": true,
+            "failure": null,
+            "native_s": 52.16666792985052,
+            "events_simulation_s": {
+              "observed_source_lift50mm_s": 7.833333523012698,
+              "first_tilt_command_s": 14.366666666666667,
+              "observed_source_tilt5deg_s": 14.850000359583646,
+              "first_observed_receiver_entry_s": 23.233333895914257,
+              "observed_tilt_target_held_s": 25.050000606570393,
+              "observed_upright_held_s": 37.850000916514546
+            },
+            "event_observation_resolution_s": 0.016666666666666666,
+            "native_physics_steps": 15650,
+            "wall_s": 1840.445743860997,
+            "max_clock_error_s": 1.2631838544052698e-06,
+            "max_lift_m": 0.16304297745227814,
+            "pick_verification": {
+              "both_finger_contact_frames_over0.1N_last12": 12,
+              "mouth_disk_tool_triangle_clearance_m": 0.013971388854381064,
+              "minimum_tool_table_gap_m": 0.009169533992577868
+            },
+            "min_observed_tool_mesh_table_gap_m": 0.009169533992577868,
+            "max_observed_source_tilt_deg": 113.99854530030753,
+            "observation_archive": "f_tier/N08/native_negative/omit_second_peroxide_observations.npz",
+            "max_grasp_position_drift_m": 0.002999785115236898,
+            "max_grasp_rotation_drift_rad": 2.035865737467948e-05,
+            "final_source_position_error_m": 0.005463086534291506,
+            "final_source_upright_angle_rad": 1.6468985546049491e-06,
+            "particle_count": 22,
+            "parameter_total_mass_kg": 2.2e-05,
+            "fractions": {
+              "source": 0.0,
+              "receiver": 1.0,
+              "boundary_ambiguous": 0.0,
+              "transit": 0.0,
+              "spill_near_table": 0.0,
+              "outside_unresolved": 0.0
+            },
+            "spill_fraction": 0.0,
+            "gross_wall_leak_count": 0,
+            "source_gross_leak_count": 0,
+            "receiver_gross_leak_count": 0,
+            "mass_accounting_relative_error": 0.0,
+            "particle_count_max_error": 0,
+            "all_particle_states_finite": true
+          }
+        ],
+        "first_addition_complete_s": 52.16666792985052,
+        "pre_second_observation": {
+          "time_s": 102.16666914056987,
+          "species_mol": {
+            "H2O": 0.003763504880514392,
+            "H2O2": 9.411609337605973e-07,
+            "I-": 1.790655200854529e-06,
+            "I2": 2.133906623940238e-08,
+            "AA": 0.0,
+            "DHA": 0.0,
+            "H+": 0.0,
+            "OH-": 4.267813247880476e-08,
+            "K+": 1.8333333333333333e-06
+          },
+          "mass_kg": 6.813767174499999e-05,
+          "expected_mass_kg": 6.8137671745e-05,
+          "mass_relative_error": 1.9889918174469032e-16,
+          "atom_charge_relative_error_max": 4.608151168890636e-16,
+          "iodine_equivalent_mol_L": 0.0003131757468799668,
+          "uncalibrated_color_alpha": 0.9980954603203838,
+          "uncalibrated_rgb": [
+            0.07148554095010067,
+            0.06163790412446996,
+            0.161523631743693
+          ],
+          "minimum_species_mol": 0.0,
+          "observed_transfer_packets": 8
+        },
+        "final_chemical_observation": {
+          "time_s": 207.1666716830805,
+          "species_mol": {
+            "H2O": 0.003763504880514392,
+            "H2O2": 9.141892678805391e-07,
+            "I-": 1.7367118690944126e-06,
+            "I2": 4.8310732119457595e-08,
+            "AA": 0.0,
+            "DHA": 0.0,
+            "H+": 0.0,
+            "OH-": 9.662146423891519e-08,
+            "K+": 1.8333333333333333e-06
+          },
+          "mass_kg": 6.813767174499999e-05,
+          "expected_mass_kg": 6.8137671745e-05,
+          "mass_relative_error": 1.9889918174469032e-16,
+          "atom_charge_relative_error_max": 3.0031168129925193e-15,
+          "iodine_equivalent_mol_L": 0.0007090164791696554,
+          "uncalibrated_color_alpha": 0.9999993056777058,
+          "uncalibrated_rgb": [
+            0.07000054157138949,
+            0.060000597117173024,
+            0.16000055545783537
+          ],
+          "minimum_species_mol": 0.0,
+          "observed_transfer_packets": 8
+        },
+        "adapter": {
+          "dose_observer": "Configured parameter mass of persistent receiver ingress, not calibrated physical volume/density",
+          "confirmation_frames": 3,
+          "sources": {
+            "peroxide": {
+              "delivered_particle_count": 22,
+              "delivered_parameter_mass_kg": 2.2e-05
+            },
+            "ascorbic": {
+              "delivered_particle_count": 0,
+              "delivered_parameter_mass_kg": 0.0
+            }
+          },
+          "first_deep_entry_s": {
+            "peroxide": 23.233333895914257
+          },
+          "first_chemical_effect_s": {
+            "peroxide": 23.266667230054736
+          },
+          "ingress_confirmation_delay_s": {
+            "peroxide": 0.033333334140479565
+          },
+          "limitation": "Ingress retained once counted; a future native experiment must separately reject or model subsequent receiver outflow. This adapter is not independent N08 experiment evidence."
+        },
+        "mass_error_max": 3.9779836348938064e-16,
+        "atom_charge_error_max": 3.0031168129925193e-15,
+        "minimum_species_mol": 0.0,
+        "native_clock_error_max_s": 5.016413808789366e-06,
+        "confirmed_receiver_outflow_count": 0,
+        "parameter_mass_quantization_relative_error": 0.002020493824843506,
+        "final_retained_native_parameter_mass_kg": 6.8e-05,
+        "local_color_thresholds": {
+          "before_second_alpha_min": 0.5,
+          "positive_final_alpha_max": 0.1,
+          "negative_final_alpha_min": 0.5
+        },
+        "observation_archive": "f_tier/N08/native_negative/omit_second_world_observations.npz"
+      }
+    }
+  ],
+  "protocol": {
+    "id": "N08",
+    "status": "FROZEN_BEFORE_ENGINEERING_FIXED_NATIVE",
+    "frozen_utc": "2026-10-19T13:02:18.851423+00:00",
+    "world_clock_owner": "One MATTERIX/IsaacLab environment; reset only between positive and omit-second episodes, no reset between additions",
+    "native_configuration": {
+      "status": "FROZEN_BEFORE_FIRST_NATIVE_PREFLIGHT",
+      "inventory_uniform_scale": 0.0004583333333333333,
+      "scale_rule": "22 native particles *1e-6kg / original48g dose; multiply all Methods solvent/solute quantities by the same factor",
+      "particle_counts": {
+        "initial_receiver": 46,
+        "peroxide": 22,
+        "ascorbic": 22,
+        "total": 90
+      },
+      "solver": "One original public FluidSystem / one PhysxParticleSystem; stable particle-index labels identify source stocks. Different PhysX particle systems do not collide, per official docs, so no independent-system mixing claim.",
+      "physics_and_render": "Original FluidCfg physical defaults, anisotropy/smoothing/isosurface retained; spatial color function feeds original ClearWater color inputs as an explicitly uncalibrated semantic proxy.",
+      "original_particle_mass_kg": 1e-06,
+      "cup_configuration": "Public scale1 cup, conservative67mL mesh cavity; native parameter mass is not calibrated rendered volume or density.",
+      "mass_quantization": "46 native receiver particles represent the uniformly scaled initial Methods solvent+KI mass within0.3%; do not claim exact continuous-mass initialization. Report the residual in the final native mass ledger.",
+      "native_preflight": "Subsytem only:22 labeled incoming particles initialized above46 receiver particles fall under gravity;22 reference particles stay in another cup. Shared solver interaction, finite states, retention and spatial tint are checked before any robot-mediated two-addition claim.",
+      "preflight_not_experiment": "No native N08 redox trial, no robot-mediated dose, no F_PASS may be inferred from this fixture.",
+      "two_addition_native_next": "Reuse the frozen N04 physical side-grasp/mouth-pivot controller for both source cups, same world/time across both additions; actual ingress drives native_adapter; first completed addition starts50s native reaction wait; reject any confirmed receiver outflow.",
+      "official_solver_reference": "https://docs.omniverse.nvidia.com/kit/docs/omni_physics/110.1/dev_guide/particles/particles.html"
+    },
+    "kinetics": {
+      "oxidation_rate_L_mol_s": 0.0107,
+      "rate_law": "extent_rate_mol_s = k_L_mol_s * n_iodide_mol * n_peroxide_mol / volume_L",
+      "source": "Carraher, Curry, Tessonnier, J Chem Educ 2016, DOI 10.1021/acs.jchemed.5b00640, Results and Discussion, measured uncatalyzed k2",
+      "primary_pdf": "f_tier/N08/primary_oxidation_2016.pdf",
+      "source_url": "https://pendidikankimia.walisongo.ac.id/wp-content/uploads/2018/10/28-21.pdf",
+      "temperature_scope": "Source classroom experiment, precise temperature not stated in the accessible main article; local nominal25C is an assumption. No Arrhenius correction or original MATTERIX kinetics claim.",
+      "acid_catalysis": "Not modeled; no added strong acid. Source also measures acid branch0.170 M^-2 s^-1, not used as a free tuning parameter.",
+      "reduction": "Fast irreversible stoichiometric limit: extent=min(n_I2,n_ascorbic). No invented finite k_fast and no quantitative bleaching-time prediction.",
+      "reduction_limit_primary": "https://arxiv.org/html/2408.04108v2, sections1-2, fast vitaminC reaction and separation of timescales; quantitative fitted40C oxidation parameter from that paper is NOT used."
+    },
+    "recipe": {
+      "receiver_water_kg": 0.1,
+      "receiver_KI_mol": 0.004,
+      "peroxide_dose_bulk_kg": 0.048,
+      "peroxide_dose_mol": 0.0021,
+      "ascorbic_dose_bulk_kg": 0.048,
+      "ascorbic_dose_mol": 0.0024,
+      "stock_mass_basis": "Dose bulk masses follow the measured48g increase; stock water is bulk minus solute mass. Receiver is100g solvent+4mmol KI. Unknown starch mass is excluded; indicator presence is a boolean.",
+      "source": "MATTERIX Nature main Methods, Reduction-Oxidation Execution Protocol; local references/matterix_arxiv_full_with_supplement_r1.txt lines1062-1100",
+      "local_uniform_density_kg_L": 1.0,
+      "native_scaling_rule": "A single explicit scale may multiply all water, solute and dose quantities to match physical stock capacity; concentrations and kinetic constants remain unchanged. No native run is claimed by this offline fixture."
+    },
+    "scale": 0.0004583333333333333,
+    "source_positions": {
+      "peroxide": [
+        0.49834,
+        0.08501,
+        -23.674
+      ],
+      "ascorbic": [
+        0.4,
+        0.18,
+        -23.674
+      ],
+      "receiver": [
+        0.59734,
+        -0.17583,
+        -7.072
+      ]
+    },
+    "particle_labels": {
+      "receiver": [
+        0,
+        46
+      ],
+      "peroxide": [
+        46,
+        68
+      ],
+      "ascorbic": [
+        68,
+        90
+      ]
+    },
+    "controller": "Original N04 side-grasp and mouth-pivot115deg controller; per-pour90s native budget,>=50% receiver,<=10% spill,15mm grasp-translation and4mm gross wall gate. Engineering integration repair: second source(.40,.18) yaw-23.674deg, same already validated grasp orientation as first source. Subsequent skill starts explicitOpen then withdraws100mm along old actual negativeEE-Z plus50mm upward, before high-position reorientation/second approach. First source maximum disturbance after return<=5mm. No change to PBD/chemistry/quality thresholds; multiple engineering changes, no single-variable causal attribution.",
+    "event_coupling": "Observed3-consecutive-control-frame deep receiver ingress*originalparticlemass drives unique chemical transfer packets, not desired command or scheduled dose. Actual native callback/time checked each observation.",
+    "reaction_wait_s": 50.0,
+    "first_addition_complete_definition": "Full first native pour, upright return and gripper release, starts50s native wait. This conservative local operation timing is not the published flow-end protocol timing.",
+    "assay_wait_s": 50.0,
+    "negative": "Same first actual pour and50s wait; second source untouched and55s extra native hold approximates local second operation duration; then50s assay. Actual total duration separately reported.",
+    "outflow_rule": "Reject episode if an initial/confirmed delivered receiver particle leaves the receiver conservative cavity+4mm for3 consecutive observations; no unmodeled mixed outflow.",
+    "video": "Native live rendered state every30control steps (0.5s),2fps; frame map records native timestamps. Long command phases retain their true native duration.",
+    "local_F_gates": [
+      {
+        "metric": "One full two-addition native robot episode including returns",
+        "threshold": "Both per-pour physical quality gates pass; two actual sources deliver >=11/22 particles each; first source maximum displacement after return<=5mm"
+      },
+      {
+        "metric": "Mass/species/charge and native parameter-mass ledger",
+        "threshold": "Numerical atom/charge and mass relative error<=1e-10; particle quantization residual<=1%; all90finite; no confirmed receiver outflow"
+      },
+      {
+        "metric": "Native timing and qualitative iodine proxy",
+        "threshold": "Native clock error<=1e-5s; pre-second color alpha>=0.5, positive final<=0.1 (uncalibrated local thresholds)"
+      },
+      {
+        "metric": "Omit-second negative",
+        "threshold": "Same first operation complete, no ascorbic ingress, finalalpha>=0.5"
+      },
+      {
+        "metric": "Video and configuration differences",
+        "threshold": "Decodable native-state video; original PBD/isosurface, chemistry/scale/observation differences disclosed"
+      }
+    ],
+    "differences": [
+      "Paper Methods ascorbic stock5mmol/100g is printed0.05mmol/kg; arithmetic gives0.05mol/kg. We use the explicit delivered2.4mmol in48g, not the inconsistent printed concentration.",
+      "Public fig5b_2 CSV starts OO1.47, I0.78, ascorbic0.85 in100g vessels and reverses the first donor/receiver roles relative to Methods. Those values are not treated as the real recipe or fitted kinetics.",
+      "Uncatalyzed well-mixed effective oxidation model, nominal25C; no calibrated pH, ionic-strength, starch binding, oxygen/gas, or finite mixing/bleaching dynamics.",
+      "Aqueous volume estimated from total solution mass at1kg/L. Exact atom/charge/mass conservation is tracked separately from that volume approximation.",
+      "This subsystem and any offline color plot alone cannot satisfy N08 F acceptance. Native robot-mediated two additions, negative control and video remain required.",
+      "One shared PBD fluid set with stable semantic stock labels; instantaneous well-mixed semantic chemistry once observed dose crosses receiver; not molecular mixing.",
+      "Scaled90particle local cups replace100g/48g original stock masses, preserving concentrations; parameter mass is not visual volume/density calibration.",
+      "Spatial local MDL color proxy feeds original water BSDF color inputs; quantitative bleaching speed and exact RGB recovery are not claimed.",
+      "Diagnostic first native positive precedes the full fixed positive+negative functional acceptance; all failures retained."
+    ],
+    "preserved_native_failures": [
+      "f_tier/N08/failed_first_continuous/result.json"
+    ],
+    "preserved_subsystem_failures": [
+      "f_tier/N08/second_pick_cpu_probe/result.json",
+      "f_tier/N08/second_pick_probe/result.json"
+    ]
+  },
+  "video": "f_tier/N08/video.mp4",
+  "video_metadata": {
+    "codec_name": "h264",
+    "profile": "High 4:4:4 Predictive",
+    "width": 960,
+    "height": 640,
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "2/1",
+    "duration": "411.500000",
+    "nb_read_frames": "823"
+  },
+  "native_robot_trials": 4,
+  "accepted_functional_episodes": 2,
+  "failed_continuous_attempts": [
+    {
+      "result": "f_tier/N08/failed_first_continuous/result.json",
+      "analysis": "f_tier/N08/failed_first_continuous/failure_analysis.json",
+      "video": "f_tier/N08/failed_first_continuous/video.mp4",
+      "outcome": "Second-pour pick failed before ascorbic ingress; first full pour and50s native wait completed",
+      "configuration_difference": "Previous second-cup (.44,.18),yaw0/freshWait. Final repaired configuration uses (.40,.18),yaw-23.674deg/explicitOpen and safe old-orientation withdrawal before changing pose. Multiple engineering changes; do not claim single-variable causal proof or pool configurations as an unbiased success rate."
+    }
+  ],
+  "diagnostic_subsystem_probes": [
+    {
+      "result": "f_tier/N08/second_pick_probe/result.json",
+      "scope": "Zero-grasp-step GPU startup failure/resource interruption"
+    },
+    {
+      "result": "f_tier/N08/second_pick_cpu_probe/result.json",
+      "scope": "Rigid CPU yaw90 probe FAILED,2770steps,peakfirstA7.57mm"
+    },
+    {
+      "result": "f_tier/N08/second_pick_cpu_clearance_probe/result.json",
+      "scope": "Rigid CPU safe-withdraw/new-layout probe PASS,2290steps; new episode initialization, not continuous redox success"
+    }
+  ],
+  "original_identity_complete": false,
+  "differences": [
+    "Paper Methods ascorbic stock5mmol/100g is printed0.05mmol/kg; arithmetic gives0.05mol/kg. We use the explicit delivered2.4mmol in48g, not the inconsistent printed concentration.",
+    "Public fig5b_2 CSV starts OO1.47, I0.78, ascorbic0.85 in100g vessels and reverses the first donor/receiver roles relative to Methods. Those values are not treated as the real recipe or fitted kinetics.",
+    "Uncatalyzed well-mixed effective oxidation model, nominal25C; no calibrated pH, ionic-strength, starch binding, oxygen/gas, or finite mixing/bleaching dynamics.",
+    "Aqueous volume estimated from total solution mass at1kg/L. Exact atom/charge/mass conservation is tracked separately from that volume approximation.",
+    "This subsystem and any offline color plot alone cannot satisfy N08 F acceptance. Native robot-mediated two additions, negative control and video remain required.",
+    "One shared PBD fluid set with stable semantic stock labels; instantaneous well-mixed semantic chemistry once observed dose crosses receiver; not molecular mixing.",
+    "Scaled90particle local cups replace100g/48g original stock masses, preserving concentrations; parameter mass is not visual volume/density calibration.",
+    "Spatial local MDL color proxy feeds original water BSDF color inputs; quantitative bleaching speed and exact RGB recovery are not claimed.",
+    "Diagnostic first native positive precedes the full fixed positive+negative functional acceptance; all failures retained.",
+    "Independent verification reimplemented observed ingress, native timeline, chemistry, and atom/charge ledger; agreement verifies simulation serialization, not experimental chemical kinetics.",
+    "The actual observed last-peroxide-entry to first-ascorbic-entry interval is101.916669s;50s is the programmed wait after the first full robot workflow.",
+    "Wide-view liquid tint is qualitative and small; no calibrated RGB/HSV, starch-binding or finite bleaching-time accuracy is claimed."
+  ],
+  "independent_audit": "f_tier/N08/independent_review.json",
+  "offline_model_support": "f_tier/N08/offline_subsystem_result.json",
+  "resource_accounting": {
+    "journals": [
+      "f_tier/N08/resource_pauses.json",
+      "f_tier/N08/resource_pauses_gpu0_negative.json"
+    ],
+    "as_of_utc": "2026-10-19T14:51:12.083941+00:00",
+    "recorded_resource_pauses": true,
+    "episodes": [
+      {
+        "output": "native_smoke",
+        "selected_for_functional_acceptance": true,
+        "complete_result_exists": true,
+        "resource_paused_as_of_analysis": false,
+        "resource_pause_count": 2,
+        "completed_pause_duration_wall_s": 530.171541929245,
+        "open_pause_duration_as_of_analysis_s": 0.0,
+        "resource_events": [
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T13:09:51.984352+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 10200,
+            "last_flushed_observation_native_s": 34.000000823289156,
+            "external_active_main_count": null,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T13:14:32.460852+00:00",
+            "pause_duration_wall_s": 280.4549198150635,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T13:21:20.391057+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 30650,
+            "last_flushed_observation_native_s": 102.16666914056987,
+            "external_active_main_count": null,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T13:25:30.107679+00:00",
+            "pause_duration_wall_s": 249.71662211418152,
+            "external_active_main_count": 0,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          }
+        ],
+        "launcher_process_metadata": {
+          "returncode": 0,
+          "start_utc": "2026-10-19T13:04:40.500363+00:00",
+          "end_utc": "2026-10-19T13:37:04.163154+00:00",
+          "full_wall_duration_s": 1943.662791
+        }
+      },
+      {
+        "output": "native_negative",
+        "selected_for_functional_acceptance": true,
+        "complete_result_exists": true,
+        "resource_paused_as_of_analysis": false,
+        "resource_pause_count": 10,
+        "completed_pause_duration_wall_s": 5104.557264328003,
+        "open_pause_duration_as_of_analysis_s": 0.0,
+        "resource_events": [
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T13:09:51.984352+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 5400,
+            "last_flushed_observation_native_s": 18.000000435858965,
+            "external_active_main_count": null,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T13:15:46.586862+00:00",
+            "pause_duration_wall_s": 354.5523488521576,
+            "external_active_main_count": 0,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T13:18:26.815347+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 11400,
+            "last_flushed_observation_native_s": 38.000000920146704,
+            "external_active_main_count": null,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T13:35:01.928408+00:00",
+            "pause_duration_wall_s": 995.113062620163,
+            "external_active_main_count": 0,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T13:40:02.943014+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 27650,
+            "last_flushed_observation_native_s": 92.166668898426,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:08:55.635181+00:00",
+            "pause_duration_wall_s": 1732.6921770572662,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:08:57.795996+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 27650,
+            "last_flushed_observation_native_s": 92.166668898426,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:14:56.053576+00:00",
+            "pause_duration_wall_s": 358.2575798034668,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:14:58.451698+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 27650,
+            "last_flushed_observation_native_s": 92.166668898426,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:21:32.039591+00:00",
+            "pause_duration_wall_s": 393.5878920555115,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:21:34.195753+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 27650,
+            "last_flushed_observation_native_s": 92.166668898426,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:34:50.050071+00:00",
+            "pause_duration_wall_s": 795.8543186187744,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:34:52.177685+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 27650,
+            "last_flushed_observation_native_s": 92.166668898426,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:39:58.753581+00:00",
+            "pause_duration_wall_s": 306.57589626312256,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:40:33.808183+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 30650,
+            "last_flushed_observation_native_s": 102.16666914056987,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:40:46.259918+00:00",
+            "pause_duration_wall_s": 12.451733589172363,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:40:48.341396+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 30650,
+            "last_flushed_observation_native_s": 102.16666914056987,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:41:17.269764+00:00",
+            "pause_duration_wall_s": 28.928367614746094,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:46:03.535557+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": 53150,
+            "last_flushed_observation_native_s": 177.1666709566489,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:48:10.079444+00:00",
+            "pause_duration_wall_s": 126.54388785362244,
+            "external_active_main_count": 0,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          }
+        ],
+        "launcher_process_metadata": {
+          "returncode": 0,
+          "start_utc": "2026-10-19T13:05:53.078803+00:00",
+          "end_utc": "2026-10-19T14:49:56.973678+00:00",
+          "full_wall_duration_s": 6243.894875
+        }
+      },
+      {
+        "output": "native_negative_gpu0",
+        "selected_for_functional_acceptance": false,
+        "complete_result_exists": false,
+        "resource_paused_as_of_analysis": true,
+        "resource_pause_count": 3,
+        "completed_pause_duration_wall_s": 629.485876083374,
+        "open_pause_duration_as_of_analysis_s": 708.8478715419769,
+        "resource_events": [
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:28:49.579170+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": null,
+            "last_flushed_observation_native_s": null,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:39:12.448352+00:00",
+            "pause_duration_wall_s": 622.8691825866699,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:39:14.523131+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": null,
+            "last_flushed_observation_native_s": null,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGCONT_OWN_NATIVE",
+            "resume_utc": "2026-10-19T14:39:21.139824+00:00",
+            "pause_duration_wall_s": 6.616693496704102,
+            "external_active_main_count": 1,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          },
+          {
+            "action": "SIGSTOP_OWN_NATIVE",
+            "pause_start_utc": "2026-10-19T14:39:23.220660+00:00",
+            "native_step_exact_at_pause": null,
+            "last_flushed_observation_native_steps": null,
+            "last_flushed_observation_native_s": null,
+            "external_active_main_count": 2,
+            "clock_scope": "World suspended without physics steps; exact OS-pause native step unobserved, last durable clock only."
+          }
+        ],
+        "launcher_process_metadata": {
+          "returncode": null,
+          "start_utc": "2026-10-19T14:28:45.161140+00:00",
+          "wall_timeout": null
+        }
+      }
+    ],
+    "wall_time_scope": "Full observed wall time includes all OS suspension intervals; no pause-subtracted throughput or reset/retry inference. Last durable native observations at pause are not fabricated exact OS-pause steps. Unselected originalGPU1world may remain resource-paused, is retained, and is never described as continued by the newGPU0world."
+  },
+  "selected_complete_negative": "f_tier/N08/native_negative",
+  "negative_attempt_manifest": [
+    {
+      "output": "f_tier/N08/native_negative",
+      "selected_for_acceptance": true,
+      "complete_result_exists": true,
+      "process": "f_tier/N08/native_negative/process.json",
+      "process_metadata_scope": "Missing original process metadata remains null; raw ownworld status and resource journals retain the partial attempt.",
+      "protocol_identity": "Same frozen nativeprotocol/seed, separate physicalworld/clock; GPU0copy does not continue oldGPU1clock"
+    },
+    {
+      "output": "f_tier/N08/native_negative_gpu0",
+      "selected_for_acceptance": false,
+      "complete_result_exists": false,
+      "process": "f_tier/N08/native_negative_gpu0/process.json",
+      "process_metadata_scope": "Missing original process metadata remains null; raw ownworld status and resource journals retain the partial attempt.",
+      "protocol_identity": "Same frozen nativeprotocol/seed, separate physicalworld/clock; GPU0copy does not continue oldGPU1clock"
+    }
+  ],
+  "visual_review": {
+    "positive": "f_tier/N08/native_smoke/visual_review.json",
+    "positive_exact_frame_sheet": "f_tier/N08/native_smoke/visual_review.png",
+    "initial_camera_warmup": "Both original first0.5s camera regions black; original encoded frames and native timing retained. No replacement scene frames or physics.",
+    "optical_limit": "Semantic proxy darkens/lightens qualitatively; no quantitative RGB recovery, optical chemistry or bleaching-time claim.",
+    "canonical_annotation_correction": {
+      "scope": "Derived canonical annotation only; both original native videos remain unchanged.",
+      "source_error": "Negative wait subtitle hardcoded two robot additions despite omit_second first line.",
+      "replacement": "omit second dose",
+      "edited_rectangle_xyxy": [
+        104,
+        28,
+        189,
+        36
+      ],
+      "first_canonical_frame_edited": 513,
+      "last_canonical_frame_edited": 822,
+      "scene_pixel_verification": "All823 decoded YUV420 camera-region frames y48..639 exactly equal before/after lossless annotation encoding.",
+      "clock_and_frame_map_unchanged": true,
+      "physics_steps_added": 0
+    },
+    "negative": "f_tier/N08/native_negative/visual_review.json",
+    "negative_exact_frame_sheet": "f_tier/N08/native_negative/visual_review.png"
+  },
+  "scientific_figure": {
+    "timing": {
+      "positive_peroxide": {
+        "first_deep_s": 23.166667227633297,
+        "first_certified_s": 23.200000561773777,
+        "last_certified_s": 23.483333901967853,
+        "last_persistent_deep_entry_sample_s": 23.45000056863452,
+        "confirmation_delay_ms": 33.333334140479565
+      },
+      "positive_ascorbic": {
+        "first_deep_s": 125.36666970234364,
+        "first_certified_s": 125.40000303648412,
+        "last_certified_s": 125.63333637546748,
+        "last_persistent_deep_entry_sample_s": 125.60000304213415,
+        "confirmation_delay_ms": 33.333334140479565
+      },
+      "negative_peroxide": {
+        "first_deep_s": 23.233333895914257,
+        "first_certified_s": 23.266667230054736,
+        "last_certified_s": 23.483333901967853,
+        "last_persistent_deep_entry_sample_s": 23.45000056863452,
+        "confirmation_delay_ms": 33.333334140479565
+      }
+    },
+    "last_first_persistent_deep_to_first_second_deep_gap_s": 101.91666913370912,
+    "first_workflow_complete_s": 52.16666792985052,
+    "programmed_wait_end_s": 102.16666914056987,
+    "programmed_wait_s": 50.00000121071935,
+    "timing_scope": "Native observer samples; not exact unsampled physical crossing times. Three consecutive observations certify ingress.",
+    "pdf": "f_tier/N08/scientific_figure.pdf",
+    "png": "f_tier/N08/scientific_figure.png",
+    "generator": "f_tier/N08/plot_scientific_figure.py"
+  },
+  "F_PASS": true,
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root: independent quaternion transforms, persistent ingress/outflow, explicit atom and charge ledger, separately implemented kinetics, physical grasp/return and frame clocks",
+    "script": "f_tier/review_redox.py",
+    "episodes": [
+      {
+        "episode": "two_additions",
+        "observations": 12302,
+        "native_s": 205.0333382980898,
+        "physics_steps": 61510,
+        "clock_error_s": 4.9647564708266145e-06,
+        "ingress_timings": {
+          "peroxide": {
+            "first_deep_s": 23.166667227633297,
+            "first_confirm_s": 23.200000561773777,
+            "last_persistent_entry_s": 23.450000567827374,
+            "last_confirm_s": 23.483333901967853,
+            "count": 22
+          },
+          "ascorbic": {
+            "first_deep_s": 125.36666970234364,
+            "first_confirm_s": 125.40000303648412,
+            "last_persistent_entry_s": 125.600003041327,
+            "last_confirm_s": 125.63333637546748,
+            "count": 22
+          }
+        },
+        "physical_doses": [
+          {
+            "dose": "peroxide",
+            "lift_m": 0.1630508489906788,
+            "return_error_m": 0.005463787916814433,
+            "grasp_drift_m": 0.0030001443357678933
+          },
+          {
+            "dose": "ascorbic",
+            "lift_m": 0.16666122898459435,
+            "return_error_m": 0.004516811559233491,
+            "grasp_drift_m": 0.002991701011577739,
+            "original_static_mesh_reference_measurements": {
+              "lift_m": 0.16366123035550117,
+              "return_error_m": 0.005419895566440167
+            },
+            "reference": "Actual last continuous-world observation before second-skill start; initial table settling is not a new pose reset."
+          }
+        ],
+        "max_species_replay_abs_error_mol": 5.293955920339377e-23,
+        "max_proxy_replay_abs_error": 0.0,
+        "max_mass_relative_error": 4.059548312375346e-15,
+        "max_atom_charge_relative_error": 7.186946219127398e-15,
+        "quantization_relative_error": 0.001527349690036507,
+        "receiver_outflow_count": 0,
+        "source_motion_after_return_m": 4.665878138252854e-06,
+        "final_alpha": 0.0
+      },
+      {
+        "episode": "omit_second",
+        "observations": 12430,
+        "native_s": 207.1666716830805,
+        "physics_steps": 62150,
+        "clock_error_s": 5.016413837211076e-06,
+        "ingress_timings": {
+          "peroxide": {
+            "first_deep_s": 23.233333895914257,
+            "first_confirm_s": 23.266667230054736,
+            "last_persistent_entry_s": 23.450000567827374,
+            "last_confirm_s": 23.483333901967853,
+            "count": 22
+          }
+        },
+        "physical_doses": [
+          {
+            "dose": "peroxide",
+            "lift_m": 0.16304298117756844,
+            "return_error_m": 0.005463086182050068,
+            "grasp_drift_m": 0.0029997851152368704
+          }
+        ],
+        "max_species_replay_abs_error_mol": 5.293955920339377e-23,
+        "max_proxy_replay_abs_error": 0.0,
+        "max_mass_relative_error": 3.9779836348938064e-16,
+        "max_atom_charge_relative_error": 3.0031168129925193e-15,
+        "quantization_relative_error": 0.002020493824843506,
+        "receiver_outflow_count": 0,
+        "source_motion_after_return_m": 1.405930678604969e-06,
+        "final_alpha": 0.9999993056777058
+      }
+    ],
+    "video": {
+      "codec_name": "h264",
+      "width": 960,
+      "height": 640,
+      "r_frame_rate": "2/1",
+      "nb_frames": "823"
+    },
+    "limitations": [
+      "Native smoothed PBD positions and configured per-particle mass; no calibrated density/volume.",
+      "Literature effective oxidation; instantaneous reduction and uncalibrated semantic color proxy, no measured bleaching-time/optical validation.",
+      "50s is the wait after completed robot workflow; actual dose-to-dose interval is reported separately.",
+      "Interrupted/failed/duplicate attempts and resource pauses remain disclosed; not an unbiased success-rate study."
+    ],
+    "targeted_reference_clarification": "Second-dose lift/return use its actual pre-skill pose after first workflow+50s nativewait, rather than initial mesh-root z. Only these metrics re-evaluated before acceptance; the original static-reference values retained, no physics/threshold change or second full audit.",
+    "video_review": "Root viewed positive six actual frame sheet, negative six actual frame sheet and scientific figure. Original PBD glass/isosurface and two sequential pours visible; liquid tint is small in the wide view and is not a calibrated optical measurement. First camera warmup frame remains black and disclosed. Negative original wrong subtitle retained; canonical annotation-only correction disclosed."
+  },
+  "accepted_at_utc": "2026-10-19T14:59:14.745545+00:00",
+  "trial_count_scope": "native_robot_trials=4 counts launch attempts: positive, completed omit-second, failed earlier continuous trial, and unselected GPU0 startup partial. Only two full functional episodes are accepted; the startup partial has no durable observed first task step and is not an additional successful trial.",
+  "unselected_duplicate_closeout": {
+    "output": "f_tier/N08/native_negative_gpu0",
+    "scope": "Unselected separate startup world; no completed result and no durable first task-step observation. Gracefully retired only during natural GPU0 vacancy; original partial files retained.",
+    "native_task_steps_observed": null,
+    "launcher_exit_does_not_imply_completion": true,
+    "full_wall_s": 2151.6754,
+    "raw_local_record": "f_tier/N08/native_negative_gpu0/retirement.json"
+  }
+}

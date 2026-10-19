@@ -1,0 +1,2589 @@
+{
+  "id": "V01",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "items": {
+    "N01": {
+      "video": "f_tier/N01/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "20.000000",
+        "nb_frames": "200"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N01_mid.png",
+          "video_s": 10.0
+        },
+        {
+          "path": "f_tier/V01/N01_end.png",
+          "video_s": 19.0
+        }
+      ],
+      "provenance": "Static native camera views held2seconds each; no task playback or interpolated dynamics.",
+      "declared_differences": [
+        "Reuses existing r12 local room layout, independent NAS hood CAD and original repository Toronto glovebox CAD; exact laboratory metric layout unavailable.",
+        "Five fixed arms use two adapted Panda/Robotiq and three UR3e; glovebox end-effectors and several device internals remain simplified or absent.",
+        "KUKA KMR is a source-linked independent geometric/kinematic reconstruction with coarse base collider; native mobile articulation and transport are not validated by N01.",
+        "Solid dispenser and washing/drying fixtures are local geometry; their physical behaviors require N10/N15/N21.",
+        "Existing native full-lab one-step initialization evidence is retained; this static inspection does not establish whole-lab settling or multi-agent task execution."
+      ],
+      "item_acceptance_review": "root independently loaded source USD with CPU bindings, recalculated15 visible-geometry bounds/372 colliders/metric units/prim composition errors, and PNG pixel stats",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N02": {
+      "video": "f_tier/N02/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "48.000000",
+        "nb_frames": "480"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N02_mid.png",
+          "video_s": 24.0
+        },
+        {
+          "path": "f_tier/V01/N02_end.png",
+          "video_s": 45.599999999999994
+        }
+      ],
+      "provenance": "Exact same N03 twelve-trial video copied for item navigation; zero new episodes.",
+      "declared_differences": [
+        "No FoundationPose transparency repair or successful glass robot perception is claimed.",
+        "Five legacy frames per material are correlated camera views of one static beaker with oracle initial mask, not five independent instances.",
+        "New robot controls use local opaque100g cup and privileged simulation poses, reusing N03 SE2 trial family.",
+        "N02 and N03 cover distinct F requirements but share one native dataset and video; no duplicate experiment count."
+      ],
+      "item_acceptance_review": "root reused the once-only N03 native observation/action audit and unchanged legacy glass/opaque control evidence",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N03": {
+      "video": "f_tier/N03/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "48.000000",
+        "nb_frames": "480"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N03_mid.png",
+          "video_s": 24.0
+        },
+        {
+          "path": "f_tier/V01/N03_end.png",
+          "video_s": 45.599999999999994
+        }
+      ],
+      "provenance": "CPU rendering of same-source USD visual geometry with actual recorded PhysX body/object world poses; no new physics or interpolation;4x playback labeled.",
+      "declared_differences": [
+        "Privileged native PhysX object observations replace FoundationPose; no learned perception model repair claim.",
+        "Local100g hollow opaque beaker and NVIDIA Panda native hand replace original CAD/hardware.",
+        "Twelve prelisted SE2 poses; not arbitrary SO3 or visual/domain generalization.",
+        "Original Matterix HSM primitives+local IK/joint adapter; every attempt retained.",
+        "No USD textures/MDL BSDF translation; constant resolved color/fallback gray, display-only floor. Geometry and native poses retained."
+      ],
+      "item_acceptance_review": "root independently recalculated all twelve120Hz native pose/contact trajectories, frozen observation-to-action chain and video mapping",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N04": {
+      "video": "f_tier/N04/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 640,
+        "r_frame_rate": "15/1",
+        "duration": "489.333333",
+        "nb_frames": "7340"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N04_mid.png",
+          "video_s": 244.6666665
+        },
+        {
+          "path": "f_tier/V01/N04_end.png",
+          "video_s": 464.86666634999995
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.",
+        "Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.",
+        "Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.",
+        "Parameter mass bookkeeping, not a calibrated physical volume/density measurement.",
+        "Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.",
+        "Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim."
+      ],
+      "item_acceptance_review": "Four native frames include successful pour, untilt failure, pick failure and no-tilt return; map covers all11 full trajectories.",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N05": {
+      "video": "f_tier/N05/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 740,
+        "r_frame_rate": "15/1",
+        "duration": "208.500000",
+        "nb_frames": "3266"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N05_mid.png",
+          "video_s": 104.25
+        },
+        {
+          "path": "f_tier/V01/N05_end.png",
+          "video_s": 198.075
+        }
+      ],
+      "provenance": "Continuous native robot placement of plate,reservoir andtiprack, followed without reset by OT2 semantic pipetting in their actual measured frames.",
+      "declared_differences": [
+        "Local fixtures/poses/masses/parallel-gripoverlay; exact authorCAD/rack seating and FR3 real deployment not reproduced.",
+        "Python/CPU finite conservative semantic parcels and instantaneous transfers, notPBD aspiration or calibrated physical microlitres.",
+        "Legacy600Hz trial-relative trace excludes warmup and has no retrospectively added native callback counter.",
+        "Video is the existing native recorded-state positive replay; full matched negative remains separately audited in raw evidence.",
+        "Shares one complete208.5s physical episode withN20/N22 coverage; no claim of a new independent experiment."
+      ],
+      "item_acceptance_review": "root requirement-by-requirement F coverage review of existing completed pair and prior independent native/event/encoded-video audits; no repeat simulation or per-file hashes",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N06": {
+      "video": "f_tier/N06/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1100,
+        "height": 440,
+        "r_frame_rate": "20/1",
+        "duration": "12.000000",
+        "nb_frames": "240"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N06_mid.png",
+          "video_s": 6.0
+        },
+        {
+          "path": "f_tier/V01/N06_end.png",
+          "video_s": 11.399999999999999
+        }
+      ],
+      "provenance": "Animated measured time series, not a rendered robot episode",
+      "declared_differences": [
+        "Effective thermal and kinetic parameters calibrated to fig5a_1; original author parameters unavailable.",
+        "Native scene is the public heat-transfer Franka task; original workflow and exact source controller timing differ.",
+        "Source literal chemical labels retained; chemical identity and reciprocal calorimetry unverified."
+      ],
+      "item_acceptance_review": "root distinct saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N07": {
+      "video": "f_tier/N07/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1100,
+        "height": 440,
+        "r_frame_rate": "20/1",
+        "duration": "12.000000",
+        "nb_frames": "240"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N07_mid.png",
+          "video_s": 6.0
+        },
+        {
+          "path": "f_tier/V01/N07_end.png",
+          "video_s": 11.399999999999999
+        }
+      ],
+      "provenance": "Animated measured time series, not rendered robot replay",
+      "declared_differences": [
+        "Effective nonreciprocal thermal reconstruction and literal source chemical names, original parameters/chemical identities unavailable.",
+        "Public native MATTERIX heat-transfer scene rather than unavailable original chemical implementation.",
+        "Independent40C native experiment uses same seed1, CPU PhysX, 4ms physics and20ms control.",
+        "No refit; source40C trace previously inspected, so not blind evaluation.",
+        "Native process exit status unobserved; launcher reported143 after complete2000s/500000steps. Postprocessor missing-exit-record failure preserved; no clean-exit claim."
+      ],
+      "item_acceptance_review": "root independently recomputed held-out source interpolation/RMSE, species balance, raw step-time ordering and final native HSM/contact; no rerun",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N09": {
+      "video": "f_tier/N09/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 990,
+        "height": 528,
+        "r_frame_rate": "20/1",
+        "duration": "8.000000",
+        "nb_frames": "160"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N09_mid.png",
+          "video_s": 4.0
+        },
+        {
+          "path": "f_tier/V01/N09_end.png",
+          "video_s": 7.6
+        }
+      ],
+      "provenance": "Measured performance chart animation, not rendered task episode",
+      "declared_differences": [
+        "RTX5090 with current local driver differs from original paper hardware.",
+        "Heat-transfer test task replication scales cloned scenes; four configured task assets per scene (beaker, plate, table, robot), excluding the shared ground and robot link count; original full-lab benchmark configuration not recovered.",
+        "Includes original sensors and their updates in both variants; isolates semantic-manager update cost only.",
+        "Shared workstation with active unrelated user tasks; no process stopped or clocks locked, absolute throughput may vary."
+      ],
+      "item_acceptance_review": "root independent saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N11": {
+      "video": "f_tier/N11/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "27.800000",
+        "nb_frames": "278"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N11_mid.png",
+          "video_s": 13.9
+        },
+        {
+          "path": "f_tier/V01/N11_end.png",
+          "video_s": 26.41
+        }
+      ],
+      "provenance": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+      "declared_differences": [
+        "Two standard NVIDIA Panda parallel hands replace author dual-arm hardware/end effectors.",
+        "Local100g hollow rigid beaker and table fixtures, not original author CAD.",
+        "Original Matterix HSM primitives with local joint-drive adapter and fixed phase coordination.",
+        "One local positive and no-close control; no statistical success-rate claim."
+      ],
+      "item_acceptance_review": "root independently recalculated120Hz raw body poses/contact forces/actual actuator targets and video-frame mapping",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N12": {
+      "video": "f_tier/N12/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "25.600000",
+        "nb_frames": "256"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N12_mid.png",
+          "video_s": 12.8
+        },
+        {
+          "path": "f_tier/V01/N12_end.png",
+          "video_s": 24.32
+        }
+      ],
+      "provenance": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+      "declared_differences": [
+        "Local16mm-diameter90mm vial and19mm square rack hole,25mm insertion depth; these are reconstructed functional fixtures, not author CAD.",
+        "Original Matterix HSM and native Panda hand with local IK adapter; local thresholds.",
+        "Position-bias control carries vial physically and commands final target30mm X off-hole; HSM collision timeout is an expected rejection.",
+        "Native joint/contact dynamics; no attachment constraint or runtime object pose writes. One-shot simulator-ground-truth grasp frame estimation after lift corrects subsequent robot goals; this local object-centric adapter is not claimed as author code.",
+        "Video replays exact saved CPU PhysX body poses at10Hz with zero new physics; ends with2s held positive and2s held negative views. Full negative motion remains in raw trace."
+      ],
+      "item_acceptance_review": "root independently recalculated raw native120Hz poses/contact data; N18 empty-tare and independent-mass traces recomputed without producer scale_mass field",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N13": {
+      "video": "f_tier/N13/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "8.700000",
+        "nb_frames": "87"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N13_mid.png",
+          "video_s": 4.35
+        },
+        {
+          "path": "f_tier/V01/N13_end.png",
+          "video_s": 8.264999999999999
+        }
+      ],
+      "provenance": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+      "declared_differences": [
+        "Local cuboid hood reconstruction; no original CAD/layout identity.",
+        "cuRobo sphere model plans in its sourcePanda URDF; nativeIsaac USD executes and independently checks physical hood contacts.",
+        "Arm link gravity disabled for local gravity compensation; no object-grasp or chemical/combined episode acceptance.",
+        "Blocked-goal control holds start configuration because planner rejects route, not a physical collision stunt."
+      ],
+      "item_acceptance_review": "/root/f_w2_thermal_perf",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N14": {
+      "video": "f_tier/N14/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "49.800000",
+        "nb_frames": "498"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N14_mid.png",
+          "video_s": 24.9
+        },
+        {
+          "path": "f_tier/V01/N14_end.png",
+          "video_s": 47.309999999999995
+        }
+      ],
+      "provenance": "CPU rendering of same-source USD visual geometry with actual native PhysX poses, no new physics or interpolation.",
+      "declared_differences": [
+        "Pinned GuidedTAMP KMR model uses world-constrained x/y/yaw native joints, not physical mecanum wheel contact.",
+        "Source280kg base and100N planar force limit retained; coarse base hull excludes onlyGround contact because source planar constraints support Z; hull-obstacle/payload contacts remain enabled.",
+        "Native source iiwa7+Panda hand; DAE hand visual meshes replaced by sibling collisionSTL, no attachment or runtime object pose commands.",
+        "Local100g hollow rigid cup/two station pedestals and privileged geometric obstacle guard; no fluid/real lidar claim.",
+        "Link gravity disabled as local arm/base compensation; selfcollision disabled for source import configuration.",
+        "No USD textures/MDL BSDF translation; constant resolved color/fallback gray, display-only floor. Geometry and native poses retained."
+      ],
+      "item_acceptance_review": "root independently recomputed120Hz base/payload/support/negative guard and originalURDF FK grasp drift, plus native-video mapping",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N15": {
+      "video": "f_tier/N15/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "22.400000",
+        "nb_frames": "224"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N15_mid.png",
+          "video_s": 11.2
+        },
+        {
+          "path": "f_tier/V01/N15_end.png",
+          "video_s": 21.279999999999998
+        }
+      ],
+      "provenance": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views. Stream cylinder is a declared visualization of recorded scalar semantic flow, not CFD.",
+      "declared_differences": [
+        "Local passive lever valve, sink and drying geometry; original author device implementation unavailable.",
+        "Local declared linear angle-flow semantic model, not independently measured hydraulic behavior; R2 validates data coupling only.",
+        "Standard NVIDIA Panda hand replaces author hardware; original Matterix HSM primitives retained.",
+        "Water is a scalar conserved delivery ledger; no liquid free-surface/particle water dynamics in this test."
+      ],
+      "item_acceptance_review": "root independently recomputed 4420 raw quaternion angles, observed-angle semantic flow and cumulative volume, native contact and video mapping",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N16": {
+      "video": "f_tier/N16/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "11.600000",
+        "nb_frames": "116"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N16_mid.png",
+          "video_s": 5.8
+        },
+        {
+          "path": "f_tier/V01/N16_end.png",
+          "video_s": 11.02
+        }
+      ],
+      "provenance": "Qualitative native function reconstruction with declared configuration differences",
+      "declared_differences": [
+        "Locally reconstructed hollow beaker/funnel geometry, not author labware CAD.",
+        "Contents are represented by rigid lumped mass; this task does not validate liquid flow.",
+        "NVIDIA standard Panda parallel hand replaces the author Robotiq; arm gravity compensation is represented by disabled link gravity.",
+        "Reconstructed scale uses native support contact impulses; this is not an author calibrated scale.",
+        "One local positive and one negative scene; no statistical success rate claim."
+      ],
+      "item_acceptance_review": "root independent saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N17": {
+      "video": "f_tier/N17/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "15.700000",
+        "nb_frames": "157"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N17_mid.png",
+          "video_s": 7.85
+        },
+        {
+          "path": "f_tier/V01/N17_end.png",
+          "video_s": 14.915
+        }
+      ],
+      "provenance": "Qualitative native function reconstruction with declared configuration differences",
+      "declared_differences": [
+        "Locally reconstructed hollow beaker/funnel geometry, not author labware CAD.",
+        "Contents are represented by rigid lumped mass; this task does not validate liquid flow.",
+        "NVIDIA standard Panda parallel hand replaces the author Robotiq; arm gravity compensation is represented by disabled link gravity.",
+        "Reconstructed scale uses native support contact impulses; this is not an author calibrated scale.",
+        "One local positive and one negative scene; no statistical success rate claim.",
+        "A local rigid OT2 cup holder raises the receiving support to the predeclared 107.05mm goal bottom; the original deck geometry and remaining collisions are unchanged. Two original front service panels are rotated together with their collision meshes to a fixed open loading configuration at initialization; original OT2 deck and other colliders retained. This is not the author automatic door mechanism and does not validate any door-operation requirement."
+      ],
+      "item_acceptance_review": "root independent saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N18": {
+      "video": "f_tier/N18/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "15.000000",
+        "nb_frames": "150"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N18_mid.png",
+          "video_s": 7.5
+        },
+        {
+          "path": "f_tier/V01/N18_end.png",
+          "video_s": 14.25
+        }
+      ],
+      "provenance": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+      "declared_differences": [
+        "Locally reconstructed hollow beaker/funnel geometry, not author labware CAD.",
+        "Contents are represented by rigid lumped mass; this task does not validate liquid flow.",
+        "NVIDIA standard Panda parallel hand replaces the author Robotiq; arm gravity compensation is represented by disabled link gravity.",
+        "Local CPU-only native mechanical spring scale: k1000N/m,80Ns/m damping,1kg platform, actual empty tare2s. The nominal stiffness formula was independently validated on150g/300g/compound220g and frozen before delivery. OldCUDA gain failed to transfer and is not used. This is not author scale hardware.",
+        "One local positive and one negative scene; no statistical success rate claim.",
+        "Video replays exact saved CPU PhysX body poses at10Hz with zero new physics; ends with2s held positive and2s held negative views. Full negative motion remains in raw trace."
+      ],
+      "item_acceptance_review": "root independently recalculated raw native120Hz poses/contact data; N18 empty-tare and independent-mass traces recomputed without producer scale_mass field",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N19": {
+      "video": "f_tier/N19/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "11.700000",
+        "nb_frames": "117"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N19_mid.png",
+          "video_s": 5.85
+        },
+        {
+          "path": "f_tier/V01/N19_end.png",
+          "video_s": 11.114999999999998
+        }
+      ],
+      "provenance": "Qualitative native function reconstruction with declared configuration differences",
+      "declared_differences": [
+        "Local rigid rack and 8 independent 10g sample tubes; no attachment/weld and no runtime object pose commands.",
+        "Sample contents are included in rigid tube masses; no fluid simulation is claimed.",
+        "Original Matterix HSM with NVIDIA Panda native hand and local motion adapter.",
+        "Local retention thresholds: all8 tube centers within6mm XY and12mm Z of their own rack pockets during the terminal1s."
+      ],
+      "item_acceptance_review": "root independent saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N20": {
+      "video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 740,
+        "r_frame_rate": "15/1",
+        "duration": "208.500000",
+        "nb_frames": "3266"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N20_mid.png",
+          "video_s": 104.25
+        },
+        {
+          "path": "f_tier/V01/N20_end.png",
+          "video_s": 198.075
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "LocalPanda/Robotiqfixture,declaredsupportgeometry",
+        "N22finiteconservativeparcelsemantics;notPBDorcalibratedmicrolitres"
+      ],
+      "item_acceptance_review": "Existing migrated independent pair review and scoped recorded-state video review; no new episode/audit claimed",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N21": {
+      "video": "f_tier/N21/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "16.200000",
+        "nb_frames": "162"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N21_mid.png",
+          "video_s": 8.1
+        },
+        {
+          "path": "f_tier/V01/N21_end.png",
+          "video_s": 15.389999999999999
+        }
+      ],
+      "provenance": "Explicitly labeled exact native CPU PhysX recorded-state replay; no interpolation or new physics; 2-second held terminal views.",
+      "declared_differences": [
+        "Local open draining rack with7rails,4legs and rear pegs160mm behind cup target; initial95mm clearance fixture blocked descent and is preserved; no original author rack CAD or evaporation/drying kinetics claim.",
+        "Local100g hollow rigid beaker; opaque cyan material and segmented convex shell, not original glass CAD.",
+        "Original Matterix HSM + NVIDIA Panda native parallel hand; CPU PhysX joint drives and contact.",
+        "One positive and same-path no-close control; no statistical success rate claim."
+      ],
+      "item_acceptance_review": "root independently recalculated120Hz raw body poses/contact forces/actual actuator targets and video-frame mapping",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N22": {
+      "video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 740,
+        "r_frame_rate": "15/1",
+        "duration": "208.500000",
+        "nb_frames": "3266"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N22_mid.png",
+          "video_s": 104.25
+        },
+        {
+          "path": "f_tier/V01/N22_end.png",
+          "video_s": 198.075
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "LocalPanda/Robotiqfixture,declaredsupportgeometry",
+        "N22finiteconservativeparcelsemantics;notPBDorcalibratedmicrolitres"
+      ],
+      "item_acceptance_review": "Existing migrated independent pair review and scoped recorded-state video review; no new episode/audit claimed",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "N23": {
+      "video": "f_tier/N23/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "56.300000",
+        "nb_frames": "563"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N23_mid.png",
+          "video_s": 28.15
+        },
+        {
+          "path": "f_tier/V01/N23_end.png",
+          "video_s": 53.48499999999999
+        }
+      ],
+      "provenance": "Exact native PhysX state playback with source USD visual geometry; 1x, no new physics or interpolation.",
+      "declared_differences": [
+        "Privileged contact/pose guards and local fixtures; no learned perception or full author laboratory layout identity.",
+        "Source constrained planar KMR base joints, not mecanum wheel contact; same N14 ground-pair filtering and gravity compensation.",
+        "Opaque local100g rigid cup and standard Panda hands replace author glass/hardware.",
+        "No USD textures/MDL BSDF conversion; constant resolved/fallback colors and display floor. Source visual geometry and exact native world poses retained.",
+        "Scripted coordinator and native guards; no LLM/learned policy, no liquid or combined Auto+thermal episode claim.",
+        "Three earlier physical/IK failures and an occluded render attempt retained; final full native episode is a functional demonstration, not an estimated success rate."
+      ],
+      "item_acceptance_review": "root independently recomputed native120Hz fault/retention/recovery contacts, guard ordering and observation action causality, originalURDF mobile grasp drift and video mapping",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A02": {
+      "video": "f_tier/A02/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1040,
+        "height": 720,
+        "r_frame_rate": "10/1",
+        "duration": "39.000000",
+        "nb_frames": "390"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A02_mid.png",
+          "video_s": 19.5
+        },
+        {
+          "path": "f_tier/V01/A02_end.png",
+          "video_s": 37.05
+        }
+      ],
+      "provenance": "39s actual saved MuJoCo qpos and Warp particle-state rendering:31.5s positive+7.5s negative,10fps; no replayed dynamics or interpolation. Native clocks labelled.",
+      "declared_differences": [
+        "Independent MuJoCo3.3.7/Warp1.9.1 reconstruction; proprietary GRID unavailable.",
+        "Existing source-linked Flexiv/Robotiq models, simplified local open-bottom rack rather than author rack CAD.",
+        "Vessel walls and bottoms thickened outward6.5mm with original empty inertia retained;3.75mL local fluid fill.",
+        "Fluid collision validation includes tube/beaker walls/bottoms,bench_top,floor only; no fluid-rack or fluid-robot boundaries. No global collision-free claim.",
+        "Sim-observed object poses and script expert; no trained policy, perception or cross-robot skill-reuse acceptance.",
+        "Pour mouth calibrated upstream57.03mm using failed saved landing offsets; task-specific repair, not held-out generalization.",
+        "Opaque blue labware/particle point rendering differs from original material and continuous liquid appearance.",
+        "One continuous positive and one no-close prerequisite control, not statistical success-rate evidence."
+      ],
+      "item_acceptance_review": "root, independent from producer metrics: replay of recorded MuJoCo qpos, particle states and50Hz contact trace",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A03": {
+      "video": "f_tier/A03/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 550,
+        "r_frame_rate": "10/1",
+        "duration": "138.600000",
+        "nb_frames": "1386"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A03_mid.png",
+          "video_s": 69.3
+        },
+        {
+          "path": "f_tier/V01/A03_end.png",
+          "video_s": 131.67
+        }
+      ],
+      "provenance": "All six full recorded native state trajectories,10fps, no interpolation or new dynamics.",
+      "declared_differences": [
+        "Independent MuJoCo/Warp reconstruction, original GRID unavailable; 240 particles/3.75mL coarse liquid.",
+        "All6 reused from A04 expert training data, no new/heldout episodes; A12 engineering video uses different earlier seeds.",
+        "Only moving receiver trajectory varies; identical initial source/cup pose, no arbitrary initial pose or source orientation claim.",
+        "Native cup motion uses generalized external force; privileged cup state, no visual perception.",
+        "Fluid collision scope containers/bench/floor, excludes robot/rack; rigid robot contacts remain native.",
+        "Scripted task and object-frame feedback skill, no learned-policy or weight-transfer claim."
+      ],
+      "item_acceptance_review": "root independently replayed actual saved MuJoCo qpos and particle positions for final membership, sustained loaded lift, release, clock and actual receiver trajectory",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A07": {
+      "video": "f_tier/A07/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 420,
+        "r_frame_rate": "10/1",
+        "duration": "3.100000",
+        "nb_frames": "31"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A07_mid.png",
+          "video_s": 1.55
+        },
+        {
+          "path": "f_tier/V01/A07_end.png",
+          "video_s": 2.945
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "Local calibration harness reconstruction; not original GRID controller or real camera calibration",
+        "Camera observations are simulated fiducial SE(3) measurements derived from actual integrated native controller poses; no image detector is evaluated",
+        "Known injection 25,-18,20 mm translation and 4,-3,5 degree axis-angle rotation; local noise and tolerances explicitly chosen",
+        "One deterministic seed/trajectory; original author's assets/data unavailable; no real robot or cross-robot calibration acceptance"
+      ],
+      "item_acceptance_review": "root distinct saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A08": {
+      "video": "f_tier/A08/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 420,
+        "r_frame_rate": "20/1",
+        "duration": "4.050000",
+        "nb_frames": "81"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A08_mid.png",
+          "video_s": 2.025
+        },
+        {
+          "path": "f_tier/V01/A08_end.png",
+          "video_s": 3.8474999999999997
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "Local timing harness reconstruction; original GRID runtime unavailable",
+        "50 Hz and jitter/effect tolerances are local thresholds, not original paper values",
+        "Tests simulation-clock command scheduling; no real robot, hardware/network clock or physical deployment latency claim",
+        "Same rigid UR5e scene, no fluid or trained policy; no claim of task-success benefit from changing rate"
+      ],
+      "item_acceptance_review": "root distinct saved-record recomputation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A09": {
+      "video": "f_tier/A09/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 680,
+        "r_frame_rate": "10/1",
+        "duration": "12.700000",
+        "nb_frames": "127"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A09_mid.png",
+          "video_s": 6.35
+        },
+        {
+          "path": "f_tier/V01/A09_end.png",
+          "video_s": 12.065
+        }
+      ],
+      "provenance": "Exact saved MuJoCo native qpos replay at10Hz;2s held final positive/last sampled negative states,0newphysics/nointerpolation. Negative final70ms not recorded in pose video, raw contact log remains.",
+      "declared_differences": [
+        "Local raster-depth sensor replaces unavailable original depth model.",
+        "Unknown obstacle is absent from baseline collision catalog but visible to depth camera; no inference of optically invisible surfaces.",
+        "Known horizontal tabletop datum and calibrated camera transform; not simultaneous extrinsic calibration.",
+        "No liquid, learned policy, original GRID or combined MATTERIX-world episode claim.",
+        "Conservative axis-aligned obstacle envelope from visible points may also include robot pixels; local box approximation is not full shape reconstruction.",
+        "Depth-scale/bias fault is a declared synthetic sensor/model-error surrogate; no learned monocular depth model evaluated.",
+        "Two prephysics planning failures retained; no physical episodes discarded. One positive and one contact-rejected negative, not a success-rate/generalization study."
+      ],
+      "item_acceptance_review": "/root/f_w2_thermal_perf",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A10": {
+      "video": "f_tier/A10/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 570,
+        "r_frame_rate": "10/1",
+        "duration": "69.300000",
+        "nb_frames": "693"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A10_mid.png",
+          "video_s": 34.65
+        },
+        {
+          "path": "f_tier/V01/A10_end.png",
+          "video_s": 65.835
+        }
+      ],
+      "provenance": "All3 full native trajectories,10fps; actual qpos and240particle positions; zero new dynamics or interpolation.",
+      "declared_differences": [
+        "Native RGB-D and known camera/workspace/cylindrical prior instead of original unpublished tracker and GRID.",
+        "Initial fixture reference(.54,.22) comes from native setup; dynamic object pose is evaluator-only after forming observation and drives environment force.",
+        "Online perception renders only rigid scene; externalWarp liquid is not in RGB-D. Videos will separately draw liquid particles. No liquid optics/refraction robustness claim.",
+        "Sensor refresh is measured in native simulation time. Initial pipeline latency mean283.98ms and episode wall image rate.3835Hz; not real-time hardware tracking.",
+        "New per-control run changes observation count/cost; retained stale control consumes a constant first image independent of unused later image cadence. No compute-matched comparison claim.",
+        "Seed9411 was used to diagnose sampling-age failure and choose100Hz refresh; whole-system blind heldout generalization is not claimed.",
+        "Negative uses original10Hz observation acquisition but always consumes firstimage. Reuse is not compute-matched; repaired positive and negative have unequal observation/wall costs.",
+        "Online RGB-D lacks externalWarp liquid rendering. Finalvideo separately shows particle spheres; no refraction/liquid-optics robustness.",
+        "100Hz is native simulated-time cadence; positive pipeline mean~281ms and wall throughput~1.96images/s. No hardware real-time claim."
+      ],
+      "item_acceptance_review": "/root/f_w1_manipulation independent read-only audit; root aggregate recomputation agrees",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A11": {
+      "video": "f_tier/A11/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 440,
+        "r_frame_rate": "25/1",
+        "duration": "2.400000",
+        "nb_frames": "60"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A11_mid.png",
+          "video_s": 1.2
+        },
+        {
+          "path": "f_tier/V01/A11_end.png",
+          "video_s": 2.28
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "Agent engineering evidence reconstructed from this actual tool session and native files; no claim to original proprietary GRID engineering traces",
+        "Rigid moving-cup tracking is the physical outcome here; no fluid success, spill or complete pour claim",
+        "A human supplied task/acceptance guidance; diagnosis and code patch were executed by this agent, not an independently benchmarked autonomous-agent population",
+        "Local four-seed correction demonstration and two adapters; no general compounding-intelligence scaling claim"
+      ],
+      "item_acceptance_review": "root independent NumPy saved-record calculation",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A12": {
+      "video": "f_tier/A12/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 480,
+        "r_frame_rate": "10/1",
+        "duration": "46.200000",
+        "nb_frames": "462"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A12_mid.png",
+          "video_s": 23.1
+        },
+        {
+          "path": "f_tier/V01/A12_end.png",
+          "video_s": 43.89
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [],
+      "item_acceptance_review": "root independently recomputed both clock domains, measured subprocess CPU including failed launch, and native MuJoCo state/particle receiver membership/actual cup path",
+      "visual_review_status": "MID_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "review_scope": "Root viewed family contact sheet and retained item-specific native/motion/video audits; not a new frame-by-frame task acceptance."
+    },
+    "A04": {
+      "video": "f_tier/A04/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 960,
+        "r_frame_rate": "10/1",
+        "duration": "46.200000",
+        "nb_frames": "462"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A04_mid.png",
+          "video_s": 23.1
+        },
+        {
+          "path": "f_tier/V01/A04_end.png",
+          "video_s": 43.89
+        }
+      ],
+      "provenance": "Two four-panel sections,all8comparators on both robots at fixed9401; all231actual native states each; diagnostic particle projection;0new physics/no interpolation.",
+      "declared_differences": [
+        "Only4heldout seeds perrobot, report wide confidence intervals; not paper-scale robustness",
+        "State-based hybrid controller rather than visual end-to-end policy",
+        "Coarse240particles3.75mL; separateA01 multiresolution validation remains independent",
+        "Different actual label budgets after failures are disclosed; matched9episode control does not imply equalteacherquery count",
+        "Independent local state-based reconstruction, not originalGRID implementation/weights/datasets",
+        "Only native8.5..15s feedback is learned; pickup/transfer/return remain scripted; no end-to-end or in-context-learning claim",
+        "Same initialsource/cup poses across seeds; actual movingreceiver trajectories vary. No arbitraryinitialpose/sourceorientation generalization claim",
+        "Separate policy weights perrobot; robotadapter reuse and common semantics, not zero-shot policyweight transfer",
+        "Particle collision scope containers,bench,floor; excludesfluidrobot/rack; diagnostic particle rendering",
+        "BC9/DAgger comparison is descriptive on fixedsmall heldout set; no superiority or statisticalsignificance claim required"
+      ],
+      "item_acceptance_review": "Root inspected encoded12s,35s,44s frames: all8fixed9401 panels, pouring and returned robot views; state counts/learned window/expert-query boundary and diagnostic X-Z particle rendering labeled. Frame-map1848panel samples covers each8x231 original native states exactly;0new physics/no interpolation.",
+      "visual_review_status": "MID_AND_END_FRAME_INSPECTED_WITH_EXISTING_ITEM_ACCEPTANCE_REVIEW",
+      "visual_review_notes": "Actual both-robot comparison panels decoded and viewed; rigid scene plus separately labeled particle X-Z diagnostic. Opaque local labware/black background differ from original real/sim showcase. No additional dynamics or original-render identity claimed."
+    },
+    "A01": {
+      "video": "f_tier/A01/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 1200,
+        "height": 800,
+        "r_frame_rate": "20/1",
+        "duration": "168.100000",
+        "nb_frames": "3362"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/A01_mid.png",
+          "video_s": 84.05
+        },
+        {
+          "path": "f_tier/V01/A01_end.png",
+          "video_s": 159.695
+        }
+      ],
+      "provenance": "Measured chart plus all saved frames of declared native runs; explicit display holds.",
+      "declared_differences": [
+        "Independent local MuJoCo/Warp DFSPH reconstruction; original GRID implementation, assets and hardware are unavailable.",
+        "Hydrostatic tank settles for40 native seconds (20+20 checkpoint continuation), then2s wall-tap continuation. No lower-density-band gate.",
+        "Mechanical wall taps pass local R2>.95 and slope error<10%; absolute rho*g*h NRMSE16.81% and34.55Pa intercept remain disclosed. This does not validate the failed full particle-pressure field.",
+        "Raw unshifted coarse dam-break error8.04% passes; refined3456-particle raw error14.52% fails. No posthoc time shift is used to replace this failure.",
+        "Same local3.75mL,3.75g nested240/1920/15360 initial voxel volume; three Akinci boundary layers and6.5mm outward-thickened native vessel walls, original empty inertials retained.",
+        "Adaptive CFL lambda.4 and full integration steps cross100Hz command deadlines. Native command rate is not wall-clock or hardware real-time performance.",
+        "Collision-crossing scope covers vessels, bench and floor, excluding fluid-robot/rack interactions. Native soft-contact overlaps and fine initial spill are retained limitations.",
+        "Native support force minus separately measured empty tare gives scale output; particle counts are only the independent comparison mass, not the scale reading.",
+        "Three GPU main-run final-window scale means were accumulated online; exact per-substep scale CSV was not retained. Their saved 100Hz support traces permit only approximate independent re-integration. The matched CPU two-way/one-way controls retain exact overlap-weighted substep CSV for both runs.",
+        "UR5e script expert, localcup poses and fixedfill; no learned policy, arbitrary task-space generalization, original rendering or hardware transfer claim.",
+        "The consolidated video uses actual saved particle/rigid states, diagnostic X-Z points, measured charts and explicitly labeled display holds; zero new physics or interpolated states.",
+        "Fine first saved spill=0; pregrasp transient peak550/15360=3.58073% at0.180076s; final319/15360=2.07682%. The old1.71% was an intermediate observation, not the full pregrasp maximum."
+      ],
+      "item_acceptance_review": "/root/f_w1_manipulation",
+      "visual_review_status": "REVIEWED_WITH_DECLARED_LIMITATIONS",
+      "visual_review": "Root viewed actual middle/end of168.1s canonical video and full fine-run terminalkeyframe. Robot and vessel layouts are readable; fluid is explicitly diagnosticX-Z saved points, not surface liquid rendering or original GRID visual identity. Medium transfer and matched one-way negative are labeled."
+    },
+    "N08": {
+      "video": "f_tier/N08/video.mp4",
+      "probe": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 640,
+        "r_frame_rate": "2/1",
+        "duration": "411.500000",
+        "nb_frames": "823"
+      },
+      "representative_frames": [
+        {
+          "path": "f_tier/V01/N08_mid.png",
+          "video_s": 205.75
+        },
+        {
+          "path": "f_tier/V01/N08_end.png",
+          "video_s": 390.92499999999995
+        }
+      ],
+      "provenance": "See native frame labels and item result",
+      "declared_differences": [
+        "Paper Methods ascorbic stock5mmol/100g is printed0.05mmol/kg; arithmetic gives0.05mol/kg. We use the explicit delivered2.4mmol in48g, not the inconsistent printed concentration.",
+        "Public fig5b_2 CSV starts OO1.47, I0.78, ascorbic0.85 in100g vessels and reverses the first donor/receiver roles relative to Methods. Those values are not treated as the real recipe or fitted kinetics.",
+        "Uncatalyzed well-mixed effective oxidation model, nominal25C; no calibrated pH, ionic-strength, starch binding, oxygen/gas, or finite mixing/bleaching dynamics.",
+        "Aqueous volume estimated from total solution mass at1kg/L. Exact atom/charge/mass conservation is tracked separately from that volume approximation.",
+        "This subsystem and any offline color plot alone cannot satisfy N08 F acceptance. Native robot-mediated two additions, negative control and video remain required.",
+        "One shared PBD fluid set with stable semantic stock labels; instantaneous well-mixed semantic chemistry once observed dose crosses receiver; not molecular mixing.",
+        "Scaled90particle local cups replace100g/48g original stock masses, preserving concentrations; parameter mass is not visual volume/density calibration.",
+        "Spatial local MDL color proxy feeds original water BSDF color inputs; quantitative bleaching speed and exact RGB recovery are not claimed.",
+        "Diagnostic first native positive precedes the full fixed positive+negative functional acceptance; all failures retained.",
+        "Independent verification reimplemented observed ingress, native timeline, chemistry, and atom/charge ledger; agreement verifies simulation serialization, not experimental chemical kinetics.",
+        "The actual observed last-peroxide-entry to first-ascorbic-entry interval is101.916669s;50s is the programmed wait after the first full robot workflow.",
+        "Wide-view liquid tint is qualitative and small; no calibrated RGB/HSV, starch-binding or finite bleaching-time accuracy is claimed."
+      ],
+      "item_acceptance_review": "Root viewed positive six actual frame sheet, negative six actual frame sheet and scientific figure. Original PBD glass/isosurface and two sequential pours visible; liquid tint is small in the wide view and is not a calibrated optical measurement. First camera warmup frame remains black and disclosed. Negative original wrong subtitle retained; canonical annotation-only correction disclosed.",
+      "visual_review_status": "REVIEWED_WITH_DECLARED_LIMITATIONS",
+      "visual_review": "Root viewed canonical middle/end and the complete-positive/negative6-frame sheets and scientificfigure. Native glass/isosurface and sequential physical pours are visible; wide camera makes liquid tint small, no quantitative optical or original-render identity claim. First black camera warmup preserved; canonicalnegative annotation correction changes only header, original videos retained.",
+      "additional_exact_frame_sheets": [
+        "f_tier/N08/native_smoke/visual_review.png",
+        "f_tier/N08/native_negative/visual_review.png"
+      ]
+    }
+  },
+  "differences": [
+    "Visual functional comparison only; no photometric original-identity or image-similarity claim.",
+    "Task videos may be native-frame captures, exact saved-state playback, static scenes or measured charts; each is labeled separately.",
+    "Snapshot19Oct2026 covers32 accepted task videos; N10 fivecycle trial, A05 formal0/3 failure and A06 missingphoneinput remain open or blocked."
+  ],
+  "inspected_video_files": 32,
+  "accepted_items_at_inventory": [
+    "N01",
+    "N02",
+    "N03",
+    "N04",
+    "N05",
+    "N06",
+    "N07",
+    "N08",
+    "N09",
+    "N11",
+    "N12",
+    "N13",
+    "N14",
+    "N15",
+    "N16",
+    "N17",
+    "N18",
+    "N19",
+    "N20",
+    "N21",
+    "N22",
+    "N23",
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12"
+  ],
+  "review_scope": "Two sampled actual video frames per new accepted item plus existing per-item native evidence/visual review. This does not claim exhaustive frame-by-frame visual inspection.",
+  "protocol": {
+    "local_gates": [
+      "All accepted item videos decodable and native/chart/static/replay provenance disclosed",
+      "Inspect representative geometry/material/motion/liquid views and retain visible limitations",
+      "Compare source MATTERIX and official Auto references with declared reconstruction differences",
+      "One labeled comparison-tour video, no generated task dynamics",
+      "No original visual-identity claim"
+    ]
+  },
+  "source_comparisons": [
+    {
+      "source": "User-provided Nature Computational Science MATTERIX Fig3",
+      "doi": "10.1038/s43588-025-00924-4",
+      "reference_path": "f_tier/V01/matterix_published_page5.png",
+      "local_items": [
+        "N01",
+        "N05",
+        "N13",
+        "N14",
+        "N17",
+        "N20",
+        "N22",
+        "N23"
+      ],
+      "observations": [
+        "Original public lab assets and source robot silhouettes are recognizable in local assembly; local layout/fixtures and active tasks differ.",
+        "N01 is static assembled-scene inspection, not all stations executing in one integrated lab.",
+        "CPU replay uses resolved constant colors and source visual geometry; it does not reproduce Isaac MDL optical shading.",
+        "OT2 task video is exact recorded-state playback and semantic parcel bookkeeping, not physical aspiration."
+      ]
+    },
+    {
+      "source": "General Robotics official real/simulation comparison",
+      "url": "https://www.generalrobotics.company/post/introducing-auto-engineering-for-robotics",
+      "reference_path": "references/official_auto_scene_comparison_r1.webp",
+      "local_items": [
+        "A02",
+        "A03",
+        "A09",
+        "A10",
+        "A12"
+      ],
+      "observations": [
+        "Local Flexiv/UR5e, labware rack and table task geometry are identifiable; original wooden tabletop, enclosure, lighting and transparent pink liquid are not reproduced.",
+        "Local Auto beaker/rack use opaque cyan materials, and explicit Warp particle spheres remain diagnostic rendering; no glass-color or original visual identity claim.",
+        "A10 online RGBD excludes externalWarp liquid; final-video liquid is separately displayed from actual saved particle states."
+      ]
+    },
+    {
+      "source": "Native original public MATTERIX FluidSystem defaults",
+      "local_items": [
+        "N04"
+      ],
+      "observations": [
+        "N04 preserves original transparent material, anisotropy, smoothing and isosurface; it is native PBD rather than the independent Auto Warp particle renderer.",
+        "125 default particles and authored scale1 asset have a disclosed parameter-mass/density/capacity mismatch; appearance does not establish calibrated volume."
+      ]
+    },
+    {
+      "source": "User-provided MATTERIX published Fig6b simulation and real setup",
+      "doi": "10.1038/s43588-025-00924-4",
+      "reference_path": "f_tier/V01/matterix_fig6b_reference.png",
+      "local_episode": "combined/runs/positive/result.json",
+      "local_frames": [
+        "combined/runs/positive/root_pour.png",
+        "combined/runs/positive/root_terminal.png"
+      ],
+      "observations": [
+        "Local accepted episode uses public glass assets and PhysX PBD isosurface; independent native transfer125/125 then solution28.008C/heateroff.",
+        "Published Fig6b includes both simulation and real-robot rows; our evidence is simulation only, with knownfixture and scripted objectrelative skills.",
+        "Local supported contact-loss recovery and declared N07effective thermal model do not establish originalauthorcalibration, learnedagent control or realhardware transfer."
+      ]
+    }
+  ],
+  "root_visual_inventory_review_utc": "2026-10-19T13:05:35.645845+00:00",
+  "pending": null,
+  "inventory_closed_for_final_tour": true,
+  "coverage_snapshot_utc": "2026-10-19T15:08:14.875142+00:00",
+  "coverage_snapshot_item_ids": [
+    "N01",
+    "N02",
+    "N03",
+    "N04",
+    "N05",
+    "N06",
+    "N07",
+    "N09",
+    "N11",
+    "N12",
+    "N13",
+    "N14",
+    "N15",
+    "N16",
+    "N17",
+    "N18",
+    "N19",
+    "N20",
+    "N21",
+    "N22",
+    "N23",
+    "A02",
+    "A03",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A04",
+    "A01",
+    "N08"
+  ],
+  "unfulfilled_task_items_at_snapshot": [
+    "N10",
+    "A05",
+    "A06"
+  ],
+  "snapshot_scope": "Frozen visualfunctional snapshot of32 independently accepted task items and first combinedepisode; not a claim that all36 Fitems passed. Future itemvideos require their own per-item visual review, no retrospectivecoverage claim.",
+  "video": "f_tier/V01/video.mp4",
+  "video_frames": 1480,
+  "video_kind": "Frozen19Oct2026 stage snapshot of32 accepted task items, source comparisons and held actual keyframes; zero new physics. N10/A05/A06 remain unfulfilled; each accepted item retains its complete task/chart/static video.",
+  "independent_review": "f_tier/V01/independent_review.json",
+  "criteria": [
+    {
+      "metric": "32accepted item complete videos with native/static/replay/chart provenance",
+      "pass": true
+    },
+    {
+      "metric": "64actual source keyframes and1480tour frame map verified, source comparisons and limitations visible",
+      "pass": true
+    },
+    {
+      "metric": "Frozenstage snapshot and3unfulfilled items explicitly disclosed; zero new taskdynamics",
+      "pass": true
+    }
+  ],
+  "future_item_media_policy": "The tour remains a32item snapshot. Each subsequently accepted item requires its own fullvideo/keyframes and visual review; append references without claiming they appeared in this frozen tour.",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "id": "V01",
+    "reviewer": "/root/f_w4_harness",
+    "script": "f_tier/V01/independent_media_review.py",
+    "passed": true,
+    "verdict": "PASS",
+    "review_started_utc": "2026-10-19T15:13:27.888865+00:00",
+    "review_finished_utc": "2026-10-19T15:13:45.589440+00:00",
+    "scope": "Frozen2026-10-19 visual functional snapshot of32 accepted non-V01 task items; not completion ofall36 or32new episodes.",
+    "checks": {
+      "frozen_32_ids_equal_current_F_excluding_V01": true,
+      "three_unfulfilled_items_excluded": true,
+      "all_item_provenance_and_existing_acceptance_described": true,
+      "32_source_videos_fully_decodable_and_inventory_matches": true,
+      "64_samples_exactly_match_their_full_source_video_frames": true,
+      "1480_map_indices_unique_and_complete": true,
+      "all_50_opening_frames_disclose_snapshot_and_unfulfilled_items": true,
+      "three_five_second_source_comparisons_mapped": true,
+      "all_64_sample_holds_exactly_20_frames_each_without_omission": true,
+      "combined_comparison_stills_match_actual_encoded_frames_and_native_map": true,
+      "final_video_full_decode_1480_frames_10fps_148seconds": true,
+      "all_1480_decoded_frames_match_mapped_source_image_regions": true,
+      "actual_encoded_frames_visually_inspected": true,
+      "accepted_result_and_map_bytes_unchanged": true
+    },
+    "snapshot_ids": [
+      "N01",
+      "N02",
+      "N03",
+      "N04",
+      "N05",
+      "N06",
+      "N07",
+      "N09",
+      "N11",
+      "N12",
+      "N13",
+      "N14",
+      "N15",
+      "N16",
+      "N17",
+      "N18",
+      "N19",
+      "N20",
+      "N21",
+      "N22",
+      "N23",
+      "A02",
+      "A03",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12",
+      "A04",
+      "A01",
+      "N08"
+    ],
+    "current_F_ids_excluding_V01_at_review": [
+      "N01",
+      "N02",
+      "N03",
+      "N04",
+      "N05",
+      "N06",
+      "N07",
+      "N08",
+      "N09",
+      "N11",
+      "N12",
+      "N13",
+      "N14",
+      "N15",
+      "N16",
+      "N17",
+      "N18",
+      "N19",
+      "N20",
+      "N21",
+      "N22",
+      "N23",
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12"
+    ],
+    "unfulfilled_ids": [
+      "N10",
+      "A05",
+      "A06"
+    ],
+    "source_videos": {
+      "N01": {
+        "video": "f_tier/N01/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "20.000000",
+          "nb_frames": "200",
+          "nb_read_frames": "200"
+        },
+        "metadata_matches": true
+      },
+      "N02": {
+        "video": "f_tier/N02/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "48.000000",
+          "nb_frames": "480",
+          "nb_read_frames": "480"
+        },
+        "metadata_matches": true
+      },
+      "N03": {
+        "video": "f_tier/N03/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "48.000000",
+          "nb_frames": "480",
+          "nb_read_frames": "480"
+        },
+        "metadata_matches": true
+      },
+      "N04": {
+        "video": "f_tier/N04/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "15/1",
+          "duration": "489.333333",
+          "nb_frames": "7340",
+          "nb_read_frames": "7340"
+        },
+        "metadata_matches": true
+      },
+      "N05": {
+        "video": "f_tier/N05/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 740,
+          "r_frame_rate": "15/1",
+          "duration": "208.500000",
+          "nb_frames": "3266",
+          "nb_read_frames": "3266"
+        },
+        "metadata_matches": true
+      },
+      "N06": {
+        "video": "f_tier/N06/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1100,
+          "height": 440,
+          "r_frame_rate": "20/1",
+          "duration": "12.000000",
+          "nb_frames": "240",
+          "nb_read_frames": "240"
+        },
+        "metadata_matches": true
+      },
+      "N07": {
+        "video": "f_tier/N07/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1100,
+          "height": 440,
+          "r_frame_rate": "20/1",
+          "duration": "12.000000",
+          "nb_frames": "240",
+          "nb_read_frames": "240"
+        },
+        "metadata_matches": true
+      },
+      "N09": {
+        "video": "f_tier/N09/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 990,
+          "height": 528,
+          "r_frame_rate": "20/1",
+          "duration": "8.000000",
+          "nb_frames": "160",
+          "nb_read_frames": "160"
+        },
+        "metadata_matches": true
+      },
+      "N11": {
+        "video": "f_tier/N11/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "27.800000",
+          "nb_frames": "278",
+          "nb_read_frames": "278"
+        },
+        "metadata_matches": true
+      },
+      "N12": {
+        "video": "f_tier/N12/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "25.600000",
+          "nb_frames": "256",
+          "nb_read_frames": "256"
+        },
+        "metadata_matches": true
+      },
+      "N13": {
+        "video": "f_tier/N13/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "8.700000",
+          "nb_frames": "87",
+          "nb_read_frames": "87"
+        },
+        "metadata_matches": true
+      },
+      "N14": {
+        "video": "f_tier/N14/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "49.800000",
+          "nb_frames": "498",
+          "nb_read_frames": "498"
+        },
+        "metadata_matches": true
+      },
+      "N15": {
+        "video": "f_tier/N15/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "22.400000",
+          "nb_frames": "224",
+          "nb_read_frames": "224"
+        },
+        "metadata_matches": true
+      },
+      "N16": {
+        "video": "f_tier/N16/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "11.600000",
+          "nb_frames": "116",
+          "nb_read_frames": "116"
+        },
+        "metadata_matches": true
+      },
+      "N17": {
+        "video": "f_tier/N17/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "15.700000",
+          "nb_frames": "157",
+          "nb_read_frames": "157"
+        },
+        "metadata_matches": true
+      },
+      "N18": {
+        "video": "f_tier/N18/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "15.000000",
+          "nb_frames": "150",
+          "nb_read_frames": "150"
+        },
+        "metadata_matches": true
+      },
+      "N19": {
+        "video": "f_tier/N19/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "11.700000",
+          "nb_frames": "117",
+          "nb_read_frames": "117"
+        },
+        "metadata_matches": true
+      },
+      "N20": {
+        "video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 740,
+          "r_frame_rate": "15/1",
+          "duration": "208.500000",
+          "nb_frames": "3266",
+          "nb_read_frames": "3266"
+        },
+        "metadata_matches": true
+      },
+      "N21": {
+        "video": "f_tier/N21/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "16.200000",
+          "nb_frames": "162",
+          "nb_read_frames": "162"
+        },
+        "metadata_matches": true
+      },
+      "N22": {
+        "video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 740,
+          "r_frame_rate": "15/1",
+          "duration": "208.500000",
+          "nb_frames": "3266",
+          "nb_read_frames": "3266"
+        },
+        "metadata_matches": true
+      },
+      "N23": {
+        "video": "f_tier/N23/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "56.300000",
+          "nb_frames": "563",
+          "nb_read_frames": "563"
+        },
+        "metadata_matches": true
+      },
+      "A02": {
+        "video": "f_tier/A02/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1040,
+          "height": 720,
+          "r_frame_rate": "10/1",
+          "duration": "39.000000",
+          "nb_frames": "390",
+          "nb_read_frames": "390"
+        },
+        "metadata_matches": true
+      },
+      "A03": {
+        "video": "f_tier/A03/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 800,
+          "height": 550,
+          "r_frame_rate": "10/1",
+          "duration": "138.600000",
+          "nb_frames": "1386",
+          "nb_read_frames": "1386"
+        },
+        "metadata_matches": true
+      },
+      "A07": {
+        "video": "f_tier/A07/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 800,
+          "height": 420,
+          "r_frame_rate": "10/1",
+          "duration": "3.100000",
+          "nb_frames": "31",
+          "nb_read_frames": "31"
+        },
+        "metadata_matches": true
+      },
+      "A08": {
+        "video": "f_tier/A08/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 800,
+          "height": 420,
+          "r_frame_rate": "20/1",
+          "duration": "4.050000",
+          "nb_frames": "81",
+          "nb_read_frames": "81"
+        },
+        "metadata_matches": true
+      },
+      "A09": {
+        "video": "f_tier/A09/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 680,
+          "r_frame_rate": "10/1",
+          "duration": "12.700000",
+          "nb_frames": "127",
+          "nb_read_frames": "127"
+        },
+        "metadata_matches": true
+      },
+      "A10": {
+        "video": "f_tier/A10/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 800,
+          "height": 570,
+          "r_frame_rate": "10/1",
+          "duration": "69.300000",
+          "nb_frames": "693",
+          "nb_read_frames": "693"
+        },
+        "metadata_matches": true
+      },
+      "A11": {
+        "video": "f_tier/A11/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 800,
+          "height": 440,
+          "r_frame_rate": "25/1",
+          "duration": "2.400000",
+          "nb_frames": "60",
+          "nb_read_frames": "60"
+        },
+        "metadata_matches": true
+      },
+      "A12": {
+        "video": "f_tier/A12/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 800,
+          "height": 480,
+          "r_frame_rate": "10/1",
+          "duration": "46.200000",
+          "nb_frames": "462",
+          "nb_read_frames": "462"
+        },
+        "metadata_matches": true
+      },
+      "A04": {
+        "video": "f_tier/A04/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1600,
+          "height": 960,
+          "r_frame_rate": "10/1",
+          "duration": "46.200000",
+          "nb_frames": "462",
+          "nb_read_frames": "462"
+        },
+        "metadata_matches": true
+      },
+      "A01": {
+        "video": "f_tier/A01/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 1200,
+          "height": 800,
+          "r_frame_rate": "20/1",
+          "duration": "168.100000",
+          "nb_frames": "3362",
+          "nb_read_frames": "3362"
+        },
+        "metadata_matches": true
+      },
+      "N08": {
+        "video": "f_tier/N08/video.mp4",
+        "decoded": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "2/1",
+          "duration": "411.500000",
+          "nb_frames": "823",
+          "nb_read_frames": "823"
+        },
+        "metadata_matches": true
+      }
+    },
+    "sample_frames": [
+      {
+        "id": "N01",
+        "source_image": "f_tier/V01/N01_mid.png",
+        "source_video": "f_tier/N01/video.mp4",
+        "encoded_time_s": 10.0,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N01",
+        "source_image": "f_tier/V01/N01_end.png",
+        "source_video": "f_tier/N01/video.mp4",
+        "encoded_time_s": 19.0,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N02",
+        "source_image": "f_tier/V01/N02_mid.png",
+        "source_video": "f_tier/N02/video.mp4",
+        "encoded_time_s": 24.0,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N02",
+        "source_image": "f_tier/V01/N02_end.png",
+        "source_video": "f_tier/N02/video.mp4",
+        "encoded_time_s": 45.599999999999994,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N03",
+        "source_image": "f_tier/V01/N03_mid.png",
+        "source_video": "f_tier/N03/video.mp4",
+        "encoded_time_s": 24.0,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N03",
+        "source_image": "f_tier/V01/N03_end.png",
+        "source_video": "f_tier/N03/video.mp4",
+        "encoded_time_s": 45.599999999999994,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N04",
+        "source_image": "f_tier/V01/N04_mid.png",
+        "source_video": "f_tier/N04/video.mp4",
+        "encoded_time_s": 244.6666665,
+        "size": [
+          480,
+          320
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N04",
+        "source_image": "f_tier/V01/N04_end.png",
+        "source_video": "f_tier/N04/video.mp4",
+        "encoded_time_s": 464.86666634999995,
+        "size": [
+          480,
+          320
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N05",
+        "source_image": "f_tier/V01/N05_mid.png",
+        "source_video": "f_tier/N05/video.mp4",
+        "encoded_time_s": 104.25,
+        "size": [
+          480,
+          186
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N05",
+        "source_image": "f_tier/V01/N05_end.png",
+        "source_video": "f_tier/N05/video.mp4",
+        "encoded_time_s": 198.075,
+        "size": [
+          480,
+          186
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N06",
+        "source_image": "f_tier/V01/N06_mid.png",
+        "source_video": "f_tier/N06/video.mp4",
+        "encoded_time_s": 6.0,
+        "size": [
+          480,
+          192
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N06",
+        "source_image": "f_tier/V01/N06_end.png",
+        "source_video": "f_tier/N06/video.mp4",
+        "encoded_time_s": 11.399999999999999,
+        "size": [
+          480,
+          192
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N07",
+        "source_image": "f_tier/V01/N07_mid.png",
+        "source_video": "f_tier/N07/video.mp4",
+        "encoded_time_s": 6.0,
+        "size": [
+          480,
+          192
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N07",
+        "source_image": "f_tier/V01/N07_end.png",
+        "source_video": "f_tier/N07/video.mp4",
+        "encoded_time_s": 11.399999999999999,
+        "size": [
+          480,
+          192
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N09",
+        "source_image": "f_tier/V01/N09_mid.png",
+        "source_video": "f_tier/N09/video.mp4",
+        "encoded_time_s": 4.0,
+        "size": [
+          480,
+          256
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N09",
+        "source_image": "f_tier/V01/N09_end.png",
+        "source_video": "f_tier/N09/video.mp4",
+        "encoded_time_s": 7.6,
+        "size": [
+          480,
+          256
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N11",
+        "source_image": "f_tier/V01/N11_mid.png",
+        "source_video": "f_tier/N11/video.mp4",
+        "encoded_time_s": 13.9,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N11",
+        "source_image": "f_tier/V01/N11_end.png",
+        "source_video": "f_tier/N11/video.mp4",
+        "encoded_time_s": 26.41,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N12",
+        "source_image": "f_tier/V01/N12_mid.png",
+        "source_video": "f_tier/N12/video.mp4",
+        "encoded_time_s": 12.8,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N12",
+        "source_image": "f_tier/V01/N12_end.png",
+        "source_video": "f_tier/N12/video.mp4",
+        "encoded_time_s": 24.32,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N13",
+        "source_image": "f_tier/V01/N13_mid.png",
+        "source_video": "f_tier/N13/video.mp4",
+        "encoded_time_s": 4.35,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N13",
+        "source_image": "f_tier/V01/N13_end.png",
+        "source_video": "f_tier/N13/video.mp4",
+        "encoded_time_s": 8.264999999999999,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N14",
+        "source_image": "f_tier/V01/N14_mid.png",
+        "source_video": "f_tier/N14/video.mp4",
+        "encoded_time_s": 24.9,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N14",
+        "source_image": "f_tier/V01/N14_end.png",
+        "source_video": "f_tier/N14/video.mp4",
+        "encoded_time_s": 47.309999999999995,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N15",
+        "source_image": "f_tier/V01/N15_mid.png",
+        "source_video": "f_tier/N15/video.mp4",
+        "encoded_time_s": 11.2,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N15",
+        "source_image": "f_tier/V01/N15_end.png",
+        "source_video": "f_tier/N15/video.mp4",
+        "encoded_time_s": 21.279999999999998,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N16",
+        "source_image": "f_tier/V01/N16_mid.png",
+        "source_video": "f_tier/N16/video.mp4",
+        "encoded_time_s": 5.8,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N16",
+        "source_image": "f_tier/V01/N16_end.png",
+        "source_video": "f_tier/N16/video.mp4",
+        "encoded_time_s": 11.02,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N17",
+        "source_image": "f_tier/V01/N17_mid.png",
+        "source_video": "f_tier/N17/video.mp4",
+        "encoded_time_s": 7.85,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N17",
+        "source_image": "f_tier/V01/N17_end.png",
+        "source_video": "f_tier/N17/video.mp4",
+        "encoded_time_s": 14.915,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N18",
+        "source_image": "f_tier/V01/N18_mid.png",
+        "source_video": "f_tier/N18/video.mp4",
+        "encoded_time_s": 7.5,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N18",
+        "source_image": "f_tier/V01/N18_end.png",
+        "source_video": "f_tier/N18/video.mp4",
+        "encoded_time_s": 14.25,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N19",
+        "source_image": "f_tier/V01/N19_mid.png",
+        "source_video": "f_tier/N19/video.mp4",
+        "encoded_time_s": 5.85,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N19",
+        "source_image": "f_tier/V01/N19_end.png",
+        "source_video": "f_tier/N19/video.mp4",
+        "encoded_time_s": 11.114999999999998,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N20",
+        "source_image": "f_tier/V01/N20_mid.png",
+        "source_video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+        "encoded_time_s": 104.25,
+        "size": [
+          480,
+          186
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N20",
+        "source_image": "f_tier/V01/N20_end.png",
+        "source_video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+        "encoded_time_s": 198.075,
+        "size": [
+          480,
+          186
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N21",
+        "source_image": "f_tier/V01/N21_mid.png",
+        "source_video": "f_tier/N21/video.mp4",
+        "encoded_time_s": 8.1,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N21",
+        "source_image": "f_tier/V01/N21_end.png",
+        "source_video": "f_tier/N21/video.mp4",
+        "encoded_time_s": 15.389999999999999,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N22",
+        "source_image": "f_tier/V01/N22_mid.png",
+        "source_video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+        "encoded_time_s": 104.25,
+        "size": [
+          480,
+          186
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N22",
+        "source_image": "f_tier/V01/N22_end.png",
+        "source_video": "../../github-pages/papera-full-reproduction/assets/reproduction/three-object/continuous-positive-208s-r1.mp4",
+        "encoded_time_s": 198.075,
+        "size": [
+          480,
+          186
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N23",
+        "source_image": "f_tier/V01/N23_mid.png",
+        "source_video": "f_tier/N23/video.mp4",
+        "encoded_time_s": 28.15,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N23",
+        "source_image": "f_tier/V01/N23_end.png",
+        "source_video": "f_tier/N23/video.mp4",
+        "encoded_time_s": 53.48499999999999,
+        "size": [
+          480,
+          360
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A02",
+        "source_image": "f_tier/V01/A02_mid.png",
+        "source_video": "f_tier/A02/video.mp4",
+        "encoded_time_s": 19.5,
+        "size": [
+          480,
+          332
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A02",
+        "source_image": "f_tier/V01/A02_end.png",
+        "source_video": "f_tier/A02/video.mp4",
+        "encoded_time_s": 37.05,
+        "size": [
+          480,
+          332
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A03",
+        "source_image": "f_tier/V01/A03_mid.png",
+        "source_video": "f_tier/A03/video.mp4",
+        "encoded_time_s": 69.3,
+        "size": [
+          480,
+          330
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A03",
+        "source_image": "f_tier/V01/A03_end.png",
+        "source_video": "f_tier/A03/video.mp4",
+        "encoded_time_s": 131.67,
+        "size": [
+          480,
+          330
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A07",
+        "source_image": "f_tier/V01/A07_mid.png",
+        "source_video": "f_tier/A07/video.mp4",
+        "encoded_time_s": 1.55,
+        "size": [
+          480,
+          252
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A07",
+        "source_image": "f_tier/V01/A07_end.png",
+        "source_video": "f_tier/A07/video.mp4",
+        "encoded_time_s": 2.945,
+        "size": [
+          480,
+          252
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A08",
+        "source_image": "f_tier/V01/A08_mid.png",
+        "source_video": "f_tier/A08/video.mp4",
+        "encoded_time_s": 2.025,
+        "size": [
+          480,
+          252
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A08",
+        "source_image": "f_tier/V01/A08_end.png",
+        "source_video": "f_tier/A08/video.mp4",
+        "encoded_time_s": 3.8474999999999997,
+        "size": [
+          480,
+          252
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A09",
+        "source_image": "f_tier/V01/A09_mid.png",
+        "source_video": "f_tier/A09/video.mp4",
+        "encoded_time_s": 6.35,
+        "size": [
+          480,
+          340
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A09",
+        "source_image": "f_tier/V01/A09_end.png",
+        "source_video": "f_tier/A09/video.mp4",
+        "encoded_time_s": 12.065,
+        "size": [
+          480,
+          340
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A10",
+        "source_image": "f_tier/V01/A10_mid.png",
+        "source_video": "f_tier/A10/video.mp4",
+        "encoded_time_s": 34.65,
+        "size": [
+          480,
+          342
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A10",
+        "source_image": "f_tier/V01/A10_end.png",
+        "source_video": "f_tier/A10/video.mp4",
+        "encoded_time_s": 65.835,
+        "size": [
+          480,
+          342
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A11",
+        "source_image": "f_tier/V01/A11_mid.png",
+        "source_video": "f_tier/A11/video.mp4",
+        "encoded_time_s": 1.2,
+        "size": [
+          480,
+          264
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A11",
+        "source_image": "f_tier/V01/A11_end.png",
+        "source_video": "f_tier/A11/video.mp4",
+        "encoded_time_s": 2.28,
+        "size": [
+          480,
+          264
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A12",
+        "source_image": "f_tier/V01/A12_mid.png",
+        "source_video": "f_tier/A12/video.mp4",
+        "encoded_time_s": 23.1,
+        "size": [
+          480,
+          288
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A12",
+        "source_image": "f_tier/V01/A12_end.png",
+        "source_video": "f_tier/A12/video.mp4",
+        "encoded_time_s": 43.89,
+        "size": [
+          480,
+          288
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A04",
+        "source_image": "f_tier/V01/A04_mid.png",
+        "source_video": "f_tier/A04/video.mp4",
+        "encoded_time_s": 23.1,
+        "size": [
+          480,
+          288
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A04",
+        "source_image": "f_tier/V01/A04_end.png",
+        "source_video": "f_tier/A04/video.mp4",
+        "encoded_time_s": 43.89,
+        "size": [
+          480,
+          288
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A01",
+        "source_image": "f_tier/V01/A01_mid.png",
+        "source_video": "f_tier/A01/video.mp4",
+        "encoded_time_s": 84.05,
+        "size": [
+          480,
+          320
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "A01",
+        "source_image": "f_tier/V01/A01_end.png",
+        "source_video": "f_tier/A01/video.mp4",
+        "encoded_time_s": 159.695,
+        "size": [
+          480,
+          320
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N08",
+        "source_image": "f_tier/V01/N08_mid.png",
+        "source_video": "f_tier/N08/video.mp4",
+        "encoded_time_s": 205.75,
+        "size": [
+          480,
+          320
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "id": "N08",
+        "source_image": "f_tier/V01/N08_end.png",
+        "source_video": "f_tier/N08/video.mp4",
+        "encoded_time_s": 390.92499999999995,
+        "size": [
+          480,
+          320
+        ],
+        "in_source_duration": true,
+        "exact_RGB_max_error": 0
+      }
+    ],
+    "combined_source_frames": [
+      {
+        "frame": 145,
+        "native_s": 29.2000007070601,
+        "exact_RGB_max_error": 0
+      },
+      {
+        "frame": 340,
+        "native_s": 66.51666827732697,
+        "exact_RGB_max_error": 0
+      }
+    ],
+    "final_video_probe": {
+      "codec_name": "h264",
+      "width": 1000,
+      "height": 760,
+      "r_frame_rate": "10/1",
+      "duration": "148.000000",
+      "nb_frames": "1480",
+      "nb_read_frames": "1480"
+    },
+    "full_mapping_ROI_comparison": {
+      "frames": 1480,
+      "source_ROIs": 1730,
+      "RGB_MAE_max": 1.6188606770833334,
+      "RGB_MAE_median": 1.1715494791666667,
+      "opening_hold_RGB_MAE_max": 0.017944298245614033,
+      "reviewer_lossy_matching_tolerance_RGB_levels": 3.0
+    },
+    "visual_review": {
+      "actual_encoded_frames_viewed": [
+        0,
+        75,
+        125,
+        175,
+        220,
+        340,
+        420,
+        540,
+        700,
+        940,
+        500,
+        1100,
+        1220,
+        1260,
+        1420,
+        1460
+      ],
+      "observations": [
+        "Opening clearly states32accepted andall36notcomplete; N10open,A05formal0/3,A06missingphoneinput areexplicitlyunfulfilled.",
+        "Allthreecomparisoncaptionsreadable: MATTERIXFig3adaptedlayout/static+semanticplayback; Autoopaque cyan/diagnosticparticles vs pinktransparentoriginal; Fig6bsimulation-onlylocalvsoriginalsim+real.",
+        "Actual staticN01, nativePBDN04/N08, measuredN06/N09, recordedposeN14/N20, A01particle-negative, A04comparison, A07calibration, A11rigidbefore-after andA12reuse arevisuallydistinguishable.",
+        "The2sheldsamples identifyencodedsource time andcreate no taskdynamics; originalfullvideos remainrequired toinspectcontinuousmotion.",
+        "Downscaled480pxsample payloads preservegeometry/material/function, butsmall sourceplotaxes/telemetry arelesslegible; fullresolutionitemvideos carrydetails."
+      ]
+    },
+    "limitations": [
+      "No32-item physical rerun or physical reacceptance; existing item-specific independent acceptance isretained, notduplicated.",
+      "Notall36complete: N10,A05,A06unfulfilled; futureaccepteditems needtheirownmediareviewandarenotretroactivelycovered.",
+      "This148s video isheldkeyframes/referenceimages, notcontinuousnativeexecution; nointerpolatedrobotstates ororiginalvisualidentityclaim.",
+      "N02/N03 shareone trialdataset; N05/N20/N22 shareonecompleteepisode. Coverageitemcountisnotindependentexperimentcount.",
+      "Source references arecachedpublished/official images withstoredDOI/URL; noexternalwebsitefetchororiginalassetidentityverificationispartofthisofflinegate.",
+      "NoGRIDruntime/hardware/photometricglassidentity; originalitem-specificrendering/physics/parameterlimitationsremainunchanged."
+    ],
+    "stage_accounting": {
+      "artifact_integrity": "sourcepath/sample/mapandunchangedacceptedbyteschecked",
+      "static_quality": "JSON/schema/units/counts/provenancemetadataandindexrangeschecked",
+      "focused_correctness": "32fulldecodes,64exactsourceRGBmatches,1480mappingentriesanddecodedframeROIs",
+      "regression": "Noimplementationchange; frozenmetadataandfullsourcemediaenumerationonly",
+      "security_data_safety": "Read-onlymedia subprocessargumentlists; onlyindependentreviewwritten; nohashes/network/credentials",
+      "compatibility_performance": "CPUffmpeg/PILonly; nohardwaretimingorbenchmarkclaim; localffmpeguses-vsync0because-fps_modeisunsupported",
+      "user_journey": "16actualencodedframesvisuallyinspected; nobrowserneededforlocalMP4",
+      "documentation": "Snapshot/provenance/negativeoutcomes/sourcecaptionsandderivedscopeinspected"
+    },
+    "native_simulation_steps_executed": 0,
+    "training_runs_executed": 0,
+    "blocking_findings": []
+  },
+  "accepted_at_utc": "2026-10-19T15:14:50.670731+00:00"
+}

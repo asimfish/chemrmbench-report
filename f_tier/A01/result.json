@@ -1,0 +1,2555 @@
+{
+  "id": "A01",
+  "status": "F_PASS",
+  "F_PASS": true,
+  "scope": "Standalone Auto-Engineering A01; not the MATTERIX PhysX PBD liquid backend",
+  "protocol": {
+    "CFL_lambda": 0.4,
+    "minimum_density_gate": null,
+    "mean_positive_compression_limit": 0.01,
+    "hydrostatic_maxspeed_limit_m_s": 0.01,
+    "pressure_R2_min": 0.95,
+    "local_pressure_slope_error_limit": 0.1,
+    "dam_front_error_limit": 0.1,
+    "pour_resolution_particles": [
+      240,
+      1920,
+      15360
+    ],
+    "pour_adjacent_capture_spill_max_difference_pp": 5,
+    "pour_residual_wall_penetrations": 0,
+    "independent_scale_liquid_weight_error_limit": 0.1
+  },
+  "standard_runs": [
+    {
+      "path": "f_tier/A01/runs/dam_break_native/result.json",
+      "test": "dam_break",
+      "label": "dam_break_native",
+      "metrics": {
+        "native_seconds": 0.17,
+        "native_steps": 91,
+        "particles": 432,
+        "boundaries": 8784,
+        "mean_positive_compression": 7.503727829316631e-05,
+        "max_speed_m_s": 2.080061912536621,
+        "pressure_depth_R2": 0.0736509610059416,
+        "pressure_depth_slope_Pa_per_m": 6290.384110276506,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.3587783781573388,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.0006259974032888638,
+        "nu_m2_s": 1e-06,
+        "wall_s": 4.369602056001895
+      },
+      "checks": {
+        "T_atleast3": false,
+        "front_relative_error_le10percent": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/dam_break_native/video.mp4",
+      "dam_break_comparison": {
+        "T_ref": [
+          0.41,
+          0.84,
+          1.19,
+          1.43,
+          1.63,
+          1.83,
+          1.98,
+          2.2,
+          2.32,
+          2.51,
+          2.65,
+          2.8,
+          2.97
+        ],
+        "Z_ref": [
+          1.11,
+          1.22,
+          1.44,
+          1.67,
+          1.89,
+          2.11,
+          2.33,
+          2.56,
+          2.78,
+          3.0,
+          3.22,
+          3.44,
+          3.67
+        ],
+        "Z_native": [
+          1.4936199302818778,
+          2.017998638920077,
+          2.528650888278995,
+          2.8917148745105923,
+          3.194268196370257,
+          3.497997200659848,
+          3.7605003037052467,
+          4.1455048548384985,
+          4.355507337274817,
+          4.688011267798989,
+          4.933014163974694,
+          5.070976912975311,
+          5.070976912975311
+        ],
+        "relative_errors": [
+          0.3456035407944844,
+          0.6540972450164564,
+          0.7560075613048578,
+          0.7315657931201152,
+          0.6900889927884959,
+          0.6578185785117765,
+          0.6139486281996767,
+          0.6193378339212885,
+          0.5667292580125243,
+          0.5626704225996628,
+          0.5319919763896566,
+          0.4741211956323579,
+          0.3817375784673873
+        ],
+        "max_relative_error": 0.7560075613048578,
+        "T_achieved": 2.7288349246542563,
+        "time_shift_applied_s": 0.0,
+        "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+        "local_error_threshold": 0.1
+      }
+    },
+    {
+      "path": "f_tier/A01/runs/dam_break_native_trace/result.json",
+      "test": "dam_break",
+      "label": "dam_break_native_trace",
+      "metrics": {
+        "native_seconds": 0.17,
+        "native_steps": 85,
+        "particles": 432,
+        "boundaries": 8784,
+        "mean_positive_compression": 0.00014394494064617902,
+        "max_speed_m_s": 1.6528308391571045,
+        "pressure_depth_R2": 0.02218000917766927,
+        "pressure_depth_slope_Pa_per_m": 6543.4059741242745,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.3329861392329996,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.0019999999999998908,
+        "nu_m2_s": 1e-06,
+        "wall_s": 4.742278751000413,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8
+      },
+      "checks": {
+        "T_atleast3": true,
+        "front_relative_error_le10percent": true,
+        "zero_escape": true
+      },
+      "passed": true,
+      "video": "f_tier/A01/runs/dam_break_native_trace/video.mp4",
+      "dam_break_comparison": {
+        "T_ref": [
+          0.41,
+          0.84,
+          1.19,
+          1.43,
+          1.63,
+          1.83,
+          1.98,
+          2.2,
+          2.32,
+          2.51,
+          2.65,
+          2.8,
+          2.97
+        ],
+        "Z_ref": [
+          1.11,
+          1.22,
+          1.44,
+          1.67,
+          1.89,
+          2.11,
+          2.33,
+          2.56,
+          2.78,
+          3.0,
+          3.22,
+          3.44,
+          3.67
+        ],
+        "Z_native": [
+          1.0524462637190117,
+          1.2487650590243156,
+          1.5361078284468217,
+          1.795863830317931,
+          2.0315720109898803,
+          2.279618283002828,
+          2.4724403216011535,
+          2.7636317432298516,
+          2.925321723083851,
+          3.1853639476845137,
+          3.3796854674034362,
+          3.5890023678894,
+          3.830999713768798
+        ],
+        "relative_errors": [
+          0.05185021286575531,
+          0.023577917233045476,
+          0.06674154753251504,
+          0.07536756306462933,
+          0.07490582592057171,
+          0.08038781184968147,
+          0.06113318523654643,
+          0.07954364969916083,
+          0.05227400110929903,
+          0.06178798256150464,
+          0.04959176006317878,
+          0.043314641828313905,
+          0.04386913181711116
+        ],
+        "max_relative_error": 0.08038781184968147,
+        "T_achieved": 3.074134024404272,
+        "time_shift_applied_s": 0.0,
+        "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+        "local_error_threshold": 0.1
+      }
+    },
+    {
+      "path": "f_tier/A01/runs/dam_break_no_pressure/result.json",
+      "test": "dam_break",
+      "label": "dam_break_no_pressure",
+      "metrics": {
+        "native_seconds": 0.17000000000000012,
+        "native_steps": 85,
+        "particles": 432,
+        "boundaries": 8784,
+        "mean_positive_compression": 3.6945364475250244,
+        "max_speed_m_s": 0.00028236006619408727,
+        "pressure_depth_R2": 1.0,
+        "pressure_depth_slope_Pa_per_m": null,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": null,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.002,
+        "nu_m2_s": 1e-06,
+        "solver_tolerance": 0.0001,
+        "max_iterations": 100,
+        "wall_s": 0.5629864719958277,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8
+      },
+      "checks": {
+        "T_atleast3": true,
+        "front_relative_error_le10percent": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/dam_break_no_pressure/video.mp4",
+      "dam_break_comparison": {
+        "T_ref": [
+          0.41,
+          0.84,
+          1.19,
+          1.43,
+          1.63,
+          1.83,
+          1.98,
+          2.2,
+          2.32,
+          2.51,
+          2.65,
+          2.8,
+          2.97
+        ],
+        "Z_ref": [
+          1.11,
+          1.22,
+          1.44,
+          1.67,
+          1.89,
+          2.11,
+          2.33,
+          2.56,
+          2.78,
+          3.0,
+          3.22,
+          3.44,
+          3.67
+        ],
+        "Z_native": [
+          1.0000014277598093,
+          1.000013657503203,
+          1.00003657065387,
+          1.0000602077303222,
+          1.0000850780458324,
+          1.000114888216846,
+          1.0001404025287755,
+          1.0001829897785959,
+          1.0002086720774093,
+          1.0002530140912387,
+          1.0002884500214,
+          1.0003275465772554,
+          1.000371907187141
+        ],
+        "relative_errors": [
+          0.09909781282900076,
+          0.18031667417770236,
+          0.30553015926814575,
+          0.4011615522572921,
+          0.4708544560604061,
+          0.5260119013190303,
+          0.5707551920477358,
+          0.609303519617736,
+          0.640212707885824,
+          0.6665823286362538,
+          0.6893514130368323,
+          0.7092071085531234,
+          0.7274190988590896
+        ],
+        "max_relative_error": 0.7274190988590896,
+        "T_achieved": 3.074134024404274,
+        "time_shift_applied_s": 0.0,
+        "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+        "local_error_threshold": 0.1
+      }
+    },
+    {
+      "path": "f_tier/A01/runs/dam_break_refinement/result.json",
+      "test": "dam_break",
+      "label": "dam_break_refinement",
+      "metrics": {
+        "native_seconds": 0.17,
+        "native_steps": 123,
+        "particles": 3456,
+        "boundaries": 29448,
+        "mean_positive_compression": 0.00011965208250330761,
+        "max_speed_m_s": 1.6931556463241577,
+        "pressure_depth_R2": 0.054784628924594125,
+        "pressure_depth_slope_Pa_per_m": 1774.738662850866,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.8190888213199933,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.000958043527845398,
+        "nu_m2_s": 1e-06,
+        "wall_s": 15.135301198999514,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8
+      },
+      "checks": {
+        "T_atleast3": true,
+        "front_relative_error_le10percent": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/dam_break_refinement/video.mp4",
+      "dam_break_comparison": {
+        "T_ref": [
+          0.41,
+          0.84,
+          1.19,
+          1.43,
+          1.63,
+          1.83,
+          1.98,
+          2.2,
+          2.32,
+          2.51,
+          2.65,
+          2.8,
+          2.97
+        ],
+        "Z_ref": [
+          1.11,
+          1.22,
+          1.44,
+          1.67,
+          1.89,
+          2.11,
+          2.33,
+          2.56,
+          2.78,
+          3.0,
+          3.22,
+          3.44,
+          3.67
+        ],
+        "Z_native": [
+          1.0676757848462648,
+          1.3189590971751195,
+          1.6491002944128057,
+          1.9051870158861153,
+          2.132743953850228,
+          2.3700122485136115,
+          2.5546549315579457,
+          2.83576828845153,
+          2.9950048647351997,
+          3.254845565227578,
+          3.4477628271195684,
+          3.6561291018206044,
+          3.8987002200303693
+        ],
+        "relative_errors": [
+          0.038129923561923684,
+          0.08111401407796692,
+          0.14520853778667075,
+          0.14083054843479959,
+          0.12843595441811018,
+          0.1232285537979203,
+          0.09641842556135005,
+          0.10772198767637886,
+          0.07733987940115106,
+          0.0849485217425261,
+          0.07073379724210183,
+          0.06282822727343151,
+          0.0623161362480571
+        ],
+        "max_relative_error": 0.14520853778667075,
+        "T_achieved": 3.074134024404272,
+        "time_shift_applied_s": 0.0,
+        "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+        "local_error_threshold": 0.1
+      }
+    },
+    {
+      "path": "f_tier/A01/runs/dam_break_source_volume/result.json",
+      "test": "dam_break",
+      "label": "dam_break_source_volume",
+      "metrics": {
+        "native_seconds": 0.17,
+        "native_steps": 85,
+        "particles": 432,
+        "boundaries": 8784,
+        "mean_positive_compression": 0.00014394494064617902,
+        "max_speed_m_s": 1.6528308391571045,
+        "pressure_depth_R2": 0.02218000917766927,
+        "pressure_depth_slope_Pa_per_m": 6543.4059741242745,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.3329861392329996,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.0019999999999998908,
+        "nu_m2_s": 1e-06,
+        "wall_s": 6.142428749997634,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8
+      },
+      "checks": {
+        "T_atleast3": true,
+        "front_relative_error_le10percent": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/dam_break_source_volume/video.mp4",
+      "dam_break_comparison": {
+        "T_ref": [
+          0.41,
+          0.84,
+          1.19,
+          1.43,
+          1.63,
+          1.83,
+          1.98,
+          2.2,
+          2.32,
+          2.51,
+          2.65,
+          2.8,
+          2.97
+        ],
+        "Z_ref": [
+          1.11,
+          1.22,
+          1.44,
+          1.67,
+          1.89,
+          2.11,
+          2.33,
+          2.56,
+          2.78,
+          3.0,
+          3.22,
+          3.44,
+          3.67
+        ],
+        "Z_native": [
+          1.1253151638841123,
+          1.269458208181888,
+          1.5948489898769935,
+          1.8499969016846405,
+          2.0626201615243462,
+          2.2813178630250133,
+          2.482801899043769,
+          2.7783118185379445,
+          2.9394990473529488,
+          3.1947121596433727,
+          3.3827639265942118,
+          3.5922070449742005,
+          3.836013890812527
+        ],
+        "relative_errors": [
+          0.013797444940641723,
+          0.04053951490318686,
+          0.1075340207479123,
+          0.10778257585906625,
+          0.09133341879595047,
+          0.08119330001185476,
+          0.0655802141818751,
+          0.08527805411638445,
+          0.05737375804062905,
+          0.06490405321445758,
+          0.05054780329012787,
+          0.04424623400412808,
+          0.04523539259196929
+        ],
+        "max_relative_error": 0.10778257585906625,
+        "T_achieved": 3.074134024404272,
+        "time_shift_applied_s": 0.0,
+        "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+        "local_error_threshold": 0.1
+      }
+    },
+    {
+      "path": "f_tier/A01/runs/hydrostatic_native/result.json",
+      "test": "hydrostatics",
+      "label": "hydrostatic_native",
+      "metrics": {
+        "native_seconds": 2.0,
+        "native_steps": 5674,
+        "particles": 768,
+        "boundaries": 2784,
+        "mean_positive_compression": 3.6317698686616495e-05,
+        "max_speed_m_s": 18.40129852294922,
+        "pressure_depth_R2": 0.560095928257037,
+        "pressure_depth_slope_Pa_per_m": 53977.32259887049,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 4.502275494278337,
+        "escaped_particle_count": 71,
+        "min_dt_s": 8.93116439746322e-05,
+        "nu_m2_s": 1e-06,
+        "wall_s": 71.74067059101071
+      },
+      "checks": {
+        "native_at_least2s": true,
+        "compression_lt1percent": true,
+        "maxspeed_lt1cm_s": false,
+        "pressure_R2_gt_p95": false,
+        "zero_escape": false
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/hydrostatic_native/video.mp4",
+      "dam_break_comparison": null
+    },
+    {
+      "path": "f_tier/A01/runs/hydrostatic_sdf/result.json",
+      "test": "hydrostatics",
+      "label": "hydrostatic_sdf",
+      "metrics": {
+        "native_seconds": 10.0,
+        "native_steps": 5011,
+        "particles": 768,
+        "boundaries": 2784,
+        "mean_positive_compression": 0.0004179097304586321,
+        "max_speed_m_s": 0.17261934280395508,
+        "pressure_depth_R2": 0.0710121241707875,
+        "pressure_depth_slope_Pa_per_m": 97932.93656412407,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 8.982970088086041,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.00024340561732394406,
+        "nu_m2_s": 1e-06,
+        "wall_s": 335.1224397299957,
+        "boundary_contact": "sdf_ccd"
+      },
+      "checks": {
+        "native_at_least2s": true,
+        "compression_lt1percent": true,
+        "maxspeed_lt1cm_s": false,
+        "pressure_R2_gt_p95_and_slope_within10pct": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/hydrostatic_sdf/video.mp4",
+      "dam_break_comparison": null
+    },
+    {
+      "path": "f_tier/A01/runs/hydrostatic_settle20/result.json",
+      "test": "hydrostatics",
+      "label": "hydrostatic_settle20",
+      "metrics": {
+        "native_seconds": 19.999999999999794,
+        "native_steps": 10000,
+        "particles": 768,
+        "boundaries": 2784,
+        "mean_positive_compression": 0.0006297455984167755,
+        "max_speed_m_s": 0.012888165190815926,
+        "pressure_depth_R2": 0.8294315271221812,
+        "pressure_depth_slope_Pa_per_m": 14923.654526477683,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.5212695745644937,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.002,
+        "nu_m2_s": 1e-06,
+        "solver_tolerance": 0.0001,
+        "max_iterations": 100,
+        "wall_s": 385.27019815800304,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8
+      },
+      "checks": {
+        "native_at_least2s": true,
+        "compression_lt1percent": true,
+        "maxspeed_lt1cm_s": false,
+        "pressure_R2_gt_p95_and_slope_within10pct": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/hydrostatic_settle20/video.mp4",
+      "dam_break_comparison": null
+    },
+    {
+      "path": "f_tier/A01/runs/hydrostatic_source_volume/result.json",
+      "test": "hydrostatics",
+      "label": "hydrostatic_source_volume",
+      "metrics": {
+        "native_seconds": 2.999999999999891,
+        "native_steps": 1500,
+        "particles": 768,
+        "boundaries": 2784,
+        "mean_positive_compression": 0.0006253353203646839,
+        "max_speed_m_s": 0.0808631032705307,
+        "pressure_depth_R2": 0.49516236257543067,
+        "pressure_depth_slope_Pa_per_m": 15121.47727463686,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.5414349923177226,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.002,
+        "nu_m2_s": 1e-06,
+        "wall_s": 93.1956800439948,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8
+      },
+      "checks": {
+        "native_at_least2s": true,
+        "compression_lt1percent": true,
+        "maxspeed_lt1cm_s": false,
+        "pressure_R2_gt_p95_and_slope_within10pct": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "video": "f_tier/A01/runs/hydrostatic_source_volume/video.mp4",
+      "dam_break_comparison": null
+    },
+    {
+      "path": "f_tier/A01/runs/hydrostatic_settle40/metrics.json",
+      "test": "hydrostatics",
+      "label": "hydrostatic_settle40",
+      "metrics": {
+        "native_seconds": 40.00000000000292,
+        "native_steps": 10000,
+        "particles": 768,
+        "boundaries": 2784,
+        "mean_positive_compression": 0.0006291776080615819,
+        "max_speed_m_s": 0.004915887489914894,
+        "pressure_depth_R2": 0.8228806187732728,
+        "pressure_depth_slope_Pa_per_m": 14909.82519411786,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.5198598566888746,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.002,
+        "nu_m2_s": 1e-06,
+        "solver_tolerance": 0.0001,
+        "max_iterations": 100,
+        "wall_s": 314.5707622059999,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8,
+        "cumulative_native_steps": 20000
+      },
+      "checks": {
+        "native_at_least2s": true,
+        "compression_lt1percent": true,
+        "maxspeed_lt1cm_s": true,
+        "pressure_R2_gt_p95_and_slope_within10pct": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "protocol": {
+        "adaptive_CFL_lambda": 0.4,
+        "dt_max_s": 0.002,
+        "wall_method": "Akinci support-radius-thick samples; zero-restitution box SDF continuous linear contact correction with equal/opposite impulse at physical surface",
+        "density_gate": "mean positive compression only; no fixed lower band",
+        "pressure_reconstruction": "Sum both actual projection pressure variables timesrho0; finalinstant for this run",
+        "pressure_stages": "density+divergence stored separately and summed; physicalunitsPa",
+        "local_thresholds": true
+      },
+      "differences": [
+        "Independent local WarpDFSPH;originalGRIDruntimeunavailable",
+        "HydrostaticprobeisnotMATTERIXPhysXPBD"
+      ],
+      "video": "f_tier/A01/runs/hydrostatic_settle40/video.mp4",
+      "status": "RUNNING_A01_SUITE_NOT_COMPLETE",
+      "continuation": {
+        "checkpoint": "f_tier/A01/runs/hydrostatic_settle20/native-states.npz",
+        "native_start_s": 19.999999999999794,
+        "prior_native_steps": 10000,
+        "positions_and_velocities_exactly_restored": true,
+        "projection_warm_start": "Source DFSPH resets pressure on every projection; geometry, material and solver parameters unchanged."
+      }
+    }
+  ],
+  "current_failure": {
+    "hydrostatic20s_max_speed_m_s": 0.012888165190815926,
+    "hydrostatic20s_pressure_R2": 0.8294315271221812,
+    "hydrostatic20s_pressure_slope_relative_error": 0.5212695745644937,
+    "hydrostatic20s_mean_positive_compression": 0.0006297455984167755,
+    "hydrostatic20s_residual_wall_escape_count": 0,
+    "hydrostatic40s_max_speed_m_s": 0.004915887489914894,
+    "hydrostatic40s_pressure_R2": 0.8228806187732728,
+    "hydrostatic40s_pressure_slope_relative_error": 0.5198598566888746,
+    "hydrostatic40s_mean_positive_compression": 0.0006291776080615819,
+    "hydrostatic40s_residual_wall_escape_count": 0
+  },
+  "interpretation": [
+    "Boundarycontactcompletionremovesobservedescape;hydrostaticpressure/speedstillfail.",
+    "Reducingprojectionresidualtol100xdidnotreducetheobservedmotioninshortmatchedprobe.",
+    "A01eightoldcasesarelocalcalibrationnotoriginalpaperrequirements;retireddensitymap/FMA/fixedbandstudiesnotcontinued.",
+    "40s continuation exactly restored native20s positions/velocities, material andsolver unchanged. Maxspeed4.916mm/s passes. Raw projection-pressurefield stillfails andisretained; native mechanical wallpressuretaps arebeing measured separately, no globalfield accuracy claim.",
+    "Native wall taps include SPH andSDF reciprocalimpulses andpass localR2/slope checks, but absolute pressure RMSE16.8percent and34.55Pa intercept are reported. This doesnot repair orvalidate rawparticlepressurefield. A01 remainsRUNNING pendingcoupled pour."
+  ],
+  "evidence": [
+    "f_tier/A01/runs/hydrostatic_settle20/samples.json",
+    "f_tier/A01/runs/hydrostatic_settle40/samples.json",
+    "f_tier/A01/runs/hydrostatic_wall_taps/native-taps.csv",
+    "f_tier/A01/runs/dam_break_native_trace/samples.json",
+    "f_tier/A01/runs/dam_break_refinement/samples.json",
+    "f_tier/A01/runs/dam_break_no_pressure/samples.json",
+    "f_tier/A01/pour_runs/",
+    "f_tier/A01/pour_recompute.py"
+  ],
+  "differences": [
+    "Independent local MuJoCo/Warp DFSPH reconstruction; original GRID implementation, assets and hardware are unavailable.",
+    "Hydrostatic tank settles for40 native seconds (20+20 checkpoint continuation), then2s wall-tap continuation. No lower-density-band gate.",
+    "Mechanical wall taps pass local R2>.95 and slope error<10%; absolute rho*g*h NRMSE16.81% and34.55Pa intercept remain disclosed. This does not validate the failed full particle-pressure field.",
+    "Raw unshifted coarse dam-break error8.04% passes; refined3456-particle raw error14.52% fails. No posthoc time shift is used to replace this failure.",
+    "Same local3.75mL,3.75g nested240/1920/15360 initial voxel volume; three Akinci boundary layers and6.5mm outward-thickened native vessel walls, original empty inertials retained.",
+    "Adaptive CFL lambda.4 and full integration steps cross100Hz command deadlines. Native command rate is not wall-clock or hardware real-time performance.",
+    "Collision-crossing scope covers vessels, bench and floor, excluding fluid-robot/rack interactions. Native soft-contact overlaps and fine initial spill are retained limitations.",
+    "Native support force minus separately measured empty tare gives scale output; particle counts are only the independent comparison mass, not the scale reading.",
+    "Three GPU main-run final-window scale means were accumulated online; exact per-substep scale CSV was not retained. Their saved 100Hz support traces permit only approximate independent re-integration. The matched CPU two-way/one-way controls retain exact overlap-weighted substep CSV for both runs.",
+    "UR5e script expert, localcup poses and fixedfill; no learned policy, arbitrary task-space generalization, original rendering or hardware transfer claim.",
+    "The consolidated video uses actual saved particle/rigid states, diagnostic X-Z points, measured charts and explicitly labeled display holds; zero new physics or interpolated states.",
+    "Fine first saved spill=0; pregrasp transient peak550/15360=3.58073% at0.180076s; final319/15360=2.07682%. The old1.71% was an intermediate observation, not the full pregrasp maximum."
+  ],
+  "pending": [
+    "23spourpregraspcontainment repair then threeuniformlyrefinedparentvoxelresolutions",
+    "Actualsupportscalevsreceivedmassandone-waynegative",
+    "Native mechanicalwallpressuremeasurement and interpretation; rawprojectionfield discrepancy retained"
+  ],
+  "video": "f_tier/A01/video.mp4",
+  "updated_at_utc": "2026-10-19T10:23:55.588563+00:00",
+  "mechanical_wall_pressure_probe": {
+    "path": "f_tier/A01/runs/hydrostatic_wall_taps/metrics.json",
+    "test": "native_wall_pressure_taps",
+    "metrics": {
+      "elapsed_native_s": 42.0,
+      "measurement_seconds": 1.0020000000000002,
+      "pressure_tap_heights_m": [
+        0.012,
+        0.02,
+        0.028,
+        0.036000000000000004,
+        0.044
+      ],
+      "mean_pressure_taps_Pa": [
+        454.58956502151204,
+        302.8066051350591,
+        278.885584631786,
+        181.38811032904934,
+        100.78908717459612
+      ],
+      "rho_g_h_Pa": [
+        373.8814153572791,
+        295.4014153572791,
+        216.92141535727913,
+        138.44141535727908,
+        59.96141535727915
+      ],
+      "pressure_depth_R2": 0.9610335976286754,
+      "slope_Pa_per_m": 10362.743131248024,
+      "intercept_Pa": 34.54796711342159,
+      "slope_error": 0.056344865570644664,
+      "rho_g_h_normalized_RMSE": 0.16807693099595253,
+      "maxspeed_last1s_m_s": 0.006033256649971008,
+      "mean_compression_last1s": 0.0006290979640643871,
+      "native_steps": 1000,
+      "wall_s": 26.656651104989578
+    },
+    "checks": {
+      "pressure_R2_gt_p95": true,
+      "slope_error_lt10percent": true,
+      "maxspeed_lt1cm_s": true,
+      "compression_lt1percent": true
+    },
+    "passed": true,
+    "protocol": {
+      "pressure_observable": "Actual native left-wall normal reaction per fixed0.008m height tap and full0.064m width, sum both SPH projection stages and reciprocal SDF contact impulses. Not a fitted pressure assignment.",
+      "measurement_window": "Last1second of2second native continuation from exact40s checkpoint",
+      "wall_corner_components": "Includes x-normal contribution of all left-halfspace wall samples, including corners; no y force treated as x force.",
+      "raw_projection_field": "Reported as separate diagnostic in hydrostatic_settle40; its field-depth R2 .82288 andslope52%error remain unaccepted. Wall taps do not establish a globally accurate particle pressure field.",
+      "material_and_solver_changes": false,
+      "original_GRID_identity": false
+    }
+  },
+  "collision_validation_scope": "Fluid penetration is checked against native tube/beaker walls andbottoms,bench_top,andfloor only. Fluid-rack andfluid-robot collision boundaries are not implemented. Rigid robot-rack contacts are separately reported andnot hidden.",
+  "coarse_pour_completed": {
+    "metrics": "f_tier/A01/pour_runs/240_two_way_event_clock/metrics.json",
+    "native_seconds": 23.000468,
+    "receiver_fraction": 1.0,
+    "spill_fraction": 0.0,
+    "transferred_mass_kg": 0.00375,
+    "scale_mass_kg": 0.00370309,
+    "scale_relative_error": 0.01251,
+    "status": "One resolution only; A01 suite not accepted until convergence andmatchednegative complete."
+  },
+  "candidate_passed": true,
+  "checks": {
+    "hydrostatic_settling_and_mechanical_wall_pressure": true,
+    "unshifted_coarse_dam_break_and_pressure_disabled_negative": true,
+    "all_three_complete_robot_pours_and_zero_scoped_wall_crossings": true,
+    "adjacent_resolution_capture_and_spill_within5pp": true,
+    "independent_scale_and_matched_backend_coupling_negative": true
+  },
+  "criteria": [
+    "Local: settled maxspeed<.01m/s, positive compression<1%, wall-pressureR2>.95/slopeerror<10%.",
+    "Local: unshifted Martin&Moyce coarse front error<=10% forT<=3; pressure-disabled negative fails.",
+    "Three complete23s robot pours: receiver>=50%,spill<=10%,zero crossings within declared collision scope.",
+    "Adjacent particle resolutions differ by<=5 percentage points in capture and spill; same total initial mass/volume.",
+    "Independent native support-scale error<=10%; matched CPU one-way negative fails that gate."
+  ],
+  "accepted_standard_observables": {
+    "settling40s": {
+      "test": "hydrostatics",
+      "label": "hydrostatic_settle40",
+      "metrics": {
+        "native_seconds": 40.00000000000292,
+        "native_steps": 10000,
+        "particles": 768,
+        "boundaries": 2784,
+        "mean_positive_compression": 0.0006291776080615819,
+        "max_speed_m_s": 0.004915887489914894,
+        "pressure_depth_R2": 0.8228806187732728,
+        "pressure_depth_slope_Pa_per_m": 14909.82519411786,
+        "expected_rho_g": 9810.0,
+        "pressure_slope_relative_error": 0.5198598566888746,
+        "escaped_particle_count": 0,
+        "min_dt_s": 0.002,
+        "nu_m2_s": 1e-06,
+        "solver_tolerance": 0.0001,
+        "max_iterations": 100,
+        "wall_s": 314.5707622059999,
+        "boundary_contact": "sdf_ccd",
+        "particle_volume_factor": 0.8,
+        "cumulative_native_steps": 20000
+      },
+      "checks": {
+        "native_at_least2s": true,
+        "compression_lt1percent": true,
+        "maxspeed_lt1cm_s": true,
+        "pressure_R2_gt_p95_and_slope_within10pct": false,
+        "zero_escape": true
+      },
+      "passed": false,
+      "protocol": {
+        "adaptive_CFL_lambda": 0.4,
+        "dt_max_s": 0.002,
+        "wall_method": "Akinci support-radius-thick samples; zero-restitution box SDF continuous linear contact correction with equal/opposite impulse at physical surface",
+        "density_gate": "mean positive compression only; no fixed lower band",
+        "pressure_reconstruction": "Sum both actual projection pressure variables timesrho0; finalinstant for this run",
+        "pressure_stages": "density+divergence stored separately and summed; physicalunitsPa",
+        "local_thresholds": true
+      },
+      "differences": [
+        "Independent local WarpDFSPH;originalGRIDruntimeunavailable",
+        "HydrostaticprobeisnotMATTERIXPhysXPBD"
+      ],
+      "video": "f_tier/A01/runs/hydrostatic_settle40/video.mp4",
+      "status": "RUNNING_A01_SUITE_NOT_COMPLETE",
+      "continuation": {
+        "checkpoint": "f_tier/A01/runs/hydrostatic_settle20/native-states.npz",
+        "native_start_s": 19.999999999999794,
+        "prior_native_steps": 10000,
+        "positions_and_velocities_exactly_restored": true,
+        "projection_warm_start": "Source DFSPH resets pressure on every projection; geometry, material and solver parameters unchanged."
+      }
+    },
+    "mechanical_wall_taps42s": {
+      "test": "native_wall_pressure_taps",
+      "metrics": {
+        "elapsed_native_s": 42.0,
+        "measurement_seconds": 1.0020000000000002,
+        "pressure_tap_heights_m": [
+          0.012,
+          0.02,
+          0.028,
+          0.036000000000000004,
+          0.044
+        ],
+        "mean_pressure_taps_Pa": [
+          454.58956502151204,
+          302.8066051350591,
+          278.885584631786,
+          181.38811032904934,
+          100.78908717459612
+        ],
+        "rho_g_h_Pa": [
+          373.8814153572791,
+          295.4014153572791,
+          216.92141535727913,
+          138.44141535727908,
+          59.96141535727915
+        ],
+        "pressure_depth_R2": 0.9610335976286754,
+        "slope_Pa_per_m": 10362.743131248024,
+        "intercept_Pa": 34.54796711342159,
+        "slope_error": 0.056344865570644664,
+        "rho_g_h_normalized_RMSE": 0.16807693099595253,
+        "maxspeed_last1s_m_s": 0.006033256649971008,
+        "mean_compression_last1s": 0.0006290979640643871,
+        "native_steps": 1000,
+        "wall_s": 26.656651104989578
+      },
+      "checks": {
+        "pressure_R2_gt_p95": true,
+        "slope_error_lt10percent": true,
+        "maxspeed_lt1cm_s": true,
+        "compression_lt1percent": true
+      },
+      "passed": true,
+      "protocol": {
+        "pressure_observable": "Actual native left-wall normal reaction per fixed0.008m height tap and full0.064m width, sum both SPH projection stages and reciprocal SDF contact impulses. Not a fitted pressure assignment.",
+        "measurement_window": "Last1second of2second native continuation from exact40s checkpoint",
+        "wall_corner_components": "Includes x-normal contribution of all left-halfspace wall samples, including corners; no y force treated as x force.",
+        "raw_projection_field": "Reported as separate diagnostic in hydrostatic_settle40; its field-depth R2 .82288 andslope52%error remain unaccepted. Wall taps do not establish a globally accurate particle pressure field.",
+        "material_and_solver_changes": false,
+        "original_GRID_identity": false
+      }
+    },
+    "unshifted_coarse_dam_break": {
+      "T_ref": [
+        0.41,
+        0.84,
+        1.19,
+        1.43,
+        1.63,
+        1.83,
+        1.98,
+        2.2,
+        2.32,
+        2.51,
+        2.65,
+        2.8,
+        2.97
+      ],
+      "Z_ref": [
+        1.11,
+        1.22,
+        1.44,
+        1.67,
+        1.89,
+        2.11,
+        2.33,
+        2.56,
+        2.78,
+        3.0,
+        3.22,
+        3.44,
+        3.67
+      ],
+      "Z_native": [
+        1.0524462637190117,
+        1.2487650590243156,
+        1.5361078284468217,
+        1.795863830317931,
+        2.0315720109898803,
+        2.279618283002828,
+        2.4724403216011535,
+        2.7636317432298516,
+        2.925321723083851,
+        3.1853639476845137,
+        3.3796854674034362,
+        3.5890023678894,
+        3.830999713768798
+      ],
+      "relative_errors": [
+        0.05185021286575531,
+        0.023577917233045476,
+        0.06674154753251504,
+        0.07536756306462933,
+        0.07490582592057171,
+        0.08038781184968147,
+        0.06113318523654643,
+        0.07954364969916083,
+        0.05227400110929903,
+        0.06178798256150464,
+        0.04959176006317878,
+        0.043314641828313905,
+        0.04386913181711116
+      ],
+      "max_relative_error": 0.08038781184968147,
+      "T_achieved": 3.074134024404272,
+      "time_shift_applied_s": 0.0,
+      "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+      "local_error_threshold": 0.1
+    },
+    "retained_refined_dam_break_failure": {
+      "T_ref": [
+        0.41,
+        0.84,
+        1.19,
+        1.43,
+        1.63,
+        1.83,
+        1.98,
+        2.2,
+        2.32,
+        2.51,
+        2.65,
+        2.8,
+        2.97
+      ],
+      "Z_ref": [
+        1.11,
+        1.22,
+        1.44,
+        1.67,
+        1.89,
+        2.11,
+        2.33,
+        2.56,
+        2.78,
+        3.0,
+        3.22,
+        3.44,
+        3.67
+      ],
+      "Z_native": [
+        1.0676757848462648,
+        1.3189590971751195,
+        1.6491002944128057,
+        1.9051870158861153,
+        2.132743953850228,
+        2.3700122485136115,
+        2.5546549315579457,
+        2.83576828845153,
+        2.9950048647351997,
+        3.254845565227578,
+        3.4477628271195684,
+        3.6561291018206044,
+        3.8987002200303693
+      ],
+      "relative_errors": [
+        0.038129923561923684,
+        0.08111401407796692,
+        0.14520853778667075,
+        0.14083054843479959,
+        0.12843595441811018,
+        0.1232285537979203,
+        0.09641842556135005,
+        0.10772198767637886,
+        0.07733987940115106,
+        0.0849485217425261,
+        0.07073379724210183,
+        0.06282822727343151,
+        0.0623161362480571
+      ],
+      "max_relative_error": 0.14520853778667075,
+      "T_achieved": 3.074134024404272,
+      "time_shift_applied_s": 0.0,
+      "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+      "local_error_threshold": 0.1
+    },
+    "pressure_disabled_negative": {
+      "T_ref": [
+        0.41,
+        0.84,
+        1.19,
+        1.43,
+        1.63,
+        1.83,
+        1.98,
+        2.2,
+        2.32,
+        2.51,
+        2.65,
+        2.8,
+        2.97
+      ],
+      "Z_ref": [
+        1.11,
+        1.22,
+        1.44,
+        1.67,
+        1.89,
+        2.11,
+        2.33,
+        2.56,
+        2.78,
+        3.0,
+        3.22,
+        3.44,
+        3.67
+      ],
+      "Z_native": [
+        1.0000014277598093,
+        1.000013657503203,
+        1.00003657065387,
+        1.0000602077303222,
+        1.0000850780458324,
+        1.000114888216846,
+        1.0001404025287755,
+        1.0001829897785959,
+        1.0002086720774093,
+        1.0002530140912387,
+        1.0002884500214,
+        1.0003275465772554,
+        1.000371907187141
+      ],
+      "relative_errors": [
+        0.09909781282900076,
+        0.18031667417770236,
+        0.30553015926814575,
+        0.4011615522572921,
+        0.4708544560604061,
+        0.5260119013190303,
+        0.5707551920477358,
+        0.609303519617736,
+        0.640212707885824,
+        0.6665823286362538,
+        0.6893514130368323,
+        0.7092071085531234,
+        0.7274190988590896
+      ],
+      "max_relative_error": 0.7274190988590896,
+      "T_achieved": 3.074134024404274,
+      "time_shift_applied_s": 0.0,
+      "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+      "local_error_threshold": 0.1
+    }
+  },
+  "robot_pour_suite": {
+    "count": 3,
+    "runs": [
+      {
+        "count": 240,
+        "status": "COMPLETE",
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A01/pour_runs/240_two_way_event_clock",
+        "metrics": {
+          "native_seconds": 23.000467637848775,
+          "native_steps": 12822,
+          "count": 240,
+          "boundary_samples": 17312,
+          "source_fraction": 0.0,
+          "receiver_fraction": 1.0,
+          "spill_fraction": 0.0,
+          "min_loaded_lift_m": 0.11662992432259549,
+          "min_dt_s": 0.00040511634788461273,
+          "max_CFL": 0.36046165567594673,
+          "native_solid_penetration_particles": 0,
+          "projection_convergence_fraction": 0.9999220090469505,
+          "max_speed_m_s": 2.218064546585083,
+          "empty_support_N": 1.3733878137720035,
+          "loaded_support_N": 1.4097151136300912,
+          "loaded_window_s": 1.0,
+          "scale_liquid_mass_kg": 0.003703088670549204,
+          "transferred_particle_mass_time_average_kg": 0.0037499999999999777,
+          "scale_mass_relative_error": 0.012509687853539725,
+          "final_transferred_particle_mass_kg": 0.0037500000000000007,
+          "empty_beaker_mass_kg": 0.1400000000000001,
+          "unexpected_robot_contact_control_rows": 100,
+          "return_position_error_m": 0.00010689767677660377,
+          "wall_seconds": 434.237602394991
+        },
+        "checks": {
+          "full_23s": true,
+          "receiver_at_least_50pct": true,
+          "spill_at_most_10pct": true,
+          "zero_native_solid_penetrations": true,
+          "scale_mass_within_10pct": true
+        },
+        "native_command_timing": {
+          "domain": "MuJoCo/Warp shared native simulation clock, not wallclock or hardware real-time",
+          "nominal_hz": 100.0,
+          "actual_command_count": 2300,
+          "actual_hz": 99.99796594894829,
+          "period_std_s": 0.00011919578354111696,
+          "period_min_max_s": [
+            0.008791769733718657,
+            0.011785665274976894
+          ],
+          "max_lateness_s": 0.0019786178705732405,
+          "timestamps": "command_timestamps.csv",
+          "hard_remainder_dt_clipping": false
+        },
+        "scale_raw": {
+          "exact_native_substep_raw_available": false
+        },
+        "video": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A01/pour_runs/240_two_way_event_clock/video.mp4"
+      },
+      {
+        "count": 1920,
+        "status": "COMPLETE",
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A01/pour_runs/1920_two_way_event_clock",
+        "metrics": {
+          "native_seconds": 23.0009562672393,
+          "native_steps": 26559,
+          "count": 1920,
+          "boundary_samples": 65875,
+          "source_fraction": 0.0,
+          "receiver_fraction": 0.9989583333333333,
+          "spill_fraction": 0.0010416666666666667,
+          "min_loaded_lift_m": 0.11635024636838259,
+          "min_dt_s": 0.00011684969641771079,
+          "max_CFL": 0.3852532490304669,
+          "native_solid_penetration_particles": 0,
+          "projection_convergence_fraction": 0.9859934485485147,
+          "max_speed_m_s": 4.045263290405273,
+          "empty_support_N": 1.3733878137720035,
+          "loaded_support_N": 1.4100631762028186,
+          "loaded_window_s": 1.0,
+          "scale_liquid_mass_kg": 0.0037385690551289654,
+          "transferred_particle_mass_time_average_kg": 0.003746093750000006,
+          "scale_mass_relative_error": 0.002008677671518643,
+          "final_transferred_particle_mass_kg": 0.0037460937500000007,
+          "empty_beaker_mass_kg": 0.1400000000000001,
+          "unexpected_robot_contact_control_rows": 101,
+          "return_position_error_m": 8.043193855748202e-05,
+          "wall_seconds": 1788.1292582629976
+        },
+        "checks": {
+          "full_23s": true,
+          "receiver_at_least_50pct": true,
+          "spill_at_most_10pct": true,
+          "zero_native_solid_penetrations": true,
+          "scale_mass_within_10pct": true
+        },
+        "native_command_timing": {
+          "domain": "MuJoCo/Warp shared native simulation clock, not wallclock or hardware real-time",
+          "nominal_hz": 100.0,
+          "actual_command_count": 2300,
+          "actual_hz": 99.99920700517633,
+          "period_std_s": 0.00048094687513196163,
+          "period_min_max_s": [
+            0.008457728694362565,
+            0.011510676594108022
+          ],
+          "max_lateness_s": 0.0018388623297820872,
+          "timestamps": "command_timestamps.csv",
+          "hard_remainder_dt_clipping": false
+        },
+        "scale_raw": {
+          "exact_native_substep_raw_available": false
+        },
+        "video": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A01/pour_runs/1920_two_way_event_clock/video.mp4"
+      },
+      {
+        "count": 15360,
+        "status": "COMPLETE",
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A01/pour_runs/15360_two_way_event_clock",
+        "metrics": {
+          "native_seconds": 23.00016365785577,
+          "native_steps": 244845,
+          "count": 15360,
+          "boundary_samples": 256335,
+          "source_fraction": 0.0,
+          "receiver_fraction": 0.9792317708333333,
+          "spill_fraction": 0.020768229166666666,
+          "min_loaded_lift_m": 0.11574784032353752,
+          "min_dt_s": 5.687240998678879e-05,
+          "max_CFL": 0.40724889490264204,
+          "native_solid_penetration_particles": 0,
+          "projection_convergence_fraction": 1.0,
+          "max_speed_m_s": 4.1970086097717285,
+          "empty_support_N": 1.3733878137720035,
+          "loaded_support_N": 1.4093455541414388,
+          "loaded_window_s": 1.0,
+          "scale_liquid_mass_kg": 0.0036654169591677195,
+          "transferred_particle_mass_time_average_kg": 0.0036721191406249984,
+          "scale_mass_relative_error": 0.0018251535967697648,
+          "final_transferred_particle_mass_kg": 0.003672119140625001,
+          "empty_beaker_mass_kg": 0.1400000000000001,
+          "unexpected_robot_contact_control_rows": 99,
+          "return_position_error_m": 7.961055072054552e-05,
+          "wall_seconds": 14722.672311676986
+        },
+        "checks": {
+          "full_23s": true,
+          "receiver_at_least_50pct": true,
+          "spill_at_most_10pct": true,
+          "zero_native_solid_penetrations": true,
+          "scale_mass_within_10pct": true
+        },
+        "native_command_timing": {
+          "domain": "MuJoCo/Warp shared native simulation clock, not wallclock or hardware real-time",
+          "nominal_hz": 100.0,
+          "actual_command_count": 2300,
+          "actual_hz": 99.99968951254992,
+          "period_std_s": 9.004461435497808e-05,
+          "period_min_max_s": [
+            0.009423725941770211,
+            0.01058086304221506
+          ],
+          "max_lateness_s": 0.0005874219942617609,
+          "timestamps": "command_timestamps.csv",
+          "hard_remainder_dt_clipping": false
+        },
+        "scale_raw": {
+          "exact_native_substep_raw_available": false
+        },
+        "video": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A01/pour_runs/15360_two_way_event_clock/video.mp4"
+      }
+    ],
+    "adjacent_resolution_convergence": [
+      {
+        "pair": [
+          240,
+          1920
+        ],
+        "complete": true,
+        "absolute_percentage_point_differences": {
+          "receiver_fraction": 0.10416666666667185,
+          "spill_fraction": 0.10416666666666667
+        },
+        "both_within5pp": true
+      },
+      {
+        "pair": [
+          1920,
+          15360
+        ],
+        "complete": true,
+        "absolute_percentage_point_differences": {
+          "receiver_fraction": 1.9726562499999933,
+          "spill_fraction": 1.97265625
+        },
+        "both_within5pp": true
+      }
+    ],
+    "matched_CPU_coupling_ablation": [
+      {
+        "name": "240_cpu_two_way_coupling_control",
+        "metrics": {
+          "native_seconds": 23.000604318004545,
+          "native_steps": 12957,
+          "count": 240,
+          "boundary_samples": 17312,
+          "source_fraction": 0.0,
+          "receiver_fraction": 1.0,
+          "spill_fraction": 0.0,
+          "min_loaded_lift_m": 0.11656266939475804,
+          "min_dt_s": 0.00039878443610888014,
+          "max_CFL": 0.354740411799761,
+          "native_solid_penetration_particles": 0,
+          "projection_convergence_fraction": 1.0,
+          "max_speed_m_s": 2.2176015377044678,
+          "empty_support_N": 1.3733878137720035,
+          "loaded_support_N": 1.4097319905045929,
+          "loaded_window_s": 1.0,
+          "scale_liquid_mass_kg": 0.003704809045116145,
+          "transferred_particle_mass_time_average_kg": 0.0037499999999999777,
+          "scale_mass_relative_error": 0.01205092130235545,
+          "final_transferred_particle_mass_kg": 0.0037500000000000007,
+          "empty_beaker_mass_kg": 0.1400000000000001,
+          "unexpected_robot_contact_control_rows": 100,
+          "return_position_error_m": 9.860552380515201e-05,
+          "wall_seconds": 528.6761839270039
+        },
+        "raw_scale": {
+          "exact_native_substep_raw_available": true,
+          "sample_count": 501,
+          "total_overlap_s": 1.0,
+          "loaded_support_N_recomputed": 1.4097319905045922
+        },
+        "negative_correctly_rejected_by10pct_gate": null
+      },
+      {
+        "name": "240_cpu_one_way_coupling_control",
+        "metrics": {
+          "native_seconds": 23.00043998436403,
+          "native_steps": 12854,
+          "count": 240,
+          "boundary_samples": 17312,
+          "source_fraction": 0.0,
+          "receiver_fraction": 1.0,
+          "spill_fraction": 0.0,
+          "min_loaded_lift_m": 0.11638201571971649,
+          "min_dt_s": 0.0004073366159790217,
+          "max_CFL": 0.3631800816607405,
+          "native_solid_penetration_particles": 0,
+          "projection_convergence_fraction": 1.0,
+          "max_speed_m_s": 2.223526954650879,
+          "empty_support_N": 1.3733878137720035,
+          "loaded_support_N": 1.3734411598459249,
+          "loaded_window_s": 1.0,
+          "scale_liquid_mass_kg": 5.437928024605371e-06,
+          "transferred_particle_mass_time_average_kg": 0.0037499999999999777,
+          "scale_mass_relative_error": 0.9985498858601052,
+          "final_transferred_particle_mass_kg": 0.0037500000000000007,
+          "empty_beaker_mass_kg": 0.1400000000000001,
+          "unexpected_robot_contact_control_rows": 100,
+          "return_position_error_m": 0.00010568980380053931,
+          "wall_seconds": 529.7505174530088
+        },
+        "raw_scale": {
+          "exact_native_substep_raw_available": true,
+          "sample_count": 501,
+          "total_overlap_s": 1.0,
+          "loaded_support_N_recomputed": 1.3734411598459262
+        },
+        "negative_correctly_rejected_by10pct_gate": true
+      }
+    ],
+    "A01_F_PASS": false,
+    "claim_boundary": [
+      "Only pouring/convergence/coupling assembled here; parent owns hydrostatic/dambreak acceptance and finalA01result",
+      "Particle collision scope native tube/cup solids+bench_top+floor; excludesfluidrobot/rack and does not assertzeroallrigidpenetration",
+      "Native rigidtube/bench soft contact depth atfine and fineinitial1.71%spill are retained limitations",
+      "Rawpressurefield failure is distinct from mechanical walltap validation; seeparentcanonicalresult"
+    ]
+  },
+  "completed_native_pours": [
+    {
+      "count": 240,
+      "metrics": {
+        "native_seconds": 23.000467637848775,
+        "native_steps": 12822,
+        "count": 240,
+        "boundary_samples": 17312,
+        "source_fraction": 0.0,
+        "receiver_fraction": 1.0,
+        "spill_fraction": 0.0,
+        "min_loaded_lift_m": 0.11662992432259549,
+        "min_dt_s": 0.00040511634788461273,
+        "max_CFL": 0.36046165567594673,
+        "native_solid_penetration_particles": 0,
+        "projection_convergence_fraction": 0.9999220090469505,
+        "max_speed_m_s": 2.218064546585083,
+        "empty_support_N": 1.3733878137720035,
+        "loaded_support_N": 1.4097151136300912,
+        "loaded_window_s": 1.0,
+        "scale_liquid_mass_kg": 0.003703088670549204,
+        "transferred_particle_mass_time_average_kg": 0.0037499999999999777,
+        "scale_mass_relative_error": 0.012509687853539725,
+        "final_transferred_particle_mass_kg": 0.0037500000000000007,
+        "empty_beaker_mass_kg": 0.1400000000000001,
+        "unexpected_robot_contact_control_rows": 100,
+        "return_position_error_m": 0.00010689767677660377,
+        "wall_seconds": 434.237602394991
+      },
+      "checks": {
+        "full_23s": true,
+        "receiver_at_least_50pct": true,
+        "spill_at_most_10pct": true,
+        "zero_native_solid_penetrations": true,
+        "scale_mass_within_10pct": true
+      },
+      "protocol": {
+        "count": 240,
+        "mode": "two_way",
+        "device": "cuda:0",
+        "native_horizon_s": 23.0,
+        "nominal_native_controller_hz": 100,
+        "controller_clock": "Fixed100Hz event deadlines; full adaptiveCFL steps cross deadlines, no remainder clipping; actual emission timestamps retained; final horizon may overshoot by at most one integration step",
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "particle_mass_kg": 1.5625000000000004e-05,
+        "spacing_m": 0.0025,
+        "support_radius_m": 0.006500000000000001,
+        "nested_initial_condition": "Same240parentvoxels4x4x15; 3D binary subdivision per level gives1920/15360 with exactly same occupied voxel union, mass and centroid",
+        "adaptive_CFL": {
+          "lambda": 0.4,
+          "dt_max_s": 0.002,
+          "relative_speed": "max fluid speed + max container linear/angular surface speed, plus sqrt(g*dx) acceleration guard",
+          "native_dt_synchronized": true
+        },
+        "geometry": "Both vessel native walls/bottom thickened outward6.5mm for every resolution, apertures preserved; original empty rigid mass and inertia retained explicitly; bench/floor native geometry unchanged",
+        "boundary": "Three support layers of Akinci vessel samples; conservative radius-padded oriented-box/cylinder swept slab/quadratic contacts and native plane; zero restitution, tangent continuation; no lid",
+        "reaction": "Pressure+viscous+CCD equal/opposite force and COM torque applied before same MuJoCo step; one_way removes these applied forces only",
+        "measurement": "Actual beaker-bench native contact force, empty tare and dt-weighted final1s mean; pressure-force array is not used as scale output",
+        "local_thresholds": {
+          "receiver_fraction_min": 0.5,
+          "spill_fraction_max": 0.1,
+          "adjacent_resolution_difference_percentage_points_max": 5,
+          "native_solid_crossing_particles_max": 0,
+          "transferred_mass_scale_relative_error_max": 0.1
+        },
+        "differences": [
+          "Independent Warp/MuJoCo reconstruction, no GRID",
+          "Thickened container collision geometry with original empty inertials; same geometry across all three resolutions",
+          "Conservative radius-padded collision edges and first-order rigid swept motion per adaptive substep",
+          "Initial rectangular-column fluid support and local fixed3.75mL fill; no initial density lower-band or tuned spacing gate",
+          "UR5e script expert only; no learned policy or perception"
+        ],
+        "grasp_geometry_prerequisite": {
+          "target_closed_pad_height_above_tube_root_m": 0.06,
+          "measured_closed_pad_below_pinch_m": 0.0083,
+          "home_pinch_xyz": [
+            0.49999111882141406,
+            0.11999815655719345,
+            0.0721721405594979
+          ],
+          "rigid_positive_and_negative": "../rigid_grasp_geometry_preflight/metrics.json",
+          "initial_fill_or_spacing_changed": false
+        }
+      }
+    },
+    {
+      "count": 1920,
+      "metrics": {
+        "native_seconds": 23.0009562672393,
+        "native_steps": 26559,
+        "count": 1920,
+        "boundary_samples": 65875,
+        "source_fraction": 0.0,
+        "receiver_fraction": 0.9989583333333333,
+        "spill_fraction": 0.0010416666666666667,
+        "min_loaded_lift_m": 0.11635024636838259,
+        "min_dt_s": 0.00011684969641771079,
+        "max_CFL": 0.3852532490304669,
+        "native_solid_penetration_particles": 0,
+        "projection_convergence_fraction": 0.9859934485485147,
+        "max_speed_m_s": 4.045263290405273,
+        "empty_support_N": 1.3733878137720035,
+        "loaded_support_N": 1.4100631762028186,
+        "loaded_window_s": 1.0,
+        "scale_liquid_mass_kg": 0.0037385690551289654,
+        "transferred_particle_mass_time_average_kg": 0.003746093750000006,
+        "scale_mass_relative_error": 0.002008677671518643,
+        "final_transferred_particle_mass_kg": 0.0037460937500000007,
+        "empty_beaker_mass_kg": 0.1400000000000001,
+        "unexpected_robot_contact_control_rows": 101,
+        "return_position_error_m": 8.043193855748202e-05,
+        "wall_seconds": 1788.1292582629976
+      },
+      "checks": {
+        "full_23s": true,
+        "receiver_at_least_50pct": true,
+        "spill_at_most_10pct": true,
+        "zero_native_solid_penetrations": true,
+        "scale_mass_within_10pct": true
+      },
+      "protocol": {
+        "count": 1920,
+        "mode": "two_way",
+        "device": "cuda:0",
+        "native_horizon_s": 23.0,
+        "nominal_native_controller_hz": 100,
+        "controller_clock": "Fixed100Hz event deadlines; full adaptiveCFL steps cross deadlines, no remainder clipping; actual emission timestamps retained; final horizon may overshoot by at most one integration step",
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "particle_mass_kg": 1.9531250000000005e-06,
+        "spacing_m": 0.00125,
+        "support_radius_m": 0.0032500000000000003,
+        "nested_initial_condition": "Same240parentvoxels4x4x15; 3D binary subdivision per level gives1920/15360 with exactly same occupied voxel union, mass and centroid",
+        "adaptive_CFL": {
+          "lambda": 0.4,
+          "dt_max_s": 0.002,
+          "relative_speed": "max fluid speed + max container linear/angular surface speed, plus sqrt(g*dx) acceleration guard",
+          "native_dt_synchronized": true
+        },
+        "geometry": "Both vessel native walls/bottom thickened outward6.5mm for every resolution, apertures preserved; original empty rigid mass and inertia retained explicitly; bench/floor native geometry unchanged",
+        "boundary": "Three support layers of Akinci vessel samples; conservative radius-padded oriented-box/cylinder swept slab/quadratic contacts and native plane; zero restitution, tangent continuation; no lid",
+        "reaction": "Pressure+viscous+CCD equal/opposite force and COM torque applied before same MuJoCo step; one_way removes these applied forces only",
+        "measurement": "Actual beaker-bench native contact force, empty tare and dt-weighted final1s mean; pressure-force array is not used as scale output",
+        "local_thresholds": {
+          "receiver_fraction_min": 0.5,
+          "spill_fraction_max": 0.1,
+          "adjacent_resolution_difference_percentage_points_max": 5,
+          "native_solid_crossing_particles_max": 0,
+          "transferred_mass_scale_relative_error_max": 0.1
+        },
+        "differences": [
+          "Independent Warp/MuJoCo reconstruction, no GRID",
+          "Thickened container collision geometry with original empty inertials; same geometry across all three resolutions",
+          "Conservative radius-padded collision edges and first-order rigid swept motion per adaptive substep",
+          "Initial rectangular-column fluid support and local fixed3.75mL fill; no initial density lower-band or tuned spacing gate",
+          "UR5e script expert only; no learned policy or perception"
+        ],
+        "grasp_geometry_prerequisite": {
+          "target_closed_pad_height_above_tube_root_m": 0.06,
+          "measured_closed_pad_below_pinch_m": 0.0083,
+          "home_pinch_xyz": [
+            0.5000015770566792,
+            0.11999897229730934,
+            0.07215990363537972
+          ],
+          "rigid_positive_and_negative": "../rigid_grasp_geometry_preflight/metrics.json",
+          "initial_fill_or_spacing_changed": false
+        }
+      }
+    },
+    {
+      "count": 15360,
+      "metrics": {
+        "native_seconds": 23.00016365785577,
+        "native_steps": 244845,
+        "count": 15360,
+        "boundary_samples": 256335,
+        "source_fraction": 0.0,
+        "receiver_fraction": 0.9792317708333333,
+        "spill_fraction": 0.020768229166666666,
+        "min_loaded_lift_m": 0.11574784032353752,
+        "min_dt_s": 5.687240998678879e-05,
+        "max_CFL": 0.40724889490264204,
+        "native_solid_penetration_particles": 0,
+        "projection_convergence_fraction": 1.0,
+        "max_speed_m_s": 4.1970086097717285,
+        "empty_support_N": 1.3733878137720035,
+        "loaded_support_N": 1.4093455541414388,
+        "loaded_window_s": 1.0,
+        "scale_liquid_mass_kg": 0.0036654169591677195,
+        "transferred_particle_mass_time_average_kg": 0.0036721191406249984,
+        "scale_mass_relative_error": 0.0018251535967697648,
+        "final_transferred_particle_mass_kg": 0.003672119140625001,
+        "empty_beaker_mass_kg": 0.1400000000000001,
+        "unexpected_robot_contact_control_rows": 99,
+        "return_position_error_m": 7.961055072054552e-05,
+        "wall_seconds": 14722.672311676986
+      },
+      "checks": {
+        "full_23s": true,
+        "receiver_at_least_50pct": true,
+        "spill_at_most_10pct": true,
+        "zero_native_solid_penetrations": true,
+        "scale_mass_within_10pct": true
+      },
+      "protocol": {
+        "count": 15360,
+        "mode": "two_way",
+        "device": "cuda:0",
+        "native_horizon_s": 23.0,
+        "nominal_native_controller_hz": 100,
+        "controller_clock": "Fixed100Hz event deadlines; full adaptiveCFL steps cross deadlines, no remainder clipping; actual emission timestamps retained; final horizon may overshoot by at most one integration step",
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "particle_mass_kg": 2.4414062500000006e-07,
+        "spacing_m": 0.000625,
+        "support_radius_m": 0.0016250000000000001,
+        "nested_initial_condition": "Same240parentvoxels4x4x15; 3D binary subdivision per level gives1920/15360 with exactly same occupied voxel union, mass and centroid",
+        "adaptive_CFL": {
+          "lambda": 0.4,
+          "dt_max_s": 0.002,
+          "relative_speed": "max fluid speed + max container linear/angular surface speed, plus sqrt(g*dx) acceleration guard",
+          "native_dt_synchronized": true
+        },
+        "geometry": "Both vessel native walls/bottom thickened outward6.5mm for every resolution, apertures preserved; original empty rigid mass and inertia retained explicitly; bench/floor native geometry unchanged",
+        "boundary": "Three support layers of Akinci vessel samples; conservative radius-padded oriented-box/cylinder swept slab/quadratic contacts and native plane; zero restitution, tangent continuation; no lid",
+        "reaction": "Pressure+viscous+CCD equal/opposite force and COM torque applied before same MuJoCo step; one_way removes these applied forces only",
+        "measurement": "Actual beaker-bench native contact force, empty tare and dt-weighted final1s mean; pressure-force array is not used as scale output",
+        "local_thresholds": {
+          "receiver_fraction_min": 0.5,
+          "spill_fraction_max": 0.1,
+          "adjacent_resolution_difference_percentage_points_max": 5,
+          "native_solid_crossing_particles_max": 0,
+          "transferred_mass_scale_relative_error_max": 0.1
+        },
+        "differences": [
+          "Independent Warp/MuJoCo reconstruction, no GRID",
+          "Thickened container collision geometry with original empty inertials; same geometry across all three resolutions",
+          "Conservative radius-padded collision edges and first-order rigid swept motion per adaptive substep",
+          "Initial rectangular-column fluid support and local fixed3.75mL fill; no initial density lower-band or tuned spacing gate",
+          "UR5e script expert only; no learned policy or perception"
+        ],
+        "grasp_geometry_prerequisite": {
+          "target_closed_pad_height_above_tube_root_m": 0.06,
+          "measured_closed_pad_below_pinch_m": 0.0083,
+          "home_pinch_xyz": [
+            0.4999956411964383,
+            0.11999766131039868,
+            0.07213201318616802
+          ],
+          "rigid_positive_and_negative": "../rigid_grasp_geometry_preflight/metrics.json",
+          "initial_fill_or_spacing_changed": false
+        }
+      }
+    }
+  ],
+  "derived_figure": "f_tier/A01/standard_tests.pdf",
+  "video_kind": "Measured chart plus all saved frames of declared native runs; explicit display holds.",
+  "video_frame_map": "f_tier/A01/video-frame-map.json",
+  "video_frames": 3362,
+  "independent_acceptance_review": "f_tier/A01/independent_review.json",
+  "original_GRID_identity": false,
+  "independent_measurements": {
+    "wall_taps_exact_last1s": {
+      "R2": 0.9610332390704431,
+      "slope_relative_error": 0.05634391972739161,
+      "absolute_rho_g_h_NRMSE": 0.16807821000354267,
+      "exact_measurement_window_s": 1.0000000000000002
+    },
+    "fine_spill": {
+      "final_spill_count": 319,
+      "final_spill_fraction": 0.020768229166666666,
+      "initial_saved_spill_count": 0,
+      "initial_saved_spill_fraction": 0.0,
+      "peak_pregrasp_spill_count": 550,
+      "peak_pregrasp_spill_fraction": 0.035807291666666664,
+      "peak_pregrasp_spill_native_s": 0.18007604039585046
+    },
+    "main_scale_measurement_scope": "Online final-substep means plus independently integrated approximate100Hz native force; exact raw substep data available only for matched CPU coupling controls."
+  },
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "F_acceptance_review": {
+    "id": "A01",
+    "reviewer": "/root/f_w1_manipulation",
+    "verdict": "Pass",
+    "acceptance_scope": "F-tier local qualitative functional reconstruction with declared differences; not original GRID identity or complete DFSPH validation",
+    "writes": "This independent review and executable recomputation script only; no producer/native/result/scoreboard mutation",
+    "native_simulation_steps_executed": 0,
+    "criteria": {
+      "1_hydrostatic_settling_and_mechanical_wall_taps": true,
+      "2_unshifted_coarse_dam_and_pressure_disabled_negative": true,
+      "3_three_full_native_pours_and_zero_scoped_crossings": true,
+      "4_same_initial_mass_volume_and_adjacent_resolution_within5pp": true,
+      "5_scale_within10pct_and_matched_backend_coupling_negative": true
+    },
+    "hydrostatic": {
+      "checks": {
+        "twenty_plus_twenty_seconds": true,
+        "monotonic_clock": true,
+        "exact_saved_position_checkpoint": true,
+        "explicit_velocity_restore": true,
+        "clock_substep_consistency": true,
+        "maxspeed_below_1cm_s": true,
+        "positive_compression_below_1pct": true,
+        "zero_recorded_escape": true,
+        "wall_tap_R2_above_p95": true,
+        "wall_tap_slope_error_below_10pct": true,
+        "wall_tap_settled": true
+      },
+      "passed": true,
+      "native_seconds": 40.00000000000292,
+      "native_steps": 20000,
+      "clock_max_error_s": 0.0,
+      "maxspeed_endpoint_m_s": 0.004915887489914894,
+      "mean_positive_compression": 0.0006291776080615819,
+      "position_checkpoint_equal": true,
+      "velocity_restore_evidence": "a01_standard.py explicit restore+assert; resumed initial velocity array not separately persisted",
+      "mechanical_wall_taps": {
+        "slope_Pa_per_m": 10362.733852525711,
+        "intercept_Pa": 34.54861462720901,
+        "R2": 0.9610332390704431,
+        "slope_relative_error": 0.05634391972739161,
+        "absolute_rho_g_h_NRMSE": 0.16807821000354267,
+        "expected_Pa": [
+          373.8810296110065,
+          295.4010296110065,
+          216.9210296110065,
+          138.44102961100646,
+          59.96102961100652
+        ],
+        "observed_Pa": [
+          454.58957803202793,
+          302.80638404656213,
+          278.88559823622927,
+          181.38830063981004,
+          100.78926563437577
+        ],
+        "raw_samples": 1000,
+        "native_continuation_s": 2.0000000000000013,
+        "exact_measurement_window_s": 1.0000000000000002,
+        "tap_height_m": [
+          0.012,
+          0.02,
+          0.028,
+          0.036000000000000004,
+          0.044
+        ],
+        "tap_area_m2": 0.000512,
+        "maxspeed_in_window_m_s": 0.006033256649971008,
+        "mean_compression": 0.0006290972378337756,
+        "producer_501_sample_window_s": 1.0020000000000004,
+        "producer_501_sample_fit": {
+          "slope_Pa_per_m": 10362.743131248015,
+          "intercept_Pa": 34.547967113421734,
+          "R2": 0.9610335976286755,
+          "slope_relative_error": 0.056344865570643776,
+          "absolute_rho_g_h_NRMSE": 0.16807693099595244,
+          "expected_Pa": [
+            373.8814153572791,
+            295.40141535727906,
+            216.92141535727905,
+            138.44141535727903,
+            59.96141535727909
+          ],
+          "observed_Pa": [
+            454.58956502151193,
+            302.80660513505904,
+            278.88558463178595,
+            181.3881103290493,
+            100.78908717459609
+          ]
+        }
+      },
+      "retained_failed_particle_pressure_field": {
+        "slope_Pa_per_m": 14909.82519411786,
+        "intercept_Pa": -81.13581701912683,
+        "R2": 0.8228806187732728,
+        "slope_relative_error": 0.5198598566888746,
+        "absolute_rho_g_h_NRMSE": 0.39700648188591003,
+        "raw_interior_particles": 128,
+        "passes_R2_and_slope_gate": false
+      }
+    },
+    "dam_break": {
+      "dam_break_native_trace": {
+        "raw_sample_count": 85,
+        "final_native_s": 0.17,
+        "T_achieved": 3.074134024404272,
+        "T_formula": "t*sqrt(2*9.81/.06)",
+        "Z_formula": "front_x_m/.06",
+        "fitted_time_shift_s": 0.0,
+        "reference_points": 13,
+        "max_relative_error": 0.08038781184968147,
+        "predicted_Z": [
+          1.0524462637190117,
+          1.2487650590243156,
+          1.5361078284468217,
+          1.795863830317931,
+          2.0315720109898803,
+          2.279618283002828,
+          2.4724403216011535,
+          2.7636317432298516,
+          2.925321723083851,
+          3.1853639476845137,
+          3.3796854674034362,
+          3.5890023678894,
+          3.830999713768798
+        ],
+        "relative_errors": [
+          0.05185021286575531,
+          0.023577917233045476,
+          0.06674154753251504,
+          0.07536756306462933,
+          0.07490582592057171,
+          0.08038781184968147,
+          0.06113318523654643,
+          0.07954364969916083,
+          0.05227400110929903,
+          0.06178798256150464,
+          0.04959176006317878,
+          0.043314641828313905,
+          0.04386913181711116
+        ],
+        "saved_state_front_max_difference_m": 0.0,
+        "final_count": 432,
+        "finite_saved_states": true,
+        "zero_recorded_escape": true,
+        "passed": true
+      },
+      "dam_break_refinement": {
+        "raw_sample_count": 123,
+        "final_native_s": 0.17,
+        "T_achieved": 3.074134024404272,
+        "T_formula": "t*sqrt(2*9.81/.06)",
+        "Z_formula": "front_x_m/.06",
+        "fitted_time_shift_s": 0.0,
+        "reference_points": 13,
+        "max_relative_error": 0.14520853778667075,
+        "predicted_Z": [
+          1.0676757848462648,
+          1.3189590971751195,
+          1.6491002944128057,
+          1.9051870158861153,
+          2.132743953850228,
+          2.3700122485136115,
+          2.5546549315579457,
+          2.83576828845153,
+          2.9950048647351997,
+          3.254845565227578,
+          3.4477628271195684,
+          3.6561291018206044,
+          3.8987002200303693
+        ],
+        "relative_errors": [
+          0.038129923561923684,
+          0.08111401407796692,
+          0.14520853778667075,
+          0.14083054843479959,
+          0.12843595441811018,
+          0.1232285537979203,
+          0.09641842556135005,
+          0.10772198767637886,
+          0.07733987940115106,
+          0.0849485217425261,
+          0.07073379724210183,
+          0.06282822727343151,
+          0.0623161362480571
+        ],
+        "saved_state_front_max_difference_m": 0.0,
+        "final_count": 3456,
+        "finite_saved_states": true,
+        "zero_recorded_escape": true,
+        "passed": false
+      },
+      "dam_break_no_pressure": {
+        "raw_sample_count": 85,
+        "final_native_s": 0.17000000000000012,
+        "T_achieved": 3.074134024404274,
+        "T_formula": "t*sqrt(2*9.81/.06)",
+        "Z_formula": "front_x_m/.06",
+        "fitted_time_shift_s": 0.0,
+        "reference_points": 13,
+        "max_relative_error": 0.7274190988590896,
+        "predicted_Z": [
+          1.0000014277598093,
+          1.000013657503203,
+          1.00003657065387,
+          1.0000602077303222,
+          1.0000850780458324,
+          1.000114888216846,
+          1.0001404025287755,
+          1.0001829897785959,
+          1.0002086720774093,
+          1.0002530140912387,
+          1.0002884500214,
+          1.0003275465772554,
+          1.000371907187141
+        ],
+        "relative_errors": [
+          0.09909781282900076,
+          0.18031667417770236,
+          0.30553015926814575,
+          0.4011615522572921,
+          0.4708544560604061,
+          0.5260119013190303,
+          0.5707551920477358,
+          0.609303519617736,
+          0.640212707885824,
+          0.6665823286362538,
+          0.6893514130368323,
+          0.7092071085531234,
+          0.7274190988590896
+        ],
+        "saved_state_front_max_difference_m": 0.0,
+        "final_count": 432,
+        "finite_saved_states": true,
+        "zero_recorded_escape": true,
+        "passed": false
+      }
+    },
+    "pours": [
+      {
+        "run": "240_two_way_event_clock",
+        "mode": "two_way",
+        "device": "cuda:0",
+        "count": 240,
+        "final_native_s": 23.000467637848775,
+        "native_steps": 12822,
+        "saved_frames": 231,
+        "finite_saved_states": true,
+        "final_source_count": 0,
+        "final_receiver_count": 240,
+        "final_spill_count": 0,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "initial_saved_spill_count": 0,
+        "initial_saved_spill_fraction": 0.0,
+        "peak_pregrasp_spill_count": 0,
+        "peak_pregrasp_spill_fraction": 0.0,
+        "peak_pregrasp_spill_native_s": 0.01,
+        "all_saved_count_conservation": true,
+        "saved_classification_trace_mismatch_rows": 0,
+        "sampled_native_solid_intersection_max_particles": 0,
+        "sampled_native_solid_intersection_distinct_particles": 0,
+        "recorded_ever_native_solid_crossing_particles": 0,
+        "collision_scope": "test_tube/beaker native boxes+cylinders, bench_top, floor; 1um inward tolerance; excludes fluid-robot/rack",
+        "full_substep_crossing_audit_available": false,
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "initial_mass_kg": 0.0037500000000000007,
+        "initial_centroid_local_m": [
+          1.0119220276531375e-19,
+          -1.4456028966473392e-20,
+          0.022499999999999985
+        ],
+        "initial_voxel_union_bounds_m": [
+          [
+            -0.005,
+            -0.005,
+            0.00375
+          ],
+          [
+            0.005,
+            0.005,
+            0.04125
+          ]
+        ],
+        "particle_mass_from_density_and_spacing_kg": 1.5625000000000004e-05,
+        "final_transferred_mass_kg": 0.0037500000000000007,
+        "min_loaded_lift_m": 0.11662992432259549,
+        "tare_sample_count": 501,
+        "tare_support_N": 1.3733878137720035,
+        "native_rigid_unexpected_contact_control_rows": 100,
+        "native_rigid_unexpected_contact_pairs": [
+          "world/rq_left_pad",
+          "world/rq_right_pad"
+        ],
+        "tare_mass_relative_error": 8.873036258627565e-06,
+        "tare_minus_producer_N": 0.0,
+        "online_native_substep_support_N": 1.4097151136300912,
+        "online_scale_relative_error_recomputed": 0.01250968785354578,
+        "approximate_saved_trace_scale": {
+          "kind": "100Hz saved-force backward-hold approximation; not exact substep reintegration",
+          "window_s": 1.0,
+          "support_N": 1.409530620422625,
+          "inferred_liquid_mass_kg": 0.0036842820235088204,
+          "expected_received_mass_kg": 0.0037500000000000007,
+          "relative_error": 0.01752479373098141
+        },
+        "exact_saved_substep_scale": null,
+        "actual_commands": 2300,
+        "command_rate_native_Hz": 99.99796594894829,
+        "command_period_min_max_s": [
+          0.008791769733718657,
+          0.011785665274976894
+        ],
+        "max_command_lateness_s": 0.0019786178705732405,
+        "scheduled_commands_match_100Hz": true,
+        "commands_causal_monotonic": true,
+        "reported_min_dt_s": 0.00040511634788461273,
+        "reported_max_poststep_CFL": 0.36046165567594673
+      },
+      {
+        "run": "1920_two_way_event_clock",
+        "mode": "two_way",
+        "device": "cuda:0",
+        "count": 1920,
+        "final_native_s": 23.0009562672393,
+        "native_steps": 26559,
+        "saved_frames": 231,
+        "finite_saved_states": true,
+        "final_source_count": 0,
+        "final_receiver_count": 1918,
+        "final_spill_count": 2,
+        "final_receiver_fraction": 0.9989583333333333,
+        "final_spill_fraction": 0.0010416666666666667,
+        "initial_saved_spill_count": 0,
+        "initial_saved_spill_fraction": 0.0,
+        "peak_pregrasp_spill_count": 2,
+        "peak_pregrasp_spill_fraction": 0.0010416666666666667,
+        "peak_pregrasp_spill_native_s": 0.16004908013297675,
+        "all_saved_count_conservation": true,
+        "saved_classification_trace_mismatch_rows": 0,
+        "sampled_native_solid_intersection_max_particles": 0,
+        "sampled_native_solid_intersection_distinct_particles": 0,
+        "recorded_ever_native_solid_crossing_particles": 0,
+        "collision_scope": "test_tube/beaker native boxes+cylinders, bench_top, floor; 1um inward tolerance; excludes fluid-robot/rack",
+        "full_substep_crossing_audit_available": false,
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "initial_mass_kg": 0.0037500000000000007,
+        "initial_centroid_local_m": [
+          1.4184978423352017e-19,
+          -1.7166534397687153e-20,
+          0.022500000000000003
+        ],
+        "initial_voxel_union_bounds_m": [
+          [
+            -0.004999999999999999,
+            -0.004999999999999999,
+            0.0037500000000000003
+          ],
+          [
+            0.004999999999999999,
+            0.004999999999999999,
+            0.04125
+          ]
+        ],
+        "particle_mass_from_density_and_spacing_kg": 1.9531250000000005e-06,
+        "final_transferred_mass_kg": 0.0037460937500000007,
+        "min_loaded_lift_m": 0.11635024636838259,
+        "tare_sample_count": 501,
+        "tare_support_N": 1.3733878137720035,
+        "native_rigid_unexpected_contact_control_rows": 101,
+        "native_rigid_unexpected_contact_pairs": [
+          "world/rq_left_pad",
+          "world/rq_right_pad"
+        ],
+        "tare_mass_relative_error": 8.873036258627565e-06,
+        "tare_minus_producer_N": 0.0,
+        "online_native_substep_support_N": 1.4100631762028186,
+        "online_scale_relative_error_recomputed": 0.0020086776715170255,
+        "approximate_saved_trace_scale": {
+          "kind": "100Hz saved-force backward-hold approximation; not exact substep reintegration",
+          "window_s": 1.0,
+          "support_N": 1.4100447158365046,
+          "inferred_liquid_mass_kg": 0.003736687264475139,
+          "expected_received_mass_kg": 0.00374609375,
+          "relative_error": 0.0025110117772308197
+        },
+        "exact_saved_substep_scale": null,
+        "actual_commands": 2300,
+        "command_rate_native_Hz": 99.99920700517633,
+        "command_period_min_max_s": [
+          0.008457728694362565,
+          0.011510676594108022
+        ],
+        "max_command_lateness_s": 0.0018388623297820872,
+        "scheduled_commands_match_100Hz": true,
+        "commands_causal_monotonic": true,
+        "reported_min_dt_s": 0.00011684969641771079,
+        "reported_max_poststep_CFL": 0.3852532490304669
+      },
+      {
+        "run": "15360_two_way_event_clock",
+        "mode": "two_way",
+        "device": "cuda:0",
+        "count": 15360,
+        "final_native_s": 23.00016365785577,
+        "native_steps": 244845,
+        "saved_frames": 231,
+        "finite_saved_states": true,
+        "final_source_count": 0,
+        "final_receiver_count": 15041,
+        "final_spill_count": 319,
+        "final_receiver_fraction": 0.9792317708333333,
+        "final_spill_fraction": 0.020768229166666666,
+        "initial_saved_spill_count": 0,
+        "initial_saved_spill_fraction": 0.0,
+        "peak_pregrasp_spill_count": 550,
+        "peak_pregrasp_spill_fraction": 0.035807291666666664,
+        "peak_pregrasp_spill_native_s": 0.18007604039585046,
+        "all_saved_count_conservation": true,
+        "saved_classification_trace_mismatch_rows": 0,
+        "sampled_native_solid_intersection_max_particles": 0,
+        "sampled_native_solid_intersection_distinct_particles": 0,
+        "recorded_ever_native_solid_crossing_particles": 0,
+        "collision_scope": "test_tube/beaker native boxes+cylinders, bench_top, floor; 1um inward tolerance; excludes fluid-robot/rack",
+        "full_substep_crossing_audit_available": false,
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "initial_mass_kg": 0.0037500000000000007,
+        "initial_centroid_local_m": [
+          -1.247961875621336e-19,
+          3.0606123827455385e-20,
+          0.022499999999999874
+        ],
+        "initial_voxel_union_bounds_m": [
+          [
+            -0.005,
+            -0.005,
+            0.0037500000000000003
+          ],
+          [
+            0.005,
+            0.005,
+            0.04125
+          ]
+        ],
+        "particle_mass_from_density_and_spacing_kg": 2.4414062500000006e-07,
+        "final_transferred_mass_kg": 0.003672119140625001,
+        "min_loaded_lift_m": 0.11574784032353752,
+        "tare_sample_count": 501,
+        "tare_support_N": 1.3733878137720035,
+        "native_rigid_unexpected_contact_control_rows": 99,
+        "native_rigid_unexpected_contact_pairs": [
+          "world/rq_left_pad",
+          "world/rq_right_pad"
+        ],
+        "tare_mass_relative_error": 8.873036258627565e-06,
+        "tare_minus_producer_N": 0.0,
+        "online_native_substep_support_N": 1.4093455541414388,
+        "online_scale_relative_error_recomputed": 0.0018251535967704722,
+        "approximate_saved_trace_scale": {
+          "kind": "100Hz saved-force backward-hold approximation; not exact substep reintegration",
+          "window_s": 1.0,
+          "support_N": 1.409619200787596,
+          "inferred_liquid_mass_kg": 0.0036933116223845652,
+          "expected_received_mass_kg": 0.003672119140625001,
+          "relative_error": 0.005771185778018432
+        },
+        "exact_saved_substep_scale": null,
+        "actual_commands": 2300,
+        "command_rate_native_Hz": 99.99968951254992,
+        "command_period_min_max_s": [
+          0.009423725941770211,
+          0.01058086304221506
+        ],
+        "max_command_lateness_s": 0.0005874219942617609,
+        "scheduled_commands_match_100Hz": true,
+        "commands_causal_monotonic": true,
+        "reported_min_dt_s": 5.687240998678879e-05,
+        "reported_max_poststep_CFL": 0.40724889490264204
+      },
+      {
+        "run": "240_cpu_two_way_coupling_control",
+        "mode": "two_way",
+        "device": "cpu",
+        "count": 240,
+        "final_native_s": 23.000604318004545,
+        "native_steps": 12957,
+        "saved_frames": 231,
+        "finite_saved_states": true,
+        "final_source_count": 0,
+        "final_receiver_count": 240,
+        "final_spill_count": 0,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "initial_saved_spill_count": 0,
+        "initial_saved_spill_fraction": 0.0,
+        "peak_pregrasp_spill_count": 0,
+        "peak_pregrasp_spill_fraction": 0.0,
+        "peak_pregrasp_spill_native_s": 0.01,
+        "all_saved_count_conservation": true,
+        "saved_classification_trace_mismatch_rows": 0,
+        "sampled_native_solid_intersection_max_particles": 0,
+        "sampled_native_solid_intersection_distinct_particles": 0,
+        "recorded_ever_native_solid_crossing_particles": 0,
+        "collision_scope": "test_tube/beaker native boxes+cylinders, bench_top, floor; 1um inward tolerance; excludes fluid-robot/rack",
+        "full_substep_crossing_audit_available": false,
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "initial_mass_kg": 0.0037500000000000007,
+        "initial_centroid_local_m": [
+          1.0119220276531375e-19,
+          -1.4456028966473392e-20,
+          0.022499999999999985
+        ],
+        "initial_voxel_union_bounds_m": [
+          [
+            -0.005,
+            -0.005,
+            0.00375
+          ],
+          [
+            0.005,
+            0.005,
+            0.04125
+          ]
+        ],
+        "particle_mass_from_density_and_spacing_kg": 1.5625000000000004e-05,
+        "final_transferred_mass_kg": 0.0037500000000000007,
+        "min_loaded_lift_m": 0.11656266939475804,
+        "tare_sample_count": 501,
+        "tare_support_N": 1.3733878137720035,
+        "native_rigid_unexpected_contact_control_rows": 100,
+        "native_rigid_unexpected_contact_pairs": [
+          "world/rq_left_pad",
+          "world/rq_right_pad"
+        ],
+        "tare_mass_relative_error": 8.873036258627565e-06,
+        "tare_minus_producer_N": 0.0,
+        "online_native_substep_support_N": 1.4097319905045929,
+        "online_scale_relative_error_recomputed": 0.012050921302361505,
+        "approximate_saved_trace_scale": {
+          "kind": "100Hz saved-force backward-hold approximation; not exact substep reintegration",
+          "window_s": 1.0,
+          "support_N": 1.409507147129295,
+          "inferred_liquid_mass_kg": 0.0036818892311204442,
+          "expected_received_mass_kg": 0.0037500000000000007,
+          "relative_error": 0.018162871701215066
+        },
+        "exact_saved_substep_scale": {
+          "samples": 501,
+          "overlap_total_s": 1.0,
+          "overlap_disagreement_max_s": 0.0,
+          "mass_column_error_max_kg": 0.0,
+          "support_N": 1.409731990504592,
+          "inferred_liquid_mass_kg": 0.0037048090451160544,
+          "expected_received_mass_kg": 0.0037500000000000007,
+          "relative_error": 0.012050921302385676,
+          "minus_online_support_N": -8.881784197001252e-16
+        },
+        "actual_commands": 2300,
+        "command_rate_native_Hz": 99.99737145663424,
+        "command_period_min_max_s": [
+          0.00879176973371866,
+          0.011785665274976898
+        ],
+        "max_command_lateness_s": 0.0019784153151885253,
+        "scheduled_commands_match_100Hz": true,
+        "commands_causal_monotonic": true,
+        "reported_min_dt_s": 0.00039878443610888014,
+        "reported_max_poststep_CFL": 0.354740411799761
+      },
+      {
+        "run": "240_cpu_one_way_coupling_control",
+        "mode": "one_way",
+        "device": "cpu",
+        "count": 240,
+        "final_native_s": 23.00043998436403,
+        "native_steps": 12854,
+        "saved_frames": 231,
+        "finite_saved_states": true,
+        "final_source_count": 0,
+        "final_receiver_count": 240,
+        "final_spill_count": 0,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "initial_saved_spill_count": 0,
+        "initial_saved_spill_fraction": 0.0,
+        "peak_pregrasp_spill_count": 0,
+        "peak_pregrasp_spill_fraction": 0.0,
+        "peak_pregrasp_spill_native_s": 0.01,
+        "all_saved_count_conservation": true,
+        "saved_classification_trace_mismatch_rows": 0,
+        "sampled_native_solid_intersection_max_particles": 0,
+        "sampled_native_solid_intersection_distinct_particles": 0,
+        "recorded_ever_native_solid_crossing_particles": 0,
+        "collision_scope": "test_tube/beaker native boxes+cylinders, bench_top, floor; 1um inward tolerance; excludes fluid-robot/rack",
+        "full_substep_crossing_audit_available": false,
+        "initial_volume_m3": 3.7500000000000005e-06,
+        "initial_mass_kg": 0.0037500000000000007,
+        "initial_centroid_local_m": [
+          1.0119220276531375e-19,
+          -1.4456028966473392e-20,
+          0.022499999999999985
+        ],
+        "initial_voxel_union_bounds_m": [
+          [
+            -0.005,
+            -0.005,
+            0.00375
+          ],
+          [
+            0.005,
+            0.005,
+            0.04125
+          ]
+        ],
+        "particle_mass_from_density_and_spacing_kg": 1.5625000000000004e-05,
+        "final_transferred_mass_kg": 0.0037500000000000007,
+        "min_loaded_lift_m": 0.11638201571971649,
+        "tare_sample_count": 501,
+        "tare_support_N": 1.3733878137720035,
+        "native_rigid_unexpected_contact_control_rows": 100,
+        "native_rigid_unexpected_contact_pairs": [
+          "world/rq_left_pad",
+          "world/rq_right_pad"
+        ],
+        "tare_mass_relative_error": 8.873036258627565e-06,
+        "tare_minus_producer_N": 0.0,
+        "online_native_substep_support_N": 1.3734411598459249,
+        "online_scale_relative_error_recomputed": 0.9985498858601052,
+        "approximate_saved_trace_scale": {
+          "kind": "100Hz saved-force backward-hold approximation; not exact substep reintegration",
+          "window_s": 1.0,
+          "support_N": 1.3732003013724041,
+          "inferred_liquid_mass_kg": -1.9114413822564158e-05,
+          "expected_received_mass_kg": 0.0037500000000000007,
+          "relative_error": 1.0050971770193504
+        },
+        "exact_saved_substep_scale": {
+          "samples": 501,
+          "overlap_total_s": 1.0,
+          "overlap_disagreement_max_s": 0.0,
+          "mass_column_error_max_kg": 0.0,
+          "support_N": 1.373441159845926,
+          "inferred_liquid_mass_kg": 5.437928024718543e-06,
+          "expected_received_mass_kg": 0.0037500000000000007,
+          "relative_error": 0.9985498858600751,
+          "minus_online_support_N": 1.1102230246251565e-15
+        },
+        "actual_commands": 2300,
+        "command_rate_native_Hz": 99.99808622903984,
+        "command_period_min_max_s": [
+          0.008728673407608412,
+          0.011934560846864173
+        ],
+        "max_command_lateness_s": 0.001969006920824329,
+        "scheduled_commands_match_100Hz": true,
+        "commands_causal_monotonic": true,
+        "reported_min_dt_s": 0.0004073366159790217,
+        "reported_max_poststep_CFL": 0.3631800816607405
+      }
+    ],
+    "adjacent": [
+      {
+        "pair": [
+          240,
+          1920
+        ],
+        "capture_difference_pp": 0.10416666666667185,
+        "spill_difference_pp": 0.10416666666666667,
+        "passed": true
+      },
+      {
+        "pair": [
+          1920,
+          15360
+        ],
+        "capture_difference_pp": 1.9726562499999933,
+        "spill_difference_pp": 1.97265625,
+        "passed": true
+      }
+    ],
+    "media": {
+      "probe": {
+        "width": 1200,
+        "height": 800,
+        "r_frame_rate": "20/1",
+        "duration": "168.100000",
+        "nb_frames": "3362"
+      },
+      "all_frame_map_entries_checked": 3362,
+      "all_source_native_frames_present": true,
+      "interpolation": false,
+      "new_physics_steps": 0,
+      "segments": [
+        {
+          "source": "f_tier/A01/standard_tests.png",
+          "display_frames": 100,
+          "kind": "declared static measured chart"
+        },
+        {
+          "source": "f_tier/A01/runs/hydrostatic_settle20/video.mp4",
+          "raw_frames": 401,
+          "display_frames": 401,
+          "repeats": 1,
+          "final_native_s": 19.999999999999794,
+          "final_video_frame": 500
+        },
+        {
+          "source": "f_tier/A01/runs/hydrostatic_settle40/video.mp4",
+          "raw_frames": 401,
+          "display_frames": 401,
+          "repeats": 1,
+          "final_native_s": 40.00000000000292,
+          "final_video_frame": 901
+        },
+        {
+          "source": "f_tier/A01/runs/dam_break_native_trace/video.mp4",
+          "raw_frames": 5,
+          "display_frames": 50,
+          "repeats": 10,
+          "final_native_s": 0.17,
+          "final_video_frame": 951
+        },
+        {
+          "source": "f_tier/A01/runs/dam_break_refinement/video.mp4",
+          "raw_frames": 5,
+          "display_frames": 50,
+          "repeats": 10,
+          "final_native_s": 0.17,
+          "final_video_frame": 1001
+        },
+        {
+          "source": "f_tier/A01/runs/dam_break_no_pressure/video.mp4",
+          "raw_frames": 5,
+          "display_frames": 50,
+          "repeats": 10,
+          "final_native_s": 0.17000000000000012,
+          "final_video_frame": 1051
+        },
+        {
+          "source": "f_tier/A01/pour_runs/240_two_way_event_clock/video.mp4",
+          "raw_frames": 231,
+          "display_frames": 462,
+          "repeats": 2,
+          "final_native_s": 23.000467637848775,
+          "final_video_frame": 1513
+        },
+        {
+          "source": "f_tier/A01/pour_runs/1920_two_way_event_clock/video.mp4",
+          "raw_frames": 231,
+          "display_frames": 462,
+          "repeats": 2,
+          "final_native_s": 23.0009562672393,
+          "final_video_frame": 1975
+        },
+        {
+          "source": "f_tier/A01/pour_runs/15360_two_way_event_clock/video.mp4",
+          "raw_frames": 231,
+          "display_frames": 462,
+          "repeats": 2,
+          "final_native_s": 23.00016365785577,
+          "final_video_frame": 2437
+        },
+        {
+          "source": "f_tier/A01/pour_runs/240_cpu_two_way_coupling_control/video.mp4",
+          "raw_frames": 231,
+          "display_frames": 462,
+          "repeats": 2,
+          "final_native_s": 23.000604318004545,
+          "final_video_frame": 2899
+        },
+        {
+          "source": "f_tier/A01/pour_runs/240_cpu_one_way_coupling_control/video.mp4",
+          "raw_frames": 231,
+          "display_frames": 462,
+          "repeats": 2,
+          "final_native_s": 23.00043998436403,
+          "final_video_frame": 3361
+        }
+      ],
+      "visual_review": "Final actual frames of all 10 native chapters and measured chart inspected by reviewer; labeled failures/holds retained.",
+      "actual_video_frames_inspected": [
+        0,
+        500,
+        901,
+        951,
+        1001,
+        1051,
+        1513,
+        1975,
+        2437,
+        2899,
+        3361
+      ]
+    },
+    "source_equivalence_without_hashes": {
+      "all_five_scene_XML_identical": true,
+      "all_five_fluid_sources_identical": true,
+      "three_GPU_runner_sources_identical": true,
+      "CPU_matched_pair_runner_sources_identical": true,
+      "CPU_pair_protocol_mode": [
+        "two_way",
+        "one_way"
+      ]
+    },
+    "reference_transcription_review": "Primary local91519.pdf printedp317/PDFpage7 visually checked:13 right-hand mean-column points,n\u00b2=2,a=2.25in,T<=3. Original authors normalized T atZ1.44; no fitted native time shift.",
+    "dimensions": {
+      "functional_achievement": {
+        "status": "Pass",
+        "evidence": "Five declared local F criteria independently recomputed from raw states/CSV; not original GRID identity."
+      },
+      "correctness_and_reliability": {
+        "status": "Risk",
+        "evidence": "Saved-state and raw scale checks agree, matched negative rejects missing feedback. Full GPU scale substeps and full-substep particle trajectories were not persisted; exact claims restricted accordingly."
+      },
+      "architecture": {
+        "status": "Pass",
+        "evidence": "Standalone MuJoCo owns rigid clock and Warp uses the same adaptive dt; force/torque applied before native mj_step. No joint MATTERIX-backend claim."
+      },
+      "function_and_API_design": {
+        "status": "Pass",
+        "evidence": "Stored protocol/CSV units and two_way versus one_way are explicit; scale reading comes from native beaker-bench contact force, independent of count labels."
+      },
+      "style_and_maintainability": {
+        "status": "Pass",
+        "evidence": "Explicit bounded experiment paths, source snapshots and retained failed runs; no repair or new abstraction required for this scoped acceptance."
+      },
+      "performance": {
+        "status": "Pass",
+        "evidence": "Fine244845steps and14722.67s producer wall time disclosed; nominal100Hz is native command cadence, with no hardware/wall real-time claim or F throughput target."
+      }
+    },
+    "blocking_findings": [],
+    "non_blocking_improvements": [
+      "Future runs should persist exact scale_substeps for GPU main runs; do not relabel the current100Hz reintegration as exact.",
+      "Root canonical description should distinguish fine firstsaved spill0, pregrasp peak550/15360 at.180076s, terminal319/15360. Original raw evidence remains unchanged.",
+      "Producer wall-tap selection spans1.002s despite Last1second wording; exact overlap-clipped1s independently passes with negligible numerical difference."
+    ],
+    "minimum_required_repair": "No new native experiment required for the declared F tier. Root retains final promotion authority; describe corrected spill envelope and preserved evidence limitations.",
+    "retained_failures_and_limits": [
+      "40s particle pressure field fails R2/slope; mechanical wall traction is a separate accepted observable.",
+      "Wall traction absolute rho*g*h NRMSE about16.8% and nonzero34.55Pa intercept remain; no absolute-pressure10% pass is claimed.",
+      "Unshifted3456-particle dam refinement fails10%; no refinement convergence or time-shift repair claimed.",
+      "Three GPU main-run exact scale_substeps missing: online means recomputed arithmetically,100Hz raw force independently approximated only; matched CPU controls exact.",
+      "Saved-state geometry confirms no scoped intersections at231 frames/run; all-substep flag coverage relies on audited native observer, not a saved full particle trajectory.",
+      "Fine first saved spill0, pregrasp peak550/15360=3.58073% at.180076s, terminal319/15360=2.07682%; all particles remain in denominator. Native soft rigid contact overlap remains a declared limitation.",
+      "Only vessels/bench/floor fluid crossings covered, not fluid-robot/rack or all rigid penetration.",
+      "Independent local Warp/MuJoCo, script expert, thickened walls and diagnostic point video; GRID runtime/assets/hardware unavailable; no hardware real-time claim."
+    ],
+    "passed": true,
+    "script": "f_tier/A01/independent_recompute.py"
+  },
+  "accepted_at_utc": "2026-10-19T14:56:22.159812+00:00",
+  "derived_pouring_figure": {
+    "pdf": "f_tier/A01/pouring_results.pdf",
+    "png": "f_tier/A01/pouring_results.png",
+    "script": "f_tier/A01/plot_pouring_results.py",
+    "scope": "Offlineplot of frozenaccepted measurements, n1percondition, separate online/saved100Hz approximate weighing and matchedCPUnegative; no newphysics or statisticalconvergence claim.",
+    "root_visual_review": "Three panels and footnotes readable; exact/approx measurement distinction and retained failures visible."
+  }
+}
