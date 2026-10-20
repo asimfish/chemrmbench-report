@@ -90,7 +90,7 @@
     "native_public_observation": [],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started."
   },
-  "updated_at_utc": "2026-10-20T19:48:42.193578+00:00",
+  "updated_at_utc": "2026-10-20T20:03:38.469463+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2912,15 +2912,15 @@
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
       "status": "collecting",
-      "dataset_attempts": 19,
-      "dataset_unique_seeds": 16,
+      "dataset_attempts": 20,
+      "dataset_unique_seeds": 17,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "runtime_rejections": 14,
-      "successes": 14,
-      "success_rate": 0.7368421052631579,
+      "successes": 15,
+      "success_rate": 0.75,
       "status_counts": {
-        "success": 14,
+        "success": 15,
         "fail": 1,
         "error": 4
       },
@@ -3163,6 +3163,29 @@
           "failure_reasons": [
             "particle_fractions"
           ],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 16,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": true,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 568.88,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 8,
+          "recording_verified": false,
+          "failure_reasons": [],
           "visual_contrast_flag": false
         },
         {
@@ -3917,7 +3940,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 139,
+  "dataset_attempts": 140,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
