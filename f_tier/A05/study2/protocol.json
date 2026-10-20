@@ -1,0 +1,76 @@
+{
+  "id": "A05-study2",
+  "status": "FROZEN_BEFORE_NEW_DATA_OR_TRAINING",
+  "frozen_utc": "2026-10-20T16:55:26.100826+00:00",
+  "authorization_start_utc": "2026-10-20T16:54:13Z",
+  "absolute_deadline_utc": "2026-10-20T18:54:13Z",
+  "hypothesis": "The prior beta=.5 mixed collection covers only492 of948 student-executed states; one pure-student collection may cover errors reached by the deployed policy. This is a bounded engineering repair, not isolated data-matched causal evidence.",
+  "old_formal_result": {
+    "seeds": [
+      9501,
+      9502,
+      9503
+    ],
+    "successes": 0,
+    "attempts": 3,
+    "status": "PERMANENTLY_RETAINED_CLOSED_FAILURE",
+    "evidence": "f_tier/A05/heldout_evaluation.json"
+  },
+  "collection": {
+    "training_seeds": [
+      1401,
+      1405,
+      1409
+    ],
+    "episodes_per_seed": 1,
+    "beta": 0.0,
+    "maximum_new_teacher_queries": 948,
+    "student_model": "f_tier/A05/models_rgb_student_repair/trained.npz",
+    "teacher": "Unchanged FeedbackTeacher c_ref + (p_ref - current observed EE), actual original successful reference states/commands;150mm/s bound; local tracker, not task recovery expert",
+    "no_test_or_validation_training": true,
+    "GPU_contexts": 0,
+    "backend": "CPU MuJoCo + actual OSMesa RGB96x96",
+    "all_attempts_including_interrupted_retained": true
+  },
+  "training": {
+    "original_expert_samples": 3792,
+    "retained_old_mixed_samples": 948,
+    "maximum_new_pure_student_samples": 948,
+    "maximum_total_samples": 5688,
+    "architecture": "Unchanged 3 RGB convolutions8/16/16 + normalized20Dcurrent-proprio/phase ->128ReLU ->4absolute-target/gripper",
+    "epochs": 120,
+    "optimizer": "Adam lr.0007 batch64",
+    "seed": 71,
+    "rounds": 1,
+    "training_device": "CPU singleTorchthread",
+    "action_rate_limit_m_s": 0.15,
+    "no_validation_based_model_selection": true
+  },
+  "new_test": {
+    "policy_seeds": [
+      9601,
+      9602,
+      9603
+    ],
+    "untrained_seed": 9601,
+    "masked_RGB_seed": 9601,
+    "unobserved_before_freeze": true,
+    "evaluations_per_recipe": 1,
+    "same_local_physical_thresholds": {
+      "hold_min_rod_lift_m": 0.08,
+      "stir_seconds_min": 5.0,
+      "in_cup_tip_fraction_min": 0.95,
+      "tip_XY_path_m_min": 0.15
+    },
+    "original_F_gate": "At least1 of3 fixed heldout complete all original physical thresholds; actual untrained/masked controls retained. Old0/3 remains reported.",
+    "all_interrupted_attempts_count_as_failure": true,
+    "no_posttest_training": true
+  },
+  "stop_rule": "At absolute deadline stop this item with honest RUNNING and completed failure analysis if collection/train/evaluation incomplete. No second model/architecture/angle/material/threshold search.",
+  "declared_differences": [
+    "Script demos replace unavailable GELLO",
+    "Dry rigid stirrer and local guide/orange cue, not liquid mixing",
+    "Known-pose pregrasp staging before t0; subsequent whole task learned from RGB/proprio/phase",
+    "New heldout bank chosen before any new training/data, but study designed after observing old bank; no claim old bank blind performance improved"
+  ]
+}

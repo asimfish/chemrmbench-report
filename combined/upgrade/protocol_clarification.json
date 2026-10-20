@@ -1,0 +1,50 @@
+{
+  "id": "C01b_protocol_clarification",
+  "clarified_utc": "2026-10-20T17:58:56.960967+00:00",
+  "scope": "One semantic clarification of inherited supported-baseline text. No frozen gate, source, seed, path, timing, physical parameter or prior evidence modified.",
+  "source_of_authority": "User senior guidance #2 section2b: release in transport with actual cup bottom >=50mm above table; native loss/fall diagnosis, replan upright/unspilled or safely abort.",
+  "original_predeclared_snapshot": "combined/upgrade/runs/C01b_pose_00/executed_protocol.json",
+  "predeclared_no_later_than_first_launch_utc": "2026-10-20T16:57:06.427790+00:00",
+  "original_frozen_top_level_fault": "Once during transport, actual bottom clearance >=50mm from the native table collider top -3mm and dual contact, open real fingers; no object/particle writes.",
+  "original_frozen_drop_verifier": {
+    "loss_streak_control_steps": 3,
+    "loss_threshold_N_presence_only": 0.001,
+    "fall_displacement_m_min": 0.005,
+    "stable_linear_speed_m_s_max": 0.01,
+    "stable_angular_speed_rad_s_max": 0.1,
+    "stable_duration_s_min": 0.25,
+    "post_loss_observation_s_min": 0.5,
+    "upright_tilt_deg_max": 10.0,
+    "spill_particles_for_recovery_max": 0,
+    "drop_observation_budget_s": 6.0
+  },
+  "inherited_baseline_clause_unchanged": {
+    "id": "contact_failure_recovery",
+    "injected_open_faults": 1,
+    "lost_both_finger_force_N_max": 0.001,
+    "lost_streak_control_steps_min": 3,
+    "recovered_both_finger_force_N_min": 0.1,
+    "recovered_streak_control_steps_min": 3,
+    "fault_location": "Native source table still supports cup; HSM motion paused, real fingers open/close, no world reset",
+    "source_table_support_force_N_min": 0.1
+  },
+  "affected_legacy_fields": [
+    "local_gates[id=contact_failure_recovery].fault_location",
+    "local_gates[id=contact_failure_recovery].source_table_support_force_N_min"
+  ],
+  "interpretation": {
+    "fault_release": "Use the predeclared top-level airborne fault and drop_verifier. The cup must already have actual bottom/table clearance >=0.05m and bilateral native finger contact. Source-table contact is not a release precondition in C01b.",
+    "loss_and_regrasp": "Keep three-frame loss (both <=0.001) and three-frame bilateral recovery (both >0.1) exactly as predeclared; thresholds signify presence only, not calibrated force magnitude.",
+    "table_support": "Landing diagnosis requires native table-contact presence plus the original frozen stable velocity/angular-velocity/duration checks; the supported-baseline table condition applies there, not while airborne.",
+    "diagnosis_and_continuation": "Keep predeclared upright<=10deg and zero classified spill for observed-pose regrasp; otherwise safe abort; all full-workflow and heat-stop gates unchanged."
+  },
+  "predeclared_source_evidence": {
+    "path": "combined/upgrade/runs/C01b_pose_00/executed_episode.py",
+    "release_height_condition_line": 228,
+    "literal": "if stage=='transport' and fault_state=='not_injected' and cup_bottom_z-(-.003)>=.05 and np.all(finger_forces()>.1):",
+    "logged_release_height_field": "drop_cup_bottom_clearance_m / fault_cup_bottom_clearance_m",
+    "native_event": "events.fault_open_planned_s; drop_verifier and subsequent loss/fall/diagnosis times use the sole MATTERIX native clock."
+  },
+  "not_a_posthoc_relaxation": true,
+  "original_protocols_retained_unmodified_by_this_clarification": true
+}

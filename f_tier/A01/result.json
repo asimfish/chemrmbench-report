@@ -735,7 +735,9 @@
     "Three GPU main-run final-window scale means were accumulated online; exact per-substep scale CSV was not retained. Their saved 100Hz support traces permit only approximate independent re-integration. The matched CPU two-way/one-way controls retain exact overlap-weighted substep CSV for both runs.",
     "UR5e script expert, localcup poses and fixedfill; no learned policy, arbitrary task-space generalization, original rendering or hardware transfer claim.",
     "The consolidated video uses actual saved particle/rigid states, diagnostic X-Z points, measured charts and explicitly labeled display holds; zero new physics or interpolated states.",
-    "Fine first saved spill=0; pregrasp transient peak550/15360=3.58073% at0.180076s; final319/15360=2.07682%. The old1.71% was an intermediate observation, not the full pregrasp maximum."
+    "Fine first saved spill=0; pregrasp transient peak550/15360=3.58073% at0.180076s; final319/15360=2.07682%. The old1.71% was an intermediate observation, not the full pregrasp maximum.",
+    "Three dam-break resolutions432/1024/3456 have raw experiment errors8.04/11.15/14.52%; pairwise trend does not establish convergence. A source-pinned2023 LetheVOF figure is digitized with pixel uncertainty and its published+.175time shift undone, not fitted.",
+    "CPU samecheckpoint2s WarpDFSPH walltap confirmation: R2.961034, slopeerror5.6345%, absolute-rho-gh NRMSE16.8075%; totalZwallreaction/knownparameterweight1.000000035. The PhysX GPUcontact-force26.5vsCPU2.94N mismatch does not calibrate this separately implemented force accumulator; quantitative wall-pressure conclusions now use the CPU run."
   ],
   "pending": [
     "23spourpregraspcontainment repair then threeuniformlyrefinedparentvoxelresolutions",
@@ -2551,5 +2553,144 @@
     "script": "f_tier/A01/plot_pouring_results.py",
     "scope": "Offlineplot of frozenaccepted measurements, n1percondition, separate online/saved100Hz approximate weighing and matchedCPUnegative; no newphysics or statisticalconvergence claim.",
     "root_visual_review": "Three panels and footnotes readable; exact/approx measurement distinction and retained failures visible."
-  }
+  },
+  "dam_break_convergence_supplement": {
+    "status": "THREE_RESOLUTION_AND_PUBLIC_NUMERICAL_COMPARISON_COMPLETE",
+    "completed_utc": "2026-10-20T17:05:11.351485+00:00",
+    "new_native_runs": 1,
+    "local_resolutions": [
+      {
+        "label": "dam_break_native_trace",
+        "particles": 432,
+        "spacing_m": 0.01,
+        "raw_experiment_max_relative_error": 0.08038781184968147,
+        "meets_original_local_10pct_gate": true,
+        "source": "f_tier/A01/runs/dam_break_native_trace/samples.json",
+        "digitized_VOF_comparison": {
+          "RMSE_Z": 0.11007476380743851,
+          "mean_relative_error": 0.05441669674885974,
+          "max_relative_error": 0.11171432658621164
+        }
+      },
+      {
+        "label": "dam_break_intermediate_convergence",
+        "particles": 1024,
+        "spacing_m": 0.0075,
+        "raw_experiment_max_relative_error": 0.11153004086882468,
+        "meets_original_local_10pct_gate": false,
+        "source": "f_tier/A01/runs/dam_break_intermediate_convergence/samples.json",
+        "digitized_VOF_comparison": {
+          "RMSE_Z": 0.07185540438266397,
+          "mean_relative_error": 0.036213042091616104,
+          "max_relative_error": 0.09193111619234454
+        }
+      },
+      {
+        "label": "dam_break_refinement",
+        "particles": 3456,
+        "spacing_m": 0.005,
+        "raw_experiment_max_relative_error": 0.14520853778667075,
+        "meets_original_local_10pct_gate": false,
+        "source": "f_tier/A01/runs/dam_break_refinement/samples.json",
+        "digitized_VOF_comparison": {
+          "RMSE_Z": 0.040795949307887575,
+          "mean_relative_error": 0.0207968655069327,
+          "max_relative_error": 0.06282881027207293
+        }
+      }
+    ],
+    "pairwise_differences": [
+      {
+        "pair": [
+          432,
+          1024
+        ],
+        "RMS_delta_Z": 0.04095668585656732,
+        "max_absolute_delta_Z": 0.06118842183729378
+      },
+      {
+        "pair": [
+          1024,
+          3456
+        ],
+        "RMS_delta_Z": 0.03586063090493988,
+        "max_absolute_delta_Z": 0.0564227969694
+      }
+    ],
+    "adjacent_RMS_difference_ratio": 0.8755745284304957,
+    "interpretation": "Adjacent differences shrink modestly, while agreement with the1952experiment worsens under refinement. Neither the coarse pass nor this three-level trend establishes asymptotic convergence or physical validity.",
+    "dissipation_hypothesis": "Reduced numerical dissipation under refinement and unmodeled release/bottom effects can explain a faster front. These data do not isolate that cause from boundary/finite-width/solver-discretization errors; no viscosity/clock correction was fitted.",
+    "count_correction": "240/1920/15360 are the separate robot-pour resolutions. The existing dam-break column is432/3456; a1024-particle intermediate preserves its0.06x0.06x0.12m geometry instead of changing the shape to force requested counts.",
+    "numerical_reference": {
+      "method": "Lethe2023 two-phase VOF Q1-Q1/BDF1, slip walls, adaptive refinement3..5 (finest nominaldx=1/32, columnwidth/dx112).",
+      "commit": "34d345af9ca9c05214cc7ebced1e65e94643bb27",
+      "source": "https://github.com/chaos-polymtl/lethe/tree/34d345af9ca9c05214cc7ebced1e65e94643bb27/doc/source/examples/multiphysics/dam-break",
+      "figure": "f_tier/A01/lethe_reference_front.png",
+      "digitized_data": "f_tier/A01/reference_lethe/digitized_front.csv",
+      "raw_numerical_data_available": false,
+      "pixel_uncertainty": {
+        "assumed_pixels": 5,
+        "T": 0.0353,
+        "Z": 0.0407
+      },
+      "time_shift_fitted": false,
+      "undo_publisher_dimensionless_time_shift": 0.175,
+      "comparability": "Same height/width2, nondimensional variables. Independent two-dimensional two-phase slip-wall reference versus finite-width3D single-phase localDFSPH; gravity/viscosity scales imply unequal Reynolds numbers. Pixel data supports a descriptive comparison only, not a high-precision validation gate."
+    },
+    "acceptance_changed": false
+  },
+  "CPU_force_validation": {
+    "backend": "CPU WarpDFSPH, not PhysX contact-force API",
+    "source": "f_tier/A01/pressure_cpu_validation.py",
+    "checkpoint": "f_tier/A01/runs/hydrostatic_settle40/native-states.npz",
+    "native_steps": 1000,
+    "native_duration_s": 2.0,
+    "measurement_window_s": [
+      1,
+      2
+    ],
+    "sample_grid_seconds": 1.0020000000000002,
+    "fluid_known_parameter_mass_kg": 0.31457280000000004,
+    "expected_weight_N": 3.0859591680000005,
+    "measured_wall_reaction_z_N": -3.0859592769912134,
+    "reaction_weight_magnitude_ratio": 1.0000000353184235,
+    "calibration_factor_fitted": false,
+    "scope": "Direct kernel reaction sum validated against configured static mass; not an externally calibrated physical mass measurement. Five left-wall X-normal pressure taps and total Z-reaction are different observables.",
+    "wall_pressure_metrics": {
+      "elapsed_native_s": 42.0,
+      "measurement_seconds": 1.0020000000000002,
+      "pressure_tap_heights_m": [
+        0.012,
+        0.02,
+        0.028,
+        0.036000000000000004,
+        0.044
+      ],
+      "mean_pressure_taps_Pa": [
+        454.58959848220366,
+        302.8066218073133,
+        278.88563766930497,
+        181.38814872751638,
+        100.78899549172087
+      ],
+      "rho_g_h_Pa": [
+        373.88200584144465,
+        295.4020058414446,
+        216.9220058414446,
+        138.44200584144454,
+        59.96200584144462
+      ],
+      "pressure_depth_R2": 0.961033600204036,
+      "slope_Pa_per_m": 10362.745988259534,
+      "intercept_Pa": 34.54729016052104,
+      "slope_error": 0.056345156805253316,
+      "rho_g_h_normalized_RMSE": 0.16807531212118085,
+      "maxspeed_last1s_m_s": 0.00603336188942194,
+      "mean_compression_last1s": 0.0006290977767774622,
+      "native_steps": 1000,
+      "wall_s": 175.55717639200157
+    },
+    "raw": "f_tier/A01/runs/hydrostatic_wall_taps_cpu/native-taps.csv"
+  },
+  "preferred_quantitative_wall_pressure_source": "f_tier/A01/runs/hydrostatic_wall_taps_cpu/metrics.json"
 }

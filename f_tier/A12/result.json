@@ -2,7 +2,7 @@
   "id": "A12",
   "status": "F_PASS",
   "F_PASS": true,
-  "scope_status": "TWO_FRESH_ENGINEERING_WINDOWS_FIRST_PHYSICAL_PASS_PENDING_ROOT_REVIEW",
+  "scope_status": "INCREMENTAL_ENGINEERING_FUNCTION_RECONSTRUCTED_ROOT_REVIEW_PASS",
   "protocol": {
     "scope": "Real incremental development of a moving-receiver coupled fluid task, then second-robot reuse through adapter; first-pass engineering windows measured prospectively",
     "time_sources": "Host UTC and monotonic start/end; actual instrumented subprocess RUSAGE_CHILDREN user/system CPU and wall; native sim time separately",
@@ -225,5 +225,9 @@
     },
     "scope": "Measures local incremental engineering windows, inclusive parallel supervision/wait; existing models/controller/solver reused. No from-zero engineering or author speedup claim. Task wrapper cleanup outlives first physical-pass timestamp by about0.3s; subprocess CPU covers full child lifetime."
   },
-  "accepted_at_utc": "2026-10-19T11:39:48.608983+00:00"
+  "accepted_at_utc": "2026-10-19T11:39:48.608983+00:00",
+  "declared_differences": [
+    "Two incremental engineering windows reuse the existing local simulator, assets, scripts and harness; no from-zero engineering-time or original GRID speedup claim.",
+    "Local native moving-receiver tasks on UR5e and Flexiv; no original agent weights, private tools, hardware or API-cost equivalence."
+  ]
 }

@@ -1,0 +1,1581 @@
+{
+  "id": "A05-study2",
+  "status": "F_CANDIDATE_PENDING_ROOT_INDEPENDENT_PHYSICAL_CLOSURE_REVIEW",
+  "F_PASS": false,
+  "protocol": "f_tier/A05/study2/protocol.json",
+  "absolute_deadline_utc": "2026-10-20T18:54:13Z",
+  "attempts": [
+    {
+      "stage": "pure_student_collection",
+      "label": "pure_student_1401",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "1401",
+        "--label",
+        "pure_student_1401",
+        "--mode",
+        "mix",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "started_utc": "2026-10-20T16:56:30.045029+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": true,
+      "pid": 1040606,
+      "returncode": 0,
+      "wall_s": 72.19916136100073,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1401/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 69.27574985401588,
+        "hold_min_rod_lift_m": 0.12671068700662969,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3860304687163097,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 316,
+        "admitted_samples": 316,
+        "student_executed_states": 316,
+        "admitted_student_states": 316,
+        "beta": 0.0,
+        "mixture_rng_seed": 18422,
+        "time_alignment_max_abs_s": 0.0,
+        "teacher": "c_ref(t)+1*(p_ref(t)-observed_nativeEE), workspace and150mm/s targetstepbounds; reference actualsuccessful executedcmd/EE. Localtrackingteacher, nottaskrecovery/originalauthorteacher.",
+        "no_runtime_GT_object_inputs": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "pure_student_collection",
+      "label": "pure_student_1405",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "1405",
+        "--label",
+        "pure_student_1405",
+        "--mode",
+        "mix",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "started_utc": "2026-10-20T16:57:42.313088+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": true,
+      "pid": 1046700,
+      "returncode": 0,
+      "wall_s": 80.72965219101752,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1405/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 77.21365952299675,
+        "hold_min_rod_lift_m": 0.11661473781595512,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.21925233141942835,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 316,
+        "admitted_samples": 316,
+        "student_executed_states": 316,
+        "admitted_student_states": 316,
+        "beta": 0.0,
+        "mixture_rng_seed": 18426,
+        "time_alignment_max_abs_s": 0.0,
+        "teacher": "c_ref(t)+1*(p_ref(t)-observed_nativeEE), workspace and150mm/s targetstepbounds; reference actualsuccessful executedcmd/EE. Localtrackingteacher, nottaskrecovery/originalauthorteacher.",
+        "no_runtime_GT_object_inputs": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "pure_student_collection",
+      "label": "pure_student_1409",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "1409",
+        "--label",
+        "pure_student_1409",
+        "--mode",
+        "mix",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "started_utc": "2026-10-20T16:59:03.105591+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": true,
+      "pid": 1053345,
+      "returncode": 0,
+      "wall_s": 74.21146580501227,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1409/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 70.26335772400489,
+        "hold_min_rod_lift_m": 0.13223856458226435,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3571764248436063,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 316,
+        "admitted_samples": 316,
+        "student_executed_states": 316,
+        "admitted_student_states": 316,
+        "beta": 0.0,
+        "mixture_rng_seed": 18430,
+        "time_alignment_max_abs_s": 0.0,
+        "teacher": "c_ref(t)+1*(p_ref(t)-observed_nativeEE), workspace and150mm/s targetstepbounds; reference actualsuccessful executedcmd/EE. Localtrackingteacher, nottaskrecovery/originalauthorteacher.",
+        "no_runtime_GT_object_inputs": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "training",
+      "label": "training",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/train_vision.py",
+        "--action-space",
+        "absolute",
+        "--output",
+        "models",
+        "--context-mode",
+        "current",
+        "--image-mode",
+        "rgb",
+        "--rate-limit",
+        ".15",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1401",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1405",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1409",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1401",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1405",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1409"
+      ],
+      "started_utc": "2026-10-20T17:00:17.388856+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1059018,
+      "returncode": 0,
+      "wall_s": 186.99873428299907,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_policy_9601",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9601",
+        "--label",
+        "heldout_policy_9601",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:03:24.524825+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1074064,
+      "returncode": 0,
+      "wall_s": 90.01981794499443,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_policy_9601/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 86.67297321298975,
+        "hold_min_rod_lift_m": -0.00011946126386676303,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0005454829736225175,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_policy_9602",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9602",
+        "--label",
+        "heldout_policy_9602",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:04:54.625978+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1083409,
+      "returncode": 0,
+      "wall_s": 79.54842432102305,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_policy_9602/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 75.57042910001474,
+        "hold_min_rod_lift_m": 0.07276353165459735,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.40854826117305953,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_policy_9603",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9603",
+        "--label",
+        "heldout_policy_9603",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:06:14.259926+00:00",
+      "status": "NATIVE_COMPLETE_PARENT_EXIT_UNCAPTURED",
+      "physical_success": true,
+      "pid": 1089778,
+      "returncode": null,
+      "process_exit_status": "UNOBSERVED",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 74.31161998998141,
+        "hold_min_rod_lift_m": 0.13126248918999234,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3799362537968123,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_policy_9603/metrics.json",
+      "native_closure_requires_independent_audit": true,
+      "wall_s": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_untrained_9601",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9601",
+        "--label",
+        "heldout_untrained_9601",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/untrained.npz"
+      ],
+      "started_utc": "2026-10-20T17:12:22.488994+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1119624,
+      "returncode": 0,
+      "wall_s": 70.88188587300829,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_untrained_9601/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 67.29788778201328,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "continuation_controls_only",
+      "parent_pid": 1119604
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_masked_9601",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9601",
+        "--label",
+        "heldout_masked_9601",
+        "--mode",
+        "masked",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:13:33.422937+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1126283,
+      "returncode": 0,
+      "wall_s": 72.03377260200796,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_masked_9601/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 68.92330509799649,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "continuation_controls_only",
+      "parent_pid": 1119604
+    }
+  ],
+  "original_failure": {
+    "successes": 0,
+    "attempts": 3,
+    "seeds": [
+      9501,
+      9502,
+      9503
+    ]
+  },
+  "failure_analysis_source": "f_tier/A05/result.json#failure_analysis",
+  "scope": "Single newly authorized bounded study. No new episodes/training yet.",
+  "updated_utc": "2026-10-20T17:14:45.532119+00:00",
+  "training": {
+    "seed": 71,
+    "CPU_only": true,
+    "torch_threads": 1,
+    "epochs": 120,
+    "batch_size": 64,
+    "learning_rate": 0.0007,
+    "samples": 5688,
+    "admitted": [
+      {
+        "seed": 1401,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1401",
+        "samples": 316
+      },
+      {
+        "seed": 1402,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1402",
+        "samples": 316
+      },
+      {
+        "seed": 1403,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1403",
+        "samples": 316
+      },
+      {
+        "seed": 1404,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1404",
+        "samples": 316
+      },
+      {
+        "seed": 1405,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1405",
+        "samples": 316
+      },
+      {
+        "seed": 1406,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1406",
+        "samples": 316
+      },
+      {
+        "seed": 1407,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1407",
+        "samples": 316
+      },
+      {
+        "seed": 1408,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1408",
+        "samples": 316
+      },
+      {
+        "seed": 1409,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1409",
+        "samples": 316
+      },
+      {
+        "seed": 1410,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1410",
+        "samples": 316
+      },
+      {
+        "seed": 1411,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1411",
+        "samples": 316
+      },
+      {
+        "seed": 1412,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/expert_rgb_1412",
+        "samples": 316
+      }
+    ],
+    "rejected": [],
+    "training_wall_s": 169.08991440199316,
+    "training_history": [
+      {
+        "epoch": 1,
+        "normalized_action_MSE": 0.27568428539546563
+      },
+      {
+        "epoch": 2,
+        "normalized_action_MSE": 0.024095983615173906
+      },
+      {
+        "epoch": 3,
+        "normalized_action_MSE": 0.013313390445566713
+      },
+      {
+        "epoch": 4,
+        "normalized_action_MSE": 0.008711766073697688
+      },
+      {
+        "epoch": 5,
+        "normalized_action_MSE": 0.006748309839679303
+      },
+      {
+        "epoch": 6,
+        "normalized_action_MSE": 0.005736469316693172
+      },
+      {
+        "epoch": 7,
+        "normalized_action_MSE": 0.005064233139081322
+      },
+      {
+        "epoch": 8,
+        "normalized_action_MSE": 0.0047709290029902835
+      },
+      {
+        "epoch": 9,
+        "normalized_action_MSE": 0.004531026199596257
+      },
+      {
+        "epoch": 10,
+        "normalized_action_MSE": 0.0039987104765431625
+      },
+      {
+        "epoch": 11,
+        "normalized_action_MSE": 0.003956421090449755
+      },
+      {
+        "epoch": 12,
+        "normalized_action_MSE": 0.003774423697772115
+      },
+      {
+        "epoch": 13,
+        "normalized_action_MSE": 0.0035577889590140345
+      },
+      {
+        "epoch": 14,
+        "normalized_action_MSE": 0.0033589537755184073
+      },
+      {
+        "epoch": 15,
+        "normalized_action_MSE": 0.00308868613876088
+      },
+      {
+        "epoch": 16,
+        "normalized_action_MSE": 0.0031695575233936604
+      },
+      {
+        "epoch": 17,
+        "normalized_action_MSE": 0.002954491904678685
+      },
+      {
+        "epoch": 18,
+        "normalized_action_MSE": 0.0029061412692211472
+      },
+      {
+        "epoch": 19,
+        "normalized_action_MSE": 0.0027648432444880616
+      },
+      {
+        "epoch": 20,
+        "normalized_action_MSE": 0.0027052370357194865
+      },
+      {
+        "epoch": 21,
+        "normalized_action_MSE": 0.002504525875473597
+      },
+      {
+        "epoch": 22,
+        "normalized_action_MSE": 0.002557197543130939
+      },
+      {
+        "epoch": 23,
+        "normalized_action_MSE": 0.002458512664179196
+      },
+      {
+        "epoch": 24,
+        "normalized_action_MSE": 0.002307383787298232
+      },
+      {
+        "epoch": 25,
+        "normalized_action_MSE": 0.0022968408213168614
+      },
+      {
+        "epoch": 26,
+        "normalized_action_MSE": 0.0022055237277629675
+      },
+      {
+        "epoch": 27,
+        "normalized_action_MSE": 0.0022879845455207673
+      },
+      {
+        "epoch": 28,
+        "normalized_action_MSE": 0.0021883620377551403
+      },
+      {
+        "epoch": 29,
+        "normalized_action_MSE": 0.002131881905718328
+      },
+      {
+        "epoch": 30,
+        "normalized_action_MSE": 0.002105567293043829
+      },
+      {
+        "epoch": 31,
+        "normalized_action_MSE": 0.002033462362827631
+      },
+      {
+        "epoch": 32,
+        "normalized_action_MSE": 0.0019302311559363612
+      },
+      {
+        "epoch": 33,
+        "normalized_action_MSE": 0.001934972042204752
+      },
+      {
+        "epoch": 34,
+        "normalized_action_MSE": 0.0018344084216797864
+      },
+      {
+        "epoch": 35,
+        "normalized_action_MSE": 0.0017900984739536306
+      },
+      {
+        "epoch": 36,
+        "normalized_action_MSE": 0.0017917330009055896
+      },
+      {
+        "epoch": 37,
+        "normalized_action_MSE": 0.0016684304641523043
+      },
+      {
+        "epoch": 38,
+        "normalized_action_MSE": 0.001665699064506299
+      },
+      {
+        "epoch": 39,
+        "normalized_action_MSE": 0.0016252547039148698
+      },
+      {
+        "epoch": 40,
+        "normalized_action_MSE": 0.0015575763033951846
+      },
+      {
+        "epoch": 41,
+        "normalized_action_MSE": 0.001624911948226382
+      },
+      {
+        "epoch": 42,
+        "normalized_action_MSE": 0.00151811071911253
+      },
+      {
+        "epoch": 43,
+        "normalized_action_MSE": 0.001509816896657652
+      },
+      {
+        "epoch": 44,
+        "normalized_action_MSE": 0.0015026961196850561
+      },
+      {
+        "epoch": 45,
+        "normalized_action_MSE": 0.001430449696059919
+      },
+      {
+        "epoch": 46,
+        "normalized_action_MSE": 0.001361484692232885
+      },
+      {
+        "epoch": 47,
+        "normalized_action_MSE": 0.0014266281656569863
+      },
+      {
+        "epoch": 48,
+        "normalized_action_MSE": 0.0013001515837379701
+      },
+      {
+        "epoch": 49,
+        "normalized_action_MSE": 0.0012734511119880715
+      },
+      {
+        "epoch": 50,
+        "normalized_action_MSE": 0.001313342554651924
+      },
+      {
+        "epoch": 51,
+        "normalized_action_MSE": 0.0012591580628468517
+      },
+      {
+        "epoch": 52,
+        "normalized_action_MSE": 0.001229833119742719
+      },
+      {
+        "epoch": 53,
+        "normalized_action_MSE": 0.001225339569860045
+      },
+      {
+        "epoch": 54,
+        "normalized_action_MSE": 0.0011766798324023705
+      },
+      {
+        "epoch": 55,
+        "normalized_action_MSE": 0.0011410781605766481
+      },
+      {
+        "epoch": 56,
+        "normalized_action_MSE": 0.001146146679921246
+      },
+      {
+        "epoch": 57,
+        "normalized_action_MSE": 0.0011056987678438278
+      },
+      {
+        "epoch": 58,
+        "normalized_action_MSE": 0.001097438053186045
+      },
+      {
+        "epoch": 59,
+        "normalized_action_MSE": 0.0010672762645172734
+      },
+      {
+        "epoch": 60,
+        "normalized_action_MSE": 0.0011071751759362666
+      },
+      {
+        "epoch": 61,
+        "normalized_action_MSE": 0.0010751322602444498
+      },
+      {
+        "epoch": 62,
+        "normalized_action_MSE": 0.000994975249801727
+      },
+      {
+        "epoch": 63,
+        "normalized_action_MSE": 0.0009805885700766997
+      },
+      {
+        "epoch": 64,
+        "normalized_action_MSE": 0.0009744219924356008
+      },
+      {
+        "epoch": 65,
+        "normalized_action_MSE": 0.0009865087865355375
+      },
+      {
+        "epoch": 66,
+        "normalized_action_MSE": 0.0009729938027180428
+      },
+      {
+        "epoch": 67,
+        "normalized_action_MSE": 0.000977203360861547
+      },
+      {
+        "epoch": 68,
+        "normalized_action_MSE": 0.0010032041793107546
+      },
+      {
+        "epoch": 69,
+        "normalized_action_MSE": 0.0009487378029493319
+      },
+      {
+        "epoch": 70,
+        "normalized_action_MSE": 0.0008679864547115852
+      },
+      {
+        "epoch": 71,
+        "normalized_action_MSE": 0.00089551686921973
+      },
+      {
+        "epoch": 72,
+        "normalized_action_MSE": 0.0008659199957242013
+      },
+      {
+        "epoch": 73,
+        "normalized_action_MSE": 0.0008144536089681288
+      },
+      {
+        "epoch": 74,
+        "normalized_action_MSE": 0.0008640803362153805
+      },
+      {
+        "epoch": 75,
+        "normalized_action_MSE": 0.0007753467102798354
+      },
+      {
+        "epoch": 76,
+        "normalized_action_MSE": 0.0008497112658223249
+      },
+      {
+        "epoch": 77,
+        "normalized_action_MSE": 0.0008325993976426087
+      },
+      {
+        "epoch": 78,
+        "normalized_action_MSE": 0.0008633965729511803
+      },
+      {
+        "epoch": 79,
+        "normalized_action_MSE": 0.0008291559719248725
+      },
+      {
+        "epoch": 80,
+        "normalized_action_MSE": 0.0007661190005110998
+      },
+      {
+        "epoch": 81,
+        "normalized_action_MSE": 0.0008320623102339846
+      },
+      {
+        "epoch": 82,
+        "normalized_action_MSE": 0.0006932295369620942
+      },
+      {
+        "epoch": 83,
+        "normalized_action_MSE": 0.0008035779302892617
+      },
+      {
+        "epoch": 84,
+        "normalized_action_MSE": 0.0007025759016967911
+      },
+      {
+        "epoch": 85,
+        "normalized_action_MSE": 0.0006986742486532793
+      },
+      {
+        "epoch": 86,
+        "normalized_action_MSE": 0.0006642865066013119
+      },
+      {
+        "epoch": 87,
+        "normalized_action_MSE": 0.0007696140828672089
+      },
+      {
+        "epoch": 88,
+        "normalized_action_MSE": 0.0007341785606752646
+      },
+      {
+        "epoch": 89,
+        "normalized_action_MSE": 0.0006431720661472283
+      },
+      {
+        "epoch": 90,
+        "normalized_action_MSE": 0.0006963139184247624
+      },
+      {
+        "epoch": 91,
+        "normalized_action_MSE": 0.000742103075333537
+      },
+      {
+        "epoch": 92,
+        "normalized_action_MSE": 0.0006516656175887136
+      },
+      {
+        "epoch": 93,
+        "normalized_action_MSE": 0.0006844738443315281
+      },
+      {
+        "epoch": 94,
+        "normalized_action_MSE": 0.000678502479139139
+      },
+      {
+        "epoch": 95,
+        "normalized_action_MSE": 0.0006542266422650827
+      },
+      {
+        "epoch": 96,
+        "normalized_action_MSE": 0.0006096868631862229
+      },
+      {
+        "epoch": 97,
+        "normalized_action_MSE": 0.0006335650339169865
+      },
+      {
+        "epoch": 98,
+        "normalized_action_MSE": 0.0006643718886438039
+      },
+      {
+        "epoch": 99,
+        "normalized_action_MSE": 0.0006618673935939942
+      },
+      {
+        "epoch": 100,
+        "normalized_action_MSE": 0.000592001405172574
+      },
+      {
+        "epoch": 101,
+        "normalized_action_MSE": 0.00058769329728391
+      },
+      {
+        "epoch": 102,
+        "normalized_action_MSE": 0.0005792405296827021
+      },
+      {
+        "epoch": 103,
+        "normalized_action_MSE": 0.0005722956330929366
+      },
+      {
+        "epoch": 104,
+        "normalized_action_MSE": 0.0005859414494757537
+      },
+      {
+        "epoch": 105,
+        "normalized_action_MSE": 0.0005722674781865272
+      },
+      {
+        "epoch": 106,
+        "normalized_action_MSE": 0.0005486127804606529
+      },
+      {
+        "epoch": 107,
+        "normalized_action_MSE": 0.0005315437556572557
+      },
+      {
+        "epoch": 108,
+        "normalized_action_MSE": 0.0005116093139221129
+      },
+      {
+        "epoch": 109,
+        "normalized_action_MSE": 0.0005615523993561591
+      },
+      {
+        "epoch": 110,
+        "normalized_action_MSE": 0.0005508786940563381
+      },
+      {
+        "epoch": 111,
+        "normalized_action_MSE": 0.000505356309079446
+      },
+      {
+        "epoch": 112,
+        "normalized_action_MSE": 0.0004849677689556221
+      },
+      {
+        "epoch": 113,
+        "normalized_action_MSE": 0.00048596921952247474
+      },
+      {
+        "epoch": 114,
+        "normalized_action_MSE": 0.0004998533167017024
+      },
+      {
+        "epoch": 115,
+        "normalized_action_MSE": 0.0005269847981698559
+      },
+      {
+        "epoch": 116,
+        "normalized_action_MSE": 0.0005112594381104448
+      },
+      {
+        "epoch": 117,
+        "normalized_action_MSE": 0.00046095254939244656
+      },
+      {
+        "epoch": 118,
+        "normalized_action_MSE": 0.0004860294580249359
+      },
+      {
+        "epoch": 119,
+        "normalized_action_MSE": 0.0004893665346212203
+      },
+      {
+        "epoch": 120,
+        "normalized_action_MSE": 0.0005260751051035789
+      }
+    ],
+    "architecture": "RGB96x96 conv3x8k5s2/8x16k3s2/16x16k3s2 ReLU + normalized20Dcontext ->128ReLU ->4actions",
+    "untrained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/untrained.npz",
+    "trained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz",
+    "torch_numpy_action_max_abs_error_on_8_training_inputs": 1.1920928955078125e-07,
+    "heldout_used": false,
+    "control": "3D EE absolute and gripper throughout task, fixed upright orientation",
+    "action_space": "absolute",
+    "context_mode": "current",
+    "image_mode": "rgb",
+    "rate_limit_m_s": 0.15,
+    "actual_executed_command_reconstruction": [
+      {
+        "seed": 1401,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 8.881784197001252e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1058862159352145e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1402,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1058862159352145e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1403,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1404,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1032841307212493e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1405,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 6.661338147750939e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1032841307212493e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1406,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 3.3306690738754696e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1407,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 1.3322676295501878e-15,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1032841307212493e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1408,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 3.885780586188048e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1409,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 4.440892098500626e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1410,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 6.661338147750939e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1411,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 1.1102230246251565e-15,
+        "velocity_roundtrip_max_abs_error_m_s": 1.096345236817342e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      },
+      {
+        "seed": 1412,
+        "all_frames": 316,
+        "initial_native_EE_context_error_m": 0.0,
+        "independent_cumsum_max_abs_error_m": 7.771561172376096e-16,
+        "velocity_roundtrip_max_abs_error_m_s": 1.1102230246251565e-15,
+        "uses_GT_object_goal_for_new_labels": false
+      }
+    ],
+    "on_policy_repairs": [
+      {
+        "seed": 1401,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1401",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 163,
+        "admitted_student_states": 163,
+        "student_executed_targets_different_from_labels": 163,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1405,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1405",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 157,
+        "admitted_student_states": 157,
+        "student_executed_targets_different_from_labels": 157,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1409,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1409",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 172,
+        "admitted_student_states": 172,
+        "student_executed_targets_different_from_labels": 172,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1401,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1401",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 316,
+        "admitted_student_states": 316,
+        "student_executed_targets_different_from_labels": 316,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1405,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1405",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 316,
+        "admitted_student_states": 316,
+        "student_executed_targets_different_from_labels": 316,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1409,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1409",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 316,
+        "admitted_student_states": 316,
+        "student_executed_targets_different_from_labels": 316,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      }
+    ],
+    "additional_student_state_teacher_queries": 1896,
+    "causal_boundary": "Additionalonpolicydata andboundedtargetadapter arean engineeringrepair, notadata-matchedDAggercausal comparison"
+  },
+  "orchestrator_interruption": {
+    "original_session": 35231,
+    "observed_parent_exit_code": 143,
+    "cause": "Unknown SIGTERM source; root confirms no intentional termination",
+    "original_parent_last_result_update_utc": "2026-10-20T17:06:15.324741+00:00",
+    "child_metrics_closure_mtime_utc": "2026-10-20T17:07:33.340379+00:00",
+    "child_native_process_exit_code": null,
+    "policy": "Physical closure is judged from all raw316states and15.8s by root independent audit; no native rerun or invented exit0. All three formal launches remain in denominator."
+  },
+  "continuation_scope": "Only the two not-yet-started controls; no training or formal seed replay",
+  "new_formal_successes": 1,
+  "new_formal_attempts": 3,
+  "all_new_formal_and_controls_closed": true,
+  "original_formal_0of3_preserved": true,
+  "acceptance_scope": "Candidate only. Raw native closure of9603 requires root independent review; parent SIGTERM/unknown child exit retained.",
+  "metrics": {
+    "new_heldout_successes_pending_audit": 1,
+    "new_heldout_attempts": 3,
+    "new_heldout_Wilson95pct": [
+      0.06149194472039621,
+      0.7923403991979522
+    ],
+    "original_study_successes": 0,
+    "original_study_attempts": 3,
+    "original_study_Wilson95pct": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "pooling_policy": "Different fitted policies and newly selected blind banks; report separately. No estimate of repair effect or superiority from these rates."
+  },
+  "checks": {
+    "actual_RGB_training_and_exported_control": true,
+    "all_three_disjoint_new_heldout_launches_retained": true,
+    "at_least_one_complete_heldout_pickup_and_stir_pending_independent_closure": true,
+    "untrained_actual_physical_negative_preserved": true,
+    "actual_masked_RGB_control_preserved": true,
+    "all_fixed_cases_in_comparison_video": true
+  },
+  "failure_analysis": {
+    "diagnosis_timebox_start_utc": "2026-10-20T16:54:13Z",
+    "absolute_deadline_utc": "2026-10-20T18:54:13Z",
+    "diagnosis_completed_utc": "2026-10-20T17:22:29.498373+00:00",
+    "cases": [
+      {
+        "label": "heldout_policy_9601",
+        "all_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 86.67297321298975,
+          "hold_min_rod_lift_m": -0.00011946126386676303,
+          "stir_seconds": 6.0,
+          "in_cup_tip_fraction": 0.0,
+          "tip_XY_path_m": 0.0005454829736225175,
+          "stir_opposed_pad_contact_fraction": 0.0,
+          "policy_samples": 316
+        },
+        "raw_state_count": 316,
+        "raw_final_time_s": 15.799999999996682,
+        "raw_native_states_finite": true,
+        "close_EE_to_actual_rod_center_XY_min_last_m": [
+          0.018012191311727016,
+          0.018012191311727016
+        ],
+        "close_opposed_pad_contact_fraction": 0.0,
+        "hold_executed_absolute_target_z_min_max_m": [
+          0.2638451159000397,
+          0.26930564641952515
+        ],
+        "hold_actual_EE_z_min_max_m": [
+          0.2674380192552284,
+          0.2687919457817297
+        ],
+        "scope": "Posthoc observer-only native pose/command measurements; no labels or new training. XY rod positions are diagnosis only, never policy inputs."
+      },
+      {
+        "label": "heldout_policy_9602",
+        "all_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 75.57042910001474,
+          "hold_min_rod_lift_m": 0.07276353165459735,
+          "stir_seconds": 6.0,
+          "in_cup_tip_fraction": 1.0,
+          "tip_XY_path_m": 0.40854826117305953,
+          "stir_opposed_pad_contact_fraction": 1.0,
+          "policy_samples": 316
+        },
+        "raw_state_count": 316,
+        "raw_final_time_s": 15.799999999996682,
+        "raw_native_states_finite": true,
+        "close_EE_to_actual_rod_center_XY_min_last_m": [
+          0.005769268048190597,
+          0.005778065902943788
+        ],
+        "close_opposed_pad_contact_fraction": 0.6875,
+        "hold_executed_absolute_target_z_min_max_m": [
+          0.2158374935388565,
+          0.26918476819992065
+        ],
+        "hold_actual_EE_z_min_max_m": [
+          0.20383782339441056,
+          0.2516080682155195
+        ],
+        "scope": "Posthoc observer-only native pose/command measurements; no labels or new training. XY rod positions are diagnosis only, never policy inputs."
+      },
+      {
+        "label": "heldout_policy_9603",
+        "all_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 74.31161998998141,
+          "hold_min_rod_lift_m": 0.13126248918999234,
+          "stir_seconds": 6.0,
+          "in_cup_tip_fraction": 1.0,
+          "tip_XY_path_m": 0.3799362537968123,
+          "stir_opposed_pad_contact_fraction": 1.0,
+          "policy_samples": 316
+        },
+        "raw_state_count": 316,
+        "raw_final_time_s": 15.799999999996682,
+        "raw_native_states_finite": true,
+        "close_EE_to_actual_rod_center_XY_min_last_m": [
+          0.004118175371769434,
+          0.004118175371769434
+        ],
+        "close_opposed_pad_contact_fraction": 0.75,
+        "hold_executed_absolute_target_z_min_max_m": [
+          0.2571876049041748,
+          0.2820654511451721
+        ],
+        "hold_actual_EE_z_min_max_m": [
+          0.2633242232891835,
+          0.2763795497244633
+        ],
+        "scope": "Posthoc observer-only native pose/command measurements; no labels or new training. XY rod positions are diagnosis only, never policy inputs."
+      }
+    ],
+    "action_space_feasibility": "The unchanged fixed-upright absolute-translation/gripper interface succeeds on the original12script demonstrations, all3new pure-student training-seed rollouts, and newheldout9603. This establishes physical feasibility in these scenarios, not that the learned mapping is adequate everywhere.",
+    "data_observation_limit": "A single extra948pure-student labels under unchanged observations/actions yields a functional candidate but limited generalization:9601missed pickup and9602failed80mm lift despite stirring. It cannot uniquely distinguish dataset coverage, RGB/proprio/phase mapping, optimization or action-regression error. No further architecture/data/threshold search is performed.",
+    "RGB_control_interpretation": "Trained RGB and masked RGB both fail paired9601, so a visual-information benefit is not established.",
+    "original_failure_retained": "f_tier/A05/study2/prior_failed_canonical_result.json"
+  },
+  "process_registry": {
+    "captured_utc": "2026-10-20T17:12:46.617454+00:00",
+    "original_parent": {
+      "pid": null,
+      "session": 35231,
+      "exit_code": 143,
+      "reason": "SIGTERMsourceunknown; PID not captured, never invented"
+    },
+    "continuation_parent": {
+      "pid": 1119604,
+      "starttime": 19381763,
+      "session": 20172,
+      "command": "/tmp/chem_fluids/bin/python -u f_tier/A05/study2/continue_controls.py ",
+      "exit_code": 0
+    },
+    "current_child": {
+      "label": "heldout_untrained_9601",
+      "pid": 1119624,
+      "parent_pid": 1119604,
+      "starttime": 19381793
+    },
+    "launches": [
+      {
+        "label": "pure_student_1401",
+        "stage": "pure_student_collection",
+        "pid": 1040606,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": true
+      },
+      {
+        "label": "pure_student_1405",
+        "stage": "pure_student_collection",
+        "pid": 1046700,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": true
+      },
+      {
+        "label": "pure_student_1409",
+        "stage": "pure_student_collection",
+        "pid": 1053345,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": true
+      },
+      {
+        "label": "training",
+        "stage": "training",
+        "pid": 1059018,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_policy_9601",
+        "stage": "heldout_evaluation",
+        "pid": 1074064,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_policy_9602",
+        "stage": "heldout_evaluation",
+        "pid": 1083409,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_policy_9603",
+        "stage": "heldout_evaluation",
+        "pid": 1089778,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": null,
+        "status": "NATIVE_COMPLETE_PARENT_EXIT_UNCAPTURED",
+        "physical_success": true
+      },
+      {
+        "label": "heldout_untrained_9601",
+        "stage": "heldout_evaluation",
+        "pid": 1119624,
+        "parent_pid": 1119604,
+        "parent_process_role": "continuation_controls_only",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_masked_9601",
+        "stage": "heldout_evaluation",
+        "pid": 1126283,
+        "parent_pid": 1119604,
+        "parent_process_role": "continuation_controls_only",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      }
+    ]
+  },
+  "video": "f_tier/A05/study2/video.mp4",
+  "video_metadata": {
+    "width": 1440,
+    "height": 600,
+    "avg_frame_rate": "10/1",
+    "duration": "31.800000",
+    "nb_read_frames": "318"
+  },
+  "keyframes": [
+    {
+      "path": "f_tier/A05/study2/keyframe_all_heldout.png",
+      "video_time_s": 10.0,
+      "frame_index": 100
+    },
+    {
+      "path": "f_tier/A05/study2/keyframe_controls.png",
+      "video_time_s": 26.0,
+      "frame_index": 260
+    }
+  ],
+  "video_display_correction": {
+    "raw_source_video": "f_tier/A05/study2/video_raw_camera_inset.mp4",
+    "frames_inclusive": [
+      159,
+      317
+    ],
+    "ROI_xywh": [
+      1332,
+      430,
+      100,
+      100
+    ],
+    "correction": "ActualzeroRGBpassedtomaskedpolicy replaces only its rawcamera thumbnail; worldrendering/nativeqpos unchanged. Source retained; losslessYUV420re-encode."
+  },
+  "video_selection": "All3new frozen heldout9601/9602/9603, then same9601RGB/untrained/masked. Actual saved native qpos via forward kinematics, no physics replay or interpolated states; 2sections x159frames at10fps=31.8s. Native sample time is displayed.",
+  "declared_differences": [
+    "Dryrigidtool motion only, no liquidviscosity/mixing",
+    "Localfixedguide andnoncollidingorangeband visualcue",
+    "PublicUR5e/Robotiq andsource4mmstirrer, notoriginalGRID/GELLOcalibration",
+    "Initial robot pregrasp staging uses known simulation source position once before t0; learned policy controls subsequent descent, grasp, transfer and stirring. No arbitrary initial robot-pose or vision-only localization claim.",
+    "Actual RGB plus robot proprioception and prescribed skill phase/oscillator; not an unconstrained end-to-end task planner",
+    "Localtrajectoryfeedbackteacher and additionalstudent-state data with150mm/s boundedtargetadapter areanengineeringrepair; nodata-matchedDAggercausalgainclaim",
+    "Local CPU-trained convolutional behavioral cloning, not original GELLO demonstrations, original GRID training or original policyweights",
+    "Final selectedmodelinput is rgb with current robotproprioception; priorfailedrepresentations are separatelypreserved.",
+    "A maskedRGB task outcome that does not degrade success cannot establish a visual-information benefit; this control is reported without forcing a benefit claim",
+    "3 heldout seeds are a small functional validation, not paper-scale robustness or generalization proof",
+    "All ground-truth object poses during policy rollout serve verifier only; once-before-t0 arm pregrasp initialization is separately declared",
+    "New independent study after observing the closed0/3prior bank; original results remain permanent. No posttest training.",
+    "Cumulative5688training samples with one additional948pure-student-label collection and one120epochseed71training; no DAgger/OPD causal comparison.",
+    "The original parent orchestrator received SIGTERM143 from an unknown source;9603child continued to full native closure, and its process exit code is unobserved. Root independently judges raw physical closure; the launch is retained in the3trial denominator."
+  ],
+  "producer_closeout_complete": true,
+  "independent_audit": "Pending one root/otheragent acceptance. Existing A05/recompute_stir.py supports the beta0mix raw records as well as all5evaluation cases. Do not rerun native trials or train another model.",
+  "archived_original_failed_study": {
+    "result": "f_tier/A05/study1/result.json",
+    "video": "f_tier/A05/study1/video.mp4",
+    "successes": 0,
+    "attempts": 3,
+    "seeds": [
+      9501,
+      9502,
+      9503
+    ],
+    "content_policy": "Unmodified copies of prior canonical result/video before any promotion; historical paths inside old result retained. The paired archived video path is authoritative for viewing the old study."
+  }
+}

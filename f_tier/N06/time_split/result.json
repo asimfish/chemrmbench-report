@@ -1,0 +1,37 @@
+{
+  "status": "TEMPORAL_SPLIT_COMPLETED",
+  "completed_utc": "2026-10-20T16:59:08.804101+00:00",
+  "native_runs": 0,
+  "model": "Original effective three-node nonreciprocal thermal equations and guarded mass-action kinetics.",
+  "parameters": "f_tier/N06/time_split/parameters.json",
+  "metrics": {
+    "calibration_0_1000s": {
+      "rows": 250000,
+      "thermal_RMSE_C": [
+        0.004967540773752728,
+        0.004699880679072874,
+        0.004506543063538155
+      ],
+      "product_RMSE_source_units": 0.0002628680675236957,
+      "solution_max_absolute_error_C": 0.014892885249537358,
+      "product_final_error": 0.00012868522900377766
+    },
+    "temporal_holdout_1000_2000s": {
+      "rows": 250000,
+      "thermal_RMSE_C": [
+        11.751011450306061,
+        10.437065696926224,
+        9.477054365846806
+      ],
+      "product_RMSE_source_units": 0.017854692302821516,
+      "solution_max_absolute_error_C": 11.280100453323826,
+      "product_final_error": 0.025768017777705987
+    }
+  },
+  "thermal_identifiability": "A heater-on training segment cannot generally separate heater loss from heater gain; design ranks are explicitly reported. The cooling interval is evaluated rather than fitted.",
+  "limits": [
+    "Previously inspected full source trace: not blind.",
+    "Source command schedule supplied; heldout temperature/concentration observations do not enter regression.",
+    "No claim of original author parameters, reciprocal calorimetry, chemical identity, or new physical robot verification."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "A03-fresh-pose",
+  "status": "FROZEN_BEFORE_ZERO_STEP_OR_NATIVE",
+  "frozen_utc": "2026-10-20T17:28:35.369631+00:00",
+  "robots": [
+    "ur5e",
+    "flexiv"
+  ],
+  "source_poses": [
+    {
+      "seed": 73001,
+      "xy_offset_m": [
+        -0.015,
+        -0.02
+      ],
+      "yaw_deg": -20
+    },
+    {
+      "seed": 73002,
+      "xy_offset_m": [
+        0.015,
+        0.0
+      ],
+      "yaw_deg": 0
+    },
+    {
+      "seed": 73003,
+      "xy_offset_m": [
+        0.0,
+        -0.015
+      ],
+      "yaw_deg": 20
+    }
+  ],
+  "recipes": 6,
+  "worker_limit": 2,
+  "worker_nice": 5,
+  "GPU_contexts": 0,
+  "native_horizon_s": 23.0,
+  "particles": 240,
+  "fluid_parameter_volume_m3": 3.75e-06,
+  "receiver_motion": {
+    "amplitude_m": 0.012,
+    "omega_rad_s": 0.7,
+    "speed_multiplier": 1.0,
+    "random_direction_changes": false,
+    "pushes": 0
+  },
+  "observation_delay_s": 0,
+  "action_noise": 0,
+  "skill": "One object-centric18D EEfeedback/expert law with no fitted weights, beta1 during8.5..15s; same scripted pickup/return and receiver-relative tilt axis",
+  "robot_adapter_only": "UR5e original6arm Controller versus Flexiv7arm adapter/build; same executor/fluid/feedback/protocol",
+  "local_A03_functional_thresholds": {
+    "complete_native_s": 23.0,
+    "minimum_loaded_hold_lift_m": 0.05,
+    "receiver_fraction_min": 0.5,
+    "spill_fraction_max": 0.1,
+    "scope_penetrations_max": 0
+  },
+  "secondary_inherited_task_thresholds": {
+    "receiver_fraction_min": 0.8,
+    "receiver_path_m_min": 0.02
+  },
+  "geometry_precheck": "All6source+fixture layouts checked at native time0 without mj_step; any invalid interobject overlap stops the bank, no seed replacement",
+  "fixture_reconstruction": "Source tube xy offset is also applied to rack rails/ends and both spare tubes before physics; sourceyaw rotates grasp orientation but receiver-relative pour axis is independent",
+  "source_snapshots": {
+    "task": "f_tier/A04-hard/calibration/task.py",
+    "feedback": "f_tier/A04-hard/calibration/learner.py (local adapter import only)",
+    "robot_adapter": "f_tier/A04/coupled_moving_receiver/flexiv_task.py (local task import only)"
+  },
+  "data_boundary": "All6 are new native episodes, no reused A04 training or hard pilot/test states; deterministic pose ids73001-03 are independent episode identifiers, not selected by outcome",
+  "attempt_accounting": "Every started native subprocess incl interrupted/missing/full failure stays in denominator; no best-of or seed reruns",
+  "old_reused_evidence": "f_tier/A03/result.json original6A04trainingreuse trajectories retained permanently",
+  "differences": [
+    "CPU MuJoCo+Warp standalone, not original GRID/real robot",
+    "Coarse240particles, conservative collision excludes robot/rack",
+    "Privileged current cup/EE state and known-pose scripted setup, not perception/learned OPD adaptation",
+    "Circular source tube physicalyaw symmetric; yaw changes gripper orientation and coordinate interface, not a nonsymmetric vessel SO3 test"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "N09-alternating",
+  "frozen_utc": "2026-10-20T17:19:50.695020+00:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "scale_envs": [
+    1,
+    8,
+    32
+  ],
+  "repeats_per_mode": 3,
+  "timed_steps": 1000,
+  "warmup_steps": 200,
+  "physics_dt_s": 0.004,
+  "order_per_scale": [
+    "physics-only",
+    "physics+semantics",
+    "physics-only",
+    "physics+semantics",
+    "physics-only",
+    "physics+semantics"
+  ],
+  "same_seed_within_pair": [
+    100,
+    101,
+    102
+  ],
+  "runner": "f_tier/N09/alternating/runner.py",
+  "old_counterbalanced_data": "Original AB/BA/AB data retained; supplementary strict AB/AB/AB does not replace or selectively exclude it.",
+  "resource_policy": "Wait for native C01/N10 and renderer priority; at most2 main Kit per physicalGPU. Never disturb external jobs. Record shared load and any paused timing windows; no isolated hardware speed claim."
+}

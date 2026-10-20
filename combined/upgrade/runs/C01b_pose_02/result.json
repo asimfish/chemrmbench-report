@@ -1,0 +1,604 @@
+{
+  "id": "combined_pour_heat_recovery",
+  "pid": 1220581,
+  "device": "cuda:0",
+  "status": "FAILED_NATIVE_EPISODE",
+  "protocol": {
+    "id": "C01b_airborne_drop_and_SE2",
+    "status": "FROZEN_BEFORE_NATIVE",
+    "frozen_at_utc": "2026-10-19T12:38:02.021564+00:00",
+    "world_owner": "One MATTERIX/IsaacLab/native PhysX PBD world and clock; no Warp world",
+    "geometry": "combined/scene_geometry.json",
+    "source_case": "N04 pose00 known development fixture, supported SE2 only",
+    "seed": 190019,
+    "physics_dt_s": 0.0033333333333333335,
+    "decimation": 5,
+    "max_episode_native_s": 120,
+    "local_gates": [
+      {
+        "id": "single_native_clock",
+        "callback_count_equals_control_times_decimation": true,
+        "clock_error_s_max": 1e-05,
+        "mid_episode_environment_resets": 0,
+        "post_initialization_object_pose_writes": 0,
+        "attachments": false,
+        "all_planned_commands_applied": true,
+        "scheduling_lateness_s_max": 0.016667666666666667
+      },
+      {
+        "id": "physical_grasp",
+        "source_lift_m_min": 0.05,
+        "double_finger_force_N_min": 0.1,
+        "observed_before_fault": true
+      },
+      {
+        "id": "contact_failure_recovery",
+        "injected_open_faults": 1,
+        "lost_both_finger_force_N_max": 0.001,
+        "lost_streak_control_steps_min": 3,
+        "recovered_both_finger_force_N_min": 0.1,
+        "recovered_streak_control_steps_min": 3,
+        "fault_location": "Native source table still supports cup; HSM motion paused, real fingers open/close, no world reset",
+        "source_table_support_force_N_min": 0.1
+      },
+      {
+        "id": "verified_fluid_transfer",
+        "receiver_fraction_min": 0.5,
+        "spill_fraction_max": 0.1,
+        "mass_accounting_relative_error_max": 0.01,
+        "gross_display_point_wall_leaks_max": 0,
+        "source_return_error_m_max": 0.02
+      },
+      {
+        "id": "contact_gated_heat_and_stop",
+        "plate_setpoint_C": 40.0,
+        "solution_stop_temperature_C": 28.0,
+        "solution_temperature_C_max": 28.2,
+        "heater_off_after_goal": true,
+        "receiver_plate_contact_force_N_min": 0.5,
+        "contact_fraction_while_heating_min": 0.95,
+        "heater_enable_requires_verified_transfer": true
+      }
+    ],
+    "thermal_model": "Reuse f_tier/N07/runner.py OnlineChemistry / frozen effective parameters; chemistry sub_dt=1/300, thermal branch0 only, no reaction or liquid thermal PBD claim",
+    "offline_always_contact_model_time_to_28C_s": 10.2,
+    "negative": "Separate mandatory no-recovery run in upgrade/runs/no_recovery; no O/learned-policy/real-system claim.",
+    "timing": "combined/interfaces.py native observation/command/receipt/verdict, planned/applied/observed effect times; no second clock",
+    "differences": [
+      "Scripted local workflow and known pose00 fixture; no learned agent or unseen-task generalization claim.",
+      "Original scale1 public cup is42mm inner diameter, not calibrated500mL capacity.",
+      "Original PBD defaults+isosurface/smoothing; smoothed display-point observer and gross wall gate, not raw subparticle penetration.",
+      "N07 effective nonreciprocal thermal fit, not recovered author parameters/calorimetric identification.",
+      "GPU static table contact tensor filtering fails even for actual child collider; support guard uses raw native actual-table contact impulse. Absolute GPU support reading ~26.50N differs from CPU2.943N and is not calibrated or interpreted as weight; only support presence is used.",
+      "Five predeclared N04 SE2 poses (00\u201304), all receive the airborne fault. Includes N04 pose04 known pick failure; all launched attempts retained and included. No claim of arbitrary SO3 or held-out method design.",
+      "Fall classification uses native cup attitude, velocity, table-contact presence and unchanged smoothed PBD point partition; not calibrated contact force or exact liquid surface volume.",
+      "Failure to recover or an appropriately safe-aborted tipped cup is reported separately from complete workflow success."
+    ],
+    "source_contact_sensor_filters": [
+      "robot/panda_leftfinger",
+      "robot/panda_rightfinger",
+      "table/Collisions/Cube"
+    ],
+    "sensor_binding_correction": {
+      "previous": "table root has no rigid-body filter match: returned0 before initial grasp despite stable source",
+      "native_support_collider_from_saved_scene": "/World/envs/env_0/StaticObjects_Infrastructure_table/Collisions/Cube",
+      "source_support_visual_collider_top_z_m": -0.003,
+      "change": "Observe exact existing static collision leaf; also retain original raw contact headers/net_forces_w and per-filter vectors. No physical scene, force or threshold changes."
+    },
+    "support_observer": {
+      "kind": "raw native contact header guard",
+      "table_collider_path": "/World/envs/env_0/StaticObjects_Infrastructure_table/Collisions/Cube",
+      "formula": "sum over all five native substeps of source-directed upward table contact impulse_z / actual control interval dt (5/300 s), clipped at0; unchanged >0.1N support-presence threshold",
+      "scope": "Only support existence; not a calibrated force or weight measurement. No collider/material/dynamics change. Native point impulses summed once per header; zero-point lost events ignored.",
+      "CPU_control": "Same original source/table geometries: source native mass0.300000012kg, 600 native steps/2s, net and raw impulse Fz2.94301262N; root tensor filter0, exact child filter2.94301265N.",
+      "GPU_difference": "Original static instance child not matched by GPU tensor filter. Actual-table raw header and net both ~26.50N at rest, ~9x CPU, unresolved absolute force difference retained; not divided by9 or used for weighing.",
+      "evidence": [
+        "combined/support_filter_probe/result.json",
+        "combined/runs/attempt_002_GPU_static_child_filter_empty/trajectory.jsonl"
+      ]
+    },
+    "transport_path_correction": {
+      "evidence": "combined/runs/attempt_003_receiver_tipped_during_transport/trajectory.jsonl",
+      "failure": "Native source-cup to receiver-cup contacts first13.316666989s during low diagonal approach; receiver tips off IKA before pouring.",
+      "correction": "Same source/hover/tilt target, first raise source root to max(current_z,hover_z)+0.10m, translate at that height, descend vertically to original hover; original native HSM/object frame adapter.",
+      "observer": "Add receiver native actor/collider contact headers and upright angle. Before tilt require original plate contact>0.5N and receiver upright<=5deg. No mass/geometry/material/particle/tilt parameter or completed-episode success threshold change.",
+      "cpu_regression": "combined/cpu_transport/result.json (rigid-only, not fluid success)"
+    },
+    "scope_status": "FROZEN_BEFORE_FIRST_C01B_NATIVE_RUN",
+    "cases": [
+      {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      },
+      {
+        "id": "pose_01",
+        "seed": 170401,
+        "source_xy": [
+          0.55959,
+          0.08574
+        ],
+        "source_yaw_deg": 25.292,
+        "receiver_xy": [
+          0.58432,
+          -0.14243
+        ],
+        "receiver_yaw_deg": -17.012
+      },
+      {
+        "id": "pose_02",
+        "seed": 170402,
+        "source_xy": [
+          0.43455,
+          0.10972
+        ],
+        "source_yaw_deg": -26.082,
+        "receiver_xy": [
+          0.49469,
+          -0.14933
+        ],
+        "receiver_yaw_deg": -6.843
+      },
+      {
+        "id": "pose_03",
+        "seed": 170403,
+        "source_xy": [
+          0.50039,
+          0.11247
+        ],
+        "source_yaw_deg": -9.277,
+        "receiver_xy": [
+          0.54959,
+          -0.19057
+        ],
+        "receiver_yaw_deg": 1.847
+      },
+      {
+        "id": "pose_04",
+        "seed": 170404,
+        "source_xy": [
+          0.53181,
+          0.15621
+        ],
+        "source_yaw_deg": 29.942,
+        "receiver_xy": [
+          0.57222,
+          -0.16158
+        ],
+        "receiver_yaw_deg": -6.815
+      }
+    ],
+    "fault": "Once during transport, actual bottom clearance >=50mm from the native table collider top -3mm and dual contact, open real fingers; no object/particle writes.",
+    "drop_verifier": {
+      "loss_streak_control_steps": 3,
+      "loss_threshold_N_presence_only": 0.001,
+      "fall_displacement_m_min": 0.005,
+      "stable_linear_speed_m_s_max": 0.01,
+      "stable_angular_speed_rad_s_max": 0.1,
+      "stable_duration_s_min": 0.25,
+      "post_loss_observation_s_min": 0.5,
+      "upright_tilt_deg_max": 10.0,
+      "spill_particles_for_recovery_max": 0,
+      "drop_observation_budget_s": 6.0
+    },
+    "recovery": "Upright with no classified spill: rebuild object-centred pregrasp/pick at current observed native cup xyz/yaw; reclose and verify then transport/pour/heat. Tipped or any classified spill: abort with no continuation.",
+    "native_episode_budget_s": 150.0,
+    "all_attempts_in_denominator": true,
+    "rendering_observation_schedule": {
+      "pose_00": {
+        "render_interval_physics_steps": 10,
+        "frozen_before_run": true
+      },
+      "pose_01_to_04": {
+        "render_interval_physics_steps": 60,
+        "approved_render_only_change_utc": "2026-10-20T17:02:53.515977+00:00"
+      },
+      "all_cases": {
+        "video_fps": 5,
+        "control_observations_Hz": 60,
+        "physics_Hz": 300,
+        "no_physics_step_skipping": true,
+        "controller_uses_RGB": false
+      },
+      "scope": "Only unsaved RTX refresh reduction; native dt/decimation/HSM/PBD/force and state observation/gates unchanged. Pose00 in-flight source is preserved untouched in its run."
+    }
+  },
+  "skill_origin": {
+    "engine": "Original public MATTERIX FluidSystem / native PhysX PBD",
+    "fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+    "material_and_render_defaults": "FluidCfg defaults, original anisotropy+smoothing+isosurface ON; no density, mass, contact-offset, cohesion, viscosity, friction or surface-tension modification",
+    "pose_scope": "Fixed supported tabletop SE(2) x/y/yaw poses; not unsupported full SO(3) orientations",
+    "cases": [
+      {
+        "id": "pose_02",
+        "seed": 170402,
+        "source_xy": [
+          0.43455,
+          0.10972
+        ],
+        "source_yaw_deg": -26.082,
+        "receiver_xy": [
+          0.49469,
+          -0.14933
+        ],
+        "receiver_yaw_deg": -6.843
+      }
+    ],
+    "negative": "No tilt for pose_00; same pick, transport, hold and return primitives, omitting commanded tilt; arrival-dependent phase durations reported separately",
+    "controller": "Original HSM Move/Open/Close with side pick (20deg downward approach, EE grasp z=-20mm), native double-finger contact and mouth/table clearance verification, plus observed-cup-pose tilt feedback: local graspX axis (grasp frame rotated90deg about objectZ, negative tilt sign; perpendicular to finger closing axis),5degree waypoints held200ms, actual115+/-2deg about a fixed world mouth-center pivot then observed return (lift100mm, high translation, vertical descent); mouth pivot70mm above receiving mouth,15mm upstream along flow; orientation slip diagnostic only,15mm translation and sustained lift-loss guard. Dynamic cups, no weld/kinematic target/mid-episode object writes",
+    "fluid_initialization": "Original create_particles_grid with volume(0.020,0.020,0.020)m inside native scale1 beaker; default particle_mass1e-6kg and density1000 retained despite their known mismatch",
+    "observer": "Original get_current_pos_vel (PointInstancer positions); smoothing may shift display points. Gross wall gate only, not raw solver or subparticle penetration.",
+    "development_scope": "Controller tuned only on pose00, which is included in fixed10; not a held-out generalization estimate.",
+    "local_thresholds": {
+      "receiver_fraction_min": 0.5,
+      "spill_fraction_max": 0.1,
+      "boundary_ambiguous_fraction_max": 0.05,
+      "mass_accounting_relative_error_max": 0.01,
+      "gross_wall_leak_band_m": 0.004,
+      "gross_wall_leak_count_max": 0,
+      "physical_lift_min_m": 0.05,
+      "grasp_position_drift_max_m": 0.015,
+      "grasp_rotation_drift_diagnostic_only": true,
+      "grasp_azimuth_offset_deg": 90.0,
+      "tilt_sign": -1.0,
+      "mouth_pivot_above_receiver_m": 0.07,
+      "actual_tilt_target_deg": 115.0,
+      "tilt_waypoint_deg": 5.0,
+      "waypoint_hold_s": 0.2,
+      "final_source_position_error_max_m": 0.02,
+      "negative_receiver_fraction_max": 0.01,
+      "aggregate_min_successes": 1
+    },
+    "native_physics_dt_s": 0.0033333333333333335,
+    "control_decimation": 5,
+    "video_fps": 15,
+    "all_attempts_reported": true
+  },
+  "skill_origin_scope": "Motion-template provenance only; the actual frozen C01b fault and five-pose protocol is in protocol. Inherited N04 no-tilt negative metadata is not executed here.",
+  "attempts": [
+    {
+      "case": {
+        "id": "pose_02",
+        "seed": 170402,
+        "source_xy": [
+          0.43455,
+          0.10972
+        ],
+        "source_yaw_deg": -26.082,
+        "receiver_xy": [
+          0.49469,
+          -0.14933
+        ],
+        "receiver_yaw_deg": -6.843
+      },
+      "negative": false,
+      "success": false,
+      "full_native_robot_workflow": false,
+      "failure": "hsm_failure_pick",
+      "native_s": 10.166666912846267,
+      "events_simulation_s": {},
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 3050,
+      "wall_s": 175.20214785300777,
+      "max_clock_error_s": 2.4617960114881043e-07,
+      "max_lift_m": 0.0,
+      "pick_verification": null,
+      "min_observed_tool_mesh_table_gap_m": 0.048691074137337045,
+      "max_observed_source_tilt_deg": 0.00013216129243516901,
+      "observation_archive": "combined/upgrade/runs/C01b_pose_02/pose_02_observations.npz",
+      "max_grasp_position_drift_m": 0.0,
+      "max_grasp_rotation_drift_rad": 0.0,
+      "final_source_position_error_m": 0.0029999911785125732,
+      "final_source_upright_angle_rad": 7.290917529300057e-07,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 1.0,
+        "receiver": 0.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true,
+      "drop_diagnosis": null,
+      "fault_cup_bottom_clearance_m": null,
+      "recovery_native_s": null,
+      "safety_abort": false,
+      "command_timing": {
+        "planned_commands": 610,
+        "applied_commands": 610,
+        "observed_effect_commands": 250,
+        "unobserved_effect_commands": 360,
+        "not_applied_commands": 0,
+        "max_scheduling_lateness_s": 0.0,
+        "heater_receipts": []
+      },
+      "thermal_effective_parameters": {
+        "thermal": {
+          "heater_loss": 0.0018940304291075578,
+          "heater_beaker": 0.011130410263196461,
+          "heater_forcing": 2.250874192021891,
+          "heater_gain": 0.05004165726229912,
+          "beaker_heater": 0.5050316129536182,
+          "beaker_solution": 0.0,
+          "beaker_loss": 0.06313764201149275,
+          "solution_beaker": 0.35437291360608536,
+          "solution_loss": 0.03544692966142632,
+          "inferred_calibration_setpoint_C": 69.98000895980871,
+          "contact_on_s": 8.148,
+          "coefficients_are_conductance_over_heat_capacity": true,
+          "individual_author_heat_capacities_and_conductances_not_identified": true
+        },
+        "kinetics": {
+          "log_rate_at_333_15K": -5.976995327879881,
+          "beta_Ea_over_R_K": 11374.543721292637,
+          "rate_units": "inverse source concentration-state unit per second",
+          "not_original_author_A_or_Ea": true,
+          "optimizer_success": true,
+          "fitted_only_to": "fig5a_1.csv"
+        }
+      },
+      "native_clock": {
+        "callbacks": 3050,
+        "sum_dt_s": 10.166666912846267,
+        "dt_values_s": [
+          0.0033333334140479565
+        ]
+      },
+      "combined_gates": {
+        "single_native_clock": true,
+        "physical_grasp": false,
+        "contact_failure_recovery": false,
+        "verified_fluid_transfer": false,
+        "contact_gated_heat_and_stop": false
+      },
+      "fault_state": "not_injected",
+      "fault_precontact_verified": false,
+      "max_lost_streak": 0,
+      "max_recovered_streak": 0,
+      "heat_observations": [],
+      "command_object_frame_roundtrip_max_abs": 5.960464477539063e-08,
+      "thermal_model": "Declared N07 effective model at40C, not original author parameters",
+      "final_solution_C": 25.0,
+      "final_heater_on": false,
+      "post_initialization_environment_resets": 0,
+      "post_initialization_object_pose_writes": 0,
+      "attachments": false
+    }
+  ],
+  "video": "combined/upgrade/runs/C01b_pose_02/video.mp4",
+  "run_scope": "single_world_fault_recover_pour_heat",
+  "full_reference_complete": false,
+  "differences": [
+    "Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.",
+    "Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.",
+    "Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.",
+    "Parameter mass bookkeeping, not a calibrated physical volume/density measurement.",
+    "Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.",
+    "Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim.",
+    "Scripted local workflow and known pose00 fixture; no learned agent or unseen-task generalization claim.",
+    "Original scale1 public cup is42mm inner diameter, not calibrated500mL capacity.",
+    "Original PBD defaults+isosurface/smoothing; smoothed display-point observer and gross wall gate, not raw subparticle penetration.",
+    "N07 effective nonreciprocal thermal fit, not recovered author parameters/calorimetric identification.",
+    "GPU static table contact tensor filtering fails even for actual child collider; support guard uses raw native actual-table contact impulse. Absolute GPU support reading ~26.50N differs from CPU2.943N and is not calibrated or interpreted as weight; only support presence is used.",
+    "Five predeclared N04 SE2 poses (00\u201304), all receive the airborne fault. Includes N04 pose04 known pick failure; all launched attempts retained and included. No claim of arbitrary SO3 or held-out method design.",
+    "Fall classification uses native cup attitude, velocity, table-contact presence and unchanged smoothed PBD point partition; not calibrated contact force or exact liquid surface volume.",
+    "Failure to recover or an appropriately safe-aborted tipped cup is reported separately from complete workflow success."
+  ],
+  "video_fps": 5,
+  "updated_utc": "2026-10-20T17:35:20.008101+00:00",
+  "render_interval_physics_steps": 60,
+  "rendering_scope": "5Hz native frame capture with render_interval60; approved rendering-only reduction from prior pose00 interval10. Physics300Hz/control60Hz and full native callbacks unchanged.",
+  "executed_fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+  "observed_fluid_defaults": {
+    "particle_contact_offset": 0.004,
+    "particle_mass": 1e-06,
+    "density": 1000,
+    "cohesion": 0.01,
+    "viscosity": 0.0091,
+    "surface_tension": 0.074,
+    "friction": 0.01,
+    "cfl_coefficient": 1.0
+  },
+  "cavity": {
+    "center_xy_m": [
+      -0.0014681306442667554,
+      -4.187198044292451e-10
+    ],
+    "radius_m": 0.02099509527788676,
+    "bottom_z_m": -0.035657,
+    "top_z_m": 0.013797,
+    "radius_profile_z_r_m": [
+      [
+        -0.035657,
+        0.015235136316641524
+      ],
+      [
+        -0.034843,
+        0.018038963414332615
+      ],
+      [
+        -0.032658,
+        0.019949019132282548
+      ],
+      [
+        -0.030384,
+        0.020995096071841367
+      ],
+      [
+        0.013797,
+        0.02099509527788676
+      ]
+    ],
+    "scale": 1.0,
+    "ring_fit_max_residual_m": 9.259842542047592e-09,
+    "conservative_cavity_capacity_ml": 67.36443616506743,
+    "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+    "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+  },
+  "observed_render_defaults": {
+    "transparent": true,
+    "color_rgb": [
+      0.85,
+      0.92,
+      0.96
+    ],
+    "native_attributes": {
+      "fluidRestOffset": 0.0023759999312460423,
+      "particleContactOffset": 0.004000000189989805,
+      "physxParticleAnisotropy:max": 3.75,
+      "physxParticleAnisotropy:min": 0.75,
+      "physxParticleAnisotropy:particleAnisotropyEnabled": true,
+      "physxParticleAnisotropy:scale": 2.5,
+      "physxParticleIsosurface:gridFilteringPasses": "GS",
+      "physxParticleIsosurface:gridSmoothingRadius": 0.0023759999312460423,
+      "physxParticleIsosurface:gridSpacing": 0.0021383999846875668,
+      "physxParticleIsosurface:isosurfaceEnabled": true,
+      "physxParticleIsosurface:maxSubgrids": 4096,
+      "physxParticleIsosurface:maxTriangles": 2097152,
+      "physxParticleIsosurface:maxVertices": 1048576,
+      "physxParticleIsosurface:numMeshNormalSmoothingPasses": 8,
+      "physxParticleIsosurface:numMeshSmoothingPasses": 8,
+      "physxParticleIsosurface:surfaceDistance": 0.0022571999579668045,
+      "physxParticleSmoothing:particleSmoothingEnabled": true,
+      "physxParticleSmoothing:strength": 0.5,
+      "solverPositionIterationCount": 32
+    }
+  },
+  "recorded_joint_names": [
+    "panda_joint1",
+    "panda_joint2",
+    "panda_joint3",
+    "panda_joint4",
+    "panda_joint5",
+    "panda_joint6",
+    "panda_joint7",
+    "panda_finger_joint1",
+    "panda_finger_joint2"
+  ],
+  "recorded_tool_bodies": [
+    "panda_hand",
+    "panda_leftfinger",
+    "panda_rightfinger"
+  ],
+  "native_geometry": {
+    "beaker": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460350076,
+        -0.02493543177843094,
+        -0.03684258460998536
+      ],
+      "body_frame_mesh_max_m": [
+        0.02864864468574529,
+        0.024935431778430942,
+        0.022848461568355564
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    },
+    "beaker_2": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.02640081346035003,
+        -0.024935431778430946,
+        -0.036842584609985365
+      ],
+      "body_frame_mesh_max_m": [
+        0.028648644685745215,
+        0.02493543177843095,
+        0.022848461568355568
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    }
+  },
+  "PBD_rigid_filter_audit": {
+    "non_particle_collision_enabled": true,
+    "filter_relationships_targeting_particles": [],
+    "scope": "Collision eligibility only; no direct PBD particle-rigid contact-pair API is claimed. Read-only tool clearance uses the convexHull approximation authored on the original colliders; no claim of exact native cooked shape/contact-offset equality.",
+    "cup_contact_sensor_filters": [
+      "/World/envs/env_.*/Articulations_robot/panda_leftfinger",
+      "/World/envs/env_.*/Articulations_robot/panda_rightfinger",
+      "/World/envs/env_.*/StaticObjects_Infrastructure_table/Collisions/Cube"
+    ]
+  },
+  "native_mass_readout": {
+    "beaker": [
+      [
+        0.30000001192092896
+      ]
+    ],
+    "beaker_2": [
+      [
+        0.30000001192092896
+      ]
+    ]
+  },
+  "native_PBD_mass_density_attributes": {
+    "physics:density": 1000.0,
+    "physics:mass": 0.0001250000059371814
+  },
+  "gates": {
+    "single_native_clock": true,
+    "physical_grasp": false,
+    "contact_failure_recovery": false,
+    "verified_fluid_transfer": false,
+    "contact_gated_heat_and_stop": false
+  },
+  "video_frames": 60,
+  "physical_episodes": 1,
+  "environment_owner": "MATTERIX only",
+  "process_wall_s_including_startup": 192.04332989500836,
+  "wall_time_scope": "process_wall_s_including_startup covers startup and full native episode; attempt.wall_s covers native control loop; both include OS pauses if any."
+}

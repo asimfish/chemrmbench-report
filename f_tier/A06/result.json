@@ -1,0 +1,28 @@
+{
+  "id": "A06",
+  "status": "BLOCKED",
+  "F_PASS": false,
+  "blocker": "A real human phone-video input of flask/cup swirling has not been supplied or located with suitable provenance. No synthetic circular path or robot-only clip may replace the central video-to-motion mechanism.",
+  "resource_owner": "User/mentor supplies or approves suitable real human input; other F experiments continue",
+  "bounded_public_input_check": {
+    "checked_at_utc": "2026-10-19T13:14:40.515998+00:00",
+    "sources": [
+      {
+        "url": "https://huggingface.co/datasets/DynamicIntelligence/humanoid-robots-training-dataset",
+        "finding": "Actual iPhone13Pro hand/camera dataset, but published12-task README has no swirling/stirring task; no unrelated clips downloaded."
+      },
+      {
+        "url": "https://msiam.github.io/ivos/dataset/",
+        "finding": "Human stirring listed but human manipulation download remains ComingSoon; robot-only stirring is not human input."
+      },
+      {
+        "url": "https://www.generalrobotics.company/post/introducing-auto-engineering-for-robotics",
+        "finding": "Official description confirms single-person phone-video flask swirling mechanism; presentation clips do not establish a released raw input video."
+      }
+    ]
+  },
+  "minimum_input": "One real human swirling clip with source/provenance; camera motion and metric-scale ambiguities must be declared or calibrated; no credentials needed for local/public input.",
+  "video": null,
+  "new_native_runs": 0,
+  "full_reference_complete": false
+}

@@ -1,0 +1,80 @@
+{
+  "frozen_utc": "2026-10-20T17:18:58.318057+00:00",
+  "scope": "Shared prelaunch initial geometry only; no skill outcome filtering",
+  "instance_ids": {
+    "train": [
+      61001,
+      61002,
+      61003,
+      61004,
+      61005,
+      61006,
+      61007,
+      61008,
+      61009
+    ],
+    "heldout": [
+      65001,
+      65002,
+      65003,
+      65004,
+      65005,
+      65006,
+      65007,
+      65008,
+      65009,
+      65010,
+      65011,
+      65012,
+      65013,
+      65014,
+      65015,
+      65016,
+      65017,
+      65018,
+      65019,
+      65020
+    ],
+    "adaptation": [
+      70001,
+      70002,
+      70003,
+      70004,
+      70005,
+      70006,
+      70007,
+      70008,
+      70009,
+      70010,
+      70011,
+      70012,
+      70013,
+      70014,
+      70015,
+      70016,
+      70017,
+      70018,
+      70019,
+      70020
+    ]
+  },
+  "candidate_order": "For each instanceID in increasing splitorder, candidate_index0..49, recipe_seed=instanceID*100+candidate_index; first geometricallylegal candidate accepted",
+  "max_candidates_per_instance": 50,
+  "candidate_source_distribution": {
+    "xy_m": [
+      -0.03,
+      0.03
+    ],
+    "yaw_rad": [
+      -0.3490658503988659,
+      0.3490658503988659
+    ],
+    "generator": "study.config(recipe_seed), source-associated rack/mocks same XY translation; receiverfixed"
+  },
+  "legal_predicate": "MuJoCo3.3.7 mj_forward zero-step contacts among exactprimitive source/cup/rack/mocks/floor/bench geometry. Reject any non-support interobject contact signed distance< -1e-6m; source/cup/mock bottom support with bench/floor permitted. Samebody nativegeoms are naturallyexcluded by MuJoCo collision filtering. No robot or policygeometry enters this staticvalidity predicate.",
+  "geometry_template": "initial_task_geometry_template.xml",
+  "geometry_boundary": "Primitive taskobjects copied exactly fromA01outward6.5mm-vessel builder, original emptyinertials; robot/lights/render assets omitted only forstaticcandidatepredicate. Actualepisodesretainfullrobot/world.",
+  "outcome_access": "No rollout files/policies/metrics read; accepted bank common allmodels and bothrobots, generatedbeforetraining",
+  "reporting": "Evaluation conditionalonlegalinitialgeometry, notunconditioneduniformCartesianbox. Allcandidates/rejections retainedin candidate_ledger.jsonl. Allactuallylaunchedepisodesremain denominator.",
+  "noise_bank": "For adaptation sameacceptedtaskrecipe allfiveattempts; noise_seed=instanceID*10+attempt1..5, identicalforfixed/adaptivebranches."
+}

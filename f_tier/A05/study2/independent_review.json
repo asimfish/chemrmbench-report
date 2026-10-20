@@ -1,0 +1,209 @@
+{
+  "id": "A05-study2",
+  "passed": true,
+  "checks": {
+    "all_raw_reviews_pass": true,
+    "at_least_one_of_three_new_fixed_heldouts_successful": true,
+    "two_real_negative_controls_fail": true,
+    "all_started_formal_trials_counted": true,
+    "original_formal_failure_preserved": true,
+    "missing_child_exit_is_disclosed": true,
+    "complete_five_condition_video": true
+  },
+  "trials": [
+    {
+      "label": "heldout_policy_9601",
+      "values": {
+        "hold_min_rod_lift_m": -0.00011946126386676303,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0005454829736225175,
+        "native_seconds": 15.799999999996682,
+        "raw_states": 316
+      },
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "physical_success": false,
+      "raw_review": {
+        "finite": true,
+        "pre_post_clock_alignment": true,
+        "saved_state_chain": true,
+        "monotonically_advancing_native_clock": true,
+        "RGB_shape": true,
+        "recomputed_geometry_matches_trace": true,
+        "recomputed_physics_checks_match_producer": true,
+        "actual_commands_match_frozen_model": true,
+        "no_runtime_teacher_queries": true,
+        "raw_closure": true
+      },
+      "maximum_geometry_trace_error_m": 0.0,
+      "maximum_policy_action_error": 0.0
+    },
+    {
+      "label": "heldout_policy_9602",
+      "values": {
+        "hold_min_rod_lift_m": 0.07276353165459735,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.40854826117305953,
+        "native_seconds": 15.799999999996682,
+        "raw_states": 316
+      },
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "physical_success": false,
+      "raw_review": {
+        "finite": true,
+        "pre_post_clock_alignment": true,
+        "saved_state_chain": true,
+        "monotonically_advancing_native_clock": true,
+        "RGB_shape": true,
+        "recomputed_geometry_matches_trace": true,
+        "recomputed_physics_checks_match_producer": true,
+        "actual_commands_match_frozen_model": true,
+        "no_runtime_teacher_queries": true,
+        "raw_closure": true
+      },
+      "maximum_geometry_trace_error_m": 0.0,
+      "maximum_policy_action_error": 0.0
+    },
+    {
+      "label": "heldout_policy_9603",
+      "values": {
+        "hold_min_rod_lift_m": 0.13126248918999234,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3799362537968123,
+        "native_seconds": 15.799999999996682,
+        "raw_states": 316
+      },
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "physical_success": true,
+      "raw_review": {
+        "finite": true,
+        "pre_post_clock_alignment": true,
+        "saved_state_chain": true,
+        "monotonically_advancing_native_clock": true,
+        "RGB_shape": true,
+        "recomputed_geometry_matches_trace": true,
+        "recomputed_physics_checks_match_producer": true,
+        "actual_commands_match_frozen_model": true,
+        "no_runtime_teacher_queries": true,
+        "raw_closure": true
+      },
+      "maximum_geometry_trace_error_m": 0.0,
+      "maximum_policy_action_error": 0.0
+    },
+    {
+      "label": "heldout_untrained_9601",
+      "values": {
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "native_seconds": 15.799999999996682,
+        "raw_states": 316
+      },
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "physical_success": false,
+      "raw_review": {
+        "finite": true,
+        "pre_post_clock_alignment": true,
+        "saved_state_chain": true,
+        "monotonically_advancing_native_clock": true,
+        "RGB_shape": true,
+        "recomputed_geometry_matches_trace": true,
+        "recomputed_physics_checks_match_producer": true,
+        "actual_commands_match_frozen_model": true,
+        "no_runtime_teacher_queries": true,
+        "raw_closure": true
+      },
+      "maximum_geometry_trace_error_m": 0.0,
+      "maximum_policy_action_error": 0.0
+    },
+    {
+      "label": "heldout_masked_9601",
+      "values": {
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "native_seconds": 15.799999999996682,
+        "raw_states": 316
+      },
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "physical_success": false,
+      "raw_review": {
+        "finite": true,
+        "pre_post_clock_alignment": true,
+        "saved_state_chain": true,
+        "monotonically_advancing_native_clock": true,
+        "RGB_shape": true,
+        "recomputed_geometry_matches_trace": true,
+        "recomputed_physics_checks_match_producer": true,
+        "actual_commands_match_frozen_model": true,
+        "no_runtime_teacher_queries": true,
+        "raw_closure": true
+      },
+      "maximum_geometry_trace_error_m": 0.0,
+      "maximum_policy_action_error": 0.0
+    }
+  ],
+  "successes": 1,
+  "started_formal_trials": 3,
+  "success_Wilson95pct": [
+    0.06149194472039621,
+    0.7923403991979522
+  ],
+  "video_probe": {
+    "width": 1440,
+    "height": 600,
+    "nb_frames": "318",
+    "duration": "31.800000"
+  },
+  "reviewed_utc": "2026-10-20T17:23:16.441715+00:00",
+  "reviewer": "root; independent qpos geometry reconstruction and frozen-model replay, zero mj_step calls",
+  "missing_process_receipt": "Parent exited143 while child continued. Complete316 saved physical states and15.8s native horizon establish physical closure; child process exit code remains unknown and is not imputed0.",
+  "boundary": "F function only, not robust success or visual benefit. Both RGB9601 and paired masked9601 fail, so visual ablation is inconclusive. Original0/3 and new1/3 remain separate. No liquid mixing, real GELLO or hardware reproduction claim.",
+  "visual_review": {
+    "passed": true,
+    "reviewer": "root",
+    "frames": [
+      "f_tier/A05/study2/keyframe_all_heldout.png",
+      "f_tier/A05/study2/keyframe_controls.png"
+    ],
+    "observations": [
+      "All three fixed heldouts appear together; missed pickup9601 and successful in-cup motion9603 are visible.",
+      "Masked control inset is the actual zero-valued model input, while the world remains normally rendered.",
+      "Local opaque cup, guide and orange marker are disclosed; this is dry rigid-tool motion, not liquid mixing."
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "id": "A04-hard",
+  "scope_status": "PILOT_DIFFICULTY_TARGET_NOT_MET",
+  "closed_utc": "2026-10-20T17:54:53.000240+00:00",
+  "F_PASS": false,
+  "old_A04_preserved": true,
+  "protocol": "calibration/protocol.json",
+  "pilot": {
+    "target_met": false,
+    "groups": [
+      {
+        "robot": "ur5e",
+        "method": "script_expert",
+        "started": 5,
+        "finished": 5,
+        "successes": 5,
+        "primary_all_started_success_rate": 1.0,
+        "wilson_95pct": [
+          0.5655175352168251,
+          1.0
+        ],
+        "full23s_count": 5,
+        "mean_last_observed_receiver_fraction": 1.0,
+        "mean_last_observed_spill_fraction": 0.0,
+        "minimum_true_loaded_lift_m": 0.11244079818367149,
+        "minimum_true_loaded_contacts": 12,
+        "failed_attempts": []
+      },
+      {
+        "robot": "ur5e",
+        "method": "old_BC3",
+        "started": 5,
+        "finished": 5,
+        "successes": 5,
+        "primary_all_started_success_rate": 1.0,
+        "wilson_95pct": [
+          0.5655175352168251,
+          1.0
+        ],
+        "full23s_count": 5,
+        "mean_last_observed_receiver_fraction": 1.0,
+        "mean_last_observed_spill_fraction": 0.0,
+        "minimum_true_loaded_lift_m": 0.11244079818367149,
+        "minimum_true_loaded_contacts": 12,
+        "failed_attempts": []
+      },
+      {
+        "robot": "flexiv",
+        "method": "script_expert",
+        "started": 5,
+        "finished": 5,
+        "successes": 4,
+        "primary_all_started_success_rate": 0.8,
+        "wilson_95pct": [
+          0.37553462976252533,
+          0.9637758913675698
+        ],
+        "full23s_count": 4,
+        "mean_last_observed_receiver_fraction": 0.9991666666666668,
+        "mean_last_observed_spill_fraction": 0.0008333333333333333,
+        "minimum_true_loaded_lift_m": 0.11112782906634883,
+        "minimum_true_loaded_contacts": 16,
+        "failed_attempts": [
+          {
+            "seed": 56004,
+            "native_seconds": 12.350714756435488,
+            "error": "Unreachable Flexiv object-centric pose [0.48960375668127937, 0.22219533203792755, 0.2437994536252943]",
+            "checks": {
+              "full_23s": false,
+              "receiver_xy_path_at_least_20mm": true,
+              "final_receiver_at_least_80pct": true,
+              "final_spill_at_most_10pct": true,
+              "zero_container_bench_floor_particle_penetrations": true
+            }
+          }
+        ]
+      },
+      {
+        "robot": "flexiv",
+        "method": "old_BC3",
+        "started": 5,
+        "finished": 5,
+        "successes": 5,
+        "primary_all_started_success_rate": 1.0,
+        "wilson_95pct": [
+          0.5655175352168251,
+          1.0
+        ],
+        "full23s_count": 5,
+        "mean_last_observed_receiver_fraction": 1.0,
+        "mean_last_observed_spill_fraction": 0.0,
+        "minimum_true_loaded_lift_m": 0.11112782906634883,
+        "minimum_true_loaded_contacts": 16,
+        "failed_attempts": []
+      }
+    ],
+    "all_started_count": 20,
+    "completed_native_trial_records": 20,
+    "native_horizon_completed_count": 19,
+    "algorithm_scope": "Frozenold-easy-trainedBC3OODcalibration, not newlyhard-trainedBC3evaluation",
+    "goal": "Expert5/5andoldBC3atmost3/5perrobot, fixed20attemptbank",
+    "raw_producer_summary": "calibration/result.json",
+    "attempt_ledger": "calibration/attempts.jsonl"
+  },
+  "all_started_accounting": {
+    "malformed_engineering_trials_started": 10,
+    "malformed_engineering_trials_closed": 10,
+    "unstarted_malformed_trials_cancelled": 10,
+    "corrected_legal_trials_started": 20,
+    "corrected_legal_trials_closed": 20,
+    "total_native_trials_started": 30,
+    "missing_native_outcomes": 0,
+    "native_trial_children_terminated": 0,
+    "scheduler_retirement": "Oldcoordinatorretiredonlyafterall10childrenclosed; itsSIGTERMexit143isnotanadditionalnativeepisode or nativeinterruption.",
+    "old_engineering_scope": "engineering_pilot_result.json"
+  },
+  "diagnosis": {
+    "malformed_setup": "Two taskadaptercorrectnessbugs repaired before newbank: source-only XYrandomization overlappedfixedrack; sourcegrasp yaw incorrectlyrotatedreceiver-relativepouraxis.",
+    "corrected_frame_geometry": "calibration/frame_verification.json",
+    "control_error_margins": "pilot_difficulty_diagnosis.json",
+    "flow_timing": "calibration/flow_timing_diagnosis.json",
+    "bulk_window_receiver_motion_median_m": 0.009307414679421002,
+    "pushes_missing_bulk_window_cases": 16,
+    "flow_cases_analyzed": 20,
+    "expert_failure": "calibration/expert_failure_diagnosis.json",
+    "expert_failure_boundary": "OneFlexivexpertalreadytransferred240/240butIKfailedatjointlimitbefore23s; countedfailure, no instantbranchjump/tolerancerelaxation/retry.",
+    "calibration_conclusion": "ObservedoldBC3saturationandoneexpertadapterfailure; currenttaskdoesnotmeetrequiredOPDbaselinecalibration. No formalperformance or DAggeradvantageclaim."
+  },
+  "formal_study": {
+    "started": false,
+    "phase": "NOT_STARTED_CALIBRATION_GATE_FAILED",
+    "planned_formal_episodes": 240,
+    "planned_supervised_adaptation_episodes": 200,
+    "planned_fixed_repetition_control_episodes": 200,
+    "planned_training_episodes": 30,
+    "workers_max": 12,
+    "native_nice_increment": 5,
+    "estimated_wall_h_at12workers": [
+      13,
+      16
+    ],
+    "resource_bottleneck": "CPU nativefluid/IK, noGPU used",
+    "casebank": "study_casebank/casebank.json",
+    "legal_initial_instances": 49,
+    "prelaunch_geometry_candidates": 61,
+    "geometry_rejected": 12,
+    "geometry_rejection_fraction": 0.19672131147540983,
+    "distribution_scope": "Uniformfullposecandidatesconditionedonlyonprelaunchgeometryvalidity; sharedallpolicies/robots; no outcome-based seedselection.",
+    "scheme": "study.py",
+    "future_adaptation_scope": "Episode-end supervisedweightadaptation, no ICL or finalOPD claim"
+  },
+  "video": "video.mp4",
+  "video_metadata": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 1600,
+        "height": 960,
+        "duration": "23.100000",
+        "nb_frames": "231"
+      }
+    ]
+  },
+  "video_scope": "Precommittedfirstvalidpilotseed56001: fourrobot/method full23scomparators; notall20cases. Diagnosticactualneareststatereplay, no interpolation or newphysics.",
+  "visual_keyframes": "pilot_visual_check.png",
+  "metric_scope": "Successrequiresoriginalfull23s, receiverpath>=20mm,capture>=80%,spill<=10%,scopepenetration0. Midrunoutside includesinflight; abortedcasecapture/spillare lastobservedstate, notunobserved23svalues.",
+  "declared_differences": [
+    "IndependentlocalCPU MuJoCo/Warpstatefeedback, notoriginalGRID orvisualend-to-endpolicy",
+    "Scriptedpickup/return; learnedoranalytic18D six-dimensionalfeedbackonly8.5..15s",
+    "FrozenoldBC3OODpilot only; no hardtraining/formalresults or DAggercomparison produced",
+    "Fivefixedcasespergroup, wideWilsonintervals; no superiority/equivalence/population>=90%guarantee",
+    "240particles3.75mL; fluidcontactscopecontainers/bench/floor excludesfluidrobot/rack; diagnosticrendering",
+    "Circularsourceaxialyawissymmetric; gripperyawvaries, noSO3shapeorientationgeneralizationclaim",
+    "OneexpertIKbranchlimitfailurecounted; qualitativefluidtransferdoesnotbypassfullhorizongate",
+    "Malformedfirst10trialsretainedseparately; new20legalscenes usedtwouniformtaskadaptercorrectnessfixes, notalgorithmimprovementablation"
+  ],
+  "next_decision": "Supervisor tochoose newhardtask mechanism after observedceiling; noautomatic640episode study. Keep floweventtiming and teacher/studentobservation shortcut evidence separate from any futureexpertjointlimitadapterfix."
+}

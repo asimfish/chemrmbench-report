@@ -1,0 +1,105 @@
+{
+  "test": "native_wall_pressure_taps",
+  "metrics": {
+    "elapsed_native_s": 42.0,
+    "measurement_seconds": 1.0020000000000002,
+    "pressure_tap_heights_m": [
+      0.012,
+      0.02,
+      0.028,
+      0.036000000000000004,
+      0.044
+    ],
+    "mean_pressure_taps_Pa": [
+      454.58959848220366,
+      302.8066218073133,
+      278.88563766930497,
+      181.38814872751638,
+      100.78899549172087
+    ],
+    "rho_g_h_Pa": [
+      373.88200584144465,
+      295.4020058414446,
+      216.9220058414446,
+      138.44200584144454,
+      59.96200584144462
+    ],
+    "pressure_depth_R2": 0.961033600204036,
+    "slope_Pa_per_m": 10362.745988259534,
+    "intercept_Pa": 34.54729016052104,
+    "slope_error": 0.056345156805253316,
+    "rho_g_h_normalized_RMSE": 0.16807531212118085,
+    "maxspeed_last1s_m_s": 0.00603336188942194,
+    "mean_compression_last1s": 0.0006290977767774622,
+    "native_steps": 1000,
+    "wall_s": 175.55717639200157
+  },
+  "checks": {
+    "pressure_R2_gt_p95": true,
+    "slope_error_lt10percent": true,
+    "maxspeed_lt1cm_s": true,
+    "compression_lt1percent": true
+  },
+  "passed": true,
+  "protocol": {
+    "pressure_observable": "Actual native left-wall normal reaction per fixed0.008m height tap and full0.064m width, sum both SPH projection stages and reciprocal SDF contact impulses. Not a fitted pressure assignment.",
+    "measurement_window": "Last1second of2second native continuation from exact40s checkpoint",
+    "wall_corner_components": "Includes x-normal contribution of all left-halfspace wall samples, including corners; no y force treated as x force.",
+    "raw_projection_field": "Reported as separate diagnostic in hydrostatic_settle40; its field-depth R2 .82288 andslope52%error remain unaccepted. Wall taps do not establish a globally accurate particle pressure field.",
+    "material_and_solver_changes": false,
+    "original_GRID_identity": false
+  },
+  "CPU_force_validation": {
+    "backend": "CPU WarpDFSPH, not PhysX contact-force API",
+    "source": "f_tier/A01/pressure_cpu_validation.py",
+    "checkpoint": "f_tier/A01/runs/hydrostatic_settle40/native-states.npz",
+    "native_steps": 1000,
+    "native_duration_s": 2.0,
+    "measurement_window_s": [
+      1,
+      2
+    ],
+    "sample_grid_seconds": 1.0020000000000002,
+    "fluid_known_parameter_mass_kg": 0.31457280000000004,
+    "expected_weight_N": 3.0859591680000005,
+    "measured_wall_reaction_z_N": -3.0859592769912134,
+    "reaction_weight_magnitude_ratio": 1.0000000353184235,
+    "calibration_factor_fitted": false,
+    "scope": "Direct kernel reaction sum validated against configured static mass; not an externally calibrated physical mass measurement. Five left-wall X-normal pressure taps and total Z-reaction are different observables.",
+    "wall_pressure_metrics": {
+      "elapsed_native_s": 42.0,
+      "measurement_seconds": 1.0020000000000002,
+      "pressure_tap_heights_m": [
+        0.012,
+        0.02,
+        0.028,
+        0.036000000000000004,
+        0.044
+      ],
+      "mean_pressure_taps_Pa": [
+        454.58959848220366,
+        302.8066218073133,
+        278.88563766930497,
+        181.38814872751638,
+        100.78899549172087
+      ],
+      "rho_g_h_Pa": [
+        373.88200584144465,
+        295.4020058414446,
+        216.9220058414446,
+        138.44200584144454,
+        59.96200584144462
+      ],
+      "pressure_depth_R2": 0.961033600204036,
+      "slope_Pa_per_m": 10362.745988259534,
+      "intercept_Pa": 34.54729016052104,
+      "slope_error": 0.056345156805253316,
+      "rho_g_h_normalized_RMSE": 0.16807531212118085,
+      "maxspeed_last1s_m_s": 0.00603336188942194,
+      "mean_compression_last1s": 0.0006290977767774622,
+      "native_steps": 1000,
+      "wall_s": 175.55717639200157
+    },
+    "raw": "f_tier/A01/runs/hydrostatic_wall_taps_cpu/native-taps.csv"
+  }
+}

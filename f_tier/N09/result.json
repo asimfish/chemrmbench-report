@@ -222,7 +222,8 @@
     "RTX5090 with current local driver differs from original paper hardware.",
     "Heat-transfer test task replication scales cloned scenes; four configured task assets per scene (beaker, plate, table, robot), excluding the shared ground and robot link count; original full-lab benchmark configuration not recovered.",
     "Includes original sensors and their updates in both variants; isolates semantic-manager update cost only.",
-    "Shared workstation with active unrelated user tasks; no process stopped or clocks locked, absolute throughput may vary."
+    "Shared workstation with active unrelated user tasks; no process stopped or clocks locked, absolute throughput may vary.",
+    "Supplementary strictAB/AB/AB executed at all3scales with all18timings retained. Changing sharedGPU/CPU load and any paused intervals prevent treating the paired walltime ratio as isolated semantic overhead."
   ],
   "full_reference_complete": false,
   "interpretation": "Shared-load variance can dominate paired medians, including negative apparent semantic overhead. These measurements validate execution and reporting of the local benchmark; they do not establish a causal speedup or isolated semantic overhead.",
@@ -249,5 +250,6 @@
       "Exact paired initial physical states; finite final states",
       "Shared-load variance and noncausal interpretation retained"
     ]
-  }
+  },
+  "strict_alternating_validation": "f_tier/N09/alternating/result.json"
 }

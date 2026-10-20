@@ -1,0 +1,102 @@
+{
+  "id": "A04-hard",
+  "phase": "RECEIVER_FRAME_CORRECTED_PILOT",
+  "engineering_failure_predecessor": "../protocol.json",
+  "correctness_repairs": [
+    "Pouraxisdefinedbyreceiverrelativevector; sourceaxialyawchangesgriponly",
+    "Source-associatedfourrackgeomsandtwocompaniontubestranslatedwithsourceXY; relativefixturestructurepreserved, receiverfixed"
+  ],
+  "unchanged_difficulty": "Samecorruptionandrandomizationdistributions.Newseedbank. Exactcommandpose/delayedbasis/truephysicalpickupmetricsaddedtorawevidenceonly.",
+  "frozen_utc": "2026-10-20T17:13:38.477133+00:00",
+  "robots": [
+    "ur5e",
+    "flexiv"
+  ],
+  "pilot_seeds": [
+    56001,
+    56002,
+    56003,
+    56004,
+    56005
+  ],
+  "methods": [
+    "script_expert",
+    "old_BC3"
+  ],
+  "episodes": 20,
+  "native_horizon_s": 23,
+  "particles": 240,
+  "device": "CPU",
+  "workers": 6,
+  "source_randomization": {
+    "xy_m": [
+      -0.03,
+      0.03
+    ],
+    "yaw_rad": [
+      -0.3490658503988659,
+      0.3490658503988659
+    ],
+    "applied_before_initialization_only": true,
+    "yaw_scope": "Circular tube yaw physically symmetric; same yaw also rotates gripper grasp/tilt frame."
+  },
+  "receiver_motion": {
+    "speed_multiplier": 2.5,
+    "baseline_amplitude_m": [
+      0.009,
+      0.015
+    ],
+    "baseline_omega_rad_s": [
+      0.55,
+      0.85
+    ],
+    "random_direction_changes": "Three precommitted signed-phase reversals; continuous position, finite native force, no runtime pose writes",
+    "push_count": [
+      1,
+      2
+    ],
+    "push_force_N": 2.0,
+    "push_duration_s": 0.12,
+    "push_during_pour_s": [
+      9.0,
+      13.0
+    ]
+  },
+  "control_corruption": {
+    "observation_delay_s": [
+      0.02,
+      0.04
+    ],
+    "actual_delay_trace_recorded": true,
+    "delayed_control_only": "Whole18D state/goal-error/goal-velocity and action frame delayed, verifier/current particle counts undelayed",
+    "angular_action_noise_std_rad_s": 0.03,
+    "linear_action_noise_std_m_s": 0.005,
+    "scope": "Noise during learned6D window, both expert and student; same seed gives identical exogenous recipe"
+  },
+  "local_success_gates": {
+    "full_23s": true,
+    "receiver_fraction_min": 0.8,
+    "spill_fraction_max": 0.1,
+    "scope_penetrations_max": 0,
+    "receiver_path_m_min": 0.02
+  },
+  "pilot_calibration_target": {
+    "expert_success_rate_min": 0.9,
+    "BC3_success_rate_max": 0.6,
+    "n_per_robot_method": 5,
+    "five_sample_implication": "Expert5/5 and BC3at most3/5 perrobot"
+  },
+  "attempt_accounting": "Every actual started subprocess counted, missing/nonzero/interrupted physical outcomes are failures; same-seed recovery attempts remain additional denominator entries. No outcome-based seed replacement.",
+  "baseline_policies": {
+    "ur5e": "f_tier/A04/coupled_learning/ur5e/bc3.npz",
+    "flexiv": "f_tier/A04/coupled_learning/flexiv/bc3.npz"
+  },
+  "training_evaluation_boundary": "Pilot calibrates difficulty only; no pilot rollout used as formal test or training. New train/heldout banks frozen after pilot. OldBC3frozen.",
+  "differences": [
+    "Independent local CPU MuJoCo+Warp, not GRID",
+    "State-based18D feedback during8.5..15s, scripted pickup/return",
+    "Separate robot policies, no zero-shot shared weights",
+    "Coarse3.75mL240particles and conservative scope excludes fluid-robot/rack",
+    "Fixed model repeated trials do not establish adaptation orICL"
+  ]
+}

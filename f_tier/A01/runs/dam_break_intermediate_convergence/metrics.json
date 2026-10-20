@@ -1,0 +1,112 @@
+{
+  "test": "dam_break",
+  "label": "dam_break_intermediate_convergence",
+  "metrics": {
+    "native_seconds": 0.17028651603234046,
+    "native_steps": 94,
+    "particles": 1024,
+    "boundaries": 14640,
+    "mean_positive_compression": 0.00013888452667742968,
+    "max_speed_m_s": 1.682443618774414,
+    "pressure_depth_R2": 0.022204678816230672,
+    "pressure_depth_slope_Pa_per_m": 4199.921193163367,
+    "expected_rho_g": 9810.0,
+    "pressure_slope_relative_error": 0.5718734767417566,
+    "escaped_particle_count": 0,
+    "min_dt_s": 0.001536889474864775,
+    "nu_m2_s": 1e-06,
+    "solver_tolerance": 0.0001,
+    "max_iterations": 100,
+    "wall_s": 20.68312998698093,
+    "boundary_contact": "sdf_ccd",
+    "particle_volume_factor": 0.8
+  },
+  "checks": {
+    "T_atleast3": true,
+    "front_relative_error_le10percent": false,
+    "zero_escape": true
+  },
+  "passed": false,
+  "protocol": {
+    "adaptive_CFL_lambda": 0.4,
+    "dt_max_s": 0.002,
+    "wall_method": "Akinci support-radius-thick samples; zero-restitution box SDF continuous linear contact correction with equal/opposite impulse at physical surface",
+    "density_gate": "mean positive compression only; no fixed lower band",
+    "pressure_reconstruction": "Sum both actual projection pressure variables timesrho0; finalinstant for this run",
+    "pressure_stages": "density+divergence stored separately and summed; physicalunitsPa",
+    "local_thresholds": true
+  },
+  "differences": [
+    "Independent local WarpDFSPH;originalGRIDruntimeunavailable",
+    "HydrostaticprobeisnotMATTERIXPhysXPBD"
+  ],
+  "video": "f_tier/A01/runs/dam_break_intermediate_convergence/video.mp4",
+  "status": "RUNNING_A01_SUITE_NOT_COMPLETE",
+  "dam_break_comparison": {
+    "T_ref": [
+      0.41,
+      0.84,
+      1.19,
+      1.43,
+      1.63,
+      1.83,
+      1.98,
+      2.2,
+      2.32,
+      2.51,
+      2.65,
+      2.8,
+      2.97
+    ],
+    "Z_ref": [
+      1.11,
+      1.22,
+      1.44,
+      1.67,
+      1.89,
+      2.11,
+      2.33,
+      2.56,
+      2.78,
+      3.0,
+      3.22,
+      3.44,
+      3.67
+    ],
+    "Z_native": [
+      1.0586995773167778,
+      1.2759320222324748,
+      1.5939929143207094,
+      1.8562551682509372,
+      2.089120639905565,
+      2.333242221200022,
+      2.5215218458866904,
+      2.8039469489085285,
+      2.961619790436397,
+      3.2152121202829522,
+      3.413992129172476,
+      3.6309012542196304,
+      3.878962327933674
+    ],
+    "relative_errors": [
+      0.04621659701191205,
+      0.04584591986268438,
+      0.10693952383382599,
+      0.11153004086882468,
+      0.1053548359288703,
+      0.10580200056873101,
+      0.0821982171187512,
+      0.09529177691739399,
+      0.06533085986920772,
+      0.07173737342765074,
+      0.06024600284859494,
+      0.055494550645241336,
+      0.05693796401462503
+    ],
+    "max_relative_error": 0.11153004086882468,
+    "T_achieved": 3.0793151343075373,
+    "time_shift_applied_s": 0.0,
+    "source": "MartinMoyce1952Table2n2=2meanTcolumn",
+    "local_error_threshold": 0.1
+  }
+}

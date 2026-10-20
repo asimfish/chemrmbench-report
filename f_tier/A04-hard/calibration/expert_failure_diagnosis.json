@@ -1,0 +1,321 @@
+{
+  "scope": "READONLY_EXACT_FAILED_COMMAND_IK_DIAGNOSIS",
+  "episode": "f_tier/A04-hard/calibration/pilot/flexiv/pilot_script_expert_56004",
+  "native_seconds": 12.350714756435488,
+  "source_was_truly_held": {
+    "min_loaded_lift_m": 0.11112782906634883,
+    "min_loaded_contacts": 16
+  },
+  "exact_requested_position_m": [
+    0.48960375668127937,
+    0.22219533203792755,
+    0.2437994536252943
+  ],
+  "exact_requested_quaternion_xyzw": [
+    0.5773219093957255,
+    -0.04864768800089476,
+    -0.8130666679977224,
+    0.05705618962849515
+  ],
+  "command_source": "Rawnew100Hzcommandposeanddelayedbasis; noreconstructionapproximation",
+  "native_actual_q": [
+    0.17382586492154684,
+    -1.3707889249703589,
+    0.06091480601396302,
+    0.5954359177670964,
+    1.4285203488220477,
+    -1.3890997660506834,
+    3.018655761887192
+  ],
+  "native_actual_joint_limit_margins_rad": [
+    2.6759741350784534,
+    0.9554110750296412,
+    2.963385193986037,
+    2.149664082232904,
+    1.5957796511779525,
+    0.0644002339493166,
+    0.005644238112808342
+  ],
+  "weighted_site_jacobian_singular_values": [
+    2.759033725166683,
+    2.5185158232362035,
+    1.6113583251463355,
+    1.495501051321439,
+    0.7209401964607944,
+    0.2198553137534189
+  ],
+  "starts": [
+    {
+      "start": "native_actual_qpos",
+      "position_error_m": 0.0010897861687247082,
+      "orientation_error_rad": 0.0036980674895509954,
+      "accepted_by_original_solver_criteria": false,
+      "max_target_joint_change_from_actual_rad": 0.37422777935480184,
+      "min_joint_limit_margin_rad": 4.440892098500626e-16,
+      "q": [
+        0.28947011716174936,
+        -1.3704449991053078,
+        -0.3133129733408388,
+        0.5897661857875001,
+        1.6700857953784727,
+        -1.45349999986374,
+        3.0242999999999998
+      ],
+      "nfev": 13
+    },
+    {
+      "start": "last_nominal_estimated_from_finalctrl",
+      "position_error_m": 0.0010897862080149136,
+      "orientation_error_rad": 0.0036980672988535493,
+      "accepted_by_original_solver_criteria": false,
+      "max_target_joint_change_from_actual_rad": 0.37422777547896957,
+      "min_joint_limit_margin_rad": 2.220446049250313e-16,
+      "q": [
+        0.2894701156480543,
+        -1.3704450006209388,
+        -0.31331296946500653,
+        0.5897661829544355,
+        1.670085792224397,
+        -1.4534999999999998,
+        3.0242999999999998
+      ],
+      "nfev": 7
+    },
+    {
+      "start": "original_home",
+      "position_error_m": 0.0010897862436594255,
+      "orientation_error_rad": 0.003698067130165295,
+      "accepted_by_original_solver_criteria": false,
+      "max_target_joint_change_from_actual_rad": 0.3742277793798057,
+      "min_joint_limit_margin_rad": 2.220446049250313e-16,
+      "q": [
+        0.2894701172743161,
+        -1.37044499879429,
+        -0.3133129733658427,
+        0.5897661863526826,
+        1.6700857950062076,
+        -1.4534999999999998,
+        3.0242999999999993
+      ],
+      "nfev": 19
+    },
+    {
+      "start": "fixed_existing_rng17_0",
+      "position_error_m": 1.1867951017625893e-05,
+      "orientation_error_rad": 1.2216490069200488e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.8119392394111244,
+      "min_joint_limit_margin_rad": 0.17226052663955826,
+      "q": [
+        0.5891154623141833,
+        -1.8646293493228543,
+        -1.0076479132356309,
+        0.3390038078783891,
+        -0.8288078080321188,
+        4.422839473360441,
+        -0.3407539341953017
+      ],
+      "nfev": 40
+    },
+    {
+      "start": "fixed_existing_rng17_1",
+      "position_error_m": 0.0360751542643634,
+      "orientation_error_rad": 0.18706379141621818,
+      "accepted_by_original_solver_criteria": false,
+      "max_target_joint_change_from_actual_rad": 4.043828888892011,
+      "min_joint_limit_margin_rad": 4.440892098500626e-16,
+      "q": [
+        2.8497999999999997,
+        1.3371389012942085,
+        0.9984578494760135,
+        -0.9206208916592395,
+        -2.6153085400699636,
+        -1.0002336362850244,
+        3.0242999999999998
+      ],
+      "nfev": 12
+    },
+    {
+      "start": "fixed_existing_rng17_2",
+      "position_error_m": 1.7745918630073427e-06,
+      "orientation_error_rad": 1.4238329857812229e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.372770684859906,
+      "min_joint_limit_margin_rad": 1.1199660496785668e-06,
+      "q": [
+        -0.06472353554860255,
+        -1.87361037291074,
+        -1.0579722120234056,
+        -0.4813239918947999,
+        -3.0242988800339505,
+        -1.1125912766154993,
+        -2.354114922972714
+      ],
+      "nfev": 18
+    },
+    {
+      "start": "fixed_existing_rng17_3",
+      "position_error_m": 1.8776481254981788e-06,
+      "orientation_error_rad": 1.0643420094904477e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.995351606983377,
+      "min_joint_limit_margin_rad": 0.047604154903814866,
+      "q": [
+        -0.025647771410243114,
+        -1.657675194627625,
+        1.0958957839733496,
+        0.5001035348082642,
+        0.5376588461007324,
+        -1.1412163264097765,
+        -2.9766958450961853
+      ],
+      "nfev": 64
+    },
+    {
+      "start": "fixed_existing_rng17_4",
+      "position_error_m": 1.5590883638909915e-06,
+      "orientation_error_rad": 6.2991106586414605e-06,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.232256937910844,
+      "min_joint_limit_margin_rad": 0.0001077178096919873,
+      "q": [
+        2.849692282190308,
+        2.248338089093286,
+        -0.84339730555656,
+        0.9485222144540303,
+        -0.12083488242472036,
+        -1.0334005150372247,
+        -2.2136011760236514
+      ],
+      "nfev": 51
+    },
+    {
+      "start": "fixed_existing_rng17_5",
+      "position_error_m": 1.1866066649862266e-05,
+      "orientation_error_rad": 1.2218248741365498e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.811933794793435,
+      "min_joint_limit_margin_rad": 0.1722659712572474,
+      "q": [
+        0.5891071958157827,
+        -1.864629278436216,
+        -1.0076259585064795,
+        0.33899352375525393,
+        -0.8288324061573232,
+        4.422834028742752,
+        -0.3407541537477245
+      ],
+      "nfev": 26
+    },
+    {
+      "start": "fixed_existing_rng17_6",
+      "position_error_m": 0.0025563347778537115,
+      "orientation_error_rad": 0.006531161930208918,
+      "accepted_by_original_solver_criteria": false,
+      "max_target_joint_change_from_actual_rad": 5.938529748179829,
+      "min_joint_limit_margin_rad": 4.440892098500626e-16,
+      "q": [
+        -2.8497999999999997,
+        2.137211252611008,
+        -2.237000889746355,
+        -0.1926359869109545,
+        -3.0242999999999998,
+        4.549429982129146,
+        -0.5288259572905911
+      ],
+      "nfev": 20
+    },
+    {
+      "start": "fixed_existing_rng17_7",
+      "position_error_m": 3.0061148541606406e-05,
+      "orientation_error_rad": 9.638645444759016e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.7850387487819415,
+      "min_joint_limit_margin_rad": 0.19916101726874125,
+      "q": [
+        0.5428133507929123,
+        -1.8662671497579943,
+        -0.8687671680900205,
+        0.28835827512825307,
+        -0.9924771167269016,
+        4.395938982731258,
+        -0.35241370661022975
+      ],
+      "nfev": 100
+    },
+    {
+      "start": "fixed_existing_rng17_8",
+      "position_error_m": 1.7743283963722286e-06,
+      "orientation_error_rad": 1.4236559465597883e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.372771300881478,
+      "min_joint_limit_margin_rad": 2.014229249613919e-06,
+      "q": [
+        -0.06472355629257075,
+        -1.8736098769166785,
+        -1.0579736202873522,
+        -0.4813238974067343,
+        -3.0242979857707506,
+        -1.1125911743854906,
+        -2.3541155389942863
+      ],
+      "nfev": 45
+    },
+    {
+      "start": "fixed_existing_rng17_9",
+      "position_error_m": 1.5582026251743616e-06,
+      "orientation_error_rad": 6.29784715031967e-06,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.232091700776019,
+      "min_joint_limit_margin_rad": 2.7139213543136975e-08,
+      "q": [
+        2.8497999728607866,
+        2.248421614927295,
+        -0.8431363897918014,
+        0.948489889403773,
+        -0.12090169002600214,
+        -1.0334361916999877,
+        -2.2134359388888267
+      ],
+      "nfev": 64
+    },
+    {
+      "start": "fixed_existing_rng17_10",
+      "position_error_m": 1.2744905437466375e-05,
+      "orientation_error_rad": 9.889597250552233e-06,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.780088483394286,
+      "min_joint_limit_margin_rad": 0.05186551216137225,
+      "q": [
+        -2.797934487838628,
+        2.007925208697973,
+        -0.6036957700965278,
+        -0.14103060348893282,
+        1.5425030666717012,
+        4.390988717343602,
+        -0.6368237470989764
+      ],
+      "nfev": 30
+    },
+    {
+      "start": "fixed_existing_rng17_11",
+      "position_error_m": 1.774605356825356e-06,
+      "orientation_error_rad": 1.4238426259273248e-05,
+      "accepted_by_original_solver_criteria": true,
+      "max_target_joint_change_from_actual_rad": 5.372770278587202,
+      "min_joint_limit_margin_rad": 5.266641731616062e-07,
+      "q": [
+        -0.06472352337038709,
+        -1.8736107014665837,
+        -1.0579712804437829,
+        -0.4813240573274887,
+        -3.024299473335827,
+        -1.1125913417499875,
+        -2.3541145167000104
+      ],
+      "nfev": 76
+    }
+  ],
+  "feasible_count": 10,
+  "limits": "Finitefixedexistinginitialseedsetdoesnotproveglobalunreachability. No jointbranchjump/nativeexpertrepairexecuted; failuresremaincounted."
+}

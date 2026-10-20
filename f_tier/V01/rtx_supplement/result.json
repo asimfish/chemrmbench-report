@@ -1,0 +1,76 @@
+{
+  "status": "FOUR_SOURCE_LOCAL_COMPARISONS_COMPLETE_WITH_DECLARED_RENDER_LIMITS",
+  "updated_utc": "2026-10-20T17:46:25.222078+00:00",
+  "rows": [
+    {
+      "id": "N14",
+      "source": "f_tier/V01/matterix_fig3_reference.png",
+      "source_crop_xyxy": [
+        515,
+        360,
+        757,
+        507
+      ],
+      "local_frame": "f_tier/N14/rtx_replay/positive_middle.png",
+      "comparison": "f_tier/V01/rtx_supplement/N14_comparison.png",
+      "video": "f_tier/N14/rtx_replay/video.mp4",
+      "note": "New RTX saved-state replay; empty local rigid vessel, sparse layout."
+    },
+    {
+      "id": "N23",
+      "source": "f_tier/V01/matterix_fig3_reference.png",
+      "source_crop_xyxy": [
+        0,
+        0,
+        763,
+        330
+      ],
+      "local_frame": "f_tier/N23/rtx_replay/episode_middle.png",
+      "comparison": "f_tier/V01/rtx_supplement/N23_comparison.png",
+      "video": "f_tier/N23/rtx_replay/video.mp4",
+      "note": "New RTX replay; source is lab/hardware view, not a matching nested episode."
+    },
+    {
+      "id": "N04",
+      "source": "f_tier/V01/matterix_fig6b_reference.png",
+      "source_crop_xyxy": [
+        371,
+        42,
+        549,
+        149
+      ],
+      "local_frame": "f_tier/V01/rtx_supplement/N04_native_pour.png",
+      "comparison": "f_tier/V01/rtx_supplement/N04_comparison.png",
+      "video": "f_tier/N04/video.mp4",
+      "note": "Existing native RTX/MDL/PBD video; new offline isosurface replay is unresolved."
+    },
+    {
+      "id": "C01",
+      "source": "f_tier/V01/matterix_fig6b_reference.png",
+      "source_crop_xyxy": [
+        371,
+        42,
+        549,
+        149
+      ],
+      "local_frame": "combined/runs/positive/root_pour.png",
+      "comparison": "f_tier/V01/rtx_supplement/C01_comparison.png",
+      "video": "combined/runs/positive/video.mp4",
+      "note": "Existing accepted native RTX/MDL/PBD; offline rerender is unresolved."
+    }
+  ],
+  "N04_extracted_source_frame": {
+    "frame": 335,
+    "case": "pose_00",
+    "t_s": 22.400000542402267,
+    "native_physics_steps": 6720
+  },
+  "source_paper_doi": "10.1038/s43588-025-00924-4",
+  "physics_steps_for_this_gallery": 0,
+  "accepted_V01_tour_unchanged": true,
+  "offline_PBD_rerender_status": "Not completed; no approximate replacement liquid",
+  "new_RTX_rerender_items": [
+    "N14",
+    "N23"
+  ]
+}

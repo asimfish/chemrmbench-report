@@ -1,190 +1,481 @@
 {
   "id": "A05",
-  "status": "RUNNING",
-  "F_PASS": false,
-  "scope_status": "COMPLETED_STUDY_FAILED_PREDECLARED_LOCAL_GATES",
-  "checks": {
-    "actual_RGB_training_and_exported_control": true,
-    "all_three_disjoint_heldout_attempts_preserved": true,
-    "at_least_one_complete_heldout_pickup_and_stir": false,
-    "untrained_actual_physical_negative_preserved": true,
-    "actual_masked_RGB_control_preserved": true
-  },
-  "protocol": {
-    "status": "RUNNING",
-    "task": "Native free4mm stirringrod pickup anddryincupmotion; RGB policy outputs3D absolute EEtarget+gripper at20Hz, uprightorientationfixed",
-    "demonstration_replacement": "Simulation scriptdemos replaceunavailableGELLO data",
-    "train_seeds": [
-      1401,
-      1402,
-      1403,
-      1404,
-      1405,
-      1406,
-      1407,
-      1408,
-      1409,
-      1410,
-      1411,
-      1412
-    ],
-    "validation_seeds": [
-      9101,
-      9102,
-      9103
-    ],
-    "heldout_seeds": [
+  "status": "F_PASS",
+  "F_PASS": true,
+  "protocol": "f_tier/A05/study2/protocol.json",
+  "absolute_deadline_utc": "2026-10-20T18:54:13Z",
+  "attempts": [
+    {
+      "stage": "pure_student_collection",
+      "label": "pure_student_1401",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "1401",
+        "--label",
+        "pure_student_1401",
+        "--mode",
+        "mix",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "started_utc": "2026-10-20T16:56:30.045029+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": true,
+      "pid": 1040606,
+      "returncode": 0,
+      "wall_s": 72.19916136100073,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1401/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 69.27574985401588,
+        "hold_min_rod_lift_m": 0.12671068700662969,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3860304687163097,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 316,
+        "admitted_samples": 316,
+        "student_executed_states": 316,
+        "admitted_student_states": 316,
+        "beta": 0.0,
+        "mixture_rng_seed": 18422,
+        "time_alignment_max_abs_s": 0.0,
+        "teacher": "c_ref(t)+1*(p_ref(t)-observed_nativeEE), workspace and150mm/s targetstepbounds; reference actualsuccessful executedcmd/EE. Localtrackingteacher, nottaskrecovery/originalauthorteacher.",
+        "no_runtime_GT_object_inputs": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "pure_student_collection",
+      "label": "pure_student_1405",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "1405",
+        "--label",
+        "pure_student_1405",
+        "--mode",
+        "mix",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "started_utc": "2026-10-20T16:57:42.313088+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": true,
+      "pid": 1046700,
+      "returncode": 0,
+      "wall_s": 80.72965219101752,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1405/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 77.21365952299675,
+        "hold_min_rod_lift_m": 0.11661473781595512,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.21925233141942835,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 316,
+        "admitted_samples": 316,
+        "student_executed_states": 316,
+        "admitted_student_states": 316,
+        "beta": 0.0,
+        "mixture_rng_seed": 18426,
+        "time_alignment_max_abs_s": 0.0,
+        "teacher": "c_ref(t)+1*(p_ref(t)-observed_nativeEE), workspace and150mm/s targetstepbounds; reference actualsuccessful executedcmd/EE. Localtrackingteacher, nottaskrecovery/originalauthorteacher.",
+        "no_runtime_GT_object_inputs": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "pure_student_collection",
+      "label": "pure_student_1409",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "1409",
+        "--label",
+        "pure_student_1409",
+        "--mode",
+        "mix",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
+      ],
+      "started_utc": "2026-10-20T16:59:03.105591+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": true,
+      "pid": 1053345,
+      "returncode": 0,
+      "wall_s": 74.21146580501227,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1409/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 70.26335772400489,
+        "hold_min_rod_lift_m": 0.13223856458226435,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3571764248436063,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 316,
+        "admitted_samples": 316,
+        "student_executed_states": 316,
+        "admitted_student_states": 316,
+        "beta": 0.0,
+        "mixture_rng_seed": 18430,
+        "time_alignment_max_abs_s": 0.0,
+        "teacher": "c_ref(t)+1*(p_ref(t)-observed_nativeEE), workspace and150mm/s targetstepbounds; reference actualsuccessful executedcmd/EE. Localtrackingteacher, nottaskrecovery/originalauthorteacher.",
+        "no_runtime_GT_object_inputs": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "training",
+      "label": "training",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/train_vision.py",
+        "--action-space",
+        "absolute",
+        "--output",
+        "models",
+        "--context-mode",
+        "current",
+        "--image-mode",
+        "rgb",
+        "--rate-limit",
+        ".15",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1401",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1405",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1409",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1401",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1405",
+        "--repair-data",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1409"
+      ],
+      "started_utc": "2026-10-20T17:00:17.388856+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1059018,
+      "returncode": 0,
+      "wall_s": 186.99873428299907,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_policy_9601",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9601",
+        "--label",
+        "heldout_policy_9601",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:03:24.524825+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1074064,
+      "returncode": 0,
+      "wall_s": 90.01981794499443,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_policy_9601/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 86.67297321298975,
+        "hold_min_rod_lift_m": -0.00011946126386676303,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0005454829736225175,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_policy_9602",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9602",
+        "--label",
+        "heldout_policy_9602",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:04:54.625978+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1083409,
+      "returncode": 0,
+      "wall_s": 79.54842432102305,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_policy_9602/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 75.57042910001474,
+        "hold_min_rod_lift_m": 0.07276353165459735,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.40854826117305953,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_policy_9603",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9603",
+        "--label",
+        "heldout_policy_9603",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:06:14.259926+00:00",
+      "status": "NATIVE_COMPLETE_PARENT_EXIT_UNCAPTURED",
+      "physical_success": true,
+      "pid": 1089778,
+      "returncode": null,
+      "process_exit_status": "UNOBSERVED",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": true,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": true,
+        "actual_stir_tip_XY_path_at_least150mm": true
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 74.31161998998141,
+        "hold_min_rod_lift_m": 0.13126248918999234,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 1.0,
+        "tip_XY_path_m": 0.3799362537968123,
+        "stir_opposed_pad_contact_fraction": 1.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_policy_9603/metrics.json",
+      "native_closure_requires_independent_audit": true,
+      "wall_s": null,
+      "parent_process_role": "original_study_orchestrator",
+      "parent_pid": null
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_untrained_9601",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9601",
+        "--label",
+        "heldout_untrained_9601",
+        "--mode",
+        "policy",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/untrained.npz"
+      ],
+      "started_utc": "2026-10-20T17:12:22.488994+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1119624,
+      "returncode": 0,
+      "wall_s": 70.88188587300829,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_untrained_9601/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 67.29788778201328,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "continuation_controls_only",
+      "parent_pid": 1119604
+    },
+    {
+      "stage": "heldout_evaluation",
+      "label": "heldout_masked_9601",
+      "command": [
+        "/tmp/chem_fluids/bin/python",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/native_stir.py",
+        "--seed",
+        "9601",
+        "--label",
+        "heldout_masked_9601",
+        "--mode",
+        "masked",
+        "--rgb",
+        "--policy",
+        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz"
+      ],
+      "started_utc": "2026-10-20T17:13:33.422937+00:00",
+      "status": "PROCESS_CLOSED",
+      "physical_success": false,
+      "pid": 1126283,
+      "returncode": 0,
+      "wall_s": 72.03377260200796,
+      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/heldout_masked_9601/metrics.json",
+      "completed": true,
+      "physical_checks": {
+        "full_native_horizon": true,
+        "pickup_min_hold_lift_at_least80mm": false,
+        "stir_duration_at_least5s": true,
+        "in_cup_tip_fraction_at_least95pct": false,
+        "actual_stir_tip_XY_path_at_least150mm": false
+      },
+      "values": {
+        "native_seconds": 15.799999999996682,
+        "wall_s": 68.92330509799649,
+        "hold_min_rod_lift_m": 1.6209256159527285e-14,
+        "stir_seconds": 6.0,
+        "in_cup_tip_fraction": 0.0,
+        "tip_XY_path_m": 0.0,
+        "stir_opposed_pad_contact_fraction": 0.0,
+        "policy_samples": 316
+      },
+      "learning": {
+        "teacher_queries": 0,
+        "student_executed_states": 316,
+        "all_task_actions_generated_by_learned_model": true
+      },
+      "error": null,
+      "parent_process_role": "continuation_controls_only",
+      "parent_pid": 1119604
+    }
+  ],
+  "original_failure": {
+    "successes": 0,
+    "attempts": 3,
+    "seeds": [
       9501,
       9502,
       9503
-    ],
-    "negative_conditions": [
-      {
-        "untrained_policy_seed": 9501
-      },
-      {
-        "trained_policy_masked_RGB_seed": 9501
-      }
-    ],
-    "native_horizon_s": 15.8,
-    "physics_dt_s": 0.001,
-    "local_physical_thresholds": {
-      "hold_min_rod_lift_m": 0.08,
-      "stir_seconds_min": 5,
-      "in_cup_tip_fraction_min": 0.95,
-      "tip_XY_path_m_min": 0.15
-    },
-    "source_and_cup_initial_xy_jitter_m": [
-      -0.018,
-      0.018
-    ],
-    "vision": "Actual96x96RGB, CNNabsoluteEEtarget+gripper fromcurrentobservedrobotEEposition/velocity andphaseclock; no objectposes enterlearnedcontrol;150mm/s targetratebound.",
-    "training_resources": "CPUonly, oneworker andsingleTorchthread; no GPU",
-    "differences": [
-      "Dryrigidtool motion only, no liquidviscosity/mixing",
-      "Localfixedguide andnoncollidingorangeband visualcue",
-      "PublicUR5e/Robotiq andsource4mmstirrer, notoriginalGRID/GELLOcalibration",
-      "Initial robot pregrasp staging uses known simulation source position once before t0; learned policy controls subsequent descent, grasp, transfer and stirring. No arbitrary initial robot-pose or vision-only localization claim."
-    ],
-    "validation_boundary": "Validationmay diagnose train/controlcorrectness beforeformal freeze; finalheldoutmodels fixed andall attempts retained.",
-    "training_recipe": {
-      "architecture": "3 RGB convolutions8/16/16 + normalized20Dproprio/phase ->128ReLU ->4velocity/gripper actions",
-      "epochs": 120,
-      "batch_size": 64,
-      "Adam_learning_rate": 0.0007,
-      "seed": 71,
-      "policy_computation": "TorchCPUtraining, independently checked NumPyCPU inference; fixedupright EE orientation",
-      "action_space": "absolute",
-      "context_mode": "current",
-      "image_mode": "rgb",
-      "rate_limit_m_s": 0.15,
-      "selected_model_directory": "models_rgb_student_repair",
-      "original_expert_samples": 3792,
-      "additional_onpolicy_teacher_queries": 948,
-      "additional_onpolicy_admitted_samples": 948,
-      "actual_student_executed_states": 492
-    },
-    "development_validation_boundary": "9101-9103 are repeatedly observed development validation. Formal9501-9503 and controls remain unexecuted until final model freeze.",
-    "representation_correction": {
-      "utc": "2026-10-19T13:05:17.657418+00:00",
-      "baseline_model": "f_tier/A05/models_rgb_bc/trained.npz",
-      "baseline_failure_evidence": "f_tier/A05/validation_evaluation.json",
-      "same_fixed_expert_data": true,
-      "no_replacement_or_new_expert_episodes": true,
-      "candidate_model": "f_tier/A05/models_rgb_absolute/trained.npz",
-      "change": "CNN directly produces absolute EE target+gripper, avoiding cumulative velocity integration. Targets reconstructed from initial native robot EE and recorded executed velocities; no GT object goal labels.",
-      "hypothesis": "Velocity BC execution accumulated off-distribution errors; absolute command representation may reduce compounding. Actual validation will decide; no superiority claim from training loss."
-    },
-    "input_representation_candidate": {
-      "frozen_utc": "2026-10-19T13:16:47.059826+00:00",
-      "hypothesis": "Dynamic robotproprioception and raw grey-arm appearance allow off-distribution feedback; use initial observedEE anchor and chromaticity RGB to reduce this confound. This is one bounded candidate, not an establishedcausal explanation.",
-      "hypothesis_declared_before_implementation_in_parent_message": true,
-      "implementation_prepared_before_this_file_freeze": true,
-      "training_or_native_candidate_evaluation_before_this_freeze": false,
-      "model_directory": "f_tier/A05/models_rgb_anchor",
-      "unchanged_fixed_expert_seeds": [
-        1401,
-        1402,
-        1403,
-        1404,
-        1405,
-        1406,
-        1407,
-        1408,
-        1409,
-        1410,
-        1411,
-        1412
-      ],
-      "new_native_demonstrations": 0,
-      "new_training_student_states": 0,
-      "context": "First3inputs=onceobservedinitialrobotEE; next3=0; priorgripper and phase/oscillator unchanged",
-      "RGB_transform": "Subtractperpixel minimum RGB channel, retain actual colorcues; no simulatedsegmentation orobjectpose inputs",
-      "output": "CNNabsoluteexecutedEEtarget+gripper at20Hz; same fixeduprightIKadapter",
-      "no_online_GT_object_inputs": true,
-      "epochs": 120,
-      "seed": 71,
-      "validation_seeds": [
-        9101,
-        9102,
-        9103
-      ],
-      "formal_heldout_unexecuted": true,
-      "stop_rule": "Ifthiscandidatefails, nofurtherunbounded architecture/colorsearch; propose bounded student-state labels on existing trainseeds beforecontinuing."
-    },
-    "action_bounds": {
-      "absolute_EE_workspace_m": [
-        [
-          0.25,
-          0.75
-        ],
-        [
-          -0.05,
-          0.45
-        ],
-        [
-          0.06,
-          0.5
-        ]
-      ],
-      "gripper": [
-        0,
-        1
-      ],
-      "orientation": "Fixedupright originalrobotadapter"
-    },
-    "preserved_development_validation_files": [
-      "f_tier/A05/validation_evaluation.json",
-      "f_tier/A05/validation_absolute_evaluation.json",
-      "f_tier/A05/validation_anchor_evaluation.json"
-    ],
-    "student_state_repair": {
-      "frozen_utc": "2026-10-19T13:26:47.981321+00:00",
-      "training_seeds": [
-        1401,
-        1405,
-        1409
-      ],
-      "episodes_per_seed": 1,
-      "beta": 0.5,
-      "maximum_new_labels": 948,
-      "teacher_definition": "actualsuccessfulexecutedcmd c_ref +1*(actualrecordedEE p_ref - currentobservedrobotEE), workspaceclamp then150mm/s peraxis targetratebound; gripperfromactualreference. Localtrajectorytracker, nottaskrecoveryexpert/originalauthorteacher.",
-      "same_native_grid": "20Hz, exacttimestampnearestmatch tolerance1e-8s, nointerpolation",
-      "reference_consistency_preflight": "f_tier/A05/teacher_preflight.json",
-      "data_admission": "Finitepostactionnativestate andexecutedreachableIK; allfailed/unedmittedstatesretained",
-      "student_model": "f_tier/A05/models_rgb_absolute/trained.npz",
-      "retrain_model": "f_tier/A05/models_rgb_student_repair",
-      "retraining_rounds": 1,
-      "epochs": 120,
-      "seed": 71,
-      "context_mode": "current",
-      "image_mode": "rgb",
-      "target_rate_limit_m_s": 0.15,
-      "no_validation_or_heldout_training_data": true,
-      "causal_boundary": "Addedstudent-state data andrate-boundedadapter jointlyrepair engineering; nodata-matchedDAggerbenefitclaim"
-    },
-    "video_selection": "All3fixedheldoutseeds9501/02/03 insection1, then pairedseed9501 RGB/untrained/masked insection2. One31.8s actualnative replay, no result-basedselection."
+    ]
   },
+  "failure_analysis_source": "f_tier/A05/result.json#failure_analysis",
+  "scope": "Single newly authorized bounded study. No new episodes/training yet.",
+  "updated_utc": "2026-10-20T17:14:45.532119+00:00",
   "training": {
     "seed": 71,
     "CPU_only": true,
@@ -192,7 +483,7 @@
     "epochs": 120,
     "batch_size": 64,
     "learning_rate": 0.0007,
-    "samples": 4740,
+    "samples": 5688,
     "admitted": [
       {
         "seed": 1401,
@@ -256,492 +547,492 @@
       }
     ],
     "rejected": [],
-    "training_wall_s": 136.750187231999,
+    "training_wall_s": 169.08991440199316,
     "training_history": [
       {
         "epoch": 1,
-        "normalized_action_MSE": 0.31559488135802594
+        "normalized_action_MSE": 0.27568428539546563
       },
       {
         "epoch": 2,
-        "normalized_action_MSE": 0.027683403762646868
+        "normalized_action_MSE": 0.024095983615173906
       },
       {
         "epoch": 3,
-        "normalized_action_MSE": 0.013569284253066036
+        "normalized_action_MSE": 0.013313390445566713
       },
       {
         "epoch": 4,
-        "normalized_action_MSE": 0.007980909860861892
+        "normalized_action_MSE": 0.008711766073697688
       },
       {
         "epoch": 5,
-        "normalized_action_MSE": 0.005328393380554543
+        "normalized_action_MSE": 0.006748309839679303
       },
       {
         "epoch": 6,
-        "normalized_action_MSE": 0.0034534539003711084
+        "normalized_action_MSE": 0.005736469316693172
       },
       {
         "epoch": 7,
-        "normalized_action_MSE": 0.0025575531575875946
+        "normalized_action_MSE": 0.005064233139081322
       },
       {
         "epoch": 8,
-        "normalized_action_MSE": 0.002157458736569098
+        "normalized_action_MSE": 0.0047709290029902835
       },
       {
         "epoch": 9,
-        "normalized_action_MSE": 0.0018059049907851697
+        "normalized_action_MSE": 0.004531026199596257
       },
       {
         "epoch": 10,
-        "normalized_action_MSE": 0.0014886558035247122
+        "normalized_action_MSE": 0.0039987104765431625
       },
       {
         "epoch": 11,
-        "normalized_action_MSE": 0.0014955443868468583
+        "normalized_action_MSE": 0.003956421090449755
       },
       {
         "epoch": 12,
-        "normalized_action_MSE": 0.0011965674826608114
+        "normalized_action_MSE": 0.003774423697772115
       },
       {
         "epoch": 13,
-        "normalized_action_MSE": 0.0011319469714552981
+        "normalized_action_MSE": 0.0035577889590140345
       },
       {
         "epoch": 14,
-        "normalized_action_MSE": 0.0009973730927555259
+        "normalized_action_MSE": 0.0033589537755184073
       },
       {
         "epoch": 15,
-        "normalized_action_MSE": 0.0009067458177244739
+        "normalized_action_MSE": 0.00308868613876088
       },
       {
         "epoch": 16,
-        "normalized_action_MSE": 0.0009340404786802199
+        "normalized_action_MSE": 0.0031695575233936604
       },
       {
         "epoch": 17,
-        "normalized_action_MSE": 0.0007892990682297681
+        "normalized_action_MSE": 0.002954491904678685
       },
       {
         "epoch": 18,
-        "normalized_action_MSE": 0.0007900342557437812
+        "normalized_action_MSE": 0.0029061412692211472
       },
       {
         "epoch": 19,
-        "normalized_action_MSE": 0.0007418084302661696
+        "normalized_action_MSE": 0.0027648432444880616
       },
       {
         "epoch": 20,
-        "normalized_action_MSE": 0.0007957774988583874
+        "normalized_action_MSE": 0.0027052370357194865
       },
       {
         "epoch": 21,
-        "normalized_action_MSE": 0.0006764518507443887
+        "normalized_action_MSE": 0.002504525875473597
       },
       {
         "epoch": 22,
-        "normalized_action_MSE": 0.0006670393895078843
+        "normalized_action_MSE": 0.002557197543130939
       },
       {
         "epoch": 23,
-        "normalized_action_MSE": 0.0006048856267422135
+        "normalized_action_MSE": 0.002458512664179196
       },
       {
         "epoch": 24,
-        "normalized_action_MSE": 0.0005333511070407267
+        "normalized_action_MSE": 0.002307383787298232
       },
       {
         "epoch": 25,
-        "normalized_action_MSE": 0.0005918950744303345
+        "normalized_action_MSE": 0.0022968408213168614
       },
       {
         "epoch": 26,
-        "normalized_action_MSE": 0.0006563064586498896
+        "normalized_action_MSE": 0.0022055237277629675
       },
       {
         "epoch": 27,
-        "normalized_action_MSE": 0.0004914050806119236
+        "normalized_action_MSE": 0.0022879845455207673
       },
       {
         "epoch": 28,
-        "normalized_action_MSE": 0.00047280899684223887
+        "normalized_action_MSE": 0.0021883620377551403
       },
       {
         "epoch": 29,
-        "normalized_action_MSE": 0.0005175093977509719
+        "normalized_action_MSE": 0.002131881905718328
       },
       {
         "epoch": 30,
-        "normalized_action_MSE": 0.0004493942107997426
+        "normalized_action_MSE": 0.002105567293043829
       },
       {
         "epoch": 31,
-        "normalized_action_MSE": 0.0005302453325680194
+        "normalized_action_MSE": 0.002033462362827631
       },
       {
         "epoch": 32,
-        "normalized_action_MSE": 0.00044855341130576806
+        "normalized_action_MSE": 0.0019302311559363612
       },
       {
         "epoch": 33,
-        "normalized_action_MSE": 0.0005102718597349714
+        "normalized_action_MSE": 0.001934972042204752
       },
       {
         "epoch": 34,
-        "normalized_action_MSE": 0.00039926052969322393
+        "normalized_action_MSE": 0.0018344084216797864
       },
       {
         "epoch": 35,
-        "normalized_action_MSE": 0.00043768241015687304
+        "normalized_action_MSE": 0.0017900984739536306
       },
       {
         "epoch": 36,
-        "normalized_action_MSE": 0.0003761154224699214
+        "normalized_action_MSE": 0.0017917330009055896
       },
       {
         "epoch": 37,
-        "normalized_action_MSE": 0.00038357361635873056
+        "normalized_action_MSE": 0.0016684304641523043
       },
       {
         "epoch": 38,
-        "normalized_action_MSE": 0.00037261797820084297
+        "normalized_action_MSE": 0.001665699064506299
       },
       {
         "epoch": 39,
-        "normalized_action_MSE": 0.0004147866954619285
+        "normalized_action_MSE": 0.0016252547039148698
       },
       {
         "epoch": 40,
-        "normalized_action_MSE": 0.0003511005554142907
+        "normalized_action_MSE": 0.0015575763033951846
       },
       {
         "epoch": 41,
-        "normalized_action_MSE": 0.0004202497074329432
+        "normalized_action_MSE": 0.001624911948226382
       },
       {
         "epoch": 42,
-        "normalized_action_MSE": 0.00035273508440883915
+        "normalized_action_MSE": 0.00151811071911253
       },
       {
         "epoch": 43,
-        "normalized_action_MSE": 0.00037458630522834883
+        "normalized_action_MSE": 0.001509816896657652
       },
       {
         "epoch": 44,
-        "normalized_action_MSE": 0.00044325338605347283
+        "normalized_action_MSE": 0.0015026961196850561
       },
       {
         "epoch": 45,
-        "normalized_action_MSE": 0.0004682674841355544
+        "normalized_action_MSE": 0.001430449696059919
       },
       {
         "epoch": 46,
-        "normalized_action_MSE": 0.00035107838964229255
+        "normalized_action_MSE": 0.001361484692232885
       },
       {
         "epoch": 47,
-        "normalized_action_MSE": 0.0003630275753098795
+        "normalized_action_MSE": 0.0014266281656569863
       },
       {
         "epoch": 48,
-        "normalized_action_MSE": 0.0003370221657948647
+        "normalized_action_MSE": 0.0013001515837379701
       },
       {
         "epoch": 49,
-        "normalized_action_MSE": 0.0003534244060052661
+        "normalized_action_MSE": 0.0012734511119880715
       },
       {
         "epoch": 50,
-        "normalized_action_MSE": 0.0003423554233357876
+        "normalized_action_MSE": 0.001313342554651924
       },
       {
         "epoch": 51,
-        "normalized_action_MSE": 0.00031219139537491095
+        "normalized_action_MSE": 0.0012591580628468517
       },
       {
         "epoch": 52,
-        "normalized_action_MSE": 0.0003273155074075399
+        "normalized_action_MSE": 0.001229833119742719
       },
       {
         "epoch": 53,
-        "normalized_action_MSE": 0.00028772936734313906
+        "normalized_action_MSE": 0.001225339569860045
       },
       {
         "epoch": 54,
-        "normalized_action_MSE": 0.0003140555123920368
+        "normalized_action_MSE": 0.0011766798324023705
       },
       {
         "epoch": 55,
-        "normalized_action_MSE": 0.00041974931288528243
+        "normalized_action_MSE": 0.0011410781605766481
       },
       {
         "epoch": 56,
-        "normalized_action_MSE": 0.0003132102251979267
+        "normalized_action_MSE": 0.001146146679921246
       },
       {
         "epoch": 57,
-        "normalized_action_MSE": 0.0003318736993536778
+        "normalized_action_MSE": 0.0011056987678438278
       },
       {
         "epoch": 58,
-        "normalized_action_MSE": 0.00037998333779647
+        "normalized_action_MSE": 0.001097438053186045
       },
       {
         "epoch": 59,
-        "normalized_action_MSE": 0.0003493201104483964
+        "normalized_action_MSE": 0.0010672762645172734
       },
       {
         "epoch": 60,
-        "normalized_action_MSE": 0.00036900054804886445
+        "normalized_action_MSE": 0.0011071751759362666
       },
       {
         "epoch": 61,
-        "normalized_action_MSE": 0.0003146312375261177
+        "normalized_action_MSE": 0.0010751322602444498
       },
       {
         "epoch": 62,
-        "normalized_action_MSE": 0.0003048242432166496
+        "normalized_action_MSE": 0.000994975249801727
       },
       {
         "epoch": 63,
-        "normalized_action_MSE": 0.00026941823695475855
+        "normalized_action_MSE": 0.0009805885700766997
       },
       {
         "epoch": 64,
-        "normalized_action_MSE": 0.0003407295906763005
+        "normalized_action_MSE": 0.0009744219924356008
       },
       {
         "epoch": 65,
-        "normalized_action_MSE": 0.0003883972634337371
+        "normalized_action_MSE": 0.0009865087865355375
       },
       {
         "epoch": 66,
-        "normalized_action_MSE": 0.0006481536072659216
+        "normalized_action_MSE": 0.0009729938027180428
       },
       {
         "epoch": 67,
-        "normalized_action_MSE": 0.00045518975366960095
+        "normalized_action_MSE": 0.000977203360861547
       },
       {
         "epoch": 68,
-        "normalized_action_MSE": 0.0002463037189624748
+        "normalized_action_MSE": 0.0010032041793107546
       },
       {
         "epoch": 69,
-        "normalized_action_MSE": 0.0002585709804545239
+        "normalized_action_MSE": 0.0009487378029493319
       },
       {
         "epoch": 70,
-        "normalized_action_MSE": 0.00026490046509604446
+        "normalized_action_MSE": 0.0008679864547115852
       },
       {
         "epoch": 71,
-        "normalized_action_MSE": 0.00028119867147862094
+        "normalized_action_MSE": 0.00089551686921973
       },
       {
         "epoch": 72,
-        "normalized_action_MSE": 0.0002953204297596188
+        "normalized_action_MSE": 0.0008659199957242013
       },
       {
         "epoch": 73,
-        "normalized_action_MSE": 0.0002678518524179274
+        "normalized_action_MSE": 0.0008144536089681288
       },
       {
         "epoch": 74,
-        "normalized_action_MSE": 0.0002534635533737844
+        "normalized_action_MSE": 0.0008640803362153805
       },
       {
         "epoch": 75,
-        "normalized_action_MSE": 0.0002485351640935437
+        "normalized_action_MSE": 0.0007753467102798354
       },
       {
         "epoch": 76,
-        "normalized_action_MSE": 0.0005278476885149554
+        "normalized_action_MSE": 0.0008497112658223249
       },
       {
         "epoch": 77,
-        "normalized_action_MSE": 0.0002546570028393541
+        "normalized_action_MSE": 0.0008325993976426087
       },
       {
         "epoch": 78,
-        "normalized_action_MSE": 0.00025063564328924764
+        "normalized_action_MSE": 0.0008633965729511803
       },
       {
         "epoch": 79,
-        "normalized_action_MSE": 0.0002972795339121939
+        "normalized_action_MSE": 0.0008291559719248725
       },
       {
         "epoch": 80,
-        "normalized_action_MSE": 0.0002586706734767364
+        "normalized_action_MSE": 0.0007661190005110998
       },
       {
         "epoch": 81,
-        "normalized_action_MSE": 0.0002398853634905565
+        "normalized_action_MSE": 0.0008320623102339846
       },
       {
         "epoch": 82,
-        "normalized_action_MSE": 0.0002448006328131477
+        "normalized_action_MSE": 0.0006932295369620942
       },
       {
         "epoch": 83,
-        "normalized_action_MSE": 0.0002445579936751459
+        "normalized_action_MSE": 0.0008035779302892617
       },
       {
         "epoch": 84,
-        "normalized_action_MSE": 0.00040711496194298006
+        "normalized_action_MSE": 0.0007025759016967911
       },
       {
         "epoch": 85,
-        "normalized_action_MSE": 0.0003595068384962007
+        "normalized_action_MSE": 0.0006986742486532793
       },
       {
         "epoch": 86,
-        "normalized_action_MSE": 0.0002701186071634332
+        "normalized_action_MSE": 0.0006642865066013119
       },
       {
         "epoch": 87,
-        "normalized_action_MSE": 0.00023761658532886847
+        "normalized_action_MSE": 0.0007696140828672089
       },
       {
         "epoch": 88,
-        "normalized_action_MSE": 0.000247886075988463
+        "normalized_action_MSE": 0.0007341785606752646
       },
       {
         "epoch": 89,
-        "normalized_action_MSE": 0.000227455296632264
+        "normalized_action_MSE": 0.0006431720661472283
       },
       {
         "epoch": 90,
-        "normalized_action_MSE": 0.0003480281303178682
+        "normalized_action_MSE": 0.0006963139184247624
       },
       {
         "epoch": 91,
-        "normalized_action_MSE": 0.0002155079160223102
+        "normalized_action_MSE": 0.000742103075333537
       },
       {
         "epoch": 92,
-        "normalized_action_MSE": 0.0002420013176472779
+        "normalized_action_MSE": 0.0006516656175887136
       },
       {
         "epoch": 93,
-        "normalized_action_MSE": 0.00027777253789385145
+        "normalized_action_MSE": 0.0006844738443315281
       },
       {
         "epoch": 94,
-        "normalized_action_MSE": 0.00022773953162787976
+        "normalized_action_MSE": 0.000678502479139139
       },
       {
         "epoch": 95,
-        "normalized_action_MSE": 0.0002065281229209595
+        "normalized_action_MSE": 0.0006542266422650827
       },
       {
         "epoch": 96,
-        "normalized_action_MSE": 0.00025747644513678927
+        "normalized_action_MSE": 0.0006096868631862229
       },
       {
         "epoch": 97,
-        "normalized_action_MSE": 0.00019563934642955158
+        "normalized_action_MSE": 0.0006335650339169865
       },
       {
         "epoch": 98,
-        "normalized_action_MSE": 0.00024997691906554395
+        "normalized_action_MSE": 0.0006643718886438039
       },
       {
         "epoch": 99,
-        "normalized_action_MSE": 0.00019625730941859014
+        "normalized_action_MSE": 0.0006618673935939942
       },
       {
         "epoch": 100,
-        "normalized_action_MSE": 0.0002295353466827611
+        "normalized_action_MSE": 0.000592001405172574
       },
       {
         "epoch": 101,
-        "normalized_action_MSE": 0.0002324427579326225
+        "normalized_action_MSE": 0.00058769329728391
       },
       {
         "epoch": 102,
-        "normalized_action_MSE": 0.00020425169937949203
+        "normalized_action_MSE": 0.0005792405296827021
       },
       {
         "epoch": 103,
-        "normalized_action_MSE": 0.00020961216466701768
+        "normalized_action_MSE": 0.0005722956330929366
       },
       {
         "epoch": 104,
-        "normalized_action_MSE": 0.0002708178642058533
+        "normalized_action_MSE": 0.0005859414494757537
       },
       {
         "epoch": 105,
-        "normalized_action_MSE": 0.000250631423307512
+        "normalized_action_MSE": 0.0005722674781865272
       },
       {
         "epoch": 106,
-        "normalized_action_MSE": 0.00020605640184774774
+        "normalized_action_MSE": 0.0005486127804606529
       },
       {
         "epoch": 107,
-        "normalized_action_MSE": 0.00021974363296493134
+        "normalized_action_MSE": 0.0005315437556572557
       },
       {
         "epoch": 108,
-        "normalized_action_MSE": 0.0002989624002859987
+        "normalized_action_MSE": 0.0005116093139221129
       },
       {
         "epoch": 109,
-        "normalized_action_MSE": 0.00027149755098534756
+        "normalized_action_MSE": 0.0005615523993561591
       },
       {
         "epoch": 110,
-        "normalized_action_MSE": 0.00018112656655711542
+        "normalized_action_MSE": 0.0005508786940563381
       },
       {
         "epoch": 111,
-        "normalized_action_MSE": 0.00019162790993482016
+        "normalized_action_MSE": 0.000505356309079446
       },
       {
         "epoch": 112,
-        "normalized_action_MSE": 0.00023431615379736228
+        "normalized_action_MSE": 0.0004849677689556221
       },
       {
         "epoch": 113,
-        "normalized_action_MSE": 0.000212705276787619
+        "normalized_action_MSE": 0.00048596921952247474
       },
       {
         "epoch": 114,
-        "normalized_action_MSE": 0.0002760208568944427
+        "normalized_action_MSE": 0.0004998533167017024
       },
       {
         "epoch": 115,
-        "normalized_action_MSE": 0.00022250215507226402
+        "normalized_action_MSE": 0.0005269847981698559
       },
       {
         "epoch": 116,
-        "normalized_action_MSE": 0.00021094631446419353
+        "normalized_action_MSE": 0.0005112594381104448
       },
       {
         "epoch": 117,
-        "normalized_action_MSE": 0.0001790471158797444
+        "normalized_action_MSE": 0.00046095254939244656
       },
       {
         "epoch": 118,
-        "normalized_action_MSE": 0.0001778652135001295
+        "normalized_action_MSE": 0.0004860294580249359
       },
       {
         "epoch": 119,
-        "normalized_action_MSE": 0.00019480488263070583
+        "normalized_action_MSE": 0.0004893665346212203
       },
       {
         "epoch": 120,
-        "normalized_action_MSE": 0.00037600648585011406
+        "normalized_action_MSE": 0.0005260751051035789
       }
     ],
     "architecture": "RGB96x96 conv3x8k5s2/8x16k3s2/16x16k3s2 ReLU + normalized20Dcontext ->128ReLU ->4actions",
-    "untrained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/untrained.npz",
-    "trained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
+    "untrained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/untrained.npz",
+    "trained_model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/models/trained.npz",
     "torch_numpy_action_max_abs_error_on_8_training_inputs": 1.1920928955078125e-07,
     "heldout_used": false,
     "control": "3D EE absolute and gripper throughout task, fixed upright orientation",
@@ -850,7 +1141,7 @@
     "on_policy_repairs": [
       {
         "seed": 1401,
-        "source": "f_tier/A05/runs/repair_mix_1401",
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1401",
         "teacher_queries": 316,
         "admitted": 316,
         "student_executed": 163,
@@ -866,7 +1157,7 @@
       },
       {
         "seed": 1405,
-        "source": "f_tier/A05/runs/repair_mix_1405",
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1405",
         "teacher_queries": 316,
         "admitted": 316,
         "student_executed": 157,
@@ -882,7 +1173,7 @@
       },
       {
         "seed": 1409,
-        "source": "f_tier/A05/runs/repair_mix_1409",
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/repair_mix_1409",
         "teacher_queries": 316,
         "admitted": 316,
         "student_executed": 172,
@@ -895,813 +1186,368 @@
           "in_cup_tip_fraction_at_least95pct": true,
           "actual_stir_tip_XY_path_at_least150mm": true
         }
+      },
+      {
+        "seed": 1401,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1401",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 316,
+        "admitted_student_states": 316,
+        "student_executed_targets_different_from_labels": 316,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1405,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1405",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 316,
+        "admitted_student_states": 316,
+        "student_executed_targets_different_from_labels": 316,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
+      },
+      {
+        "seed": 1409,
+        "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/study2/runs/pure_student_1409",
+        "teacher_queries": 316,
+        "admitted": 316,
+        "student_executed": 316,
+        "admitted_student_states": 316,
+        "student_executed_targets_different_from_labels": 316,
+        "physical_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        }
       }
     ],
-    "additional_student_state_teacher_queries": 948,
+    "additional_student_state_teacher_queries": 1896,
     "causal_boundary": "Additionalonpolicydata andboundedtargetadapter arean engineeringrepair, notadata-matchedDAggercausal comparison"
   },
+  "orchestrator_interruption": {
+    "original_session": 35231,
+    "observed_parent_exit_code": 143,
+    "cause": "Unknown SIGTERM source; root confirms no intentional termination",
+    "original_parent_last_result_update_utc": "2026-10-20T17:06:15.324741+00:00",
+    "child_metrics_closure_mtime_utc": "2026-10-20T17:07:33.340379+00:00",
+    "child_native_process_exit_code": null,
+    "policy": "Physical closure is judged from all raw316states and15.8s by root independent audit; no native rerun or invented exit0. All three formal launches remain in denominator."
+  },
+  "continuation_scope": "Only the two not-yet-started controls; no training or formal seed replay",
+  "new_formal_successes": 1,
+  "new_formal_attempts": 3,
+  "all_new_formal_and_controls_closed": true,
+  "original_formal_0of3_preserved": true,
+  "acceptance_scope": "One complete physically verified heldout episode among all3 starts; original failed0/3 study preserved separately. Unknown child exit is disclosed, not fabricated. Every actual native trial counted.",
   "metrics": {
-    "heldout_successes": 0,
-    "heldout_trials": 3,
-    "heldout_success_rate": 0.0,
-    "heldout_success_Wilson95pct": [
+    "new_heldout_successes_pending_audit": 1,
+    "new_heldout_attempts": 3,
+    "new_heldout_Wilson95pct": [
+      0.06149194472039621,
+      0.7923403991979522
+    ],
+    "original_study_successes": 0,
+    "original_study_attempts": 3,
+    "original_study_Wilson95pct": [
       5.551115123125783e-17,
       0.5614970317550454
+    ],
+    "pooling_policy": "Different fitted policies and newly selected blind banks; report separately. No estimate of repair effect or superiority from these rates."
+  },
+  "checks": {
+    "actual_RGB_training_and_exported_control": true,
+    "all_three_disjoint_new_heldout_launches_retained": true,
+    "at_least_one_complete_heldout_pickup_and_stir_pending_independent_closure": true,
+    "untrained_actual_physical_negative_preserved": true,
+    "actual_masked_RGB_control_preserved": true,
+    "all_fixed_cases_in_comparison_video": true
+  },
+  "failure_analysis": {
+    "diagnosis_timebox_start_utc": "2026-10-20T16:54:13Z",
+    "absolute_deadline_utc": "2026-10-20T18:54:13Z",
+    "diagnosis_completed_utc": "2026-10-20T17:22:29.498373+00:00",
+    "cases": [
+      {
+        "label": "heldout_policy_9601",
+        "all_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": false,
+          "actual_stir_tip_XY_path_at_least150mm": false
+        },
+        "metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 86.67297321298975,
+          "hold_min_rod_lift_m": -0.00011946126386676303,
+          "stir_seconds": 6.0,
+          "in_cup_tip_fraction": 0.0,
+          "tip_XY_path_m": 0.0005454829736225175,
+          "stir_opposed_pad_contact_fraction": 0.0,
+          "policy_samples": 316
+        },
+        "raw_state_count": 316,
+        "raw_final_time_s": 15.799999999996682,
+        "raw_native_states_finite": true,
+        "close_EE_to_actual_rod_center_XY_min_last_m": [
+          0.018012191311727016,
+          0.018012191311727016
+        ],
+        "close_opposed_pad_contact_fraction": 0.0,
+        "hold_executed_absolute_target_z_min_max_m": [
+          0.2638451159000397,
+          0.26930564641952515
+        ],
+        "hold_actual_EE_z_min_max_m": [
+          0.2674380192552284,
+          0.2687919457817297
+        ],
+        "scope": "Posthoc observer-only native pose/command measurements; no labels or new training. XY rod positions are diagnosis only, never policy inputs."
+      },
+      {
+        "label": "heldout_policy_9602",
+        "all_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": false,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 75.57042910001474,
+          "hold_min_rod_lift_m": 0.07276353165459735,
+          "stir_seconds": 6.0,
+          "in_cup_tip_fraction": 1.0,
+          "tip_XY_path_m": 0.40854826117305953,
+          "stir_opposed_pad_contact_fraction": 1.0,
+          "policy_samples": 316
+        },
+        "raw_state_count": 316,
+        "raw_final_time_s": 15.799999999996682,
+        "raw_native_states_finite": true,
+        "close_EE_to_actual_rod_center_XY_min_last_m": [
+          0.005769268048190597,
+          0.005778065902943788
+        ],
+        "close_opposed_pad_contact_fraction": 0.6875,
+        "hold_executed_absolute_target_z_min_max_m": [
+          0.2158374935388565,
+          0.26918476819992065
+        ],
+        "hold_actual_EE_z_min_max_m": [
+          0.20383782339441056,
+          0.2516080682155195
+        ],
+        "scope": "Posthoc observer-only native pose/command measurements; no labels or new training. XY rod positions are diagnosis only, never policy inputs."
+      },
+      {
+        "label": "heldout_policy_9603",
+        "all_checks": {
+          "full_native_horizon": true,
+          "pickup_min_hold_lift_at_least80mm": true,
+          "stir_duration_at_least5s": true,
+          "in_cup_tip_fraction_at_least95pct": true,
+          "actual_stir_tip_XY_path_at_least150mm": true
+        },
+        "metrics": {
+          "native_seconds": 15.799999999996682,
+          "wall_s": 74.31161998998141,
+          "hold_min_rod_lift_m": 0.13126248918999234,
+          "stir_seconds": 6.0,
+          "in_cup_tip_fraction": 1.0,
+          "tip_XY_path_m": 0.3799362537968123,
+          "stir_opposed_pad_contact_fraction": 1.0,
+          "policy_samples": 316
+        },
+        "raw_state_count": 316,
+        "raw_final_time_s": 15.799999999996682,
+        "raw_native_states_finite": true,
+        "close_EE_to_actual_rod_center_XY_min_last_m": [
+          0.004118175371769434,
+          0.004118175371769434
+        ],
+        "close_opposed_pad_contact_fraction": 0.75,
+        "hold_executed_absolute_target_z_min_max_m": [
+          0.2571876049041748,
+          0.2820654511451721
+        ],
+        "hold_actual_EE_z_min_max_m": [
+          0.2633242232891835,
+          0.2763795497244633
+        ],
+        "scope": "Posthoc observer-only native pose/command measurements; no labels or new training. XY rod positions are diagnosis only, never policy inputs."
+      }
+    ],
+    "action_space_feasibility": "The unchanged fixed-upright absolute-translation/gripper interface succeeds on the original12script demonstrations, all3new pure-student training-seed rollouts, and newheldout9603. This establishes physical feasibility in these scenarios, not that the learned mapping is adequate everywhere.",
+    "data_observation_limit": "A single extra948pure-student labels under unchanged observations/actions yields a functional candidate but limited generalization:9601missed pickup and9602failed80mm lift despite stirring. It cannot uniquely distinguish dataset coverage, RGB/proprio/phase mapping, optimization or action-regression error. No further architecture/data/threshold search is performed.",
+    "RGB_control_interpretation": "Trained RGB and masked RGB both fail paired9601, so a visual-information benefit is not established.",
+    "original_failure_retained": "f_tier/A05/study2/prior_failed_canonical_result.json"
+  },
+  "process_registry": {
+    "captured_utc": "2026-10-20T17:12:46.617454+00:00",
+    "original_parent": {
+      "pid": null,
+      "session": 35231,
+      "exit_code": 143,
+      "reason": "SIGTERMsourceunknown; PID not captured, never invented"
+    },
+    "continuation_parent": {
+      "pid": 1119604,
+      "starttime": 19381763,
+      "session": 20172,
+      "command": "/tmp/chem_fluids/bin/python -u f_tier/A05/study2/continue_controls.py ",
+      "exit_code": 0
+    },
+    "current_child": {
+      "label": "heldout_untrained_9601",
+      "pid": 1119624,
+      "parent_pid": 1119604,
+      "starttime": 19381793
+    },
+    "launches": [
+      {
+        "label": "pure_student_1401",
+        "stage": "pure_student_collection",
+        "pid": 1040606,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": true
+      },
+      {
+        "label": "pure_student_1405",
+        "stage": "pure_student_collection",
+        "pid": 1046700,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": true
+      },
+      {
+        "label": "pure_student_1409",
+        "stage": "pure_student_collection",
+        "pid": 1053345,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": true
+      },
+      {
+        "label": "training",
+        "stage": "training",
+        "pid": 1059018,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_policy_9601",
+        "stage": "heldout_evaluation",
+        "pid": 1074064,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_policy_9602",
+        "stage": "heldout_evaluation",
+        "pid": 1083409,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_policy_9603",
+        "stage": "heldout_evaluation",
+        "pid": 1089778,
+        "parent_pid": null,
+        "parent_process_role": "original_study_orchestrator",
+        "returncode": null,
+        "status": "NATIVE_COMPLETE_PARENT_EXIT_UNCAPTURED",
+        "physical_success": true
+      },
+      {
+        "label": "heldout_untrained_9601",
+        "stage": "heldout_evaluation",
+        "pid": 1119624,
+        "parent_pid": 1119604,
+        "parent_process_role": "continuation_controls_only",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      },
+      {
+        "label": "heldout_masked_9601",
+        "stage": "heldout_evaluation",
+        "pid": 1126283,
+        "parent_pid": 1119604,
+        "parent_process_role": "continuation_controls_only",
+        "returncode": 0,
+        "status": "PROCESS_CLOSED",
+        "physical_success": false
+      }
     ]
   },
-  "all_heldout_and_negative_attempts": [
+  "video": "f_tier/A05/video.mp4",
+  "video_metadata": {
+    "width": 1440,
+    "height": 600,
+    "avg_frame_rate": "10/1",
+    "duration": "31.800000",
+    "nb_read_frames": "318"
+  },
+  "keyframes": [
     {
-      "mode": "policy",
-      "seed": 9501,
-      "argv": [
-        "/tmp/chem_fluids/bin/python",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-        "--seed",
-        "9501",
-        "--label",
-        "heldout_policy_9501",
-        "--mode",
-        "policy",
-        "--rgb",
-        "--policy",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-      ],
-      "returncode": 0,
-      "wall_s": 78.84117606800282,
-      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_policy_9501/metrics.json",
-      "physical_success": false,
-      "observed_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": true,
-        "actual_stir_tip_XY_path_at_least150mm": true
-      },
-      "error": null,
-      "physical_metrics": {
-        "native_seconds": 15.799999999996682,
-        "wall_s": 74.52680981000594,
-        "hold_min_rod_lift_m": 0.06660936782257752,
-        "stir_seconds": 6.0,
-        "in_cup_tip_fraction": 1.0,
-        "tip_XY_path_m": 0.3452763963895616,
-        "stir_opposed_pad_contact_fraction": 1.0,
-        "policy_samples": 316
-      },
-      "local_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": true,
-        "actual_stir_tip_XY_path_at_least150mm": true
-      },
-      "protocol": {
-        "mode": "policy",
-        "seed": 9501,
-        "layout": {
-          "source_xy": [
-            0.5015938275009197,
-            0.10340404284903154
-          ],
-          "cup_xy": [
-            0.5446438403366228,
-            0.21648378938614066
-          ],
-          "shaft_diameter_m": 0.004,
-          "shaft_capsule_length_m": 0.164,
-          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
-          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
-          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
-        },
-        "native_dt_s": 0.001,
-        "policy_hz": 20,
-        "rigid_physics_only": true,
-        "liquid_viscosity_simulated": false,
-        "runtime_object_pose_writes": false,
-        "RGB_input": true,
-        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
-        "action_representation": "absolute",
-        "policy_context_mode": "current",
-        "RGB_preprocessing": "rgb",
-        "policy_per_axis_target_rate_limit_m_s": 0.15,
-        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
-        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
-        "differences": [
-          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
-          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
-          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
-        ]
-      }
+      "path": "f_tier/A05/study2/keyframe_all_heldout.png",
+      "video_time_s": 10.0,
+      "frame_index": 100
     },
     {
-      "mode": "policy",
-      "seed": 9502,
-      "argv": [
-        "/tmp/chem_fluids/bin/python",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-        "--seed",
-        "9502",
-        "--label",
-        "heldout_policy_9502",
-        "--mode",
-        "policy",
-        "--rgb",
-        "--policy",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-      ],
-      "returncode": 0,
-      "wall_s": 72.11936459699064,
-      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_policy_9502/metrics.json",
-      "physical_success": false,
-      "observed_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "error": null,
-      "physical_metrics": {
-        "native_seconds": 15.799999999996682,
-        "wall_s": 67.79715656700137,
-        "hold_min_rod_lift_m": -0.00010043245514686217,
-        "stir_seconds": 6.0,
-        "in_cup_tip_fraction": 0.0,
-        "tip_XY_path_m": 0.0005039372874654951,
-        "stir_opposed_pad_contact_fraction": 0.0,
-        "policy_samples": 316
-      },
-      "local_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "protocol": {
-        "mode": "policy",
-        "seed": 9502,
-        "layout": {
-          "source_xy": [
-            0.498242616487829,
-            0.12989783697537646
-          ],
-          "cup_xy": [
-            0.5572361478806366,
-            0.236630646988178
-          ],
-          "shaft_diameter_m": 0.004,
-          "shaft_capsule_length_m": 0.164,
-          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
-          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
-          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
-        },
-        "native_dt_s": 0.001,
-        "policy_hz": 20,
-        "rigid_physics_only": true,
-        "liquid_viscosity_simulated": false,
-        "runtime_object_pose_writes": false,
-        "RGB_input": true,
-        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
-        "action_representation": "absolute",
-        "policy_context_mode": "current",
-        "RGB_preprocessing": "rgb",
-        "policy_per_axis_target_rate_limit_m_s": 0.15,
-        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
-        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
-        "differences": [
-          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
-          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
-          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
-        ]
-      }
-    },
-    {
-      "mode": "policy",
-      "seed": 9503,
-      "argv": [
-        "/tmp/chem_fluids/bin/python",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-        "--seed",
-        "9503",
-        "--label",
-        "heldout_policy_9503",
-        "--mode",
-        "policy",
-        "--rgb",
-        "--policy",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-      ],
-      "returncode": 0,
-      "wall_s": 70.11703105499328,
-      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_policy_9503/metrics.json",
-      "physical_success": false,
-      "observed_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "error": null,
-      "physical_metrics": {
-        "native_seconds": 15.799999999996682,
-        "wall_s": 67.17352070201014,
-        "hold_min_rod_lift_m": 1.6209256159527285e-14,
-        "stir_seconds": 6.0,
-        "in_cup_tip_fraction": 0.0,
-        "tip_XY_path_m": 0.0,
-        "stir_opposed_pad_contact_fraction": 0.0,
-        "policy_samples": 316
-      },
-      "local_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "protocol": {
-        "mode": "policy",
-        "seed": 9503,
-        "layout": {
-          "source_xy": [
-            0.48290961953669376,
-            0.1342212368995749
-          ],
-          "cup_xy": [
-            0.5381088011582076,
-            0.23024520106225604
-          ],
-          "shaft_diameter_m": 0.004,
-          "shaft_capsule_length_m": 0.164,
-          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
-          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
-          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
-        },
-        "native_dt_s": 0.001,
-        "policy_hz": 20,
-        "rigid_physics_only": true,
-        "liquid_viscosity_simulated": false,
-        "runtime_object_pose_writes": false,
-        "RGB_input": true,
-        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
-        "action_representation": "absolute",
-        "policy_context_mode": "current",
-        "RGB_preprocessing": "rgb",
-        "policy_per_axis_target_rate_limit_m_s": 0.15,
-        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
-        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
-        "differences": [
-          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
-          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
-          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
-        ]
-      }
-    },
-    {
-      "mode": "untrained",
-      "seed": 9501,
-      "argv": [
-        "/tmp/chem_fluids/bin/python",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-        "--seed",
-        "9501",
-        "--label",
-        "heldout_untrained_9501",
-        "--mode",
-        "policy",
-        "--rgb",
-        "--policy",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/untrained.npz"
-      ],
-      "returncode": 0,
-      "wall_s": 67.41008825400786,
-      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_untrained_9501/metrics.json",
-      "physical_success": false,
-      "observed_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "error": null,
-      "physical_metrics": {
-        "native_seconds": 15.799999999996682,
-        "wall_s": 64.63268111500656,
-        "hold_min_rod_lift_m": 1.6209256159527285e-14,
-        "stir_seconds": 6.0,
-        "in_cup_tip_fraction": 0.0,
-        "tip_XY_path_m": 0.0,
-        "stir_opposed_pad_contact_fraction": 0.0,
-        "policy_samples": 316
-      },
-      "local_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "protocol": {
-        "mode": "policy",
-        "seed": 9501,
-        "layout": {
-          "source_xy": [
-            0.5015938275009197,
-            0.10340404284903154
-          ],
-          "cup_xy": [
-            0.5446438403366228,
-            0.21648378938614066
-          ],
-          "shaft_diameter_m": 0.004,
-          "shaft_capsule_length_m": 0.164,
-          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
-          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
-          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
-        },
-        "native_dt_s": 0.001,
-        "policy_hz": 20,
-        "rigid_physics_only": true,
-        "liquid_viscosity_simulated": false,
-        "runtime_object_pose_writes": false,
-        "RGB_input": true,
-        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/untrained.npz",
-        "action_representation": "absolute",
-        "policy_context_mode": "current",
-        "RGB_preprocessing": "rgb",
-        "policy_per_axis_target_rate_limit_m_s": 0.15,
-        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
-        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
-        "differences": [
-          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
-          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
-          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
-        ]
-      }
-    },
-    {
-      "mode": "masked",
-      "seed": 9501,
-      "argv": [
-        "/tmp/chem_fluids/bin/python",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-        "--seed",
-        "9501",
-        "--label",
-        "heldout_masked_9501",
-        "--mode",
-        "masked",
-        "--rgb",
-        "--policy",
-        "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-      ],
-      "returncode": 0,
-      "wall_s": 67.76078205498925,
-      "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/heldout_masked_9501/metrics.json",
-      "physical_success": false,
-      "observed_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "error": null,
-      "physical_metrics": {
-        "native_seconds": 15.799999999996682,
-        "wall_s": 64.40258775898837,
-        "hold_min_rod_lift_m": 1.6209256159527285e-14,
-        "stir_seconds": 6.0,
-        "in_cup_tip_fraction": 0.0,
-        "tip_XY_path_m": 0.0,
-        "stir_opposed_pad_contact_fraction": 0.0,
-        "policy_samples": 316
-      },
-      "local_checks": {
-        "full_native_horizon": true,
-        "pickup_min_hold_lift_at_least80mm": false,
-        "stir_duration_at_least5s": true,
-        "in_cup_tip_fraction_at_least95pct": false,
-        "actual_stir_tip_XY_path_at_least150mm": false
-      },
-      "protocol": {
-        "mode": "masked",
-        "seed": 9501,
-        "layout": {
-          "source_xy": [
-            0.5015938275009197,
-            0.10340404284903154
-          ],
-          "cup_xy": [
-            0.5446438403366228,
-            0.21648378938614066
-          ],
-          "shaft_diameter_m": 0.004,
-          "shaft_capsule_length_m": 0.164,
-          "source_model": "assets/scenes/reference_scene_suite_r3/auto_ur5e_lab.xml:stirrer",
-          "local_fixture": "Fixed square4wall guide with3.5mm inner halfwidth; no rod attachment",
-          "visual_marker": "Noncolliding orange band; actual RGB renderer, local appearance"
-        },
-        "native_dt_s": 0.001,
-        "policy_hz": 20,
-        "rigid_physics_only": true,
-        "liquid_viscosity_simulated": false,
-        "runtime_object_pose_writes": false,
-        "RGB_input": true,
-        "policy": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
-        "action_representation": "absolute",
-        "policy_context_mode": "current",
-        "RGB_preprocessing": "rgb",
-        "policy_per_axis_target_rate_limit_m_s": 0.15,
-        "context": "Robot EE proprioception: currentposition/velocity or initial observedposition anchor withzero velocity, declared bypolicy_context_mode; previousgrippercommand, skillphaseonehot/phaseprogress/oscillator. No objectposes provided to learnedpolicy.",
-        "replacement": "Local simulation script demonstrations replaceunavailableGELLO data",
-        "differences": [
-          "Public localUR5e/Robotiq thin4mm stirrer, localguide/cup/RGBcamera/colorband",
-          "Fixedupright orientation; learned3D EEtranslation target/velocity+grippercontrol whenpolicy mode",
-          "Dryrigidtool in-cup motion only, no fluidmixing/viscosity claim"
-        ]
-      }
+      "path": "f_tier/A05/study2/keyframe_controls.png",
+      "video_time_s": 26.0,
+      "frame_index": 260
     }
   ],
-  "validation": {
-    "stage": "validation",
-    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz",
-    "attempts": [
-      {
-        "mode": "policy",
-        "seed": 9101,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9101",
-          "--label",
-          "validation_repair_policy_9101",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 69.4645254299976,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_repair_policy_9101/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": true,
-          "actual_stir_tip_XY_path_at_least150mm": true
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9102,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9102",
-          "--label",
-          "validation_repair_policy_9102",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 71.15465270000277,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_repair_policy_9102/metrics.json",
-        "physical_success": true,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": true,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": true,
-          "actual_stir_tip_XY_path_at_least150mm": true
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9103,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9103",
-          "--label",
-          "validation_repair_policy_9103",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_student_repair/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 71.6266977070045,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_repair_policy_9103/metrics.json",
-        "physical_success": true,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": true,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": true,
-          "actual_stir_tip_XY_path_at_least150mm": true
-        },
-        "error": null
-      }
+  "video_display_correction": {
+    "raw_source_video": "f_tier/A05/study2/video_raw_camera_inset.mp4",
+    "frames_inclusive": [
+      159,
+      317
     ],
-    "complete": true
-  },
-  "preserved_velocity_representation_development_failure": {
-    "stage": "validation",
-    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz",
-    "attempts": [
-      {
-        "mode": "policy",
-        "seed": 9101,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9101",
-          "--label",
-          "validation_policy_9101",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 77.80119918000128,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_policy_9101/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9102,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9102",
-          "--label",
-          "validation_policy_9102",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 70.31436540499271,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_policy_9102/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9103,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9103",
-          "--label",
-          "validation_policy_9103",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_bc/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 68.64949306400376,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_policy_9103/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      }
+    "ROI_xywh": [
+      1332,
+      430,
+      100,
+      100
     ],
-    "complete": true
+    "correction": "ActualzeroRGBpassedtomaskedpolicy replaces only its rawcamera thumbnail; worldrendering/nativeqpos unchanged. Source retained; losslessYUV420re-encode."
   },
-  "preserved_dynamic_absolute_development_validation": {
-    "stage": "validation",
-    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz",
-    "attempts": [
-      {
-        "mode": "policy",
-        "seed": 9101,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9101",
-          "--label",
-          "validation_absolute_policy_9101",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 96.88845168698754,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_absolute_policy_9101/metrics.json",
-        "physical_success": true,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": true,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": true,
-          "actual_stir_tip_XY_path_at_least150mm": true
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9102,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9102",
-          "--label",
-          "validation_absolute_policy_9102",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 73.3551341949933,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_absolute_policy_9102/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9103,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9103",
-          "--label",
-          "validation_absolute_policy_9103",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_absolute/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 70.09244845400099,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_absolute_policy_9103/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      }
-    ],
-    "complete": true
-  },
-  "preserved_anchor_chroma_development_validation": {
-    "stage": "validation",
-    "model": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz",
-    "attempts": [
-      {
-        "mode": "policy",
-        "seed": 9101,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9101",
-          "--label",
-          "validation_anchor_policy_9101",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 73.97053111800051,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_anchor_policy_9101/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9102,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9102",
-          "--label",
-          "validation_anchor_policy_9102",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 73.35146976400574,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_anchor_policy_9102/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      },
-      {
-        "mode": "policy",
-        "seed": 9103,
-        "argv": [
-          "/tmp/chem_fluids/bin/python",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/native_stir.py",
-          "--seed",
-          "9103",
-          "--label",
-          "validation_anchor_policy_9103",
-          "--mode",
-          "policy",
-          "--rgb",
-          "--policy",
-          "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/models_rgb_anchor/trained.npz"
-        ],
-        "returncode": 0,
-        "wall_s": 69.30096358200535,
-        "metrics": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A05/runs/validation_anchor_policy_9103/metrics.json",
-        "physical_success": false,
-        "observed_checks": {
-          "full_native_horizon": true,
-          "pickup_min_hold_lift_at_least80mm": false,
-          "stir_duration_at_least5s": true,
-          "in_cup_tip_fraction_at_least95pct": false,
-          "actual_stir_tip_XY_path_at_least150mm": false
-        },
-        "error": null
-      }
-    ],
-    "complete": true
-  },
+  "video_selection": "All3new frozen heldout9601/9602/9603, then same9601RGB/untrained/masked. Actual saved native qpos via forward kinematics, no physics replay or interpolated states; 2sections x159frames at10fps=31.8s. Native sample time is displayed.",
   "declared_differences": [
     "Dryrigidtool motion only, no liquidviscosity/mixing",
     "Localfixedguide andnoncollidingorangeband visualcue",
@@ -1713,1218 +1559,63 @@
     "Final selectedmodelinput is rgb with current robotproprioception; priorfailedrepresentations are separatelypreserved.",
     "A maskedRGB task outcome that does not degrade success cannot establish a visual-information benefit; this control is reported without forcing a benefit claim",
     "3 heldout seeds are a small functional validation, not paper-scale robustness or generalization proof",
-    "All ground-truth object poses during policy rollout serve verifier only; once-before-t0 arm pregrasp initialization is separately declared"
+    "All ground-truth object poses during policy rollout serve verifier only; once-before-t0 arm pregrasp initialization is separately declared",
+    "New independent study after observing the closed0/3prior bank; original results remain permanent. No posttest training.",
+    "Cumulative5688training samples with one additional948pure-student-label collection and one120epochseed71training; no DAgger/OPD causal comparison.",
+    "The original parent orchestrator received SIGTERM143 from an unknown source;9603child continued to full native closure, and its process exit code is unobserved. Root independently judges raw physical closure; the launch is retained in the3trial denominator.",
+    "Study1 remains0/3; bounded study2 is1/3 (Wilson95% [0.06149,0.79234]). Paired RGB9601 and masked9601 both fail, so no visual-information benefit is established.",
+    "Successful9603 child process exit code is unknown after parent SIGTERM143;316 saved native states and15.8s horizon independently verify physical completion. No successful process receipt is imputed."
   ],
-  "evidence": [
-    "f_tier/A05/protocol.json",
-    "f_tier/A05/collection_progress.json",
-    "f_tier/A05/models_rgb_student_repair/training.json",
-    "f_tier/A05/heldout_freeze.json",
-    "f_tier/A05/heldout_evaluation.json",
-    "f_tier/A05/validation_evaluation.json",
-    "f_tier/A05/native_stir.py",
-    "f_tier/A05/train_vision.py",
-    "f_tier/A05/vision_policy.py"
-  ],
-  "recompute": "MUJOCO_GL=disable /tmp/chem_fluids/bin/python f_tier/A05/recompute_stir.py <run_directory>",
-  "video": "f_tier/A05/video.mp4",
-  "video_selection": "All3fixedheldoutseeds9501/02/03 insection1, then pairedseed9501 RGB/untrained/masked insection2. One31.8s actualnative replay, no result-basedselection.",
-  "visual_ablation_interpretation": "Bothpairedconditionsfailed;visualcontributioninconclusive.",
-  "failure_analysis": {
-    "analysis_type": "Read-only existing recorded native proprioception/RGB/commands, no newtraining/nativeepisodes/oracletrajectories",
-    "pregrasp_scope_s": [
-      0,
-      2.75
+  "producer_closeout_complete": true,
+  "independent_audit": "f_tier/A05/study2/independent_review.json",
+  "archived_original_failed_study": {
+    "result": "f_tier/A05/study1/result.json",
+    "video": "f_tier/A05/study1/video.mp4",
+    "successes": 0,
+    "attempts": 3,
+    "seeds": [
+      9501,
+      9502,
+      9503
     ],
-    "training_bank": "Original12RGBdemonstrations+3mixedstudent-state rollouts,4740samples; developmentvalidation/heldout neverincluded",
-    "state_alignment": "SourceXY translated only forposthoc task-coordinate coverage andcounterfactual tracker analysis; GTsource metadata used here isnot alearner input ortraininglabel",
-    "counterfactual_teacher_limit": "Source-aligned12successfultrainingreference trackers onheldoutstates; approximate transplantedreference envelope, not groundtruthunseenexpert or task recovery oracle.150mm/s boundedtarget step, nointerpolation. Notusedfortraining.",
-    "diagnostic_threshold": "1mm envelopeexcess onlylocates firstmeaningful divergence; not anewacceptancegate anddoesnotchange80mm liftthreshold",
-    "initial_layout_training_LOO_nearest_4D_distance_range_mm": [
-      7.632355918105361,
-      25.898832755290517
-    ],
-    "image_limit": "RawpixelMAEdescribes recordedinput variation only; itdoesnotisolateimage/phase/proprio causalcontributions.",
-    "root_finite_difference_observation": "Initialtarget vsEEpositionJacobiandiagonal approximately .64/.43/.54; thisdoesnot establishgain>1 or auniqueinstabilitycause. Image/phase/propriocoupling remainsuncertain.",
-    "attempts": [
-      {
-        "seed": 9501,
-        "strict_physical_success": false,
-        "actual_metrics": {
-          "native_seconds": 15.799999999996682,
-          "wall_s": 74.52680981000594,
-          "hold_min_rod_lift_m": 0.06660936782257752,
-          "stir_seconds": 6,
-          "in_cup_tip_fraction": 1,
-          "tip_XY_path_m": 0.3452763963895616,
-          "stir_opposed_pad_contact_fraction": 1,
-          "policy_samples": 316
-        },
-        "nearest_original_training_layout_seed": 1403,
-        "nearest_initial_layout_4D_distance_mm": 16.04540448264185,
-        "layout_inside_training_axis_bounds": [
-          true,
-          false,
-          true,
-          true
-        ],
-        "selected_pregrasp_observations_and_actions": {
-          "0.0": {
-            "t_s": 0,
-            "input_EE_world_m": [
-              0.5015938689003606,
-              0.10340426251562537,
-              0.2405000657696564
-            ],
-            "executed_target_world_m": [
-              0.5005294680595398,
-              0.10361123830080032,
-              0.2378585934638977
-            ],
-            "source_xy_m": [
-              0.5015938275009197,
-              0.10340404284903154
-            ],
-            "input_EE_source_xy_error_mm": [
-              4.139944087544478e-05,
-              0.00021966659383143572
-            ],
-            "executed_target_source_xy_error_mm": [
-              -1.0643594413799473,
-              0.2071954517687824
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              0,
-              0,
-              0
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              0.8070788427229081,
-              0.2070186935820839,
-              2.6414565824455782
-            ],
-            "native_after_vs_executed_target_error_mm": 2.2645715094226175,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              2.8553473418044897,
-              2.8553597612823602,
-              2.855367437598303
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.01408179011195898,
-            "gripper_command_fraction": 0.00025409460067749023,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0,
-              0.01965947262942791
-            ]
-          },
-          "0.5000000000000003": {
-            "t_s": 0.5000000000000003,
-            "input_EE_world_m": [
-              0.4931358109313016,
-              0.10463970494572569,
-              0.21324710261814608
-            ],
-            "executed_target_world_m": [
-              0.4888060688972473,
-              0.10752058029174805,
-              0.1920415687561035
-            ],
-            "source_xy_m": [
-              0.5015938275009197,
-              0.10340404284903154
-            ],
-            "input_EE_source_xy_error_mm": [
-              -8.458016569618144,
-              1.2356620966941512
-            ],
-            "executed_target_source_xy_error_mm": [
-              -12.787758603672428,
-              4.116537442716506
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              8.14742117985584,
-              1.2356480068140692,
-              27.252893531744288
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              12.173493854213845,
-              3.671366396063136,
-              47.54428335095018
-            ],
-            "native_after_vs_executed_target_error_mm": 17.04758074287708,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              17.781023761522096,
-              17.781024311566163,
-              17.781024704709605
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.03224514052271843,
-            "gripper_command_fraction": 0.0023002028465270996,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0.0007411095430143178,
-              0.019510257989168167
-            ]
-          },
-          "1.9999999999998905": {
-            "t_s": 1.9999999999998905,
-            "input_EE_world_m": [
-              0.4956569581552507,
-              0.1128613500447158,
-              0.12721425476995435
-            ],
-            "executed_target_world_m": [
-              0.49759936332702637,
-              0.11014916747808456,
-              0.1263132095336914
-            ],
-            "source_xy_m": [
-              0.5015938275009197,
-              0.10340404284903154
-            ],
-            "input_EE_source_xy_error_mm": [
-              -5.93686934566906,
-              9.457307195684258
-            ],
-            "executed_target_source_xy_error_mm": [
-              -3.994464173893375,
-              6.745124629053024
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              5.289035845353229,
-              9.443764042022629,
-              2.2253104613548516
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              3.5177192731733475,
-              6.133244795652234,
-              0
-            ],
-            "native_after_vs_executed_target_error_mm": 2.6929154765630834,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              9.935964166922025,
-              9.937316385779678,
-              9.938389269256204
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.015512804500758648,
-            "gripper_command_fraction": 0.9952508211135864,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0.0022785039618611336,
-              0.024027125909924507
-            ]
-          }
-        },
-        "first_state_outside_empirical_aligned_training_envelope_by_over1mm": {
-          "t_s": 0.10000000000000007,
-          "input_EE_world_m": [
-            0.5008912113589722,
-            0.1035298480706134,
-            0.23882162762832118
-          ],
-          "executed_target_world_m": [
-            0.4976107180118561,
-            0.10360286384820938,
-            0.23104724287986755
-          ],
-          "source_xy_m": [
-            0.5015938275009197,
-            0.10340404284903154
-          ],
-          "input_EE_source_xy_error_mm": [
-            -0.7026161419475541,
-            0.1258052215818567
-          ],
-          "executed_target_source_xy_error_mm": [
-            -3.983109489063663,
-            0.19882099917784002
-          ],
-          "source_aligned_state_envelope_excess_mm": [
-            0.5997672570050572,
-            0.12561030660708516,
-            1.678443709013433
-          ],
-          "source_aligned_command_envelope_excess_mm": [
-            3.0089518944512728,
-            0.1987255043314068,
-            9.279727935791016
-          ],
-          "native_after_vs_executed_target_error_mm": 6.607680870177441,
-          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-            12.081613957729072,
-            12.081623930524234,
-            12.081629998797018
-          ],
-          "closest_training_raw_RGB_MAE_0to1": 0.014512413181364536,
-          "gripper_command_fraction": 0.002803027629852295,
-          "next_native_pad_forces_N": [
-            0,
-            0
-          ]
-        },
-        "first_command_outside_empirical_aligned_training_envelope_by_over1mm": {
-          "t_s": 0,
-          "input_EE_world_m": [
-            0.5015938689003606,
-            0.10340426251562537,
-            0.2405000657696564
-          ],
-          "executed_target_world_m": [
-            0.5005294680595398,
-            0.10361123830080032,
-            0.2378585934638977
-          ],
-          "source_xy_m": [
-            0.5015938275009197,
-            0.10340404284903154
-          ],
-          "input_EE_source_xy_error_mm": [
-            4.139944087544478e-05,
-            0.00021966659383143572
-          ],
-          "executed_target_source_xy_error_mm": [
-            -1.0643594413799473,
-            0.2071954517687824
-          ],
-          "source_aligned_state_envelope_excess_mm": [
-            0,
-            0,
-            0
-          ],
-          "source_aligned_command_envelope_excess_mm": [
-            0.8070788427229081,
-            0.2070186935820839,
-            2.6414565824455782
-          ],
-          "native_after_vs_executed_target_error_mm": 2.2645715094226175,
-          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-            2.8553473418044897,
-            2.8553597612823602,
-            2.855367437598303
-          ],
-          "closest_training_raw_RGB_MAE_0to1": 0.01408179011195898,
-          "gripper_command_fraction": 0.00025409460067749023,
-          "next_native_pad_forces_N": [
-            0,
-            0
-          ]
-        }
-      },
-      {
-        "seed": 9502,
-        "strict_physical_success": false,
-        "actual_metrics": {
-          "native_seconds": 15.799999999996682,
-          "wall_s": 67.79715656700137,
-          "hold_min_rod_lift_m": -0.00010043245514686217,
-          "stir_seconds": 6,
-          "in_cup_tip_fraction": 0,
-          "tip_XY_path_m": 0.0005039372874654951,
-          "stir_opposed_pad_contact_fraction": 0,
-          "policy_samples": 316
-        },
-        "nearest_original_training_layout_seed": 1411,
-        "nearest_initial_layout_4D_distance_mm": 17.21159241134892,
-        "layout_inside_training_axis_bounds": [
-          true,
-          true,
-          true,
-          false
-        ],
-        "selected_pregrasp_observations_and_actions": {
-          "0.0": {
-            "t_s": 0,
-            "input_EE_world_m": [
-              0.49824264444319055,
-              0.12989804347326653,
-              0.2405000649762312
-            ],
-            "executed_target_world_m": [
-              0.4984634220600128,
-              0.1300819367170334,
-              0.23963643610477448
-            ],
-            "source_xy_m": [
-              0.498242616487829,
-              0.12989783697537646
-            ],
-            "input_EE_source_xy_error_mm": [
-              2.795536152566669e-05,
-              0.00020649789006510488
-            ],
-            "executed_target_source_xy_error_mm": [
-              0.22080557218379093,
-              0.18409974165692344
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              0,
-              0,
-              0
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              0.22077150591581773,
-              0.18392298347022495,
-              0.8636139415688082
-            ],
-            "native_after_vs_executed_target_error_mm": 0.725071678021577,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              0.9101620126574365,
-              0.9101668303883746,
-              0.9101722005735232
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.01601349748671055,
-            "gripper_command_fraction": 0,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0,
-              0.01965947262942791
-            ]
-          },
-          "0.5000000000000003": {
-            "t_s": 0.5000000000000003,
-            "input_EE_world_m": [
-              0.4993094167245769,
-              0.12808945737502905,
-              0.22954234813497967
-            ],
-            "executed_target_world_m": [
-              0.5006378889083862,
-              0.1266000121831894,
-              0.2175348848104477
-            ],
-            "source_xy_m": [
-              0.498242616487829,
-              0.12989783697537646
-            ],
-            "input_EE_source_xy_error_mm": [
-              1.066800236747878,
-              -1.8083796003474095
-            ],
-            "executed_target_source_xy_error_mm": [
-              2.395272420557204,
-              -3.297824792187071
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              1.0668006943724273,
-              1.3631765769301085,
-              10.957648014910697
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              2.0846807900588016,
-              1.7112624866343351,
-              22.050967296605993
-            ],
-            "native_after_vs_executed_target_error_mm": 9.516752625780226,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              13.886527092152592,
-              13.886527233478605,
-              13.886527489747968
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.012476880103349686,
-            "gripper_command_fraction": 0,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0.0007411095430143178,
-              0.019510257989168167
-            ]
-          },
-          "1.9999999999998905": {
-            "t_s": 1.9999999999998905,
-            "input_EE_world_m": [
-              0.512991525763758,
-              0.11808197515333449,
-              0.1366668594376778
-            ],
-            "executed_target_world_m": [
-              0.511262834072113,
-              0.11637071520090103,
-              0.13703760504722595
-            ],
-            "source_xy_m": [
-              0.498242616487829,
-              0.12989783697537646
-            ],
-            "input_EE_source_xy_error_mm": [
-              14.748909275928924,
-              -11.815861822041974
-            ],
-            "executed_target_source_xy_error_mm": [
-              13.02021758428401,
-              -13.52712177447543
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              15.143142717434054,
-              11.050025563114712,
-              6.966309234563734
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              13.10067447008928,
-              9.706509757354848,
-              9.918698599642727
-            ],
-            "native_after_vs_executed_target_error_mm": 1.9340836467315994,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              12.19320086919174,
-              12.19320086919174,
-              12.19320086919174
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.01896020397543907,
-            "gripper_command_fraction": 1,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0.0022785039618611336,
-              0.024027125909924507
-            ]
-          }
-        },
-        "first_state_outside_empirical_aligned_training_envelope_by_over1mm": {
-          "t_s": 0.1500000000000001,
-          "input_EE_world_m": [
-            0.4983642114035987,
-            0.12977053002551858,
-            0.23946212007353684
-          ],
-          "executed_target_world_m": [
-            0.498513400554657,
-            0.12912583351135254,
-            0.23605646193027496
-          ],
-          "source_xy_m": [
-            0.498242616487829,
-            0.12989783697537646
-          ],
-          "input_EE_source_xy_error_mm": [
-            0.12159491576968495,
-            -0.1273069498578805
-          ],
-          "executed_target_source_xy_error_mm": [
-            0.27078406682795597,
-            -0.7720034640239237
-          ],
-          "source_aligned_state_envelope_excess_mm": [
-            0.12156577157718118,
-            0,
-            1.004730991536168
-          ],
-          "source_aligned_command_envelope_excess_mm": [
-            0.2707781108434726,
-            0,
-            3.894910216331482
-          ],
-          "native_after_vs_executed_target_error_mm": 2.7157027203167305,
-          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-            5.568618439492705,
-            5.568624064072308,
-            5.56862793552643
-          ],
-          "closest_training_raw_RGB_MAE_0to1": 0.015270685777068138,
-          "gripper_command_fraction": 0,
-          "next_native_pad_forces_N": [
-            0,
-            0
-          ]
-        },
-        "first_command_outside_empirical_aligned_training_envelope_by_over1mm": {
-          "t_s": 0.05000000000000004,
-          "input_EE_world_m": [
-            0.4982944209544623,
-            0.12993844390319748,
-            0.24032678194344462
-          ],
-          "executed_target_world_m": [
-            0.4984252452850342,
-            0.12958690524101257,
-            0.2387588620185852
-          ],
-          "source_xy_m": [
-            0.498242616487829,
-            0.12989783697537646
-          ],
-          "input_EE_source_xy_error_mm": [
-            0.0518044666332762,
-            0.04060692782101305
-          ],
-          "executed_target_source_xy_error_mm": [
-            0.18262879720515324,
-            -0.31093173436388954
-          ],
-          "source_aligned_state_envelope_excess_mm": [
-            0.0517371784362064,
-            0.040395526094430534,
-            0.1733414251088028
-          ],
-          "source_aligned_command_envelope_excess_mm": [
-            0.12292251705708912,
-            0,
-            1.5955263917403761
-          ],
-          "native_after_vs_executed_target_error_mm": 1.2665363069920994,
-          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-            1.9476930376685215,
-            1.9476975267764243,
-            1.9477009018113371
-          ],
-          "closest_training_raw_RGB_MAE_0to1": 0.015974491834640503,
-          "gripper_command_fraction": 0,
-          "next_native_pad_forces_N": [
-            0,
-            0
-          ]
-        }
-      },
-      {
-        "seed": 9503,
-        "strict_physical_success": false,
-        "actual_metrics": {
-          "native_seconds": 15.799999999996682,
-          "wall_s": 67.17352070201014,
-          "hold_min_rod_lift_m": 1.6209256159527285e-14,
-          "stir_seconds": 6,
-          "in_cup_tip_fraction": 0,
-          "tip_XY_path_m": 0,
-          "stir_opposed_pad_contact_fraction": 0,
-          "policy_samples": 316
-        },
-        "nearest_original_training_layout_seed": 1410,
-        "nearest_initial_layout_4D_distance_mm": 17.26335907807256,
-        "layout_inside_training_axis_bounds": [
-          false,
-          true,
-          true,
-          true
-        ],
-        "selected_pregrasp_observations_and_actions": {
-          "0.0": {
-            "t_s": 0,
-            "input_EE_world_m": [
-              0.48290965341592773,
-              0.1342214495987463,
-              0.24050006881104177
-            ],
-            "executed_target_world_m": [
-              0.48350927233695984,
-              0.13246291875839233,
-              0.2407909482717514
-            ],
-            "source_xy_m": [
-              0.48290961953669376,
-              0.1342212368995749
-            ],
-            "input_EE_source_xy_error_mm": [
-              3.3879233973799217e-05,
-              0.00021269917138688754
-            ],
-            "executed_target_source_xy_error_mm": [
-              0.5996528002660817,
-              -1.7583181411825743
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              0,
-              0,
-              0
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              0.5996187339981085,
-              1.1073172204441317,
-              0
-            ],
-            "native_after_vs_executed_target_error_mm": 1.4845050273608968,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              1.880532293028309,
-              1.880545633702284,
-              1.8805547541642067
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.012072638608515263,
-            "gripper_command_fraction": 0.0029552578926086426,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0,
-              0.01965947262942791
-            ]
-          },
-          "0.5000000000000003": {
-            "t_s": 0.5000000000000003,
-            "input_EE_world_m": [
-              0.4864127965506682,
-              0.12929517886038688,
-              0.2407733258682034
-            ],
-            "executed_target_world_m": [
-              0.48780834674835205,
-              0.12754032015800476,
-              0.2380797415971756
-            ],
-            "source_xy_m": [
-              0.48290961953669376,
-              0.1342212368995749
-            ],
-            "input_EE_source_xy_error_mm": [
-              3.5031770139744567,
-              -4.926058039188025
-            ],
-            "executed_target_source_xy_error_mm": [
-              4.898727211658294,
-              -6.680916741570147
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              3.503177471599006,
-              4.480855015770723,
-              0.0398016381376598
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              4.588135581159891,
-              5.094354436017412,
-              1.5061105098780891
-            ],
-            "native_after_vs_executed_target_error_mm": 2.7481248753817193,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              11.08918998944146,
-              11.089190047376041,
-              11.089190124910141
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.012186110019683838,
-            "gripper_command_fraction": 0,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0.0007411095430143178,
-              0.019510257989168167
-            ]
-          },
-          "1.9999999999998905": {
-            "t_s": 1.9999999999998905,
-            "input_EE_world_m": [
-              0.5020792110861815,
-              0.1160057047614056,
-              0.1249937586163962
-            ],
-            "executed_target_world_m": [
-              0.5093402862548828,
-              0.11243131011724472,
-              0.13394808769226074
-            ],
-            "source_xy_m": [
-              0.48290961953669376,
-              0.1342212368995749
-            ],
-            "input_EE_source_xy_error_mm": [
-              19.16959154948772,
-              -18.2155321381693
-            ],
-            "executed_target_source_xy_error_mm": [
-              26.430666718189055,
-              -21.789926782330188
-            ],
-            "source_aligned_state_envelope_excess_mm": [
-              19.56382499099285,
-              17.449695879242043,
-              4.445806614913006
-            ],
-            "source_aligned_command_envelope_excess_mm": [
-              26.511123603994324,
-              17.969314765209603,
-              6.8291812446775175
-            ],
-            "native_after_vs_executed_target_error_mm": 9.388884209830335,
-            "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-              13.386045756203112,
-              13.386671785520843,
-              13.387462941846346
-            ],
-            "closest_training_raw_RGB_MAE_0to1": 0.013613720424473286,
-            "gripper_command_fraction": 1,
-            "next_native_pad_forces_N": [
-              0,
-              0
-            ],
-            "training_raw_RGB_leave_one_out_nearest_MAE_range": [
-              0.0022785039618611336,
-              0.024027125909924507
-            ]
-          }
-        },
-        "first_state_outside_empirical_aligned_training_envelope_by_over1mm": {
-          "t_s": 0.1500000000000001,
-          "input_EE_world_m": [
-            0.483615062713039,
-            0.13268483408869194,
-            0.2407162776719816
-          ],
-          "executed_target_world_m": [
-            0.48547834157943726,
-            0.12997779250144958,
-            0.24112331867218018
-          ],
-          "source_xy_m": [
-            0.48290961953669376,
-            0.1342212368995749
-          ],
-          "input_EE_source_xy_error_mm": [
-            0.705443176345244,
-            -1.5364028108829642
-          ],
-          "executed_target_source_xy_error_mm": [
-            2.5687220427434987,
-            -4.243444398125323
-          ],
-          "source_aligned_state_envelope_excess_mm": [
-            0.7054140321527402,
-            1.0123208677355748,
-            0.07326070823893138
-          ],
-          "source_aligned_command_envelope_excess_mm": [
-            2.5687160867590153,
-            1.6051208826078356,
-            0
-          ],
-          "native_after_vs_executed_target_error_mm": 2.5784742233996982,
-          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-            6.6958193264984125,
-            6.695824543244615,
-            6.6958276866062585
-          ],
-          "closest_training_raw_RGB_MAE_0to1": 0.01210880745202303,
-          "gripper_command_fraction": 0.0014878511428833008,
-          "next_native_pad_forces_N": [
-            0,
-            0
-          ]
-        },
-        "first_command_outside_empirical_aligned_training_envelope_by_over1mm": {
-          "t_s": 0,
-          "input_EE_world_m": [
-            0.48290965341592773,
-            0.1342214495987463,
-            0.24050006881104177
-          ],
-          "executed_target_world_m": [
-            0.48350927233695984,
-            0.13246291875839233,
-            0.2407909482717514
-          ],
-          "source_xy_m": [
-            0.48290961953669376,
-            0.1342212368995749
-          ],
-          "input_EE_source_xy_error_mm": [
-            3.3879233973799217e-05,
-            0.00021269917138688754
-          ],
-          "executed_target_source_xy_error_mm": [
-            0.5996528002660817,
-            -1.7583181411825743
-          ],
-          "source_aligned_state_envelope_excess_mm": [
-            0,
-            0,
-            0
-          ],
-          "source_aligned_command_envelope_excess_mm": [
-            0.5996187339981085,
-            1.1073172204441317,
-            0
-          ],
-          "native_after_vs_executed_target_error_mm": 1.4845050273608968,
-          "counterfactual_aligned_tracker_residual_min_median_max_mm": [
-            1.880532293028309,
-            1.880545633702284,
-            1.8805547541642067
-          ],
-          "closest_training_raw_RGB_MAE_0to1": 0.012072638608515263,
-          "gripper_command_fraction": 0.0029552578926086426,
-          "next_native_pad_forces_N": [
-            0,
-            0
-          ]
-        }
-      }
-    ],
-    "interpretation": "Initial source/cup layout values each exceed one empirical training coordinate bound, although nearest layout and initial rawRGB distances are within training leave-one-out ranges. The small initial command bias precedes source-aligned state-envelope departure at 0.10/0.15/0.15s. Mixed training does not cover these later drift states; this supports examining additional on-policy coverage, without proving a unique cause or that beta0 labels on the same3 initial layouts will solve generalization.",
-    "root_native_replay_observation": {
-      "at_native_0_5s": {
-        "EE_delta_z_mm": [
-          -27.253,
-          -10.958,
-          0.273
-        ],
-        "EE_delta_XY_norm_mm": [
-          8.55,
-          2.1,
-          6.04
-        ]
-      },
-      "at_native_2_0s": {
-        "EE_to_source_XY_norm_mm": [
-          11.166,
-          18.898,
-          26.444
-        ]
-      },
-      "source": "Root read-only replay of the same saved native trajectories; values rounded."
-    },
-    "frozen_network_input_decomposition": {
-      "method": "ReadonlyexactShapleydecomposition ofchanges in thefrozenNN andboundedadapter betweenactualobservedinputsatt0and0.45s;8raw/16bounded crossedinputcombinations perseed. No nativeepisode/training/newheldout.",
-      "limitation": "Crossedinputs can beoffthejointobservationmanifold. These allocate fixedfunctionoutputchanges, not causalphysicalfailureeffects or proofs ofauniquegain mechanism.",
-      "coordinate_order": "worldXYZ mm",
-      "attempts": [
-        {
-          "seed": 9501,
-          "native_end_s": 0.45000000000000034,
-          "phase": "settle, beforeapproach; phaseblockchangesonlyprogressu, noonehot/oscillatorchange",
-          "raw_target_change_mm": [
-            -11.316537857055664,
-            2.951890230178833,
-            -38.31702470779419
-          ],
-          "raw_block_contributions_mm": {
-            "RGB": [
-              -1.005813479423523,
-              -0.1757231851418813,
-              -9.133594731489817
-            ],
-            "robotproprio+priorgripper": [
-              -10.421156883239746,
-              3.2501022020975747,
-              -29.4392059246699
-            ],
-            "settleprogress_u": [
-              0.11043250560760497,
-              -0.12248878677686054,
-              0.25577594836552936
-            ]
-          },
-          "bounded_executed_target_change_mm": [
-            -11.316537857055664,
-            2.951890230178833,
-            -38.31702470779419
-          ],
-          "bounded_block_contributions_mm": {
-            "RGB": [
-              -0.6680786609649658,
-              -0.1757231851418813,
-              -4.530842226113246
-            ],
-            "robotproprio+priorgripper": [
-              -7.100628530471553,
-              3.2501022020975747,
-              -5.926041524971892
-            ],
-            "settleprogress_u": [
-              0.07608532905578613,
-              -0.12248878677686054,
-              0.18930062651634216
-            ],
-            "previouscommand_rate_limiter_state": [
-              -3.6239159946749306,
-              0.0,
-              -28.049441583225388
-            ]
-          },
-          "decomposition_sum_max_abs_error_m": 6.938893903907228e-18,
-          "endpoint_recorded_action_max_abs_error": 0.0
-        },
-        {
-          "seed": 9502,
-          "native_end_s": 0.45000000000000034,
-          "phase": "settle, beforeapproach; phaseblockchangesonlyprogressu, noonehot/oscillatorchange",
-          "raw_target_change_mm": [
-            1.6497671604156494,
-            -3.1093955039978027,
-            -17.160624265670776
-          ],
-          "raw_block_contributions_mm": {
-            "RGB": [
-              0.12227396170298258,
-              -1.9698614875475564,
-              -4.715921978155771
-            ],
-            "robotproprio+priorgripper": [
-              1.119131843249003,
-              -1.3835976521174111,
-              -13.028080264727274
-            ],
-            "settleprogress_u": [
-              0.4083613554636637,
-              0.2440636356671651,
-              0.58337797721227
-            ]
-          },
-          "bounded_executed_target_change_mm": [
-            1.6497671604156494,
-            -3.1093955039978027,
-            -17.160624265670776
-          ],
-          "bounded_block_contributions_mm": {
-            "RGB": [
-              0.1222739617029826,
-              -1.9698614875475564,
-              -3.139800081650416
-            ],
-            "robotproprio+priorgripper": [
-              1.119131843249003,
-              -1.3835976521174111,
-              -6.885354525240301
-            ],
-            "settleprogress_u": [
-              0.40836135546366376,
-              0.24406363566716513,
-              0.39306655526161194
-            ],
-            "previouscommand_rate_limiter_state": [
-              0.0,
-              0.0,
-              -7.5285362140416705
-            ]
-          },
-          "decomposition_sum_max_abs_error_m": 4.336808689942018e-19,
-          "endpoint_recorded_action_max_abs_error": 0.0
-        },
-        {
-          "seed": 9503,
-          "native_end_s": 0.45000000000000034,
-          "phase": "settle, beforeapproach; phaseblockchangesonlyprogressu, noonehot/oscillatorchange",
-          "raw_target_change_mm": [
-            4.11948561668396,
-            -4.5585036277771,
-            -0.6032288074493408
-          ],
-          "raw_block_contributions_mm": {
-            "RGB": [
-              0.1780589421590169,
-              -1.4161144693692524,
-              -1.2460996707280476
-            ],
-            "robotproprio+priorgripper": [
-              3.7313153346379595,
-              -3.199045856793721,
-              0.5146364370981852
-            ],
-            "settleprogress_u": [
-              0.21011133988698322,
-              0.05665669838587442,
-              0.12823442618052164
-            ]
-          },
-          "bounded_executed_target_change_mm": [
-            4.11948561668396,
-            -4.5585036277771,
-            -0.6032288074493408
-          ],
-          "bounded_block_contributions_mm": {
-            "RGB": [
-              0.1780589421590169,
-              -1.4161144693692522,
-              -1.2460996707280478
-            ],
-            "robotproprio+priorgripper": [
-              3.73131533463796,
-              -3.199045856793721,
-              0.5146364370981853
-            ],
-            "settleprogress_u": [
-              0.21011133988698324,
-              0.05665669838587443,
-              0.12823442618052164
-            ],
-            "previouscommand_rate_limiter_state": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "decomposition_sum_max_abs_error_m": 8.673617379884035e-19,
-          "endpoint_recorded_action_max_abs_error": 0.0
-        }
-      ],
-      "proprioception_disaggregation": {
-        "method": "Samefrozenfunctionendpoint decomposition, splitcurrentEEposition/linearvelocity/priorgripper. Rawoutputonly; finitevelocityJacobian epsilon0.1mm/s, unitsseconds.",
-        "limitation": "Networkinputdependence, not isolatedclosedloopcausality. Actualpositionservo,RGBfeedback andrateboundcouplethe dynamics.",
-        "attempts": [
-          {
-            "seed": 9501,
-            "raw_target_0to0_45s_change_mm": [
-              -11.316537857055664,
-              2.951890230178833,
-              -38.31702470779419
-            ],
-            "raw_change_block_contributions_mm": {
-              "RGB": [
-                -1.0041862726211548,
-                -0.19087009131908417,
-                -9.23478528857231
-              ],
-              "EEposition": [
-                -5.66055327653885,
-                2.734291801850001,
-                -13.781806329886118
-              ],
-              "EElinearvelocity": [
-                -4.76241558790207,
-                0.6056776891152065,
-                -15.506315231323242
-              ],
-              "previousgripper": [
-                -0.011118253072102863,
-                -0.03371747831503551,
-                -0.11483008662859599
-              ],
-              "settleprogress_u": [
-                0.12173553307851159,
-                -0.16349169115225476,
-                0.32071222861607873
-              ]
-            },
-            "sum_error_m": 1.734723475976807e-18,
-            "initial_raw_target_Jacobian_wrt_EElinearvelocity_seconds": [
-              [
-                0.21308660507202148,
-                -0.03904104232788086,
-                0.0032782554626464844
-              ],
-              [
-                0.024475157260894775,
-                0.1401454210281372,
-                0.0024959444999694824
-              ],
-              [
-                0.0006705522537231445,
-                0.039264559745788574,
-                0.2317875623703003
-              ]
-            ]
-          },
-          {
-            "seed": 9502,
-            "raw_target_0to0_45s_change_mm": [
-              1.6497671604156494,
-              -3.1093955039978027,
-              -17.160624265670776
-            ],
-            "raw_change_block_contributions_mm": {
-              "RGB": [
-                0.12596448262532553,
-                -1.9731099406878152,
-                -4.703202595313391
-              ],
-              "EEposition": [
-                0.2132306496302287,
-                -0.5483875672022501,
-                -4.677480707565944
-              ],
-              "EElinearvelocity": [
-                0.9027371803919475,
-                -0.837219258149465,
-                -8.367984245220821
-              ],
-              "previousgripper": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "settleprogress_u": [
-                0.40783484776814777,
-                0.24932126204172766,
-                0.5880432824293773
-              ]
-            },
-            "sum_error_m": 0.0,
-            "initial_raw_target_Jacobian_wrt_EElinearvelocity_seconds": [
-              [
-                0.21353363990783691,
-                -0.036656856536865234,
-                0.00521540641784668
-              ],
-              [
-                0.019744038581848145,
-                0.1418590545654297,
-                0.005513429641723633
-              ],
-              [
-                -0.007078051567077637,
-                0.04477798938751221,
-                0.24020671844482422
-              ]
-            ]
-          },
-          {
-            "seed": 9503,
-            "raw_target_0to0_45s_change_mm": [
-              4.11948561668396,
-              -4.5585036277771,
-              -0.6032288074493408
-            ],
-            "raw_change_block_contributions_mm": {
-              "RGB": [
-                0.1800864934921265,
-                -1.4176535109678907,
-                -1.2541172405083976
-              ],
-              "EEposition": [
-                2.130218843619029,
-                -2.302998552719752,
-                1.205482085545858
-              ],
-              "EElinearvelocity": [
-                1.60763015349706,
-                -0.9011109670003256,
-                -0.6504761675993602
-              ],
-              "previousgripper": [
-                -0.001469254493713379,
-                -0.00607768694559733,
-                -0.017767896254857383
-              ],
-              "settleprogress_u": [
-                0.20301938056945798,
-                0.06933708985646567,
-                0.1136504113674164
-              ]
-            },
-            "sum_error_m": 8.673617379884035e-19,
-            "initial_raw_target_Jacobian_wrt_EElinearvelocity_seconds": [
-              [
-                0.18611550331115723,
-                -0.03516674041748047,
-                0.00864267349243164
-              ],
-              [
-                0.05148351192474365,
-                0.13478100299835205,
-                -0.0014901161193847656
-              ],
-              [
-                0.03501772880554199,
-                0.036209821701049805,
-                0.22120773792266846
-              ]
-            ]
-          }
-        ]
-      }
-    }
+    "content_policy": "Unmodified copies of prior canonical result/video before any promotion; historical paths inside old result retained. The paired archived video path is authoritative for viewing the old study."
   },
-  "next_study_status": "NOT_STARTED_WAITING_DESIGN_DECISION",
-  "acceptance_decision": "FAIL:0of3fixedheldoutmeetallpredeclaredlocalgates;80mmliftgateunchanged;noformalreruns/posttesttraining"
+  "scope_status": "VISUOMOTOR_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
+  "accepted_at_utc": "2026-10-20T17:24:24.593700+00:00",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root",
+    "path": "f_tier/A05/study2/independent_review.json",
+    "scope": "Unchanged functional F gate: at least1/3 fixed heldouts completes all physical criteria, with actual negative controls. Not robust success or demonstrated visual benefit."
+  },
+  "process_receipt_boundary": {
+    "native_trial_completed_by_raw_evidence": true,
+    "unknown_child_exit_trials": [
+      "heldout_policy_9603"
+    ],
+    "parent_interrupted": true,
+    "formal_native_trials_interrupted_or_excluded": 0,
+    "strict_child_exit_receipt_successes": 0,
+    "strict_child_exit_receipt_attempts": 3,
+    "note": "Physical completion and successful subprocess exit receipts are separate observables. The child completed the full saved native horizon after its orchestrator exited143."
+  },
+  "differences": [
+    "Dryrigidtool motion only, no liquidviscosity/mixing",
+    "Localfixedguide andnoncollidingorangeband visualcue",
+    "PublicUR5e/Robotiq andsource4mmstirrer, notoriginalGRID/GELLOcalibration",
+    "Initial robot pregrasp staging uses known simulation source position once before t0; learned policy controls subsequent descent, grasp, transfer and stirring. No arbitrary initial robot-pose or vision-only localization claim.",
+    "Actual RGB plus robot proprioception and prescribed skill phase/oscillator; not an unconstrained end-to-end task planner",
+    "Localtrajectoryfeedbackteacher and additionalstudent-state data with150mm/s boundedtargetadapter areanengineeringrepair; nodata-matchedDAggercausalgainclaim",
+    "Local CPU-trained convolutional behavioral cloning, not original GELLO demonstrations, original GRID training or original policyweights",
+    "Final selectedmodelinput is rgb with current robotproprioception; priorfailedrepresentations are separatelypreserved.",
+    "A maskedRGB task outcome that does not degrade success cannot establish a visual-information benefit; this control is reported without forcing a benefit claim",
+    "3 heldout seeds are a small functional validation, not paper-scale robustness or generalization proof",
+    "All ground-truth object poses during policy rollout serve verifier only; once-before-t0 arm pregrasp initialization is separately declared",
+    "New independent study after observing the closed0/3prior bank; original results remain permanent. No posttest training.",
+    "Cumulative5688training samples with one additional948pure-student-label collection and one120epochseed71training; no DAgger/OPD causal comparison.",
+    "The original parent orchestrator received SIGTERM143 from an unknown source;9603child continued to full native closure, and its process exit code is unobserved. Root independently judges raw physical closure; the launch is retained in the3trial denominator.",
+    "Study1 remains0/3; bounded study2 is1/3 (Wilson95% [0.06149,0.79234]). Paired RGB9601 and masked9601 both fail, so no visual-information benefit is established.",
+    "Successful9603 child process exit code is unknown after parent SIGTERM143;316 saved native states and15.8s horizon independently verify physical completion. No successful process receipt is imputed."
+  ]
 }

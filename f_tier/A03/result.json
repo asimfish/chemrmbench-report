@@ -267,7 +267,8 @@
     "Only moving receiver trajectory varies; identical initial source/cup pose, no arbitrary initial pose or source orientation claim.",
     "Native cup motion uses generalized external force; privileged cup state, no visual perception.",
     "Fluid collision scope containers/bench/floor, excludes robot/rack; rigid robot contacts remain native.",
-    "Scripted task and object-frame feedback skill, no learned-policy or weight-transfer claim."
+    "Scripted task and object-frame feedback skill, no learned-policy or weight-transfer claim.",
+    "Fresh supplement: six newly executed trials, three distinct source XY/yaw recipes per robot; UR5e3/3, Flexiv1/3. Fixed designed poses are not randomized robustness evidence. Original six training-reuse trials stay separate; no F count increase."
   ],
   "video": "f_tier/A03/video.mp4",
   "video_kind": "All six full recorded native state trajectories,10fps, no interpolation or new dynamics.",
@@ -8611,5 +8612,36 @@
     "visual_check": "Root inspected actual Flexiv pouring and all six full episodes were encoded with per-robot/seed/native-time labels.",
     "scope": "Three distinct actual moving-target trajectories per robot, identical initial poses. Existing A04 teacher episodes reused; no heldout or source-orientation generalization claim."
   },
-  "accepted_at_utc": "2026-10-19T12:05:08.451914+00:00"
+  "accepted_at_utc": "2026-10-19T12:05:08.451914+00:00",
+  "fresh_pose_validation": {
+    "result": "f_tier/A03/fresh_pose/result.json",
+    "video": "f_tier/A03/fresh_pose/video.mp4",
+    "fixed_source_poses": 3,
+    "started_attempts": 6,
+    "functional_successes": 4,
+    "groups": [
+      {
+        "robot": "ur5e",
+        "successes": 3,
+        "started_attempts": 3,
+        "Wilson95pct": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      {
+        "robot": "flexiv",
+        "successes": 1,
+        "started_attempts": 3,
+        "Wilson95pct": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      }
+    ],
+    "original_training_reuse_six_not_pooled": true,
+    "interpretation": "The new six trials use three distinct predeclared sourceXY/yaw combinations per robot. All started trials, including incomplete physical failures, remain in denominator. Same object-frame feedback and task code is reused by changing the robot adapter; this does not establish arbitrary-pose robustness, learned-policy/weight transfer, or OPD/ICL adaptation. The originalA03Ffunctional result and its6reusedtraining episodes remain separate.",
+    "renderer_receipt": "f_tier/A03/fresh_pose/render_process.json",
+    "metadata_closeout": "f_tier/A03/fresh_pose/metadata_closeout.json"
+  }
 }

@@ -1,0 +1,31 @@
+{
+  "session_id": 96900,
+  "returncode": 1,
+  "expected_command": [
+    "/tmp/chem_fluids/bin/python",
+    "-u",
+    "f_tier/A03/fresh_pose/render.py"
+  ],
+  "capture_utc": "2026-10-20T18:06:58.774717+00:00",
+  "physics_steps": 0,
+  "video": "f_tier/A03/fresh_pose/video.mp4",
+  "scope": "Renderer exit 1 retained. Encoder close/assert completed before report-only failure. Video independently fully decoded by ffprobe; mapping is reconstructed from the same saved-state timestamps without rendering or stepping.",
+  "pid": 1371421,
+  "starttime": 19668877,
+  "state_at_capture": "S",
+  "exit_observed_utc": "2026-10-20T18:10:03.108260+00:00",
+  "failure_stage": "After ffmpeg writer closed successfully and both keyframes saved; report JSON serialization rejected a NumPy bool scalar.",
+  "video_metadata": {
+    "codec_name": "h264",
+    "width": 960,
+    "height": 640,
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "10/1",
+    "duration": "23.100000",
+    "nb_read_frames": "231"
+  },
+  "ffprobe_returncode": 0,
+  "ffprobe_stderr": "",
+  "metadata_repair_script": "f_tier/A03/fresh_pose/finalize_render_metadata.py",
+  "metadata_closeout": "f_tier/A03/fresh_pose/metadata_closeout.json"
+}
