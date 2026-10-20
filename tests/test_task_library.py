@@ -67,4 +67,19 @@ class RuntimeProjection(unittest.TestCase):
         path=root/'collection.json';config=json.loads(path.read_text());config['collection_kind']='recovered_subset_view';path.write_text(json.dumps(config))
         self.assertEqual(self.task()['dataset_attempts'],0)
 
+    def test_heldout_evaluation_cannot_inflate_development_or_qualification(self):
+        root=self.collection('heldout',['success'])
+        path=root/'manifest.jsonl';row=json.loads(path.read_text())
+        row['collection_purpose']='heldout_evaluation';path.write_text(json.dumps(row)+'\n')
+        task=self.task()
+        self.assertEqual(task['dataset_attempts'],0)
+        self.assertEqual(task['qualification_attempts'],0)
+        self.assertEqual(task['evaluation_attempts'],1)
+
+    def test_task_scope_notes_are_public_and_explicit(self):
+        tasks={t['id']:t for t in module.collect_task_library()['tasks']}
+        self.assertIn('prepress_ready_3mm',tasks['press']['initial_posture_note'])
+        self.assertIn('不带温度探头',tasks['timed_stirring']['fixture_note'])
+        self.assertIn('站位A',tasks['delayed_cue_memory']['observation_note'])
+
 if __name__=='__main__':unittest.main()

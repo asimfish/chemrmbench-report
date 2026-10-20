@@ -71,12 +71,14 @@ def collect_task_library():
             metadata=read(episode/'task.json',{})
             purpose=row.get('collection_purpose',metadata.get('collection_purpose'))
             expert_kind=row.get('expert_kind',metadata.get('expert_kind','main'))
+            evaluation=purpose=='heldout_evaluation' or config.get('collection_kind')=='heldout_evaluation'
             metrics=verdict.get('metrics',{})
             supported=particle_runtime_supported(row,episode)
             rejected=row['task_id']=='pour' and supported is not True
             records[row['task_id']].append({
                 'seed':row['seed'],'variant':row.get('variant'),
-                'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration' and expert_kind=='main',
+                'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration' and expert_kind=='main' and not evaluation,
+                'evaluation':evaluation,
                 'expert_kind':expert_kind,'ablation':expert_kind in {'ablation_no_memory','ablation_no_timing'},
                 'calibration':config.get('collection_kind')=='expert_calibration',
                 'memory_gate':purpose=='memory_leak_gate',
@@ -104,6 +106,7 @@ def collect_task_library():
         all_rows=records[task_id];rows=[r for r in all_rows if r['dataset']]
         calibration=[r for r in all_rows if r['calibration']]
         ablations=[r for r in all_rows if r['ablation']]
+        evaluation=[r for r in all_rows if r['evaluation']]
         successes=sum(r['status']=='success' for r in rows)
         n=len(rows);unique=len({r['seed'] for r in rows})
         qualified=any(r['safe_success'] and not r['visual_contrast_flag'] and not r['diagnostic_prefix'] for r in all_rows)
@@ -123,13 +126,18 @@ def collect_task_library():
             'successes':successes,'success_rate':successes/n if n else None,
             'status_counts':dict(Counter(r['status'] for r in rows)),
             'verified_dataset_attempts':sum(r['recording_verified'] for r in rows),
-            'qualification_attempts':sum(not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] and not r['ablation'] for r in all_rows),
-            'qualification_safe_successes':sum(r['safe_success'] for r in all_rows if not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] and not r['ablation']),
+            'qualification_attempts':sum(not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] and not r['ablation'] and not r['evaluation'] for r in all_rows),
+            'qualification_safe_successes':sum(r['safe_success'] for r in all_rows if not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] and not r['ablation'] and not r['evaluation']),
+            'evaluation_attempts':len(evaluation),'evaluation_successes':sum(r['safe_success'] for r in evaluation),
             'ablation_attempts':len(ablations),'ablation_successes':sum(r['status']=='success' for r in ablations),
             'ablation_status_counts':dict(Counter(r['status'] for r in ablations)),
             'ablation_expert_kinds':sorted({r['expert_kind'] for r in ablations}),
             'ablation_target_attempts':10 if task_id in {'press','timed_stirring','endpoint_stop','delayed_cue_memory','pour'} else None,
             'rendering_note':'烧杯采用不透明磨砂蓝材质（opacity=1.0）；CAD 和质量参数保留。' if task_id=='pick_place' else None,
+            'initial_posture_note':'initial_posture: prepress_ready_3mm。从3mm就绪姿态考定时响应，接近与对准由T1/T2/T5覆盖；旧10条校准保留。' if task_id=='press' else
+                'initial_posture: prepress_ready_nominal。保留原就绪姿态，各次触压先到3mm间隙；不等同于T4的3mm初始姿态。' if task_id=='endpoint_stop' else None,
+            'fixture_note':'搅拌器不带温度探头组件（v0.1固定装置）。原始USD及r1–r4失败保留；完整装配与探头挪移列为v0.2候选。' if task_id=='timed_stirring' else None,
+            'observation_note':'受控观测：恒定环境光，评测必须提供站位A相机。腕部相机有14/20条看不到提示，不作为单独的记忆观测设置。' if task_id=='delayed_cue_memory' else None,
             'calibration_attempts':len(calibration),
             'calibration_status_counts':dict(Counter(r['status'] for r in calibration)),
             'calibration_trials':calibration,
