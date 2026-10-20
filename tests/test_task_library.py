@@ -54,4 +54,17 @@ class RuntimeProjection(unittest.TestCase):
         self.assertEqual(task['successes'],0)
         self.assertIn('particle_runtime_unverified',task['trials'][0]['failure_reasons'])
 
+    def test_ablation_never_inflates_main_dataset_and_unknown_wall_remains_null(self):
+        root=self.collection('ablation',['fail'])
+        path=root/'manifest.jsonl';row=json.loads(path.read_text());row.update(expert_kind='ablation_no_timing',wall_time_s=None)
+        path.write_text(json.dumps(row)+'\n');task=self.task()
+        self.assertEqual(task['dataset_attempts'],0)
+        self.assertEqual(task['ablation_attempts'],1)
+        self.assertEqual(task['ablation_status_counts'],{'fail':1})
+
+    def test_recovered_subset_view_is_not_an_additional_attempt(self):
+        root=self.collection('recovered',['success'])
+        path=root/'collection.json';config=json.loads(path.read_text());config['collection_kind']='recovered_subset_view';path.write_text(json.dumps(config))
+        self.assertEqual(self.task()['dataset_attempts'],0)
+
 if __name__=='__main__':unittest.main()

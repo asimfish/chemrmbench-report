@@ -56,12 +56,13 @@ def collect_task_library():
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
     for path in sorted(ROOT.glob('*/manifest.jsonl')):
         config=read(path.parent/'collection.json',{})
-        if config.get('backend')!='isaac' or config.get('collection_kind')=='view':continue
+        if config.get('backend')!='isaac' or config.get('collection_kind') in {'view','recovered_subset_view'}:continue
         rows=[]
         for line in path.read_text().splitlines():
             try:rows.append(json.loads(line))
             except ValueError:continue  # In-progress append; retain complete rows.
-        if (config.get('collection_status')!='stopped_after_current_episodes' and
+        if (config.get('expert_kind','main')=='main' and
+                config.get('collection_status') not in {'stopped_after_current_episodes','interrupted_recovered'} and
                 len(rows)<len(config.get('tasks',[]))*config.get('episodes_per_task',0)):
             active.update(set(config.get('tasks',[]))&ids)
         for row in rows:
@@ -69,12 +70,14 @@ def collect_task_library():
             episode=Path(row['directory']);verdict=read(episode/'verdict.json',{})
             metadata=read(episode/'task.json',{})
             purpose=row.get('collection_purpose',metadata.get('collection_purpose'))
+            expert_kind=row.get('expert_kind',metadata.get('expert_kind','main'))
             metrics=verdict.get('metrics',{})
             supported=particle_runtime_supported(row,episode)
             rejected=row['task_id']=='pour' and supported is not True
             records[row['task_id']].append({
                 'seed':row['seed'],'variant':row.get('variant'),
-                'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration',
+                'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration' and expert_kind=='main',
+                'expert_kind':expert_kind,'ablation':expert_kind in {'ablation_no_memory','ablation_no_timing'},
                 'calibration':config.get('collection_kind')=='expert_calibration',
                 'memory_gate':purpose=='memory_leak_gate',
                 'diagnostic_prefix':config.get('max_steps')==1,
@@ -82,7 +85,7 @@ def collect_task_library():
                 'measured_status':row['status'],'particle_runtime_supported':supported,
                 'runtime_rejected':rejected,
                 'safe_success':verdict.get('safe_success') is True and not rejected,
-                'wall_time_s':round(row['wall_time_s'],2),
+                'wall_time_s':round(row['wall_time_s'],2) if row.get('wall_time_s') is not None else None,
                 'placement_error_mm':round(metrics['placement_error_m']*1000,3)
                     if metrics.get('placement_error_m') is not None else None,
                 'return_error_mm':round(metrics['return_error_m']*1000,3)
@@ -100,6 +103,7 @@ def collect_task_library():
     for number,task_id,title,dimension in CATALOG:
         all_rows=records[task_id];rows=[r for r in all_rows if r['dataset']]
         calibration=[r for r in all_rows if r['calibration']]
+        ablations=[r for r in all_rows if r['ablation']]
         successes=sum(r['status']=='success' for r in rows)
         n=len(rows);unique=len({r['seed'] for r in rows})
         qualified=any(r['safe_success'] and not r['visual_contrast_flag'] and not r['diagnostic_prefix'] for r in all_rows)
@@ -119,8 +123,13 @@ def collect_task_library():
             'successes':successes,'success_rate':successes/n if n else None,
             'status_counts':dict(Counter(r['status'] for r in rows)),
             'verified_dataset_attempts':sum(r['recording_verified'] for r in rows),
-            'qualification_attempts':sum(not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] for r in all_rows),
-            'qualification_safe_successes':sum(r['safe_success'] for r in all_rows if not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate']),
+            'qualification_attempts':sum(not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] and not r['ablation'] for r in all_rows),
+            'qualification_safe_successes':sum(r['safe_success'] for r in all_rows if not r['dataset'] and not r['diagnostic_prefix'] and not r['calibration'] and not r['memory_gate'] and not r['ablation']),
+            'ablation_attempts':len(ablations),'ablation_successes':sum(r['status']=='success' for r in ablations),
+            'ablation_status_counts':dict(Counter(r['status'] for r in ablations)),
+            'ablation_expert_kinds':sorted({r['expert_kind'] for r in ablations}),
+            'ablation_target_attempts':10 if task_id in {'press','timed_stirring','endpoint_stop','delayed_cue_memory','pour'} else None,
+            'rendering_note':'烧杯采用不透明磨砂蓝材质（opacity=1.0）；CAD 和质量参数保留。' if task_id=='pick_place' else None,
             'calibration_attempts':len(calibration),
             'calibration_status_counts':dict(Counter(r['status'] for r in calibration)),
             'calibration_trials':calibration,
