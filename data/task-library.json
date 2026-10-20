@@ -1,6 +1,96 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-20T19:19:57.172784+00:00",
+  "evaluation_protocol": {
+    "seeds_per_task": 50,
+    "seed_range": [
+      1000,
+      1049
+    ],
+    "clock_modes": [
+      "paused",
+      "latency_charged"
+    ],
+    "f0_cpu_contracts": [
+      {
+        "task_id": "delayed_cue_memory",
+        "privileged_expert": {
+          "attempts": 50,
+          "successes": 50
+        },
+        "ablation": {
+          "attempts": 50,
+          "successes": 17
+        },
+        "public_heuristic": {
+          "attempts": 50,
+          "successes": 50
+        }
+      },
+      {
+        "task_id": "endpoint_stop",
+        "privileged_expert": {
+          "attempts": 50,
+          "successes": 50
+        },
+        "ablation": {
+          "attempts": 50,
+          "successes": 10
+        },
+        "public_heuristic": {
+          "attempts": 50,
+          "successes": 50
+        }
+      },
+      {
+        "task_id": "pour",
+        "privileged_expert": {
+          "attempts": 50,
+          "successes": 50
+        },
+        "ablation": {
+          "attempts": 50,
+          "successes": 17
+        },
+        "public_heuristic": {
+          "attempts": 50,
+          "successes": 50
+        }
+      },
+      {
+        "task_id": "press",
+        "privileged_expert": {
+          "attempts": 50,
+          "successes": 50
+        },
+        "ablation": {
+          "attempts": 50,
+          "successes": 25
+        },
+        "public_heuristic": {
+          "attempts": 50,
+          "successes": 50
+        }
+      },
+      {
+        "task_id": "timed_stirring",
+        "privileged_expert": {
+          "attempts": 50,
+          "successes": 50
+        },
+        "ablation": {
+          "attempts": 50,
+          "successes": 17
+        },
+        "public_heuristic": {
+          "attempts": 50,
+          "successes": 50
+        }
+      }
+    ],
+    "native_public_observation": [],
+    "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started."
+  },
+  "updated_at_utc": "2026-10-20T19:24:34.847369+00:00",
   "tasks": [
     {
       "number": "T2",
