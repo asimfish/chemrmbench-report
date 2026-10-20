@@ -1,6 +1,6 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
-  "updated_at_utc": "2026-10-20T17:06:39.354212+00:00",
+  "updated_at_utc": "2026-10-20T17:20:35.795679+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -989,10 +989,14 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 6,
       "qualification_safe_successes": 2,
-      "ablation_attempts": 0,
-      "ablation_successes": 0,
-      "ablation_status_counts": {},
-      "ablation_expert_kinds": [],
+      "ablation_attempts": 2,
+      "ablation_successes": 2,
+      "ablation_status_counts": {
+        "success": 2
+      },
+      "ablation_expert_kinds": [
+        "ablation_no_timing"
+      ],
       "ablation_target_attempts": 10,
       "rendering_note": null,
       "calibration_attempts": 10,
@@ -2677,18 +2681,18 @@
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
       "status": "collecting",
-      "dataset_attempts": 6,
-      "dataset_unique_seeds": 3,
+      "dataset_attempts": 7,
+      "dataset_unique_seeds": 4,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "runtime_rejections": 14,
-      "successes": 2,
-      "success_rate": 0.3333333333333333,
+      "successes": 3,
+      "success_rate": 0.42857142857142855,
       "status_counts": {
         "error": 4,
-        "success": 2
+        "success": 3
       },
-      "verified_dataset_attempts": 5,
+      "verified_dataset_attempts": 6,
       "qualification_attempts": 11,
       "qualification_safe_successes": 0,
       "ablation_attempts": 0,
@@ -2860,6 +2864,28 @@
           "failure_reasons": [
             "instrumentation_invalid"
           ],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 3,
+          "variant": "default",
+          "dataset": true,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": true,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 682.01,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 8,
+          "recording_verified": true,
+          "failure_reasons": [],
           "visual_contrast_flag": false
         }
       ],
@@ -3344,7 +3370,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 126,
+  "dataset_attempts": 127,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
