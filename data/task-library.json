@@ -90,7 +90,7 @@
     "native_public_observation": [],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started."
   },
-  "updated_at_utc": "2026-10-20T20:18:57.325373+00:00",
+  "updated_at_utc": "2026-10-20T20:34:18.487589+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2911,18 +2911,18 @@
       "id": "pour",
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
-      "status": "collecting",
-      "dataset_attempts": 20,
-      "dataset_unique_seeds": 17,
+      "status": "needs_expert_fix",
+      "dataset_attempts": 21,
+      "dataset_unique_seeds": 18,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "runtime_rejections": 14,
       "successes": 15,
-      "success_rate": 0.75,
+      "success_rate": 0.7142857142857143,
       "status_counts": {
         "success": 15,
         "fail": 1,
-        "error": 4
+        "error": 5
       },
       "verified_dataset_attempts": 9,
       "qualification_attempts": 11,
@@ -2947,13 +2947,13 @@
       "render_diagnostic_attempts": 0,
       "failure_reasons": {
         "particle_fractions": 3,
+        "instrumentation_invalid": 2,
         "completed": 1,
         "source_released": 1,
         "stages": 1,
         "incomplete": 1,
         "safety_force": 1,
-        "unsupported_particle_geometry": 3,
-        "instrumentation_invalid": 1
+        "unsupported_particle_geometry": 3
       },
       "trials": [
         {
@@ -3186,6 +3186,31 @@
           "stage_count": 8,
           "recording_verified": false,
           "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 17,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "error",
+          "measured_status": "error",
+          "particle_runtime_supported": true,
+          "runtime_rejected": false,
+          "safe_success": false,
+          "wall_time_s": 1801.1,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": null,
+          "recording_verified": false,
+          "failure_reasons": [
+            "instrumentation_invalid"
+          ],
           "visual_contrast_flag": false
         },
         {
@@ -3940,7 +3965,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 140,
+  "dataset_attempts": 141,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
