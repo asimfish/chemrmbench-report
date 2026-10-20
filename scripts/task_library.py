@@ -51,6 +51,41 @@ def primary_pour_cohort():
             'expert_threshold_passed':counts[0]>=16}
 
 
+def evaluation_projection():
+    """Counts only: never export split assignments, calibration or raw results."""
+    mt={'press','timed_stirring','endpoint_stop','delayed_cue_memory','pour'}
+    f0=read(ROOT/'step6_f0_paused/metrics.json',{})
+    cpu=[]
+    for task in sorted(mt):
+        entry={'task_id':task}
+        for policy in ['privileged_expert','ablation','public_heuristic']:
+            metrics=f0.get('policies',{}).get(policy,{}).get('tasks',{}).get(task,{})
+            attempts=metrics.get('attempts');successes=metrics.get('successes')
+            if type(attempts) is int and type(successes) is int and 0<=successes<=attempts<=50:
+                entry[policy]={'attempts':attempts,'successes':successes}
+        cpu.append(entry)
+    native=[]
+    for label,task in [('t4','press'),('t7','endpoint_stop'),('t8','delayed_cue_memory'),('t3','pour'),('t6','timed_stirring')]:
+        for mode in ['paused','latency_charged']:
+            root=ROOT/('step6_native_'+label+'_'+mode);config=read(root/'collection.json',{})
+            path=root/'manifest.jsonl'
+            if config.get('collection_kind')!='heldout_evaluation' or not path.exists():continue
+            rows=[]
+            for line in path.read_text().splitlines():
+                try:row=json.loads(line)
+                except ValueError:continue
+                if (row.get('task_id')==task and type(row.get('seed')) is int and 1000<=row['seed']<=1049
+                    and row.get('expert_kind')=='evaluation_public_heuristic'
+                    and row.get('status') in {'success','fail','error'}):rows.append(row)
+            native.append({'task_id':task,'clock_mode':mode,'attempts':len(rows),
+                'successes':sum(r['status']=='success' for r in rows),
+                'status_counts':dict(Counter(r['status'] for r in rows)),
+                'recording_accepted':read(root/'dataset_acceptance.json',{}).get('acceptance_passed') is True})
+    return {'seeds_per_task':50,'seed_range':[1000,1049],
+        'clock_modes':['paused','latency_charged'],'f0_cpu_contracts':cpu,'native_public_observation':native,
+        'scope':'F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started.'}
+
+
 def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
@@ -148,6 +183,7 @@ def collect_task_library():
             'failure_reasons':dict(Counter(v for r in rows for v in r['failure_reasons'])),
             'trials':rows,'engineering_only':number in {'T3','T6','T7'}})
     return {'schema_version':'chemrmbench-task-library-0.1',
+            'evaluation_protocol':evaluation_projection(),
             'updated_at_utc':datetime.now(timezone.utc).isoformat(),
             'tasks':tasks,'native_tasks_with_dataset':sum(t['dataset_attempts']>0 for t in tasks),
             'dataset_attempts':sum(t['dataset_attempts'] for t in tasks),

@@ -11,6 +11,20 @@ async function refreshStats(){
   if(!data)throw Error('statistics unavailable');
   $('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
+  const protocol=data.evaluation_protocol;
+  if(protocol && $('evalCards')){
+   const names=Object.fromEntries(data.tasks.map(t=>[t.id,t.number+' · '+t.title]));
+   $('evalCards').replaceChildren(...protocol.f0_cpu_contracts.map(task=>{
+    const card=document.createElement('article');card.className='task';
+    const title=document.createElement('h3');title.textContent=names[task.task_id]||task.task_id;
+    const cpu=document.createElement('p');
+    const count=key=>task[key]?`${task[key].successes}/${task[key].attempts}`:'待测';
+    cpu.textContent=`CPU 示意合同：特权上界 ${count('privileged_expert')} · 固定响应下界 ${count('ablation')} · 公开观测规则 ${count('public_heuristic')}`;
+    const native=document.createElement('p');const rows=protocol.native_public_observation.filter(r=>r.task_id===task.task_id);
+    native.textContent=rows.length?'原生公开观测：'+rows.map(r=>`${r.clock_mode} ${r.successes}/${r.attempts}，录像${r.recording_accepted?'已复核':'待复核'}`).join('；'):'原生公开观测：排在主批量与消融之后，尚未开始。';
+    card.append(title,cpu,native);return card;
+   }));
+  }
   $('taskCards').replaceChildren(...data.tasks.map(task=>{
    const card=document.createElement('article');card.className='task';
    const top=document.createElement('div');top.className='task-top';

@@ -82,4 +82,13 @@ class RuntimeProjection(unittest.TestCase):
         self.assertIn('不带温度探头',tasks['timed_stirring']['fixture_note'])
         self.assertIn('站位A',tasks['delayed_cue_memory']['observation_note'])
 
+    def test_evaluation_projection_exports_counts_without_split_answers_or_paths(self):
+        root=self.root/'step6_f0_paused';root.mkdir()
+        (root/'metrics.json').write_text(json.dumps({'hidden_cue':'needle_token','policies':{
+            'public_heuristic':{'tasks':{'press':{'attempts':50,'successes':50,'cue_time':4.}}}}}))
+        value=module.evaluation_projection()
+        press=next(r for r in value['f0_cpu_contracts'] if r['task_id']=='press')
+        self.assertEqual(press['public_heuristic'],{'attempts':50,'successes':50})
+        for private in ['needle_token','cue_time',str(root)]:self.assertNotIn(private,json.dumps(value))
+
 if __name__=='__main__':unittest.main()
