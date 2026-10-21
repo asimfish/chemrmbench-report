@@ -64,7 +64,7 @@
       "public_evaluations": false,
       "three_DP_baselines": false,
       "policy_independent_verifiers": true,
-      "policy_independent_primary_scores": true,
+      "policy_independent_primary_scores": false,
       "download_URL": false,
       "release_tag": false
     },
@@ -298,23 +298,23 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 30,
-            "successes": 30,
+            "attempts": 32,
+            "successes": 32,
             "expected_attempts": 50,
             "complete": false,
             "success_wilson95": [
-              0.8864866068260312,
-              0.9999999999999999
+              0.8928208017449293,
+              1.0
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 30
+              "observed_count": 32
             },
             "response_latency_s": {
-              "mean": 2.3773611111113384,
-              "p95": 2.4572916666668934,
-              "observed_count": 30
+              "mean": 2.3769531250002176,
+              "p95": 2.455208333333618,
+              "observed_count": 32
             },
             "memory_accuracy": null
           },
@@ -428,23 +428,23 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 48,
-            "successes": 47,
+            "attempts": 50,
+            "successes": 49,
             "expected_attempts": 50,
             "complete": false,
             "success_wilson95": [
-              0.8910078200474814,
-              0.9963128890224893
+              0.8950455641036219,
+              0.9964607407283539
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 47
+              "observed_count": 49
             },
             "response_latency_s": {
               "mean": 3.4666666666666672,
               "p95": 3.4666666666666686,
-              "observed_count": 47
+              "observed_count": 49
             },
             "memory_accuracy": null
           },
@@ -648,10 +648,10 @@
       {
         "task_id": "endpoint_stop",
         "clock_mode": "paused",
-        "attempts": 48,
-        "successes": 47,
+        "attempts": 50,
+        "successes": 49,
         "status_counts": {
-          "success": 47,
+          "success": 49,
           "error": 1
         },
         "task_revision": null,
@@ -673,10 +673,10 @@
       {
         "task_id": "press",
         "clock_mode": "paused",
-        "attempts": 30,
-        "successes": 30,
+        "attempts": 32,
+        "successes": 32,
         "status_counts": {
-          "success": 30
+          "success": 32
         },
         "task_revision": "T4-v2",
         "superseded": false,
@@ -704,9 +704,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 73,
+    "received_and_validated_attempts": 75,
     "target_new_attempts": 400,
-    "admitted_successes": 66,
+    "admitted_successes": 68,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -730,7 +730,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 66
+        "attempts": 68
       }
     ]
   },
@@ -823,24 +823,24 @@
       },
       {
         "label": "T7 unattempted public continuation",
-        "closed_attempts": 22,
+        "closed_attempts": 24,
         "expected_attempts": 24,
         "measured_status_counts": {
-          "success": 22
+          "success": 24
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 22,
+        "mirrored_closed_attempts": 24,
         "NAS_mirror_pending": true
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 25,
+        "closed_attempts": 27,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 25
+          "success": 27
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 25,
+        "mirrored_closed_attempts": 27,
         "NAS_mirror_pending": true
       },
       {
@@ -880,7 +880,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T21:20:07.993418+00:00",
+  "updated_at_utc": "2026-10-21T21:30:23.057488+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2021,8 +2021,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
-      "evaluation_attempts": 30,
-      "evaluation_successes": 30,
+      "evaluation_attempts": 32,
+      "evaluation_successes": 32,
       "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
@@ -2632,8 +2632,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 48,
-      "evaluation_successes": 47,
+      "evaluation_attempts": 49,
+      "evaluation_successes": 48,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
