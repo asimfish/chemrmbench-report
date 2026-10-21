@@ -33,16 +33,16 @@
       },
       {
         "task_id": "pick_place",
-        "attempts": 16,
-        "old_new_agreements": 16,
-        "metadata_invariant": 16,
+        "attempts": 20,
+        "old_new_agreements": 20,
+        "metadata_invariant": 20,
         "requires_review": false
       },
       {
         "task_id": "pour",
-        "attempts": 0,
-        "old_new_agreements": 0,
-        "metadata_invariant": 0,
+        "attempts": 4,
+        "old_new_agreements": 4,
+        "metadata_invariant": 4,
         "requires_review": false
       },
       {
@@ -58,6 +58,15 @@
       "open_cabinet",
       "endpoint_stop"
     ],
+    "checks": {
+      "main_batches": true,
+      "ablations": true,
+      "public_evaluations": false,
+      "three_DP_baselines": false,
+      "policy_independent_verifiers": false,
+      "download_URL": false,
+      "release_tag": false
+    },
     "active_tasks": [
       "bottle_balance",
       "delayed_cue_memory",
@@ -694,7 +703,7 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 59,
+    "received_and_validated_attempts": 60,
     "target_new_attempts": 400,
     "admitted_successes": 54,
     "by_task_status": [
@@ -702,7 +711,7 @@
         "task_id": "pick_place",
         "status": "error",
         "training_admitted": false,
-        "attempts": 3
+        "attempts": 4
       },
       {
         "task_id": "pick_place",
@@ -813,10 +822,10 @@
       },
       {
         "label": "T7 unattempted public continuation",
-        "closed_attempts": 8,
+        "closed_attempts": 9,
         "expected_attempts": 24,
         "measured_status_counts": {
-          "success": 8
+          "success": 9
         },
         "batch_recording_accepted": false,
         "mirrored_closed_attempts": 0,
@@ -824,10 +833,10 @@
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 9,
+        "closed_attempts": 10,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 9
+          "success": 10
         },
         "batch_recording_accepted": false,
         "mirrored_closed_attempts": 0,
@@ -870,7 +879,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T19:30:23.694507+00:00",
+  "updated_at_utc": "2026-10-21T19:36:35.257472+00:00",
   "tasks": [
     {
       "number": "T2",
