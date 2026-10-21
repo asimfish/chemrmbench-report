@@ -2,11 +2,11 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T10:27:10Z",
+  "snapshot_utc": "2026-10-21T10:45:41Z",
   "snapshot_kind": "curated_static_snapshot",
   "phase_status": "IN_PROGRESS",
-  "current_milestone": "Ma",
-  "completed_milestones": 0,
+  "current_milestone": "Mb",
+  "completed_milestones": 1,
   "milestone_total": 6,
   "baseline_v1": {
     "status": "FROZEN",
@@ -69,7 +69,9 @@
     },
     "policy_rate_hz": 20,
     "physics_rate_hz": 120,
-    "physics_substeps_per_policy_step": 6
+    "physics_substeps_per_policy_step": 6,
+    "student_pose_frame": "Per-environment laboratory frame: subtract each environment origin from EE, object and final-goal positions; axes remain aligned with world.",
+    "controller_pose_frame": "World coordinates internally, with aligned axes."
   },
   "earlier_expert_reliability": {
     "measured_date_utc": "2026-10-21",
@@ -142,17 +144,18 @@
   "milestones": [
     {
       "id": "Ma",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
       "title": "Shared load & controller tracking",
       "scope": "Measure throughput at 16 / 64 / 256 parallel environments under shared load; check tracking with the same controller.",
       "acceptance": "Record measured throughput and controller tracking before selecting the rollout configuration.",
       "result": {
-        "throughput_status": "16_ENV_MEASURED_64_256_NOT_STARTED",
+        "throughput_status": "16_64_256_MEASURED_SHARED_LOAD",
         "controller_status": "ACTUAL_TRACKING_PASSED_FULL_LOCAL_FD_GATE_FAILED",
-        "milestone_passed": false
+        "milestone_passed": true,
+        "original_full_local_FD_gate_passed": false
       },
-      "result_note": "Partial: 16 environments measured 877.744721 env-steps/s and 0.4571587 sim/wall under shared load (5 s load sampling); a 30.01069 s memory calibration observed M16 = 4,931 MiB. The 64 / 256 batches never started (0 launches): required free memory was 29,586 / 118,344 MiB versus 15,485 MiB at admission; their values remain null. B1 completed one 30-native-second free-space diagnostic across 16 Panda worlds. Actual tracking gates all passed: worst-world position RMS 4.1217 mm / max 6.0730 mm; orientation RMS 0.81688° / max 1.25805°. Command and actual speed/acceleration exceedances were all zero; acceleration limiting occurred on 50,142 / 403,200 joint-steps (12.4%), with zero speed limiting. The clock recorded 3,600 callbacks / 30.000001565 s; wall time was 529.614 s. The original full FD gate remains false at far-origin x≈22 / 30 m in float32; all three earlier failures are retained. This is an independently passed trajectory diagnostic, not a full controller-gate pass or a learning result.",
-      "progress": "PARTIAL"
+      "result_note": "Complete with a declared FD limitation: 16 / 64 / 256 environments measured 877.744721 / 3,393.919703 / 12,829.080117 env-steps/s; per-world sim/wall was 0.45715873 / 0.44191665 / 0.41761331. All use the same frozen N03/HSM GPU PhysX + Fabric rigid-body workload, 100 warmup + 1000 timed-prefix steps, no render, one shared-load run each. This is not completed tasks/s. Valid 4 / 16 / 64-env process peaks were 4,931 MiB; 256-env peak was 5,061 MiB with 10,002 MiB minimum free and no guard stop. A fixed-overhead model replaced the earlier proportional overestimate, followed by staged measurements. The failed 1-env initialization (0 native steps) remains retained and is excluded from the model. B1 actual tracking passed across 16 Panda worlds: worst position RMS/max 4.1217 / 6.0730 mm and orientation RMS/max 0.81688° / 1.25805°; command and actual speed/acceleration exceedances were 0. Acceleration limiting affected 50,142/403,200 joint-steps (12.4%); speed limiting was 0. The clock recorded 3,600 callbacks / 30.000001565 native s, wall 529.614 s. The original full local FD gate remains false at far-origin x≈22 / 30 m in float32, alongside the independently passed tracking diagnostic; all three earlier failures remain retained.",
+      "progress": "COMPLETE_WITH_DECLARED_ORIGINAL_FD_GATE_LIMITATION"
     },
     {
       "id": "Mb",
@@ -167,22 +170,109 @@
           "native_numeric_format_valid": 20,
           "teacher_qualified": false
         },
-        "takeover_50_per_task": null,
-        "candidate2": "PREPARING_EVIDENCE_BASED_EXPERT_FIXES",
+        "takeover_50_per_task": [
+          {
+            "task": "N03",
+            "mode": "takeover",
+            "status": "RUNNING",
+            "planned_states": 50,
+            "first_batch_states": 16,
+            "started_states": 16,
+            "closed_states": 0,
+            "successes": null,
+            "final_result": null,
+            "training_admitted": 0,
+            "started_utc": "2026-10-21T10:44:28.335711+00:00"
+          },
+          {
+            "task": "N12",
+            "mode": "takeover",
+            "status": "RUNNING",
+            "planned_states": 50,
+            "first_batch_states": 16,
+            "started_states": 16,
+            "closed_states": 0,
+            "successes": null,
+            "final_result": null,
+            "training_admitted": 0,
+            "started_utc": "2026-10-21T10:42:23.122861+00:00"
+          }
+        ],
+        "candidate2": {
+          "N03": {
+            "task": "N03",
+            "candidate": 2,
+            "mode": "nominal",
+            "status": "CLOSED",
+            "planned_episodes": 20,
+            "closed_episodes": 20,
+            "successes": 20,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ],
+            "active_transitions": 14000,
+            "continuity_max_abs": 0.0,
+            "case_ids_match": true,
+            "native_clock_valid": true,
+            "measurement_integrity_passed": true,
+            "training_admitted": 0,
+            "training_rejected": 14000,
+            "rejection_reason": "MISSING_VERIFIER_EVIDENCE",
+            "raw_per_tick_verifier_evidence_available": false
+          },
+          "N12": {
+            "task": "N12",
+            "candidate": 2,
+            "mode": "nominal",
+            "status": "CLOSED",
+            "planned_episodes": 20,
+            "closed_episodes": 20,
+            "successes": 20,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ],
+            "active_transitions": 14000,
+            "continuity_max_abs": 0.0,
+            "case_ids_match": true,
+            "native_clock_valid": true,
+            "measurement_integrity_passed": true,
+            "training_admitted": 0,
+            "training_rejected": 14000,
+            "rejection_reason": "MISSING_VERIFIER_EVIDENCE",
+            "raw_per_tick_verifier_evidence_available": false
+          }
+        },
         "N03_centered_preflight": "PASSED",
-        "pro6000_N12_centered_preflight": "PASSED"
+        "pro6000_N12_centered_preflight": "PASSED",
+        "training_updates": 0
       },
-      "result_note": "N03 candidate 1 completed 0/20 nominal tasks; all attempts remain recorded. No takeover test or learning has started. Centered-scene preflights passed on local N03 and remote N12; an evidence-based expert correction is being prepared.",
-      "progress": "PREFLIGHT_SETUP"
+      "result_note": "Candidate 2: N03 and N12 each completed 20/20 nominal episodes. Independent NPZ audits passed continuity, case-ID and native-clock checks; each task contains 14,000 active transitions with continuity error 0. Candidate 1’s N03 result (0/20) remains retained. N12’s first 16-state takeover batch STARTED at 2026-10-21T10:42:23.122861+00:00; N03’s first 16-state batch has started. Neither task has a final 50-state takeover result. Timing is fixed at 2 / 5 / 9 / 17 / 22 s, 10 states per time; each task uses 25 noisy-expert proxy states and 25 random-action interruptions, with no state reset at takeover. Passive raw velocity/contact/clock logging was added without changing the 41D observation, 8D action or physics. Existing nominal raw verifier evidence is absent: training admission and learning updates remain 0.",
+      "progress": "NOMINAL_QUALIFIED_TAKEOVER_RUNNING"
     },
     {
       "id": "Mc",
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "title": "One vector environment & verifier",
       "scope": "Unify the vector environment, trajectory records and stage-wise verifier across the four Panda tasks.",
       "acceptance": "Shared observation/action contract; saved trajectories; explicit verifier admission and rejection records.",
-      "result": null,
-      "result_note": "Unified rollout and verifier acceptance not yet measured."
+      "result": {
+        "scope": "Data-admission boundary preparation only",
+        "boundary_regressions_passed": 4,
+        "task_level_verifier_acceptance": "NOT_ESTABLISHED",
+        "N03_measurement_integrity_passed": true,
+        "N03_active_transitions": 14000,
+        "N03_training_admitted": 0,
+        "N03_training_rejected_missing_evidence": 14000,
+        "next_takeover_evidence": "Passive object velocity/contact/native-clock records added before takeover launch; policy observation41D, action8D and physics unchanged.",
+        "N12_measurement_integrity_passed": true,
+        "N12_active_transitions": 14000,
+        "N12_training_admitted": 0,
+        "N12_training_rejected_missing_evidence": 14000
+      },
+      "result_note": "Partial / preparation: four data-admission boundary regressions passed; this does not establish every task-level verifier. N03 and N12 nominal measurements independently pass continuity, case-ID and clock audits, but each task’s 14,000 active labels is training-rejected because raw per-tick verifier evidence is missing. Total nominal training admission is 0. Passive velocity/contact/clock logging was added for the takeover batches; the 41D observation, 8D action and physics remain fixed.",
+      "progress": "PARTIAL_PREPARATION"
     },
     {
       "id": "Md",
@@ -289,9 +379,15 @@
     },
     {
       "name": "Verifier admission / rejection",
-      "protocol": "Report sample/label-validity admission and rejection, denominators and reasons. Verified failure/recovery segments may enter weighted learning; admission does not mean episode success.",
-      "status": "NOT_TESTED",
-      "value": null
+      "protocol": "Data-boundary evidence only: N03 and N12 nominal each queried 14,000 active labels; all 28,000 are training-rejected for missing per-tick raw verifier evidence, with 0 admitted. Four boundary regressions passed; task-level verifier acceptance remains open. Verified failure/recovery segments remain eligible independently of episode success.",
+      "status": "PARTIAL",
+      "value": {
+        "N03_active_labels": 14000,
+        "N12_active_labels": 14000,
+        "training_admitted": 0,
+        "training_rejected": 28000,
+        "task_level_verifier_acceptance": "NOT_ESTABLISHED"
+      }
     }
   ],
   "unmeasured_results": {
@@ -299,26 +395,19 @@
     "trained_policy_success": null,
     "learning_curves": null,
     "c01_student_integration": null,
-    "throughput_64_envs": null,
-    "throughput_256_envs": null,
-    "centered_domain_FD_preflight": null
+    "task_level_verifier_acceptance": null
   },
   "disclosures": [
     "This page describes the approved phase-2 plan and a dated local evidence summary.",
     "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
     "No OPD learning curves or policy success scores have been measured in this snapshot.",
-    "Actual B1 trajectory tracking passed independently of the still-false original full local FD gate. Three precheck failures remain retained; centered-domain FD preflight is required before Mb task episodes. No learning has been run."
+    "Nominal task success and measurement integrity are separate from training admission. Current nominal traces lack raw per-tick verifier evidence; training admission is 0. Four data-boundary regressions do not establish task-level verifier acceptance.",
+    "Ma is complete with its original full local FD-gate limitation declared. All three throughput batches are measured once under shared load. Both task nominal runs are complete; final takeover50 outcomes and trained-policy evaluation remain unmeasured."
   ],
-  "phase_progress": "PARTIAL",
+  "phase_progress": "MA_COMPLETE_MB_RUNNING_MC_PARTIAL",
   "current_measurements": {
     "throughput": {
-      "status": "SHARED_LOAD_BATCH_CLOSED_OR_ADMISSION_BLOCKED",
-      "closed_utc": "2026-10-21T09:57:49.039868+00:00",
-      "measurement_load": "SHARED_EXTERNAL_LOAD",
-      "load_sampling_period_s": 5,
-      "repetitions_per_batch": 1,
-      "memory_extrapolation": "M(n) = M16 × n / 16, including fixed application overhead; require fresh free memory ≥ 1.5 × M(n).",
-      "M16_MiB": 4931,
+      "status": "COMPLETE_MEASURED_SHARED_LOAD",
       "rows": [
         {
           "num_envs": 16,
@@ -326,38 +415,70 @@
           "started": true,
           "aggregate_env_steps_per_s": 877.7447212392015,
           "simulated_time_per_wall_time": 0.4571587328214354,
-          "timed_wall_s": 18.228534575988306,
-          "memory_calibration_wall_s": 30.010689891001675,
+          "warmup_steps": 100,
+          "timed_steps": 1000,
+          "timed_native_s_per_world": 8.333333767950535,
+          "render_calls": 0,
           "observed_process_peak_MiB": 4931,
-          "admission_free_MiB": 15485,
-          "required_free_MiB": 4096
+          "timed_wall_s": 18.228534575988306,
+          "guard_stops": 0
         },
         {
           "num_envs": 64,
-          "status": "NOT_STARTED_MEMORY_EXTRAPOLATION_GATE",
-          "started": false,
-          "aggregate_env_steps_per_s": null,
-          "simulated_time_per_wall_time": null,
-          "timed_wall_s": null,
-          "memory_calibration_wall_s": null,
-          "observed_process_peak_MiB": null,
-          "admission_free_MiB": 15485,
-          "required_free_MiB": 29586
+          "status": "MEASURED_SHARED_LOAD",
+          "started": true,
+          "aggregate_env_steps_per_s": 3393.9197028256017,
+          "simulated_time_per_wall_time": 0.4419166510198317,
+          "warmup_steps": 100,
+          "timed_steps": 1000,
+          "timed_native_s_per_world": 8.333333767950535,
+          "render_calls": 0,
+          "observed_process_peak_MiB": 4931,
+          "timed_wall_s": 18.857252264017006,
+          "guard_stops": 0
         },
         {
           "num_envs": 256,
-          "status": "NOT_STARTED_MEMORY_EXTRAPOLATION_GATE",
-          "started": false,
-          "aggregate_env_steps_per_s": null,
-          "simulated_time_per_wall_time": null,
-          "timed_wall_s": null,
-          "memory_calibration_wall_s": null,
-          "observed_process_peak_MiB": null,
-          "admission_free_MiB": 15485,
-          "required_free_MiB": 118344
+          "status": "MEASURED_SHARED_LOAD",
+          "started": true,
+          "aggregate_env_steps_per_s": 12829.080117228146,
+          "simulated_time_per_wall_time": 0.4176133068462505,
+          "warmup_steps": 100,
+          "timed_steps": 1000,
+          "timed_native_s_per_world": 8.333333767950535,
+          "render_calls": 0,
+          "observed_process_peak_MiB": 5061,
+          "timed_wall_s": 19.95466531199054,
+          "guard_stops": 0
         }
       ],
-      "scope": "Single-run GPU-physics timing under shared load: 100 warmup + 1000 timed prefix steps; the 16-env run continues for a 30-second memory calibration. Environment-steps/s is not completed tasks/s or learned-policy throughput.",
+      "workload": "Same frozen N03/HSM workload: GPU PhysX + Fabric, rigid bodies only; 100 warmup + 1000 timed-prefix steps; no render.",
+      "measurement_load": "SHARED_EXTERNAL_LOAD",
+      "load_sampling_period_s": 5,
+      "repetitions_per_batch": 1,
+      "scope": "Single shared-load timed prefix; environment-steps/s is not completed tasks/s, isolated hardware capacity or learned-policy training throughput.",
+      "memory_model": {
+        "status": "FIXED_OVERHEAD_MODEL_WITH_STAGED_MEASUREMENTS",
+        "valid_anchors_MiB": {
+          "4": 4931,
+          "16": 4931,
+          "64": 4931,
+          "256": 5061
+        },
+        "fixed_MiB": 4931.0,
+        "incremental_MiB_per_env": 0.0,
+        "formula": "M(n)=max(M4-4b,M16-16b)+b*n; b=max(0,(M16-M4)/12)",
+        "supersedes": "Earlier total-peak proportional extrapolation overestimated larger batches. That conservative admission decision is retained as history; 64 and 256 were subsequently admitted and measured in stages.",
+        "initial_1_env_failure": {
+          "status": "INITIALIZATION_FAILED",
+          "native_steps": 0,
+          "retained": true,
+          "included_in_model": false
+        },
+        "minimum_free_during_256_MiB": 10002,
+        "guard_stops": 0,
+        "scope": "Measured process peaks and a local admission model, not a general memory-capacity guarantee."
+      },
       "raw_evidence_published": false,
       "raw_evidence_url": null
     },
@@ -411,10 +532,11 @@
         "speed_saturation_joint_steps": 0
       },
       "full_gate_limitation": "The original full finite-difference gate remains false at far-origin x≈22 / 30 m in float32. Actual trajectory tracking passes independently; no FD threshold or controller gain was relaxed.",
-      "next_step": "Mb centered 4×4 task domain requires a native TCP Jacobian preflight with the same thresholds before task episodes.",
+      "next_step": "Centered N03 / N12 native FD preflights passed separately; their takeover evaluation is running.",
       "scope": "One 30-native-second free-space diagnostic across 16 Panda worlds. It does not establish task success, contact skills, general workspace reliability or learned-policy performance.",
       "raw_evidence_published": false,
-      "raw_evidence_url": null
+      "raw_evidence_url": null,
+      "tracking_pose_frame": "World coordinates; the recorded 30-second tracking metrics retain their original frame."
     },
     "secondary_node": {
       "name": "pro6000",
@@ -445,11 +567,154 @@
       "installation_budget_check": "PASS",
       "raw_evidence_published": false,
       "raw_evidence_url": null
+    },
+    "reentrant_experts": {
+      "status": "NOMINAL20_EACH_CLOSED_TAKEOVER50_RUNNING",
+      "nominal": [
+        {
+          "task": "N03",
+          "candidate": 2,
+          "mode": "nominal",
+          "status": "CLOSED",
+          "planned_episodes": 20,
+          "closed_episodes": 20,
+          "successes": 20,
+          "wilson95": [
+            0.8388748419471806,
+            1.0
+          ],
+          "active_transitions": 14000,
+          "continuity_max_abs": 0.0,
+          "case_ids_match": true,
+          "native_clock_valid": true,
+          "measurement_integrity_passed": true,
+          "training_admitted": 0,
+          "training_rejected": 14000,
+          "rejection_reason": "MISSING_VERIFIER_EVIDENCE",
+          "raw_per_tick_verifier_evidence_available": false
+        },
+        {
+          "task": "N12",
+          "candidate": 2,
+          "mode": "nominal",
+          "status": "CLOSED",
+          "planned_episodes": 20,
+          "closed_episodes": 20,
+          "successes": 20,
+          "wilson95": [
+            0.8388748419471806,
+            1.0
+          ],
+          "active_transitions": 14000,
+          "continuity_max_abs": 0.0,
+          "case_ids_match": true,
+          "native_clock_valid": true,
+          "measurement_integrity_passed": true,
+          "training_admitted": 0,
+          "training_rejected": 14000,
+          "rejection_reason": "MISSING_VERIFIER_EVIDENCE",
+          "raw_per_tick_verifier_evidence_available": false
+        }
+      ],
+      "takeover": [
+        {
+          "task": "N03",
+          "mode": "takeover",
+          "status": "RUNNING",
+          "planned_states": 50,
+          "first_batch_states": 16,
+          "started_states": 16,
+          "closed_states": 0,
+          "successes": null,
+          "final_result": null,
+          "training_admitted": 0,
+          "started_utc": "2026-10-21T10:44:28.335711+00:00"
+        },
+        {
+          "task": "N12",
+          "mode": "takeover",
+          "status": "RUNNING",
+          "planned_states": 50,
+          "first_batch_states": 16,
+          "started_states": 16,
+          "closed_states": 0,
+          "successes": null,
+          "final_result": null,
+          "training_admitted": 0,
+          "started_utc": "2026-10-21T10:42:23.122861+00:00"
+        }
+      ],
+      "retained_prior_candidates": [
+        {
+          "task": "N03",
+          "candidate": 1,
+          "successes": 0,
+          "episodes": 20,
+          "retained": true
+        }
+      ],
+      "centered_preflights": {
+        "N03": "PASSED",
+        "N12": "PASSED"
+      },
+      "training_updates": 0,
+      "raw_evidence_published": false,
+      "raw_evidence_url": null,
+      "takeover_protocol": {
+        "times_s": [
+          2,
+          5,
+          9,
+          17,
+          22
+        ],
+        "cases_per_time": 10,
+        "per_task_generators": {
+          "noisy_expert_proxy": 25,
+          "random_action_interruption": 25
+        },
+        "state_reset_at_takeover": false,
+        "passive_logger_fields": [
+          "object_velocity6",
+          "contact_force3",
+          "native_clock_valid",
+          "source_object_z"
+        ],
+        "policy_observation_dimensions": 41,
+        "action_dimensions": 8,
+        "physics_unchanged": true,
+        "scope": "Interruption-state takeover probes from noisy-expert proxy/random rollouts; no trained student or OPD learning result.",
+        "all_started_cases_retained": true,
+        "unrecoverable_states_in_denominator": true,
+        "interim_success_rate": null
+      }
     }
   },
   "verifier_admission": {
     "meaning": "Sample and expert-label validity; not equivalent to episode success.",
     "failure_recovery_segments": "Verified failure and recovery segments may enter weighted learning.",
-    "status": "PLANNED"
-  }
+    "status": "PARTIAL_PREPARATION",
+    "current_nominal_boundary": "Measurement-valid nominal data are not training-admissible without raw per-tick verifier evidence.",
+    "N03_active_labels": 14000,
+    "N03_training_admitted": 0,
+    "N03_training_rejected": 14000,
+    "rejection_reason": "MISSING_VERIFIER_EVIDENCE",
+    "boundary_regressions_passed": 4,
+    "task_level_acceptance": "NOT_ESTABLISHED",
+    "next_batch_passive_records": [
+      "object velocity",
+      "contact",
+      "native clock"
+    ],
+    "policy_and_physics_unchanged": true,
+    "N12_active_labels": 14000,
+    "N12_training_admitted": 0,
+    "N12_training_rejected": 14000,
+    "total_nominal_active_labels": 28000,
+    "total_nominal_training_admitted": 0,
+    "passive_logger_added_before_takeover_start": true
+  },
+  "snapshot_state": "FINAL_CURATED_SNAPSHOT",
+  "training_updates": 0,
+  "formal_method_evaluation_episodes": 0
 }
