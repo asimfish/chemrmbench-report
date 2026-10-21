@@ -1,10 +1,11 @@
 # Policy-independent verdict protocol (Guidance 12)
 
-Status: candidate, declared before the development-data audit. Historical
+Status: development audit passed for all seven tasks (140/140 grades agree,
+140/140 metadata invariance checks pass). Declared before the audit. Historical
 verdict.json files remain immutable. Native queues already in progress retain
-the legacy protocol. The new protocol is `measured-v1`; admission requires the
-development audit and metadata-invariance regression, and discrepancies require
-supervisor review before adoption.
+the legacy protocol. The new protocol is `measured-v1`; the development audit
+and metadata-invariance regression are complete. Future discrepancies still
+require supervisor review without adjusting parameters to fit outcomes.
 
 Physical grades use recorded rigid/joint states, raw contacts, benchmark-owned
 world events and privately sampled task parameters. They do not read action

@@ -12,8 +12,9 @@ No release tag has been issued merely for completing software contracts.
 Formal baselines are T1/T5/T7; T2 DP moves to v0.1.1. Seven measured-v1 graders
 remove controller phase, finish/cursor and expert-stage requirements. T2 uses
 ordered measured subgoals and a measured contact denominator with a90s horizon.
-The T2 development audit agrees on all20 grades (17 success/3 fail), and all20
-metadata-invariance checks pass. Legacy files remain historical evidence. T8 choice is inferred from physical candidate motion,
+The seven development audits agree on all140 grades; all140 metadata-invariance
+checks and legacy grade replays pass. T2 remains17/20. Legacy files remain
+historical evidence; no held-out data or post-result parameter adjustment was used. T8 choice is inferred from physical candidate motion,
 not the controller target event. No historical verdict file is overwritten.
 Full-dataset hosting awaits the user; the eventual tag stays local until then.
 
