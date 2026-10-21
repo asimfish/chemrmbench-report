@@ -22,6 +22,9 @@ Release requires all of the following evidence, not just runnable code:
 7. All seven measured verifiers pass the 20-development-seed old/new audit
    and metadata-invariance regression. Differences require review; no tuning
    against the audit. See [the verdict ADR](verifier_protocol.md).
+   Every primary-table score must also use the audited protocol. Legacy raw
+   verdicts are retained alongside separate, identity-bound measured scores;
+   any grade disagreement blocks adoption and requires review.
 8. After all scientific/software gates pass, create `chemrmbench-v0.1` locally.
    Do not push the tag before the user selects full-dataset hosting.
 9. The website presents the table, seven playable representative videos and
@@ -44,6 +47,24 @@ task IDs to lists of cohort directories, training_runs mapping the three baselin
 to training directories, plus budget_ledger, website_receipt and verifier_audit paths. The download_url
 and download_hosting_user_selected fields remain unset until the user decides. It is
 an internal routing file, never a policy observation or public artifact.
+For retained legacy recordings, add `grading_overlay` and `release_output` to
+that map and run the frozen score application before generating the table:
+
+```bash
+python -m chemrm.bench.score --sources /persistent/release_sources.json \
+  --out /persistent/measured_v1_scores
+```
+
+Formal DP training uses public HDF5 only, the fixed two-camera/18D-input and
+nine-joint-output configuration, and training-loss checkpoint selection. ATen
+convolution is used with cuDNN disabled. Each task has a six-hour single-card
+wall cap, including preparation and checkpoint shutdown. GPU lease waiting
+occurs before that clock starts. On a shared collection machine, a training
+request waits for the current episode to close, holds the project GPU lease
+through training, then releases it; the other card continues collection.
+Closed best/last/resume checkpoints and receipts are returned to project storage
+and size-checked before local evaluation. Unknown remote outcomes retain their
+budget reservation and cannot create a second submission automatically.
 
 Minimal native reproduction, from the repository root:
 

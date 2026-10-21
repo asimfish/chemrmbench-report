@@ -49,3 +49,13 @@ The regression removes expert metadata, renames these archives and changes all
 action annotations while preserving physical evidence. Status, success,
 pass/failure vectors, timing, memory and physical metrics must remain identical.
 No held-out seeds are used to develop this protocol.
+
+Primary-table scores must identify their verdict version. For native queues
+already started with legacy grading, `chemrm.bench.score` replays only closed,
+accepted recordings with the frozen `measured-v1` protocol. It writes a separate
+score record bound to the original episode and retained grade, never replacing
+`verdict.json`. Any status, success, physical/safe-success or pass-vector change
+stops adoption and creates `REVIEW_REQUIRED.json`; it does not trigger parameter
+search. This is application of the development-audited protocol, not protocol
+development on held-out cases. The release gate requires every present primary
+score to use `measured-v1`, in addition to all cohort-completeness gates.

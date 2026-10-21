@@ -64,7 +64,7 @@
       "public_evaluations": false,
       "three_DP_baselines": false,
       "policy_independent_verifiers": true,
-      "policy_independent_primary_scores": true,
+      "policy_independent_primary_scores": false,
       "download_URL": false,
       "release_tag": false
     },
@@ -298,23 +298,23 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 5,
-            "successes": 5,
+            "attempts": 16,
+            "successes": 16,
             "expected_attempts": 50,
             "complete": false,
             "success_wilson95": [
-              0.5655175352168251,
+              0.8063923194655637,
               1.0
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 5
+              "observed_count": 16
             },
             "response_latency_s": {
-              "mean": 2.3641666666668524,
-              "p95": 2.416666666666679,
-              "observed_count": 5
+              "mean": 2.3705729166668927,
+              "p95": 2.433333333333463,
+              "observed_count": 16
             },
             "memory_accuracy": null
           },
@@ -428,23 +428,23 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 26,
-            "successes": 25,
+            "attempts": 47,
+            "successes": 46,
             "expected_attempts": 50,
             "complete": false,
             "success_wilson95": [
-              0.8110722109696524,
-              0.9931780150064564
+              0.8888701895837066,
+              0.996234231961403
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 25
+              "observed_count": 46
             },
             "response_latency_s": {
               "mean": 3.4666666666666672,
               "p95": 3.4666666666666686,
-              "observed_count": 25
+              "observed_count": 46
             },
             "memory_accuracy": null
           },
@@ -648,10 +648,10 @@
       {
         "task_id": "endpoint_stop",
         "clock_mode": "paused",
-        "attempts": 26,
-        "successes": 25,
+        "attempts": 47,
+        "successes": 46,
         "status_counts": {
-          "success": 25,
+          "success": 46,
           "error": 1
         },
         "task_revision": null,
@@ -673,10 +673,10 @@
       {
         "task_id": "press",
         "clock_mode": "paused",
-        "attempts": 5,
-        "successes": 5,
+        "attempts": 28,
+        "successes": 28,
         "status_counts": {
-          "success": 5
+          "success": 28
         },
         "task_revision": "T4-v2",
         "superseded": false,
@@ -823,24 +823,24 @@
       },
       {
         "label": "T7 unattempted public continuation",
-        "closed_attempts": 20,
+        "closed_attempts": 21,
         "expected_attempts": 24,
         "measured_status_counts": {
-          "success": 20
+          "success": 21
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 0,
+        "mirrored_closed_attempts": 21,
         "NAS_mirror_pending": true
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 23,
+        "closed_attempts": 24,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 23
+          "success": 24
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 0,
+        "mirrored_closed_attempts": 24,
         "NAS_mirror_pending": true
       },
       {
@@ -880,7 +880,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T21:04:17.988421+00:00",
+  "updated_at_utc": "2026-10-21T21:09:44.643630+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2021,8 +2021,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
-      "evaluation_attempts": 5,
-      "evaluation_successes": 5,
+      "evaluation_attempts": 28,
+      "evaluation_successes": 28,
       "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
@@ -2632,8 +2632,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 26,
-      "evaluation_successes": 25,
+      "evaluation_attempts": 47,
+      "evaluation_successes": 46,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
