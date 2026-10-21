@@ -149,6 +149,7 @@ def current_t6_projection():
             for r in cpu.get('results',[]) if r.get('passed')),default=None),
         'native_attempts':len(attempts),'native_passed':sum(a.get('passed') is True for a in attempts),
         'native_required':3,'native_all_passed':native.get('passed') is True,
+        'native_startup_errors':sum(a.get('status')=='error' and a.get('task_actions_executed')==0 for a in attempts),
         'fixture_moved':False,'raw_force_limit_n':25}
 
 
