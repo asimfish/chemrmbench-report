@@ -134,9 +134,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 12,
+    "received_and_validated_attempts": 14,
     "target_new_attempts": 400,
-    "admitted_successes": 10,
+    "admitted_successes": 12,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -154,7 +154,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 10
+        "attempts": 12
       }
     ]
   },
@@ -168,13 +168,36 @@
     "native_required": 3,
     "native_all_passed": false,
     "fixture_moved": false,
-    "raw_force_limit_n": 25,
-    "native_binding_error": true,
-    "task_actions_executed": 0,
-    "dependency_fix_CPU_validated": true,
-    "native_retry_pending_guidance": true
+    "raw_force_limit_n": 25
   },
-  "updated_at_utc": "2026-10-21T14:19:08.930849+00:00",
+  "ssd_staging": {
+    "scope": "durable SSD staging during NAS write stall; separate from NAS admitted cohort counts",
+    "cohorts": [
+      {
+        "label": "T4-v2 main",
+        "closed_attempts": 3,
+        "expected_attempts": 20,
+        "measured_status_counts": {
+          "success": 3
+        },
+        "batch_recording_accepted": false,
+        "NAS_mirror_pending": true
+      },
+      {
+        "label": "T7 public suffix",
+        "closed_attempts": 2,
+        "expected_attempts": 46,
+        "measured_status_counts": {
+          "success": 2
+        },
+        "batch_recording_accepted": false,
+        "NAS_mirror_pending": true
+      }
+    ],
+    "T7_retained_valid_successes": 3,
+    "T7_case1003_original_receipt_pending": true
+  },
+  "updated_at_utc": "2026-10-21T14:33:49.210882+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -3708,33 +3731,5 @@
   "cold_restore_boundaries": {
     "verified": 1,
     "total": 8
-  },
-  "ssd_staging": {
-    "scope": "durable SSD staging during NAS write stall; separate from NAS admitted cohort counts",
-    "cohorts": [
-      {
-        "label": "T4-v2 main",
-        "closed_attempts": 2,
-        "expected_attempts": 20,
-        "measured_status_counts": {
-          "success": 2
-        },
-        "batch_recording_accepted": false,
-        "NAS_mirror_pending": true
-      },
-      {
-        "label": "T7 public suffix",
-        "closed_attempts": 2,
-        "expected_attempts": 46,
-        "measured_status_counts": {
-          "success": 2
-        },
-        "batch_recording_accepted": false,
-        "NAS_mirror_pending": true
-      }
-    ],
-    "T7_retained_valid_successes": 3,
-    "T7_case1003_original_receipt_pending": true,
-    "updated_at_utc": "2026-10-21T14:31:22.441404+00:00"
   }
 }
