@@ -117,4 +117,14 @@ class RuntimeProjection(unittest.TestCase):
         self.assertEqual(press['public_heuristic'],{'attempts':50,'successes':50})
         for private in ['needle_token','cue_time',str(root)]:self.assertNotIn(private,json.dumps(value))
 
+    def test_training_progress_never_exports_hostnames_or_private_paths(self):
+        p=self.root/'remote_training/guidance7_training_expansion';p.mkdir(parents=True)
+        (p/'progress.json').write_text(json.dumps({'private_path':str(p),
+            'by_task_host_status_admission':[{'task_id':'pick_place','runtime_host':'needle_token',
+                'status':'success','training_admitted':True,'attempts':4}]}))
+        result=module.training_expansion_projection()
+        self.assertEqual(result['received_and_validated_attempts'],4)
+        self.assertFalse(result['main_table_eligible'])
+        for private in ['needle_token',str(p)]:self.assertNotIn(private,json.dumps(result))
+
 if __name__=='__main__':unittest.main()

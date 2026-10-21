@@ -120,6 +120,33 @@ def t6_qualification_projection():
         'maximum_raw_global_force_n':max(forces,default=None),'raw_force_limit_n':25}
 
 
+def current_t6_projection():
+    cpu=read(ROOT/'guidance7_t6_joint_path_preflight_cached/preflight.json',{})
+    native=read(ROOT/'T6_GUIDANCE7_QUALIFICATION_REPORT.json',{})
+    attempts=native.get('attempts',[])
+    return {'cpu_passed':cpu.get('passed') is True,'cpu_attempts':len(cpu.get('results',[])),
+        'moving_colliders':17,'minimum_clearance_mm':min((r['minimum_lower_bound_m']*1000
+            for r in cpu.get('results',[]) if r.get('passed')),default=None),
+        'native_attempts':len(attempts),'native_passed':sum(a.get('passed') is True for a in attempts),
+        'native_required':3,'native_all_passed':native.get('passed') is True,
+        'fixture_moved':False,'raw_force_limit_n':25}
+
+
+def training_expansion_projection():
+    raw=read(ROOT/'remote_training/guidance7_training_expansion/progress.json',{})
+    counts=Counter()
+    for row in raw.get('by_task_host_status_admission',[]):
+        if row.get('task_id') not in {t[1] for t in CATALOG}:continue
+        if row.get('status') not in {'success','fail','error'}:continue
+        if type(row.get('attempts')) is not int or row['attempts']<0:continue
+        counts[(row['task_id'],row['status'],row.get('training_admitted') is True)]+=row['attempts']
+    return {'purpose':'training_only','strict_V2_passed':False,'main_table_eligible':False,
+        'received_and_validated_attempts':sum(counts.values()),'target_new_attempts':400,
+        'admitted_successes':sum(n for (task,status,admitted),n in counts.items() if admitted and status=='success'),
+        'by_task_status':[{'task_id':k[0],'status':k[1],'training_admitted':k[2],'attempts':n}
+            for k,n in sorted(counts.items())]}
+
+
 def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
@@ -234,6 +261,7 @@ def collect_task_library():
             'trials':rows,'engineering_only':number in {'T3','T6','T7'}})
     return {'schema_version':'chemrmbench-task-library-0.1',
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
+            'training_expansion':training_expansion_projection(),'current_t6':current_t6_projection(),
             'updated_at_utc':datetime.now(timezone.utc).isoformat(),
             'tasks':tasks,'native_tasks_with_dataset':sum(t['dataset_attempts']>0 for t in tasks),
             'dataset_attempts':sum(t['dataset_attempts'] for t in tasks),

@@ -12,6 +12,12 @@ async function refreshStats(){
   $('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
   const pilot=data.pipeline_pilot;
+  if(data.training_expansion && $('trainingExpansion')){
+   const r=data.training_expansion;$('trainingExpansion').textContent=`远程训练数据扩采：已回传并验收 ${r.received_and_validated_attempts}/${r.target_new_attempts} 条，${r.admitted_successes} 条通过独立训练准入。严格 V2 等价未通过；远程数据仅用于训练，专家、消融和评测主表均在本机产生。`;
+  }
+  if(data.current_t6 && $('t6CurrentProgress')){
+   const r=data.current_t6;$('t6CurrentProgress').textContent=`指导7 全臂修复：${r.moving_colliders} 个机器人碰撞体，CPU 连续路径资格 ${r.cpu_passed?'3/3通过':'进行中'}${r.minimum_clearance_mm!==null?'，最小运动界后余量 '+r.minimum_clearance_mm.toFixed(2)+' mm（含1mm跟踪余量）':''}。搅拌器保持原位；原生资格 ${r.native_passed}/${r.native_required} 通过，已尝试 ${r.native_attempts} 条，原始力上限仍为 ${r.raw_force_limit_n} N。${r.native_all_passed?'已满足主批量前置资格。':'尚未满足主批量前置资格。'}`;
+  }
   if(pilot && $('pipelineNotice')){
    $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，训练累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;
   }
@@ -47,7 +53,7 @@ async function refreshStats(){
    if(task.superseded_history){const h=task.superseded_history;const note=document.createElement('p');note.textContent=`已停用 T4-v1 历史记录：主批量 ${h.main_successes}/${h.main_attempts}，消融 ${h.ablation_successes}/${h.ablation_attempts}，公开观测评测 ${h.evaluation_attempts} 条；均不计入 v2 进度。`;card.append(note);}
    if(task.qualification_gate){
     const gate=task.qualification_gate;const note=document.createElement('p');
-    note.textContent=`新版顶部抓取资格：针对全场景障碍物的 CPU 手部路径预检${gate.whole_scene_transit_screen_passed?'通过':'待通过'}${gate.minimum_transit_clearance_mm!==null?'，手部最小余量 '+gate.minimum_transit_clearance_mm.toFixed(2)+' mm':''}；尚未覆盖手臂连杆。局部面板指垫接触${gate.local_panel_contact_approved?'已确认':'待确认'}；原生资格 ${gate.native_passed}/${gate.native_required} 通过（已尝试 ${gate.native_attempts} 条）${gate.maximum_raw_global_force_n!==null?'，全机器人原始力峰值 '+gate.maximum_raw_global_force_n.toFixed(2)+' N':''}，上限 ${gate.raw_force_limit_n} N。${gate.all_native_qualifications_passed?'主批量已获准入。':'尚未获主批量准入。'}`;
+    note.textContent=`历史手部预检与资格失败：针对全场景障碍物的 CPU 手部路径预检${gate.whole_scene_transit_screen_passed?'通过':'待通过'}${gate.minimum_transit_clearance_mm!==null?'，手部最小余量 '+gate.minimum_transit_clearance_mm.toFixed(2)+' mm':''}；当时未覆盖手臂连杆。局部面板指垫接触${gate.local_panel_contact_approved?'已确认':'待确认'}；原生资格 ${gate.native_passed}/${gate.native_required} 通过（已尝试 ${gate.native_attempts} 条）${gate.maximum_raw_global_force_n!==null?'，全机器人原始力峰值 '+gate.maximum_raw_global_force_n.toFixed(2)+' N':''}，上限 ${gate.raw_force_limit_n} N。${gate.all_native_qualifications_passed?'主批量已获准入。':'尚未获主批量准入。'}`;
     card.append(note);
    }
    if(task.evaluation_attempts){const note=document.createElement('p');note.textContent=`公开观测 held-out 评测：${task.evaluation_successes}/${task.evaluation_attempts}成功，独立于专家采集和消融。`;card.append(note);}
