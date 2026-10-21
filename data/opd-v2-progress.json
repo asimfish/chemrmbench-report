@@ -1,14 +1,23 @@
 {
   "schema": "chemopd_g9_public_progress_v1",
-  "generated_utc": "2026-10-21T20:22:40.059645+00:00",
+  "generated_utc": "2026-10-21T21:31:19.882402+00:00",
   "dated_snapshot": true,
+  "milestones": {
+    "available_refits_closed": false,
+    "first_audited_v2_bank": true,
+    "full_v1_90_points": false,
+    "full_v2_90_banks": false
+  },
   "v2": {
     "planned_models": 45,
-    "trained_cpu_checked_models": 3,
+    "trained_cpu_checked_models": 25,
     "failed_models": 0,
     "active_training_models": 3,
-    "closed_native_banks": 0,
-    "nominal_executions": 0,
+    "closed_native_banks": 1,
+    "nominal_executions": 50,
+    "pending_repair_models": [
+      "M4_without_semantic_filter_budget56000_seed20261031"
+    ],
     "planned_nominal_executions": 4500,
     "unique_task_source_instances": 100,
     "teacher_queries_added_by_refits": 0,
@@ -64,8 +73,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 28000,
-        "status": "TRAINING",
-        "training_updates": 16900,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -77,8 +86,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 28000,
-        "status": "TRAINING",
-        "training_updates": 16900,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -90,8 +99,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 28000,
-        "status": "TRAINING",
-        "training_updates": 17000,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -103,8 +112,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 28000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -116,8 +125,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 28000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -129,8 +138,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 28000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -142,8 +151,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -155,8 +164,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -168,8 +177,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -181,8 +190,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -194,8 +203,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -207,8 +216,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -220,8 +229,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -233,8 +242,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -246,8 +255,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 42000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -259,8 +268,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -272,8 +281,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -285,8 +294,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -298,10 +307,34 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
-          "N03": null,
+          "N03": {
+            "task_successes": 0,
+            "primary_success_rate": 0.0,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ],
+            "wilson95_lower": 6.938893903907228e-18,
+            "wilson95_upper": 0.07134759913335872,
+            "grasp_ever_count": 26,
+            "lift_ever_count": 26,
+            "transport_ever_count": 26,
+            "place_ever_count": 0,
+            "release_ever_count": 0,
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 102,
+            "aux_motion_clean_episode_count": 35,
+            "aux_motion_qualified_task_successes": 0,
+            "safety_qualified_successes": 0,
+            "successes": 0,
+            "denominator": 50,
+            "measurement_status": "CLOSED_RAW_AUDIT_PASS"
+          },
           "N12": null
         }
       },
@@ -311,8 +344,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -324,8 +357,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -337,8 +370,8 @@
         "variant": "standard",
         "seed": 20261031,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -350,8 +383,8 @@
         "variant": "standard",
         "seed": 20261032,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINING",
+        "training_updates": 38800,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -363,8 +396,8 @@
         "variant": "standard",
         "seed": 20261033,
         "budget_per_task": 56000,
-        "status": "PLANNED",
-        "training_updates": 0,
+        "status": "TRAINING",
+        "training_updates": 35200,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -376,7 +409,7 @@
         "variant": "without_semantic_filter",
         "seed": 20261031,
         "budget_per_task": 28000,
-        "status": "PLANNED",
+        "status": "PREPARING",
         "training_updates": 0,
         "nominal_results": {
           "N03": null,
@@ -605,7 +638,40 @@
         }
       }
     ],
-    "measured_outcomes": []
+    "measured_outcomes": [
+      {
+        "identity": "M3_standard_budget56000_seed20261031",
+        "task": "N03",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget": 56000,
+        "task_successes": 0,
+        "primary_success_rate": 0.0,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "wilson95_lower": 6.938893903907228e-18,
+        "wilson95_upper": 0.07134759913335872,
+        "grasp_ever_count": 26,
+        "lift_ever_count": 26,
+        "transport_ever_count": 26,
+        "place_ever_count": 0,
+        "release_ever_count": 0,
+        "command_velocity_exceedances": 0,
+        "command_acceleration_exceedances": 0,
+        "actual_velocity_exceedances": 0,
+        "actual_acceleration_exceedances": 102,
+        "aux_motion_clean_episode_count": 35,
+        "aux_motion_qualified_task_successes": 0,
+        "safety_qualified_successes": 0,
+        "successes": 0,
+        "denominator": 50,
+        "measurement_status": "CLOSED_RAW_AUDIT_PASS"
+      }
+    ],
+    "full90_closed_audited": false
   },
   "gate": {
     "n03_successes_required": 10,
@@ -615,8 +681,10 @@
   },
   "v1": {
     "matched28k_executions": 1500,
-    "closed42k_banks": 18,
-    "closed42k_executions": 900,
+    "closed42k_banks": 30,
+    "closed42k_executions": 1500,
+    "full90_closed_audited": false,
+    "closed_three_budget_points": null,
     "original_interrupted_paid": {
       "N03": 5200,
       "N12": 5392
@@ -642,5 +710,6 @@
     "status": "WAITING_LABEL_ACQUISITION_DECISION",
     "native_training_labels_authorized": false,
     "reason": "Strict DART requires clean expert labels at new perturbed expert-visited states; existing labels alone do not supply them"
-  }
+  },
+  "downloads": []
 }
