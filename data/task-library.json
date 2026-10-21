@@ -740,6 +740,35 @@
     "interval": "95% Wilson",
     "cohort_note": "Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons. Host primary-local means the local evaluation runtime; missing legacy per-episode host labels remain explicit."
   },
+  "formal_training": [
+    {
+      "task_id": "pick_place",
+      "phase": "waiting_gpu_lease",
+      "attempts": 100,
+      "successful_public_demonstrations": 92,
+      "single_GPU_hour_cap": 6.0,
+      "execution_host_alias": "remote-training",
+      "native_evaluation_complete": false
+    },
+    {
+      "task_id": "open_cabinet",
+      "phase": "not_submitted",
+      "attempts": null,
+      "successful_public_demonstrations": null,
+      "single_GPU_hour_cap": null,
+      "execution_host_alias": null,
+      "native_evaluation_complete": false
+    },
+    {
+      "task_id": "endpoint_stop",
+      "phase": "not_submitted",
+      "attempts": null,
+      "successful_public_demonstrations": null,
+      "single_GPU_hour_cap": null,
+      "execution_host_alias": null,
+      "native_evaluation_complete": false
+    }
+  ],
   "evaluation_protocol": {
     "seeds_per_task": 50,
     "seed_range": [
@@ -1035,10 +1064,10 @@
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 32,
+        "closed_attempts": 33,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 32
+          "success": 33
         },
         "batch_recording_accepted": false,
         "mirrored_closed_attempts": 32,
@@ -1081,7 +1110,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T22:05:58.272227+00:00",
+  "updated_at_utc": "2026-10-21T22:07:29.796222+00:00",
   "tasks": [
     {
       "number": "T2",

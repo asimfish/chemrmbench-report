@@ -7,6 +7,7 @@ import re
 
 ROOT=Path('/mnt/nas/data/lyf/chem_mem/paperA-experiments/chemrmbench_v0_1_20261019')
 SSD=Path.home()/'.local/share/chemrm-collections/guidance7'
+PRIVATE_RUNTIME=Path.home()/'.local/share/chemrm-runtime'
 CATALOG=[
  ('T2','bottle_balance','瓶子 → 天平 → 返回','M0 / T0 · 八阶段长任务'),
  ('T1','pick_place','烧杯抓取与放置','M0 / T0 · 基础物理对照'),
@@ -235,6 +236,37 @@ def ssd_projection():
         'T7_case1003_original_receipt_pending':1003 not in retained.get('closed_seeds',[])}
 
 
+def formal_training_projection():
+    result=[]
+    for task in ('pick_place','open_cabinet','endpoint_stop'):
+        intent=read(PRIVATE_RUNTIME/f'GUIDANCE13_TRAINING_INTENT_{task}.json',{})
+        live=read(PRIVATE_RUNTIME/f'GUIDANCE13_TRAINING_STATUS_{task}.json',{})
+        returned=read(ROOT/'formal_baselines'/(task+'_formal100_r1')/'RETURN_VALIDATION.json',{})
+        evaluation=read(PRIVATE_RUNTIME/f'GUIDANCE14_DP_EVALUATION_{task}.json',{})
+        evaluated=(evaluation.get('state')=='closed' and evaluation.get('attempts')==50
+            and evaluation.get('acceptance_passed') is True)
+        receipt=live.get('run_receipt') or {}
+        phase='not_submitted'
+        if intent:
+            phase='unknown' if str(intent.get('state','')).startswith('UNKNOWN') else 'waiting_gpu_lease'
+            if live.get('run_started') is not None:phase='starting_or_training'
+            if receipt.get('status')=='checkpoint_written':phase='checkpoint_pending_transfer'
+            elif live.get('process_exit') is not None:phase='training_error'
+            if returned.get('NAS_size_validation_passed') is True:
+                phase='checkpoint_returned' if returned.get('ready_for_local_evaluation') is True else 'training_error'
+            if evaluated:phase='native_evaluation_complete'
+            elif evaluation.get('state')=='stopped_prefix_requires_review':phase='evaluation_stopped_prefix'
+        preflight=intent.get('preflight',{})
+        counts={k:preflight.get(k) for k in ('attempts','successful_public_demonstrations')}
+        cap=intent.get('max_GPU_hours',intent.get('reserved_GPU_hours'))
+        result.append({'task_id':task,'phase':phase,
+            **{k:v if type(v) is int and 0<=v<=100 else None for k,v in counts.items()},
+            'single_GPU_hour_cap':cap if type(cap) in {int,float} and 0<cap<=6 else None,
+            'execution_host_alias':'remote-training' if intent else None,
+            'native_evaluation_complete':evaluated})
+    return result
+
+
 def release_projection():
     """Fixed public schema; never forward source maps or arbitrary report text."""
     active={row[1] for row in CATALOG}-{'timed_stirring'}
@@ -404,6 +436,7 @@ def collect_task_library():
         if task['id']=='timed_stirring':
             task.update(status='deferred',revision_note='T6推迟：两轮资格测试都是段边界跟踪失败，失败记录和视频全部保留；不阻塞七任务v0.1。')
     return {'schema_version':'chemrmbench-task-library-0.1','release':release_projection(),
+            'formal_training':formal_training_projection(),
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
             'training_expansion':training_expansion_projection(),'current_t6':current_t6_projection(),
             'ssd_staging':ssd_projection(),
