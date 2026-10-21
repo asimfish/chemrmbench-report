@@ -40,6 +40,18 @@ class RuntimeProjection(unittest.TestCase):
         self.assertEqual(projection['native_tracking_stops'],1)
         self.assertEqual(projection['maximum_start_tracking_error_mm'],1.383)
         self.assertNotIn('needle_token',json.dumps(projection))
+    def test_guidance9_queued_control_round_does_not_reuse_prior_native_pass_or_error(self):
+        prior=self.root/'guidance8_t6';prior.mkdir()
+        (prior/'qualification_report.json').write_text(json.dumps({'guidance':8,'attempts':[
+            {'passed':False,'error':'T6_PATH_TRACKING_BUDGET:private needle_token'}]}))
+        latest=self.root/'ssd/guidance9_t6/round1';latest.mkdir(parents=True)
+        (latest/'progress.json').write_text(json.dumps({'phase':'waiting_for_existing_GPU_queue','directory':'needle_token'}))
+        value=module.current_t6_projection()
+        self.assertEqual(value['guidance'],9);self.assertEqual(value['native_attempts'],0)
+        self.assertEqual(value['native_tracking_stops'],0);self.assertEqual(value['prior_tracking_stops'],1)
+        self.assertEqual(value['boundary_convergence_mm'],.5)
+        self.assertFalse(value['native_all_passed']);self.assertNotIn('needle_token',json.dumps(value))
+
     def test_legacy_gpu_error_rejects_success_without_exporting_private_log(self):
         root=self.collection('old',['success'],warning=True)
         data=module.collect_task_library();task=next(t for t in data['tasks'] if t['id']=='pour')

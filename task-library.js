@@ -22,6 +22,7 @@ async function refreshStats(){
    const r=data.current_t6;$('t6CurrentProgress').textContent=`指导${r.guidance ?? 7} 全臂修复：${r.moving_colliders} 个机器人碰撞体，CPU 连续路径资格 ${r.cpu_passed?'3/3通过':'进行中'}${r.minimum_clearance_mm!==null?'，最小运动界后余量 '+r.minimum_clearance_mm.toFixed(2)+' mm（含1mm跟踪余量）':''}。搅拌器保持原位；原生资格 ${r.native_passed}/${r.native_required} 通过，已尝试 ${r.native_attempts} 条，原始力上限仍为 ${r.raw_force_limit_n} N。${r.native_all_passed?'已满足主批量前置资格。':'尚未满足主批量前置资格。'}`;
    if(r.native_startup_errors)$('t6CurrentProgress').textContent+=`${r.native_startup_errors} 条在首个任务动作前报错，不能计为物理安全通过。`;
    if(r.native_tracking_stops)$('t6CurrentProgress').textContent+=`执行动作后触发路径跟踪保护：${r.maximum_start_tracking_error_mm.toFixed(3)} mm 超过 ${r.tracking_allowance_mm} mm 预算，后续资格与主批量已停止。`;
+   if(r.guidance===9)$('t6CurrentProgress').textContent+=`当前为控制修复第 ${r.control_iteration}/${r.maximum_control_iterations} 轮：自由段末收敛到规划关节构型，全臂误差 ≤${r.boundary_convergence_mm} mm，额外超时 ${r.boundary_timeout_s} s；接触后使用实测构型检查连接段。${r.control_phase==='waiting_for_existing_GPU_queue'?'等待现有采集队列释放 GPU。':''}${r.prior_tracking_stops?'上一版跟踪停止记录仍然保留。':''}`;
   }
   if(pilot && $('pipelineNotice')){
    $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，训练累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;

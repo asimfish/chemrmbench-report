@@ -93,10 +93,10 @@
       {
         "task_id": "endpoint_stop",
         "clock_mode": "paused",
-        "attempts": 20,
-        "successes": 20,
+        "attempts": 21,
+        "successes": 21,
         "status_counts": {
-          "success": 20
+          "success": 21
         },
         "task_revision": null,
         "superseded": false,
@@ -136,9 +136,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 33,
+    "received_and_validated_attempts": 35,
     "target_new_attempts": 400,
-    "admitted_successes": 30,
+    "admitted_successes": 32,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -156,24 +156,30 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 30
+        "attempts": 32
       }
     ]
   },
   "current_t6": {
-    "guidance": 8,
+    "guidance": 9,
+    "control_iteration": 1,
+    "maximum_control_iterations": 2,
+    "control_phase": "waiting_for_existing_GPU_queue",
+    "boundary_convergence_mm": 0.5,
+    "boundary_timeout_s": 1.0,
+    "prior_tracking_stops": 1,
     "cpu_passed": true,
     "cpu_attempts": 3,
     "moving_colliders": 17,
     "minimum_clearance_mm": 11.003797312165515,
-    "native_attempts": 1,
+    "native_attempts": 0,
     "native_passed": 0,
     "native_required": 3,
     "native_all_passed": false,
     "native_startup_errors": 0,
-    "native_tracking_stops": 1,
+    "native_tracking_stops": 0,
     "tracking_allowance_mm": 1.0,
-    "maximum_start_tracking_error_mm": 1.383,
+    "maximum_start_tracking_error_mm": null,
     "fixture_moved": false,
     "raw_force_limit_n": 25
   },
@@ -190,15 +196,17 @@
         },
         "batch_recording_accepted": true,
         "mirrored_closed_attempts": 20,
-        "NAS_mirror_pending": true
+        "NAS_mirror_pending": false
       },
       {
         "label": "T4-v2 ablation",
-        "closed_attempts": 0,
+        "closed_attempts": 1,
         "expected_attempts": 10,
-        "measured_status_counts": {},
+        "measured_status_counts": {
+          "fail": 1
+        },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 0,
+        "mirrored_closed_attempts": 1,
         "NAS_mirror_pending": true
       },
       {
@@ -220,11 +228,11 @@
           "success": 6
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 5,
+        "mirrored_closed_attempts": 6,
         "NAS_mirror_pending": true
       },
       {
-        "label": "T6 qualification retry",
+        "label": "T6 prior qualification",
         "closed_attempts": 1,
         "expected_attempts": 1,
         "measured_status_counts": {
@@ -238,7 +246,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T16:42:00.310635+00:00",
+  "updated_at_utc": "2026-10-21T16:50:32.024000+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1379,10 +1387,14 @@
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
-      "ablation_attempts": 0,
+      "ablation_attempts": 1,
       "ablation_successes": 0,
-      "ablation_status_counts": {},
-      "ablation_expert_kinds": [],
+      "ablation_status_counts": {
+        "fail": 1
+      },
+      "ablation_expert_kinds": [
+        "ablation_no_timing"
+      ],
       "ablation_target_attempts": 10,
       "rendering_note": null,
       "initial_posture_note": "initial_posture: prepress_ready_3mm。从3mm就绪姿态考定时响应，接近与对准由T1/T2/T5覆盖；旧10条校准保留。",
@@ -1981,8 +1993,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 20,
-      "evaluation_successes": 20,
+      "evaluation_attempts": 21,
+      "evaluation_successes": 21,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {

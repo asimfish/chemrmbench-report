@@ -144,9 +144,23 @@ def current_t6_projection():
     cpu=read(ROOT/'guidance7_t6_joint_path_preflight_cached/preflight.json',{})
     native=read(ROOT/'guidance8_t6/qualification_report.json',None)
     if native is None:native=read(ROOT/'T6_GUIDANCE7_QUALIFICATION_REPORT.json',{})
+    previous=native;control=None
+    for iteration in (2,1):
+        name=f'guidance9_t6/round{iteration}'
+        progress=read(SSD/name/'progress.json',{})
+        latest=read(ROOT/name/'qualification_report.json',read(SSD/name/'qualification_report.json',{}))
+        if latest or progress:
+            native=latest;control={'iteration':iteration,'phase':progress.get('phase')};break
     attempts=native.get('attempts',[])
     tracking=[a for a in attempts if 'T6_PATH_TRACKING_BUDGET:' in (a.get('error') or '')]
-    return {'guidance':8 if native.get('guidance')==8 else 7,
+    safe_phases={'waiting_for_existing_GPU_queue','qualification_running','qualification_failed_control_review',
+        'STOP_LOSS_TWO_ROUNDS_USED','running_main','running_ablation_no_timing','T6_COMPLETE','cohort_review_required'}
+    return {'guidance':9 if control else 8 if native.get('guidance')==8 else 7,
+        'control_iteration':control['iteration'] if control else None,'maximum_control_iterations':2 if control else None,
+        'control_phase':control['phase'] if control and control['phase'] in safe_phases else None,
+        'boundary_convergence_mm':.5 if control else None,'boundary_timeout_s':1. if control else None,
+        'prior_tracking_stops':sum('T6_PATH_TRACKING_BUDGET:' in (a.get('error') or '')
+            for a in previous.get('attempts',[])) if control else 0,
         'cpu_passed':cpu.get('passed') is True,'cpu_attempts':len(cpu.get('results',[])),
         'moving_colliders':17,'minimum_clearance_mm':min((r['minimum_lower_bound_m']*1000
             for r in cpu.get('results',[]) if r.get('passed')),default=None),
@@ -181,7 +195,10 @@ def ssd_projection():
         ('step6_native_t7_paused_ssd','T7 public suffix'),('step6_native_t8_paused_ssd','T8 public'),
         ('step6_native_t3_paused_ssd','T3 public'),
         ('step6_native_t7_guidance8_remaining','T7 remaining public cases'),
-        ('guidance8_t6/qualification_seed5000','T6 qualification retry')]:
+        ('guidance8_t6/qualification_seed5000','T6 prior qualification'),
+        *[(f'guidance9_t6/round{iteration}/{name}',f'T6 control round {iteration}: {name}')
+            for iteration in (1,2) for name in ['qualification_seed5000','qualification_seed5001',
+                'qualification_seed5002','main_twenty','ablation_ten']]]:
         config=read(SSD/name/'collection.json',{})
         if config.get('backend')!='isaac':continue
         rows=[];p=SSD/name/'manifest.jsonl'
