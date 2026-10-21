@@ -74,7 +74,7 @@ def evaluation_projection():
                 fixed=ROOT/'step6_native_t7_paused_fixed50'
                 roots=[fixed] if (fixed/'manifest.jsonl').exists() else [
                     ROOT/'t7_public_retained_1000_1002',ROOT/'t7_public_retained_1003',
-                    ROOT/'step6_native_t7_paused_ssd']
+                    ROOT/'step6_native_t7_paused_ssd',ROOT/'step6_native_t7_guidance8_remaining']
             else:roots.append(ROOT/('step6_native_'+label+'_'+mode+'_ssd'))
             for root in roots:
                 config=read(root/'collection.json',{});path=root/'manifest.jsonl'
@@ -142,14 +142,20 @@ def t6_qualification_projection():
 
 def current_t6_projection():
     cpu=read(ROOT/'guidance7_t6_joint_path_preflight_cached/preflight.json',{})
-    native=read(ROOT/'T6_GUIDANCE7_QUALIFICATION_REPORT.json',{})
+    native=read(ROOT/'guidance8_t6/qualification_report.json',None)
+    if native is None:native=read(ROOT/'T6_GUIDANCE7_QUALIFICATION_REPORT.json',{})
     attempts=native.get('attempts',[])
-    return {'cpu_passed':cpu.get('passed') is True,'cpu_attempts':len(cpu.get('results',[])),
+    tracking=[a for a in attempts if 'T6_PATH_TRACKING_BUDGET:' in (a.get('error') or '')]
+    return {'guidance':8 if native.get('guidance')==8 else 7,
+        'cpu_passed':cpu.get('passed') is True,'cpu_attempts':len(cpu.get('results',[])),
         'moving_colliders':17,'minimum_clearance_mm':min((r['minimum_lower_bound_m']*1000
             for r in cpu.get('results',[]) if r.get('passed')),default=None),
         'native_attempts':len(attempts),'native_passed':sum(a.get('passed') is True for a in attempts),
         'native_required':3,'native_all_passed':native.get('passed') is True,
         'native_startup_errors':sum(a.get('status')=='error' and a.get('task_actions_executed')==0 for a in attempts),
+        'native_tracking_stops':len(tracking),'tracking_allowance_mm':1.0,
+        'maximum_start_tracking_error_mm':max((float(m.group(1))*1000 for a in tracking
+            if (m:=re.search(r'start_geometry_error_m=([0-9.]+)',a.get('error','')))),default=None),
         'fixture_moved':False,'raw_force_limit_n':25}
 
 
@@ -173,7 +179,9 @@ def ssd_projection():
     for name,label in [('t4_v2_twenty_seed','T4-v2 main'),('t4_v2_ablation_ten_seed','T4-v2 ablation'),
         ('step6_native_t4_v2_paused_ssd','T4-v2 public'),
         ('step6_native_t7_paused_ssd','T7 public suffix'),('step6_native_t8_paused_ssd','T8 public'),
-        ('step6_native_t3_paused_ssd','T3 public')]:
+        ('step6_native_t3_paused_ssd','T3 public'),
+        ('step6_native_t7_guidance8_remaining','T7 remaining public cases'),
+        ('guidance8_t6/qualification_seed5000','T6 qualification retry')]:
         config=read(SSD/name/'collection.json',{})
         if config.get('backend')!='isaac':continue
         rows=[];p=SSD/name/'manifest.jsonl'

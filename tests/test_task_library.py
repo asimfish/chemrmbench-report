@@ -29,6 +29,17 @@ class RuntimeProjection(unittest.TestCase):
         (root/'manifest.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows))
         return root
     def task(self):return next(r for r in module.collect_task_library()['tasks'] if r['id']=='pour')
+    def test_latest_t6_tracking_stop_is_distinct_from_startup_error_and_private_text(self):
+        folder=self.root/'guidance8_t6';folder.mkdir()
+        (folder/'qualification_report.json').write_text(json.dumps({'guidance':8,'passed':False,'attempts':[
+            {'status':'error','task_actions_executed':1938,'passed':False,
+             'error':'T6_PATH_TRACKING_BUDGET:pregrasp_refine:start_geometry_error_m=0.001383 needle_token'}]}))
+        projection=module.current_t6_projection()
+        self.assertEqual(projection['guidance'],8)
+        self.assertEqual(projection['native_startup_errors'],0)
+        self.assertEqual(projection['native_tracking_stops'],1)
+        self.assertEqual(projection['maximum_start_tracking_error_mm'],1.383)
+        self.assertNotIn('needle_token',json.dumps(projection))
     def test_legacy_gpu_error_rejects_success_without_exporting_private_log(self):
         root=self.collection('old',['success'],warning=True)
         data=module.collect_task_library();task=next(t for t in data['tasks'] if t['id']=='pour')
