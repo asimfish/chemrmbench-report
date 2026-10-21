@@ -99,6 +99,18 @@
         "task_revision": "T4-v1",
         "superseded": true,
         "recording_accepted": false
+      },
+      {
+        "task_id": "endpoint_stop",
+        "clock_mode": "paused",
+        "attempts": 2,
+        "successes": 2,
+        "status_counts": {
+          "success": 2
+        },
+        "task_revision": null,
+        "superseded": false,
+        "recording_accepted": false
       }
     ],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; learned model results remain separate; T1 pipeline pilot is not a baseline."
@@ -110,15 +122,15 @@
     "training_updates": 1733,
     "training_gpu_hours": 0.24548198077258548,
     "cpu_public_inference_passed": true,
-    "native_action_attempts": 9,
+    "native_action_attempts": 10,
     "native_action_required": 10,
     "native_action_status_counts": {
       "error": 1,
-      "fail": 8
+      "fail": 9
     },
     "pipeline_complete": false
   },
-  "updated_at_utc": "2026-10-21T13:18:27.609097+00:00",
+  "updated_at_utc": "2026-10-21T13:33:31.087695+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -697,7 +709,7 @@
         "error": 1
       },
       "verified_dataset_attempts": 20,
-      "qualification_attempts": 12,
+      "qualification_attempts": 13,
       "qualification_safe_successes": 3,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
@@ -1353,8 +1365,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 0,
-      "evaluation_successes": 0,
+      "evaluation_attempts": 2,
+      "evaluation_successes": 2,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
