@@ -137,9 +137,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 41,
+    "received_and_validated_attempts": 42,
     "target_new_attempts": 400,
-    "admitted_successes": 37,
+    "admitted_successes": 38,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -157,7 +157,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 37
+        "attempts": 38
       }
     ]
   },
@@ -165,7 +165,7 @@
     "guidance": 9,
     "control_iteration": 1,
     "maximum_control_iterations": 2,
-    "control_phase": "waiting_for_existing_GPU_queue",
+    "control_phase": "qualification_running",
     "boundary_convergence_mm": 0.5,
     "boundary_timeout_s": 1.0,
     "prior_tracking_stops": 1,
@@ -201,15 +201,15 @@
       },
       {
         "label": "T4-v2 ablation",
-        "closed_attempts": 8,
+        "closed_attempts": 10,
         "expected_attempts": 10,
         "measured_status_counts": {
-          "fail": 4,
+          "fail": 6,
           "success": 4
         },
-        "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 8,
-        "NAS_mirror_pending": true
+        "batch_recording_accepted": true,
+        "mirrored_closed_attempts": 10,
+        "NAS_mirror_pending": false
       },
       {
         "label": "T7 public suffix",
@@ -244,12 +244,21 @@
         "batch_recording_accepted": true,
         "mirrored_closed_attempts": 1,
         "NAS_mirror_pending": false
+      },
+      {
+        "label": "T6 control round 1: qualification_seed5000",
+        "closed_attempts": 0,
+        "expected_attempts": 1,
+        "measured_status_counts": {},
+        "batch_recording_accepted": false,
+        "mirrored_closed_attempts": 0,
+        "NAS_mirror_pending": true
       }
     ],
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T17:36:20.282588+00:00",
+  "updated_at_utc": "2026-10-21T17:46:30.263906+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1390,10 +1399,10 @@
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
-      "ablation_attempts": 8,
+      "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
-        "fail": 4,
+        "fail": 6,
         "success": 4
       },
       "ablation_expert_kinds": [
