@@ -80,6 +80,8 @@ def evaluation_projection():
             native.append({'task_id':task,'clock_mode':mode,'attempts':len(rows),
                 'successes':sum(r['status']=='success' for r in rows),
                 'status_counts':dict(Counter(r['status'] for r in rows)),
+                'task_revision':'T4-v1' if task=='press' else None,
+                'superseded':task=='press',
                 'recording_accepted':read(root/'dataset_acceptance.json',{}).get('acceptance_passed') is True})
     return {'seeds_per_task':50,'seed_range':[1000,1049],
         'clock_modes':['paused','latency_charged'],'f0_cpu_contracts':cpu,'native_public_observation':native,
@@ -132,6 +134,7 @@ def collect_task_library():
                 config.get('collection_status') not in {'stopped_after_current_episodes','interrupted_recovered'} and
                 len(rows)<len(config.get('tasks',[]))*config.get('episodes_per_task',0)):
             active.update(set(config.get('tasks',[]))&ids)
+            if config.get('task_revisions',{}).get('press')!='T4-v2':active.discard('press')
         for row in rows:
             if row.get('task_id') not in ids or row.get('variant')=='replay_zero':continue
             episode=Path(row['directory']);verdict=read(episode/'verdict.json',{})
@@ -145,6 +148,8 @@ def collect_task_library():
             supported=particle_runtime_supported(row,episode)
             rejected=row['task_id']=='pour' and supported is not True
             records[row['task_id']].append({
+                'superseded':row['task_id']=='press' and metadata.get('definition',{}).get('task_revision')!='T4-v2',
+                'primary_legacy_press':path.parent.name=='t4_twenty_seed_r2',
                 'seed':row['seed'],'variant':row.get('variant'),
                 'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration' and expert_kind=='main' and not evaluation and purpose!='expert_qualification',
                 'evaluation':evaluation,
@@ -172,7 +177,10 @@ def collect_task_library():
             })
     tasks=[]
     for number,task_id,title,dimension in CATALOG:
-        all_rows=records[task_id];rows=[r for r in all_rows if r['dataset']]
+        historical=records[task_id]
+        superseded=[r for r in historical if r.get('superseded')]
+        all_rows=[r for r in historical if not r.get('superseded')]
+        rows=[r for r in all_rows if r['dataset']]
         calibration=[r for r in all_rows if r['calibration']]
         ablations=[r for r in all_rows if r['ablation']]
         evaluation=[r for r in all_rows if r['evaluation']]
@@ -191,6 +199,13 @@ def collect_task_library():
         tasks.append({'number':number,'id':task_id,'title':title,'dimension':dimension,
             'status':state,'dataset_attempts':n,'dataset_unique_seeds':unique,'target_unique_seeds':20,
             'primary_cohort':primary,
+            'task_revision':'T4-v2' if task_id=='press' else None,
+            'revision_note':'T4-v2：提示均匀分布于2–17秒，响应窗口3秒；任意固定时刻策略成功率上界3/15=20%。T4-v1设计不合格（固定策略约75%可过），已停用，旧录像和数据保留。' if task_id=='press' else None,
+            'superseded_history':{'revision':'T4-v1','main_attempts':sum(r['primary_legacy_press'] for r in superseded),
+                'main_successes':sum(r['primary_legacy_press'] and r['status']=='success' for r in superseded),
+                'ablation_attempts':sum(r['ablation'] for r in superseded),
+                'ablation_successes':sum(r['ablation'] and r['status']=='success' for r in superseded),
+                'evaluation_attempts':sum(r['evaluation'] for r in superseded)} if task_id=='press' else None,
             'qualification_gate':t6_qualification_projection() if task_id=='timed_stirring' else None,
             'runtime_rejections':sum(r['runtime_rejected'] for r in all_rows),
             'successes':successes,'success_rate':successes/n if n else None,

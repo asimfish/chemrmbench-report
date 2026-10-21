@@ -25,7 +25,7 @@ async function refreshStats(){
     const count=key=>task[key]?`${task[key].successes}/${task[key].attempts}`:'待测';
     cpu.textContent=`CPU 示意合同：特权上界 ${count('privileged_expert')} · 固定响应下界 ${count('ablation')} · 公开观测规则 ${count('public_heuristic')}`;
     const native=document.createElement('p');const rows=protocol.native_public_observation.filter(r=>r.task_id===task.task_id);
-    native.textContent=rows.length?'原生公开观测：'+rows.map(r=>`${r.clock_mode} ${r.successes}/${r.attempts}，录像${r.recording_accepted?'已复核':'待复核'}`).join('；'):'原生公开观测：排在主批量与消融之后，尚未开始。';
+    native.textContent=rows.length?'原生公开观测：'+rows.map(r=>`${r.superseded?'T4-v1 已停用：':''}${r.clock_mode} ${r.successes}/${r.attempts}，录像${r.recording_accepted?'已复核':'待复核'}`).join('；'):'原生公开观测：排在主批量与消融之后，尚未开始。';
     card.append(title,cpu,native);return card;
    }));
   }
@@ -41,9 +41,10 @@ async function refreshStats(){
    const rate=document.createElement('p');rate.textContent=task.dataset_attempts?`验收成功 ${task.successes} / ${task.dataset_attempts}（${(task.success_rate*100).toFixed(1)}%） · 失败 ${task.status_counts.fail||0} · 报错 ${task.status_counts.error||0}`:'随机化成功率尚未测量';
    const evidence=document.createElement('p');evidence.textContent=`已复核随机化录像 ${task.verified_dataset_attempts} 条 · 资格检查 ${task.qualification_attempts} 次，验收成功 ${task.qualification_safe_successes} 次`+(task.calibration_attempts?` · 历史专家校准 ${task.calibration_attempts} 条（成功 ${task.calibration_status_counts.success||0} / 失败 ${task.calibration_status_counts.fail||0} / 报错 ${task.calibration_status_counts.error||0}）`:'')+(task.memory_gate_attempts?` · 像素门槛前缀 ${task.memory_gate_attempts} 条`:'')+(task.id==='delayed_cue_memory'?` · 提示后像素门槛 ${task.memory_layout_gates_passed||0}/3 布局`:'')+(task.render_diagnostic_attempts?` · 另有 ${task.render_diagnostic_attempts} 次短前缀渲染诊断`:'');
    card.append(top,title,dimension,progress,counts,rate,evidence);
-   for(const field of ['rendering_note','initial_posture_note','fixture_note','observation_note']){
+   for(const field of ['revision_note','rendering_note','initial_posture_note','fixture_note','observation_note']){
     if(task[field]){const note=document.createElement('p');note.textContent=task[field];card.append(note);}
    }
+   if(task.superseded_history){const h=task.superseded_history;const note=document.createElement('p');note.textContent=`已停用 T4-v1 历史记录：主批量 ${h.main_successes}/${h.main_attempts}，消融 ${h.ablation_successes}/${h.ablation_attempts}，公开观测评测 ${h.evaluation_attempts} 条；均不计入 v2 进度。`;card.append(note);}
    if(task.qualification_gate){
     const gate=task.qualification_gate;const note=document.createElement('p');
     note.textContent=`新版顶部抓取资格：针对全场景障碍物的 CPU 手部路径预检${gate.whole_scene_transit_screen_passed?'通过':'待通过'}${gate.minimum_transit_clearance_mm!==null?'，手部最小余量 '+gate.minimum_transit_clearance_mm.toFixed(2)+' mm':''}；尚未覆盖手臂连杆。局部面板指垫接触${gate.local_panel_contact_approved?'已确认':'待确认'}；原生资格 ${gate.native_passed}/${gate.native_required} 通过（已尝试 ${gate.native_attempts} 条）${gate.maximum_raw_global_force_n!==null?'，全机器人原始力峰值 '+gate.maximum_raw_global_force_n.toFixed(2)+' N':''}，上限 ${gate.raw_force_limit_n} N。${gate.all_native_qualifications_passed?'主批量已获准入。':'尚未获主批量准入。'}`;

@@ -95,6 +95,19 @@ class RuntimeProjection(unittest.TestCase):
         self.assertEqual(value['maximum_raw_global_force_n'],30.)
         self.assertNotIn('needle_token',json.dumps(value))
 
+    def test_superseded_press_cannot_count_towards_active_revision(self):
+        root=self.collection('t4_twenty_seed_r2',['success']*20)
+        config=json.loads((root/'collection.json').read_text());config['tasks']=['press']
+        (root/'collection.json').write_text(json.dumps(config))
+        rows=[json.loads(s) for s in (root/'manifest.jsonl').read_text().splitlines()]
+        for row in rows:row['task_id']='press'
+        (root/'manifest.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows))
+        task=next(t for t in module.collect_task_library()['tasks'] if t['id']=='press')
+        self.assertEqual(task['dataset_attempts'],0)
+        self.assertEqual(task['task_revision'],'T4-v2')
+        self.assertEqual(task['superseded_history']['main_successes'],20)
+        self.assertEqual(task['status'],'planned')
+
     def test_evaluation_projection_exports_counts_without_split_answers_or_paths(self):
         root=self.root/'step6_f0_paused';root.mkdir()
         (root/'metrics.json').write_text(json.dumps({'hidden_cue':'needle_token','policies':{
