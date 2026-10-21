@@ -1,23 +1,21 @@
 {
   "schema": "chemopd_g9_public_progress_v1",
-  "generated_utc": "2026-10-21T22:25:53.977040+00:00",
+  "generated_utc": "2026-10-21T23:04:05.705760+00:00",
   "dated_snapshot": true,
   "milestones": {
     "available_refits_closed": true,
     "first_audited_v2_bank": true,
-    "full_v1_90_points": false,
+    "full_v1_90_points": true,
     "full_v2_90_banks": false
   },
   "v2": {
     "planned_models": 45,
-    "trained_cpu_checked_models": 44,
+    "trained_cpu_checked_models": 45,
     "failed_models": 0,
     "active_training_models": 0,
     "closed_native_banks": 2,
     "nominal_executions": 100,
-    "pending_repair_models": [
-      "M4_without_semantic_filter_budget56000_seed20261031"
-    ],
+    "pending_repair_models": [],
     "planned_nominal_executions": 4500,
     "unique_task_source_instances": 100,
     "teacher_queries_added_by_refits": 0,
@@ -589,8 +587,8 @@
         "variant": "without_semantic_filter",
         "seed": 20261031,
         "budget_per_task": 56000,
-        "status": "WAITING_BUDGET_REPAIR",
-        "training_updates": 0,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
         "nominal_results": {
           "N03": null,
           "N12": null
@@ -738,8 +736,8 @@
     "matched28k_executions": 1500,
     "closed42k_banks": 30,
     "closed42k_executions": 1500,
-    "full90_closed_audited": false,
-    "closed_three_budget_points": null,
+    "full90_closed_audited": true,
+    "closed_three_budget_points": 90,
     "original_interrupted_paid": {
       "N03": 5200,
       "N12": 5392
@@ -766,5 +764,26 @@
     "native_training_labels_authorized": false,
     "reason": "Strict DART requires clean expert labels at new perturbed expert-visited states; existing labels alone do not supply them"
   },
-  "downloads": []
+  "downloads": [
+    {
+      "title": "V1 full90 CSV",
+      "url": "data/opd-g9-v1-label-efficiency.csv"
+    },
+    {
+      "title": "V1 main PNG",
+      "url": "assets/opd-g9-v1-label_efficiency_main.png"
+    },
+    {
+      "title": "V1 main PDF",
+      "url": "assets/opd-g9-v1-label_efficiency_main.pdf"
+    },
+    {
+      "title": "V1 ablations PNG",
+      "url": "assets/opd-g9-v1-label_efficiency_ablations.png"
+    },
+    {
+      "title": "V1 ablations PDF",
+      "url": "assets/opd-g9-v1-label_efficiency_ablations.pdf"
+    }
+  ]
 }
