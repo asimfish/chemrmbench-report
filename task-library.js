@@ -65,3 +65,20 @@ async function loadVideos(){
 }
 refreshStats();setInterval(refreshStats,60000);
 loadVideos().catch(()=>{$('videoScope').textContent='视频索引暂未加载，请刷新后重试。';});
+
+async function loadAssetAdmission(){
+ const response=await fetch('data/chemlab-assets.json');
+ if(!response.ok)throw Error('asset admission unavailable');
+ const data=await response.json();
+ $('assetStats').textContent=`${data.accepted} 个资产通过；共检查 ${data.attempts} 个，拒绝 ${data.status_counts.rejected||0}，报错 ${data.status_counts.error||0}。失败记录保留，未改变准入门槛。`;
+ const select=$('assetSelect');
+ for(const asset of data.assets){const option=document.createElement('option');option.value=asset.id;option.textContent=asset.id.replace('instrument.','')+' · '+asset.selected_joint;select.append(option);}
+ function choose(){
+  const asset=data.assets.find(a=>a.id===select.value)||data.assets[0];
+  if(!asset)return;
+  $('assetVideo').src=asset.video;$('assetVideo').poster=asset.thumbnail;
+  $('assetCaption').textContent=asset.id+' · 2秒静置 + 0.25秒关节推动 + 0.5秒释放；55帧完整解码，关节读回通过。资产工程检查，不是机器人任务成功率。';
+ }
+ select.onchange=choose;choose();
+}
+loadAssetAdmission().catch(()=>{$('assetStats').textContent='资产验收数据暂未加载，请稍后刷新。';});
