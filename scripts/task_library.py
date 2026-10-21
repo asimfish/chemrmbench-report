@@ -83,7 +83,23 @@ def evaluation_projection():
                 'recording_accepted':read(root/'dataset_acceptance.json',{}).get('acceptance_passed') is True})
     return {'seeds_per_task':50,'seed_range':[1000,1049],
         'clock_modes':['paused','latency_charged'],'f0_cpu_contracts':cpu,'native_public_observation':native,
-        'scope':'F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started.'}
+        'scope':'F0 schematic RGB/clock contracts are separate from native physical solvability; learned model results remain separate; T1 pipeline pilot is not a baseline.'}
+
+
+def pipeline_projection():
+    budget=read(ROOT/'TRAINING_BUDGET.json',{})
+    receipt=read(ROOT/'pilot20_r2_checkpoint/run_receipt.json',{})
+    cpu=read(ROOT/'pilot20_r2_checkpoint/CPU_INFERENCE_RECEIPT.json',{})
+    report=read(ROOT/'GUIDANCE6_ACTION_PILOT_REPORT.json',{})
+    attempts=budget.get('native_action_pilot_attempts',[])
+    return {'scope':'pipeline_validation_only','report_as_baseline':False,
+        'checkpoint_saved':receipt.get('status')=='checkpoint_written',
+        'training_updates':receipt.get('global_steps',0),
+        'training_gpu_hours':sum(j.get('actual_gpu_hours_upper_bound',j.get('receipt',{}).get('gpu_hours_upper_bound',0.)) for j in budget.get('jobs',[])),
+        'cpu_public_inference_passed':cpu.get('inference_passed') is True,
+        'native_action_attempts':len(attempts),'native_action_required':10,
+        'native_action_status_counts':dict(Counter(a['status'] for a in attempts)),
+        'pipeline_complete':report.get('pipeline_complete') is True}
 
 
 def collect_task_library():
@@ -105,6 +121,8 @@ def collect_task_library():
             episode=Path(row['directory']);verdict=read(episode/'verdict.json',{})
             metadata=read(episode/'task.json',{})
             purpose=row.get('collection_purpose',metadata.get('collection_purpose'))
+            if (row['task_id']=='timed_stirring' and path.parent.name=='t6_guidance4_smoke'):
+                purpose='expert_qualification'  # Guidance6: retained old expert, outside new main cohort
             expert_kind=row.get('expert_kind',metadata.get('expert_kind','main'))
             evaluation=purpose=='heldout_evaluation' or config.get('collection_kind')=='heldout_evaluation'
             metrics=verdict.get('metrics',{})
@@ -112,7 +130,7 @@ def collect_task_library():
             rejected=row['task_id']=='pour' and supported is not True
             records[row['task_id']].append({
                 'seed':row['seed'],'variant':row.get('variant'),
-                'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration' and expert_kind=='main' and not evaluation,
+                'dataset':row.get('variant')=='default' and config.get('collection_kind')!='expert_calibration' and expert_kind=='main' and not evaluation and purpose!='expert_qualification',
                 'evaluation':evaluation,
                 'expert_kind':expert_kind,'ablation':expert_kind in {'ablation_no_memory','ablation_no_timing'},
                 'calibration':config.get('collection_kind')=='expert_calibration',
@@ -183,7 +201,7 @@ def collect_task_library():
             'failure_reasons':dict(Counter(v for r in rows for v in r['failure_reasons'])),
             'trials':rows,'engineering_only':number in {'T3','T6','T7'}})
     return {'schema_version':'chemrmbench-task-library-0.1',
-            'evaluation_protocol':evaluation_projection(),
+            'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
             'updated_at_utc':datetime.now(timezone.utc).isoformat(),
             'tasks':tasks,'native_tasks_with_dataset':sum(t['dataset_attempts']>0 for t in tasks),
             'dataset_attempts':sum(t['dataset_attempts'] for t in tasks),

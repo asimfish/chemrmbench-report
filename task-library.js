@@ -11,6 +11,10 @@ async function refreshStats(){
   if(!data)throw Error('statistics unavailable');
   $('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
+  const pilot=data.pipeline_pilot;
+  if(pilot && $('pipelineNotice')){
+   $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，训练累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;
+  }
   const protocol=data.evaluation_protocol;
   if(protocol && $('evalCards')){
    const names=Object.fromEntries(data.tasks.map(t=>[t.id,t.number+' · '+t.title]));
