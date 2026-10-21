@@ -102,6 +102,21 @@ def pipeline_projection():
         'pipeline_complete':report.get('pipeline_complete') is True}
 
 
+def t6_qualification_projection():
+    approval=read(ROOT/'T6_LOCAL_PANEL_CONTACT_DECISION.json',{})
+    screen=read(ROOT/'t6_guidance6_approved_panel_preflight/preflight.json',{})
+    report=read(ROOT/'T6_GUIDANCE6_QUALIFICATION_REPORT.json',{})
+    attempts=report.get('attempts',[])
+    forces=[a['raw_global_robot_peak_n'] for a in attempts if a.get('raw_global_robot_peak_n') is not None]
+    return {'local_panel_contact_approved':approval.get('approved_by')=='explicit user reply',
+        'whole_scene_transit_screen_passed':screen.get('passed') is True,
+        'minimum_transit_clearance_mm':min((r['minimum_lower_bound_m']*1000
+            for r in screen.get('results',[]) if r.get('passed')),default=None),
+        'native_attempts':len(attempts),'native_passed':sum(a['passed'] for a in attempts),
+        'native_required':3,'all_native_qualifications_passed':report.get('passed') is True,
+        'maximum_raw_global_force_n':max(forces,default=None),'raw_force_limit_n':25}
+
+
 def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
@@ -175,6 +190,7 @@ def collect_task_library():
         tasks.append({'number':number,'id':task_id,'title':title,'dimension':dimension,
             'status':state,'dataset_attempts':n,'dataset_unique_seeds':unique,'target_unique_seeds':20,
             'primary_cohort':primary,
+            'qualification_gate':t6_qualification_projection() if task_id=='timed_stirring' else None,
             'runtime_rejections':sum(r['runtime_rejected'] for r in all_rows),
             'successes':successes,'success_rate':successes/n if n else None,
             'status_counts':dict(Counter(r['status'] for r in rows)),

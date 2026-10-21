@@ -44,6 +44,11 @@ async function refreshStats(){
    for(const field of ['rendering_note','initial_posture_note','fixture_note','observation_note']){
     if(task[field]){const note=document.createElement('p');note.textContent=task[field];card.append(note);}
    }
+   if(task.qualification_gate){
+    const gate=task.qualification_gate;const note=document.createElement('p');
+    note.textContent=`新版顶部抓取资格：全场景 CPU 路径预检${gate.whole_scene_transit_screen_passed?'通过':'待通过'}${gate.minimum_transit_clearance_mm!==null?'，最小余量 '+gate.minimum_transit_clearance_mm.toFixed(2)+' mm':''}。局部面板指垫接触${gate.local_panel_contact_approved?'已确认':'待确认'}；原生资格 ${gate.native_passed}/${gate.native_required} 通过（已尝试 ${gate.native_attempts} 条）${gate.maximum_raw_global_force_n!==null?'，全机器人原始力峰值 '+gate.maximum_raw_global_force_n.toFixed(2)+' N':''}，上限 ${gate.raw_force_limit_n} N。${gate.all_native_qualifications_passed?'主批量已获准入。':'尚未获主批量准入。'}`;
+    card.append(note);
+   }
    if(task.evaluation_attempts){const note=document.createElement('p');note.textContent=`公开观测 held-out 评测：${task.evaluation_successes}/${task.evaluation_attempts}成功，独立于专家采集和消融。`;card.append(note);}
    if(task.ablation_target_attempts){const ablation=document.createElement('p');ablation.textContent=task.ablation_attempts?`固定响应消融：已完成 ${task.ablation_attempts}/${task.ablation_target_attempts}，成功 ${task.ablation_successes}，失败 ${task.ablation_status_counts.fail||0}，报错 ${task.ablation_status_counts.error||0}（与主专家分开统计）。`:'固定响应消融：待采集 10 个匹配 seed。';card.append(ablation);}
    if(task.runtime_rejections){const runtime=document.createElement('p');runtime.textContent=`粒子运行时拒绝 ${task.runtime_rejections} 次；原始测量保留，未计为成功。`;card.append(runtime);}

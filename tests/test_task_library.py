@@ -82,6 +82,19 @@ class RuntimeProjection(unittest.TestCase):
         self.assertIn('不带温度探头',tasks['timed_stirring']['fixture_note'])
         self.assertIn('站位A',tasks['delayed_cue_memory']['observation_note'])
 
+    def test_t6_native_qualification_stays_separate_from_cpu_and_private_details(self):
+        (self.root/'T6_LOCAL_PANEL_CONTACT_DECISION.json').write_text(json.dumps({'approved_by':'explicit user reply','private_path':'needle_token'}))
+        directory=self.root/'t6_guidance6_approved_panel_preflight';directory.mkdir()
+        (directory/'preflight.json').write_text(json.dumps({'passed':True,'results':[{'passed':True,'minimum_lower_bound_m':.012}]}))
+        (self.root/'T6_GUIDANCE6_QUALIFICATION_REPORT.json').write_text(json.dumps({'passed':False,
+            'attempts':[{'passed':False,'raw_global_robot_peak_n':30.,'directory':'needle_token'}]}))
+        value=module.t6_qualification_projection()
+        self.assertTrue(value['whole_scene_transit_screen_passed'])
+        self.assertFalse(value['all_native_qualifications_passed'])
+        self.assertEqual(value['native_passed'],0)
+        self.assertEqual(value['maximum_raw_global_force_n'],30.)
+        self.assertNotIn('needle_token',json.dumps(value))
+
     def test_evaluation_projection_exports_counts_without_split_answers_or_paths(self):
         root=self.root/'step6_f0_paused';root.mkdir()
         (root/'metrics.json').write_text(json.dumps({'hidden_cue':'needle_token','policies':{
