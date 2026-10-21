@@ -380,8 +380,8 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 43,
-            "successes": 43,
+            "attempts": 45,
+            "successes": 45,
             "expected_attempts": 50,
             "complete": false,
             "verifier_protocols": [
@@ -389,23 +389,23 @@
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 43,
+              "recorded_host_attempts": 45,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.9179901967742088,
+              0.9213484012671117,
               1.0
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 43
+              "observed_count": 45
             },
             "response_latency_s": {
-              "mean": 2.3756782945738766,
-              "p95": 2.457083333333646,
-              "observed_count": 43
+              "mean": 2.3776851851854177,
+              "p95": 2.4558333333336715,
+              "observed_count": 45
             },
             "memory_accuracy": null
           },
@@ -680,8 +680,8 @@
             "memory_accuracy": 0.3
           },
           "public_heuristic": {
-            "attempts": 11,
-            "successes": 11,
+            "attempts": 12,
+            "successes": 12,
             "expected_attempts": 50,
             "complete": false,
             "verifier_protocols": [
@@ -689,12 +689,12 @@
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 11,
+              "recorded_host_attempts": 12,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.7411670330319684,
+              0.7575059933447592,
               1.0
             ],
             "time_error_s": {
@@ -868,10 +868,10 @@
       {
         "task_id": "delayed_cue_memory",
         "clock_mode": "paused",
-        "attempts": 11,
-        "successes": 11,
+        "attempts": 13,
+        "successes": 13,
         "status_counts": {
-          "success": 11
+          "success": 13
         },
         "task_revision": null,
         "superseded": false,
@@ -892,10 +892,10 @@
       {
         "task_id": "press",
         "clock_mode": "paused",
-        "attempts": 43,
-        "successes": 43,
+        "attempts": 45,
+        "successes": 45,
         "status_counts": {
-          "success": 43
+          "success": 45
         },
         "task_revision": "T4-v2",
         "superseded": false,
@@ -923,15 +923,15 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 87,
+    "received_and_validated_attempts": 88,
     "target_new_attempts": 400,
-    "admitted_successes": 80,
+    "admitted_successes": 81,
     "by_task_status": [
       {
         "task_id": "open_cabinet",
         "status": "success",
         "training_admitted": true,
-        "attempts": 7
+        "attempts": 8
       },
       {
         "task_id": "pick_place",
@@ -1036,13 +1036,13 @@
       },
       {
         "label": "T8 public",
-        "closed_attempts": 11,
+        "closed_attempts": 13,
         "expected_attempts": 50,
         "measured_status_counts": {
-          "success": 11
+          "success": 13
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 11,
+        "mirrored_closed_attempts": 13,
         "NAS_mirror_pending": true
       },
       {
@@ -1070,13 +1070,13 @@
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 38,
+        "closed_attempts": 40,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 38
+          "success": 40
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 38,
+        "mirrored_closed_attempts": 40,
         "NAS_mirror_pending": true
       },
       {
@@ -1116,7 +1116,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T22:41:10.553899+00:00",
+  "updated_at_utc": "2026-10-21T22:51:22.223402+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2257,8 +2257,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
-      "evaluation_attempts": 43,
-      "evaluation_successes": 43,
+      "evaluation_attempts": 45,
+      "evaluation_successes": 45,
       "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
@@ -3420,8 +3420,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 5,
       "qualification_safe_successes": 4,
-      "evaluation_attempts": 11,
-      "evaluation_successes": 11,
+      "evaluation_attempts": 13,
+      "evaluation_successes": 13,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
