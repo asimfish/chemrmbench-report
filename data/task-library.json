@@ -108,12 +108,14 @@
     "training_updates": 1733,
     "training_gpu_hours": 0.24548198077258548,
     "cpu_public_inference_passed": true,
-    "native_action_attempts": 0,
+    "native_action_attempts": 1,
     "native_action_required": 10,
-    "native_action_status_counts": {},
+    "native_action_status_counts": {
+      "error": 1
+    },
     "pipeline_complete": false
   },
-  "updated_at_utc": "2026-10-21T12:18:45.188193+00:00",
+  "updated_at_utc": "2026-10-21T12:33:26.102681+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -646,7 +648,7 @@
         "error": 1
       },
       "verified_dataset_attempts": 20,
-      "qualification_attempts": 3,
+      "qualification_attempts": 4,
       "qualification_safe_successes": 3,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
@@ -1894,7 +1896,7 @@
       "id": "timed_stirring",
       "title": "按钮启停搅拌",
       "dimension": "T-dur · 4 / 8 / 12 秒",
-      "status": "collecting",
+      "status": "needs_expert_fix",
       "dataset_attempts": 0,
       "dataset_unique_seeds": 0,
       "target_unique_seeds": 20,
@@ -1903,11 +1905,11 @@
         "local_panel_contact_approved": true,
         "whole_scene_transit_screen_passed": true,
         "minimum_transit_clearance_mm": 12.289458758636409,
-        "native_attempts": 0,
+        "native_attempts": 1,
         "native_passed": 0,
         "native_required": 3,
         "all_native_qualifications_passed": false,
-        "maximum_raw_global_force_n": null,
+        "maximum_raw_global_force_n": 579.7822639857466,
         "raw_force_limit_n": 25
       },
       "runtime_rejections": 0,
@@ -1915,7 +1917,7 @@
       "success_rate": null,
       "status_counts": {},
       "verified_dataset_attempts": 0,
-      "qualification_attempts": 5,
+      "qualification_attempts": 6,
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
@@ -2987,10 +2989,10 @@
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
-      "ablation_attempts": 3,
+      "ablation_attempts": 4,
       "ablation_successes": 1,
       "ablation_status_counts": {
-        "fail": 2,
+        "fail": 3,
         "success": 1
       },
       "ablation_expert_kinds": [
