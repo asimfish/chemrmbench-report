@@ -93,10 +93,10 @@
       {
         "task_id": "endpoint_stop",
         "clock_mode": "paused",
-        "attempts": 15,
-        "successes": 15,
+        "attempts": 17,
+        "successes": 17,
         "status_counts": {
-          "success": 15
+          "success": 17
         },
         "task_revision": null,
         "superseded": false,
@@ -136,9 +136,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 27,
+    "received_and_validated_attempts": 29,
     "target_new_attempts": 400,
-    "admitted_successes": 24,
+    "admitted_successes": 26,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -156,11 +156,12 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 24
+        "attempts": 26
       }
     ]
   },
   "current_t6": {
+    "guidance": 8,
     "cpu_passed": true,
     "cpu_attempts": 3,
     "moving_colliders": 17,
@@ -169,7 +170,10 @@
     "native_passed": 0,
     "native_required": 3,
     "native_all_passed": false,
-    "native_startup_errors": 1,
+    "native_startup_errors": 0,
+    "native_tracking_stops": 1,
+    "tracking_allowance_mm": 1.0,
+    "maximum_start_tracking_error_mm": 1.383,
     "fixture_moved": false,
     "raw_force_limit_n": 25
   },
@@ -178,13 +182,13 @@
     "cohorts": [
       {
         "label": "T4-v2 main",
-        "closed_attempts": 16,
+        "closed_attempts": 17,
         "expected_attempts": 20,
         "measured_status_counts": {
-          "success": 16
+          "success": 17
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 16,
+        "mirrored_closed_attempts": 17,
         "NAS_mirror_pending": true
       },
       {
@@ -197,12 +201,34 @@
         "batch_recording_accepted": false,
         "mirrored_closed_attempts": 11,
         "NAS_mirror_pending": true
+      },
+      {
+        "label": "T7 remaining public cases",
+        "closed_attempts": 2,
+        "expected_attempts": 35,
+        "measured_status_counts": {
+          "success": 2
+        },
+        "batch_recording_accepted": false,
+        "mirrored_closed_attempts": 2,
+        "NAS_mirror_pending": true
+      },
+      {
+        "label": "T6 qualification retry",
+        "closed_attempts": 1,
+        "expected_attempts": 1,
+        "measured_status_counts": {
+          "error": 1
+        },
+        "batch_recording_accepted": true,
+        "mirrored_closed_attempts": 1,
+        "NAS_mirror_pending": false
       }
     ],
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T15:57:44.032776+00:00",
+  "updated_at_utc": "2026-10-21T16:09:40.635080+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1316,8 +1342,8 @@
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
       "status": "collecting",
-      "dataset_attempts": 16,
-      "dataset_unique_seeds": 16,
+      "dataset_attempts": 17,
+      "dataset_unique_seeds": 17,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "task_revision": "T4-v2",
@@ -1332,12 +1358,12 @@
       },
       "qualification_gate": null,
       "runtime_rejections": 0,
-      "successes": 16,
+      "successes": 17,
       "success_rate": 1.0,
       "status_counts": {
-        "success": 16
+        "success": 17
       },
-      "verified_dataset_attempts": 16,
+      "verified_dataset_attempts": 17,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
@@ -1759,6 +1785,31 @@
           "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 16,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 425.32,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": true,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
         }
       ],
       "engineering_only": false
@@ -1840,8 +1891,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 15,
-      "evaluation_successes": 15,
+      "evaluation_attempts": 17,
+      "evaluation_successes": 17,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
@@ -4131,7 +4182,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 139,
+  "dataset_attempts": 140,
   "calibration_attempts": 0,
   "benchmark_complete": false,
   "conference_ready": false,
