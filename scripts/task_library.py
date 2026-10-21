@@ -240,8 +240,11 @@ def formal_training_projection():
     result=[]
     for task in ('pick_place','open_cabinet','endpoint_stop'):
         intent=read(PRIVATE_RUNTIME/f'GUIDANCE13_TRAINING_INTENT_{task}.json',{})
+        active=read(PRIVATE_RUNTIME/f'GUIDANCE14_ACTIVE_TRAINING_{task}.json',{})
+        if active:intent=active
         live=read(PRIVATE_RUNTIME/f'GUIDANCE13_TRAINING_STATUS_{task}.json',{})
-        returned=read(ROOT/'formal_baselines'/(task+'_formal100_r1')/'RETURN_VALIDATION.json',{})
+        output=Path(intent.get('NAS_output',str(ROOT/'formal_baselines'/(task+'_formal100_r1'))))
+        returned=read(output/'RETURN_VALIDATION.json',{}) if output.resolve().is_relative_to((ROOT/'formal_baselines').resolve()) else {}
         evaluation=read(PRIVATE_RUNTIME/f'GUIDANCE14_DP_EVALUATION_{task}.json',{})
         evaluated=(evaluation.get('state')=='closed' and evaluation.get('attempts')==50
             and evaluation.get('acceptance_passed') is True)
@@ -260,6 +263,8 @@ def formal_training_projection():
         counts={k:preflight.get(k) for k in ('attempts','successful_public_demonstrations')}
         cap=intent.get('max_GPU_hours',intent.get('reserved_GPU_hours'))
         result.append({'task_id':task,'phase':phase,
+            'attempt':2 if intent.get('attempt')==2 else 1 if intent else None,
+            'prior_failed_attempts':1 if intent.get('attempt')==2 else 0,
             **{k:v if type(v) is int and 0<=v<=100 else None for k,v in counts.items()},
             'single_GPU_hour_cap':cap if type(cap) in {int,float} and 0<cap<=6 else None,
             'execution_host_alias':'remote-training' if intent else None,

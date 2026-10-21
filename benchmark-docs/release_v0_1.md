@@ -94,6 +94,15 @@ loaded kernel driver. On the recorded local570 runtime, the existing persistent
 driver capsule is required. A different host with matching system libraries
 does not need that capsule. Do not change system drivers to reproduce a run.
 
+The recorded remote runtime reports different NVML and CUDA UUID namespaces.
+Training resolves the selected NVML card to a unique CUDA device by PCI bus
+identity in an isolated enumeration process, then selects its CUDA ordinal
+before importing torch. Both UUIDs and the mapping are recorded. Ambiguous
+mapping fails explicitly. The first T1 initialization failure is retained;
+its cost and diagnostic costs are deducted from the same six-hour task cap
+before a separate recovery attempt. Scientific inputs and configuration are
+preserved across that infrastructure recovery.
+
 Same-process stage saves include the full registered rigid/articulation state.
 Ordinary cold reconstruction remains1/8 and is not a v0.1 capability claim.
 

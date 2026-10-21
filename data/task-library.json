@@ -380,8 +380,8 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 37,
-            "successes": 37,
+            "attempts": 40,
+            "successes": 40,
             "expected_attempts": 50,
             "complete": false,
             "verifier_protocols": [
@@ -389,23 +389,23 @@
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 37,
+              "recorded_host_attempts": 40,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.9059421741627975,
+              0.9123783988027135,
               1.0
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 37
+              "observed_count": 40
             },
             "response_latency_s": {
-              "mean": 2.3762387387389743,
-              "p95": 2.450000000000429,
-              "observed_count": 37
+              "mean": 2.375000000000225,
+              "p95": 2.446875000000516,
+              "observed_count": 40
             },
             "memory_accuracy": null
           },
@@ -680,8 +680,8 @@
             "memory_accuracy": 0.3
           },
           "public_heuristic": {
-            "attempts": 5,
-            "successes": 5,
+            "attempts": 7,
+            "successes": 7,
             "expected_attempts": 50,
             "complete": false,
             "verifier_protocols": [
@@ -689,12 +689,12 @@
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 5,
+              "recorded_host_attempts": 7,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.5655175352168251,
+              0.6456695649333126,
               1.0
             ],
             "time_error_s": {
@@ -743,16 +743,20 @@
   "formal_training": [
     {
       "task_id": "pick_place",
-      "phase": "waiting_gpu_lease",
+      "phase": "starting_or_training",
+      "attempt": 2,
+      "prior_failed_attempts": 1,
       "attempts": 100,
       "successful_public_demonstrations": 92,
-      "single_GPU_hour_cap": 6.0,
+      "single_GPU_hour_cap": 5.997222222222222,
       "execution_host_alias": "remote-training",
       "native_evaluation_complete": false
     },
     {
       "task_id": "open_cabinet",
       "phase": "not_submitted",
+      "attempt": null,
+      "prior_failed_attempts": 0,
       "attempts": null,
       "successful_public_demonstrations": null,
       "single_GPU_hour_cap": null,
@@ -762,6 +766,8 @@
     {
       "task_id": "endpoint_stop",
       "phase": "not_submitted",
+      "attempt": null,
+      "prior_failed_attempts": 0,
       "attempts": null,
       "successful_public_demonstrations": null,
       "single_GPU_hour_cap": null,
@@ -862,10 +868,10 @@
       {
         "task_id": "delayed_cue_memory",
         "clock_mode": "paused",
-        "attempts": 5,
-        "successes": 5,
+        "attempts": 7,
+        "successes": 7,
         "status_counts": {
-          "success": 5
+          "success": 7
         },
         "task_revision": null,
         "superseded": false,
@@ -886,10 +892,10 @@
       {
         "task_id": "press",
         "clock_mode": "paused",
-        "attempts": 37,
-        "successes": 37,
+        "attempts": 40,
+        "successes": 40,
         "status_counts": {
-          "success": 37
+          "success": 40
         },
         "task_revision": "T4-v2",
         "superseded": false,
@@ -917,15 +923,15 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 81,
+    "received_and_validated_attempts": 84,
     "target_new_attempts": 400,
-    "admitted_successes": 74,
+    "admitted_successes": 77,
     "by_task_status": [
       {
         "task_id": "open_cabinet",
         "status": "success",
         "training_admitted": true,
-        "attempts": 1
+        "attempts": 4
       },
       {
         "task_id": "pick_place",
@@ -1030,13 +1036,13 @@
       },
       {
         "label": "T8 public",
-        "closed_attempts": 5,
+        "closed_attempts": 7,
         "expected_attempts": 50,
         "measured_status_counts": {
-          "success": 5
+          "success": 7
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 5,
+        "mirrored_closed_attempts": 7,
         "NAS_mirror_pending": true
       },
       {
@@ -1064,13 +1070,13 @@
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 33,
+        "closed_attempts": 35,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 33
+          "success": 35
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 32,
+        "mirrored_closed_attempts": 35,
         "NAS_mirror_pending": true
       },
       {
@@ -1110,7 +1116,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T22:07:29.796222+00:00",
+  "updated_at_utc": "2026-10-21T22:20:34.317508+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2251,8 +2257,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
-      "evaluation_attempts": 37,
-      "evaluation_successes": 37,
+      "evaluation_attempts": 40,
+      "evaluation_successes": 40,
       "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
@@ -3414,8 +3420,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 5,
       "qualification_safe_successes": 4,
-      "evaluation_attempts": 5,
-      "evaluation_successes": 5,
+      "evaluation_attempts": 7,
+      "evaluation_successes": 7,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {

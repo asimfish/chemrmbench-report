@@ -52,7 +52,7 @@ async function refreshStats(){
   if(data.formal_training && $('trainingExpansion')){
    const names={pick_place:'T1',open_cabinet:'T5',endpoint_stop:'T7'};
    const phases={not_submitted:'未提交',waiting_gpu_lease:'等待GPU租约',starting_or_training:'训练进程已启动',checkpoint_pending_transfer:'checkpoint待回传',checkpoint_returned:'checkpoint已回传，等待本机评测',native_evaluation_complete:'本机50条评测已完成',evaluation_stopped_prefix:'本机评测停止，保留前缀待复核',training_error:'训练报错，记录保留',unknown:'提交结果待核对'};
-   $('trainingExpansion').textContent+=' 正式DP：'+data.formal_training.map(t=>`${names[t.task_id]} ${phases[t.phase]||'状态待核对'}`+(t.attempts!==null?`，${t.successful_public_demonstrations}/${t.attempts}条可用演示，单卡上限${t.single_GPU_hour_cap}小时，host=${t.execution_host_alias}`:'')).join('；')+'。训练状态不代表评测成功率。';
+   $('trainingExpansion').textContent+=' 正式DP：'+data.formal_training.map(t=>`${names[t.task_id]} ${phases[t.phase]||'状态待核对'}`+(t.attempts!==null?`，第${t.attempt}次进程，${t.successful_public_demonstrations}/${t.attempts}条可用演示，本次单卡上限${t.single_GPU_hour_cap===null?'待核对':t.single_GPU_hour_cap.toFixed(3)}小时，host=${t.execution_host_alias}`:'')+(t.prior_failed_attempts?`；保留${t.prior_failed_attempts}次初始化失败`:'')).join('；')+'。训练状态不代表评测成功率。';
   }
   if(data.current_t6 && $('t6CurrentProgress')){
    const r=data.current_t6;$('t6CurrentProgress').textContent=`指导${r.guidance ?? 7} 全臂修复：${r.moving_colliders} 个机器人碰撞体，CPU 连续路径资格 ${r.cpu_passed?'3/3通过':'进行中'}${r.minimum_clearance_mm!==null?'，最小运动界后余量 '+r.minimum_clearance_mm.toFixed(2)+' mm（含1mm跟踪余量）':''}。搅拌器保持原位；原生资格 ${r.native_passed}/${r.native_required} 通过，已尝试 ${r.native_attempts} 条，原始力上限仍为 ${r.raw_force_limit_n} N。${r.native_all_passed?'已满足主批量前置资格。':'尚未满足主批量前置资格。'}`;
@@ -63,7 +63,7 @@ async function refreshStats(){
    if(r.stop_loss_reached)$('t6CurrentProgress').textContent+='两轮控制修复已用完，T6已移出v0.1；原失败完整保留。仅允许低优先级规划一致性尝试，不挤占公开评测和DP基线。';
   }
   if(pilot && $('pipelineNotice')){
-   $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，训练累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;
+   $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，项目已结算累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败；进行中任务待结算）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;
   }
   const protocol=data.evaluation_protocol;
   if(protocol && $('evalCards')){
