@@ -101,7 +101,7 @@
     ],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started."
   },
-  "updated_at_utc": "2026-10-21T11:04:21.784417+00:00",
+  "updated_at_utc": "2026-10-21T11:18:44.846040+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2471,10 +2471,14 @@
       "qualification_safe_successes": 4,
       "evaluation_attempts": 0,
       "evaluation_successes": 0,
-      "ablation_attempts": 0,
+      "ablation_attempts": 1,
       "ablation_successes": 0,
-      "ablation_status_counts": {},
-      "ablation_expert_kinds": [],
+      "ablation_status_counts": {
+        "fail": 1
+      },
+      "ablation_expert_kinds": [
+        "ablation_no_memory"
+      ],
       "ablation_target_attempts": 10,
       "rendering_note": null,
       "initial_posture_note": null,
