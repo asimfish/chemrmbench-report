@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T10:03:58Z",
+  "snapshot_utc": "2026-10-21T10:27:10Z",
   "snapshot_kind": "curated_static_snapshot",
   "phase_status": "IN_PROGRESS",
   "current_milestone": "Ma",
@@ -148,20 +148,32 @@
       "acceptance": "Record measured throughput and controller tracking before selecting the rollout configuration.",
       "result": {
         "throughput_status": "16_ENV_MEASURED_64_256_NOT_STARTED",
-        "controller_status": "PRECHECK_FAILED_TRACKING_NOT_EXECUTED",
+        "controller_status": "ACTUAL_TRACKING_PASSED_FULL_LOCAL_FD_GATE_FAILED",
         "milestone_passed": false
       },
-      "result_note": "Partial: 16 environments measured 877.744721 env-steps/s and 0.4571587 sim/wall under shared load (5 s load sampling). A 30.01069 s memory calibration observed M16 = 4,931 MiB. The 64 / 256 batches did not start: total-peak proportional extrapolation requires 29,586 / 118,344 MiB free, versus 15,485 MiB at admission; their measured values remain null. The first native B1 attempt failed the TCP Jacobian precheck (24–25 mm/rad linear-column error; threshold 2 mm/rad). Tracking was not executed. A 2-root-yaw × 2-epsilon probe confirmed a COM/link reference-point mismatch: applying the measured COM offset reduced the error to 0.07–0.10 mm/rad. The first failure is retained; the minimal adapter correction awaits a tracking retest. No tracking pass or learning result is claimed.",
+      "result_note": "Partial: 16 environments measured 877.744721 env-steps/s and 0.4571587 sim/wall under shared load (5 s load sampling); a 30.01069 s memory calibration observed M16 = 4,931 MiB. The 64 / 256 batches never started (0 launches): required free memory was 29,586 / 118,344 MiB versus 15,485 MiB at admission; their values remain null. B1 completed one 30-native-second free-space diagnostic across 16 Panda worlds. Actual tracking gates all passed: worst-world position RMS 4.1217 mm / max 6.0730 mm; orientation RMS 0.81688° / max 1.25805°. Command and actual speed/acceleration exceedances were all zero; acceleration limiting occurred on 50,142 / 403,200 joint-steps (12.4%), with zero speed limiting. The clock recorded 3,600 callbacks / 30.000001565 s; wall time was 529.614 s. The original full FD gate remains false at far-origin x≈22 / 30 m in float32; all three earlier failures are retained. This is an independently passed trajectory diagnostic, not a full controller-gate pass or a learning result.",
       "progress": "PARTIAL"
     },
     {
       "id": "Mb",
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "title": "State-driven, re-entrant experts",
       "scope": "Start with N03 / N12. Each expert must resume from the current observed state rather than depend on a one-way script.",
-      "acceptance": "50 mid-trajectory student-state takeover tests per task.",
-      "result": null,
-      "result_note": "Takeover tests not yet measured."
+      "acceptance": "Centered 4×4 task domain: pass a native TCP Jacobian preflight at the same thresholds first; then 20 nominal episodes and 50 real mid-trajectory rollout-state takeover tests per task. State-driven experts must match prior nominal success before takeover.",
+      "result": {
+        "N03_nominal_candidate1": {
+          "successes": 0,
+          "episodes": 20,
+          "native_numeric_format_valid": 20,
+          "teacher_qualified": false
+        },
+        "takeover_50_per_task": null,
+        "candidate2": "PREPARING_EVIDENCE_BASED_EXPERT_FIXES",
+        "N03_centered_preflight": "PASSED",
+        "pro6000_N12_centered_preflight": "PASSED"
+      },
+      "result_note": "N03 candidate 1 completed 0/20 nominal tasks; all attempts remain recorded. No takeover test or learning has started. Centered-scene preflights passed on local N03 and remote N12; an evidence-based expert correction is being prepared.",
+      "progress": "PREFLIGHT_SETUP"
     },
     {
       "id": "Mc",
@@ -283,19 +295,19 @@
     }
   ],
   "unmeasured_results": {
-    "controller_tracking": null,
     "takeover_success": null,
     "trained_policy_success": null,
     "learning_curves": null,
     "c01_student_integration": null,
     "throughput_64_envs": null,
-    "throughput_256_envs": null
+    "throughput_256_envs": null,
+    "centered_domain_FD_preflight": null
   },
   "disclosures": [
     "This page describes the approved phase-2 plan and a dated local evidence summary.",
     "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
     "No OPD learning curves or policy success scores have been measured in this snapshot.",
-    "The 16-env throughput is a single shared-load prefix measurement. The 64/256-env batches never started, and B1 tracking was not executed after its failed native Jacobian precheck."
+    "Actual B1 trajectory tracking passed independently of the still-false original full local FD gate. Three precheck failures remain retained; centered-domain FD preflight is required before Mb task episodes. No learning has been run."
   ],
   "phase_progress": "PARTIAL",
   "current_measurements": {
@@ -350,21 +362,25 @@
       "raw_evidence_url": null
     },
     "controller_B1": {
-      "status": "PRECHECK_FAILED_TRACKING_NOT_EXECUTED",
-      "attempt": 1,
-      "precheck": "Native TCP Jacobian finite-difference check",
-      "maximum_linear_column_error_mm_per_rad_range": [
-        23.999584838747978,
-        25.23355931043625
+      "status": "ACTUAL_TRACKING_PASSED_FULL_LOCAL_FD_GATE_FAILED",
+      "attempt": 4,
+      "tracking_executed": true,
+      "actual_tracking_passed": true,
+      "original_full_local_gate_passed": false,
+      "retained_failed_attempts": [
+        1,
+        2,
+        3
       ],
-      "threshold_mm_per_rad": 2,
-      "precheck_passed": false,
-      "tracking_executed": false,
-      "tracking_result": null,
-      "diagnosis_status": "COM_LINK_REFERENCE_CONFIRMED_TRACKING_RETEST_PENDING",
-      "scope": "First native B1 attempt failed before tracking. No learning was run.",
-      "raw_evidence_published": false,
-      "raw_evidence_url": null,
+      "first_failed_precheck": {
+        "attempt": 1,
+        "maximum_linear_column_error_mm_per_rad_range": [
+          23.999584838747978,
+          25.23355931043625
+        ],
+        "threshold_mm_per_rad": 2,
+        "tracking_executed": false
+      },
       "reference_probe": {
         "root_yaw_cases": 2,
         "finite_difference_epsilon_cases": 2,
@@ -373,9 +389,62 @@
           0.10260724060590017
         ],
         "diagnosis": "COM/link reference-point mismatch confirmed; actual COM-offset correction reduces linear-column error to 0.07–0.10 mm/rad.",
-        "next_step": "Minimal adapter correction prepared; tracking retest pending.",
+        "next_step": "COM-reference correction used in the tracking diagnostic; centered-domain native FD preflight still required for Mb.",
         "first_failed_attempt_retained": true
-      }
+      },
+      "tracking_result": {
+        "worlds": 16,
+        "native_seconds": 30.000001564621925,
+        "native_callbacks": 3600,
+        "tracking_wall_s": 529.6142389320012,
+        "maximum_world_position_rms_mm": 4.121732496827816,
+        "maximum_world_position_error_mm": 6.073030177503824,
+        "maximum_world_orientation_rms_deg": 0.816876142003862,
+        "maximum_world_orientation_error_deg": 1.2580459264788901,
+        "actual_velocity_exceedances": 0,
+        "actual_acceleration_exceedances": 0,
+        "command_velocity_exceedances": 0,
+        "command_acceleration_exceedances": 0,
+        "acceleration_saturation_joint_steps": 50142,
+        "joint_steps": 403200,
+        "acceleration_saturation_fraction": 0.12436011904761905,
+        "speed_saturation_joint_steps": 0
+      },
+      "full_gate_limitation": "The original full finite-difference gate remains false at far-origin x≈22 / 30 m in float32. Actual trajectory tracking passes independently; no FD threshold or controller gain was relaxed.",
+      "next_step": "Mb centered 4×4 task domain requires a native TCP Jacobian preflight with the same thresholds before task episodes.",
+      "scope": "One 30-native-second free-space diagnostic across 16 Panda worlds. It does not establish task success, contact skills, general workspace reliability or learned-policy performance.",
+      "raw_evidence_published": false,
+      "raw_evidence_url": null
+    },
+    "secondary_node": {
+      "name": "pro6000",
+      "status": "READY",
+      "ready": true,
+      "simulator_version": "5.1.0",
+      "isaac_lab_release": "2.3.2",
+      "shared_load_calibration": {
+        "num_envs": 16,
+        "M16_MiB": 2798,
+        "aggregate_env_steps_per_s": 219.371,
+        "runtime": "custom core headless",
+        "cameras": false,
+        "matched_performance_comparison": false,
+        "scope": "Different runtime configuration; this is not a matched performance comparison with the primary TRX node."
+      },
+      "CPU_N03_functional_smoke": {
+        "seed": 2026102100,
+        "attempts": 1,
+        "success": true,
+        "peak_lift_mm": 147.09502458572388,
+        "maximum_terminal_placement_error_mm": 5.876496164884547,
+        "terminal_gripper_contact_fraction": 0,
+        "scope": "One same-seed functional smoke, not an expert reliability estimate."
+      },
+      "rebuild_scripts_prepared": true,
+      "installation_sampled_peak_GB": 16.72,
+      "installation_budget_check": "PASS",
+      "raw_evidence_published": false,
+      "raw_evidence_url": null
     }
   },
   "verifier_admission": {
