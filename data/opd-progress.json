@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T18:06:01Z",
+  "snapshot_utc": "2026-10-21T18:59:26Z",
   "snapshot_kind": "curated_static_snapshot",
-  "phase_status": "FIRST_MATCHED_BUDGET_POINT_CLOSED_R2_COLLECT_FIT_ACTIVE",
+  "phase_status": "FIRST28K_MATCHED_POINT_CLOSED_R3_RESOURCE_INTERRUPTION_RETAINED",
   "current_milestone": "Me",
   "completed_milestones": 2,
   "milestone_total": 6,
@@ -406,7 +406,7 @@
         "shared_policy_CPU_boundary_checks_passed": 4,
         "data_CPU_boundary_checks_passed": 19,
         "training_buffer_rows": 28000,
-        "training_updates": 1448000,
+        "training_updates": 2048000,
         "qualification_takeover_geometry_candidates": {
           "N03": 46000,
           "N12": 41811
@@ -417,8 +417,8 @@
         "new_training_role_queries": 28000,
         "new_training_role_admitted_rows": 28000,
         "qualification_training_buffer_rows": 0,
-        "training_updates_scope": "1448000 completed updates =328000 historical diagnostic pilots +120000 common initial +1000000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +160000 strictly completed R2 updates). Running fits are excluded; fitting is separate from native task acceptance.",
-        "formal_M1_M4_training_updates": 1000000,
+        "training_updates_scope": "2048000 completed updates =328000 historical diagnostic pilots +120000 common initial +1600000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +480000 R2 +280000 R3 strictly completed updates). Running fits are excluded; fitting is separate from native task acceptance.",
+        "formal_M1_M4_training_updates": 1600000,
         "student_zero_query_native_accepted": false,
         "N17_N18_native_training_data_accepted": false,
         "BC20_train_only_loss": {
@@ -482,8 +482,10 @@
         "M1_new_expert_source": "ALL_THREE_BLOCKS_COMPLETE_83994_ADMITTED",
         "M1_fixed_budget_fits": 9,
         "M1_fixed_budget_updates": 360000,
-        "R2_strict_completed_fits": 4,
-        "R2_completed_updates": 160000
+        "R2_strict_completed_fits": 12,
+        "R2_completed_updates": 480000,
+        "R3_strict_completed_fits": 7,
+        "R3_completed_updates": 280000
       },
       "result_note": "Canonical C3 initial banks and reviewed interval-safe failed prefixes feed the same supervised kernel. The extra60expert demos/task remain complete:120/120 training episodes,84000 actual calls,83994 admitted rows and6 rejected intervals. Nine actual-acceleration joint/physics-step counts remain; other three counters0. All nine BC40/60/80 fits are fixed40000 updates with18 strict CPU task checks and complete NAS archives. BC40 native nominal50 is now closed0/50 for both tasks/all3seeds. BC60/BC80 remain CPU-fit only; no native success is inferred. Only explicitly reviewed new C3 pure-expert nominal training sources may retain safe six-substep intervals; unsafe intervals stay rejected, explicit holds take priority and all calls remain charged. Legacy nominal/takeover whole-case holds are unchanged. This changes eligibility, not algorithms or thresholds. Qualification data and prior failures remain separate; N17/N18 learning-data acceptance is unmeasured.",
       "progress": "C3_ANCHOR41_FINAL_PILOTS_CLOSED_STUDENT_STATE_DATA_NEXT"
@@ -577,7 +579,7 @@
           20261032,
           20261033
         ],
-        "formal_comparison_updates": 840000,
+        "formal_comparison_updates": 1600000,
         "initial_shared_native_qualification": "CLOSED_0_OF_12",
         "shared_initial_unique_task_source_instances": 4,
         "shared_initial_task_or_safety_accepted": false,
@@ -594,10 +596,10 @@
         "M4_real_prepares_passed": 9,
         "M4_fixed_fit_queue": "COMPLETE",
         "M4_completed_fits": 9,
-        "M4_heldout_result": "STANDARD_COMPLETE_ABLATIONS_PARTIAL",
+        "M4_heldout_result": "ALL18_ROUND1_BANKS_CLOSED",
         "M4_round1_updates": 360000,
         "M3_nominal_evaluation_episodes": 300,
-        "M4_completed_heldout_banks": 14,
+        "M4_completed_heldout_banks": 18,
         "M1_BC40_CPU_prepares": 3,
         "M1_fixed_budget_updates": 360000,
         "M1_completed_fits": 9,
@@ -823,16 +825,471 @@
             "test_time_parameter_updates": 0,
             "raw_audit_passed": true,
             "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_semantic_round1",
+            "variant": "without_semantic_filter",
+            "seed": 20261031,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              2,
+              2,
+              2,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 38
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_semantic_round1",
+            "variant": "without_semantic_filter",
+            "seed": 20261031,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_semantic_round1",
+            "variant": "without_semantic_filter",
+            "seed": 20261032,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_semantic_round1",
+            "variant": "without_semantic_filter",
+            "seed": 20261032,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_semantic_round1",
+            "variant": "without_semantic_filter",
+            "seed": 20261033,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              2,
+              2,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 27
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_semantic_round1",
+            "variant": "without_semantic_filter",
+            "seed": 20261033,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_recovery_round1",
+            "variant": "without_recovery_weight",
+            "seed": 20261031,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              4,
+              4,
+              4,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 1
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_recovery_round1",
+            "variant": "without_recovery_weight",
+            "seed": 20261031,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_recovery_round1",
+            "variant": "without_recovery_weight",
+            "seed": 20261032,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              5,
+              5,
+              5,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 106
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_recovery_round1",
+            "variant": "without_recovery_weight",
+            "seed": 20261032,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              2,
+              1,
+              1,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_recovery_round1",
+            "variant": "without_recovery_weight",
+            "seed": 20261033,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              4,
+              4,
+              3,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 136
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
+          },
+          {
+            "model_id": "M4_no_recovery_round1",
+            "variant": "without_recovery_weight",
+            "seed": 20261033,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "status": "CLOSED_AUDITED",
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "auxiliary_motion_qualified_successes": 0,
+            "successful_case_motion_details": [],
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_status": "COMPLETE"
           }
         ],
-        "training_updates": 1448000,
-        "formal_M1_M4_training_updates": 1000000,
-        "training_updates_scope": "1448000 completed updates =328000 historical diagnostic pilots +120000 common initial +1000000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +160000 strictly completed R2 updates). Running fits are excluded; fitting is separate from native task acceptance.",
+        "training_updates": 2048000,
+        "formal_M1_M4_training_updates": 1600000,
+        "training_updates_scope": "2048000 completed updates =328000 historical diagnostic pilots +120000 common initial +1600000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +480000 R2 +280000 R3 strictly completed updates). Running fits are excluded; fitting is separate from native task acceptance.",
         "first28k_matched_episodes": 1500,
         "first28k_matched_complete": true,
-        "R2_completed_updates": 160000
+        "R2_completed_updates": 480000,
+        "R2_strict_completed_fits": 12,
+        "R3_strict_completed_fits": 7,
+        "R3_completed_updates": 280000,
+        "R3_missing_model": {
+          "status": "RESOURCE_GUARD_INTERRUPTION_RETAINED",
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "round": 3,
+          "training_seed": 20261031,
+          "physical_gpu_index": 0,
+          "guard_threshold_MiB": 4096,
+          "recorded_free_MiB": 3950,
+          "tasks": [
+            {
+              "task": "N03",
+              "status": "INCOMPLETE_NO_RETRY",
+              "planned_denominator": 20,
+              "complete": false,
+              "paid_queries": 5200,
+              "exported_labels": 0,
+              "training_admitted_rows": 0,
+              "unloaded_paid_labels": 5200,
+              "remaining_task_allowance": 8800,
+              "task_successes": null,
+              "motion_outcomes": null,
+              "guard_free_MiB": 3950,
+              "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+              "refunds": 0
+            },
+            {
+              "task": "N12",
+              "status": "INCOMPLETE_NO_RETRY",
+              "planned_denominator": 20,
+              "complete": false,
+              "paid_queries": 5392,
+              "exported_labels": 0,
+              "training_admitted_rows": 0,
+              "unloaded_paid_labels": 5392,
+              "remaining_task_allowance": 8608,
+              "task_successes": null,
+              "motion_outcomes": null,
+              "guard_free_MiB": 3950,
+              "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+              "refunds": 0
+            }
+          ],
+          "paid_failed_subtotal": 10592,
+          "exported_labels": 0,
+          "training_admitted_rows": 0,
+          "final_checkpoint": null,
+          "final_native_result": null,
+          "automatic_retries": 0,
+          "refunds": 0,
+          "retry_or_partial_budget_completion_authorized": false,
+          "owner_decision": "PENDING_REMAINING8800_N03_8608_N12_OR_MISSING_MODEL",
+          "cause_scope": "Configured free-memory guard confirmed as stop trigger. Secondary assertion/shutdown cause unresolved; no external process attribution.",
+          "scientific_performance_conclusion": false,
+          "raw_evidence_published": false
+        }
       },
-      "result_note": "Guidance8 fixes56000 labels/task/method/seed and all three seeds. The first28k-label/task matched nominal point is complete: five methods/variants × three fixed seeds × two tasks ×50 episodes =1500 executions on the same100(task,source) instances. BC40, M3 and both ablations are0/50 in every row. M4standard N03 is[1,1,0]/50; N12 all0/50. The two successes retain actual-acceleration counts9/8, so every learned-method auxiliary motion-qualified count is0/50. Primary task SR/Wilson is unchanged; these observations do not establish effectiveness or significant improvement. The state-driven oracle independently completed50/50 per task (95% Wilson92.8652–100%). Auxiliary motion-qualified counts are49/50 N03 and50/50 N12; N03 source2545 retains one actual-acceleration joint/physics-step count, with other three counters0. Its70000 finalized validation calls supply0training rows,0NN forwards and0updates. This is one oracle run/task, not a three-learner-seed comparison or a28k-label learned baseline. R2 is active under a separate336000-new-call cap. At this snapshot,12 closed task banks (6 complete learner pairs) finalize168000 calls. Actual total live calls are unknown/null because acquisition continues; local ledgers are authoritative. 4 fixed40000 fits are strictly complete (8 CPU task loads,112 real states/task), reaching42000 labels/task; running fits are excluded. No R2 heldout result exists. Separate divergent policies do not share raw rollout banks. The final R3 CPU watcher is WAIT_PREVIOUS_STAGE with0fits/0updates. It can begin admission/fitting only after all12 R2 fits strictly pass, all recorded fit/coordinator PIDs exit and the exclusive R2 lock is available; global CPU fit concurrency stays3. First-model deployment and later-evaluation CPU prepares are interface checks only. There is no R3 native result. 1448000 completed updates =328000 historical diagnostic pilots +120000 common initial +1000000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +160000 strictly completed R2 updates). Running fits are excluded; fitting is separate from native task acceptance. M2/DART, full56k, perturbation and TTA comparisons remain pending; no ICL claim."
+      "result_note": "Guidance8 fixes56000 labels/task/method/seed and all three seeds. The first28k-label/task matched nominal point is complete: five methods/variants × three fixed seeds × two tasks ×50 episodes =1500 executions on the same100(task,source) instances. BC40, M3 and both ablations are0/50 in every row. M4standard N03 is[1,1,0]/50; N12 all0/50. The two successes retain actual-acceleration counts9/8, so every learned-method auxiliary motion-qualified count is0/50. Primary task SR/Wilson is unchanged; these observations do not establish effectiveness or significant improvement. The state-driven oracle independently completed50/50 per task (95% Wilson92.8652–100%). Auxiliary motion-qualified counts are49/50 N03 and50/50 N12; N03 source2545 retains one actual-acceleration joint/physics-step count, with other three counters0. Its70000 finalized validation calls supply0training rows,0NN forwards and0updates. This is one oracle run/task, not a three-learner-seed comparison or a28k-label learned baseline. R2 acquisition and all12 fixed fits are closed:24 task banks finalize336000 new calls, and12 final40000-update models passed both strict CPU task loads (112 real states/task), reaching42000 cumulative accesses/task. No R2 heldout result is available. Each divergent method/variant/seed has its own source bank; no cross-method raw reuse. At this snapshot R3 has16 closed task banks with224000 finalized calls, 7 strictly completed40000-update fits and1 running fit excluded from the total. Completed models reach56000 cumulative accesses/task. This is a closed-source subtotal; active acquisition cost remains null/unfinalized. There is no R3 heldout result. 2048000 completed updates =328000 historical diagnostic pilots +120000 common initial +1600000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +480000 R2 +280000 R3 strictly completed updates). Running fits are excluded; fitting is separate from native task acceptance. M2/DART, full56k, perturbation and TTA comparisons remain pending; no ICL claim. A shared-resource guard interrupted the R3 no-semantic-filter seed20261031 collection when free GPU memory fell to3950MiB, below the4096MiB limit. N03/N12 retained5200/5392 paid queries with0 exported labels and0 training admission. Both original20-case denominators and failures remain; task success, full motion outcomes and the final model are missing/null. The10592 paid calls are not refunded or counted as usable labels. The guard stop is confirmed; a secondary shutdown assertion has no established independent cause. No external process attribution or scientific performance conclusion is made. A separately authorized continuation is running for the three R3 model pairs that had never been attempted, followed by queued zero-query42k nominal evaluations. It does not retry the interrupted no-semantic-filter seed20261031 pair. Collection of only its remaining8800/8608 per-task allowance versus preserving a missing model still awaits an owner decision. All continuation costs remain unfinalized while native collection runs; there is no final56k heldout matrix."
     },
     {
       "id": "Mf",
@@ -906,7 +1363,15 @@
     "first_budget_point_episodes": 1500,
     "first_budget_point_methods": 5,
     "M1_BC40_completed_nominal_evaluation_episodes": 300,
-    "R2_completed_fixed_updates": 160000
+    "R2_completed_fixed_updates": 480000,
+    "R3_completed_fixed_updates": 280000,
+    "final56k_matrix_complete": false,
+    "missing_R3_model": {
+      "method": "M4",
+      "variant": "without_semantic_filter",
+      "seed": 20261031,
+      "checkpoint": null
+    }
   },
   "opd_loop": [
     "Student rollout",
@@ -3131,11 +3596,14 @@
     "Added after observing results: a descriptive count of task_success true with all four recorded episode motion counters zero, on the same50 denominator. It leaves primary task SR/Wilson unchanged and is not a universal safety guarantee.",
     "The extra60expert demos/task remain complete:120/120 training episodes,84000 actual calls,83994 admitted rows and6 rejected intervals. Nine actual-acceleration joint/physics-step counts remain; other three counters0. All nine BC40/60/80 fits are fixed40000 updates with18 strict CPU task checks and complete NAS archives. BC40 native nominal50 is now closed0/50 for both tasks/all3seeds. BC60/BC80 remain CPU-fit only; no native success is inferred.",
     "The state-driven oracle independently completed50/50 per task (95% Wilson92.8652–100%). Auxiliary motion-qualified counts are49/50 N03 and50/50 N12; N03 source2545 retains one actual-acceleration joint/physics-step count, with other three counters0. Its70000 finalized validation calls supply0training rows,0NN forwards and0updates. This is one oracle run/task, not a three-learner-seed comparison or a28k-label learned baseline.",
-    "R2 is active under a separate336000-new-call cap. At this snapshot,12 closed task banks (6 complete learner pairs) finalize168000 calls. Actual total live calls are unknown/null because acquisition continues; local ledgers are authoritative. 4 fixed40000 fits are strictly complete (8 CPU task loads,112 real states/task), reaching42000 labels/task; running fits are excluded. No R2 heldout result exists. Separate divergent policies do not share raw rollout banks.",
-    "The final R3 CPU watcher is WAIT_PREVIOUS_STAGE with0fits/0updates. It can begin admission/fitting only after all12 R2 fits strictly pass, all recorded fit/coordinator PIDs exit and the exclusive R2 lock is available; global CPU fit concurrency stays3. First-model deployment and later-evaluation CPU prepares are interface checks only. There is no R3 native result.",
-    "1448000 completed updates =328000 historical diagnostic pilots +120000 common initial +1000000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +160000 strictly completed R2 updates). Running fits are excluded; fitting is separate from native task acceptance.",
+    "R2 acquisition and all12 fixed fits are closed:24 task banks finalize336000 new calls, and12 final40000-update models passed both strict CPU task loads (112 real states/task), reaching42000 cumulative accesses/task. No R2 heldout result is available. Each divergent method/variant/seed has its own source bank; no cross-method raw reuse.",
+    "At this snapshot R3 has16 closed task banks with224000 finalized calls, 7 strictly completed40000-update fits and1 running fit excluded from the total. Completed models reach56000 cumulative accesses/task. This is a closed-source subtotal; active acquisition cost remains null/unfinalized. There is no R3 heldout result.",
+    "2048000 completed updates =328000 historical diagnostic pilots +120000 common initial +1600000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +480000 R2 +280000 R3 strictly completed updates). Running fits are excluded; fitting is separate from native task acceptance.",
     "Query caps are planned limits. Active acquisitions retain null/unfinalized total costs; finalized closed-source counts show only a portion. Local per-run reservation/result ledgers are authoritative. The oracle is now fully finalized at70000 separate validation calls.",
-    "The BC20 common-initial14k/task reference remains separately reported; it is not the28k matched BC40 baseline. M2/DART design, perturbation and test-time adaptation remain unmeasured; no in-context-learning claim."
+    "The BC20 common-initial14k/task reference remains separately reported; it is not the28k matched BC40 baseline. M2/DART design, perturbation and test-time adaptation remain unmeasured; no in-context-learning claim.",
+    "A shared-resource guard interrupted the R3 no-semantic-filter seed20261031 collection when free GPU memory fell to3950MiB, below the4096MiB limit. N03/N12 retained5200/5392 paid queries with0 exported labels and0 training admission. Both original20-case denominators and failures remain; task success, full motion outcomes and the final model are missing/null. The10592 paid calls are not refunded or counted as usable labels. The guard stop is confirmed; a secondary shutdown assertion has no established independent cause. No external process attribution or scientific performance conclusion is made.",
+    "A separately authorized continuation is running for the three R3 model pairs that had never been attempted, followed by queued zero-query42k nominal evaluations. It does not retry the interrupted no-semantic-filter seed20261031 pair. Collection of only its remaining8800/8608 per-task allowance versus preserving a missing model still awaits an owner decision. All continuation costs remain unfinalized while native collection runs; there is no final56k heldout matrix.",
+    "Caps are planned limits. R2 finalized336000 calls. R3 finalized closed-source calls and retained failed reservations are disclosed separately; neither is a complete live total. Active costs remain null/unfinalized, with local reservation/result ledgers authoritative. The oracle ledger is separately finalized at70000 validation calls."
   ],
   "phase_progress": "FIRST28K_MATCHED_NOMINAL_POINT_CLOSED_NO_EFFICACY_CLAIM_FULL56K_PENDING",
   "current_measurements": {
@@ -3542,12 +4010,12 @@
       "status": "G8_PIPELINE_AND_M3_ROUND1_FIT_COMPLETE_HELDOUT_UNMEASURED",
       "shared_policy_CPU_checks_passed": 4,
       "data_CPU_checks_passed": 19,
-      "training_updates": 1448000,
+      "training_updates": 2048000,
       "training_buffer_rows": 28000,
       "native_expert_and_dataset_accepted": true,
       "student_zero_query_native_accepted": false,
-      "training_updates_scope": "1448000 completed updates =328000 historical diagnostic pilots +120000 common initial +1000000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +160000 strictly completed R2 updates). Running fits are excluded; fitting is separate from native task acceptance.",
-      "formal_method_training_updates": 1000000,
+      "training_updates_scope": "2048000 completed updates =328000 historical diagnostic pilots +120000 common initial +1600000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +480000 R2 +280000 R3 strictly completed updates). Running fits are excluded; fitting is separate from native task acceptance.",
+      "formal_method_training_updates": 1600000,
       "student_zero_query_native_path_verified": true,
       "student_task_and_safety_accepted": false,
       "training_buffer_rows_scope": "Original C2 diagnostic rows28000 remain separate. Canonical initial C3 rows28000 are reused in three separate M3 round1 buffers55901/55737/55931; sum167569 is row access across models, not unique labels or a merged buffer.",
@@ -3571,7 +4039,9 @@
       "on_policy_round1_training_updates": 120000,
       "native_multitask_training_accepted_scope": "Native training sources and CPU parameter fitting accepted; no M3 heldout task/safety acceptance",
       "M4_round1_training_updates": 360000,
-      "M1_fixed_budget_training_updates": 360000
+      "M1_fixed_budget_training_updates": 360000,
+      "R2_fixed_fits_completed": 12,
+      "R3_fixed_fits_completed": 7
     },
     "bc20_calibration_pilots": {
       "scope": "Retained C2 training-role20-bank data and v1 fixed4000 diagnostic pilots; later C2 native tests are0/20/task with local-limit failures. Not formal M1–M4 data or results.",
@@ -8474,7 +8944,7 @@
       "native_result_scope": "BC40 only: six0/50 banks; BC60/BC80 fixed CPU fits complete but not natively evaluated"
     },
     "g8_later_rounds": {
-      "status": "ROUND2_ACTIVE_QUERY_TOTAL_UNFINALIZED",
+      "status": "ALL_R2_ACQUISITIONS_AND_TWELVE_FIXED_FITS_CLOSED",
       "method_variant_seed_learners": 12,
       "task_banks": 24,
       "episodes_each_bank": 20,
@@ -8485,201 +8955,365 @@
       "total_new_query_cap": 336000,
       "new_query_cap_each_task_learner": 14000,
       "cumulative_label_access_each_task_learner": 42000,
-      "native_banks_started": 16,
-      "closed_native_banks": 12,
-      "closed_learner_pairs": 6,
-      "finalized_closed_source_queries": 168000,
+      "native_banks_started": 24,
+      "closed_native_banks": 24,
+      "closed_learner_pairs": 12,
+      "finalized_closed_source_queries": 336000,
       "closed_sources": [
         {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261031,
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
           "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261031,
-          "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
-          "variant": "standard",
-          "seed": 20261031,
-          "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M4",
-          "variant": "standard",
-          "seed": 20261031,
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
           "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M4",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M4",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261031,
           "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261031,
           "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261032,
           "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261032,
           "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
         }
       ],
       "strict_CPU_prepares_passed": 24,
-      "completed_fixed_fits": 4,
-      "completed_training_updates": 160000,
-      "strict_CPU_task_loads": 8,
+      "completed_fixed_fits": 12,
+      "completed_training_updates": 480000,
+      "strict_CPU_task_loads": 24,
       "completed_fit_rows": [
         {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261031,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
           "method": "M3",
           "variant": "standard",
           "seed": 20261031,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 83895,
-          "fit_wall_s": 146.4719910529675,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         },
         {
           "method": "M3",
           "variant": "standard",
           "seed": 20261032,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 83737,
-          "fit_wall_s": 143.5536237860215,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         },
         {
           "method": "M4",
           "variant": "standard",
           "seed": 20261031,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 76896,
-          "fit_wall_s": 143.03348418703536,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         },
         {
           "method": "M4",
           "variant": "standard",
           "seed": 20261032,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 75335,
-          "fit_wall_s": 254.42517594899982,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261031,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         }
       ],
-      "running_fits": 1,
+      "running_fits": 0,
       "native_heldout_evaluation_episodes": 0,
       "heldout_effect": null,
       "initialization": "Fresh same-seed40000 on cumulative data; no warmstart or new recipe",
       "beta": 0,
       "source_scope": "Each divergent method/variant/seed collects its own student-state bank; no cross-method raw reuse",
-      "actual_queries": null,
-      "actual_queries_finalized": false,
-      "closed_source_queries": 168000,
-      "query_accounting_status": "UNFINALIZED_LOCAL_LEDGER_AUTHORITATIVE",
-      "query_accounting_scope": "Local per-run reservation/result ledgers are authoritative. Closed-source totals cover only finalized evidence; they never imply zero live acquisition cost. A cap is a planned limit, not actual spending."
+      "actual_queries": 336000,
+      "actual_queries_finalized": true,
+      "closed_source_queries": 336000,
+      "query_accounting_status": "FINALIZED_LEDGER_TOTAL",
+      "query_accounting_scope": "R2 acquisition only:24 closed banks/336000 actual calls; no R3 or validation costs. All rejected calls remain charged."
     },
     "g8_M0_oracle": {
       "status": "CLOSED_BOTH_TASKS_50_OF50",
@@ -8762,30 +9396,320 @@
       "dependent_experiments_started": false
     },
     "g8_round3_CPU": {
-      "status": "CPU_WATCHER_WAIT_PREVIOUS_STAGE",
-      "completed_fixed_fits": 0,
-      "training_updates": 0,
-      "native_results": null,
-      "final_label_budget_each_task": 56000,
-      "conditional_fixed_fits": 12,
-      "conditional_fixed_updates_each": 40000,
-      "global_maximum_parallel_CPU_fits": 3,
-      "gate": "Wait for all12 R2 fits strictly passed and naturally closed; no cross-stage fit concurrency",
-      "deployment_preparation_scope": "First R2 model copies and later-evaluation CPU prepares are interface preparation only; no R2 heldout or R3 native result",
-      "later_nominal_real_CPU_prepares": [
+      "status": "R3_PARTIAL_WITH_RETAINED_RESOURCE_FAILURE_AND_CONTINUATION",
+      "planned_fixed_fits": 12,
+      "completed_fixed_fits": 7,
+      "training_updates": 280000,
+      "running_fits": 1,
+      "completed_fit_rows": [
         {
-          "model_id": "M3_round2",
-          "seed": 20261031,
-          "task": "N03",
-          "status": "CPU_PREPARED_NOT_NATIVE_ACCEPTED"
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
         },
         {
-          "model_id": "M3_round2",
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        }
+      ],
+      "strict_CPU_task_loads": 14,
+      "tested_real_states_per_task": 112,
+      "closed_native_banks": 16,
+      "closed_sources": [
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
           "seed": 20261031,
           "task": "N12",
-          "status": "CPU_PREPARED_NOT_NATIVE_ACCEPTED"
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
         }
-      ]
+      ],
+      "finalized_closed_source_queries": 224000,
+      "retained_failed_reserved_queries": 10592,
+      "recorded_known_query_charge_subtotal": 234592,
+      "actual_queries": null,
+      "actual_queries_finalized": false,
+      "query_accounting_status": "UNFINALIZED_LOCAL_LEDGER_AUTHORITATIVE",
+      "query_accounting_scope": "Known subtotal=closed complete-source charges+retained failed reservations. Active reservations are additional and unfinalized; never assume zero or refund failures.",
+      "final_label_budget_each_task": 56000,
+      "native_heldout_evaluation_episodes": 0,
+      "native_results": null,
+      "global_maximum_parallel_CPU_fits": 3,
+      "previous_R2_stage_strict_closed": true,
+      "resource_interruption": {
+        "status": "RESOURCE_GUARD_INTERRUPTION_RETAINED",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "round": 3,
+        "training_seed": 20261031,
+        "physical_gpu_index": 0,
+        "guard_threshold_MiB": 4096,
+        "recorded_free_MiB": 3950,
+        "tasks": [
+          {
+            "task": "N03",
+            "status": "INCOMPLETE_NO_RETRY",
+            "planned_denominator": 20,
+            "complete": false,
+            "paid_queries": 5200,
+            "exported_labels": 0,
+            "training_admitted_rows": 0,
+            "unloaded_paid_labels": 5200,
+            "remaining_task_allowance": 8800,
+            "task_successes": null,
+            "motion_outcomes": null,
+            "guard_free_MiB": 3950,
+            "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+            "refunds": 0
+          },
+          {
+            "task": "N12",
+            "status": "INCOMPLETE_NO_RETRY",
+            "planned_denominator": 20,
+            "complete": false,
+            "paid_queries": 5392,
+            "exported_labels": 0,
+            "training_admitted_rows": 0,
+            "unloaded_paid_labels": 5392,
+            "remaining_task_allowance": 8608,
+            "task_successes": null,
+            "motion_outcomes": null,
+            "guard_free_MiB": 3950,
+            "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+            "refunds": 0
+          }
+        ],
+        "paid_failed_subtotal": 10592,
+        "exported_labels": 0,
+        "training_admitted_rows": 0,
+        "final_checkpoint": null,
+        "final_native_result": null,
+        "automatic_retries": 0,
+        "refunds": 0,
+        "retry_or_partial_budget_completion_authorized": false,
+        "owner_decision": "PENDING_REMAINING8800_N03_8608_N12_OR_MISSING_MODEL",
+        "cause_scope": "Configured free-memory guard confirmed as stop trigger. Secondary assertion/shutdown cause unresolved; no external process attribution.",
+        "scientific_performance_conclusion": false,
+        "raw_evidence_published": false
+      },
+      "continuation": {
+        "status": "RUNNING_THREE_UNATTEMPTED_R3_PAIRS",
+        "started_utc": "2026-10-21T18:58:00.295604+00:00",
+        "logical_prepared_pairs": 18,
+        "real_CPU_prepares": 36,
+        "unattempted_R3_pairs": 3,
+        "unattempted_R3_new_query_cap": 84000,
+        "nominal42k_queued_episode_cap": 1500,
+        "interrupted_pair_retried": false,
+        "known_failed_paid_queries_preserved": {
+          "N03": 5200,
+          "N12": 5392
+        },
+        "actual_queries": null,
+        "actual_queries_finalized": false,
+        "actual_evaluation_results": null,
+        "lane_status": {
+          "0": "WAIT_THREE_R3_PAIRS_CLOSED",
+          "1": "WAITING_PAIR_CLOSURE"
+        },
+        "scope": "Only never-attempted R3 pairs and later zero-query42k evaluations. Failed pair is excluded; no source replacement or hidden refund."
+      }
     },
     "g8_matched_round1": {
       "status": "ALL30_CLOSED_FIRST28K_BUDGET_POINT",
@@ -9719,6 +10643,99 @@
       "numerical_CSV": "data/opd-matched-round1.csv",
       "full56k_comparison_complete": false,
       "M2_DART_included": false
+    },
+    "g8_resource_interruption": {
+      "status": "RESOURCE_GUARD_INTERRUPTION_RETAINED",
+      "method": "M4",
+      "variant": "without_semantic_filter",
+      "round": 3,
+      "training_seed": 20261031,
+      "physical_gpu_index": 0,
+      "guard_threshold_MiB": 4096,
+      "recorded_free_MiB": 3950,
+      "tasks": [
+        {
+          "task": "N03",
+          "status": "INCOMPLETE_NO_RETRY",
+          "planned_denominator": 20,
+          "complete": false,
+          "paid_queries": 5200,
+          "exported_labels": 0,
+          "training_admitted_rows": 0,
+          "unloaded_paid_labels": 5200,
+          "remaining_task_allowance": 8800,
+          "task_successes": null,
+          "motion_outcomes": null,
+          "guard_free_MiB": 3950,
+          "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+          "refunds": 0
+        },
+        {
+          "task": "N12",
+          "status": "INCOMPLETE_NO_RETRY",
+          "planned_denominator": 20,
+          "complete": false,
+          "paid_queries": 5392,
+          "exported_labels": 0,
+          "training_admitted_rows": 0,
+          "unloaded_paid_labels": 5392,
+          "remaining_task_allowance": 8608,
+          "task_successes": null,
+          "motion_outcomes": null,
+          "guard_free_MiB": 3950,
+          "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+          "refunds": 0
+        }
+      ],
+      "paid_failed_subtotal": 10592,
+      "exported_labels": 0,
+      "training_admitted_rows": 0,
+      "final_checkpoint": null,
+      "final_native_result": null,
+      "automatic_retries": 0,
+      "refunds": 0,
+      "retry_or_partial_budget_completion_authorized": false,
+      "owner_decision": "PENDING_REMAINING8800_N03_8608_N12_OR_MISSING_MODEL",
+      "cause_scope": "Configured free-memory guard confirmed as stop trigger. Secondary assertion/shutdown cause unresolved; no external process attribution.",
+      "scientific_performance_conclusion": false,
+      "raw_evidence_published": false
+    },
+    "g8_continuation": {
+      "status": "RUNNING_THREE_UNATTEMPTED_R3_PAIRS",
+      "started_utc": "2026-10-21T18:58:00.295604+00:00",
+      "logical_prepared_pairs": 18,
+      "real_CPU_prepares": 36,
+      "unattempted_R3_pairs": 3,
+      "unattempted_R3_new_query_cap": 84000,
+      "nominal42k_queued_episode_cap": 1500,
+      "interrupted_pair_retried": false,
+      "known_failed_paid_queries_preserved": {
+        "N03": 5200,
+        "N12": 5392
+      },
+      "actual_queries": null,
+      "actual_queries_finalized": false,
+      "actual_evaluation_results": null,
+      "lane_status": {
+        "0": "WAIT_THREE_R3_PAIRS_CLOSED",
+        "1": "WAITING_PAIR_CLOSURE"
+      },
+      "scope": "Only never-attempted R3 pairs and later zero-query42k evaluations. Failed pair is excluded; no source replacement or hidden refund."
+    },
+    "g8_perturbation_calibration_preparation": {
+      "status": "PREPARED_NOT_NATIVE_ACCEPTED",
+      "independent_revision": "C3_G8_independent_calibration_IO_v1_UNQUALIFIED",
+      "focused_CPU_checks_passed": 13,
+      "native_launches": 0,
+      "actual_validation_queries": 0,
+      "parameter_updates": 0,
+      "sync_started": false,
+      "source_support": "New read-only Source contact view; initial actual contact must pass before first-tick table trigger; no Destination/contact-history or geometry substitute.",
+      "EE_offset": "Immutable paired absolute reference after common postprocessing/before IK;25mm full-amplitude candidate30ticks/.25s plus explicit6tick ramps each/.35s total.",
+      "zero_bias_and_replay_source": "NOT_READY_REAL_CLOSED_REFERENCE_INITIAL_STATE_AND_CLOCK_BINDINGS_MISSING",
+      "physical_effect_accepted": false,
+      "original_C3_bitwise_equivalence_claimed": false,
+      "formal_protocol_frozen": false
     }
   },
   "verifier_admission": {
@@ -9797,8 +10814,8 @@
     },
     "g8_pipeline_validation_training_rows": 0
   },
-  "snapshot_state": "MATCHED_FIRST28K_POINT_AND_ORACLE_CLOSED_R2_ACTIVE",
-  "training_updates": 1448000,
+  "snapshot_state": "R2_CLOSED_R3_PARTIAL_GUARD_LOSS_AND_CONTINUATION",
+  "training_updates": 2048000,
   "formal_method_evaluation_episodes": 1500,
   "milestone_completion_scope": "Ma historical measurement and Mb qualification report are closed with limitations (2/6). Benign tracking does not establish controller safety under student states.",
   "training_buffer_rows": 28000,
@@ -9828,11 +10845,11 @@
     "training_admitted": 0,
     "prominent_disclosure": true
   },
-  "training_updates_scope": "1448000 completed updates =328000 historical diagnostic pilots +120000 common initial +1000000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +160000 strictly completed R2 updates). Running fits are excluded; fitting is separate from native task acceptance.",
-  "formal_method_training_updates": 1000000,
+  "training_updates_scope": "2048000 completed updates =328000 historical diagnostic pilots +120000 common initial +1600000 formal fits (120000 M3round1 +360000 M4/ablations +360000 M1 BC40/60/80 +480000 R2 +280000 R3 strictly completed updates). Running fits are excluded; fitting is separate from native task acceptance.",
+  "formal_method_training_updates": 1600000,
   "qualification_training_buffer_rows": 0,
   "operational_blocker": {
-    "status": "MATCHED_FIRST_POINT_LOW_TASK_SR_MOTION_LIMITATIONS_RETAINED",
+    "status": "LOW_TASK_SR_AND_RETAINED_R3_RESOURCE_INTERRUPTION",
     "prominent_disclosure": true,
     "native_zero_query_execution_path_verified": true,
     "task_and_controller_safety_accepted": false,
@@ -10130,7 +11147,7 @@
     ],
     "BC_recipe_search_closed": true,
     "closed_loop_causal_repair_proven": false,
-    "next_frontier": "Complete separate R2 acquisition and fixed cumulative fits; final R3 is conditional after R2 strict closure. BC60/BC80 native evaluations, DART design and shifted/TTA qualification remain pending.",
+    "next_frontier": "Continue only never-attempted R3 pairs and separate42k evaluation. Preserve interrupted paid calls/missing model pending owner decision. No final56k, perturbation or TTA acceptance.",
     "initial_shared_CPU_models_completed": 3,
     "initial_shared_native_qualification": "CLOSED_0_OF_12"
   },
@@ -10513,7 +11530,7 @@
   "shared_initial_native_task_successes": 0,
   "on_policy_round1_training_updates": 120000,
   "guidance8": {
-    "status": "FIRST_MATCHED_BUDGET_POINT_CLOSED_R2_COLLECT_FIT_ACTIVE",
+    "status": "FIRST28K_MATCHED_POINT_CLOSED_R3_RESOURCE_INTERRUPTION_RETAINED",
     "per_task_per_method_per_seed_label_cap": 56000,
     "training_seeds": [
       20261031,
@@ -13232,7 +14249,7 @@
       "native_result_scope": "BC40 only: six0/50 banks; BC60/BC80 fixed CPU fits complete but not natively evaluated"
     },
     "later_rounds": {
-      "status": "ROUND2_ACTIVE_QUERY_TOTAL_UNFINALIZED",
+      "status": "ALL_R2_ACQUISITIONS_AND_TWELVE_FIXED_FITS_CLOSED",
       "method_variant_seed_learners": 12,
       "task_banks": 24,
       "episodes_each_bank": 20,
@@ -13243,201 +14260,365 @@
       "total_new_query_cap": 336000,
       "new_query_cap_each_task_learner": 14000,
       "cumulative_label_access_each_task_learner": 42000,
-      "native_banks_started": 16,
-      "closed_native_banks": 12,
-      "closed_learner_pairs": 6,
-      "finalized_closed_source_queries": 168000,
+      "native_banks_started": 24,
+      "closed_native_banks": 24,
+      "closed_learner_pairs": 12,
+      "finalized_closed_source_queries": 336000,
       "closed_sources": [
         {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261031,
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
           "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261031,
-          "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M3",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
-          "variant": "standard",
-          "seed": 20261031,
-          "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M4",
-          "variant": "standard",
-          "seed": 20261031,
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
           "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M4",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
-        },
-        {
-          "method": "M4",
-          "variant": "standard",
-          "seed": 20261032,
-          "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261031,
           "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261031,
           "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261032,
           "task": "N03",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
         },
         {
           "method": "M4",
           "variant": "without_semantic_filter",
           "seed": 20261032,
           "task": "N12",
-          "episodes": 20,
-          "finalized_queries": 14000,
-          "NAS_sync_status": "COMPLETE"
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
         }
       ],
       "strict_CPU_prepares_passed": 24,
-      "completed_fixed_fits": 4,
-      "completed_training_updates": 160000,
-      "strict_CPU_task_loads": 8,
+      "completed_fixed_fits": 12,
+      "completed_training_updates": 480000,
+      "strict_CPU_task_loads": 24,
       "completed_fit_rows": [
         {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261031,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
           "method": "M3",
           "variant": "standard",
           "seed": 20261031,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 83895,
-          "fit_wall_s": 146.4719910529675,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         },
         {
           "method": "M3",
           "variant": "standard",
           "seed": 20261032,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 83737,
-          "fit_wall_s": 143.5536237860215,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         },
         {
           "method": "M4",
           "variant": "standard",
           "seed": 20261031,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 76896,
-          "fit_wall_s": 143.03348418703536,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         },
         {
           "method": "M4",
           "variant": "standard",
           "seed": 20261032,
-          "updates": 40000,
-          "cumulative_labels_per_task": 42000,
-          "selected_training_rows": 75335,
-          "fit_wall_s": 254.42517594899982,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
           "strict_CPU_task_loads": 2,
-          "real_states_tested_per_task": 112,
-          "source_unchanged": true,
-          "natural_exit_zero": true,
-          "fit_writer_gone": true,
-          "heldout_evaluated": false,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261031,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "g8_round": 2,
+          "training_updates": 40000,
+          "budget_per_task": 42000,
+          "total_label_access_budget": 84000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
           "NAS_archive_status": "COMPLETE"
         }
       ],
-      "running_fits": 1,
+      "running_fits": 0,
       "native_heldout_evaluation_episodes": 0,
       "heldout_effect": null,
       "initialization": "Fresh same-seed40000 on cumulative data; no warmstart or new recipe",
       "beta": 0,
       "source_scope": "Each divergent method/variant/seed collects its own student-state bank; no cross-method raw reuse",
-      "actual_queries": null,
-      "actual_queries_finalized": false,
-      "closed_source_queries": 168000,
-      "query_accounting_status": "UNFINALIZED_LOCAL_LEDGER_AUTHORITATIVE",
-      "query_accounting_scope": "Local per-run reservation/result ledgers are authoritative. Closed-source totals cover only finalized evidence; they never imply zero live acquisition cost. A cap is a planned limit, not actual spending."
+      "actual_queries": 336000,
+      "actual_queries_finalized": true,
+      "closed_source_queries": 336000,
+      "query_accounting_status": "FINALIZED_LEDGER_TOTAL",
+      "query_accounting_scope": "R2 acquisition only:24 closed banks/336000 actual calls; no R3 or validation costs. All rejected calls remain charged."
     },
     "M0_oracle": {
       "status": "CLOSED_BOTH_TASKS_50_OF50",
@@ -13520,30 +14701,320 @@
       "dependent_experiments_started": false
     },
     "round3_CPU": {
-      "status": "CPU_WATCHER_WAIT_PREVIOUS_STAGE",
-      "completed_fixed_fits": 0,
-      "training_updates": 0,
-      "native_results": null,
-      "final_label_budget_each_task": 56000,
-      "conditional_fixed_fits": 12,
-      "conditional_fixed_updates_each": 40000,
-      "global_maximum_parallel_CPU_fits": 3,
-      "gate": "Wait for all12 R2 fits strictly passed and naturally closed; no cross-stage fit concurrency",
-      "deployment_preparation_scope": "First R2 model copies and later-evaluation CPU prepares are interface preparation only; no R2 heldout or R3 native result",
-      "later_nominal_real_CPU_prepares": [
+      "status": "R3_PARTIAL_WITH_RETAINED_RESOURCE_FAILURE_AND_CONTINUATION",
+      "planned_fixed_fits": 12,
+      "completed_fixed_fits": 7,
+      "training_updates": 280000,
+      "running_fits": 1,
+      "completed_fit_rows": [
         {
-          "model_id": "M3_round2",
-          "seed": 20261031,
-          "task": "N03",
-          "status": "CPU_PREPARED_NOT_NATIVE_ACCEPTED"
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
         },
         {
-          "model_id": "M3_round2",
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "g8_round": 3,
+          "training_updates": 40000,
+          "budget_per_task": 56000,
+          "total_label_access_budget": 112000,
+          "strict_CPU_task_loads": 2,
+          "tested_real_states_per_task": 112,
+          "NAS_archive_status": "COMPLETE"
+        }
+      ],
+      "strict_CPU_task_loads": 14,
+      "tested_real_states_per_task": 112,
+      "closed_native_banks": 16,
+      "closed_sources": [
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_semantic_filter",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
           "seed": 20261031,
           "task": "N12",
-          "status": "CPU_PREPARED_NOT_NATIVE_ACCEPTED"
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M3",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "standard",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261033,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N03",
+          "queries": 14000,
+          "exported_labels": 14000
+        },
+        {
+          "method": "M4",
+          "variant": "without_recovery_weight",
+          "seed": 20261032,
+          "task": "N12",
+          "queries": 14000,
+          "exported_labels": 14000
         }
-      ]
+      ],
+      "finalized_closed_source_queries": 224000,
+      "retained_failed_reserved_queries": 10592,
+      "recorded_known_query_charge_subtotal": 234592,
+      "actual_queries": null,
+      "actual_queries_finalized": false,
+      "query_accounting_status": "UNFINALIZED_LOCAL_LEDGER_AUTHORITATIVE",
+      "query_accounting_scope": "Known subtotal=closed complete-source charges+retained failed reservations. Active reservations are additional and unfinalized; never assume zero or refund failures.",
+      "final_label_budget_each_task": 56000,
+      "native_heldout_evaluation_episodes": 0,
+      "native_results": null,
+      "global_maximum_parallel_CPU_fits": 3,
+      "previous_R2_stage_strict_closed": true,
+      "resource_interruption": {
+        "status": "RESOURCE_GUARD_INTERRUPTION_RETAINED",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "round": 3,
+        "training_seed": 20261031,
+        "physical_gpu_index": 0,
+        "guard_threshold_MiB": 4096,
+        "recorded_free_MiB": 3950,
+        "tasks": [
+          {
+            "task": "N03",
+            "status": "INCOMPLETE_NO_RETRY",
+            "planned_denominator": 20,
+            "complete": false,
+            "paid_queries": 5200,
+            "exported_labels": 0,
+            "training_admitted_rows": 0,
+            "unloaded_paid_labels": 5200,
+            "remaining_task_allowance": 8800,
+            "task_successes": null,
+            "motion_outcomes": null,
+            "guard_free_MiB": 3950,
+            "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+            "refunds": 0
+          },
+          {
+            "task": "N12",
+            "status": "INCOMPLETE_NO_RETRY",
+            "planned_denominator": 20,
+            "complete": false,
+            "paid_queries": 5392,
+            "exported_labels": 0,
+            "training_admitted_rows": 0,
+            "unloaded_paid_labels": 5392,
+            "remaining_task_allowance": 8608,
+            "task_successes": null,
+            "motion_outcomes": null,
+            "guard_free_MiB": 3950,
+            "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+            "refunds": 0
+          }
+        ],
+        "paid_failed_subtotal": 10592,
+        "exported_labels": 0,
+        "training_admitted_rows": 0,
+        "final_checkpoint": null,
+        "final_native_result": null,
+        "automatic_retries": 0,
+        "refunds": 0,
+        "retry_or_partial_budget_completion_authorized": false,
+        "owner_decision": "PENDING_REMAINING8800_N03_8608_N12_OR_MISSING_MODEL",
+        "cause_scope": "Configured free-memory guard confirmed as stop trigger. Secondary assertion/shutdown cause unresolved; no external process attribution.",
+        "scientific_performance_conclusion": false,
+        "raw_evidence_published": false
+      },
+      "continuation": {
+        "status": "RUNNING_THREE_UNATTEMPTED_R3_PAIRS",
+        "started_utc": "2026-10-21T18:58:00.295604+00:00",
+        "logical_prepared_pairs": 18,
+        "real_CPU_prepares": 36,
+        "unattempted_R3_pairs": 3,
+        "unattempted_R3_new_query_cap": 84000,
+        "nominal42k_queued_episode_cap": 1500,
+        "interrupted_pair_retried": false,
+        "known_failed_paid_queries_preserved": {
+          "N03": 5200,
+          "N12": 5392
+        },
+        "actual_queries": null,
+        "actual_queries_finalized": false,
+        "actual_evaluation_results": null,
+        "lane_status": {
+          "0": "WAIT_THREE_R3_PAIRS_CLOSED",
+          "1": "WAITING_PAIR_CLOSURE"
+        },
+        "scope": "Only never-attempted R3 pairs and later zero-query42k evaluations. Failed pair is excluded; no source replacement or hidden refund."
+      }
     },
     "matched_round1_nominal": {
       "status": "ALL30_CLOSED_FIRST28K_BUDGET_POINT",
@@ -14477,6 +15948,99 @@
       "numerical_CSV": "data/opd-matched-round1.csv",
       "full56k_comparison_complete": false,
       "M2_DART_included": false
+    },
+    "resource_interruption": {
+      "status": "RESOURCE_GUARD_INTERRUPTION_RETAINED",
+      "method": "M4",
+      "variant": "without_semantic_filter",
+      "round": 3,
+      "training_seed": 20261031,
+      "physical_gpu_index": 0,
+      "guard_threshold_MiB": 4096,
+      "recorded_free_MiB": 3950,
+      "tasks": [
+        {
+          "task": "N03",
+          "status": "INCOMPLETE_NO_RETRY",
+          "planned_denominator": 20,
+          "complete": false,
+          "paid_queries": 5200,
+          "exported_labels": 0,
+          "training_admitted_rows": 0,
+          "unloaded_paid_labels": 5200,
+          "remaining_task_allowance": 8800,
+          "task_successes": null,
+          "motion_outcomes": null,
+          "guard_free_MiB": 3950,
+          "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+          "refunds": 0
+        },
+        {
+          "task": "N12",
+          "status": "INCOMPLETE_NO_RETRY",
+          "planned_denominator": 20,
+          "complete": false,
+          "paid_queries": 5392,
+          "exported_labels": 0,
+          "training_admitted_rows": 0,
+          "unloaded_paid_labels": 5392,
+          "remaining_task_allowance": 8608,
+          "task_successes": null,
+          "motion_outcomes": null,
+          "guard_free_MiB": 3950,
+          "stop_reason": "FREE_GPU_MEMORY_BELOW_4096_MiB",
+          "refunds": 0
+        }
+      ],
+      "paid_failed_subtotal": 10592,
+      "exported_labels": 0,
+      "training_admitted_rows": 0,
+      "final_checkpoint": null,
+      "final_native_result": null,
+      "automatic_retries": 0,
+      "refunds": 0,
+      "retry_or_partial_budget_completion_authorized": false,
+      "owner_decision": "PENDING_REMAINING8800_N03_8608_N12_OR_MISSING_MODEL",
+      "cause_scope": "Configured free-memory guard confirmed as stop trigger. Secondary assertion/shutdown cause unresolved; no external process attribution.",
+      "scientific_performance_conclusion": false,
+      "raw_evidence_published": false
+    },
+    "continuation": {
+      "status": "RUNNING_THREE_UNATTEMPTED_R3_PAIRS",
+      "started_utc": "2026-10-21T18:58:00.295604+00:00",
+      "logical_prepared_pairs": 18,
+      "real_CPU_prepares": 36,
+      "unattempted_R3_pairs": 3,
+      "unattempted_R3_new_query_cap": 84000,
+      "nominal42k_queued_episode_cap": 1500,
+      "interrupted_pair_retried": false,
+      "known_failed_paid_queries_preserved": {
+        "N03": 5200,
+        "N12": 5392
+      },
+      "actual_queries": null,
+      "actual_queries_finalized": false,
+      "actual_evaluation_results": null,
+      "lane_status": {
+        "0": "WAIT_THREE_R3_PAIRS_CLOSED",
+        "1": "WAITING_PAIR_CLOSURE"
+      },
+      "scope": "Only never-attempted R3 pairs and later zero-query42k evaluations. Failed pair is excluded; no source replacement or hidden refund."
+    },
+    "perturbation_calibration_preparation": {
+      "status": "PREPARED_NOT_NATIVE_ACCEPTED",
+      "independent_revision": "C3_G8_independent_calibration_IO_v1_UNQUALIFIED",
+      "focused_CPU_checks_passed": 13,
+      "native_launches": 0,
+      "actual_validation_queries": 0,
+      "parameter_updates": 0,
+      "sync_started": false,
+      "source_support": "New read-only Source contact view; initial actual contact must pass before first-tick table trigger; no Destination/contact-history or geometry substitute.",
+      "EE_offset": "Immutable paired absolute reference after common postprocessing/before IK;25mm full-amplitude candidate30ticks/.25s plus explicit6tick ramps each/.35s total.",
+      "zero_bias_and_replay_source": "NOT_READY_REAL_CLOSED_REFERENCE_INITIAL_STATE_AND_CLOCK_BINDINGS_MISSING",
+      "physical_effect_accepted": false,
+      "original_C3_bitwise_equivalence_claimed": false,
+      "formal_protocol_frozen": false
     }
   },
   "formal_M1_M4_selected_rows_by_seed": {
@@ -14498,7 +16062,7 @@
   "BC20_reference_evaluation_episodes": 300,
   "oracle_evaluation_episodes": 100,
   "learned_policy_closed_heldout_episodes": 1800,
-  "later_round2_completed_training_updates": 160000,
+  "later_round2_completed_training_updates": 480000,
   "matched_round1_figure": {
     "png": "assets/opd-matched-round1-stages.png",
     "pdf": "assets/opd-matched-round1-stages.pdf",
@@ -14507,5 +16071,6 @@
     "source_figure_byte_identical": true,
     "public_csv_numeric_and_ID_only": true,
     "private_path_columns_excluded": true
-  }
+  },
+  "later_round3_completed_training_updates": 280000
 }
