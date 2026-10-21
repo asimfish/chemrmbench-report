@@ -89,10 +89,10 @@
   },
   {
     "id": "press",
-    "title": "T4 · 提示后物理按键（3mm准备间隙）",
+    "title": "T4-v1 历史 · 已停用的提示响应设计",
     "station_a": "assets/native-v01/t4-near-station-a-web.mp4",
     "wrist": "assets/native-v01/t4-near-wrist-web.mp4",
-    "scope": "明确声明的3mm初始准备间隙，3秒窗口和25N上限保持不变。新配置20/20成功，40段录像与20条判定全部复核，峰值16.75N；本片为资格录像（2.067秒、16.49N）。旧5cm姿态的10次校准（4成功、6失败）单独保留。",
+    "scope": "已停用的v1设计：固定时刻策略约75%可过；保留历史录像，不计v2进度。明确声明的3mm初始准备间隙，3秒窗口和25N上限保持不变。新配置20/20成功，40段录像与20条判定全部复核，峰值16.75N；本片为资格录像（2.067秒、16.49N）。旧5cm姿态的10次校准（4成功、6失败）单独保留。",
     "stages": [
       {
         "name": "ready",
@@ -281,6 +281,31 @@
         "name": "retreat",
         "step": 13028,
         "time_s": 54.28333333334957
+      }
+    ]
+  },
+  {
+    "id": "press_v2",
+    "title": "T4-v2 · 扩大提示时间区间后的原生轨迹",
+    "station_a": "assets/native-v01/t4-v2-station-a-web.mp4",
+    "wrist": "assets/native-v01/t4-v2-wrist-web.mp4",
+    "scope": "T4-v2脚本专家的首条原生轨迹。提示分布2–17秒，响应窗口3秒，固定时刻上界20%；本条响应延迟2.067秒、原始峰值力15.54N。两路原速20fps录像已完整解码，离线重算一致；SSD保存，NAS同步待恢复，20-seed主批量仍在采集。",
+    "stages": [
+      {
+        "name": "ready",
+        "time_s": 0.0
+      },
+      {
+        "name": "wait_cue",
+        "time_s": 11.55
+      },
+      {
+        "name": "press",
+        "time_s": 13.6
+      },
+      {
+        "name": "retreat",
+        "time_s": 14.8
       }
     ]
   }

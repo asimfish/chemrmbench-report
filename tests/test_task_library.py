@@ -12,7 +12,8 @@ class RuntimeProjection(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
         self.patch=patch.object(module,'ROOT',self.root);self.patch.start()
-    def tearDown(self):self.patch.stop();self.temp.cleanup()
+        self.ssd_patch=patch.object(module,'SSD',self.root/'ssd');self.ssd_patch.start()
+    def tearDown(self):self.ssd_patch.stop();self.patch.stop();self.temp.cleanup()
     def collection(self,name,statuses,warning=False,planned=None):
         root=self.root/name;root.mkdir()
         (root/'collection.json').write_text(json.dumps({'backend':'isaac','tasks':['pour'],
@@ -126,5 +127,14 @@ class RuntimeProjection(unittest.TestCase):
         self.assertEqual(result['received_and_validated_attempts'],4)
         self.assertFalse(result['main_table_eligible'])
         for private in ['needle_token',str(p)]:self.assertNotIn(private,json.dumps(result))
+
+    def test_ssd_staging_is_separate_from_admitted_counts_and_exports_no_trial_truth(self):
+        p=self.root/'ssd/t4_v2_twenty_seed';p.mkdir(parents=True)
+        (p/'collection.json').write_text(json.dumps({'backend':'isaac','episodes_per_task':20}))
+        (p/'manifest.jsonl').write_text(json.dumps({'status':'success','directory':str(p),'hidden_cue':'needle_token'})+'\n')
+        value=module.collect_task_library()
+        self.assertEqual(value['dataset_attempts'],0)
+        self.assertEqual(value['ssd_staging']['cohorts'][0]['closed_attempts'],1)
+        for private in ['needle_token',str(p)]:self.assertNotIn(private,json.dumps(value))
 
 if __name__=='__main__':unittest.main()

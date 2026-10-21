@@ -12,6 +12,9 @@ async function refreshStats(){
   $('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
   const pilot=data.pipeline_pilot;
+  if(data.ssd_staging && $('ssdStaging')){
+   const r=data.ssd_staging;$('ssdStaging').textContent='NAS 写入等待响应；后续数据保存于本机持久 SSD，尚未计入 NAS 验收统计。'+r.cohorts.map(c=>`${c.label} 已闭合 ${c.closed_attempts}/${c.expected_attempts} 条，批量离线验收${c.batch_recording_accepted?'通过':'待完成'}`).join('；')+'。';
+  }
   if(data.training_expansion && $('trainingExpansion')){
    const r=data.training_expansion;$('trainingExpansion').textContent=`远程训练数据扩采：已回传并验收 ${r.received_and_validated_attempts}/${r.target_new_attempts} 条，${r.admitted_successes} 条通过独立训练准入。严格 V2 等价未通过；远程数据仅用于训练，专家、消融和评测主表均在本机产生。`;
   }
@@ -68,6 +71,8 @@ async function loadVideos(){
  const response=await fetch('data/native-video-index.json');if(!response.ok)throw Error('video index unavailable');
  const videos=await response.json();const select=$('taskSelect');
  for(const item of videos){const option=document.createElement('option');option.value=item.id;option.textContent=item.title;select.append(option);}
+ const requested=new URLSearchParams(window.location.search).get('task');
+ if(videos.some(item=>item.id===requested))select.value=requested;
  function choose(){
   const item=videos.find(v=>v.id===select.value)||videos[0];
   $('station').src=item.station_a;$('wrist').src=item.wrist;

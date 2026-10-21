@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 
 ROOT=Path('/mnt/nas/data/lyf/chem_mem/paperA-experiments/chemrmbench_v0_1_20261019')
+SSD=Path.home()/'.local/share/chemrm-collections/guidance7'
 CATALOG=[
  ('T2','bottle_balance','瓶子 → 天平 → 返回','M0 / T0 · 八阶段长任务'),
  ('T1','pick_place','烧杯抓取与放置','M0 / T0 · 基础物理对照'),
@@ -147,6 +148,27 @@ def training_expansion_projection():
             for k,n in sorted(counts.items())]}
 
 
+def ssd_projection():
+    result=[]
+    for name,label in [('t4_v2_twenty_seed','T4-v2 main'),('t4_v2_ablation_ten_seed','T4-v2 ablation'),
+        ('step6_native_t7_paused_ssd','T7 public suffix'),('step6_native_t8_paused_ssd','T8 public'),
+        ('step6_native_t3_paused_ssd','T3 public')]:
+        config=read(SSD/name/'collection.json',{})
+        if config.get('backend')!='isaac':continue
+        rows=[];p=SSD/name/'manifest.jsonl'
+        if p.is_file():
+            for line in p.read_text().splitlines():
+                try:row=json.loads(line)
+                except ValueError:continue
+                if row.get('status') in {'success','fail','error'}:rows.append(row)
+        result.append({'label':label,'closed_attempts':len(rows),'expected_attempts':config['episodes_per_task'],
+            'measured_status_counts':dict(Counter(r['status'] for r in rows)),
+            'batch_recording_accepted':read(SSD/name/'dataset_acceptance.json',{}).get('acceptance_passed') is True,
+            'NAS_mirror_pending':True})
+    return {'scope':'durable SSD staging during NAS write stall; separate from NAS admitted cohort counts',
+        'cohorts':result,'T7_retained_valid_successes':3,'T7_case1003_original_receipt_pending':True}
+
+
 def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
@@ -262,6 +284,7 @@ def collect_task_library():
     return {'schema_version':'chemrmbench-task-library-0.1',
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
             'training_expansion':training_expansion_projection(),'current_t6':current_t6_projection(),
+            'ssd_staging':ssd_projection(),
             'updated_at_utc':datetime.now(timezone.utc).isoformat(),
             'tasks':tasks,'native_tasks_with_dataset':sum(t['dataset_attempts']>0 for t in tasks),
             'dataset_attempts':sum(t['dataset_attempts'] for t in tasks),
