@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T16:02:46Z",
+  "snapshot_utc": "2026-10-21T16:42:25Z",
   "snapshot_kind": "curated_static_snapshot",
-  "phase_status": "M3_ROUND1_FIT_COMPLETE_M4_FIXED_QUEUE_REFERENCE_EVAL_RUNNING",
+  "phase_status": "BC20_AND_M3_NOMINAL50_ALL_ZERO_M4_EVAL_M1_SOURCE_RUNNING",
   "current_milestone": "Me",
   "completed_milestones": 2,
   "milestone_total": 6,
@@ -406,7 +406,7 @@
         "shared_policy_CPU_boundary_checks_passed": 4,
         "data_CPU_boundary_checks_passed": 19,
         "training_buffer_rows": 28000,
-        "training_updates": 568000,
+        "training_updates": 928000,
         "qualification_takeover_geometry_candidates": {
           "N03": 46000,
           "N12": 41811
@@ -417,8 +417,8 @@
         "new_training_role_queries": 28000,
         "new_training_role_admitted_rows": 28000,
         "qualification_training_buffer_rows": 0,
-        "training_updates_scope": "568000 completed updates:328000 older single-task diagnostic-pilot +120000 common-initial multi-task +120000 M3 round1. M3 fitting is complete; no M3 heldout result or completed matched method comparison.",
-        "formal_M1_M4_training_updates": 120000,
+        "training_updates_scope": "928000 completed updates =328000 older diagnostic-pilot +120000 common initial +120000 M3round1 +360000 M4/ablations round1. No completed matched M1–M4 performance comparison.",
+        "formal_M1_M4_training_updates": 480000,
         "student_zero_query_native_accepted": false,
         "N17_N18_native_training_data_accepted": false,
         "BC20_train_only_loss": {
@@ -476,9 +476,12 @@
         "shared_initial_actual_acceleration_events": 76,
         "shared_initial_native_training_admission": 0,
         "g8_pipeline_expert_and_replay_passed": true,
-        "g8_round1_native_sources_complete": true
+        "g8_round1_native_sources_complete": true,
+        "M4_fixed_fits": 9,
+        "M4_fixed_fit_updates": 360000,
+        "M1_new_expert_source": "BLOCK1_CLOSED_BC40_THREE_PREPARES_PASS_NO_FIT"
       },
-      "result_note": "Canonical C3 nominal20 banks retain14000 admitted labels/task. G8 expert-through-student and open-loop replay gates each passed20/20 per task with exact full trajectories;28000 expert validation calls remain evaluation-only and outside training. New pure-student round1 collection is complete:84000 queried labels over120episodes on40unique(task,source) instances repeated across3seeds. All120 pre-update acquisition episodes failed; this is not updated M3 or heldout performance. Actual acceleration exceedances total1679joint/120Hz-physics-step counts, not independent events; other three limit categories0. Reviewed hard-safe prefixes and valid failure samples remain eligible under semantic_filter=false; all failed/rejected queries stay charged. Three M3 fits each completed40000updates and strict CPU loading for both tasks. Earlier task/safety failures, N12 chart-seam limits and all qualification exclusions remain retained. N17/N18 data acceptance remains unmeasured.",
+      "result_note": "Canonical C3 nominal20 banks retain14000 admitted labels/task. G8 expert-through-student and open-loop replay gates each passed20/20 per task with exact full trajectories;28000 expert validation calls remain evaluation-only and outside training. New pure-student round1 collection is complete:84000 queried labels over120episodes on40unique(task,source) instances repeated across3seeds. All120 pre-update acquisition episodes failed; this is not updated M3 or heldout performance. Actual acceleration exceedances total1679joint/120Hz-physics-step counts, not independent events; other three limit categories0. Reviewed hard-safe prefixes and valid failure samples remain eligible under semantic_filter=false; all failed/rejected queries stay charged. Three M3 fits each completed40000updates and strict CPU loading for both tasks. Earlier task/safety failures, N12 chart-seam limits and all qualification exclusions remain retained. N17/N18 data acceptance remains unmeasured. All12nominal50 task/seed/model banks for the BC20 reference and updated M3 are now closed0/50, with clock/continuity/finite/case-ID/interval/zero-query audits passed and NAS sync complete. Their14k versus28k label budgets are unmatched. Nine M4/ablation fits add360000updates with18strict CPU checks; heldout evaluation is in progress. Additional M1 expert demonstrations are being collected in a new capsule after a pre-native source_z repair made0real queries; no incomplete source enters fitting. Unified data-admission correction: legacy nominal/takeover sources retain whole-case motion holds by default. Only an explicitly reviewed new C3 training-role pure-expert source with complete six-substep evidence may retain hard-safe intervals; unsafe intervals remain rejected, all queries stay charged and explicit case holds take priority. This changes data eligibility, not the algorithm, thresholds or measured motion. M1 additional expert block1 is now closed20/20 per task and independently reviewed: each task made14000 queries; N03 admits13997 and rejects3 intervals corresponding to4 actual-acceleration joint/physics-step counts, while N12 admits14000 with all four counters0. Three BC40 aggregate CPU prepares passed with55997 selected rows each and28000 label-access cost/task, using the same expert bank for all learner seeds. Torch was not imported, no optimizer was built and all releases remain false. Blocks2/3 and BC60/80 remain pending; no M1 aggregate fit or heldout result is available.",
       "progress": "C3_ANCHOR41_FINAL_PILOTS_CLOSED_STUDENT_STATE_DATA_NEXT"
     },
     {
@@ -570,7 +573,7 @@
           20261032,
           20261033
         ],
-        "formal_comparison_updates": 120000,
+        "formal_comparison_updates": 480000,
         "initial_shared_native_qualification": "CLOSED_0_OF_12",
         "shared_initial_unique_task_source_instances": 4,
         "shared_initial_task_or_safety_accepted": false,
@@ -581,15 +584,85 @@
           "20261032": 55737,
           "20261033": 55931
         },
-        "heldout_M3_result": null,
+        "heldout_M3_result": "ALL_SIX_BANKS0_OF50",
         "query_cap_per_task_method_seed": 56000,
-        "common_initial_reference_nominal50_status": "RUNNING",
+        "common_initial_reference_nominal50_status": "COMPLETE_ALL_SIX_BANKS0_OF50",
         "M4_real_prepares_passed": 9,
-        "M4_fixed_fit_queue": "RUNNING",
-        "M4_completed_fits": 0,
-        "M4_heldout_result": null
+        "M4_fixed_fit_queue": "COMPLETE",
+        "M4_completed_fits": 9,
+        "M4_heldout_result": null,
+        "M4_round1_updates": 360000,
+        "M3_nominal_evaluation_episodes": 300,
+        "M4_completed_heldout_banks": 2,
+        "M4_standard_seed31_results": [
+          {
+            "model_id": "M4_round1",
+            "variant": "standard",
+            "seed": 20261031,
+            "task": "N03",
+            "labels_per_task": 28000,
+            "successes": 1,
+            "denominator": 50,
+            "wilson95": [
+              0.003539259271646236,
+              0.10495443589637815
+            ],
+            "stage_ever_verified_counts": [
+              6,
+              6,
+              6,
+              1,
+              1
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 150
+            },
+            "safety_qualified_successes": 0,
+            "safety_qualified_success_definition": "task_success and all four local motion exceedance counters equal0",
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "model_id": "M4_round1",
+            "variant": "standard",
+            "seed": 20261031,
+            "task": "N12",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "safety_qualified_successes": 0,
+            "safety_qualified_success_definition": "task_success and all four local motion exceedance counters equal0",
+            "teacher_queries": 0,
+            "test_time_parameter_updates": 0,
+            "raw_audit_passed": true,
+            "NAS_sync_complete": true
+          }
+        ],
+        "M1_BC40_CPU_prepares": 3
       },
-      "result_note": "Guidance8 fixes56000labels/task/method/seed, three additional20episode rounds and three seeds; M1 uses80demonstrations (20+60). At round1 each M3 model accesses28000labels/task, including the same initial14000; actual admitted buffers are55901/55737/55931rows for seeds20261031/32/33. Each fixed-final fit uses40000updates; both-task strict CPU loads pass. New acquisition cost is84000queries, with no queries during fitting. Total completed updates568000=328000historical pilot+120000common initial+120000M3round1. No M3 heldout effect is measured yet. BC20 common-initial references are running nominal50/task/seed:300planned episodes on100unique(task,source) instances repeated across3seeds; final success/limits remain null. This14k/task reference is not the final budget-matched BC80 baseline. M4 and both ablations passed all9real preparations; their fixed9fit queue is running. No completed M4 fit or heldout effect is available yet; each learner still pays28000labels/task access on the identical shared acquisition. All seeds/checkpoints are retained without test-based selection; perturbation/adaptation/C01 results remain open."
+      "result_note": "Guidance8 fixes56000labels/task/method/seed and3additional20episode rounds, with all3seeds retained. M3round1 accesses28000labels/task and each model refits40000updates from its same-seed fresh initialization. All6M3 nominal50 banks and all6BC20 common-initial reference banks are now independently audited, naturally closed and NAS-synced: each task/seed/model is0/50, with Wilson95%0..7.13476%. BC20 uses14000labels/task, so this is not a matched-budget M1 comparison. Per model300episodes reuse100unique(task,source) instances across3seeds; no pooled independent-scene CI. Stage-ever predicates do not imply simultaneous states or task completion; no placement/release was verified. Nine fixed M4/ablation fits are complete (360000updates;18strict CPU loads), and their heldout evaluation is running with final aggregate pending. M1 extra60 expert demos/task are being collected; BC40/60/80 will use28k/42k/56k access with the same40k recipe, only after complete reviewed sources. Total completed928000=328000historical+120000initial+120000M3+360000M4. No method improvement, matched comparison or Md acceptance is established. M4 standard seed20261031 is closed on both nominal50 banks: N03 task success 1/50 (Wilson95% 0.3539–10.4954%), N12 0/50 (0–7.13476%). N03 stages are6/6/6/1/1 and N12 all0. The only task-success case2509 has9 actual-acceleration joint/physics-step exceedances, so safety-qualified success is0/50 for both tasks; this requires task success and all four motion counters0. N03 total actual-acceleration count is150, with the other three categories0; N12 all four are0. Raw/clock/continuity/interval/zero-query audits passed and both banks are NAS-complete. Remaining seeds and both ablations are pending; no safety, aggregate superiority or causal improvement is established. M1 additional expert block1 is now closed20/20 per task and independently reviewed: each task made14000 queries; N03 admits13997 and rejects3 intervals corresponding to4 actual-acceleration joint/physics-step counts, while N12 admits14000 with all four counters0. Three BC40 aggregate CPU prepares passed with55997 selected rows each and28000 label-access cost/task, using the same expert bank for all learner seeds. Torch was not imported, no optimizer was built and all releases remain false. Blocks2/3 and BC60/80 remain pending; no M1 aggregate fit or heldout result is available."
     },
     {
       "id": "Mf",
@@ -633,7 +706,7 @@
     "same_expert_label_budget": true,
     "training_seeds": 3,
     "oracle_reported_separately": true,
-    "status": "M3_ROUND1_FIT_COMPLETE_HELDOUT_RESULTS_OPEN",
+    "status": "UNMATCHED_BC20_M3_REFERENCE_CLOSED_MATCHED_M1_PENDING",
     "numerical_protocol_frozen": true,
     "shared_observation_encoding": "quat_anchor41_v1",
     "numerical_protocol_frozen_scope": "56k/task/method/seed,3rounds; fixed common supervised fit. DART and test-time adaptation remain separate design items.",
@@ -646,7 +719,12 @@
     ],
     "M1_demonstrations_per_task": 80,
     "M3_round1_training_updates": 120000,
-    "completed_method_comparison": false
+    "completed_method_comparison": false,
+    "BC20_reference_labels_per_task": 14000,
+    "M3_round1_labels_per_task": 28000,
+    "M3_nominal_evaluation_episodes": 300,
+    "M4_fixed_fit_updates": 360000,
+    "M4_completed_nominal_evaluation_episodes": 100
   },
   "opd_loop": [
     "Student rollout",
@@ -667,9 +745,542 @@
   "evaluation": [
     {
       "name": "First-attempt success",
-      "protocol": "Nominal50 heldout/task/model/seed; report all3seeds separately with Wilson intervals. Reference running; M3 final results null.",
-      "status": "RUNNING_COMMON_INITIAL_REFERENCE_M3_PENDING",
-      "value": null
+      "protocol": "All three seeds separately: BC20 reference14k/task and M3round1 28k/task each0/50 per task/seed; Wilson95%0..7.13476%. Budgets unmatched; no pooled300-independent-scene interval.",
+      "status": "BC20_AND_M3_COMPLETE_M4_IN_PROGRESS",
+      "value": {
+        "BC20_reference": [
+          {
+            "seed": 20261031,
+            "task": "N03",
+            "model_id": "common_initial",
+            "labels_per_task": 14000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              5,
+              5,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 525
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261031,
+            "task": "N12",
+            "model_id": "common_initial",
+            "labels_per_task": 14000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              15,
+              14,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 617
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261032,
+            "task": "N03",
+            "model_id": "common_initial",
+            "labels_per_task": 14000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              10,
+              6,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 1,
+              "actual_acceleration_exceedances": 1998
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261032,
+            "task": "N12",
+            "model_id": "common_initial",
+            "labels_per_task": 14000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              26,
+              15,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 2,
+              "actual_acceleration_exceedances": 1579
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261033,
+            "task": "N03",
+            "model_id": "common_initial",
+            "labels_per_task": 14000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              3,
+              3,
+              1,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 10,
+              "actual_acceleration_exceedances": 1866
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261033,
+            "task": "N12",
+            "model_id": "common_initial",
+            "labels_per_task": 14000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              5,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 782
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          }
+        ],
+        "M3_round1": [
+          {
+            "seed": 20261031,
+            "task": "N03",
+            "model_id": "M3_round1",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              10,
+              8,
+              8,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 60
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261031,
+            "task": "N12",
+            "model_id": "M3_round1",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261032,
+            "task": "N03",
+            "model_id": "M3_round1",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261032,
+            "task": "N12",
+            "model_id": "M3_round1",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261033,
+            "task": "N03",
+            "model_id": "M3_round1",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              2,
+              2,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 20
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          },
+          {
+            "seed": 20261033,
+            "task": "N12",
+            "model_id": "M3_round1",
+            "labels_per_task": 28000,
+            "successes": 0,
+            "denominator": 50,
+            "success_rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.07134759913335872
+            ],
+            "stage_ever_verified_counts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "physical_counts": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "teacher_queries": 0,
+            "sentinel_invocations": 0,
+            "evaluation_parameter_updates": 0,
+            "native_callbacks_per_batch": [
+              4200,
+              4200,
+              4200,
+              4200
+            ],
+            "native_seconds_per_batch": [
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246,
+              35.000001825392246
+            ],
+            "audit_passed": true,
+            "all_native_and_parent_pids_closed": true,
+            "NAS_sync_complete": true
+          }
+        ]
+      }
     },
     {
       "name": "Failure recovery",
@@ -723,10 +1334,10 @@
   "unmeasured_results": {
     "c01_student_integration": null,
     "task_level_verifier_acceptance": null,
-    "formal_heldout_50_new_instances": "COMMON_INITIAL_RUNNING_M3_NEXT_FINAL_RESULTS_NULL",
+    "formal_heldout_50_new_instances": "BC20_AND_M3_CLOSED_ALL0_OF50_M4_IN_PROGRESS",
     "formal_M1_M4_learning_curves": null,
     "N17_N18_native_training_data_acceptance": null,
-    "formal_M1_M4_policy_success": null,
+    "formal_M1_M4_policy_success": "M3_ALL_BANKS0_OF50_M4_STANDARD_SEED31_N03_1_OF50_UNSAFE_N12_0_OF50_REMAINDER_PENDING",
     "student_task_and_controller_safety_acceptance": null,
     "BC20_fit_v2_native_student_success": null,
     "Md_shifted_challenge_qualification": null,
@@ -735,7 +1346,7 @@
   "disclosures": [
     "This page describes the approved phase-2 plan and a dated local evidence summary.",
     "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
-    "No completed matched M1–M4 performance comparison is available. M3 round1 training is complete, with heldout results pending. Retained v1 single-task BC20 in-sample native diagnostics remain0/20 per task with controller-limit failures; v2 remains train-only.",
+    "No completed matched M1–M4 performance comparison is available. M3round1 training and nominal50 evaluation are complete; every task/seed is0/50. Retained v1 single-task BC20 in-sample native diagnostics remain0/20 per task with controller-limit failures; v2 remains train-only.",
     "Qualification nominal task success and measurement integrity are separate from training admission. Earlier qualification nominal traces lack raw per-tick verifier evidence; training admission is 0. Four data-boundary regressions do not establish task-level verifier acceptance.",
     "Ma and Mb measurement reports are closed with declared limitations; N12 strict local safety did not pass every local gate.",
     "Both task takeover sets use 50 episodes from 20 source scenes. Their Wilson intervals are descriptive episode intervals, not independent-task generalization evidence.",
@@ -744,20 +1355,25 @@
     "Qualification datasets remain outside training. Original C2 training-role banks retain28000 diagnostic-pilot rows. Separate canonical C3 training-role banks each closed20/20 with14000 independent-verifier/root-loader-admitted candidate rows. Canonical C3 candidates total28000; M3 round1 buffers are reported separately; no implicit aggregation.",
     "BC20 losses are measured on admitted training samples only. They do not establish native student task success, shifted robustness or formal M1–M4 performance; these historical losses do not establish method performance.",
     "Finite zero-query native execution, task success, local controller safety and shifted difficulty acceptance are distinct. Benign Ma tracking cannot override later student-state limit failures; low BC success under this failure does not establish Md difficulty.",
-    "568000 completed updates:328000 older single-task diagnostic-pilot +120000 common-initial multi-task +120000 M3 round1. M3 fitting is complete; no M3 heldout result or completed matched method comparison. Historical native task/safety failures remain retained; no best-seed or checkpoint selection.",
     "C3 qualification labels remain outside training. Original N03 interrupted expert query cost12472 plus new persistent expert14000 equals26472 validation queries. Old interrupted records remain;36/40 strict expert successes reuse20 sources. Missing labels/outcomes were not backfilled.",
     "C3 student-stack throughput uses16 fixed source scenes replicated1/4/16 times for16/64/256 environments. Single shared-load10s truncated runs report performance and retain actual-motion violations; task-success statistics are not computed.",
     "The shared public policy encoding is quat_anchor41_v1, a local sign-only chart; raw41 storage and labels remain unchanged. It is not globally continuous on SO(3). Historical legacy weights remain frozen.",
     "Earlier physical API failures remain retained. Numeric adjustment1 closed FAIL_REALIZATION with3.882341mm paired displacement,120force ticks and four motion counters0; adjustment2 was CPU-vetoed with no native run. One of two adjustments is consumed; formal Md qualification remains unmet.",
-    "Native interval-evidence qualification passed on2evaluation cases/task, not training-role admission: N03 candidate1399/1400,N12=1060/1400,training0. Three shared initial CPU fits and six strict checkpoint loads passed; all six shared-model native qualification runs are closed0/2 per task/seed, retaining76actual-acceleration joint/physics-step counts. Guidance8 fixes56k/task and3rounds; M3 round1 fits are complete, with heldout results pending.",
+    "Native interval-evidence qualification passed on2evaluation cases/task, not training-role admission: N03 candidate1399/1400,N12=1060/1400,training0. Three shared initial CPU fits and six strict checkpoint loads passed; all six shared-model native qualification runs are closed0/2 per task/seed, retaining76actual-acceleration joint/physics-step counts. Guidance8 fixes56k/task and3rounds; M3round1 fits and nominal50 tests are complete, all0/50 per task/seed.",
     "Teacher configuration objects are constructed statically; independent sentinels prohibit actual expert act and label-query calls during zero-query evaluation.",
     "G8 expert/replay validation uses28000 evaluation-only teacher calls and supplies0training rows. Original postrun audit failures remain retained.",
     "New M3 round1 acquisition uses84000 queries over120episodes on40unique(task,source) instances repeated across3seeds;0/120 is pre-update acquisition behavior, not updated M3 or heldout performance.",
     "M3 round1 actual acceleration counts1679 are joint×120Hz physical-step exceedances, not independent events. All rejected/failed labels remain charged.",
-    "M3 round1 completes3fixed40k fits at28k access/task; strict CPU checkpoint loads pass for both tasks. No M3 heldout result or completed matched M1–M4 comparison is available.",
-    "Common-initial BC20 reference nominal50 evaluation is running:300planned episodes,100unique(task,source) instances reused across3seeds. It is not the final budget-matched BC80 baseline. All9M4/ablation real preparations passed; the fixed9fit queue is running, with completed fits and heldout effects pending. Each learner pays28k/task access; no new acquisition queries."
+    "BC20 reference14k/task versus M3 round1 28k/task: unmatched budgets, not a matched method comparison.",
+    "Each task/seed/model reports its own50-source Wilson95% interval,0..7.13476%. The same100(task,source) instances are reused; no pooled300/600 independent-scene CI.",
+    "Ever-verified episode predicates, not simultaneous instantaneous flags; partial stages do not establish task or safety success.",
+    "928000 completed updates =328000 older diagnostic-pilot +120000 common initial +120000 M3round1 +360000 M4/ablations round1. No completed matched M1–M4 performance comparison.",
+    "All9M4/ablation fits are complete and strict CPU checks pass; heldout tests are in progress, without a final aggregate. M1 extra60 demos/task are being collected; actual query ledger remains unfinalized.",
+    "M4 standard seed20261031 is closed on both nominal50 banks: N03 task success 1/50 (Wilson95% 0.3539–10.4954%), N12 0/50 (0–7.13476%). N03 stages are6/6/6/1/1 and N12 all0. The only task-success case2509 has9 actual-acceleration joint/physics-step exceedances, so safety-qualified success is0/50 for both tasks; this requires task success and all four motion counters0. N03 total actual-acceleration count is150, with the other three categories0; N12 all four are0. Raw/clock/continuity/interval/zero-query audits passed and both banks are NAS-complete. Remaining seeds and both ablations are pending; no safety, aggregate superiority or causal improvement is established.",
+    "M1 additional expert block1 is now closed20/20 per task and independently reviewed: each task made14000 queries; N03 admits13997 and rejects3 intervals corresponding to4 actual-acceleration joint/physics-step counts, while N12 admits14000 with all four counters0. Three BC40 aggregate CPU prepares passed with55997 selected rows each and28000 label-access cost/task, using the same expert bank for all learner seeds. Torch was not imported, no optimizer was built and all releases remain false. Blocks2/3 and BC60/80 remain pending; no M1 aggregate fit or heldout result is available.",
+    "Unified data-admission correction: legacy nominal/takeover sources retain whole-case motion holds by default. Only an explicitly reviewed new C3 training-role pure-expert source with complete six-substep evidence may retain hard-safe intervals; unsafe intervals remain rejected, all queries stay charged and explicit case holds take priority. This changes data eligibility, not the algorithm, thresholds or measured motion."
   ],
-  "phase_progress": "G8_PIPELINE_GATES_AND_M3_ROUND1_CLOSED",
+  "phase_progress": "NOMINAL_FIRST_ROUND_RESULTS_CLOSED_NO_METHOD_IMPROVEMENT_CLAIM",
   "current_measurements": {
     "throughput": {
       "status": "COMPLETE_MEASURED_SHARED_LOAD",
@@ -1162,17 +1778,17 @@
       "status": "G8_PIPELINE_AND_M3_ROUND1_FIT_COMPLETE_HELDOUT_UNMEASURED",
       "shared_policy_CPU_checks_passed": 4,
       "data_CPU_checks_passed": 19,
-      "training_updates": 568000,
+      "training_updates": 928000,
       "training_buffer_rows": 28000,
       "native_expert_and_dataset_accepted": true,
       "student_zero_query_native_accepted": false,
-      "training_updates_scope": "568000 completed updates:328000 older single-task diagnostic-pilot +120000 common-initial multi-task +120000 M3 round1. M3 fitting is complete; no M3 heldout result or completed matched method comparison.",
-      "formal_method_training_updates": 120000,
+      "training_updates_scope": "928000 completed updates =328000 older diagnostic-pilot +120000 common initial +120000 M3round1 +360000 M4/ablations round1. No completed matched M1–M4 performance comparison.",
+      "formal_method_training_updates": 480000,
       "student_zero_query_native_path_verified": true,
       "student_task_and_safety_accepted": false,
       "training_buffer_rows_scope": "Original C2 diagnostic rows28000 remain separate. Canonical initial C3 rows28000 are reused in three separate M3 round1 buffers55901/55737/55931; sum167569 is row access across models, not unique labels or a merged buffer.",
       "formal_comparison_training_buffer_rows": 167569,
-      "native_expert_and_dataset_accepted_scope": "Original C2 pilot data and separate fresh canonical C3 candidates accepted. Formal M1–M4 selection remains pending.",
+      "native_expert_and_dataset_accepted_scope": "Historical C2 pilots remain separate. Canonical C3 initial banks are reused in M3/M4 round1; M1 block1 is reviewed and three BC40 aggregate prepares pass. Future complete matched comparison remains pending.",
       "canonical_C3_candidate_rows": 28000,
       "formal_M1_M4_selected_rows": 167569,
       "interval_CPU_suite_checks_passed": 39,
@@ -1189,7 +1805,8 @@
       "shared_initial_native_execution_verified": true,
       "shared_initial_native_training_admission": 0,
       "on_policy_round1_training_updates": 120000,
-      "native_multitask_training_accepted_scope": "Native training sources and CPU parameter fitting accepted; no M3 heldout task/safety acceptance"
+      "native_multitask_training_accepted_scope": "Native training sources and CPU parameter fitting accepted; no M3 heldout task/safety acceptance",
+      "M4_round1_training_updates": 360000
     },
     "bc20_calibration_pilots": {
       "scope": "Retained C2 training-role20-bank data and v1 fixed4000 diagnostic pilots; later C2 native tests are0/20/task with local-limit failures. Not formal M1–M4 data or results.",
@@ -2478,7 +3095,7 @@
       ],
       "canonical_C3_candidate_rows": 28000,
       "formal_M1_M4_selected_rows": 0,
-      "scope": "One fixed20-instance C3 version per task,14000 fresh queries and independently admitted/root-loader-accepted candidates each. These are real accepted C3 data; formal M1–M4 selection and budgets are not frozen. Original C2 pilot rows and qualification/evaluation rows are not aggregated.",
+      "scope": "Historical initial C3 collection: one fixed20-instance version/task with14000 independently admitted/root-loader-accepted rows each. These initial rows are now reused in separate common-initial, M3 and M4 models under frozen G8 budgets. Original C2 pilots and evaluation/qualification rows remain separate.",
       "raw_evidence_published": false,
       "raw_evidence_url": null
     },
@@ -2959,7 +3576,7 @@
       "closed_loop_causal_repair_proven": false,
       "global_SO3_continuity_claimed": false,
       "formal_M1_M4": false,
-      "next_frontier": "Historical single-task diagnostic complete. G8 budgets/rounds are now fixed; M3 round1 fits complete, heldout effect unmeasured."
+      "next_frontier": "Historical single-task diagnostics complete. G8 M3 round1 nominal50 banks closed0/50 each; M4/ablations and matched M1 follow separately."
     },
     "quaternion_input_conditioning": {
       "status": "TRAIN_ONLY_CPU_DIAGNOSTIC_NOT_CLOSED_LOOP_CAUSE",
@@ -3455,7 +4072,7 @@
       "raw_evidence_url": null
     },
     "g8_M3_round1": {
-      "status": "M3_ROUND1_THREE_SEEDS_FIT_COMPLETE_NOT_NATIVE_EVALUATED",
+      "status": "THREE_M3_FITS_AND_SIX_NOMINAL50_BANKS_COMPLETE",
       "method": "M3",
       "round": 1,
       "beta": 0,
@@ -3493,7 +4110,7 @@
             "N03",
             "N12"
           ],
-          "heldout_native_evaluated": false,
+          "heldout_native_evaluated": true,
           "acquisition_actual_acceleration_exceedances": {
             "N03": 204,
             "N12": 163
@@ -3520,7 +4137,7 @@
             "N03",
             "N12"
           ],
-          "heldout_native_evaluated": false,
+          "heldout_native_evaluated": true,
           "acquisition_actual_acceleration_exceedances": {
             "N03": 753,
             "N12": 335
@@ -3547,7 +4164,7 @@
             "N03",
             "N12"
           ],
-          "heldout_native_evaluated": false,
+          "heldout_native_evaluated": true,
           "acquisition_actual_acceleration_exceedances": {
             "N03": 142,
             "N12": 82
@@ -3570,41 +4187,1384 @@
       "training_updates": 120000,
       "teacher_queries_during_fits": 0,
       "fit_schedule": "Fresh same-seed initialization; fixed final40000; all three seeds retained",
-      "heldout_successes": null,
-      "heldout_denominator": null,
-      "heldout_native_evaluated": false,
+      "heldout_successes": 0,
+      "heldout_denominator": 300,
+      "heldout_native_evaluated": true,
       "raw_evidence_published": false,
-      "raw_evidence_url": null
+      "raw_evidence_url": null,
+      "heldout_unique_task_source_instances": 100,
+      "heldout_results_by_task_seed": [
+        {
+          "seed": 20261031,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            10,
+            8,
+            8,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 60
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 20
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        }
+      ],
+      "heldout_statistical_scope": "Each task/seed/model reports its own50-source Wilson95% interval,0..7.13476%. The same100(task,source) instances are reused; no pooled300/600 independent-scene CI."
     },
     "g8_nominal_evaluation": {
-      "status": "COMMON_INITIAL_REFERENCE_RUNNING",
-      "model_id": "common_initial",
-      "source_seeds": [
-        2026102500,
-        2026102549
+      "status": "BC20_REFERENCE_AND_M3_ROUND1_COMPLETE_ALL_BANKS0_OF50",
+      "models": {
+        "common_initial": {
+          "status": "COMPLETE_FIXED_3SEED_NOMINAL50_EVALUATION",
+          "labels_per_task": 14000,
+          "rows": [
+            {
+              "seed": 20261031,
+              "task": "N03",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                5,
+                5,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 525
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261031,
+              "task": "N12",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                15,
+                14,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 617
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N03",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                10,
+                6,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 1,
+                "actual_acceleration_exceedances": 1998
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N12",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                26,
+                15,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 2,
+                "actual_acceleration_exceedances": 1579
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N03",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                3,
+                3,
+                1,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 10,
+                "actual_acceleration_exceedances": 1866
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N12",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                5,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 782
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            }
+          ],
+          "episodes": 300,
+          "unique_task_source_instances": 100,
+          "repetitions_of_each_source_across_training_seeds": 3,
+          "pooled_independent_scene_CI": null,
+          "teacher_queries": 0,
+          "evaluation_parameter_updates": 0,
+          "all_audits_passed": true,
+          "all_NAS_sync_complete": true
+        },
+        "M3_round1": {
+          "status": "COMPLETE_FIXED_3SEED_NOMINAL50_EVALUATION",
+          "labels_per_task": 28000,
+          "rows": [
+            {
+              "seed": 20261031,
+              "task": "N03",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                10,
+                8,
+                8,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 60
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261031,
+              "task": "N12",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N03",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N12",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N03",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                2,
+                2,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 20
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N12",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            }
+          ],
+          "episodes": 300,
+          "unique_task_source_instances": 100,
+          "repetitions_of_each_source_across_training_seeds": 3,
+          "pooled_independent_scene_CI": null,
+          "teacher_queries": 0,
+          "evaluation_parameter_updates": 0,
+          "all_audits_passed": true,
+          "all_NAS_sync_complete": true
+        }
+      },
+      "rows": [
+        {
+          "seed": 20261031,
+          "task": "N03",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 525
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N12",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            15,
+            14,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 617
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N03",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            10,
+            6,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 1,
+            "actual_acceleration_exceedances": 1998
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N12",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            26,
+            15,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 2,
+            "actual_acceleration_exceedances": 1579
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N03",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            3,
+            3,
+            1,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 10,
+            "actual_acceleration_exceedances": 1866
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N12",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 782
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            10,
+            8,
+            8,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 60
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 20
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        }
       ],
-      "cases_per_task_seed": 50,
-      "training_seeds": [
-        20261031,
-        20261032,
-        20261033
-      ],
-      "planned_banks": 6,
-      "planned_episodes": 300,
+      "completed_banks": 12,
+      "completed_episodes": 600,
       "unique_task_source_instances": 100,
-      "final_successes": null,
-      "final_limit_counts": null,
-      "teacher_query_budget": 0,
-      "parameter_updates": 0,
-      "training_labels_per_task": 14000,
-      "baseline_scope": "BC20 common-initial reference, not the final80-demo/56k M1 baseline",
-      "next": "M3 round1 evaluation using the same fixed heldout bank; no test-based checkpoint or seed selection",
-      "all_seeds_reported_separately": true,
+      "repetitions_across_two_models_and_three_training_seeds": 6,
+      "claim_scope": "BC20 reference14k/task versus M3 round1 28k/task: unmatched budgets, not a matched method comparison.",
+      "statistical_scope": "Each task/seed/model reports its own50-source Wilson95% interval,0..7.13476%. The same100(task,source) instances are reused; no pooled300/600 independent-scene CI.",
+      "stage_scope": "Ever-verified episode predicates, not simultaneous instantaneous flags; partial stages do not establish task or safety success.",
+      "physical_counter_units": "joint x120Hz physics-step exceedance counts, not incidents/episodes/20Hz intervals",
+      "placements": 0,
+      "releases": 0,
       "raw_evidence_published": false,
       "raw_evidence_url": null
     },
     "g8_M4_round1": {
-      "status": "NINE_REAL_PREPARES_PASS_FIXED_FIT_QUEUE_RUNNING",
       "variants": [
         "standard",
         "without_semantic_filter",
@@ -3616,11 +5576,10 @@
         20261033
       ],
       "fixed_updates_each_fit": 40000,
-      "maximum_parallel_fits": 3,
-      "cpu_threads_each_fit": 4,
-      "nice": 10,
-      "new_acquisition_queries": 0,
-      "access_cost_each_task_seed_variant": 28000,
+      "completed_fits": 9,
+      "completed_training_updates": 360000,
+      "strict_cpu_task_prepares_passed": 18,
+      "archive_status": "TEN_PACKAGES_NAS_COMPLETE",
       "causal_weights": {
         "normal": 1,
         "failure": 2,
@@ -3628,13 +5587,139 @@
         "without_recovery_weight": "retain1/2,remove5"
       },
       "shared_acquisition_scope": "Same exact common initial checkpoint/execution; each learner charged full access. Later divergent policies require separate collection.",
-      "completed_fits": 0,
-      "native_evaluation_completed": 0,
-      "metadata_compatibility_fix": "Applied only after all3 M3 fits naturally exited; actual focused4+existing17 checks PASS. Model/loss/optimizer unchanged. Current nominal capsule unmodified.",
-      "real_prepares_passed": 9,
-      "planned_fixed_fits": 9,
+      "new_acquisition_queries": 0,
+      "access_cost_each_task_seed_variant": 28000,
+      "status": "NINE_FIXED_FITS_COMPLETE_STRICT_CPU_PASS_NAS_COMPLETE_HELDOUT_IN_PROGRESS",
+      "heldout_status": "STANDARD_SEED31_CLOSED_REMAINING_SEEDS_AND_ABLATIONS_PENDING",
       "heldout_successes": null,
-      "all_seeds_and_variants_reported": true
+      "planned_heldout_episodes": 900,
+      "checkpoint_selection": "All3seeds/3variants fixed final40000; no test-based selection",
+      "completed_heldout_banks": 2,
+      "completed_heldout_episodes": 100,
+      "heldout_results_by_task_seed": [
+        {
+          "model_id": "M4_round1",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "labels_per_task": 28000,
+          "successes": 1,
+          "denominator": 50,
+          "wilson95": [
+            0.003539259271646236,
+            0.10495443589637815
+          ],
+          "stage_ever_verified_counts": [
+            6,
+            6,
+            6,
+            1,
+            1
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 150
+          },
+          "safety_qualified_successes": 0,
+          "safety_qualified_success_definition": "task_success and all four local motion exceedance counters equal0",
+          "teacher_queries": 0,
+          "test_time_parameter_updates": 0,
+          "raw_audit_passed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "model_id": "M4_round1",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "safety_qualified_successes": 0,
+          "safety_qualified_success_definition": "task_success and all four local motion exceedance counters equal0",
+          "teacher_queries": 0,
+          "test_time_parameter_updates": 0,
+          "raw_audit_passed": true,
+          "NAS_sync_complete": true
+        }
+      ],
+      "heldout_claim_scope": "M4 standard seed20261031 is closed on both nominal50 banks: N03 task success 1/50 (Wilson95% 0.3539–10.4954%), N12 0/50 (0–7.13476%). N03 stages are6/6/6/1/1 and N12 all0. The only task-success case2509 has9 actual-acceleration joint/physics-step exceedances, so safety-qualified success is0/50 for both tasks; this requires task success and all four motion counters0. N03 total actual-acceleration count is150, with the other three categories0; N12 all four are0. Raw/clock/continuity/interval/zero-query audits passed and both banks are NAS-complete. Remaining seeds and both ablations are pending; no safety, aggregate superiority or causal improvement is established."
+    },
+    "g8_M1_additional_demonstrations": {
+      "status": "BLOCK1_CLOSED_THREE_BC40_PREPARES_PASS_BLOCKS2_3_PENDING",
+      "expert_demo_blocks": [
+        1,
+        2,
+        3
+      ],
+      "new_queries_planned_each_task": 42000,
+      "full_access_final_each_task_method_seed": 56000,
+      "source_normalizer_seed": 20261031,
+      "native_queries_acquired": null,
+      "normalizer_neural_forward_calls": 0,
+      "shared_expert_source_charged_each_learner": true,
+      "validation_imports": 0,
+      "old_capsule_status": "WITHDRAWN_BEFORE_NATIVE0QUERIES_EXPORT_FIELD_DUPLICATION",
+      "collection_role": "training",
+      "new_aggregate_fit_completed": false,
+      "budget_points": {
+        "BC40": 28000,
+        "BC60": 42000,
+        "BC80": 56000
+      },
+      "builder_status": "THREE_BC40_REAL_CPU_PREPARES_PASS_NO_FIT",
+      "builder_CPU_tests_passed": 8,
+      "preserved_pre_native_bug": "Duplicate source_object_z consumption caught and repaired before native collection; withdrawn capsule made0real queries.",
+      "source_seed_scope": "Source-normalizer identity31 only; the same expert source is fully charged to each learner seed31/32/33",
+      "completed_blocks": [
+        1
+      ],
+      "pending_blocks": [
+        2,
+        3
+      ],
+      "completed_block_queries_by_task": {
+        "N03": 14000,
+        "N12": 14000
+      },
+      "completed_block_admitted_rows": {
+        "N03": 13997,
+        "N12": 14000
+      },
+      "completed_block_rejected_intervals": {
+        "N03": 3,
+        "N12": 0
+      },
+      "BC40_prepared_seeds": [
+        20261031,
+        20261032,
+        20261033
+      ],
+      "BC40_selected_rows_each_seed": 55997,
+      "BC40_label_access_each_task_seed": 28000,
+      "execution_released": false,
+      "torch_imported_during_prepare": false,
+      "nominal_interval_admission_scope": "Unified data-admission correction: legacy nominal/takeover sources retain whole-case motion holds by default. Only an explicitly reviewed new C3 training-role pure-expert source with complete six-substep evidence may retain hard-safe intervals; unsafe intervals remain rejected, all queries stay charged and explicit case holds take priority. This changes data eligibility, not the algorithm, thresholds or measured motion.",
+      "preparation_claim_scope": "M1 additional expert block1 is now closed20/20 per task and independently reviewed: each task made14000 queries; N03 admits13997 and rejects3 intervals corresponding to4 actual-acceleration joint/physics-step counts, while N12 admits14000 with all four counters0. Three BC40 aggregate CPU prepares passed with55997 selected rows each and28000 label-access cost/task, using the same expert bank for all learner seeds. Torch was not imported, no optimizer was built and all releases remain false. Blocks2/3 and BC60/80 remain pending; no M1 aggregate fit or heldout result is available."
     }
   },
   "verifier_admission": {
@@ -3713,9 +5798,9 @@
     },
     "g8_pipeline_validation_training_rows": 0
   },
-  "snapshot_state": "CURATED_G8_PIPELINE_AND_M3_ROUND1_MILESTONE",
-  "training_updates": 568000,
-  "formal_method_evaluation_episodes": 0,
+  "snapshot_state": "CURATED_BC20_M3_CLOSED_NOMINAL50_M4_FITS_COMPLETE",
+  "training_updates": 928000,
+  "formal_method_evaluation_episodes": 400,
   "milestone_completion_scope": "Ma historical measurement and Mb qualification report are closed with limitations (2/6). Benign tracking does not establish controller safety under student states.",
   "training_buffer_rows": 28000,
   "safety_alert": {
@@ -3744,11 +5829,11 @@
     "training_admitted": 0,
     "prominent_disclosure": true
   },
-  "training_updates_scope": "568000 completed updates:328000 older single-task diagnostic-pilot +120000 common-initial multi-task +120000 M3 round1. M3 fitting is complete; no M3 heldout result or completed matched method comparison.",
-  "formal_method_training_updates": 120000,
+  "training_updates_scope": "928000 completed updates =328000 older diagnostic-pilot +120000 common initial +120000 M3round1 +360000 M4/ablations round1. No completed matched M1–M4 performance comparison.",
+  "formal_method_training_updates": 480000,
   "qualification_training_buffer_rows": 0,
   "operational_blocker": {
-    "status": "HISTORICAL_STUDENT_TASK_SAFETY_FAILURES_RETAINED_M3_HELDOUT_PENDING",
+    "status": "BC20_AND_M3_NOMINAL_TASK_FAILURES_MATCHED_BASELINES_PENDING",
     "prominent_disclosure": true,
     "native_zero_query_execution_path_verified": true,
     "task_and_controller_safety_accepted": false,
@@ -4046,7 +6131,7 @@
     ],
     "BC_recipe_search_closed": true,
     "closed_loop_causal_repair_proven": false,
-    "next_frontier": "Complete common-initial and M3 nominal50 tests; monitor the fixed M4/ablation fit queue and report every seed/variant; collect matched M1 demonstrations. Md/local-chart limits remain retained.",
+    "next_frontier": "Complete remaining M4/ablation nominal50 banks and M1 blocks2/3; BC40 CPU preparation is accepted but fitting requires independent root release. Task success, local safety and shifted acceptance remain separate.",
     "initial_shared_CPU_models_completed": 3,
     "initial_shared_native_qualification": "CLOSED_0_OF_12"
   },
@@ -4429,7 +6514,7 @@
   "shared_initial_native_task_successes": 0,
   "on_policy_round1_training_updates": 120000,
   "guidance8": {
-    "status": "M3_ROUND1_COMPLETE_M4_FIXED_FITS_AND_REFERENCE_HELDOUT_RUNNING",
+    "status": "BC20_AND_M3_NOMINAL50_ALL_ZERO_M4_EVAL_M1_SOURCE_RUNNING",
     "per_task_per_method_per_seed_label_cap": 56000,
     "training_seeds": [
       20261031,
@@ -4489,7 +6574,7 @@
       "raw_evidence_url": null
     },
     "round1": {
-      "status": "M3_ROUND1_THREE_SEEDS_FIT_COMPLETE_NOT_NATIVE_EVALUATED",
+      "status": "THREE_M3_FITS_AND_SIX_NOMINAL50_BANKS_COMPLETE",
       "method": "M3",
       "round": 1,
       "beta": 0,
@@ -4527,7 +6612,7 @@
             "N03",
             "N12"
           ],
-          "heldout_native_evaluated": false,
+          "heldout_native_evaluated": true,
           "acquisition_actual_acceleration_exceedances": {
             "N03": 204,
             "N12": 163
@@ -4554,7 +6639,7 @@
             "N03",
             "N12"
           ],
-          "heldout_native_evaluated": false,
+          "heldout_native_evaluated": true,
           "acquisition_actual_acceleration_exceedances": {
             "N03": 753,
             "N12": 335
@@ -4581,7 +6666,7 @@
             "N03",
             "N12"
           ],
-          "heldout_native_evaluated": false,
+          "heldout_native_evaluated": true,
           "acquisition_actual_acceleration_exceedances": {
             "N03": 142,
             "N12": 82
@@ -4604,36 +6689,1380 @@
       "training_updates": 120000,
       "teacher_queries_during_fits": 0,
       "fit_schedule": "Fresh same-seed initialization; fixed final40000; all three seeds retained",
-      "heldout_successes": null,
-      "heldout_denominator": null,
-      "heldout_native_evaluated": false,
+      "heldout_successes": 0,
+      "heldout_denominator": 300,
+      "heldout_native_evaluated": true,
       "raw_evidence_published": false,
-      "raw_evidence_url": null
+      "raw_evidence_url": null,
+      "heldout_unique_task_source_instances": 100,
+      "heldout_results_by_task_seed": [
+        {
+          "seed": 20261031,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            10,
+            8,
+            8,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 60
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 20
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        }
+      ],
+      "heldout_statistical_scope": "Each task/seed/model reports its own50-source Wilson95% interval,0..7.13476%. The same100(task,source) instances are reused; no pooled300/600 independent-scene CI."
     },
     "nominal_evaluation": {
-      "status": "COMMON_INITIAL_REFERENCE_RUNNING",
-      "model_id": "common_initial",
-      "source_seeds": [
-        2026102500,
-        2026102549
+      "status": "BC20_REFERENCE_AND_M3_ROUND1_COMPLETE_ALL_BANKS0_OF50",
+      "models": {
+        "common_initial": {
+          "status": "COMPLETE_FIXED_3SEED_NOMINAL50_EVALUATION",
+          "labels_per_task": 14000,
+          "rows": [
+            {
+              "seed": 20261031,
+              "task": "N03",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                5,
+                5,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 525
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261031,
+              "task": "N12",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                15,
+                14,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 617
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N03",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                10,
+                6,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 1,
+                "actual_acceleration_exceedances": 1998
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N12",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                26,
+                15,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 2,
+                "actual_acceleration_exceedances": 1579
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N03",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                3,
+                3,
+                1,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 10,
+                "actual_acceleration_exceedances": 1866
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N12",
+              "model_id": "common_initial",
+              "labels_per_task": 14000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                5,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 782
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            }
+          ],
+          "episodes": 300,
+          "unique_task_source_instances": 100,
+          "repetitions_of_each_source_across_training_seeds": 3,
+          "pooled_independent_scene_CI": null,
+          "teacher_queries": 0,
+          "evaluation_parameter_updates": 0,
+          "all_audits_passed": true,
+          "all_NAS_sync_complete": true
+        },
+        "M3_round1": {
+          "status": "COMPLETE_FIXED_3SEED_NOMINAL50_EVALUATION",
+          "labels_per_task": 28000,
+          "rows": [
+            {
+              "seed": 20261031,
+              "task": "N03",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                10,
+                8,
+                8,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 60
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261031,
+              "task": "N12",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N03",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261032,
+              "task": "N12",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N03",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                2,
+                2,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 20
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            },
+            {
+              "seed": 20261033,
+              "task": "N12",
+              "model_id": "M3_round1",
+              "labels_per_task": 28000,
+              "successes": 0,
+              "denominator": 50,
+              "success_rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.07134759913335872
+              ],
+              "stage_ever_verified_counts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "physical_counts": {
+                "command_velocity_exceedances": 0,
+                "command_acceleration_exceedances": 0,
+                "actual_velocity_exceedances": 0,
+                "actual_acceleration_exceedances": 0
+              },
+              "teacher_queries": 0,
+              "sentinel_invocations": 0,
+              "evaluation_parameter_updates": 0,
+              "native_callbacks_per_batch": [
+                4200,
+                4200,
+                4200,
+                4200
+              ],
+              "native_seconds_per_batch": [
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246,
+                35.000001825392246
+              ],
+              "audit_passed": true,
+              "all_native_and_parent_pids_closed": true,
+              "NAS_sync_complete": true
+            }
+          ],
+          "episodes": 300,
+          "unique_task_source_instances": 100,
+          "repetitions_of_each_source_across_training_seeds": 3,
+          "pooled_independent_scene_CI": null,
+          "teacher_queries": 0,
+          "evaluation_parameter_updates": 0,
+          "all_audits_passed": true,
+          "all_NAS_sync_complete": true
+        }
+      },
+      "rows": [
+        {
+          "seed": 20261031,
+          "task": "N03",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 525
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N12",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            15,
+            14,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 617
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N03",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            10,
+            6,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 1,
+            "actual_acceleration_exceedances": 1998
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N12",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            26,
+            15,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 2,
+            "actual_acceleration_exceedances": 1579
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N03",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            3,
+            3,
+            1,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 10,
+            "actual_acceleration_exceedances": 1866
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N12",
+          "model_id": "common_initial",
+          "labels_per_task": 14000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 782
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            10,
+            8,
+            8,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 60
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261031,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261032,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N03",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 20
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "seed": 20261033,
+          "task": "N12",
+          "model_id": "M3_round1",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "success_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "teacher_queries": 0,
+          "sentinel_invocations": 0,
+          "evaluation_parameter_updates": 0,
+          "native_callbacks_per_batch": [
+            4200,
+            4200,
+            4200,
+            4200
+          ],
+          "native_seconds_per_batch": [
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246,
+            35.000001825392246
+          ],
+          "audit_passed": true,
+          "all_native_and_parent_pids_closed": true,
+          "NAS_sync_complete": true
+        }
       ],
-      "cases_per_task_seed": 50,
-      "training_seeds": [
-        20261031,
-        20261032,
-        20261033
-      ],
-      "planned_banks": 6,
-      "planned_episodes": 300,
+      "completed_banks": 12,
+      "completed_episodes": 600,
       "unique_task_source_instances": 100,
-      "final_successes": null,
-      "final_limit_counts": null,
-      "teacher_query_budget": 0,
-      "parameter_updates": 0,
-      "training_labels_per_task": 14000,
-      "baseline_scope": "BC20 common-initial reference, not the final80-demo/56k M1 baseline",
-      "next": "M3 round1 evaluation using the same fixed heldout bank; no test-based checkpoint or seed selection",
-      "all_seeds_reported_separately": true,
+      "repetitions_across_two_models_and_three_training_seeds": 6,
+      "claim_scope": "BC20 reference14k/task versus M3 round1 28k/task: unmatched budgets, not a matched method comparison.",
+      "statistical_scope": "Each task/seed/model reports its own50-source Wilson95% interval,0..7.13476%. The same100(task,source) instances are reused; no pooled300/600 independent-scene CI.",
+      "stage_scope": "Ever-verified episode predicates, not simultaneous instantaneous flags; partial stages do not establish task or safety success.",
+      "physical_counter_units": "joint x120Hz physics-step exceedance counts, not incidents/episodes/20Hz intervals",
+      "placements": 0,
+      "releases": 0,
       "raw_evidence_published": false,
       "raw_evidence_url": null
     },
@@ -4644,7 +8073,7 @@
       "scope": "Shared execution mechanism; clean labels/network/BCE unchanged; not a claim to repair acceleration causes"
     },
     "M4_sidecars": {
-      "status": "NINE_REAL_PREPARES_PASS_FIXED_FIT_QUEUE_RUNNING",
+      "status": "NINE_FITS_COMPLETE_HELDOUT_EVALUATION_IN_PROGRESS",
       "variants": [
         "standard",
         "without_semantic_filter",
@@ -4660,7 +8089,6 @@
       "test-time adaptation budget/reset/context"
     ],
     "M4_round1": {
-      "status": "NINE_REAL_PREPARES_PASS_FIXED_FIT_QUEUE_RUNNING",
       "variants": [
         "standard",
         "without_semantic_filter",
@@ -4672,11 +8100,10 @@
         20261033
       ],
       "fixed_updates_each_fit": 40000,
-      "maximum_parallel_fits": 3,
-      "cpu_threads_each_fit": 4,
-      "nice": 10,
-      "new_acquisition_queries": 0,
-      "access_cost_each_task_seed_variant": 28000,
+      "completed_fits": 9,
+      "completed_training_updates": 360000,
+      "strict_cpu_task_prepares_passed": 18,
+      "archive_status": "TEN_PACKAGES_NAS_COMPLETE",
       "causal_weights": {
         "normal": 1,
         "failure": 2,
@@ -4684,13 +8111,139 @@
         "without_recovery_weight": "retain1/2,remove5"
       },
       "shared_acquisition_scope": "Same exact common initial checkpoint/execution; each learner charged full access. Later divergent policies require separate collection.",
-      "completed_fits": 0,
-      "native_evaluation_completed": 0,
-      "metadata_compatibility_fix": "Applied only after all3 M3 fits naturally exited; actual focused4+existing17 checks PASS. Model/loss/optimizer unchanged. Current nominal capsule unmodified.",
-      "real_prepares_passed": 9,
-      "planned_fixed_fits": 9,
+      "new_acquisition_queries": 0,
+      "access_cost_each_task_seed_variant": 28000,
+      "status": "NINE_FIXED_FITS_COMPLETE_STRICT_CPU_PASS_NAS_COMPLETE_HELDOUT_IN_PROGRESS",
+      "heldout_status": "STANDARD_SEED31_CLOSED_REMAINING_SEEDS_AND_ABLATIONS_PENDING",
       "heldout_successes": null,
-      "all_seeds_and_variants_reported": true
+      "planned_heldout_episodes": 900,
+      "checkpoint_selection": "All3seeds/3variants fixed final40000; no test-based selection",
+      "completed_heldout_banks": 2,
+      "completed_heldout_episodes": 100,
+      "heldout_results_by_task_seed": [
+        {
+          "model_id": "M4_round1",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N03",
+          "labels_per_task": 28000,
+          "successes": 1,
+          "denominator": 50,
+          "wilson95": [
+            0.003539259271646236,
+            0.10495443589637815
+          ],
+          "stage_ever_verified_counts": [
+            6,
+            6,
+            6,
+            1,
+            1
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 150
+          },
+          "safety_qualified_successes": 0,
+          "safety_qualified_success_definition": "task_success and all four local motion exceedance counters equal0",
+          "teacher_queries": 0,
+          "test_time_parameter_updates": 0,
+          "raw_audit_passed": true,
+          "NAS_sync_complete": true
+        },
+        {
+          "model_id": "M4_round1",
+          "variant": "standard",
+          "seed": 20261031,
+          "task": "N12",
+          "labels_per_task": 28000,
+          "successes": 0,
+          "denominator": 50,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "stage_ever_verified_counts": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "physical_counts": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "safety_qualified_successes": 0,
+          "safety_qualified_success_definition": "task_success and all four local motion exceedance counters equal0",
+          "teacher_queries": 0,
+          "test_time_parameter_updates": 0,
+          "raw_audit_passed": true,
+          "NAS_sync_complete": true
+        }
+      ],
+      "heldout_claim_scope": "M4 standard seed20261031 is closed on both nominal50 banks: N03 task success 1/50 (Wilson95% 0.3539–10.4954%), N12 0/50 (0–7.13476%). N03 stages are6/6/6/1/1 and N12 all0. The only task-success case2509 has9 actual-acceleration joint/physics-step exceedances, so safety-qualified success is0/50 for both tasks; this requires task success and all four motion counters0. N03 total actual-acceleration count is150, with the other three categories0; N12 all four are0. Raw/clock/continuity/interval/zero-query audits passed and both banks are NAS-complete. Remaining seeds and both ablations are pending; no safety, aggregate superiority or causal improvement is established."
+    },
+    "M1_additional_demonstrations": {
+      "status": "BLOCK1_CLOSED_THREE_BC40_PREPARES_PASS_BLOCKS2_3_PENDING",
+      "expert_demo_blocks": [
+        1,
+        2,
+        3
+      ],
+      "new_queries_planned_each_task": 42000,
+      "full_access_final_each_task_method_seed": 56000,
+      "source_normalizer_seed": 20261031,
+      "native_queries_acquired": null,
+      "normalizer_neural_forward_calls": 0,
+      "shared_expert_source_charged_each_learner": true,
+      "validation_imports": 0,
+      "old_capsule_status": "WITHDRAWN_BEFORE_NATIVE0QUERIES_EXPORT_FIELD_DUPLICATION",
+      "collection_role": "training",
+      "new_aggregate_fit_completed": false,
+      "budget_points": {
+        "BC40": 28000,
+        "BC60": 42000,
+        "BC80": 56000
+      },
+      "builder_status": "THREE_BC40_REAL_CPU_PREPARES_PASS_NO_FIT",
+      "builder_CPU_tests_passed": 8,
+      "preserved_pre_native_bug": "Duplicate source_object_z consumption caught and repaired before native collection; withdrawn capsule made0real queries.",
+      "source_seed_scope": "Source-normalizer identity31 only; the same expert source is fully charged to each learner seed31/32/33",
+      "completed_blocks": [
+        1
+      ],
+      "pending_blocks": [
+        2,
+        3
+      ],
+      "completed_block_queries_by_task": {
+        "N03": 14000,
+        "N12": 14000
+      },
+      "completed_block_admitted_rows": {
+        "N03": 13997,
+        "N12": 14000
+      },
+      "completed_block_rejected_intervals": {
+        "N03": 3,
+        "N12": 0
+      },
+      "BC40_prepared_seeds": [
+        20261031,
+        20261032,
+        20261033
+      ],
+      "BC40_selected_rows_each_seed": 55997,
+      "BC40_label_access_each_task_seed": 28000,
+      "execution_released": false,
+      "torch_imported_during_prepare": false,
+      "nominal_interval_admission_scope": "Unified data-admission correction: legacy nominal/takeover sources retain whole-case motion holds by default. Only an explicitly reviewed new C3 training-role pure-expert source with complete six-substep evidence may retain hard-safe intervals; unsafe intervals remain rejected, all queries stay charged and explicit case holds take priority. This changes data eligibility, not the algorithm, thresholds or measured motion.",
+      "preparation_claim_scope": "M1 additional expert block1 is now closed20/20 per task and independently reviewed: each task made14000 queries; N03 admits13997 and rejects3 intervals corresponding to4 actual-acceleration joint/physics-step counts, while N12 admits14000 with all four counters0. Three BC40 aggregate CPU prepares passed with55997 selected rows each and28000 label-access cost/task, using the same expert bank for all learner seeds. Torch was not imported, no optimizer was built and all releases remain false. Blocks2/3 and BC60/80 remain pending; no M1 aggregate fit or heldout result is available."
     }
   },
   "formal_M1_M4_selected_rows_by_seed": {
@@ -4698,5 +8251,15 @@
     "20261032": 55737,
     "20261033": 55931
   },
-  "formal_M1_M4_selected_rows_scope": "Original C2 diagnostic rows28000 remain separate. Canonical initial C3 rows28000 are reused in three separate M3 round1 buffers55901/55737/55931; sum167569 is row access across models, not unique labels or a merged buffer."
+  "formal_M1_M4_selected_rows_scope": "Original C2 diagnostic rows28000 remain separate. Canonical initial C3 rows28000 are reused in three separate M3 round1 buffers55901/55737/55931; sum167569 is row access across models, not unique labels or a merged buffer.",
+  "total_closed_heldout_episodes": 700,
+  "M4_round1_training_updates": 360000,
+  "diagnostic_figure": {
+    "status": "PUBLISHED_DESCRIPTIVE_UNMATCHED_BUDGET_DIAGNOSTIC",
+    "image": "assets/opd-nominal-round1-diagnostics.png",
+    "pdf": "assets/opd-nominal-round1-diagnostics.pdf",
+    "stages_are_ever_verified": true,
+    "budget_matched": false,
+    "no_partial_stage_improvement_claim": true
+  }
 }
