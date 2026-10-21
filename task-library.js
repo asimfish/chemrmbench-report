@@ -11,7 +11,7 @@ async function refreshStats(){
   if(!data)throw Error('statistics unavailable');
   if(data.release && $('releaseTable')){
    const r=data.release;
-   const gateLabels={main_batches:'专家主批量',ablations:'匹配消融',public_evaluations:'公开观测50条评测',three_DP_baselines:'T1/T5/T7正式DP',policy_independent_verifiers:'独立判定审计',download_URL:'数据托管（等待用户决定）',release_tag:'本地版本标签'};
+   const gateLabels={main_batches:'专家主批量',ablations:'匹配消融',public_evaluations:'公开观测50条评测',three_DP_baselines:'T1/T5/T7正式DP',policy_independent_verifiers:'独立判定审计',policy_independent_primary_scores:'主表判定版本统一',download_URL:'数据托管（等待用户决定）',release_tag:'本地版本标签'};
    const pending=Object.entries(gateLabels).filter(([key])=>r.checks?.[key]!==true).map(([,label])=>label);
    $('releaseStatus').textContent=r.state==='released'?'v0.1已发布':`v0.1发布候选：7个任务。待完成：${pending.join('、')}。标签暂不公开推送；T6已推迟。`;
    if($('verifierAuditNotice'))$('verifierAuditNotice').textContent='判定协议审计（仅开发数据）：'+(r.verifier_audit||[]).map(t=>`${t.task_id}：新旧一致${t.old_new_agreements}/${t.attempts}，去除策略元数据后不变${t.metadata_invariant}/${t.attempts}${t.requires_review?'，需审阅':''}`).join('；')+'。每任务目标20条，历史判定保留；尚未完成的检查不视为通过。';

@@ -273,7 +273,7 @@ def release_projection():
             'requires_review':any(r.get('old_new_agreement') is not True or r.get('metadata_invariant') is not True for r in valid)})
     return {'state':'released' if report.get('state')=='released' else 'candidate',
         'verifier_audit':audit_counts,'formal_baseline_tasks':['pick_place','open_cabinet','endpoint_stop'],
-        'checks':{key:report.get('checks',{}).get(key) is True for key in ['main_batches','ablations','public_evaluations','three_DP_baselines','policy_independent_verifiers','download_URL','release_tag']},
+        'checks':{key:report.get('checks',{}).get(key) is True for key in ['main_batches','ablations','public_evaluations','three_DP_baselines','policy_independent_verifiers','policy_independent_primary_scores','download_URL','release_tag']},
         'active_tasks':sorted(active),'deferred_tasks':['timed_stirring'],
         'table':rows,'interval':'95% Wilson',
         'cohort_note':'Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons.'}
