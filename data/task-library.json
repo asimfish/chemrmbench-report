@@ -90,7 +90,7 @@
     "native_public_observation": [],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started."
   },
-  "updated_at_utc": "2026-10-21T09:18:51.062592+00:00",
+  "updated_at_utc": "2026-10-21T09:33:39.681564+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1869,15 +1869,17 @@
       "title": "按钮启停搅拌",
       "dimension": "T-dur · 4 / 8 / 12 秒",
       "status": "needs_expert_fix",
-      "dataset_attempts": 0,
-      "dataset_unique_seeds": 0,
+      "dataset_attempts": 1,
+      "dataset_unique_seeds": 1,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "runtime_rejections": 0,
       "successes": 0,
-      "success_rate": null,
-      "status_counts": {},
-      "verified_dataset_attempts": 0,
+      "success_rate": 0.0,
+      "status_counts": {
+        "error": 1
+      },
+      "verified_dataset_attempts": 1,
       "qualification_attempts": 4,
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
@@ -1898,8 +1900,36 @@
       "memory_layout_gates_passed": null,
       "observation_profile": null,
       "render_diagnostic_attempts": 0,
-      "failure_reasons": {},
-      "trials": [],
+      "failure_reasons": {
+        "instrumentation_invalid": 1
+      },
+      "trials": [
+        {
+          "seed": 0,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "error",
+          "measured_status": "error",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": false,
+          "wall_time_s": 341.62,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": null,
+          "recording_verified": true,
+          "failure_reasons": [
+            "instrumentation_invalid"
+          ],
+          "visual_contrast_flag": false
+        }
+      ],
       "engineering_only": true
     },
     {
@@ -2911,11 +2941,19 @@
       "id": "pour",
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
-      "status": "needs_expert_fix",
+      "status": "batch_collected",
       "dataset_attempts": 23,
       "dataset_unique_seeds": 20,
       "target_unique_seeds": 20,
-      "primary_cohort": null,
+      "primary_cohort": {
+        "attempts": 20,
+        "successes": 17,
+        "failures": 1,
+        "errors": 2,
+        "recording_accepted": true,
+        "runtime_supported": true,
+        "expert_threshold_passed": true
+      },
       "runtime_rejections": 14,
       "successes": 17,
       "success_rate": 0.7391304347826086,
@@ -2924,7 +2962,7 @@
         "fail": 1,
         "error": 5
       },
-      "verified_dataset_attempts": 18,
+      "verified_dataset_attempts": 22,
       "qualification_attempts": 11,
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
@@ -3136,7 +3174,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3159,7 +3197,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [
             "particle_fractions"
           ],
@@ -3184,7 +3222,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3207,7 +3245,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": null,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [
             "instrumentation_invalid"
           ],
@@ -4010,8 +4048,8 @@
       "engineering_only": false
     }
   ],
-  "native_tasks_with_dataset": 7,
-  "dataset_attempts": 143,
+  "native_tasks_with_dataset": 8,
+  "dataset_attempts": 144,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
