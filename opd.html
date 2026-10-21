@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf9f6">
+  <meta name="description" content="ChemOPD-4 phase-2 research plan, Ma–Mf milestones, verified prior expert measurements and unmeasured policy-learning goals.">
+  <title>ChemOPD-4 — Phase 2 / 第二阶段 OPD</title>
+  <link rel="stylesheet" href="opd.css">
+  <script src="opd.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">C<span>R</span></span><span>ChemRMBench<small>Phase 2 · 第二阶段</small></span></a>
+  <div class="header-links"><a href="f-scoreboard.html">Frozen v1 ↗</a><a href="data/opd-progress.json">Progress JSON ↗</a></div>
+</header>
+<div class="page-grid">
+  <aside class="sidebar" aria-label="Page navigation">
+    <p class="nav-caption">IN THIS REPORT</p>
+    <nav>
+      <a href="#overview"><span>01</span> Overview</a>
+      <a href="#evidence"><span>02</span> Evidence</a>
+      <a href="#contract"><span>03</span> Shared contract</a>
+      <a href="#mechanism"><span>04</span> Learning loop</a>
+      <a href="#milestones"><span>05</span> Ma–Mf</a>
+      <a href="#evaluation"><span>06</span> Evaluation</a>
+    </nav>
+    <div class="sidebar-note"><strong>Dated snapshot</strong><p>2026-10-21</p><p>Results retain their scope.<br>Unrun experiments stay open.</p></div>
+  </aside>
+  <main id="main">
+    <section class="hero section" id="overview" aria-labelledby="hero-title">
+      <p class="eyebrow">LABORATORY SKILLS / ON-POLICY DISTILLATION</p>
+      <h1 id="hero-title">ChemOPD-4</h1>
+      <p class="hero-subtitle">From scripted experts to recoverable student skills.</p>
+      <p class="lead">Phase 2 / 第二阶段 · Four Panda tasks in Isaac Lab / MATTERIX. The study tests whether expert labels on student-visited states, verifier filtering and failure/recovery weighting improve learned skills under a matched label budget.</p>
+      <div class="hero-links"><a class="button" href="#milestones">View Ma–Mf <span aria-hidden="true">↓</span></a><a href="#mechanism">Inspect the learning loop →</a></div>
+      <div class="status-grid" aria-label="Phase status">
+        <article><span class="card-label">CURRENT WORK</span><strong>Ma</strong><span class="badge in_progress">IN PROGRESS · PARTIAL</span><p>16-env throughput measured; B1 precheck failed; tracking unrun</p></article>
+        <article><span class="card-label">PHASE-2 MILESTONES PASSED</span><strong>0 <small>/ 6</small></strong><span class="badge planned">GATES OPEN</span><p>Mb–Mf planned; no phase-2 pass claimed</p></article>
+        <article><span class="card-label">TRAINED-POLICY RESULTS</span><strong class="word">Unmeasured</strong><span class="badge not_tested">NOT TESTED</span><p>Learning and recovery curves await experiments</p></article>
+      </div>
+      <p class="snapshot" id="snapshot-status" data-snapshot="2026-10-21T10:03:58Z">Snapshot 2026-10-21T10:03:58Z · curated static report</p>
+    </section>
+
+    <section class="section" id="evidence" aria-labelledby="evidence-title">
+      <p class="section-number">02 / EVIDENCE · 已验证与未测</p>
+      <h2 id="evidence-title">Keep the evidence boundaries visible.</h2>
+      <div class="baseline-note"><div><span class="badge frozen">FROZEN v1</span><h3>Functional reproduction baseline: 34 / 36</h3></div><p>The published v1 baseline remains frozen. A03 is RUNNING and A06 is BLOCKED. Phase 2 uses a separate plan and acceptance ledger.</p><p><a href="f-scoreboard.html">Open the published v1 scoreboard →</a></p><p class="small">Frozen commit <code>43b923316e0aa6f8c65dd3d651607a60041f98b3</code></p></div>
+      <div class="evidence-heading"><h3>Earlier expert reliability · CPU physics</h3><span class="badge measured_local">MEASURED · LOCAL</span></div>
+      <p class="section-lead">20 fixed pose-bank seeds per existing scripted expert. The values below were checked against local result artifacts; raw measurement artifacts are not published with this page. This is a pre-learning diagnostic.</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Earlier CPU expert reliability results">
+        <table><caption>Success counts and 95% Wilson intervals · 2026-10-21</caption><thead><tr><th scope="col">Expert</th><th scope="col">Success / episodes</th><th scope="col">95% Wilson</th><th scope="col">Evidence status</th></tr></thead><tbody><tr><th scope="row">N03</th><td><strong>20 / 20</strong></td><td>83.9–100.0%</td><td><span class="badge measured_local">MEASURED · LOCAL</span></td></tr><tr><th scope="row">N12</th><td><strong>20 / 20</strong></td><td>83.9–100.0%</td><td><span class="badge measured_local">MEASURED · LOCAL</span></td></tr><tr><th scope="row">N17</th><td><strong>16 / 20</strong></td><td>58.4–91.9%</td><td><span class="badge measured_local">MEASURED · LOCAL</span></td></tr><tr><th scope="row">N18</th><td><strong>16 / 20</strong></td><td>58.4–91.9%</td><td><span class="badge measured_local">MEASURED · LOCAL</span></td></tr></tbody></table>
+      </div>
+      <details><summary>Measurement scope and pose bank</summary><p>N03: original SE(2) family, x 0.30–0.40 m, y −0.46–−0.28 m and yaw ±45°. N12 / N17 / N18: source centered at (0.35, −0.40) m, independent x/y ±20 mm and yaw ±30°; roll/pitch fixed at zero.</p><p>All planned cases count, including planning failures; no retries or replacement. Original CPU physics and task-specific control/gates were retained, with no training or expert optimization. These measurements do not test student-state takeover, the harder Md distribution or OPD learning.</p></details>
+    </section>
+
+    <section class="section" id="contract" aria-labelledby="contract-title">
+      <p class="section-number">03 / SHARED CONTRACT · 固定接口</p>
+      <h2 id="contract-title">One interface across four tasks.</h2>
+      <p class="section-lead">Panda · Isaac Lab / MATTERIX · N03 / N12 / N17 / N18. Learning starts with N03 / N12; N17 / N18 enter after Me.</p>
+      <div class="contract-grid">
+        <article class="panel"><span class="card-label">STUDENT OBSERVATION</span><h3>41D observation</h3><ul><li>Joint positions q (7) + velocities dq (7)</li><li>End-effector pose (7) + finger state (2)</li><li>Object pose (7) + final goal pose (7)</li><li>Task one-hot (4)</li></ul><p class="boundary">Expert internal waypoints and expert internal errors are excluded from the student observation.</p></article>
+        <article class="panel"><span class="card-label">ACTION & CONTROL</span><h3>8D: Δxyz (3) + unit Δquat wxyz (4) + grip (1)</h3><p class="rate">20 <small>Hz policy</small></p><p>The same controller serves all four tasks: 120 Hz physics and six physics substeps per policy step.</p><p class="small">This fixed interface is under validation. The first B1 attempt failed the TCP Jacobian precheck; tracking has not been measured.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="mechanism" aria-labelledby="mechanism-title">
+      <p class="section-number">04 / LEARNING MECHANISM · 学习机制</p>
+      <h2 id="mechanism-title">Label the states the student actually visits.</h2>
+      <p class="section-lead">M4 applies the user-defined OPD procedure below. The diagram specifies the planned mechanism; it is not a learning result.</p>
+      <figure class="mechanism-figure">
+        <figcaption><span class="card-label">M4 / OPD (USER METHOD)</span><span class="badge planned">PLANNED MECHANISM</span></figcaption>
+        <ol class="learning-loop" aria-label="Planned OPD learning loop">
+          <li><span class="node-number">01</span><strong>Student rollout</strong><small>Collect visited states</small></li>
+          <li><span class="node-number">02</span><strong>Task-expert labels</strong><small>Query each task’s expert</small></li>
+          <li><span class="node-number">03</span><strong>Verifier filter</strong><small>Check sample / label validity</small></li>
+          <li><span class="node-number">04</span><strong>Recovery weighting</strong><small>Weight failure/recovery data</small></li>
+          <li><span class="node-number">05</span><strong>Student update</strong><small>Train with admitted labels</small></li>
+        </ol>
+        <div class="loop-return"><span aria-hidden="true">↶</span> Repeat student rollout and update for K rounds <span class="small">· K to be specified</span></div>
+        <p class="figure-note">Verifier admission checks sample and label validity; it does not require episode success. Verified failure/recovery segments may enter weighted learning. Two ablations remove the verifier filter or failure/recovery weighting.</p>
+      </figure>
+      <div class="comparison-heading"><h3>Matched comparison</h3><p>Same network · same expert-label budget · 3 seeds. Oracle reference reported separately.</p></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Planned method comparison"><table class="method-table"><caption>All learned-policy comparisons are planned / unmeasured.</caption><thead><tr><th scope="col">ID</th><th scope="col">Method</th><th scope="col">Role</th></tr></thead><tbody><tr><th scope="row">M0</th><td><strong>Oracle</strong></td><td>Oracle reference; report separately from learned policies.</td></tr><tr><th scope="row">M1</th><td><strong>Multi-task BC</strong></td><td>Behavioral cloning from the matched expert-label budget.</td></tr><tr><th scope="row">M2</th><td><strong>DART</strong></td><td>Noise-augmented imitation baseline.</td></tr><tr><th scope="row">M3</th><td><strong>DAgger</strong></td><td>Expert labeling on student-visited states.</td></tr><tr><th scope="row">M4</th><td><strong>OPD (user method)</strong></td><td>Student rollout → task-expert labels → sample/label-validity verifier filter → failure/recovery weighting → K rounds.</td></tr></tbody></table></div>
+    </section>
+
+    <section class="section" id="milestones" aria-labelledby="milestones-title">
+      <p class="section-number">05 / ACCEPTANCE ROADMAP · 阶段里程碑</p>
+      <h2 id="milestones-title">Ma–Mf: measurements before claims.</h2>
+      <p class="section-lead">Ma is partially measured and remains in progress. Every later milestone remains planned. A milestone closes only when its stated evidence is measured and checked.</p>
+      <ol class="milestones"><li class="milestone" id="Ma"><span class="milestone-id">Ma</span><div><div class="milestone-heading"><span class="badge in_progress">IN PROGRESS · PARTIAL</span><h3>Shared load &amp; controller tracking</h3></div><p>Measure throughput at 16 / 64 / 256 parallel environments under shared load; check tracking with the same controller.</p><p class="criterion"><strong>Gate</strong> Record measured throughput and controller tracking before selecting the rollout configuration.</p><p class="result-note">Partial: 16 environments measured 877.744721 env-steps/s and 0.4571587 sim/wall under shared load (5 s load sampling). A 30.01069 s memory calibration observed M16 = 4,931 MiB. The 64 / 256 batches did not start: total-peak proportional extrapolation requires 29,586 / 118,344 MiB free, versus 15,485 MiB at admission; their measured values remain null. The first native B1 attempt failed the TCP Jacobian precheck (24–25 mm/rad linear-column error; threshold 2 mm/rad). Tracking was not executed. A 2-root-yaw × 2-epsilon probe confirmed a COM/link reference-point mismatch: applying the measured COM offset reduced the error to 0.07–0.10 mm/rad. The first failure is retained; the minimal adapter correction awaits a tracking retest. No tracking pass or learning result is claimed.</p></div></li><li class="milestone" id="Mb"><span class="milestone-id">Mb</span><div><div class="milestone-heading"><span class="badge planned">PLANNED</span><h3>State-driven, re-entrant experts</h3></div><p>Start with N03 / N12. Each expert must resume from the current observed state rather than depend on a one-way script.</p><p class="criterion"><strong>Gate</strong> 50 mid-trajectory student-state takeover tests per task.</p><p class="result-note">Takeover tests not yet measured.</p></div></li><li class="milestone" id="Mc"><span class="milestone-id">Mc</span><div><div class="milestone-heading"><span class="badge planned">PLANNED</span><h3>One vector environment &amp; verifier</h3></div><p>Unify the vector environment, trajectory records and stage-wise verifier across the four Panda tasks.</p><p class="criterion"><strong>Gate</strong> Shared observation/action contract; saved trajectories; explicit verifier admission and rejection records.</p><p class="result-note">Unified rollout and verifier acceptance not yet measured.</p></div></li><li class="milestone" id="Md"><span class="milestone-id">Md</span><div><div class="milestone-heading"><span class="badge planned">PLANNED</span><h3>Qualify a recoverable challenge</h3></div><p>Expand pose ranges by 50%; add 2–3 cm object pushes, slip events and 30 ms observation delay.</p><p class="criterion"><strong>Gate</strong> Expert success ≥85% and single-task BC with 20 demonstrations ≤60%. At most two difficulty adjustments.</p><p class="result-note">Challenge qualification not yet measured; the earlier CPU pose-bank results do not satisfy this gate.</p></div></li><li class="milestone" id="Me"><span class="milestone-id">Me</span><div><div class="milestone-heading"><span class="badge planned">PLANNED</span><h3>Matched policy learning &amp; ablations</h3></div><p>Compare M0–M4 with the same network, matched expert-label budgets and three seeds. Run two OPD ablations.</p><p class="criterion"><strong>Gate</strong> Complete the N03 / N12 comparison before adding N17 / N18 to learning. Report all planned evaluation metrics.</p><p class="result-note">No trained-policy comparison or learning curve reported.</p></div></li><li class="milestone" id="Mf"><span class="milestone-id">Mf</span><div><div class="milestone-heading"><span class="badge planned">PLANNED</span><h3>Reconnect student skills to C01</h3></div><p>Integrate the learned student skills into the existing C01 closed loop.</p><p class="criterion"><strong>Gate</strong> Evaluate the integrated student workflow and its failure recovery; retain the original C01 evidence separately.</p><p class="result-note">Student integration not yet measured.</p></div></li></ol>
+    </section>
+
+    <section class="section" id="evaluation" aria-labelledby="evaluation-title">
+      <p class="section-number">06 / EVALUATION · 评测口径</p>
+      <h2 id="evaluation-title">The reporting protocol is set. Results are open.</h2>
+      <p class="section-lead">The evaluation will report performance, uncertainty, recovery and expert-label cost together. All entries below are unmeasured in this snapshot.</p>
+      <div class="metrics"><article class="metric"><div><span class="badge not_tested">NOT TESTED</span><h3>First-attempt success</h3></div><p>At least 50 episodes per task and method; report numerator, denominator and 95% Wilson interval.</p></article><article class="metric"><div><span class="badge not_tested">NOT TESTED</span><h3>Failure recovery</h3></div><p>Report recovery from the declared pushes, slips and observation delay.</p></article><article class="metric"><div><span class="badge not_tested">NOT TESTED</span><h3>Attempts 1 / 2 / 3 / 5 + slope</h3></div><p>Report success by attempt and improvement slope. Keep frozen-weight evaluation separate from test-time updates.</p></article><article class="metric"><div><span class="badge not_tested">NOT TESTED</span><h3>Expert-label budget</h3></div><p>Plot measured performance against expert-label budget for each matched method.</p></article><article class="metric"><div><span class="badge not_tested">NOT TESTED</span><h3>Verifier admission / rejection</h3></div><p>Report sample/label-validity admission and rejection, denominators and reasons. Verified failure/recovery segments may enter weighted learning; admission does not mean episode success.</p></article></div>
+      <div class="unmeasured-note"><strong>Awaiting measured results</strong><p>64 / 256-env throughput (batches not started) · controller tracking (B1 precheck failed) · expert takeover · trained-policy success · recovery and learning curves · C01 student integration. No learning has been run.</p></div>
+      <div class="resources"><a href="data/opd-progress.json"><span>JSON</span><strong>Phase-2 progress snapshot ↗</strong></a><a href="f-scoreboard.html"><span>FROZEN v1</span><strong>Earlier reproduction evidence ↗</strong></a></div>
+      <p class="small disclosure">This page is a dated research snapshot. Raw local measurement artifacts are not published with this page. The 16-env throughput is a shared-load prefix measurement, not completed tasks/s. Local expert measurements keep their original CPU and pose-bank scope. They do not establish learned-policy performance, disturbance recovery or a phase-2 milestone pass.</p>
+    </section>
+    <footer><span>ChemRMBench · ChemOPD-4</span><span>Phase 2 / 第二阶段</span><a href="#overview">Back to top ↑</a></footer>
+  </main>
+</div>
+<noscript><p class="noscript">The full plan and evidence summary are available above. Machine-readable status is in <a href="data/opd-progress.json">the phase-2 snapshot</a>.</p></noscript>
+</body>
+</html>

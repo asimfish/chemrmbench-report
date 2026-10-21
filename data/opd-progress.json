@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "project": "ChemOPD-4",
+  "phase": "Phase 2 / OPD",
+  "snapshot_utc": "2026-10-21T10:03:58Z",
+  "snapshot_kind": "curated_static_snapshot",
+  "phase_status": "IN_PROGRESS",
+  "current_milestone": "Ma",
+  "completed_milestones": 0,
+  "milestone_total": 6,
+  "baseline_v1": {
+    "status": "FROZEN",
+    "f_pass": 34,
+    "total": 36,
+    "commit": "43b923316e0aa6f8c65dd3d651607a60041f98b3",
+    "scoreboard_url": "https://asimfish.github.io/chemrmbench-report/f-scoreboard.html",
+    "pending": [
+      {
+        "id": "A03",
+        "status": "RUNNING"
+      },
+      {
+        "id": "A06",
+        "status": "BLOCKED"
+      }
+    ],
+    "scope": "Previously validated functional reproduction baseline. Phase 2 has its own milestones and does not revise the v1 ledger."
+  },
+  "contract": {
+    "simulator": "Isaac Lab / MATTERIX",
+    "robot": "Panda",
+    "task_ids": [
+      "N03",
+      "N12",
+      "N17",
+      "N18"
+    ],
+    "observations": [
+      "joint positions q (7)",
+      "joint velocities dq (7)",
+      "end-effector pose (7)",
+      "finger state (2)",
+      "object pose (7)",
+      "final goal pose (7)",
+      "task one-hot (4)"
+    ],
+    "excluded_observations": [
+      "expert internal waypoints",
+      "expert internal errors"
+    ],
+    "action": "8D: Δxyz (3) + unit Δquaternion wxyz (4) + gripper (1)",
+    "controller": "The same controller for all four tasks.",
+    "learning_order": "N03 / N12 first; add N17 / N18 after Me.",
+    "observation_dimensions": 41,
+    "observation_layout": {
+      "q": 7,
+      "dq": 7,
+      "EE": 7,
+      "finger": 2,
+      "object": 7,
+      "final_goal": 7,
+      "task": 4
+    },
+    "action_dimensions": 8,
+    "action_layout": {
+      "delta_xyz": 3,
+      "unit_delta_quaternion_wxyz": 4,
+      "gripper": 1
+    },
+    "policy_rate_hz": 20,
+    "physics_rate_hz": 120,
+    "physics_substeps_per_policy_step": 6
+  },
+  "earlier_expert_reliability": {
+    "measured_date_utc": "2026-10-21",
+    "scope": "Existing scripted experts under the original CPU physics settings; 20 fixed pose-bank seeds per task. No training or expert optimization.",
+    "seed_policy": "All planned cases count, including planning failures. No retries or replacement.",
+    "distribution": {
+      "N03": "Original SE(2) family: x 0.30–0.40 m, y −0.46–−0.28 m, yaw ±45°.",
+      "N12_N17_N18": "Nominal source (0.35, −0.40) m with independent x/y ±20 mm and yaw ±30°; roll/pitch fixed at zero."
+    },
+    "disclosure": "Summary verified against local result artifacts. Raw measurement artifacts are not published with this page.",
+    "rows": [
+      {
+        "task": "N03",
+        "status": "MEASURED_LOCAL",
+        "successes": 20,
+        "episodes": 20,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "physics": "CPU",
+        "training_result": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null
+      },
+      {
+        "task": "N12",
+        "status": "MEASURED_LOCAL",
+        "successes": 20,
+        "episodes": 20,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "physics": "CPU",
+        "training_result": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null
+      },
+      {
+        "task": "N17",
+        "status": "MEASURED_LOCAL",
+        "successes": 16,
+        "episodes": 20,
+        "wilson95": [
+          0.5839825677481064,
+          0.919342337420202
+        ],
+        "physics": "CPU",
+        "training_result": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null
+      },
+      {
+        "task": "N18",
+        "status": "MEASURED_LOCAL",
+        "successes": 16,
+        "episodes": 20,
+        "wilson95": [
+          0.5839825677481064,
+          0.919342337420202
+        ],
+        "physics": "CPU",
+        "training_result": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null
+      }
+    ]
+  },
+  "milestones": [
+    {
+      "id": "Ma",
+      "status": "IN_PROGRESS",
+      "title": "Shared load & controller tracking",
+      "scope": "Measure throughput at 16 / 64 / 256 parallel environments under shared load; check tracking with the same controller.",
+      "acceptance": "Record measured throughput and controller tracking before selecting the rollout configuration.",
+      "result": {
+        "throughput_status": "16_ENV_MEASURED_64_256_NOT_STARTED",
+        "controller_status": "PRECHECK_FAILED_TRACKING_NOT_EXECUTED",
+        "milestone_passed": false
+      },
+      "result_note": "Partial: 16 environments measured 877.744721 env-steps/s and 0.4571587 sim/wall under shared load (5 s load sampling). A 30.01069 s memory calibration observed M16 = 4,931 MiB. The 64 / 256 batches did not start: total-peak proportional extrapolation requires 29,586 / 118,344 MiB free, versus 15,485 MiB at admission; their measured values remain null. The first native B1 attempt failed the TCP Jacobian precheck (24–25 mm/rad linear-column error; threshold 2 mm/rad). Tracking was not executed. A 2-root-yaw × 2-epsilon probe confirmed a COM/link reference-point mismatch: applying the measured COM offset reduced the error to 0.07–0.10 mm/rad. The first failure is retained; the minimal adapter correction awaits a tracking retest. No tracking pass or learning result is claimed.",
+      "progress": "PARTIAL"
+    },
+    {
+      "id": "Mb",
+      "status": "PLANNED",
+      "title": "State-driven, re-entrant experts",
+      "scope": "Start with N03 / N12. Each expert must resume from the current observed state rather than depend on a one-way script.",
+      "acceptance": "50 mid-trajectory student-state takeover tests per task.",
+      "result": null,
+      "result_note": "Takeover tests not yet measured."
+    },
+    {
+      "id": "Mc",
+      "status": "PLANNED",
+      "title": "One vector environment & verifier",
+      "scope": "Unify the vector environment, trajectory records and stage-wise verifier across the four Panda tasks.",
+      "acceptance": "Shared observation/action contract; saved trajectories; explicit verifier admission and rejection records.",
+      "result": null,
+      "result_note": "Unified rollout and verifier acceptance not yet measured."
+    },
+    {
+      "id": "Md",
+      "status": "PLANNED",
+      "title": "Qualify a recoverable challenge",
+      "scope": "Expand pose ranges by 50%; add 2–3 cm object pushes, slip events and 30 ms observation delay.",
+      "acceptance": "Expert success ≥85% and single-task BC with 20 demonstrations ≤60%. At most two difficulty adjustments.",
+      "result": null,
+      "result_note": "Challenge qualification not yet measured; the earlier CPU pose-bank results do not satisfy this gate."
+    },
+    {
+      "id": "Me",
+      "status": "PLANNED",
+      "title": "Matched policy learning & ablations",
+      "scope": "Compare M0–M4 with the same network, matched expert-label budgets and three seeds. Run two OPD ablations.",
+      "acceptance": "Complete the N03 / N12 comparison before adding N17 / N18 to learning. Report all planned evaluation metrics.",
+      "result": null,
+      "result_note": "No trained-policy comparison or learning curve reported."
+    },
+    {
+      "id": "Mf",
+      "status": "PLANNED",
+      "title": "Reconnect student skills to C01",
+      "scope": "Integrate the learned student skills into the existing C01 closed loop.",
+      "acceptance": "Evaluate the integrated student workflow and its failure recovery; retain the original C01 evidence separately.",
+      "result": null,
+      "result_note": "Student integration not yet measured."
+    }
+  ],
+  "methods": [
+    {
+      "id": "M0",
+      "name": "Oracle",
+      "role": "Oracle reference; report separately from learned policies."
+    },
+    {
+      "id": "M1",
+      "name": "Multi-task BC",
+      "role": "Behavioral cloning from the matched expert-label budget."
+    },
+    {
+      "id": "M2",
+      "name": "DART",
+      "role": "Noise-augmented imitation baseline."
+    },
+    {
+      "id": "M3",
+      "name": "DAgger",
+      "role": "Expert labeling on student-visited states."
+    },
+    {
+      "id": "M4",
+      "name": "OPD (user method)",
+      "role": "Student rollout → task-expert labels → sample/label-validity verifier filter → failure/recovery weighting → K rounds. Verified failure/recovery segments may be admitted; episode success is not the admission criterion."
+    }
+  ],
+  "matched_comparison": {
+    "same_network": true,
+    "same_expert_label_budget": true,
+    "training_seeds": 3,
+    "oracle_reported_separately": true,
+    "status": "PLANNED"
+  },
+  "opd_loop": [
+    "Student rollout",
+    "Each task’s expert labels",
+    "Verifier filter for sample / label validity",
+    "Failure / recovery weighting",
+    "Student update; repeat K rounds"
+  ],
+  "opd_rounds": {
+    "symbol": "K",
+    "value": null,
+    "status": "TO_BE_SPECIFIED"
+  },
+  "ablations": [
+    "Without verifier filter",
+    "Without failure/recovery weighting"
+  ],
+  "evaluation": [
+    {
+      "name": "First-attempt success",
+      "protocol": "At least 50 episodes per task and method; report numerator, denominator and 95% Wilson interval.",
+      "status": "NOT_TESTED",
+      "value": null
+    },
+    {
+      "name": "Failure recovery",
+      "protocol": "Report recovery from the declared pushes, slips and observation delay.",
+      "status": "NOT_TESTED",
+      "value": null
+    },
+    {
+      "name": "Attempts 1 / 2 / 3 / 5 + slope",
+      "protocol": "Report success by attempt and improvement slope. Keep frozen-weight evaluation separate from test-time updates.",
+      "status": "NOT_TESTED",
+      "value": null
+    },
+    {
+      "name": "Expert-label budget",
+      "protocol": "Plot measured performance against expert-label budget for each matched method.",
+      "status": "NOT_TESTED",
+      "value": null
+    },
+    {
+      "name": "Verifier admission / rejection",
+      "protocol": "Report sample/label-validity admission and rejection, denominators and reasons. Verified failure/recovery segments may enter weighted learning; admission does not mean episode success.",
+      "status": "NOT_TESTED",
+      "value": null
+    }
+  ],
+  "unmeasured_results": {
+    "controller_tracking": null,
+    "takeover_success": null,
+    "trained_policy_success": null,
+    "learning_curves": null,
+    "c01_student_integration": null,
+    "throughput_64_envs": null,
+    "throughput_256_envs": null
+  },
+  "disclosures": [
+    "This page describes the approved phase-2 plan and a dated local evidence summary.",
+    "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
+    "No OPD learning curves or policy success scores have been measured in this snapshot.",
+    "The 16-env throughput is a single shared-load prefix measurement. The 64/256-env batches never started, and B1 tracking was not executed after its failed native Jacobian precheck."
+  ],
+  "phase_progress": "PARTIAL",
+  "current_measurements": {
+    "throughput": {
+      "status": "SHARED_LOAD_BATCH_CLOSED_OR_ADMISSION_BLOCKED",
+      "closed_utc": "2026-10-21T09:57:49.039868+00:00",
+      "measurement_load": "SHARED_EXTERNAL_LOAD",
+      "load_sampling_period_s": 5,
+      "repetitions_per_batch": 1,
+      "memory_extrapolation": "M(n) = M16 × n / 16, including fixed application overhead; require fresh free memory ≥ 1.5 × M(n).",
+      "M16_MiB": 4931,
+      "rows": [
+        {
+          "num_envs": 16,
+          "status": "MEASURED_SHARED_LOAD",
+          "started": true,
+          "aggregate_env_steps_per_s": 877.7447212392015,
+          "simulated_time_per_wall_time": 0.4571587328214354,
+          "timed_wall_s": 18.228534575988306,
+          "memory_calibration_wall_s": 30.010689891001675,
+          "observed_process_peak_MiB": 4931,
+          "admission_free_MiB": 15485,
+          "required_free_MiB": 4096
+        },
+        {
+          "num_envs": 64,
+          "status": "NOT_STARTED_MEMORY_EXTRAPOLATION_GATE",
+          "started": false,
+          "aggregate_env_steps_per_s": null,
+          "simulated_time_per_wall_time": null,
+          "timed_wall_s": null,
+          "memory_calibration_wall_s": null,
+          "observed_process_peak_MiB": null,
+          "admission_free_MiB": 15485,
+          "required_free_MiB": 29586
+        },
+        {
+          "num_envs": 256,
+          "status": "NOT_STARTED_MEMORY_EXTRAPOLATION_GATE",
+          "started": false,
+          "aggregate_env_steps_per_s": null,
+          "simulated_time_per_wall_time": null,
+          "timed_wall_s": null,
+          "memory_calibration_wall_s": null,
+          "observed_process_peak_MiB": null,
+          "admission_free_MiB": 15485,
+          "required_free_MiB": 118344
+        }
+      ],
+      "scope": "Single-run GPU-physics timing under shared load: 100 warmup + 1000 timed prefix steps; the 16-env run continues for a 30-second memory calibration. Environment-steps/s is not completed tasks/s or learned-policy throughput.",
+      "raw_evidence_published": false,
+      "raw_evidence_url": null
+    },
+    "controller_B1": {
+      "status": "PRECHECK_FAILED_TRACKING_NOT_EXECUTED",
+      "attempt": 1,
+      "precheck": "Native TCP Jacobian finite-difference check",
+      "maximum_linear_column_error_mm_per_rad_range": [
+        23.999584838747978,
+        25.23355931043625
+      ],
+      "threshold_mm_per_rad": 2,
+      "precheck_passed": false,
+      "tracking_executed": false,
+      "tracking_result": null,
+      "diagnosis_status": "COM_LINK_REFERENCE_CONFIRMED_TRACKING_RETEST_PENDING",
+      "scope": "First native B1 attempt failed before tracking. No learning was run.",
+      "raw_evidence_published": false,
+      "raw_evidence_url": null,
+      "reference_probe": {
+        "root_yaw_cases": 2,
+        "finite_difference_epsilon_cases": 2,
+        "corrected_linear_column_error_mm_per_rad_range": [
+          0.07004104644044845,
+          0.10260724060590017
+        ],
+        "diagnosis": "COM/link reference-point mismatch confirmed; actual COM-offset correction reduces linear-column error to 0.07–0.10 mm/rad.",
+        "next_step": "Minimal adapter correction prepared; tracking retest pending.",
+        "first_failed_attempt_retained": true
+      }
+    }
+  },
+  "verifier_admission": {
+    "meaning": "Sample and expert-label validity; not equivalent to episode success.",
+    "failure_recovery_segments": "Verified failure and recovery segments may enter weighted learning.",
+    "status": "PLANNED"
+  }
+}
