@@ -1,0 +1,103 @@
+N03 OLD SUCCESS AUDIT AND G11 HISTORICAL EVIDENCE LIMITS
+
+Authority: success_contract.json frozen2026-10-21T21:55:21Z. This document does not edit that contract, any frozen execution source, or any stored outcome. No simulation, teacher call, model forward, or training is performed.
+
+Original F12 and post-v1 expert reliability20
+explicit conjunction:
+  - Peak object-root rise >=0.050m relative to initial observed object root.
+  - Maximum 3D object-root error to destination [.05+environment_shift,-.2,.08] <=0.010m over final120 native recorded states.
+  - Fraction of final120 states with either object-finger contact force strictly >0N equals zero.
+  - MATTERIX HSM action_sequence_success is true.
+implicit hsm conditions:
+  - Nine actions: above-object home, approach, insert, close, lift, translate, lower, release, retreat.
+  - For each MoveToPose: position distance <0.006m, quaternion angular distance <0.025rad, continuously settled >=0.15s; timeout12s.
+  - Final retreat target TCP [.05,-.2,.30] in local coordinates with downward grasp orientation; the action named home is above the object, not a return to robot reset home.
+  - Close/release gripper primitives succeed after1.5s command duration, timeout3s; this primitive does not verify actual aperture or absence of contact.
+  - Initial numerical IK must produce each precomputed waypoint with residual norm <0.0001. Reliability planning exceptions are retained as failed attempts.
+  - The original loop stops after every HSM is success/failure for180 physics ticks or maximum horizon. HSM failure cannot satisfy the final success conjunction.
+absent explicit task gates:
+  - No explicit object linear or angular speed threshold.
+  - No explicit actual finger opening threshold.
+  - No physical gripper-cup surface-clearance threshold.
+  - No separate full-episode finite flag in the old final success expression.
+  - No destination-support contact requirement or goal-yaw match apart from HSM gripper orientation.
+Historical evidence: {"trace": "120Hz object pose/velocity/contact and all joint positions; robot link poses only every12physics ticks (.1s), no stored full joint velocities.", "strict_g11_rescore": "NA under the current NPZ adapter; do not pretend the old JSONL is20Hz NPZ or promote its10Hz actual link poses to120Hz. A dedicated FK/clock validation adapter would be separate CPU work.", "stored_outcomes": [{"result": "f_tier/N03/result.json", "successes": 12, "denominator": 12}, {"result": "measurements/post_v1/expert_reliability/N03/result.json", "successes": 20, "denominator": 20}]}
+Sources: f_tier/n03_pose_trials.py:59-81, measurements/post_v1/expert_reliability/n03_reliability.py:59-88, sources/matterix_public/source/matterix_sm/matterix_sm/primitive_actions/move_to_pose.py:292-317, sources/matterix_public/source/matterix_sm/matterix_sm/primitive_actions/gripper.py:128-135
+
+B2 state-derived reentrant expert nominal/takeover
+explicit conjunction:
+  - Peak object rise >=0.050m.
+  - No strictly positive instantaneous object-finger contact among the final120 native states.
+  - Every final120 done_history value is true.
+  - Full recorded-data finite flag true.
+  - Maximum final120 3D object-root goal error <=0.010m.
+implicit done conditions:
+  - Object XY goal error <=0.008m and absolute object Z goal error <=0.006m.
+  - Object upright cosine >=0.95.
+  - Both recent-contact maxima <=0.010N and minimum actual finger joint position >0.030m.
+  - TCP z >= goal z + grasp_offset0.060m +0.120m, i.e. goal z+0.180m.
+  - Object linear speed norm <=0.020m/s.
+  - The done predicate is teacher diagnostics at20Hz and cached for6 native ticks; this is not120Hz velocity verification.
+excluded conflations:
+  - The support-contact predicate influences expert release action selection and a place-stage flag, but is not required by the done predicate.
+  - All five episode-ever stage flags are not separately required by the final success expression; peak lift is required.
+  - Unrecoverable/unsafe-ever affects failure classification if success is false; it is not an additional veto of an otherwise true task-success conjunction.
+  - Four physical motion-limit counters are recorded separately and do not veto primary task success.
+Finite scope: At policy boundaries: obs41, teacher action and executed action. At120Hz: arm7q/dq, TCP, object pose/velocity6, forces. Finger positions occur in20Hz obs41; finger dq is not recorded/checked by this flag.
+Historical evidence: Earlier nominal NPZ may lack raw velocity/contact and explicit clock boolean. New takeover NPZ stores20Hz current object_velocity6 and causal recent18-step contact maxima; final next_obs41 has no matching endpoint velocity/contact. No imputation.
+Sources: phase2/chemopd4/run_reentrant_native.py:146-175,220-271, phase2/chemopd4/reentrant_expert.py:95-138,186-209
+
+Independent native outcomes for Mc/G8/G9 v1/v2 including oracle and student
+explicit conjunction:
+  - Peak object rise >=0.050m.
+  - No strictly positive instantaneous object-finger force in final120 native states.
+  - Every final120 cached physical_done value true.
+  - Full recorded native-data finite flag true.
+  - Maximum final120 POST-physics 3D object-root goal error <=0.010m.
+implicit done conditions:
+  - Object XY <=0.008m, absolute Z <=0.006m, upright cosine >=0.95.
+  - Both causal recent18-native-step (.15s) force maxima <=0.010N and minimum finger position >0.030m.
+  - TCP z >= goal z+0.180m.
+  - Object linear speed norm <=0.020m/s.
+  - The independent done predicate is evaluated from PRE-action20Hz state and reused for all6 following physics steps. The final object/contact ring is POST-physics120Hz, so these checks use distinct temporal samples.
+ancillary conditions:
+  - Data export requires policy_steps700, physics_steps4200, callbacks4200, every callback dt within1e-8s of1/120, sum dt within1e-4s of35s.
+  - Full episode is executed even if a cached task_done becomes true earlier.
+  - Episode-ever grasp/lift/transport/place/release vector is preserved as a separate diagnostic. New criterion does not require a grasp or lift: an object moved on the table can satisfy placement if all new conditions are actually demonstrated.
+absent explicit task gates:
+  - No angular velocity threshold.
+  - No minimum collision-surface distance.
+  - No full goal-orientation match beyond upright cosine.
+  - No independent destination support-contact requirement for terminal done.
+  - No requirement that all five ever-stage bits be true.
+  - No motion-limit veto of primary task success.
+Finite scope: native_vector_env.all_finite checks120Hz arm7q/dq + TCP pose + object pose + object velocity6 + force norms3. Finger joint positions are checked in exported20Hz obs41; no finger dq or full9dq claim is supported by this historical flag.
+Sources: phase2/chemopd4/native_vector_env.py:16-43,166-235,237-280
+
+GEOMETRY AND FINITE SCOPE
+evidence: phase2/analysis/guidance11/geometry.json
+cup_authority: phase2/chemopd4/reentrant_scene.py
+cup: 33 collision boxes: bottom .062x.062x.003 centeredz.0015;32walls .003x.0072x.090 centeredz.045 at radius.032. Cup collision height is.090m, not.120m.
+gripper: Authored Panda hand,leftfinger,rightfinger convex-hull collision vertices from exact local USD; each is enclosed before transformation.
+lower_bound: Minimum of99 transformed enclosing-AABB pair distances, minus1e-5m numerical margin. >=.050m certifies minimum physical authored collision-surface separation; lower value is INDETERMINATE, never an exact geometry failure.
+historical_fk: Hand reconstructed from TCP minus rotated[0,0,.1034]; finger links reconstructed from exported prismatic joint frames and recorded actual finger positions. Actual per-link constraint residual is unavailable in historical raw.
+prospective: Actual measured body_link_pose_w hand,leftfinger,rightfinger is used, with origins removed consistently with raw41.
+distinction: A physical50mm surface clearance is not equivalent to old TCPz>=goalz+.180. For downward geometry cup top is root+.090 and fingertip roughly TCP-.008849, so a vertical clearance certificate can hold below the old TCP height.
+Prospective finite: All9 actual robot joint positions and velocities, raw41, object velocity6, instantaneous force norms3, actual3 gripper-link poses, throughout the complete native episode. This is finite over these recorded fields; it is not a claim that every simulator-internal state or unrecorded signal is finite.
+Prospective timing: Initial endpoint plus4200 real post-update endpoints, with121 actual terminal endpoints spanning120 native intervals and1s; no copied/interpolated final endpoint.
+
+HISTORICAL DOUBLE SCORE
+adapter: phase2/analysis/guidance11/rescore_historical.py
+index: phase2/analysis/guidance11/index.json
+scope: Only20Hz sampled evidence, distinct from prospective continuous120Hz qualification.
+terminal_window: 20 PRE-action states plus actual saved final next_obs41:21 states spanning1s. Only20 velocity/contact observations span.95s; the final next_obs41 velocity/contact is missing.
+missing: No endpoint padding, velocity zeroing, contact zeroing, nearest-neighbor fill, or numerical differentiation to invent missing evidence.
+contact: Stored contact_force3 is causal recent18-step max. Positive values in the first3 PRE snapshots may originate before the final1s and are conservatively unknown; later positive maxima prove a contact violation inside the window. A recent maximum <=.010N certifies its covered instantaneous observations <=.010N.
+decisions: A measured non-geometric violation proves sampled FAIL. All required evidence plus clearance certificate proves sampled PASS only. Missing required evidence is INDETERMINATE unless another measured condition fails. Historical output never claims120Hz acceptance.
+partial: partial_snapshot_conditions_pass is a diagnostic on the available observations, not success. Stored old success and episode-ever vector remain alongside it.
+aggregate: Registry retains denominators including unknowns and incomplete sources. Repeated nominal50 instances across methods/budgets/seeds are not pooled into an independent-population CI.
+
+Motion counter unit: joint x120Hz physics step; not episode count. Primary task success is not the same as motion-limit-qualified task success.
+LIMITATION: The historical successful expert20 can be INDETERMINATE under the new criterion solely because endpoint evidence was not saved; unknown is not failure and is not success.
+LIMITATION: Removing lift/upright/TCP-height conditions is an explicit dated criterion revision, not a correction to original stored task success.
+LIMITATION: Neither a new partial placement nor an old task success proves every pick-and-place phase, motion-limit compliance, broad safety, or learning-method advantage.

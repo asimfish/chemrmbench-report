@@ -1,0 +1,63 @@
+{
+  "schema": "N03_success_g11_v1",
+  "frozen_utc": "2026-10-21T21:55:21.974809+00:00",
+  "authority": "Userguidance11",
+  "status": "FROZEN_BEFORE_NEW_NATIVE_EVALUATION",
+  "scope": "N03 only; identical for expert and every student method. Existing N12 criteria unchanged. No policy, controller or expert behavior changed by scoring.",
+  "new_success": {
+    "placement": "Euclidean object-root to goal-root position error <=0.010m throughout final1s; no hidden XY8mm/Z6mm/upright gate",
+    "released": "Both actual finger joint positions >0.030m AND both object-finger contact force norms <=0.010N throughout final1s. This force threshold is a local numerical contact proxy, not force magnitude calibration.",
+    "stationary": "Object linear speed norm <=0.020m/s throughout final1s; retained local threshold, angular velocity reported separately without a new threshold",
+    "clearance": "Minimum surface separation between hand/leftfinger/rightfinger collision geometry and compound-cup collision geometry >=0.050m throughout final1s; never TCP-to-cup-root distance",
+    "finite": "All recorded native robot/object/velocity/contact values finite throughout episode, with complete valid clock"
+  },
+  "removed_old_requirements": [
+    "peak_lift>=0.050m",
+    "XY placement<=0.008m",
+    "Z placement<=0.006m",
+    "upright cosine>=0.95",
+    "TCP z>=goal z+0.180m",
+    "strict force>0 release check (replaced by explicitly0.010N numerical proxy)"
+  ],
+  "geometry_proof": {
+    "authority": "Frozen execution scene procedural33cup boxes: bottom0.062x0.062x0.003m centeredz0.0015,32walls .003x.0072x.090m centeredz.045 onr.032; actual Panda USD collision geometry and joint frames",
+    "method": "Conservative enclosing AABBs from collision-local vertices transformed using actual TCP, hand offset and actual finger joints. AABB separation is a lower bound on true surface separation. Subtract numerical geometry padding1e-5m before comparing50mm.",
+    "classification": "CERTIFIED if conservative lower bound>=0.050m. Below threshold is INDETERMINATE unless an exact geometric computation proves failure; never report an AABB failure as exact geometry failure.",
+    "task_decision": "PASS only if all non-geometric conditions and a clearance certificate hold; FAIL if a non-geometric condition fails; otherwise INDETERMINATE. Both indeterminate and failed attempts remain in total denominator."
+  },
+  "new_native_evidence": {
+    "sampling_hz": 120,
+    "terminal_window_native_intervals": 120,
+    "required_duration_s": 1.0,
+    "clock": "Each state corresponds to a native physics interval of1/120s; exactly4200 callbacks for35s. Save terminal state evidence and per-condition counts.",
+    "old_scoring": "Keep original case success/gates/metrics unchanged, append separate G11score",
+    "observed_state_endpoints": 121,
+    "initial_and_final_endpoints": "Record initial boundary plus every actual post-physics state; final121 endpoints bracket120native intervals at1/120s."
+  },
+  "historical_rescore": {
+    "reruns": 0,
+    "teacher_queries": 0,
+    "model_forwards": 0,
+    "state_sampling_hz": 20,
+    "scope": "Sampled evidence only, not a claim of continuous120Hz qualification. Use21 states spanning1s where aligned evidence available; if final endpoint velocity/contact evidence unavailable, explicitly report missing final endpoint and nominal interval scope rather than impute. Preserve original stored120Hz old verdict.",
+    "publication": "Publish old verdict, sampled new verdict and evidence completeness separately for every available historical case; no overwritten old outputs"
+  },
+  "comparability": [
+    "Criterion revision is disclosed and dated. It is not a post-hoc relabeling of failures as original successes.",
+    "Historical sampled scoring and prospective120Hz acceptance must not be pooled as identical evidence.",
+    "Task success and motion-limit-qualified success are separate; violations remain reported and retained."
+  ],
+  "E2_acceptance": {
+    "only_teacher_change": "N03 xy_lower_tolerance0.002m to0.006m; no other expert/controller/postprocessor/frequency changes",
+    "nominal": "20/20 under new criterion",
+    "takeover": "50state completion count >=original teacher on the same frozen takeover-state family; report both criteria",
+    "noise": "Paired20cases at sigma3mm and4mm; report success, Wilson95, stuck-align counts and paired outcome tables forE1/E2. Improvement must be visible at3-4mm; if ceiling or inconclusive report rather than silently certify.",
+    "fallbacks": "Only if6mm fails, try5mm then4mm, at most2fallback thresholds. No primitive or40Hz changes."
+  },
+  "implementation_clarification": {
+    "recorded_utc": "2026-10-21T22:01:43.948786+00:00",
+    "before_first_new_native": true,
+    "threshold_changes": 0,
+    "explanation": "The frozen120nativeinterval window is measured by121 real observed endpoints spanning exactly1s. This clarifies interval versus endpoint counts; no copied or interpolated endpoint."
+  }
+}
