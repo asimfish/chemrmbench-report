@@ -1,0 +1,713 @@
+{
+  "status": "INDEPENDENT_EVIDENCE_COMPLETE",
+  "reviewed_utc": "2026-10-20T19:15:56.039111+00:00",
+  "reviewer": "Independent prepared raw-array/pose/contact/journal/clock/thermal/video check; no producer module imports",
+  "all_started_primary_denominator": 6,
+  "workflow_successes": 3,
+  "workflow_success_rate": 0.5,
+  "wilson95": [
+    0.1876163064826506,
+    0.8123836935173494
+  ],
+  "original_five": {
+    "started": 5,
+    "successes": 2,
+    "rate": 0.4,
+    "wilson95": [
+      0.11762077423264783,
+      0.769275718723987
+    ]
+  },
+  "negative_started_separately": 1,
+  "total_started_native_worlds": 7,
+  "original00_interruption_retained_as_failure": true,
+  "safe_abort_is_not_workflow_success": true,
+  "evidence_integrity_pass": true,
+  "no_recovery_negative_pass": true,
+  "at_least_one_verified_airborne_recover_transfer_heat_workflow": true,
+  "candidate_functional_evidence_sufficient": true,
+  "acceptance_scope": "Evidence judgment only; no automatic scoreboard F_PASS or producer result mutation.",
+  "protocol_clarification": "combined/upgrade/protocol_clarification.json",
+  "replacement_registered_utc": "2026-10-20T17:42:27.612036+00:00",
+  "replacement_scheduler_order_verification": {
+    "original_launch_precondition": "all_original_five_closed",
+    "amendment_used": true,
+    "review_requires_all_six_closed": true,
+    "amendment_path": "combined/upgrade/scheduler_launch_order_amendment.json",
+    "amendment_registered_utc": "2026-10-20T18:45:27.109583+00:00",
+    "amended_launch_precondition": "all_original_five_started_and_original00_permanent_interrupted_failure",
+    "original_five_started_evidence": [
+      {
+        "case": "pose_00",
+        "status_path": "combined/upgrade/runs/C01b_pose_00/status.json",
+        "status_pid": 1043104,
+        "launch_utc": "2026-10-20T16:57:06.427790+00:00",
+        "launch_event_source": "combined/upgrade/runs/C01b_pose_00/result.json",
+        "launch_event_kind": "process_started_utc"
+      },
+      {
+        "case": "pose_01",
+        "status_path": "combined/upgrade/runs/C01b_pose_01/status.json",
+        "status_pid": 1205552,
+        "launch_utc": "2026-10-20T17:29:24.517759+00:00",
+        "launch_event_source": "combined/upgrade/serial_queue.log",
+        "launch_event_kind": "START_FROZEN_CASE"
+      },
+      {
+        "case": "pose_02",
+        "status_path": "combined/upgrade/runs/C01b_pose_02/status.json",
+        "status_pid": 1220581,
+        "launch_utc": "2026-10-20T17:32:07.674396+00:00",
+        "launch_event_source": "combined/upgrade/serial_queue.log",
+        "launch_event_kind": "START_FROZEN_CASE"
+      },
+      {
+        "case": "pose_03",
+        "status_path": "combined/upgrade/runs/C01b_pose_03/status.json",
+        "status_pid": 1245161,
+        "launch_utc": "2026-10-20T17:36:57.461730+00:00",
+        "launch_event_source": "combined/upgrade/serial_queue.log",
+        "launch_event_kind": "START_FROZEN_CASE"
+      },
+      {
+        "case": "pose_04",
+        "status_path": "combined/upgrade/runs/C01b_pose_04/status.json",
+        "status_pid": 1416607,
+        "launch_utc": "2026-10-20T18:07:42.050500+00:00",
+        "launch_event_source": "combined/upgrade/parallel_pose04_queue.log",
+        "launch_event_kind": "START_FROZEN_CASE"
+      }
+    ],
+    "original00_closed_evidence": {
+      "result_path": "combined/upgrade/runs/C01b_pose_00/result.json",
+      "status": "FAILED_INTERRUPTED_NATIVE",
+      "closed_record_utc": "2026-10-20T17:32:01.768676+00:00",
+      "first_observed_pid_gone_utc": "2026-10-20T17:29:20.361042+00:00",
+      "original_failure_permanent": true,
+      "termination_sender": "UNKNOWN",
+      "closed_evidence_utc": "2026-10-20T17:32:01.768676+00:00"
+    }
+  },
+  "frozen_drop_verifier": {
+    "loss_streak_control_steps": 3,
+    "loss_threshold_N_presence_only": 0.001,
+    "fall_displacement_m_min": 0.005,
+    "stable_linear_speed_m_s_max": 0.01,
+    "stable_angular_speed_rad_s_max": 0.1,
+    "stable_duration_s_min": 0.25,
+    "post_loss_observation_s_min": 0.5,
+    "upright_tilt_deg_max": 10.0,
+    "spill_particles_for_recovery_max": 0,
+    "drop_observation_budget_s": 6.0
+  },
+  "runs": [
+    {
+      "id": "C01b_pose_00",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": false,
+      "producer_status": "FAILED_INTERRUPTED_NATIVE",
+      "failure": "ADMINISTRATIVELY_INTERRUPTED_SIGTERM_UNKNOWN_SENDER",
+      "interrupted": true,
+      "durable_observations": 4260,
+      "last_durable_native_s": 71.00000171922147,
+      "last_durable_native_steps": 21300,
+      "exact_termination_native_s": null,
+      "particle_arrays_independently_verified": false,
+      "final_particle_counts": {
+        "source": 0,
+        "receiver": 125,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": 0.2397645881175995,
+      "final_source_return_error_m": 0.005448827043439699,
+      "maximum_actual_source_tilt_deg": 113.98975064863102,
+      "final_actual_source_tilt_deg": 4.3692862126776064e-05,
+      "airborne_drop": {
+        "injected": true,
+        "fault_native_s": 8.350000202190131,
+        "bottom_clearance_m": 0.09622645406209523,
+        "contact_loss_native_s": 8.40000020340085,
+        "diagnosis_native_s": 8.966666883789003,
+        "first_recorded_post_loss_fall_native_s": 8.40000020340085,
+        "command_to_contact_loss_s": 0.05000000121071935,
+        "contact_loss_to_recorded_fall_s": 0.0,
+        "contact_loss_to_diagnosis_s": 0.5666666803881526,
+        "actual_fall_m": 0.09531189501285553,
+        "cup_tilt_deg": 7.565417341623508e-05,
+        "spill_particles_at_diagnosis": 0,
+        "decision": "REPLAN_FROM_OBSERVED_POSE",
+        "stable_pose_difference_max_speed_m_s": 3.3201930617449546e-05,
+        "stable_pose_difference_max_angular_speed_rad_s": 0.0007203438947563883,
+        "stability_scope": "Independent 60Hz finite differences plus native contact presence; instantaneous native root velocities were not archived.",
+        "verified_regrasp": true,
+        "safe_abort": false,
+        "recovered_native_s": 15.166667033918202,
+        "contact_loss_to_verified_regrasp_s": 6.766666830517352,
+        "replan_to_verified_regrasp_s": 6.200000150129199,
+        "observed_pose_regrasp_target_min_errors_m": {
+          "1": 1.289566957077572e-08,
+          "2": 7.64996601295899e-09,
+          "3": 1.929636547483139e-09
+        }
+      },
+      "negative_verifier_pass": null,
+      "negative_scope": null,
+      "commands": {
+        "planned": 4261,
+        "applied": 4261,
+        "observed_effects": 3636,
+        "maximum_lateness_s": 0.009666667070241886,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          149
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": false,
+        "reason": "Interrupted parameter archive absent"
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "71.200000",
+          "nb_frames": "356"
+        },
+        "decoded": true,
+        "terminal_mapping_verified": false,
+        "scope": "Unfinalized interrupted video; no inferred final timestamp or workflow success."
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": "Counts/poses/contact prefix only; missing final point archive and video map are not promoted to exact final state or complete workflow."
+    },
+    {
+      "id": "C01b_pose_01",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": false,
+      "producer_status": "FAILED_NATIVE_EPISODE",
+      "failure": "hsm_failure_pick",
+      "interrupted": false,
+      "durable_observations": 608,
+      "last_durable_native_s": 10.133333578705788,
+      "last_durable_native_steps": 3040,
+      "exact_termination_native_s": 10.133333578705788,
+      "particle_arrays_independently_verified": true,
+      "final_particle_counts": {
+        "source": 125,
+        "receiver": 0,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": -0.0016365329027175912,
+      "final_source_return_error_m": 0.0030000433627096197,
+      "maximum_actual_source_tilt_deg": 0.00012742410782298338,
+      "final_actual_source_tilt_deg": 2.637041305778508e-05,
+      "airborne_drop": {
+        "injected": false,
+        "verified_regrasp": false,
+        "safe_abort": false
+      },
+      "negative_verifier_pass": null,
+      "negative_scope": null,
+      "commands": {
+        "planned": 608,
+        "applied": 608,
+        "observed_effects": 248,
+        "maximum_lateness_s": 0.0,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          151
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": true,
+        "maximum_error_C": 0.0,
+        "final_plate_beaker_solution_C": [
+          25.0,
+          25.0,
+          25.0
+        ],
+        "heater_observations": 0,
+        "contact_fraction_while_heating": null
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "12.000000",
+          "nb_frames": "60"
+        },
+        "decoded": true,
+        "mapped_frames": 60,
+        "terminal_mapping_verified": true
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": null
+    },
+    {
+      "id": "C01b_pose_02",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": false,
+      "producer_status": "FAILED_NATIVE_EPISODE",
+      "failure": "hsm_failure_pick",
+      "interrupted": false,
+      "durable_observations": 610,
+      "last_durable_native_s": 10.166666912846267,
+      "last_durable_native_steps": 3050,
+      "exact_termination_native_s": 10.166666912846267,
+      "particle_arrays_independently_verified": true,
+      "final_particle_counts": {
+        "source": 125,
+        "receiver": 0,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": -0.001636499375104905,
+      "final_source_return_error_m": 0.0029999911935468877,
+      "maximum_actual_source_tilt_deg": 0.00013216129243516901,
+      "final_actual_source_tilt_deg": 4.176515470590072e-05,
+      "airborne_drop": {
+        "injected": false,
+        "verified_regrasp": false,
+        "safe_abort": false
+      },
+      "negative_verifier_pass": null,
+      "negative_scope": null,
+      "commands": {
+        "planned": 610,
+        "applied": 610,
+        "observed_effects": 250,
+        "maximum_lateness_s": 0.0,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          151
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": true,
+        "maximum_error_C": 0.0,
+        "final_plate_beaker_solution_C": [
+          25.0,
+          25.0,
+          25.0
+        ],
+        "heater_observations": 0,
+        "contact_fraction_while_heating": null
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "12.000000",
+          "nb_frames": "60"
+        },
+        "decoded": true,
+        "mapped_frames": 60,
+        "terminal_mapping_verified": true
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": null
+    },
+    {
+      "id": "C01b_pose_03",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": true,
+      "producer_status": "NATIVE_CANDIDATE_PASS",
+      "failure": null,
+      "interrupted": false,
+      "durable_observations": 4399,
+      "last_durable_native_s": 73.3166684419848,
+      "last_durable_native_steps": 21995,
+      "exact_termination_native_s": 73.3166684419848,
+      "particle_arrays_independently_verified": true,
+      "final_particle_counts": {
+        "source": 0,
+        "receiver": 125,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": 0.23997952246665955,
+      "final_source_return_error_m": 0.005252321171456161,
+      "maximum_actual_source_tilt_deg": 114.00393366400115,
+      "final_actual_source_tilt_deg": 0.0001691592564973296,
+      "airborne_drop": {
+        "injected": true,
+        "fault_native_s": 8.266666866838932,
+        "bottom_clearance_m": 0.09631040429078466,
+        "contact_loss_native_s": 8.316666868049651,
+        "diagnosis_native_s": 8.816666880156845,
+        "first_recorded_post_loss_fall_native_s": 8.316666868049651,
+        "command_to_contact_loss_s": 0.05000000121071935,
+        "contact_loss_to_recorded_fall_s": 0.0,
+        "contact_loss_to_diagnosis_s": 0.5000000121071935,
+        "actual_fall_m": 0.09536172822117805,
+        "cup_tilt_deg": 9.360801667927037e-05,
+        "spill_particles_at_diagnosis": 0,
+        "decision": "REPLAN_FROM_OBSERVED_POSE",
+        "stable_pose_difference_max_speed_m_s": 5.985093640832253e-06,
+        "stable_pose_difference_max_angular_speed_rad_s": 0.00017072751420427374,
+        "stability_scope": "Independent 60Hz finite differences plus native contact presence; instantaneous native root velocities were not archived.",
+        "verified_regrasp": true,
+        "safe_abort": false,
+        "recovered_native_s": 15.000000363215804,
+        "contact_loss_to_verified_regrasp_s": 6.683333495166153,
+        "replan_to_verified_regrasp_s": 6.183333483058959,
+        "observed_pose_regrasp_target_min_errors_m": {
+          "1": 9.943769568518363e-09,
+          "2": 7.3999411065338305e-09,
+          "3": 1.929636547483139e-09
+        }
+      },
+      "negative_verifier_pass": null,
+      "negative_scope": null,
+      "commands": {
+        "planned": 4401,
+        "applied": 4401,
+        "observed_effects": 3902,
+        "maximum_lateness_s": 0.009666667070241886,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          153
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": true,
+        "maximum_error_C": 3.943512183468556e-13,
+        "final_plate_beaker_solution_C": [
+          30.840698179698673,
+          29.4587110028018,
+          28.00774929263372
+        ],
+        "heater_observations": 612,
+        "contact_fraction_while_heating": 1.0
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "75.200000",
+          "nb_frames": "376"
+        },
+        "decoded": true,
+        "mapped_frames": 376,
+        "terminal_mapping_verified": true
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": null
+    },
+    {
+      "id": "C01b_pose_04",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": true,
+      "producer_status": "NATIVE_CANDIDATE_PASS",
+      "failure": null,
+      "interrupted": false,
+      "durable_observations": 4395,
+      "last_durable_native_s": 73.25000177370384,
+      "last_durable_native_steps": 21975,
+      "exact_termination_native_s": 73.25000177370384,
+      "particle_arrays_independently_verified": true,
+      "final_particle_counts": {
+        "source": 0,
+        "receiver": 125,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": 0.24039803647994995,
+      "final_source_return_error_m": 0.00455301175314248,
+      "maximum_actual_source_tilt_deg": 114.0934138109548,
+      "final_actual_source_tilt_deg": 0.0001138275923439876,
+      "airborne_drop": {
+        "injected": true,
+        "fault_native_s": 8.216666865628213,
+        "bottom_clearance_m": 0.09641258973411986,
+        "contact_loss_native_s": 8.266666866838932,
+        "diagnosis_native_s": 8.766666878946126,
+        "first_recorded_post_loss_fall_native_s": 8.266666866838932,
+        "command_to_contact_loss_s": 0.05000000121071935,
+        "contact_loss_to_recorded_fall_s": 0.0,
+        "contact_loss_to_diagnosis_s": 0.5000000121071935,
+        "actual_fall_m": 0.09543700888752937,
+        "cup_tilt_deg": 6.14717025301177e-05,
+        "spill_particles_at_diagnosis": 0,
+        "decision": "REPLAN_FROM_OBSERVED_POSE",
+        "stable_pose_difference_max_speed_m_s": 5.7422664368145745e-06,
+        "stable_pose_difference_max_angular_speed_rad_s": 0.0001876950169337222,
+        "stability_scope": "Independent 60Hz finite differences plus native contact presence; instantaneous native root velocities were not archived.",
+        "verified_regrasp": true,
+        "safe_abort": false,
+        "recovered_native_s": 14.800000358372927,
+        "contact_loss_to_verified_regrasp_s": 6.533333491533995,
+        "replan_to_verified_regrasp_s": 6.033333479426801,
+        "observed_pose_regrasp_target_min_errors_m": {
+          "1": 7.3898468616138444e-09,
+          "2": 3.23889051782879e-09,
+          "3": 1.929636547483139e-09
+        }
+      },
+      "negative_verifier_pass": null,
+      "negative_scope": null,
+      "commands": {
+        "planned": 4397,
+        "applied": 4397,
+        "observed_effects": 3947,
+        "maximum_lateness_s": 0.009666667070241886,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          155
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": true,
+        "maximum_error_C": 3.943512183468556e-13,
+        "final_plate_beaker_solution_C": [
+          30.840698179698673,
+          29.4587110028018,
+          28.00774929263372
+        ],
+        "heater_observations": 612,
+        "contact_fraction_while_heating": 1.0
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "75.200000",
+          "nb_frames": "376"
+        },
+        "decoded": true,
+        "mapped_frames": 376,
+        "terminal_mapping_verified": true
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": null
+    },
+    {
+      "id": "C01b_pose_00_interruption_replacement",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": true,
+      "producer_status": "NATIVE_CANDIDATE_PASS",
+      "failure": null,
+      "interrupted": false,
+      "durable_observations": 4438,
+      "last_durable_native_s": 73.96666845772415,
+      "last_durable_native_steps": 22190,
+      "exact_termination_native_s": 73.96666845772415,
+      "particle_arrays_independently_verified": true,
+      "final_particle_counts": {
+        "source": 0,
+        "receiver": 125,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": 0.23974965715408325,
+      "final_source_return_error_m": 0.005446770086471754,
+      "maximum_actual_source_tilt_deg": 113.98915524052434,
+      "final_actual_source_tilt_deg": 0.00011753272650259281,
+      "airborne_drop": {
+        "injected": true,
+        "fault_native_s": 8.350000202190131,
+        "bottom_clearance_m": 0.09622234570891194,
+        "contact_loss_native_s": 8.40000020340085,
+        "diagnosis_native_s": 8.983333550859243,
+        "first_recorded_post_loss_fall_native_s": 8.40000020340085,
+        "command_to_contact_loss_s": 0.05000000121071935,
+        "contact_loss_to_recorded_fall_s": 0.0,
+        "contact_loss_to_diagnosis_s": 0.5833333474583924,
+        "actual_fall_m": 0.0953175351023674,
+        "cup_tilt_deg": 8.955674523836769e-05,
+        "spill_particles_at_diagnosis": 0,
+        "decision": "REPLAN_FROM_OBSERVED_POSE",
+        "stable_pose_difference_max_speed_m_s": 7.085889943307947e-06,
+        "stable_pose_difference_max_angular_speed_rad_s": 0.00016907138805737578,
+        "stability_scope": "Independent 60Hz finite differences plus native contact presence; instantaneous native root velocities were not archived.",
+        "verified_regrasp": true,
+        "safe_abort": false,
+        "recovered_native_s": 15.183333700988442,
+        "contact_loss_to_verified_regrasp_s": 6.783333497587591,
+        "replan_to_verified_regrasp_s": 6.200000150129199,
+        "observed_pose_regrasp_target_min_errors_m": {
+          "1": 4.112219684384398e-09,
+          "2": 2.948260350268832e-09,
+          "3": 1.929636547483139e-09
+        }
+      },
+      "negative_verifier_pass": null,
+      "negative_scope": null,
+      "commands": {
+        "planned": 4440,
+        "applied": 4440,
+        "observed_effects": 3814,
+        "maximum_lateness_s": 0.009666667070241886,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          156
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": true,
+        "maximum_error_C": 3.943512183468556e-13,
+        "final_plate_beaker_solution_C": [
+          30.840698179698673,
+          29.4587110028018,
+          28.00774929263372
+        ],
+        "heater_observations": 612,
+        "contact_fraction_while_heating": 1.0
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "75.800000",
+          "nb_frames": "379"
+        },
+        "decoded": true,
+        "mapped_frames": 379,
+        "terminal_mapping_verified": true
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": null
+    },
+    {
+      "id": "no_recovery",
+      "evidence_integrity_pass": true,
+      "independent_workflow_success": false,
+      "producer_status": "SAFE_BLOCKED_NEGATIVE",
+      "failure": "SAFE_BLOCKED_NO_RECOVERY",
+      "interrupted": false,
+      "durable_observations": 522,
+      "last_durable_native_s": 8.700000210665166,
+      "last_durable_native_steps": 2610,
+      "exact_termination_native_s": 8.700000210665166,
+      "particle_arrays_independently_verified": true,
+      "final_particle_counts": {
+        "source": 125,
+        "receiver": 0,
+        "boundary_ambiguous": 0,
+        "transit": 0,
+        "spill_near_table": 0,
+        "outside_unresolved": 0
+      },
+      "final_spill_fraction": 0.0,
+      "final_gross_display_wall_leaks": 0,
+      "maximum_lift_m": -0.0016363391876220712,
+      "final_source_return_error_m": 0.0030000308641792836,
+      "maximum_actual_source_tilt_deg": 0.02424387502711452,
+      "final_actual_source_tilt_deg": 4.698082950943175e-05,
+      "airborne_drop": null,
+      "negative_verifier_pass": true,
+      "negative_scope": "Table-supported fault; not a matched airborne C01b ablation",
+      "commands": {
+        "planned": 522,
+        "applied": 522,
+        "observed_effects": 522,
+        "maximum_lateness_s": 0.0,
+        "not_applied_ids": []
+      },
+      "source_snapshot": {
+        "initial_environment_reset_source_lines": [
+          144
+        ],
+        "forbidden_rigid_pose_write_calls": [],
+        "scope": "Static inspection of executed snapshot plus clock/state continuity; not a native memory-write instrumentation proof."
+      },
+      "thermal": {
+        "recomputed": true,
+        "maximum_error_C": 0.0,
+        "final_plate_beaker_solution_C": [
+          25.0,
+          25.0,
+          25.0
+        ],
+        "heater_observations": 0,
+        "contact_fraction_while_heating": null
+      },
+      "video": {
+        "probe": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "5/1",
+          "duration": "10.600000",
+          "nb_frames": "53"
+        },
+        "decoded": true,
+        "mapped_frames": 53,
+        "terminal_mapping_verified": true
+      },
+      "maximum_raw_table_impulse_presence_replay_error_N": 0.0,
+      "partial_scope": null
+    }
+  ],
+  "limitations": [
+    "Original00 unknown-SIGTERM prefix lacks final point archive/map; forever failed.",
+    "No-recovery experiment is the supported baseline fault, not a same-condition airborne ablation.",
+    "Native instantaneous source root velocities were not archived; independent stability uses 60Hz pose differences.",
+    "GPU contact magnitude is uncalibrated; only frozen contact-presence thresholds are used, never mass/weight.",
+    "PBD observer is the original smoothed display-point observer; gross wall gate is not raw/subparticle penetration.",
+    "Thermal replay verifies the effective three-node surrogate, not liquid calorimetry or author parameter recovery.",
+    "Five fixed SE2 development poses plus one preregistered interrupted replacement are not an unseen-task test."
+  ]
+}

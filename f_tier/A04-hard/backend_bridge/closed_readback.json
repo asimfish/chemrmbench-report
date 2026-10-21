@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-20T22:55:15.709159+00:00",
+  "scope": "Producerclosedartifactreadbackonly;noextraindependentFauditornewnative",
+  "source_byte_equal_to_frozen_CPU": {
+    "task.py": true,
+    "learner.py": true,
+    "flow_trigger.py": true,
+    "corridor_motion.py": true,
+    "observed_history.py": true,
+    "controller_factory.py": true,
+    "objective_solve.py": true,
+    "verify_delay.py": true
+  },
+  "shared_imports_unchanged": true,
+  "raw_closure_unterminated": true,
+  "actual_device_receipt": {
+    "receipts": [
+      {
+        "source_requested_device": "cpu",
+        "actual_array_device": "cuda:0",
+        "physical_gpu_index": 1,
+        "physical_gpu_uuid": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+        "CUDA_VISIBLE_DEVICES": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+        "changed_physics_keywords": [
+          "device"
+        ]
+      }
+    ],
+    "physical_gpu_index": 1,
+    "logical_device": "cuda:0",
+    "comparison_scope": "Singleknownengineeringcase,notnewheldout"
+  },
+  "owned_PID_and_guard_gone": {
+    "2659822": true,
+    "2659468": true
+  },
+  "recorded_pause_s": 840.324580207991,
+  "CPU_internal_loop_wall_s": 894.0891914569947,
+  "GPU_internal_loop_wall_s_including_pause": 1424.9305516220047,
+  "GPU_internal_loop_wall_s_less_recorded_pause": 584.6059714140138,
+  "observed_reference_wall_ratio_excluding_GPU_pause": 1.5057114031830507,
+  "no_steady_state_or_population_speed_claim": true,
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "new_native_steps": 0
+}

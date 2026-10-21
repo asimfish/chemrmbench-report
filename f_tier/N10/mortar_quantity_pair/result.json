@@ -1,0 +1,416 @@
+{
+  "id": "N10_MORTAR_QUANTITY_PAIR",
+  "status": "CLOSED_FUNCTIONAL_PAIR_PASS_NOT_F",
+  "F_PASS": false,
+  "complete_N10_weighing_acceptance": false,
+  "configuration": "configuration.json",
+  "technical_readback": "integration_readback.json",
+  "protocol_scope": "Single predeclared positive, maximum five source attempts; conditional single matched raised-source physical negative. No reset within either episode, no retry, no parameter search.",
+  "declared_sequence_m": [
+    0.38,
+    0.378,
+    0.382,
+    0.378,
+    0.382
+  ],
+  "actual_paired_sequence_m": [
+    0.38,
+    0.378,
+    0.382
+  ],
+  "positive_summary": "positive_functional_summary.json",
+  "negative_summary": "negative_functional_summary.json",
+  "functional_pair_pass": true,
+  "positive": {
+    "status": "CLOSED_FUNCTIONAL_ONLY_PASS_NOT_F",
+    "case": "positive",
+    "all_functional_gates_pass": true,
+    "functional_gates": {
+      "HSM_and_original_SM_ACK": true,
+      "complete_all_published_cycles": true,
+      "finite_fixed11200": true,
+      "clock_and_callbacks": true,
+      "mass_ledger": true,
+      "total_native_budget": true,
+      "quantity_at_stop_home": true,
+      "final_quantity_minimum": true,
+      "max_source_attempts": true,
+      "every_executed_cycle_payload50": true,
+      "every_executed_cycle_receiver_delta50": true
+    },
+    "process_returncode": 0,
+    "process": "native_positive/process.json",
+    "raw_result": "native_positive/result.json",
+    "selected_x_m": [
+      0.38,
+      0.378,
+      0.382
+    ],
+    "completed_cycles": [
+      0,
+      1,
+      2
+    ],
+    "cycles": [
+      {
+        "cycle": 0,
+        "lane_x_m": 0.38,
+        "completed_common_home": true,
+        "source_attempt_revisit": false,
+        "high_rectangular_cavity_peak_grains": 397,
+        "receiver_at_start_home": 0,
+        "receiver_at_end_home": 368,
+        "receiver_delta_at_common_home": 368,
+        "high_payload_atleast50": true,
+        "receiver_delta_atleast50": true,
+        "strict_rest_envelope_below_lip_peak_grains": 187
+      },
+      {
+        "cycle": 1,
+        "lane_x_m": 0.378,
+        "completed_common_home": true,
+        "source_attempt_revisit": false,
+        "high_rectangular_cavity_peak_grains": 328,
+        "receiver_at_start_home": 368,
+        "receiver_at_end_home": 688,
+        "receiver_delta_at_common_home": 320,
+        "high_payload_atleast50": true,
+        "receiver_delta_atleast50": true,
+        "strict_rest_envelope_below_lip_peak_grains": 181
+      },
+      {
+        "cycle": 2,
+        "lane_x_m": 0.382,
+        "completed_common_home": true,
+        "source_attempt_revisit": false,
+        "high_rectangular_cavity_peak_grains": 292,
+        "receiver_at_start_home": 688,
+        "receiver_at_end_home": 974,
+        "receiver_delta_at_common_home": 286,
+        "high_payload_atleast50": true,
+        "receiver_delta_atleast50": true,
+        "strict_rest_envelope_below_lip_peak_grains": 169
+      }
+    ],
+    "receiver_particles": 974,
+    "receiver_parameter_mass_kg": 0.0009739999999999999,
+    "stop_reason": "QUANTITY_TARGET_REACHED_AT_FRESH_HOME",
+    "stop_evidence": {
+      "sample_token": {
+        "control_id": 15092,
+        "native_step": 76060,
+        "segment_id": 3
+      },
+      "decision_observation_index": 3,
+      "receiver_grains": 974,
+      "receiver_parameter_mass_kg": 0.0009739999999999999,
+      "executed_lane_sequence_m": [
+        0.38,
+        0.378,
+        0.382
+      ],
+      "raw_scale_used": false,
+      "quantity_drives_stop": true
+    },
+    "video_closed_decodable": true,
+    "video_metadata": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "2/1",
+      "duration": "255.000000",
+      "nb_read_frames": "510"
+    },
+    "video_frame_map": "native_positive/video-frame-map.json",
+    "declared_sequence_match": true,
+    "F_PASS": false,
+    "scale_failure_excluded_from_functional_admission": true,
+    "independent_scale_unqualified_raw_kg": 0.00035316600682244655,
+    "terminal_frustum_diagnostic": {
+      "native_step": 76965,
+      "actual_cup_pose_xyzw": [
+        0.6199999451637268,
+        -0.13999997079372406,
+        0.12489282339811325,
+        -2.0855804905295372e-07,
+        -6.382470019161701e-08,
+        2.6420821086503565e-10,
+        1.0
+      ],
+      "legacy_online_cylinder_plus1mm_count": 974,
+      "five_ring_frustum_center_count": 971,
+      "strict_rest_radius_eroded_frustum_count": 971,
+      "loose_rest_radius_dilated_frustum_count": 971,
+      "ambiguous_strict_to_loose_count": 0,
+      "rest_radius_m": 0.0007128,
+      "original_mesh_ring_fit": {
+        "center_xy_m": [
+          -0.0014681306442667554,
+          -4.187198044292451e-10
+        ],
+        "radius_m": 0.02099509527788676,
+        "bottom_z_m": -0.035657,
+        "top_z_m": 0.013797,
+        "radius_profile_z_r_m": [
+          [
+            -0.035657,
+            0.015235136316641524
+          ],
+          [
+            -0.034843,
+            0.018038963414332615
+          ],
+          [
+            -0.032658,
+            0.019949019132282548
+          ],
+          [
+            -0.030384,
+            0.020995096071841367
+          ],
+          [
+            0.013797,
+            0.02099509527788676
+          ]
+        ],
+        "scale": 1.0,
+        "ring_fit_max_residual_m": 9.259842542047592e-09,
+        "conservative_cavity_capacity_ml": 67.36443616506743,
+        "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+        "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+      },
+      "scope": "ClosedterminalrawNPZ only. Usesexistingcavity_masks axial/radialconservativeerosion/dilation,fiveinner-ringprofileexcludingflaredrim/spout. Not newonlineobserver/stoprule,force/accurateweighing orF acceptance; no countcorrection tospringreadout."
+    },
+    "scope": "Quantity+physicalpairedcontrol,functionalonly. Independent10%weighingknownfailure stillblocksF;not35freeze/independentFaudit. No scale/countcorrection. Failedstarts/trials retained."
+  },
+  "negative": {
+    "status": "CLOSED_FUNCTIONAL_ONLY_PASS_NOT_F",
+    "case": "no_scoop",
+    "all_functional_gates_pass": true,
+    "functional_gates": {
+      "HSM_and_original_SM_ACK": true,
+      "complete_all_published_cycles": true,
+      "finite_fixed11200": true,
+      "clock_and_callbacks": true,
+      "mass_ledger": true,
+      "total_native_budget": true,
+      "exact_positive_actual_sequence": true,
+      "negative_receiver_atmost1percent_stock": true,
+      "no_verified_high_payload": true,
+      "negative_no_quantity_or_supply_stop": true
+    },
+    "process_returncode": 0,
+    "process": "native_negative/process.json",
+    "raw_result": "native_negative/result.json",
+    "selected_x_m": [
+      0.38,
+      0.378,
+      0.382
+    ],
+    "completed_cycles": [
+      0,
+      1,
+      2
+    ],
+    "cycles": [
+      {
+        "cycle": 0,
+        "lane_x_m": 0.38,
+        "completed_common_home": true,
+        "source_attempt_revisit": false,
+        "high_rectangular_cavity_peak_grains": 0,
+        "receiver_at_start_home": 0,
+        "receiver_at_end_home": 0,
+        "receiver_delta_at_common_home": 0,
+        "high_payload_atleast50": false,
+        "receiver_delta_atleast50": false,
+        "strict_rest_envelope_below_lip_peak_grains": 0
+      },
+      {
+        "cycle": 1,
+        "lane_x_m": 0.378,
+        "completed_common_home": true,
+        "source_attempt_revisit": false,
+        "high_rectangular_cavity_peak_grains": 0,
+        "receiver_at_start_home": 0,
+        "receiver_at_end_home": 0,
+        "receiver_delta_at_common_home": 0,
+        "high_payload_atleast50": false,
+        "receiver_delta_atleast50": false,
+        "strict_rest_envelope_below_lip_peak_grains": 0
+      },
+      {
+        "cycle": 2,
+        "lane_x_m": 0.382,
+        "completed_common_home": true,
+        "source_attempt_revisit": false,
+        "high_rectangular_cavity_peak_grains": 0,
+        "receiver_at_start_home": 0,
+        "receiver_at_end_home": 0,
+        "receiver_delta_at_common_home": 0,
+        "high_payload_atleast50": false,
+        "receiver_delta_atleast50": false,
+        "strict_rest_envelope_below_lip_peak_grains": 0
+      }
+    ],
+    "receiver_particles": 0,
+    "receiver_parameter_mass_kg": 0.0,
+    "stop_reason": "EXACT_PAIRED_SEQUENCE_EXHAUSTED",
+    "stop_evidence": {
+      "sample_token": {
+        "control_id": 15127,
+        "native_step": 76235,
+        "segment_id": 3
+      },
+      "decision_observation_index": 3,
+      "receiver_grains": 0,
+      "receiver_parameter_mass_kg": 0.0,
+      "executed_lane_sequence_m": [
+        0.38,
+        0.378,
+        0.382
+      ],
+      "raw_scale_used": false,
+      "quantity_drives_stop": false
+    },
+    "video_closed_decodable": true,
+    "video_metadata": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "2/1",
+      "duration": "255.500000",
+      "nb_read_frames": "511"
+    },
+    "video_frame_map": "native_negative/video-frame-map.json",
+    "declared_sequence_match": true,
+    "F_PASS": false,
+    "scale_failure_excluded_from_functional_admission": true,
+    "independent_scale_unqualified_raw_kg": -1.618485596405789e-07,
+    "terminal_frustum_diagnostic": {
+      "native_step": 77140,
+      "actual_cup_pose_xyzw": [
+        0.6199999451637268,
+        -0.13999997079372406,
+        0.1248963475227356,
+        -3.202585503458977e-07,
+        -6.987829692661762e-08,
+        8.986421562440228e-08,
+        1.0
+      ],
+      "legacy_online_cylinder_plus1mm_count": 0,
+      "five_ring_frustum_center_count": 0,
+      "strict_rest_radius_eroded_frustum_count": 0,
+      "loose_rest_radius_dilated_frustum_count": 0,
+      "ambiguous_strict_to_loose_count": 0,
+      "rest_radius_m": 0.0007128,
+      "original_mesh_ring_fit": {
+        "center_xy_m": [
+          -0.0014681306442667554,
+          -4.187198044292451e-10
+        ],
+        "radius_m": 0.02099509527788676,
+        "bottom_z_m": -0.035657,
+        "top_z_m": 0.013797,
+        "radius_profile_z_r_m": [
+          [
+            -0.035657,
+            0.015235136316641524
+          ],
+          [
+            -0.034843,
+            0.018038963414332615
+          ],
+          [
+            -0.032658,
+            0.019949019132282548
+          ],
+          [
+            -0.030384,
+            0.020995096071841367
+          ],
+          [
+            0.013797,
+            0.02099509527788676
+          ]
+        ],
+        "scale": 1.0,
+        "ring_fit_max_residual_m": 9.259842542047592e-09,
+        "conservative_cavity_capacity_ml": 67.36443616506743,
+        "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+        "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+      },
+      "scope": "ClosedterminalrawNPZ only. Usesexistingcavity_masks axial/radialconservativeerosion/dilation,fiveinner-ringprofileexcludingflaredrim/spout. Not newonlineobserver/stoprule,force/accurateweighing orF acceptance; no countcorrection tospringreadout."
+    },
+    "scope": "Quantity+physicalpairedcontrol,functionalonly. Independent10%weighingknownfailure stillblocksF;not35freeze/independentFaudit. No scale/countcorrection. Failedstarts/trials retained."
+  },
+  "native_durations_s": [
+    256.55000621220097,
+    257.13333955965936
+  ],
+  "processes": [
+    "native_positive/process.json",
+    "native_negative/process.json"
+  ],
+  "videos": [
+    "native_positive/video.mp4",
+    "native_negative/video.mp4"
+  ],
+  "keyframes": [
+    "frames_positive/metadata.json",
+    "frames_negative/metadata.json"
+  ],
+  "figure": "pair.png",
+  "export_figure": "pair.pdf",
+  "figure_values": [
+    {
+      "case": "positive",
+      "parameter_delta_g": [
+        0.368,
+        0.32,
+        0.28600000000000003
+      ],
+      "parameter_cumulative_g": [
+        0.368,
+        0.6880000000000001,
+        0.974
+      ],
+      "terminal_raw_spring_known_failure_g": 0.35316600682244653
+    },
+    {
+      "case": "no_scoop",
+      "parameter_delta_g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parameter_cumulative_g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_raw_spring_known_failure_g": -0.00016184855964057891
+    }
+  ],
+  "weighing": {
+    "local_relative_error_limit": 0.1,
+    "positive_relative_error": 0.6374065638373237,
+    "positive_readout_within_10percent": false,
+    "negative_relative_error": null,
+    "negative_relative_error_scope": "Relative error is undefined at zero parameter payload; preserve raw spring value without correction.",
+    "particle_count_substituted_for_readout": false
+  },
+  "local_threshold_provenance": "The .7 g and 10% weighing criteria are inherited LOCAL reproduction gates, not author-reported Nature thresholds. Quantity/control functionality does not satisfy the remaining weighing gate.",
+  "declared_differences": [
+    "Procedural round source bowl and low-front-lip rectangular scoop reproduce workflow geometry qualitatively; original mortar/scoop CAD and author dimensions were unavailable.",
+    "Three prechecked source lanes and a fixed five-attempt sequence allow declared revisits; particle observations supply a >=50 grain eligibility gate and fresh-home quantity stop, not learned selection or novel-region coverage.",
+    "The paired negative reuses the actual positive lane sequence and raises the source motion by 120 mm. Supply and quantity stops are disabled as a predeclared intervention, so it is not an independent evaluation of the adaptive policy.",
+    "The source contains the original 11200 PBD solid grains and unchanged mass/spacing/material/solver16; geometry and synchronous joint-path engineering differ from the unavailable original workflow implementation.",
+    "Online receiver counting retains the predeclared cylinder-plus-1-mm observer. Terminal original-mesh frustum counts are diagnostic only and do not change stopping, spring readings or F acceptance.",
+    "The frozen independent spring fixture and gain remain known failures for PBD payload metrology. Particle parameter masses are not substituted for a weighing measurement.",
+    "Rendered supports/housing and scoop PreviewSurface material are display-only local visual additions without Collision or RigidBody APIs.",
+    "One positive and one matched control are a functional demonstration; cycles and time samples are dependent observations and do not establish reliability, generalization or an OPD mechanism."
+  ],
+  "unchanged_history": "prior_attempts.json; all predecessor failed starts, frozen failures and one-cycle prerequisite remain unchanged and separately accessible.",
+  "audit_scope": "Producer functional closeout only. No independent F audit or F promotion."
+}

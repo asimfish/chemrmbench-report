@@ -1,0 +1,121 @@
+{
+  "id": "C01b_single_replacement_scheduler_order_amendment",
+  "registered_utc": "2026-10-20T18:45:27.109583+00:00",
+  "authorized_by": "Root explicit launch-order amendment before replacement STARTED; user instruction to continue experiments",
+  "old_launch_precondition": "all_original_five_closed",
+  "new_launch_precondition": "all_original_five_started_and_original00_permanent_interrupted_failure",
+  "original_five_started_evidence": [
+    {
+      "case": "pose_00",
+      "status_path": "combined/upgrade/runs/C01b_pose_00/status.json",
+      "status_pid": 1043104,
+      "launch_utc": "2026-10-20T16:57:06.427790+00:00",
+      "launch_event_source": "combined/upgrade/runs/C01b_pose_00/result.json",
+      "launch_event_kind": "process_started_utc"
+    },
+    {
+      "case": "pose_01",
+      "status_path": "combined/upgrade/runs/C01b_pose_01/status.json",
+      "status_pid": 1205552,
+      "launch_utc": "2026-10-20T17:29:24.517759+00:00",
+      "launch_event_source": "combined/upgrade/serial_queue.log",
+      "launch_event_kind": "START_FROZEN_CASE"
+    },
+    {
+      "case": "pose_02",
+      "status_path": "combined/upgrade/runs/C01b_pose_02/status.json",
+      "status_pid": 1220581,
+      "launch_utc": "2026-10-20T17:32:07.674396+00:00",
+      "launch_event_source": "combined/upgrade/serial_queue.log",
+      "launch_event_kind": "START_FROZEN_CASE"
+    },
+    {
+      "case": "pose_03",
+      "status_path": "combined/upgrade/runs/C01b_pose_03/status.json",
+      "status_pid": 1245161,
+      "launch_utc": "2026-10-20T17:36:57.461730+00:00",
+      "launch_event_source": "combined/upgrade/serial_queue.log",
+      "launch_event_kind": "START_FROZEN_CASE"
+    },
+    {
+      "case": "pose_04",
+      "status_path": "combined/upgrade/runs/C01b_pose_04/status.json",
+      "status_pid": 1416607,
+      "launch_utc": "2026-10-20T18:07:42.050500+00:00",
+      "launch_event_source": "combined/upgrade/parallel_pose04_queue.log",
+      "launch_event_kind": "START_FROZEN_CASE"
+    }
+  ],
+  "original00_closed_evidence": {
+    "result_path": "combined/upgrade/runs/C01b_pose_00/result.json",
+    "status": "FAILED_INTERRUPTED_NATIVE",
+    "closed_record_utc": "2026-10-20T17:32:01.768676+00:00",
+    "first_observed_pid_gone_utc": "2026-10-20T17:29:20.361042+00:00",
+    "original_failure_permanent": true,
+    "termination_sender": "UNKNOWN",
+    "closed_evidence_utc": "2026-10-20T17:32:01.768676+00:00"
+  },
+  "authorized_maximum_replacement_launches": 1,
+  "maximum_positive_condition_launches": 6,
+  "all_six_started_attempts_in_primary_denominator": true,
+  "original_five_reported_separately": true,
+  "review_precondition": "all_six_started_and_closed",
+  "replacement_case": {
+    "id": "pose_00",
+    "seed": 170400,
+    "source_xy": [
+      0.49834,
+      0.08501
+    ],
+    "source_yaw_deg": -23.674,
+    "receiver_xy": [
+      0.59734,
+      -0.17583
+    ],
+    "receiver_yaw_deg": -7.072
+  },
+  "replacement_seed": 170400,
+  "replacement_case_registered_utc": "2026-10-20T17:42:27.612036+00:00",
+  "selection_scope": "The replacement case/seed was fixed at original preregistration. This amendment only avoids an idle GPU while pose04 is resource-paused; it does not choose a case based on task outcome or remove any failure.",
+  "target_gpu": 0,
+  "fresh_admission": {
+    "external_primary_contexts_max": 1,
+    "primary_context_min_MiB": 512,
+    "free_MiB_min": 8192,
+    "desktop_exclusions": "Only verified RustDesk/Xorg/gnome-shell/Xwayland argv0",
+    "GPU_external_priority": true
+  },
+  "physical_protocol_unchanged": true,
+  "unchanged": [
+    "case",
+    "seed",
+    "initialization",
+    "parameters",
+    "PBD",
+    "physics_dt",
+    "decimation",
+    "controller",
+    "airborne_fault",
+    "verification_gates",
+    "render_interval60"
+  ],
+  "original_protocol_preserved": true,
+  "native_pose04_and_guard_untouched": true,
+  "exclusive_gate": "combined/upgrade/runs/C01b_pose_00_interruption_replacement/replacement_launch.json",
+  "native_log_exclusive_gate": "combined/upgrade/runs/C01b_pose_00_interruption_replacement/native.log",
+  "replacement_not_started_at_registration": true,
+  "retired_own_waiting_CPU_queue": {
+    "pid": 1418639,
+    "starttime_ticks": "19714956",
+    "ppid": 1,
+    "pgid": 1418639,
+    "sid": 1418639,
+    "script": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/combined/upgrade/replacement_queue.py",
+    "utc": "2026-10-20T18:44:37.929976+00:00",
+    "retired_utc": "2026-10-20T18:44:37.980213+00:00",
+    "replacement_gate_absent_after_retirement": true,
+    "native_worlds_signalled": false
+  },
+  "original_protocol_path": "combined/upgrade/c01b_replacement_protocol.json",
+  "prelaunch_schema_completed_utc": "2026-10-20T18:46:06.260452+00:00"
+}

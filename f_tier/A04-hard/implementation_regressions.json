@@ -1,0 +1,39 @@
+{
+  "id": "A04_implementation_regressions",
+  "updated_utc": "2026-10-20T19:14:03.321161+00:00",
+  "scope": "Two independently authorized implementation variants on one known failing fixture. All STARTED checks retained; no retries or pooled model success-rate estimate.",
+  "total_started_implementation_checks": 2,
+  "no_aggregate_model_success_rate": true,
+  "old_pilot_results_unchanged": true,
+  "old_F_counts_unchanged": true,
+  "variants": [
+    {
+      "variant": "normalized_bounded_continuation_and_limit_avoidance",
+      "directory": "f_tier/A04-hard/adapter_native_regression",
+      "maximum_authorized_started_for_this_variant": 1,
+      "started": 1,
+      "started_utc": "2026-10-20T18:43:57.926630+00:00",
+      "closed": true,
+      "status": "SINGLE_NATIVE_REGRESSION_FAILED_NO_RETRY",
+      "successes": 0,
+      "native_s": 0.5006694981846117,
+      "native_error": "continuation_segment_budget",
+      "evidence": "f_tier/A04-hard/adapter_native_regression/result.json",
+      "video": "f_tier/A04-hard/adapter_native_regression/video.mp4"
+    },
+    {
+      "variant": "objective_only_noninitial20_original_initializer",
+      "directory": "f_tier/A04-hard/objective_only_native_regression",
+      "maximum_authorized_started_for_this_variant": 1,
+      "started": 1,
+      "started_utc": "2026-10-20T18:57:45.235845+00:00",
+      "closed": true,
+      "status": "SINGLE_NATIVE_REGRESSION_SUCCESS",
+      "successes": 1,
+      "native_s": 23.000667670116705,
+      "native_error": null,
+      "evidence": "f_tier/A04-hard/objective_only_native_regression/result.json",
+      "video": "f_tier/A04-hard/objective_only_native_regression/video.mp4"
+    }
+  ]
+}

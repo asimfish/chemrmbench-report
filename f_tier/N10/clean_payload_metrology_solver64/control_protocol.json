@@ -1,0 +1,22 @@
+{
+  "status": "FROZEN_BEFORE_SINGLE_CONTROL_START",
+  "hypothesis": "Does fixed solidPBD positioniterationbudget affect originalpowder payload springreadout?",
+  "comparison_base": "../clean_payload_metrology_framework_fix/native_run/result.json",
+  "physical_change_only": "OriginalpublicPowderSystem solverPositionIterationCount16\u219264, create-after and beforetheonlyreset; no other scene,rigid,dt,gain,knownloads/material/spatial/temporalchange.",
+  "particle_iterations_before": 16,
+  "particle_iterations_after": 64,
+  "cases": "Same5cases in byteidentical protocol.json",
+  "native_budget_steps": 1500,
+  "native_budget_s": 5,
+  "attempt_cap": 1,
+  "failure_no_retry": true,
+  "gain_refitted": false,
+  "particle_count_used_for_readout": false,
+  "F_PASS": false,
+  "limits": [
+    "Oneworld perbudget,not a convergence orrobustness experiment.",
+    "If700mg rigidstillfailslocal10%,do notdeclareinstrumentqualified.",
+    "Containment andreadoutvelocity/posechannels retained; no intrinsicPBDcouplingcauseproof.",
+    "No morebudgetsearch automatically; nextfrontiernewgeometryintegration."
+  ]
+}

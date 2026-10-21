@@ -1,7 +1,7 @@
 {
   "id": "A03",
-  "status": "F_PASS",
-  "F_PASS": true,
+  "status": "RUNNING",
+  "F_PASS": false,
   "protocol": {
     "episodes": 6,
     "robots": [
@@ -8600,17 +8600,12 @@
   },
   "tier": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_CONFIGURATION_DIFFERENCES",
   "F_acceptance_review": {
-    "passed": true,
-    "reviewer": "root independently replayed actual saved MuJoCo qpos and particle positions for final membership, sustained loaded lift, release, clock and actual receiver trajectory",
-    "script": "f_tier/a03_review_render.py",
-    "video_probe": {
-      "width": 800,
-      "height": 550,
-      "duration": "138.600000",
-      "nb_frames": "1386"
-    },
-    "visual_check": "Root inspected actual Flexiv pouring and all six full episodes were encoded with per-robot/seed/native-time labels.",
-    "scope": "Three distinct actual moving-target trajectories per robot, identical initial poses. Existing A04 teacher episodes reused; no heldout or source-orientation generalization claim."
+    "passed": false,
+    "decision": "User guidance5",
+    "decided_at_utc": "2026-10-21T08:49:00.665686+00:00",
+    "reason": "Fresh independent source-pose evaluation UR5e3/3, Flexiv1/3. Original six training-reuse episodes do not establish the required cross-robot pose functionality.",
+    "diagnosis": "Flexiv73001 local bounded IK failure during tilt;73002 physical pickup already failed before later return IK rejection. These expose the existing IK/position-servo and grasp execution boundary, not globally unreachable proof.",
+    "next_action": "No further MuJoCo/Warp repair in reproduction phase; retain unfinished status and migrate future testing to Isaac Lab."
   },
   "accepted_at_utc": "2026-10-19T12:05:08.451914+00:00",
   "fresh_pose_validation": {
@@ -8642,6 +8637,26 @@
     "original_training_reuse_six_not_pooled": true,
     "interpretation": "The new six trials use three distinct predeclared sourceXY/yaw combinations per robot. All started trials, including incomplete physical failures, remain in denominator. Same object-frame feedback and task code is reused by changing the robot adapter; this does not establish arbitrary-pose robustness, learned-policy/weight transfer, or OPD/ICL adaptation. The originalA03Ffunctional result and its6reusedtraining episodes remain separate.",
     "renderer_receipt": "f_tier/A03/fresh_pose/render_process.json",
-    "metadata_closeout": "f_tier/A03/fresh_pose/metadata_closeout.json"
-  }
+    "metadata_closeout": "f_tier/A03/fresh_pose/metadata_closeout.json",
+    "guidance5_status": "INCOMPLETE_FRESH_POSE_TRANSFER_MUJOCO_INTERFACE_RETIRED"
+  },
+  "prior_F_acceptance_before_guidance5": {
+    "status": "F_PASS",
+    "F_PASS": true,
+    "F_acceptance_review": {
+      "passed": true,
+      "reviewer": "root independently replayed actual saved MuJoCo qpos and particle positions for final membership, sustained loaded lift, release, clock and actual receiver trajectory",
+      "script": "f_tier/a03_review_render.py",
+      "video_probe": {
+        "width": 800,
+        "height": 550,
+        "duration": "138.600000",
+        "nb_frames": "1386"
+      },
+      "visual_check": "Root inspected actual Flexiv pouring and all six full episodes were encoded with per-robot/seed/native-time labels.",
+      "scope": "Three distinct actual moving-target trajectories per robot, identical initial poses. Existing A04 teacher episodes reused; no heldout or source-orientation generalization claim."
+    },
+    "accepted_at_utc": "2026-10-19T12:05:08.451914+00:00"
+  },
+  "scope_status": "INCOMPLETE_FRESH_POSE_TRANSFER_MUJOCO_INTERFACE_RETIRED"
 }

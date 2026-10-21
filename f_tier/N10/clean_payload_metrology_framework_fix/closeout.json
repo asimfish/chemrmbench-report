@@ -1,0 +1,73 @@
+{
+  "status": "CLOSED_SINGLE_KNOWNLOAD_DIAGNOSTIC_NOT_N10_F",
+  "closed_utc": "2026-10-20T21:08:33.738806+00:00",
+  "process": "native_run/process.json",
+  "raw_result": "native_run/result.json",
+  "raw_trace": "native_run/trace.json",
+  "figures": [
+    "metrology.png",
+    "metrology.pdf"
+  ],
+  "figure_metadata": "figure_metadata.json",
+  "velocity_channel_check": "closed_trace_velocity_consistency.json",
+  "native_steps": 1500,
+  "native_s": 5.000000121071935,
+  "clock_error_s": 1.210719347000122e-07,
+  "wall_s": 43.368092138989596,
+  "native_and_guard_gone": true,
+  "source_snapshot_runtime_unchanged": true,
+  "native_STARTED_in_this_study": 1,
+  "attempt_cap_exhausted": true,
+  "F_PASS": false,
+  "cases": [
+    {
+      "case": "empty_cup",
+      "reference_known_load_kg": 0.0,
+      "frozen_gain_readout_increment_kg": 0.0,
+      "relative_error": null,
+      "particle_containment_all_samples": null,
+      "all_finite": true,
+      "terminal_platform_speed_max_m_s": 0.01507634115834418
+    },
+    {
+      "case": "rigid_700mg",
+      "reference_known_load_kg": 0.0007,
+      "frozen_gain_readout_increment_kg": 0.0006092477776945003,
+      "relative_error": 0.12964603186499954,
+      "particle_containment_all_samples": null,
+      "all_finite": true,
+      "terminal_platform_speed_max_m_s": 0.014962021678669751
+    },
+    {
+      "case": "rigid_3g",
+      "reference_known_load_kg": 0.003,
+      "frozen_gain_readout_increment_kg": 0.002882206618361208,
+      "relative_error": 0.039264460546263966,
+      "particle_containment_all_samples": null,
+      "all_finite": true,
+      "terminal_platform_speed_max_m_s": 0.014899408586868047
+    },
+    {
+      "case": "powder_700mg",
+      "reference_known_load_kg": 0.0007,
+      "frozen_gain_readout_increment_kg": 0.00033043499912863763,
+      "relative_error": 0.5279500012448034,
+      "particle_containment_all_samples": true,
+      "all_finite": true,
+      "terminal_platform_speed_max_m_s": 0.01514425968869554
+    },
+    {
+      "case": "powder_3g",
+      "reference_known_load_kg": 0.003,
+      "frozen_gain_readout_increment_kg": 0.000760967107393004,
+      "relative_error": 0.7463442975356654,
+      "particle_containment_all_samples": true,
+      "all_finite": true,
+      "terminal_platform_speed_max_m_s": 0.015159690741864481
+    }
+  ],
+  "interpretation": "BothcontainedPBDpayloads produce lowfrozen readouts;0.7g rigiditselffailslocal10%and3g rigidpasses. These singlefreshfixtures do not establishintrinsicPBDcouplingfailure. Rawreportedvelocity andpositionfinite differences disagree; no staticforceaccuracyclaim. No readoutcountcorrection orfit.",
+  "prior_start_failure_preserved": "../clean_payload_metrology/startup_failure_analysis.json",
+  "all_previous_N10_F_attempts_unchanged": true,
+  "no_long_bowl_native": true
+}

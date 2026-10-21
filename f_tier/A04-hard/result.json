@@ -1,6 +1,6 @@
 {
   "id": "A04-hard",
-  "scope_status": "PILOT_DIFFICULTY_TARGET_NOT_MET",
+  "scope_status": "CLOSED_UNSUITABLE_CURRENT_STACK_MIGRATE_ISAAC_LAB",
   "closed_utc": "2026-10-20T17:54:53.000240+00:00",
   "F_PASS": false,
   "old_A04_preserved": true,
@@ -174,5 +174,430 @@
     "OneexpertIKbranchlimitfailurecounted; qualitativefluidtransferdoesnotbypassfullhorizongate",
     "Malformedfirst10trialsretainedseparately; new20legalscenes usedtwouniformtaskadaptercorrectnessfixes, notalgorithmimprovementablation"
   ],
-  "next_decision": "Supervisor tochoose newhardtask mechanism after observedceiling; noautomatic640episode study. Keep floweventtiming and teacher/studentobservation shortcut evidence separate from any futureexpertjointlimitadapterfix."
+  "next_decision": "Supervisor tochoose newhardtask mechanism after observedceiling; noautomatic640episode study. Keep floweventtiming and teacher/studentobservation shortcut evidence separate from any futureexpertjointlimitadapterfix.",
+  "closed_corridor_pilot": {
+    "status": "ALL20_CLOSED_MEDIA_READY_TARGET_NOT_MET",
+    "result": "corridor_arrival_pilot/result.json",
+    "producer_readback": "corridor_arrival_pilot/closeout.json",
+    "timing": "corridor_arrival_pilot/operation_timing.json",
+    "flow_timing": "corridor_arrival_pilot/timing_diagnostic.json",
+    "figure": "corridor_arrival_pilot/scientific_figure.png",
+    "timing_figure": "corridor_arrival_pilot/operation_timing_figure.png",
+    "video": "corridor_arrival_pilot/video.mp4",
+    "video_metadata": "corridor_arrival_pilot/video_metadata.json",
+    "started": 20,
+    "closed": 20,
+    "full_contract_successes": 11,
+    "expert_successes": {
+      "ur5e": 2,
+      "flexiv": 1
+    },
+    "old_BC3_successes": {
+      "ur5e": 5,
+      "flexiv": 3
+    },
+    "per_group_denominator": 5,
+    "F_PASS": false,
+    "formal640": "NOT_STARTED",
+    "training_updates": 0,
+    "decision": "Expertcompetencetargetnotmet;oldBCversusfailingreferenceisnotlearningmethodadvantage.",
+    "video_scope": "Preselected56005allfour;all20primaryresultsinlinkedresultandfigure.Oldpilotrawandvaluespreserved."
+  },
+  "closed_actual_anchor_probes": {
+    "result": "f_tier/A04-hard/actual_anchor_candidate/result.json",
+    "STARTED": 2,
+    "CLOSED": 2,
+    "task_successes": 0,
+    "physical_steps_native_s": [
+      23.000376844184224,
+      23.000467697910334
+    ],
+    "scope": "Known developer cases, not heldout; command-anchor/delay/IK contracts pass but no fluid transfer. Old raw pilots unchanged; no control fix/learning claim."
+  },
+  "closed_actuator_component_diagnostic": {
+    "result": "f_tier/A04-hard/actuator_velocity_ff_candidate/result.json",
+    "started": 4,
+    "closed": 4,
+    "native_steps": 4000,
+    "training_updates": 0,
+    "F_PASS": false,
+    "scope": "Fixed archived twist, no fluid; two known fullCPU probes running separately."
+  },
+  "closed_GPU_engineering_case": {
+    "result": "f_tier/A04-hard/backend_bridge/result.json",
+    "started": 1,
+    "closed": 1,
+    "passed": true,
+    "formal_evaluation_episodes": 0,
+    "scope": "One unchanged known engineering task; hardware/result differences and resourcepause declared."
+  },
+  "closed_velocity_ff_full_task_probes": {
+    "result": "f_tier/A04-hard/actuator_velocity_ff_candidate/full_task_probes/result.json",
+    "started": 2,
+    "closed": 2,
+    "successes": 0,
+    "video": "f_tier/A04-hard/actuator_velocity_ff_candidate/full_task_probes/video.mp4",
+    "scope": "Known engineering cases, sameCPU/seed/task/obs/teacher. All failed starts retained; no learned method or F evidence.",
+    "current_failures": [
+      "UR source64 at feedback-end,62 later outside onrelease; totalreceiver175/240",
+      "Flex return localIK branch onbufferedjoint4bound,16.0403431s; receiver232/240"
+    ],
+    "next_pilot": "Prepared fixed20 disabled because strict two-probe prerequisite failed.",
+    "training_updates": 0,
+    "formal_evaluation_episodes": 0
+  },
+  "guidance5_closeout": {
+    "closed_utc": "2026-10-21T08:53:23.847670+00:00",
+    "status": "CLOSED_UNSUITABLE_CURRENT_STACK_MIGRATE_ISAAC_LAB",
+    "previous_canonical_scope_status": "PILOT_DIFFICULTY_TARGET_NOT_MET",
+    "decision": "Stop MuJoCo/Warp A04-hard experiments and adapter repair; migrate the research testbed to MATTERIX/Isaac Lab. No further native, full23s, fixed20pilot or training launches.",
+    "old_A04_F_PASS_preserved": true,
+    "old_A04_result": "../A04/result.json",
+    "hard_F_PASS": false,
+    "three_calibration_rounds": [
+      {
+        "round": 1,
+        "configuration": "Corrected legal pilot; fixed-time pushes",
+        "result": "calibration/result.json",
+        "started": 20,
+        "closed": 20,
+        "successes": 19,
+        "groups": [
+          {
+            "robot": "ur5e",
+            "method": "script_expert",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          },
+          {
+            "robot": "ur5e",
+            "method": "old_BC3",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          },
+          {
+            "robot": "flexiv",
+            "method": "script_expert",
+            "started": 5,
+            "closed": 5,
+            "successes": 4,
+            "success_rate": 0.8
+          },
+          {
+            "robot": "flexiv",
+            "method": "old_BC3",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          }
+        ],
+        "difficulty_target_met": false
+      },
+      {
+        "round": 2,
+        "configuration": "Source-departure-aligned pushes + objective-only IK",
+        "result": "flow_aligned_pilot/result.json",
+        "started": 20,
+        "closed": 20,
+        "successes": 20,
+        "groups": [
+          {
+            "robot": "ur5e",
+            "method": "script_expert",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          },
+          {
+            "robot": "ur5e",
+            "method": "old_BC3",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          },
+          {
+            "robot": "flexiv",
+            "method": "script_expert",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          },
+          {
+            "robot": "flexiv",
+            "method": "old_BC3",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          }
+        ],
+        "difficulty_target_met": false
+      },
+      {
+        "round": 3,
+        "configuration": "Receiver-arrival pushes +80mm/s corridor + bounded observed-history delay",
+        "result": "corridor_arrival_pilot/result.json",
+        "started": 20,
+        "closed": 20,
+        "successes": 11,
+        "groups": [
+          {
+            "robot": "ur5e",
+            "method": "script_expert",
+            "started": 5,
+            "closed": 5,
+            "successes": 2,
+            "success_rate": 0.4
+          },
+          {
+            "robot": "ur5e",
+            "method": "old_BC3",
+            "started": 5,
+            "closed": 5,
+            "successes": 5,
+            "success_rate": 1.0
+          },
+          {
+            "robot": "flexiv",
+            "method": "script_expert",
+            "started": 5,
+            "closed": 5,
+            "successes": 1,
+            "success_rate": 0.2
+          },
+          {
+            "robot": "flexiv",
+            "method": "old_BC3",
+            "started": 5,
+            "closed": 5,
+            "successes": 3,
+            "success_rate": 0.6
+          }
+        ],
+        "difficulty_target_met": false
+      }
+    ],
+    "legal_calibration_started": 60,
+    "legal_calibration_closed": 60,
+    "legal_calibration_successes": 50,
+    "calibration_scope": "Same known development seed56001..56005 across configurations; old easy-trained BC3, no hard-trained model or heldout-method result. Every STARTED attempt retained; all three difficulty targets failed.",
+    "malformed_engineering_attempts": {
+      "started": 10,
+      "closed": 10,
+      "unstarted_cancelled": 10,
+      "result": "engineering_pilot_result.json",
+      "invalid_for_difficulty_calibration": true,
+      "reason": "Source/rack overlap and incorrect receiver-relative pour frame; all failures retained separately"
+    },
+    "independent_engineering_and_component_scopes": [
+      {
+        "scope": "adapter_native_regression",
+        "description": "Single combined-adapter full-task implementation regression",
+        "result": "adapter_native_regression/result.json",
+        "started": 1,
+        "closed": 1,
+        "full_task_successes_where_applicable": 0,
+        "component_or_engineering_completions_where_applicable": null,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      },
+      {
+        "scope": "objective_only_native_regression",
+        "description": "Single objective-only full-task implementation regression",
+        "result": "objective_only_native_regression/result.json",
+        "started": 1,
+        "closed": 1,
+        "full_task_successes_where_applicable": 1,
+        "component_or_engineering_completions_where_applicable": null,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      },
+      {
+        "scope": "actual_anchor_candidate",
+        "description": "Two known-case full-task actual-anchor probes",
+        "result": "actual_anchor_candidate/result.json",
+        "started": 2,
+        "closed": 2,
+        "full_task_successes_where_applicable": 0,
+        "component_or_engineering_completions_where_applicable": null,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      },
+      {
+        "scope": "actuator_velocity_ff_candidate",
+        "description": "Four fixed-input robot-only short FF component diagnostics",
+        "result": "actuator_velocity_ff_candidate/result.json",
+        "started": 4,
+        "closed": 4,
+        "full_task_successes_where_applicable": null,
+        "component_or_engineering_completions_where_applicable": 4,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      },
+      {
+        "scope": "actuator_velocity_ff_candidate/full_task_probes",
+        "description": "Two known-case full-task FF probes",
+        "result": "actuator_velocity_ff_candidate/full_task_probes/result.json",
+        "started": 2,
+        "closed": 2,
+        "full_task_successes_where_applicable": 0,
+        "component_or_engineering_completions_where_applicable": null,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      },
+      {
+        "scope": "backend_bridge",
+        "description": "Single known-case CPU-to-GPU engineering bridge",
+        "result": "backend_bridge/result.json",
+        "started": 1,
+        "closed": 1,
+        "full_task_successes_where_applicable": null,
+        "component_or_engineering_completions_where_applicable": 1,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      },
+      {
+        "scope": "bounded_rate_candidate",
+        "description": "Four bounded-rate vs baseline short components, including two zero-step harness errors",
+        "result": "bounded_rate_candidate/result.json",
+        "started": 4,
+        "closed": 4,
+        "full_task_successes_where_applicable": null,
+        "component_or_engineering_completions_where_applicable": 2,
+        "F_PASS": false,
+        "not_pooled_as_a_method_success_rate": true
+      }
+    ],
+    "all_A04_hard_started_experimental_attempts": 85,
+    "all_A04_hard_closed_experimental_attempts": 85,
+    "count_boundary": "60 legal calibration+10 malformed+15 separately scoped engineering/component attempts. Includes two Flexiv zero-native-step harness failures; not85 completed physics episodes and never pooled as a method success rate. Original easy A04 study is outside this count.",
+    "four_identified_limitations": [
+      {
+        "id": "privileged_goal_error_and_feedforward",
+        "finding": "18D observation directly exposes simulator-derived goal pose error and goal feedforward. The scripted planner already follows receiver XY, and the teacher is clipped4*pose_error+feedforward; low-level IK and scripted phases remain strong. Equal final capture does not demonstrate adaptation/DAgger/OPD.",
+        "evidence": [
+          "flow_aligned_pilot/closeout.json",
+          "corridor_arrival_pilot/closeout.json",
+          "actuator_velocity_ff_candidate/full_task_probes/source_snapshot/learner.py"
+        ],
+        "boundary": "Archived BC-to-teacher action error is nonzero; do not claim exact teacher copying or that this alone is the unique cause of saturation."
+      },
+      {
+        "id": "pushes_miss_landing_window",
+        "finding": "Source departure and receiver landing occur in distinct windows. In source-aligned pilot only4/24pulses overlap receiver10-to90%landing, with actual cup landing-window path0.08548..0.46276times42mm radius. Arrival/corridor pilot improved overlap to12/22 and path0.62858..0.99451radius but exposed expert execution failures.",
+        "evidence": [
+          "flow_aligned_pilot/timing_diagnostic.json",
+          "corridor_arrival_pilot/timing_diagnostic.json"
+        ],
+        "boundary": "Timing changes coexist with staged adapter/trajectory changes; no isolated causal benefit is claimed."
+      },
+      {
+        "id": "velocity_IK_position_servo_interface",
+        "finding": "Velocity action becomes a finite Cartesian IK target and then a position-servo command. Persistent command integration, actual anchoring and held velocity FF each expose different tracking/IK/return issues. Actual-anchor probes0/2 and full-task FF probes0/2 fail; the four-state decomposition shows both finite IK increments and cached-target/actual gaps, without proving a global branch switch.",
+        "evidence": [
+          "actual_anchor_candidate/result.json",
+          "actuator_velocity_ff_candidate/full_task_probes/result.json",
+          "rate_feasibility/result.json",
+          "bounded_rate_candidate/result.json"
+        ],
+        "boundary": "Bounded-rate UR components completed but did not guarantee real-rate legality or better accumulated Cartesian tracking. Flexiv short comparisons are invalidated by the known missing self.n harness field."
+      },
+      {
+        "id": "official_joint_velocity_exceedances",
+        "finding": "Official reference limits: URallpi rad/s; Flex[2.0944,2.0944,2.4435,2.4435,4.8869,4.8869,4.8869]. Archived fullFF650feedbacks show real exceedances UR7/650 andFlex55/650; desiredFF exceedances8/650 and72/650. Desired peaks7.9573/86.0475rad/s and real peaks8.0643/24.9049rad/s exceed respective references.",
+        "evidence": [
+          "rate_feasibility/result.json"
+        ],
+        "boundary": "Limits are additional diagnostic references, not retroactive changes to original five physical gates or36F acceptance. No acceleration bounds guessed, no proof of dynamical safety."
+      }
+    ],
+    "formal_640": {
+      "status": "NOT_STARTED_AND_CANCELLED_FOR_CURRENT_STACK",
+      "formal_episodes_started": 0,
+      "supervised_adaptation_episodes_started": 0,
+      "fixed_repeat_control_episodes_started": 0,
+      "training_updates": 0,
+      "planned_only": {
+        "formal": 240,
+        "supervised_adaptation": 200,
+        "fixed_repeat": 200
+      },
+      "source": "formal_study and study_casebank remain historical preparation only"
+    },
+    "stop_evidence": {
+      "root_reported_no_live_A04_native_processes": true,
+      "most_recent_owned_process_closure": "bounded_rate_candidate/closed_readback.json",
+      "latest_component_queue_and_four_children_naturally_gone": true,
+      "revoked_two_Flexiv_field_fix": {
+        "started": 0,
+        "source_fix_applied": false,
+        "amendment_directory_created": false,
+        "reason": "Guidance5 superseded prior two-case repair authorization before launch"
+      },
+      "runtime_entry_shutdown": [
+        {
+          "path": "bounded_rate_candidate/runtime_switch.json",
+          "previous_gating_values": {
+            "native_enabled": false,
+            "root_reviewed": false,
+            "four_component_cases_authorized": false
+          },
+          "all_current_gating_values_false": true
+        },
+        {
+          "path": "actuator_velocity_ff_candidate/runtime_switch.json",
+          "previous_gating_values": {
+            "native_enabled": false,
+            "root_reviewed": true,
+            "diagnostic_input_reviewed": true
+          },
+          "all_current_gating_values_false": true
+        },
+        {
+          "path": "actuator_velocity_ff_candidate/full_task_probes/runtime_switch.json",
+          "previous_gating_values": {
+            "native_enabled": false,
+            "root_reviewed": true,
+            "two_full_task_probes_authorized": true
+          },
+          "all_current_gating_values_false": true
+        },
+        {
+          "path": "actuator_ff_pilot/runtime_switch.json",
+          "previous_gating_values": {
+            "native_enabled": false,
+            "root_reviewed": false,
+            "fixed20_pilot_authorized": false
+          },
+          "all_current_gating_values_false": true
+        },
+        {
+          "path": "actual_anchor_candidate/runtime_switch.json",
+          "previous_gating_values": {
+            "native_enabled": false,
+            "root_reviewed": true
+          },
+          "all_current_gating_values_false": true
+        },
+        {
+          "path": "backend_bridge/protocol.json",
+          "previous_gating_values": {
+            "launch_enabled": true,
+            "root_readback_approved": true
+          },
+          "all_current_gating_values_false": true
+        }
+      ],
+      "no_processes_signaled_for_closeout": true
+    },
+    "preservation": "All previous canonical fields other than requested top-level scope_status/F_PASS, all original episode results, failures, protocols/launch accounting and media retained. Only mutable runtime authorization flags revoked; no new audits/plots/hashes/manifests/native runs."
+  }
 }

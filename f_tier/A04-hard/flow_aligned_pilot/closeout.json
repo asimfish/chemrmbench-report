@@ -1,0 +1,2333 @@
+{
+  "status": "CLOSED_PILOT_PRODUCER_EVIDENCE_READBACK",
+  "cases": [
+    {
+      "case_id": "ur5e_script_expert_56001",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12031098704205512,
+          "recomputed_impulse_xy_Ns": [
+            -0.23774139354275425,
+            -0.03712094029632668
+          ],
+          "duration_error_s": 0.00031098704205512195,
+          "completed_native_steps": 209
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05109503033187046
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000408044817437,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.391585509032328,
+        "native_step": 5256,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.0889282450220813,
+        "angular_component_RMSE_rad_s": 0.16678421066795407,
+        "linear_component_RMSE_m_s": 0.0058765350728508916,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.0889282450220813,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.16678421066795407,
+            "absolute_component_error_p95": 0.4026395413242532,
+            "absolute_component_error_max": 0.7972616223012011,
+            "per_sample_vector_L2_p95": 0.5862133214363255,
+            "per_sample_vector_L2_max": 0.797264276511027
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0058765350728508916,
+            "absolute_component_error_p95": 0.009721712846800607,
+            "absolute_component_error_max": 0.05642913554780653,
+            "per_sample_vector_L2_p95": 0.016011128252790083,
+            "per_sample_vector_L2_max": 0.0564727286379879
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.0889282450220813,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.16678421066795407,
+            "absolute_component_error_p95": 0.4026395413242532,
+            "absolute_component_error_max": 0.7972616223012011,
+            "per_sample_vector_L2_p95": 0.5862133214363255,
+            "per_sample_vector_L2_max": 0.797264276511027
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0058765350728508916,
+            "absolute_component_error_p95": 0.009721712846800607,
+            "absolute_component_error_max": 0.05642913554780653,
+            "per_sample_vector_L2_p95": 0.016011128252790083,
+            "per_sample_vector_L2_max": 0.0564727286379879
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "ur5e_old_BC3_56001",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12002309208750006,
+          "recomputed_impulse_xy_Ns": [
+            -0.23717249664170953,
+            -0.037032112736330725
+          ],
+          "duration_error_s": 2.3092087500065084e-05,
+          "completed_native_steps": 213
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.050214826857370554
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000397102799305,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.879488426783295,
+        "native_step": 5490,
+        "phase": "tilt",
+        "unique_rim_crossings": 25,
+        "source_count": 215,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.1460651845161078,
+        "angular_component_RMSE_rad_s": 0.287754112309767,
+        "linear_component_RMSE_m_s": 0.0076609376924118636,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.1460651845161078,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.287754112309767,
+            "absolute_component_error_p95": 0.7311006261574436,
+            "absolute_component_error_max": 1.2196851057191447,
+            "per_sample_vector_L2_p95": 0.910046225284236,
+            "per_sample_vector_L2_max": 1.219686724753412
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0076609376924118636,
+            "absolute_component_error_p95": 0.01588591408776,
+            "absolute_component_error_max": 0.04784664384254343,
+            "per_sample_vector_L2_p95": 0.01916091275991916,
+            "per_sample_vector_L2_max": 0.04792249320279306
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.1460651845161078,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.287754112309767,
+            "absolute_component_error_p95": 0.7311006261574436,
+            "absolute_component_error_max": 1.2196851057191447,
+            "per_sample_vector_L2_p95": 0.910046225284236,
+            "per_sample_vector_L2_max": 1.219686724753412
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0076609376924118636,
+            "absolute_component_error_p95": 0.01588591408776,
+            "absolute_component_error_max": 0.04784664384254343,
+            "per_sample_vector_L2_p95": 0.01916091275991916,
+            "per_sample_vector_L2_max": 0.04792249320279306
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.16974358974358975,
+            "samples_with_any_component_clipped_fraction": 0.5092307692307693
+          },
+          "linear": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "flexiv_script_expert_56001",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12021773418109127,
+          "recomputed_impulse_xy_Ns": [
+            -0.23755712055437259,
+            -0.03709216791261173
+          ],
+          "duration_error_s": 0.00021773418109127807,
+          "completed_native_steps": 207
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05135943376496499
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000178919294687,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.403489604870225,
+        "native_step": 5285,
+        "phase": "tilt",
+        "unique_rim_crossings": 25,
+        "source_count": 215,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.1039525957388949,
+        "angular_component_RMSE_rad_s": 0.0898624679812366,
+        "linear_component_RMSE_m_s": 0.013425080437940643,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.1039525957388949,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.0898624679812366,
+            "absolute_component_error_p95": 0.18633221806532807,
+            "absolute_component_error_max": 0.5828377723275424,
+            "per_sample_vector_L2_p95": 0.3427031010630795,
+            "per_sample_vector_L2_max": 0.6016668787206985
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.013425080437940643,
+            "absolute_component_error_p95": 0.03626789223388294,
+            "absolute_component_error_max": 0.06420979119911834,
+            "per_sample_vector_L2_p95": 0.059582748677325575,
+            "per_sample_vector_L2_max": 0.07624848742702323
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.1039525957388949,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.0898624679812366,
+            "absolute_component_error_p95": 0.18633221806532807,
+            "absolute_component_error_max": 0.5828377723275424,
+            "per_sample_vector_L2_p95": 0.3427031010630795,
+            "per_sample_vector_L2_max": 0.6016668787206985
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.013425080437940643,
+            "absolute_component_error_p95": 0.03626789223388294,
+            "absolute_component_error_max": 0.06420979119911834,
+            "per_sample_vector_L2_p95": 0.059582748677325575,
+            "per_sample_vector_L2_max": 0.07624848742702323
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.0035897435897435897,
+            "samples_with_any_component_clipped_fraction": 0.010769230769230769
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "flexiv_old_BC3_56001",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.1201632407960549,
+          "recomputed_impulse_xy_Ns": [
+            -0.23744943850790343,
+            -0.03707535443827981
+          ],
+          "duration_error_s": 0.0001632407960548976,
+          "completed_native_steps": 245
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05012499603864562
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.00060515642237,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.970349361497048,
+        "native_step": 5598,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.293185591272096,
+        "angular_component_RMSE_rad_s": 0.3396224882061497,
+        "linear_component_RMSE_m_s": 0.034734972750031505,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.293185591272096,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3396224882061497,
+            "absolute_component_error_p95": 0.8009189933293867,
+            "absolute_component_error_max": 1.0945085091282678,
+            "per_sample_vector_L2_p95": 0.9069364465701887,
+            "per_sample_vector_L2_max": 1.1009788259783801
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.034734972750031505,
+            "absolute_component_error_p95": 0.07557489018389363,
+            "absolute_component_error_max": 0.10878233153547495,
+            "per_sample_vector_L2_p95": 0.10852057621268923,
+            "per_sample_vector_L2_max": 0.11569797568006375
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.293185591272096,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3396224882061497,
+            "absolute_component_error_p95": 0.8009189933293867,
+            "absolute_component_error_max": 1.0945085091282678,
+            "per_sample_vector_L2_p95": 0.9069364465701887,
+            "per_sample_vector_L2_max": 1.1009788259783801
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.034734972750031505,
+            "absolute_component_error_p95": 0.07557489018389363,
+            "absolute_component_error_max": 0.10878233153547495,
+            "per_sample_vector_L2_p95": 0.10852057621268923,
+            "per_sample_vector_L2_max": 0.11569797568006375
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.14205128205128206,
+            "samples_with_any_component_clipped_fraction": 0.42615384615384616
+          },
+          "linear": {
+            "component_fraction": 0.07794871794871795,
+            "samples_with_any_component_clipped_fraction": 0.23384615384615384
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "ur5e_script_expert_56002",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12013092872927267,
+          "recomputed_impulse_xy_Ns": [
+            -0.22721272342726562,
+            0.07810338316740967
+          ],
+          "duration_error_s": 0.0001309287292726724,
+          "completed_native_steps": 212
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05093598887790485
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000398469751072,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.391872079984184,
+        "native_step": 5274,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.10519384569248844,
+        "angular_component_RMSE_rad_s": 0.18178713178139605,
+        "linear_component_RMSE_m_s": 0.008627937049886557,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.10519384569248844,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.18178713178139605,
+            "absolute_component_error_p95": 0.46896935287721564,
+            "absolute_component_error_max": 0.9704364720018686,
+            "per_sample_vector_L2_p95": 0.6143268861181763,
+            "per_sample_vector_L2_max": 0.9704465906523937
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.008627937049886557,
+            "absolute_component_error_p95": 0.014890732087158118,
+            "absolute_component_error_max": 0.08059869383173907,
+            "per_sample_vector_L2_p95": 0.018967312133503153,
+            "per_sample_vector_L2_max": 0.08189274821445615
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.10519384569248844,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.18178713178139605,
+            "absolute_component_error_p95": 0.46896935287721564,
+            "absolute_component_error_max": 0.9704364720018686,
+            "per_sample_vector_L2_p95": 0.6143268861181763,
+            "per_sample_vector_L2_max": 0.9704465906523937
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.008627937049886557,
+            "absolute_component_error_p95": 0.014890732087158118,
+            "absolute_component_error_max": 0.08059869383173907,
+            "per_sample_vector_L2_p95": 0.018967312133503153,
+            "per_sample_vector_L2_max": 0.08189274821445615
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.0020512820512820513,
+            "samples_with_any_component_clipped_fraction": 0.006153846153846154
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "ur5e_old_BC3_56002",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12042962102799848,
+          "recomputed_impulse_xy_Ns": [
+            -0.22777766279282385,
+            0.0782975786115248
+          ],
+          "duration_error_s": 0.00042962102799848356,
+          "completed_native_steps": 231
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05022579258701221
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000045445875198,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.801962942341719,
+        "native_step": 5471,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.22658487531231655,
+        "angular_component_RMSE_rad_s": 0.4208867788166507,
+        "linear_component_RMSE_m_s": 0.015475786845360847,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.22658487531231655,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4208867788166507,
+            "absolute_component_error_p95": 1.009337150240298,
+            "absolute_component_error_max": 1.3111590020138355,
+            "per_sample_vector_L2_p95": 1.181997910603678,
+            "per_sample_vector_L2_max": 1.3111854748971778
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.015475786845360847,
+            "absolute_component_error_p95": 0.03245087620511666,
+            "absolute_component_error_max": 0.07677485577023768,
+            "per_sample_vector_L2_p95": 0.0492472291909288,
+            "per_sample_vector_L2_max": 0.07719252819546259
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.22658487531231655,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4208867788166507,
+            "absolute_component_error_p95": 1.009337150240298,
+            "absolute_component_error_max": 1.3111590020138355,
+            "per_sample_vector_L2_p95": 1.181997910603678,
+            "per_sample_vector_L2_max": 1.3111854748971778
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.015475786845360847,
+            "absolute_component_error_p95": 0.03245087620511666,
+            "absolute_component_error_max": 0.07677485577023768,
+            "per_sample_vector_L2_p95": 0.0492472291909288,
+            "per_sample_vector_L2_max": 0.07719252819546259
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.19128205128205128,
+            "samples_with_any_component_clipped_fraction": 0.5738461538461539
+          },
+          "linear": {
+            "component_fraction": 0.0020512820512820513,
+            "samples_with_any_component_clipped_fraction": 0.006153846153846154
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "flexiv_script_expert_56002",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12024051840999306,
+          "recomputed_impulse_xy_Ns": [
+            -0.2274199986900094,
+            0.07817463313538248
+          ],
+          "duration_error_s": 0.0002405184099930624,
+          "completed_native_steps": 214
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05043200132705472
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001176626909764,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.409926564490014,
+        "native_step": 5289,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.0905407231389922,
+        "angular_component_RMSE_rad_s": 0.11574162096810121,
+        "linear_component_RMSE_m_s": 0.010218323114238082,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.0905407231389922,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.11574162096810121,
+            "absolute_component_error_p95": 0.27838143761654977,
+            "absolute_component_error_max": 0.8286201337401821,
+            "per_sample_vector_L2_p95": 0.38058029666726345,
+            "per_sample_vector_L2_max": 0.8304736358673384
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.010218323114238082,
+            "absolute_component_error_p95": 0.020191875095962816,
+            "absolute_component_error_max": 0.07167644782655797,
+            "per_sample_vector_L2_p95": 0.027178737629210088,
+            "per_sample_vector_L2_max": 0.08243268618240861
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.09054980027093963,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.11574162096810121,
+            "absolute_component_error_p95": 0.27838143761654977,
+            "absolute_component_error_max": 0.8286201337401821,
+            "per_sample_vector_L2_p95": 0.38058029666726345,
+            "per_sample_vector_L2_max": 0.8304736358673384
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.010219931649403567,
+            "absolute_component_error_p95": 0.020191875095962816,
+            "absolute_component_error_max": 0.07167644782655797,
+            "per_sample_vector_L2_p95": 0.027178737629210088,
+            "per_sample_vector_L2_max": 0.08243268618240861
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.020512820512820513,
+            "samples_with_any_component_clipped_fraction": 0.06153846153846154
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "flexiv_old_BC3_56002",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.1204150958713921,
+          "recomputed_impulse_xy_Ns": [
+            -0.227750190264095,
+            0.07828813504953797
+          ],
+          "duration_error_s": 0.0004150958713921016,
+          "completed_native_steps": 257
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.050371201429030066
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001524657136414,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.894880211869715,
+        "native_step": 5582,
+        "phase": "tilt",
+        "unique_rim_crossings": 25,
+        "source_count": 215,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.32861512440198537,
+        "angular_component_RMSE_rad_s": 0.3802607099868944,
+        "linear_component_RMSE_m_s": 0.03894995891460155,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.32861512440198537,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3802607099868944,
+            "absolute_component_error_p95": 0.9877068734193958,
+            "absolute_component_error_max": 1.388366079749921,
+            "per_sample_vector_L2_p95": 1.100722260969143,
+            "per_sample_vector_L2_max": 1.393410526722807
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.03894995891460155,
+            "absolute_component_error_p95": 0.08234296894046673,
+            "absolute_component_error_max": 0.10888230517242675,
+            "per_sample_vector_L2_p95": 0.11386260323220743,
+            "per_sample_vector_L2_max": 0.12246285012936643
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.32861512440198537,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3802607099868944,
+            "absolute_component_error_p95": 0.9877068734193958,
+            "absolute_component_error_max": 1.388366079749921,
+            "per_sample_vector_L2_p95": 1.100722260969143,
+            "per_sample_vector_L2_max": 1.393410526722807
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.03894995891460155,
+            "absolute_component_error_p95": 0.08234296894046673,
+            "absolute_component_error_max": 0.10888230517242675,
+            "per_sample_vector_L2_p95": 0.11386260323220743,
+            "per_sample_vector_L2_max": 0.12246285012936643
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.14615384615384616,
+            "samples_with_any_component_clipped_fraction": 0.43846153846153846
+          },
+          "linear": {
+            "component_fraction": 0.12461538461538461,
+            "samples_with_any_component_clipped_fraction": 0.33692307692307694
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "ur5e_script_expert_56003",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12027587010062746,
+          "recomputed_impulse_xy_Ns": [
+            0.02809951256860125,
+            0.23890491227109384
+          ],
+          "duration_error_s": 0.0002758701006274622,
+          "completed_native_steps": 207
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05128248344690434
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001158477044598,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.390657498531267,
+        "native_step": 5282,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.11550730651322094,
+        "angular_component_RMSE_rad_s": 0.21979854873390542,
+        "linear_component_RMSE_m_s": 0.0072195162457806055,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.11550730651322094,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.21979854873390542,
+            "absolute_component_error_p95": 0.599275216626266,
+            "absolute_component_error_max": 0.9892629109513603,
+            "per_sample_vector_L2_p95": 0.7079869890602175,
+            "per_sample_vector_L2_max": 0.98928220334827
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0072195162457806055,
+            "absolute_component_error_p95": 0.013830792586824908,
+            "absolute_component_error_max": 0.05266185049878515,
+            "per_sample_vector_L2_p95": 0.01857042444562642,
+            "per_sample_vector_L2_max": 0.05346918222936156
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.11550730651322094,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.21979854873390542,
+            "absolute_component_error_p95": 0.599275216626266,
+            "absolute_component_error_max": 0.9892629109513603,
+            "per_sample_vector_L2_p95": 0.7079869890602175,
+            "per_sample_vector_L2_max": 0.98928220334827
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0072195162457806055,
+            "absolute_component_error_p95": 0.013830792586824908,
+            "absolute_component_error_max": 0.05266185049878515,
+            "per_sample_vector_L2_p95": 0.01857042444562642,
+            "per_sample_vector_L2_max": 0.05346918222936156
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "ur5e_old_BC3_56003",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12035427714674896,
+          "recomputed_impulse_xy_Ns": [
+            0.028117830455440175,
+            0.23906065280707509
+          ],
+          "duration_error_s": 0.00035427714674896027,
+          "completed_native_steps": 240
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05037274005212211
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001237574988572,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 11.31127538270619,
+        "native_step": 5741,
+        "phase": "pour_hold",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.20504475616100146,
+        "angular_component_RMSE_rad_s": 0.3836877982863478,
+        "linear_component_RMSE_m_s": 0.013659145503977309,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.20504475616100146,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3836877982863478,
+            "absolute_component_error_p95": 0.9611274377525838,
+            "absolute_component_error_max": 1.2758862568059963,
+            "per_sample_vector_L2_p95": 1.0663957573212761,
+            "per_sample_vector_L2_max": 1.2759477262913408
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.013659145503977309,
+            "absolute_component_error_p95": 0.02794562745154603,
+            "absolute_component_error_max": 0.04624072884696253,
+            "per_sample_vector_L2_p95": 0.04072979315258435,
+            "per_sample_vector_L2_max": 0.04726954226467618
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.20504475616100146,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3836877982863478,
+            "absolute_component_error_p95": 0.9611274377525838,
+            "absolute_component_error_max": 1.2758862568059963,
+            "per_sample_vector_L2_p95": 1.0663957573212761,
+            "per_sample_vector_L2_max": 1.2759477262913408
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.013659145503977309,
+            "absolute_component_error_p95": 0.02794562745154603,
+            "absolute_component_error_max": 0.04624072884696253,
+            "per_sample_vector_L2_p95": 0.04072979315258435,
+            "per_sample_vector_L2_max": 0.04726954226467618
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.20205128205128206,
+            "samples_with_any_component_clipped_fraction": 0.6061538461538462
+          },
+          "linear": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "flexiv_script_expert_56003",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12016413437937778,
+          "recomputed_impulse_xy_Ns": [
+            0.02807340825273981,
+            0.23868297072404576
+          ],
+          "duration_error_s": 0.0001641343793777894,
+          "completed_native_steps": 211
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.050291057086557345
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000711277241503,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.408979272848713,
+        "native_step": 5289,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.07721110095484093,
+        "angular_component_RMSE_rad_s": 0.0897720949283327,
+        "linear_component_RMSE_m_s": 0.009133081376121352,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.07721110095484093,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.0897720949283327,
+            "absolute_component_error_p95": 0.2147936730984059,
+            "absolute_component_error_max": 0.6730551320694348,
+            "per_sample_vector_L2_p95": 0.27606744554738233,
+            "per_sample_vector_L2_max": 0.6737683840288495
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.009133081376121352,
+            "absolute_component_error_p95": 0.020147422767541393,
+            "absolute_component_error_max": 0.0348964517096867,
+            "per_sample_vector_L2_p95": 0.02711775265488016,
+            "per_sample_vector_L2_max": 0.049060719121093534
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.07721110095484093,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.0897720949283327,
+            "absolute_component_error_p95": 0.2147936730984059,
+            "absolute_component_error_max": 0.6730551320694348,
+            "per_sample_vector_L2_p95": 0.27606744554738233,
+            "per_sample_vector_L2_max": 0.6737683840288495
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.009133081376121352,
+            "absolute_component_error_p95": 0.020147422767541393,
+            "absolute_component_error_max": 0.0348964517096867,
+            "per_sample_vector_L2_p95": 0.02711775265488016,
+            "per_sample_vector_L2_max": 0.049060719121093534
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.006666666666666667,
+            "samples_with_any_component_clipped_fraction": 0.02
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "flexiv_old_BC3_56003",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12019403366044301,
+          "recomputed_impulse_xy_Ns": [
+            0.028080393487794675,
+            0.2387423599025558
+          ],
+          "duration_error_s": 0.00019403366044301595,
+          "completed_native_steps": 258
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05026752108510557
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001666693937935,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.98074344335892,
+        "native_step": 5631,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.2710131182859503,
+        "angular_component_RMSE_rad_s": 0.29764274181118777,
+        "linear_component_RMSE_m_s": 0.0327906012632315,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.2710131182859503,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.29764274181118777,
+            "absolute_component_error_p95": 0.8136241928512491,
+            "absolute_component_error_max": 1.1523811163052928,
+            "per_sample_vector_L2_p95": 1.1006854598134028,
+            "per_sample_vector_L2_max": 1.1630196031681628
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0327906012632315,
+            "absolute_component_error_p95": 0.07655307575348093,
+            "absolute_component_error_max": 0.10497265981815045,
+            "per_sample_vector_L2_p95": 0.11536314029128625,
+            "per_sample_vector_L2_max": 0.13365445211876087
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.2710131182859503,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.29764274181118777,
+            "absolute_component_error_p95": 0.8136241928512491,
+            "absolute_component_error_max": 1.1523811163052928,
+            "per_sample_vector_L2_p95": 1.1006854598134028,
+            "per_sample_vector_L2_max": 1.1630196031681628
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.0327906012632315,
+            "absolute_component_error_p95": 0.07655307575348093,
+            "absolute_component_error_max": 0.10497265981815045,
+            "per_sample_vector_L2_p95": 0.11536314029128625,
+            "per_sample_vector_L2_max": 0.13365445211876087
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.07435897435897436,
+            "samples_with_any_component_clipped_fraction": 0.2230769230769231
+          },
+          "linear": {
+            "component_fraction": 0.07794871794871795,
+            "samples_with_any_component_clipped_fraction": 0.23384615384615384
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "ur5e_script_expert_56004",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12036002663618106,
+          "recomputed_impulse_xy_Ns": [
+            0.18288676473688664,
+            0.1565202074223119
+          ],
+          "duration_error_s": 0.00036002663618106556,
+          "completed_native_steps": 203
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05177490488529024
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001345786447835,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.36855623086859,
+        "native_step": 5285,
+        "phase": "tilt",
+        "unique_rim_crossings": 25,
+        "source_count": 215,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.14397364692121842,
+        "angular_component_RMSE_rad_s": 0.2493355529015493,
+        "linear_component_RMSE_m_s": 0.011758615110133647,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.14397364692121842,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.2493355529015493,
+            "absolute_component_error_p95": 0.6222834443489598,
+            "absolute_component_error_max": 0.920882975058151,
+            "per_sample_vector_L2_p95": 0.7264088484551295,
+            "per_sample_vector_L2_max": 0.9208860032030551
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.011758615110133647,
+            "absolute_component_error_p95": 0.021679837092233614,
+            "absolute_component_error_max": 0.054008298011253564,
+            "per_sample_vector_L2_p95": 0.02953181838056944,
+            "per_sample_vector_L2_max": 0.06644183751468688
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.14397364692121842,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.2493355529015493,
+            "absolute_component_error_p95": 0.6222834443489598,
+            "absolute_component_error_max": 0.920882975058151,
+            "per_sample_vector_L2_p95": 0.7264088484551295,
+            "per_sample_vector_L2_max": 0.9208860032030551
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.011758615110133647,
+            "absolute_component_error_p95": 0.021679837092233614,
+            "absolute_component_error_max": 0.054008298011253564,
+            "per_sample_vector_L2_p95": 0.02953181838056944,
+            "per_sample_vector_L2_max": 0.06644183751468688
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "ur5e_old_BC3_56004",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12028110863496089,
+          "recomputed_impulse_xy_Ns": [
+            0.18276684902794202,
+            0.15641757981192025
+          ],
+          "duration_error_s": 0.00028110863496089156,
+          "completed_native_steps": 225
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05029509311350289
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000050265704434,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 11.226278278444864,
+        "native_step": 5704,
+        "phase": "pour_hold",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.22191591092495688,
+        "angular_component_RMSE_rad_s": 0.3820593899577731,
+        "linear_component_RMSE_m_s": 0.018335229525277233,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.22191591092495688,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3820593899577731,
+            "absolute_component_error_p95": 0.9506730954821059,
+            "absolute_component_error_max": 1.3459040516549656,
+            "per_sample_vector_L2_p95": 1.1440995845729995,
+            "per_sample_vector_L2_max": 1.3459097572268424
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.018335229525277233,
+            "absolute_component_error_p95": 0.03636886185399459,
+            "absolute_component_error_max": 0.05740792688344162,
+            "per_sample_vector_L2_p95": 0.0413202635827761,
+            "per_sample_vector_L2_max": 0.07812307194179506
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.22191756682527294,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3820637181189652,
+            "absolute_component_error_p95": 0.9506730954821059,
+            "absolute_component_error_max": 1.3459040516549656,
+            "per_sample_vector_L2_p95": 1.1440995845729995,
+            "per_sample_vector_L2_max": 1.3459097572268424
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.018335229525277233,
+            "absolute_component_error_p95": 0.03636886185399459,
+            "absolute_component_error_max": 0.05740792688344162,
+            "per_sample_vector_L2_p95": 0.0413202635827761,
+            "per_sample_vector_L2_max": 0.07812307194179506
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.19794871794871796,
+            "samples_with_any_component_clipped_fraction": 0.5938461538461538
+          },
+          "linear": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "flexiv_script_expert_56004",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.1201871135173711,
+          "recomputed_impulse_xy_Ns": [
+            0.18262402367772002,
+            0.15629534541472861
+          ],
+          "duration_error_s": 0.00018711351737110693,
+          "completed_native_steps": 218
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05050933527319046
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001912291167997,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.403725938247275,
+        "native_step": 5278,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.12066154736459532,
+        "angular_component_RMSE_rad_s": 0.14142095330838603,
+        "linear_component_RMSE_m_s": 0.014223072729622647,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.12066154736459532,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.14142095330838603,
+            "absolute_component_error_p95": 0.3481211875511704,
+            "absolute_component_error_max": 0.6543699178117494,
+            "per_sample_vector_L2_p95": 0.5293945453365478,
+            "per_sample_vector_L2_max": 0.655209248838891
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.014223072729622647,
+            "absolute_component_error_p95": 0.030091946700683134,
+            "absolute_component_error_max": 0.06302434441013884,
+            "per_sample_vector_L2_p95": 0.04683426851817079,
+            "per_sample_vector_L2_max": 0.08512971508752097
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.12066154736459532,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.14142095330838603,
+            "absolute_component_error_p95": 0.3481211875511704,
+            "absolute_component_error_max": 0.6543699178117494,
+            "per_sample_vector_L2_p95": 0.5293945453365478,
+            "per_sample_vector_L2_max": 0.655209248838891
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.014223072729622647,
+            "absolute_component_error_p95": 0.030091946700683134,
+            "absolute_component_error_max": 0.06302434441013884,
+            "per_sample_vector_L2_p95": 0.04683426851817079,
+            "per_sample_vector_L2_max": 0.08512971508752097
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.041025641025641026,
+            "samples_with_any_component_clipped_fraction": 0.12307692307692308
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "flexiv_old_BC3_56004",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12024473499335109,
+          "recomputed_impulse_xy_Ns": [
+            0.18271157936888974,
+            0.1563702783108441
+          ],
+          "duration_error_s": 0.0002447349933510923,
+          "completed_native_steps": 245
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05005901096570753
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.00006657983509,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 11.113028031845527,
+        "native_step": 5656,
+        "phase": "pour_hold",
+        "unique_rim_crossings": 25,
+        "source_count": 215,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.3608265019976789,
+        "angular_component_RMSE_rad_s": 0.4090314342198665,
+        "linear_component_RMSE_m_s": 0.043131541759160855,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.3608265019976789,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4090314342198665,
+            "absolute_component_error_p95": 0.9629256273477822,
+            "absolute_component_error_max": 1.1826112327202738,
+            "per_sample_vector_L2_p95": 1.0820520714476107,
+            "per_sample_vector_L2_max": 1.2017650992827007
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.043131541759160855,
+            "absolute_component_error_p95": 0.09158389743270173,
+            "absolute_component_error_max": 0.1141262430755155,
+            "per_sample_vector_L2_p95": 0.12201940236143738,
+            "per_sample_vector_L2_max": 0.13758412921137872
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.3608265019976789,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4090314342198665,
+            "absolute_component_error_p95": 0.9629256273477822,
+            "absolute_component_error_max": 1.1826112327202738,
+            "per_sample_vector_L2_p95": 1.0820520714476107,
+            "per_sample_vector_L2_max": 1.2017650992827007
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.043131541759160855,
+            "absolute_component_error_p95": 0.09158389743270173,
+            "absolute_component_error_max": 0.1141262430755155,
+            "per_sample_vector_L2_p95": 0.12201940236143738,
+            "per_sample_vector_L2_max": 0.13758412921137872
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.1671794871794872,
+            "samples_with_any_component_clipped_fraction": 0.5015384615384615
+          },
+          "linear": {
+            "component_fraction": 0.17435897435897435,
+            "samples_with_any_component_clipped_fraction": 0.4430769230769231
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "ur5e_script_expert_56005",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12035392958629032,
+          "recomputed_impulse_xy_Ns": [
+            0.08722273377985792,
+            -0.22434898747133886
+          ],
+          "duration_error_s": 0.00035392958629032467,
+          "completed_native_steps": 210
+        },
+        {
+          "index": 1,
+          "recomputed_applied_duration_s": 0.12004031144524951,
+          "recomputed_impulse_xy_Ns": [
+            -0.1931986292806368,
+            0.14252366516327394
+          ],
+          "duration_error_s": 4.031144524951902e-05,
+          "completed_native_steps": 295
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.050444159108799624
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.00118455768151,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.389793000613833,
+        "native_step": 5279,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.149781378156836,
+        "angular_component_RMSE_rad_s": 0.22428065326313565,
+        "linear_component_RMSE_m_s": 0.015004186699182942,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.149781378156836,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.22428065326313565,
+            "absolute_component_error_p95": 0.5517502068010975,
+            "absolute_component_error_max": 0.8283431723281918,
+            "per_sample_vector_L2_p95": 0.6760479097845774,
+            "per_sample_vector_L2_max": 0.8283503825573599
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.015004186699182942,
+            "absolute_component_error_p95": 0.027123797421511782,
+            "absolute_component_error_max": 0.08728464178405346,
+            "per_sample_vector_L2_p95": 0.036562454982847,
+            "per_sample_vector_L2_max": 0.11757781006860953
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.149781378156836,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.22428065326313565,
+            "absolute_component_error_p95": 0.5517502068010975,
+            "absolute_component_error_max": 0.8283431723281918,
+            "per_sample_vector_L2_p95": 0.6760479097845774,
+            "per_sample_vector_L2_max": 0.8283503825573599
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.015004186699182942,
+            "absolute_component_error_p95": 0.027123797421511782,
+            "absolute_component_error_max": 0.08728464178405346,
+            "per_sample_vector_L2_p95": 0.036562454982847,
+            "per_sample_vector_L2_max": 0.11757781006860953
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.007692307692307693,
+            "samples_with_any_component_clipped_fraction": 0.023076923076923078
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "ur5e_old_BC3_56005",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.1204183590259209,
+          "recomputed_impulse_xy_Ns": [
+            0.08726942699444426,
+            -0.2244690889054521
+          ],
+          "duration_error_s": 0.00041835902592091134,
+          "completed_native_steps": 226
+        },
+        {
+          "index": 1,
+          "recomputed_applied_duration_s": 0.11977095698776452,
+          "recomputed_impulse_xy_Ns": [
+            -0.1927651173099481,
+            0.1422038610570813
+          ],
+          "duration_error_s": -0.00022904301223547474,
+          "completed_native_steps": 288
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.050398378672193545
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.001865270994703,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 11.240941412851411,
+        "native_step": 5681,
+        "phase": "pour_hold",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.24670443963216038,
+        "angular_component_RMSE_rad_s": 0.39600129865460115,
+        "linear_component_RMSE_m_s": 0.022810020592114195,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.24670443963216038,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.39600129865460115,
+            "absolute_component_error_p95": 0.9259743598775273,
+            "absolute_component_error_max": 1.1797350137322427,
+            "per_sample_vector_L2_p95": 1.0256193081536369,
+            "per_sample_vector_L2_max": 1.179764335041804
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.022810020592114195,
+            "absolute_component_error_p95": 0.04699697778467707,
+            "absolute_component_error_max": 0.08224357570456348,
+            "per_sample_vector_L2_p95": 0.05684650407385807,
+            "per_sample_vector_L2_max": 0.09233442347799337
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.24670443963216038,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.39600129865460115,
+            "absolute_component_error_p95": 0.9259743598775273,
+            "absolute_component_error_max": 1.1797350137322427,
+            "per_sample_vector_L2_p95": 1.0256193081536369,
+            "per_sample_vector_L2_max": 1.179764335041804
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.022810020592114195,
+            "absolute_component_error_p95": 0.04699697778467707,
+            "absolute_component_error_max": 0.08224357570456348,
+            "per_sample_vector_L2_p95": 0.05684650407385807,
+            "per_sample_vector_L2_max": 0.09233442347799337
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.19333333333333333,
+            "samples_with_any_component_clipped_fraction": 0.58
+          },
+          "linear": {
+            "component_fraction": 0.005128205128205128,
+            "samples_with_any_component_clipped_fraction": 0.015384615384615385
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    },
+    {
+      "case_id": "flexiv_script_expert_56005",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.12004711668535961,
+          "recomputed_impulse_xy_Ns": [
+            0.08700038075765006,
+            -0.22377706461095903
+          ],
+          "duration_error_s": 4.7116685359616106e-05,
+          "completed_native_steps": 216
+        },
+        {
+          "index": 1,
+          "recomputed_applied_duration_s": 0.11999149315436597,
+          "recomputed_impulse_xy_Ns": [
+            -0.19312005878403476,
+            0.14246570328646807
+          ],
+          "duration_error_s": -8.506845634026483e-06,
+          "completed_native_steps": 288
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.050328122883231075
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.00191469775825,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 10.412106534077795,
+        "native_step": 5325,
+        "phase": "tilt",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 0
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.12834288253016757,
+        "angular_component_RMSE_rad_s": 0.13221224550412564,
+        "linear_component_RMSE_m_s": 0.015866589897775427,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.12834288253016757,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.13221224550412564,
+            "absolute_component_error_p95": 0.3492519816399372,
+            "absolute_component_error_max": 0.6201355655643706,
+            "per_sample_vector_L2_p95": 0.43422171849346036,
+            "per_sample_vector_L2_max": 0.6214206480905873
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.015866589897775427,
+            "absolute_component_error_p95": 0.029892334701085082,
+            "absolute_component_error_max": 0.08774177879568291,
+            "per_sample_vector_L2_p95": 0.040540591605498597,
+            "per_sample_vector_L2_max": 0.1271925562676031
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.12834288253016757,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.13221224550412564,
+            "absolute_component_error_p95": 0.3492519816399372,
+            "absolute_component_error_max": 0.6201355655643706,
+            "per_sample_vector_L2_p95": 0.43422171849346036,
+            "per_sample_vector_L2_max": 0.6214206480905873
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.015866589897775427,
+            "absolute_component_error_p95": 0.029892334701085082,
+            "absolute_component_error_max": 0.08774177879568291,
+            "per_sample_vector_L2_p95": 0.040540591605498597,
+            "per_sample_vector_L2_max": 0.1271925562676031
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.009743589743589744,
+            "samples_with_any_component_clipped_fraction": 0.026153846153846153
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "script_expert"
+      }
+    },
+    {
+      "case_id": "flexiv_old_BC3_56005",
+      "started": true,
+      "closed": true,
+      "raw_physical_gate_success": true,
+      "calibrated_success": true,
+      "final_particle_membership": {
+        "test_tube": 0,
+        "beaker": 240,
+        "outside_including_transit": 0
+      },
+      "native_force_integrals": [
+        {
+          "index": 0,
+          "recomputed_applied_duration_s": 0.1204195314251848,
+          "recomputed_impulse_xy_Ns": [
+            0.08727027665402108,
+            -0.22447127434791056
+          ],
+          "duration_error_s": 0.0004195314251848048,
+          "completed_native_steps": 268
+        },
+        {
+          "index": 1,
+          "recomputed_applied_duration_s": 0.11998439329769894,
+          "recomputed_impulse_xy_Ns": [
+            -0.19310863193450692,
+            0.14245727363827637
+          ],
+          "duration_error_s": -1.560670230105199e-05,
+          "completed_native_steps": 267
+        }
+      ],
+      "observations": {
+        "raw_samples": 650,
+        "history_rows": 2300,
+        "actual_control_delay_samples": 650,
+        "actual_control_delay_min_s": 0.02000000000000668,
+        "actual_control_delay_max_s": 0.05079073145984658
+      },
+      "missing_artifacts": [],
+      "saved_terminal_native_s": 23.000839910572118,
+      "unique_rim_crossings_recomputed": 240,
+      "trigger": {
+        "native_s": 11.428306167723028,
+        "native_step": 6014,
+        "phase": "pour_hold",
+        "unique_rim_crossings": 24,
+        "source_count": 216,
+        "receiver_count": 4
+      },
+      "posthoc_frozen_action_mapping_disagreement": {
+        "samples": 650,
+        "raw_visited_samples": 650,
+        "normalized_RMSE": 0.4199161166400847,
+        "angular_component_RMSE_rad_s": 0.4617255179878817,
+        "linear_component_RMSE_m_s": 0.05078462140811369,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.4199161166400847,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4617255179878817,
+            "absolute_component_error_p95": 1.1322950979100672,
+            "absolute_component_error_max": 1.5489620251647815,
+            "per_sample_vector_L2_p95": 1.2999614166008175,
+            "per_sample_vector_L2_max": 1.564637151626171
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.05078462140811369,
+            "absolute_component_error_p95": 0.08963179605683183,
+            "absolute_component_error_max": 0.11200384194294191,
+            "per_sample_vector_L2_p95": 0.12564318539804445,
+            "per_sample_vector_L2_max": 0.1548795856020044
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.4199161166400847,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4617255179878817,
+            "absolute_component_error_p95": 1.1322950979100672,
+            "absolute_component_error_max": 1.5489620251647815,
+            "per_sample_vector_L2_p95": 1.2999614166008175,
+            "per_sample_vector_L2_max": 1.564637151626171
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.05078462140811369,
+            "absolute_component_error_p95": 0.08963179605683183,
+            "absolute_component_error_max": 0.11200384194294191,
+            "per_sample_vector_L2_p95": 0.12564318539804445,
+            "per_sample_vector_L2_max": 0.1548795856020044
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.18461538461538463,
+            "samples_with_any_component_clipped_fraction": 0.5538461538461539
+          },
+          "linear": {
+            "component_fraction": 0.25846153846153846,
+            "samples_with_any_component_clipped_fraction": 0.5384615384615384
+          }
+        },
+        "scope": "FrozenBC3forward vs knownaffineclippedteacher algebra on saved18Dvisitedstates, before commonactionnoise; no interventionortraining",
+        "executed_controller": "old_BC3"
+      }
+    }
+  ],
+  "prepared_vs_executed_native_sources_equal": {
+    "task.py": true,
+    "learner.py": true,
+    "flow_trigger.py": true,
+    "controller_factory.py": true,
+    "objective_solve.py": true,
+    "execute.py": true,
+    "run_prepared.py": true
+  },
+  "actual_new_native_steps": 0,
+  "shared_import_current_sources_equal_to_frozen_prelaunch": {
+    "original_coupled_fluid.py": true,
+    "original_solver.py": true,
+    "original_ur5e_adapter.py": true,
+    "original_flexiv_adapter.py": true
+  },
+  "all20_timing_diagnostic": "timing_diagnostic.json",
+  "action_mapping_summary": {
+    "scope": "One CPU evaluation of frozen old BC3 and the exact clipped teacher formula on existing archived observed inputs, including expert and student visited states.",
+    "teacher_formula": "Angular clip(4*rotation_error+angular_feedforward, +/-1.5 rad/s); linear clip(4*position_error+linear_feedforward, +/-0.10 m/s).",
+    "primary_error": "Actual runtime clipping before the common action noise; raw unclipped policy errors also reported.",
+    "quantile_definition": "95th/max of absolute component errors pooled across three axes and all samples; per-sample vector L2 is separate.",
+    "clipping_definition": "Fraction of raw teacher components strictly beyond the action limit and fraction of samples with any such component.",
+    "groups": [
+      {
+        "robot": "all",
+        "visited_state_source": "all",
+        "samples": 13000,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.21566445813561375,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.29390782557898515,
+            "absolute_component_error_p95": 0.7744018290813975,
+            "absolute_component_error_max": 1.5489620251647815,
+            "per_sample_vector_L2_p95": 1.0143363294904304,
+            "per_sample_vector_L2_max": 1.564637151626171
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.023373147301656363,
+            "absolute_component_error_p95": 0.058782893267594595,
+            "absolute_component_error_max": 0.1141262430755155,
+            "per_sample_vector_L2_p95": 0.09904282234237169,
+            "per_sample_vector_L2_max": 0.1548795856020044
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.21566473387936302,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.29390810689561847,
+            "absolute_component_error_p95": 0.7744018290813975,
+            "absolute_component_error_max": 1.5489620251647815,
+            "per_sample_vector_L2_p95": 1.0143363294904304,
+            "per_sample_vector_L2_max": 1.564637151626171
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.023373182465541608,
+            "absolute_component_error_p95": 0.058782893267594595,
+            "absolute_component_error_max": 0.1141262430755155,
+            "per_sample_vector_L2_p95": 0.09904282234237169,
+            "per_sample_vector_L2_max": 0.1548795856020044
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.08343589743589744,
+            "samples_with_any_component_clipped_fraction": 0.2503076923076923
+          },
+          "linear": {
+            "component_fraction": 0.04058974358974359,
+            "samples_with_any_component_clipped_fraction": 0.10392307692307692
+          }
+        }
+      },
+      {
+        "robot": "ur5e",
+        "visited_state_source": "script_expert",
+        "samples": 3250,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.12286479401568078,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.21054451576986294,
+            "absolute_component_error_p95": 0.5450933131272344,
+            "absolute_component_error_max": 0.9892629109513603,
+            "per_sample_vector_L2_p95": 0.6848795278085533,
+            "per_sample_vector_L2_max": 0.98928220334827
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.010241943417482285,
+            "absolute_component_error_p95": 0.020045096373283146,
+            "absolute_component_error_max": 0.08728464178405346,
+            "per_sample_vector_L2_p95": 0.02913786417764946,
+            "per_sample_vector_L2_max": 0.11757781006860953
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.12286479401568078,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.21054451576986294,
+            "absolute_component_error_p95": 0.5450933131272344,
+            "absolute_component_error_max": 0.9892629109513603,
+            "per_sample_vector_L2_p95": 0.6848795278085533,
+            "per_sample_vector_L2_max": 0.98928220334827
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.010241943417482285,
+            "absolute_component_error_p95": 0.020045096373283146,
+            "absolute_component_error_max": 0.08728464178405346,
+            "per_sample_vector_L2_p95": 0.02913786417764946,
+            "per_sample_vector_L2_max": 0.11757781006860953
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.0019487179487179488,
+            "samples_with_any_component_clipped_fraction": 0.005846153846153846
+          }
+        }
+      },
+      {
+        "robot": "ur5e",
+        "visited_state_source": "old_BC3",
+        "samples": 3250,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.21205133714882293,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.37681582829777727,
+            "absolute_component_error_p95": 0.9383364630825535,
+            "absolute_component_error_max": 1.3459040516549656,
+            "per_sample_vector_L2_p95": 1.0816377710113576,
+            "per_sample_vector_L2_max": 1.3459097572268424
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.016378277576510638,
+            "absolute_component_error_p95": 0.03683149435736556,
+            "absolute_component_error_max": 0.08224357570456348,
+            "per_sample_vector_L2_p95": 0.05075910737893382,
+            "per_sample_vector_L2_max": 0.09233442347799337
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.2120516837363075,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3768167059796267,
+            "absolute_component_error_p95": 0.9383364630825535,
+            "absolute_component_error_max": 1.3459040516549656,
+            "per_sample_vector_L2_p95": 1.0816377710113576,
+            "per_sample_vector_L2_max": 1.3459097572268424
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.016378277576510638,
+            "absolute_component_error_p95": 0.03683149435736556,
+            "absolute_component_error_max": 0.08224357570456348,
+            "per_sample_vector_L2_p95": 0.05075910737893382,
+            "per_sample_vector_L2_max": 0.09233442347799337
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.19087179487179487,
+            "samples_with_any_component_clipped_fraction": 0.5726153846153846
+          },
+          "linear": {
+            "component_fraction": 0.001435897435897436,
+            "samples_with_any_component_clipped_fraction": 0.0043076923076923075
+          }
+        }
+      },
+      {
+        "robot": "flexiv",
+        "visited_state_source": "script_expert",
+        "samples": 3250,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.10582667274994075,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.11576733468446083,
+            "absolute_component_error_p95": 0.2800255183031821,
+            "absolute_component_error_max": 0.8286201337401821,
+            "per_sample_vector_L2_p95": 0.407382776328806,
+            "per_sample_vector_L2_max": 0.8304736358673384
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.012822671798898452,
+            "absolute_component_error_p95": 0.026276827838730442,
+            "absolute_component_error_max": 0.08774177879568291,
+            "per_sample_vector_L2_p95": 0.041699716798267464,
+            "per_sample_vector_L2_max": 0.1271925562676031
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.10582822601668299,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.11576733468446083,
+            "absolute_component_error_p95": 0.2800255183031821,
+            "absolute_component_error_max": 0.8286201337401821,
+            "per_sample_vector_L2_p95": 0.407382776328806,
+            "per_sample_vector_L2_max": 0.8304736358673384
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.012822928183241428,
+            "absolute_component_error_p95": 0.026276827838730442,
+            "absolute_component_error_max": 0.08774177879568291,
+            "per_sample_vector_L2_p95": 0.041699716798267464,
+            "per_sample_vector_L2_max": 0.1271925562676031
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.016307692307692308,
+            "samples_with_any_component_clipped_fraction": 0.04830769230769231
+          }
+        }
+      },
+      {
+        "robot": "flexiv",
+        "visited_state_source": "old_BC3",
+        "samples": 3250,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.338797612375396,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3818455216312202,
+            "absolute_component_error_p95": 0.9422670066860168,
+            "absolute_component_error_max": 1.5489620251647815,
+            "per_sample_vector_L2_p95": 1.1127065039063266,
+            "per_sample_vector_L2_max": 1.564637151626171
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.04059125233024105,
+            "absolute_component_error_p95": 0.0866973400429503,
+            "absolute_component_error_max": 0.1141262430755155,
+            "per_sample_vector_L2_p95": 0.1215791171174416,
+            "per_sample_vector_L2_max": 0.1548795856020044
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.338797612375396,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3818455216312202,
+            "absolute_component_error_p95": 0.9422670066860168,
+            "absolute_component_error_max": 1.5489620251647815,
+            "per_sample_vector_L2_p95": 1.1127065039063266,
+            "per_sample_vector_L2_max": 1.564637151626171
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.04059125233024105,
+            "absolute_component_error_p95": 0.0866973400429503,
+            "absolute_component_error_max": 0.1141262430755155,
+            "per_sample_vector_L2_p95": 0.1215791171174416,
+            "per_sample_vector_L2_max": 0.1548795856020044
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.14287179487179488,
+            "samples_with_any_component_clipped_fraction": 0.4286153846153846
+          },
+          "linear": {
+            "component_fraction": 0.14266666666666666,
+            "samples_with_any_component_clipped_fraction": 0.35723076923076924
+          }
+        }
+      }
+    ],
+    "new_rollouts": 0,
+    "new_runtime_teacher_queries": 0,
+    "training_updates": 0,
+    "labels_written_to_buffer": false,
+    "boundary": "Strong low-level IK and scripted pickup/return remain. The upstream goal tracks actual cup XY; observations directly expose delayed goal errors and feedforward. Equal easy-task success is not evidence of DAgger, OPD, ICL, or recovery learning."
+  },
+  "new_IK_optimizations": 0,
+  "GPU_contexts_created": 0,
+  "policy_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "old_results_preserved": true,
+  "limitations": [
+    "Readback consistency is not an additional independent functional acceptance.",
+    "Raw native crossing records are verified arithmetically; saved10Hzstates cannot independently reconstructevery nativecrossing.",
+    "Missing artifacts remain missing, failed starts retained; no finalstate is inferred.",
+    "Particleclassifier/contactscope and localCPUphysicalmodel limitations remain."
+  ],
+  "exploratory_operation_timing": "exploratory_operation_timing.json"
+}

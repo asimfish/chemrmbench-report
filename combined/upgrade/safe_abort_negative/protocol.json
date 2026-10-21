@@ -1,0 +1,88 @@
+{
+  "id": "C01b_SAFE_ABORT_BRANCH_NEGATIVE",
+  "status": "FROZEN_BEFORE_SINGLE_BRANCH_NEGATIVE",
+  "prepared_utc": "2026-10-20T20:33:46.632504+00:00",
+  "base_episode": "combined/upgrade/c01b_episode.py",
+  "base_frozen_protocol": "combined/upgrade/c01b_protocol.json",
+  "base_frozen_at_utc": "2026-10-19T12:38:02.021564+00:00",
+  "case": {
+    "id": "pose_00",
+    "seed": 170400,
+    "source_xy": [
+      0.49834,
+      0.08501
+    ],
+    "source_yaw_deg": -23.674,
+    "receiver_xy": [
+      0.59734,
+      -0.17583
+    ],
+    "receiver_yaw_deg": -7.072
+  },
+  "maximum_started": 1,
+  "retry_permitted": false,
+  "primary_positive_starts_added": 0,
+  "original_six_positive_denominator_immutable": true,
+  "F_review": false,
+  "physics_dt_s": 0.0033333333333333335,
+  "control_decimation": 5,
+  "render_interval_native_steps": 60,
+  "video_fps": 5,
+  "max_native_s": 25,
+  "world_owner": "Single MATTERIX IsaacLab native PhysX/PBD world and clock",
+  "fault": {
+    "open_fingers": "Same original C01b trigger: actual cup mesh bottom>=.05m over native table collider and dual-finger contact presence.",
+    "angular_disturbance": "After3 consecutive both-contact-loss samples, require cup bottom still>=.05m and support absent; apply exactlyone5-native-step pure local torque pulse.",
+    "local_axis": "Declared body local-X negative; no assumed away-from-receiver assertion.",
+    "inertia": "Actual runtime root_physx_view.get_inertias at COM, expressed body-prim frame,9column-major; no principal-frame rotation. Old inertias were not archived; no invented actual inertia.",
+    "formula": "t_free=(vz+sqrt(vz^2+2*9.81*h))/9.81; delta=5/300; w_goal=min(30,(pi/2)/(t_free-delta/2)); target_body_omega=(-w_goal,0,0); tau=I_body@(target-current_body_omega)/delta.",
+    "bounds": {
+      "clearance_m_min": 0.05,
+      "remaining_freefall_proxy_s_min": 0.05,
+      "torque_norm_Nm_max": 0.5,
+      "target_and_initial_rotational_energy_J_max": 0.15,
+      "angular_target_rad_s_max": 30,
+      "native_mass_kg_range": [
+        0.299,
+        0.301
+      ],
+      "inertia_eigenvalue_kg_m2_range_exclusive": [
+        1e-07,
+        0.005
+      ]
+    },
+    "invalid_preconditions": "Fail without impulse, retain attempt; never search/clip torque bounds/retry.",
+    "pulse_receipts": "Measure original source.write_data_to_sim return and composed torque buffer at EACH of5 native steps, actual callbacks/dt, integrated angular impulse, native omega before/after; explicitly zero permanent force/torque buffer after interval and in finally."
+  },
+  "drop_verifier": {
+    "loss_streak_control_steps": 3,
+    "loss_threshold_N_presence_only": 0.001,
+    "fall_displacement_m_min": 0.005,
+    "stable_linear_speed_m_s_max": 0.01,
+    "stable_angular_speed_rad_s_max": 0.1,
+    "stable_duration_s_min": 0.25,
+    "post_loss_observation_s_min": 0.5,
+    "upright_tilt_deg_max": 10.0,
+    "spill_particles_for_recovery_max": 0,
+    "drop_observation_budget_s": 6.0
+  },
+  "expected_negative": "Original stable-fall diagnosis tilt>10deg OR any classified spill -> SAFE_ABORT. Hold sameEE/openfingers1native second with native pose/particles/command/video evidence; no regrasp/pour/heater.",
+  "branch_not_triggered": "Stable upright/no-spill after pulse -> BRANCH_NOT_TRIGGERED failure and same hold, never continue workflow. No new attempt.",
+  "physical_state_writes": "Original initialization only; no mid-episode pose, velocity, particle, material, mass, inertia or collision writes. Pure external torque is the sole new physical perturbation.",
+  "differences": [
+    "One explicit physical disturbance branch-coverage negative, not original-author robustness protocol, learned policy, seventh positive or statistical success estimate.",
+    "Original PBD/materials/125particles/robot/chemistry/clock and C01b stable verifier retained. Absolute GPU contact forces used for presence only, never calibrated weight.",
+    "Ballistic/inertia pulse model is an approximation and does not guarantee tipping. Runtime actual observation alone determines branch outcome.",
+    "Original6 positives and supported no-recovery negative remain untouched; no F re-audit or retroactive denominator/threshold change."
+  ],
+  "perturbation_validity_sanity_gate": {
+    "registered_utc": "2026-10-20T20:38:26.004844+00:00",
+    "finite_native_angular_response": true,
+    "projected_negative_body_X_angular_speed_increase_rad_s_min": 1.0,
+    "formula": "omega_after_body=R_actual_postpulse.T@omega_after_world; increase=(-omega_after_body_x)-(-omega_before_body_x)>=1rad/s",
+    "record": "Actual native pre-body omega, post-world omega, post-body omega and actual postpulse cup pose/rotation. No additional physics step.",
+    "scope": "Sanity response only; never exact predictedomega agreement or causal attribution. Failed/nonfinite response stops as failed negative, no retry."
+  },
+  "frozen_at_utc": "2026-10-20T20:40:24.433154+00:00",
+  "launch_authorization": "Root approved max1 resource-admitted negative after native angular-response sanity addition; no seventh positive/no F re-audit."
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "Closed rawtrace finite differences,zero native/parameterchange/gainfit",
+  "cases": [
+    {
+      "case": "empty_cup",
+      "terminal1s_reported_vz_mean_m_s": 0.015062714585413535,
+      "terminal1s_pose_finite_difference_vz_mean_m_s": -7.4258276576537495e-09,
+      "terminal1s_pose_finite_difference_vz_max_abs_m_s": 4.4703482499075545e-06,
+      "scope": "Measurement-channel consistency only; neither rawv nor nearconstantz alone is declared fullmechanicalstate proof."
+    },
+    {
+      "case": "rigid_700mg",
+      "terminal1s_reported_vz_mean_m_s": 0.014900052823747198,
+      "terminal1s_pose_finite_difference_vz_mean_m_s": 5.198079360357622e-08,
+      "terminal1s_pose_finite_difference_vz_max_abs_m_s": 2.2351741249537773e-05,
+      "scope": "Measurement-channel consistency only; neither rawv nor nearconstantz alone is declared fullmechanicalstate proof."
+    },
+    {
+      "case": "rigid_3g",
+      "terminal1s_reported_vz_mean_m_s": 0.014885082800562183,
+      "terminal1s_pose_finite_difference_vz_mean_m_s": 7.425827657653746e-09,
+      "terminal1s_pose_finite_difference_vz_max_abs_m_s": 2.2351741249537773e-06,
+      "scope": "Measurement-channel consistency only; neither rawv nor nearconstantz alone is declared fullmechanicalstate proof."
+    },
+    {
+      "case": "powder_700mg",
+      "terminal1s_reported_vz_mean_m_s": 0.015000349171459674,
+      "terminal1s_pose_finite_difference_vz_mean_m_s": 2.45052312702573e-07,
+      "terminal1s_pose_finite_difference_vz_max_abs_m_s": 4.246830837412177e-05,
+      "scope": "Measurement-channel consistency only; neither rawv nor nearconstantz alone is declared fullmechanicalstate proof."
+    },
+    {
+      "case": "powder_3g",
+      "terminal1s_reported_vz_mean_m_s": 0.014994977399085958,
+      "terminal1s_pose_finite_difference_vz_mean_m_s": 2.8960727864849603e-07,
+      "terminal1s_pose_finite_difference_vz_max_abs_m_s": 4.470348249907555e-05,
+      "scope": "Measurement-channel consistency only; neither rawv nor nearconstantz alone is declared fullmechanicalstate proof."
+    }
+  ],
+  "interpretation": "Native reportedvelocity channel has positive~15mm/s while perstepZfinite differences are much smaller. Preservebothchannels; do not equate reportedvelocity alone to actualmonotonic platformtravel or claim equilibratedforce accuracy."
+}

@@ -1,0 +1,92 @@
+{
+  "id": "A04_ACTUAL_ANCHOR_CANDIDATE",
+  "registered_utc": "2026-10-20T21:45:40.524268+00:00",
+  "status": "OFFLINE_PREPARATION_ONLY_NOT_AUTHORIZED_FOR_NATIVE",
+  "parent_study": "../corridor_arrival_pilot",
+  "hypothesis": "Independent command integration can separate from actual EE; observed command-actual offsets motivate an execution adapter candidate. Windup is not established as the sole cause; labels do not use actual twist.",
+  "single_semantic_change": {
+    "active_window_native_s": [
+      8.5,
+      15.0
+    ],
+    "translation": "cmdp = actual_site_p + delayed_action_basis @ clipped_noisy_action_linear * actual_control_dt",
+    "rotation": "cmdR = Exp(delayed_action_basis @ clipped_noisy_action_angular * actual_control_dt) * actual_site_R",
+    "same_for_expert_and_BC": true,
+    "not_PD_or_teacher_label_change": true,
+    "actual_pose_visibility": "Current actual site pose is middleware internal state already available to native IK. It is not appended to policy observations;18D policy input and historical selection are unchanged."
+  },
+  "unchanged": [
+    "teacher4*delayed_error+feedforward; no actual-twist term added",
+    "angular component clip\u00b11.5rad/s,linear\u00b1.1m/s; same noise then reclip",
+    "original actual control dt and first-action.01s behavior",
+    "observed_history/strict20\u201340ms/pending terminal boundary",
+    "sourceposes,240particle DFSPH/CFL,original23s and capture/spill/penetration gates",
+    "objective-only noninitialIK and original initializer; same raw IK journal,actualpath/poses/counts",
+    "corridor receiver motion and arrival-triggered pulses",
+    "no state writes to live qpos/qvel/object/particle pose"
+  ],
+  "finite_step_bounds": {
+    "linear_m": "sqrt(3)*.1*actual_dt",
+    "angular_rad": "sqrt(3)*1.5*actual_dt",
+    "at_dt_p01_m": 0.0017320508075688774,
+    "at_dt_p01_rad": 0.02598076211353316,
+    "not_20mrad_bound": true
+  },
+  "added_measurement_only": [
+    "actual_anchor_positions Nx3",
+    "actual_anchor_quaternions_xyzw Nx4",
+    "actual_control_dts N"
+  ],
+  "cases": [
+    {
+      "case_id": "ur5e_script_expert_56002",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56002,
+      "label": "actual_anchor_script_expert_56002",
+      "configuration": "configurations/56002.json",
+      "policy": null
+    },
+    {
+      "case_id": "flexiv_script_expert_56002",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56002,
+      "label": "actual_anchor_script_expert_56002",
+      "configuration": "configurations/56002.json",
+      "policy": null
+    }
+  ],
+  "selection_scope": "OnlyUR5e/Flexiv script_expert seed56002: both previously failed known development cases, not new holdout, no seed search.",
+  "maximum_started": 2,
+  "cap_per_case": 1,
+  "retries": 0,
+  "all_STARTED_in_denominator": true,
+  "optimizer_steps": 0,
+  "training_updates": 0,
+  "new_formal_evaluation": 0,
+  "current_native_steps": 0,
+  "future_launch_conditions": [
+    "Original fixed20 allSTARTED closed, preserved all outcomes",
+    "Root reads and separately authorizes this candidate",
+    "Explicit disabledruntime flags changed only after root decision",
+    "Exclusive global/case launch gates; max2 once-only starts with at most2 concurrent CPU processes"
+  ],
+  "interpretation": "An execution-adapter semantic intervention. No native result, performance gain, BC advantage, OPD benefit or root-cause correction is claimed.",
+  "scheduling": {
+    "registered_utc": "2026-10-20T21:54:43.978834+00:00",
+    "old_prepared_order": "Two serial independent probes, never STARTED",
+    "new_predeclared_order": "At most2 concurrent CPU MuJoCo+Warp probes",
+    "max_concurrent": 2,
+    "per_process_threads": {
+      "OPENBLAS_NUM_THREADS": 1,
+      "OMP_NUM_THREADS": 1,
+      "MKL_NUM_THREADS": 1
+    },
+    "CUDA_VISIBLE_DEVICES": "",
+    "controller_task_training_changed": false,
+    "existing_once_per_case_and_all_STARTED_accounting_preserved": true,
+    "root_enable_required": true,
+    "native_steps_at_amendment": 0
+  }
+}

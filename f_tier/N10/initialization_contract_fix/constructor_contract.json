@@ -1,0 +1,109 @@
+{
+  "status": "REAL_CONSTRUCTOR_OLD_OVERLAP_NEW_NO_OVERLAP_PASS",
+  "real_native_env_configclass": "/home/liyufeng/safeduo_isaaclab/source/isaaclab/isaaclab/utils/configclass.py",
+  "public_powder_cfg": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/sources/matterix_public/source/matterix/matterix/particle_systems/powder_cfg.py",
+  "original_pure_grid_function": "/home/liyufeng/miniforge3/envs/safeduo/lib/python3.11/site-packages/isaacsim/extscache/omni.physx-107.3.26+107.3.3.lx64.r.cp311.u353/omni/physx/scripts/particleUtils.py",
+  "arguments": {
+    "old": {
+      "pos": [
+        0.3522008,
+        -0.0942352,
+        0.0812
+      ],
+      "volume": [
+        0.0555984,
+        0.0484704,
+        0.0099792
+      ]
+    },
+    "corrected": {
+      "pos": [
+        0.38,
+        -0.07,
+        0.08618959999999999
+      ],
+      "volume": [
+        0.0555984,
+        0.0484704,
+        0.0099792
+      ]
+    }
+  },
+  "constructor_lower_m": {
+    "old": [
+      0.32440159999999996,
+      -0.1184704,
+      0.0762104
+    ],
+    "corrected": [
+      0.3522008,
+      -0.0942352,
+      0.0812
+    ]
+  },
+  "metrics": {
+    "old": {
+      "count": 11200,
+      "center_inside_plate": 4200,
+      "rest_envelope_intersects_plate": 5600,
+      "minimum_m": [
+        0.3244015872478485,
+        -0.11847040057182312,
+        0.0762104019522667
+      ],
+      "maximum_m": [
+        0.3799999952316284,
+        -0.07000000029802322,
+        0.08618959784507751
+      ],
+      "mean_m": [
+        0.3521982431411743,
+        -0.09423559159040451,
+        0.08119993656873703
+      ],
+      "lowest_rest_clearance_m": -0.004502393305301666
+    },
+    "corrected": {
+      "count": 11200,
+      "center_inside_plate": 0,
+      "rest_envelope_intersects_plate": 0,
+      "minimum_m": [
+        0.35220080614089966,
+        -0.09423519670963287,
+        0.0812000036239624
+      ],
+      "maximum_m": [
+        0.40779921412467957,
+        -0.045764800161123276,
+        0.09117919951677322
+      ],
+      "mean_m": [
+        0.37999314069747925,
+        -0.07000036537647247,
+        0.08618955314159393
+      ],
+      "lowest_rest_clearance_m": 0.00048720836639404297
+    }
+  },
+  "all_config_fields_except_pos_equal": {
+    "volume": true,
+    "color_rgb": true,
+    "transparent": true,
+    "particle_contact_offset": true,
+    "cohesion": true,
+    "viscosity": true,
+    "surface_tension": true,
+    "friction": true,
+    "cfl_coefficient": true,
+    "density": true,
+    "particle_mass": true
+  },
+  "spacing_m": 0.0014255999999999997,
+  "particle_mass_kg": 1e-06,
+  "count": 11200,
+  "native_rollouts": 0,
+  "physics_steps": 0,
+  "Kit_started": false,
+  "serialization_helpers_unused": true,
+  "scope": "PRE-reset constructor/grid geometry only. Corrected placement is intended center API use, not a claim of improved pickup/transfer or >=.7g. Prior saved scene was POST-reset and must not be called still penetrating."
+}

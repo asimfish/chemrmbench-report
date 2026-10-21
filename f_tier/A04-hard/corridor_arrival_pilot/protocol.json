@@ -1,0 +1,122 @@
+{
+  "registered_utc": "2026-10-20T20:51:40.597249+00:00",
+  "status": "AUTHORIZED_SINGLE_FIXED20_PENDING_WIRING_READBACK",
+  "maximum_proposed_starts": 20,
+  "paired_cases": {
+    "seeds": [
+      56001,
+      56002,
+      56003,
+      56004,
+      56005
+    ],
+    "robots": [
+      "ur5e",
+      "flexiv"
+    ],
+    "methods": [
+      "script_expert",
+      "old_BC3"
+    ],
+    "development_not_new_holdout": true,
+    "retry_budget": 0,
+    "all_started_in_denominator": true
+  },
+  "changed_task_definition": [
+    "Replacecirculartrajectoryandheadingwithgeometryderivedoutward1Dcorridor",
+    "Retainseededsignchangetimes; adddeterministicboundaryreflections",
+    "Actualreceiver24/240occupancyarrivaltriggersoriginal1or2sequential2N/.12spulses;noprefilled/pretimingfallback"
+  ],
+  "corridor": {
+    "range_m": [
+      0.0,
+      0.08
+    ],
+    "nominal_speed_m_s": 0.08,
+    "direction": "normalize(initialreceiverXY-mean(4shiftedrackgeomXY))",
+    "initial_direction": "outward",
+    "all_phases": "Motionactiveentire0..23s,includingpickup/return",
+    "unbounded_acceleration_corners_declared": true
+  },
+  "delay": {
+    "selection": "Realhistoryframeageinclusive20..40msnearestrequested,tienewer",
+    "condition": "learned_window OR pendinglearnedtransition",
+    "noeligible": "failclosedbeforelearnedaction/nextobsadmission",
+    "scripted_boundary": "Currentrealsnapshotonlywhennolearnedfeedbackandnopendingtransition",
+    "oldcandidate_reference": "../delay_sampler_fix",
+    "newterminal_transition_fix": true,
+    "not_exactrequested_age": true
+  },
+  "swept_geometry_screen": {
+    "continuous_corridor_segment_m": [
+      0.0,
+      0.08
+    ],
+    "native_outer_footprint": "Measuredfromcompilednativecupgeomcorners/bottom",
+    "rigid_tracking_translation_envelope_m": 0.02,
+    "rigid_upright_tilt_envelope_deg": 5.0,
+    "envelope_assumption": "Declaredscreeningbound,notvalidatedactualtracking;2N/200Npm=10mmservooffset,80mmps*8/200=3.2mmdampinglag;20mmallowanceplus5degprojection",
+    "phases": "All0..23s; fullcorridorplusenvelope",
+    "robot": "Cartesianserialchainupperboundonly,noIK/nojointlimit/collisionfeasibilityclaim",
+    "unsafe_case_rule": "Reportunchanged,retainall5,noseed/levelsearch"
+  },
+  "unchanged": [
+    "sourceposes andrackshift",
+    "18Dobs/affineclippedteacher/frozenoldBC3weights",
+    "materials/initialfluid/noise/pulseforcevectorsdurations",
+    "objectiveonlynoninitialIK/originalinitializer",
+    "full23s/capture>=.8/spill<=.1/penetrations0andreceiverpath>=20mm"
+  ],
+  "prespecified_continuous_metrics": [
+    "native sourceunique10/90%times",
+    "native receiver10/80/90%occupancytimes+100Hzbrackets",
+    "time_to80/90fromt0anddeclared8.5sfeedbackstart",
+    "matchedseedBC3-expertlatenciesall5",
+    "source/receiverlandingwindowseparately",
+    "actualcupXYpath/displacementduringreceiver10..90window",
+    "pulseoverlap/landedduringpulse/fractionafterpulse",
+    "requestedandactualdelaydistributionincludingpendingnextobs"
+  ],
+  "binary_deadline_or_outcome_selected_cutoff": null,
+  "difficulty_target": {
+    "expert_rate_min": 0.9,
+    "old_BC3_rate_max": 0.6,
+    "pilot5_per_group_requirement": "expert5/5,oldBC3<=3/5",
+    "not_claimed_achieved": true
+  },
+  "new_training": 0,
+  "new_formal_evaluation": 0,
+  "GPU_contexts_created": 0,
+  "old_evidence_unchanged": true,
+  "maximum_started": 20,
+  "workers": 4,
+  "allow_retries": false,
+  "full_study_640": "NOT_STARTED",
+  "accounting": {
+    "primary_denominator": "EverySTARTEDincludinginterrupted/failed/missing",
+    "success": "rc0 AND uninterrupted AND originalphysicalgates AND originalpulsevalidity AND strictactualboundedageforactivefeedbackandpendingnextobs",
+    "no_automatic_training_or_formal_eval": true
+  },
+  "preparation_reference": "../corridor_arrival_prep/protocol.json",
+  "media_preselection": {
+    "seed": 56005,
+    "groups": "Allfour",
+    "retain_failed_or_partial_outcomes": true,
+    "registered_before_new_native_launch": true
+  },
+  "changes_relative_to_flow_aligned_pilot": [
+    "geometryderived1Dtrajectoryreplacingcircle/heading",
+    "source-departuretriggerreplacedbyactualreceiverarrivalcrossing",
+    "boundedrealobservedframehistoryselectorandpendingterminalnextobservation"
+  ],
+  "new_native_steps_at_registration": 0,
+  "continuous_timing_nonarrival_handling": {
+    "denominator": "EverySTARTED;all5casesperrobot/methodremainlisted",
+    "observed": "Nativeeventtimeandavailableobservationbracket",
+    "never_observed_or_early_abort": "NOT_REACHEDplusrecordedactualstoptimeandstop/censorreason;unknownactualendremainsexplicitunknown",
+    "paired_deltas": "Onlyifbotheventsobserved;reportnobservedpairs/all5andlistmissingseed/status,neverdropfailedcases",
+    "censoring_boundary": "Descriptiveendofobservationonly;noindependentcensorestimate",
+    "binary_deadline_added": false,
+    "failure_penalized_completion_score": "Notused;anyfuturecompositepenaltymustnotbecalledobservedeventtime"
+  }
+}

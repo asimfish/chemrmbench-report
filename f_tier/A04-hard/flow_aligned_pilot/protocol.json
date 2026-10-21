@@ -1,0 +1,106 @@
+{
+  "id": "A04_FLOW_ALIGNED_PAIRED_ENGINEERING_PILOT",
+  "status": "FROZEN_BEFORE_PREFLIGHT_OR_NATIVE",
+  "frozen_utc": "2026-10-20T19:23:53.679077+00:00",
+  "maximum_STARTED_native_subprocesses": 20,
+  "maximum_starts_per_case": 1,
+  "robots": [
+    "ur5e",
+    "flexiv"
+  ],
+  "methods": [
+    "script_expert",
+    "old_BC3"
+  ],
+  "seeds": [
+    56001,
+    56002,
+    56003,
+    56004,
+    56005
+  ],
+  "episodes_per_robot_method": 5,
+  "case_bank_scope": "All five previously frozen/legal development cases, paired engineering calibration. Not a new heldout test or new hard-trained BC3. Never select/reject cases from outcomes.",
+  "configuration_sources": "f_tier/A04-hard/calibration/configurations/{56001..56005}.json; byte-identical copies including unused old wall-clock push starts",
+  "baseline_policy_sources": {
+    "ur5e": "f_tier/A04/coupled_learning/ur5e/bc3.npz",
+    "flexiv": "f_tier/A04/coupled_learning/flexiv/bc3.npz"
+  },
+  "policies_frozen_as": "policies/{robot}_old_bc3.npz",
+  "prior_objective_variant": "f_tier/A04-hard/objective_only_native_regression; shared factory copied byte-identically",
+  "initializer": "Exact original Controller.solve(initial=True), including original4:1 objective and original initial-only starts; preflight equality for all10scenes.",
+  "noninitial_IK": "Validated objective-only position4->20 and weighted position gate.004->.020; original physical1mm/.02rad acceptance/localwarmstart/100nfev/.03buffer/.001jointregularizer/apply retained. No continuation/nullspace/joint-stepcap.",
+  "flow_trigger": {
+    "oracle": "Privileged simulator particle centers used only by benchmark perturbation; never added to18D policy observations/actions or teacher",
+    "particle_ids": "Stable original solver.x[i] index; hash grid does not reorder x",
+    "mouth_geometry": "Original tube-local open rim z=.082m=.002+.080 DFSPH vessel height; strict interpolated radial<.0085m same original source classifier; no radial padding",
+    "crossing": "Unique ID, previous local z<=.082 and current>.082; linear segment intersection inside opening. Finite-native-step observer, not exactcontinuous crossing. Log before/after local coordinates, interpolation and native time/step.",
+    "threshold_unique_particles": 24,
+    "native_monitor_window_s": [
+      8.5,
+      15.0
+    ],
+    "phases": [
+      "tilt",
+      "pour_hold",
+      "untilt"
+    ],
+    "why_not_nominal_tilt_only": "Old BC3 can start flow after11s; excluding hold/untilt would let late-flow students avoid perturbations",
+    "start": "At first native observation satisfying threshold; first original120ms pulse immediately, second if configured starts120ms later, never overlaps",
+    "amplitudes_duration_direction_count": "Each original case force vector2N and120ms duration, original1or2count and order unchanged; old wall-clock starts preserved as provenance only",
+    "fallback": "If no event before15s, no fixed-time push; recordNO_FLOW_EVENT, perturbation-validfalse, keep all STARTED in denominator. No reseeding or strength tuning.",
+    "pulse_end": "Complete scheduled pulses even if endafter15s; duration not truncated; report actual phases and timestamps",
+    "integration": "Same original native-start selection and full adaptive step integration; no new deadline splitting. Report completed native dt*force for every applied step and duration discrepancy.",
+    "gate": "Report original5physicalgates separately; calibration success additionally requires event and all nominal pulse intervals completed/applied. No invalid trial excluded."
+  },
+  "unchanged": [
+    "Exact five legal source/rack geometry and receiver initialization recipes",
+    "240particle3.75mL two-way CPUDFSPH and adaptiveCFL/23sfulltask",
+    "Receiver motion amplitude/speed2.5x/headings/reversals/motionforce/friction",
+    "Clipped affine teacher and18D currentgoalerror/feedforward state interface; learned6D action window8.5..15",
+    "Same nominal delaytick2..4 and exact action noise bank; verifier fresh",
+    "All scripted pickup/return and Cartesianpath phases; actualq/object/particles not overwritten during run"
+  ],
+  "delay_reporting": {
+    "requested_s": [
+      0.02,
+      0.04
+    ],
+    "actual_history_age": "Record all observation native times, selected historical native times and their difference; report min/median/p95/max and >40ms count. Requested ticks are not asserted actual delay bound.",
+    "prior_measured_max_s": 0.05064183784547005,
+    "zero_delay_policy_change": false
+  },
+  "local_physical_success_gates": {
+    "full_native_s": 23.0,
+    "receiver_fraction_min": 0.8,
+    "spill_fraction_max": 0.1,
+    "scope_container_bench_floor_penetrations_max": 0,
+    "receiver_xy_path_m_min": 0.02
+  },
+  "calibration_target": {
+    "expert_success_rate_min": 0.9,
+    "old_BC3_success_rate_max": 0.6,
+    "five_case_implication": "Per robot expert5/5 and oldBC3<=3/5; count originalphysical and event-validatedcalibration successes separately."
+  },
+  "attempt_accounting": "Every STARTED counts, including interruption/earlyfailure/missing metrics/noevent; max1start per20fixedcases. No retries or replacingfailedcases. Notstarted cases explicit if stopped.",
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "no_autoprogression": "No native launch until root has read READY preparation; no automatic formalstudy, policyfit or extra variants if ceiling/lowexpert persists.",
+  "resource_plan": {
+    "device": "cpu",
+    "GPU_contexts": 0,
+    "CUDA_VISIBLE_DEVICES": "",
+    "nice": 5,
+    "numerical_threads": 1,
+    "maximum_workers": 6,
+    "fresh_resource_check_before_launch": true,
+    "other_users": "External jobs unchanged and prioritized",
+    "duration_estimate": "One prior singleexpert run13.4min;20cases roughly45\u201390min at6workers depending sharedCPU. No host realtime claim."
+  },
+  "claim_boundary": [
+    "Paired engineering calibration, not a new researchmethod or generalization estimate",
+    "Affineclippedteacher plus rich18D errors/feedforward may still make oldBC3ceiling; reportwithout tuning",
+    "Oracle-triggered forces outcome-dependent, so same seed gives same recipe but not identical realized perturbationtime",
+    "Previous malformed/pilot/offline/regression results remain unchanged; no originalA04/Fscore modifications"
+  ]
+}

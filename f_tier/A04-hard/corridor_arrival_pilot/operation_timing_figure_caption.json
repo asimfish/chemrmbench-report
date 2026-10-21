@@ -1,0 +1,31 @@
+{
+  "title": "Prespecified continuous operation timing",
+  "decision": "ExpertcompetencetargetNOTMET;descriptivetimingonly",
+  "all_started": 20,
+  "event_time_scope": "80/90%first100Hzreceiveroccupancythreshold,bracketednativeclock,notexactcontinuousentrytime",
+  "groups": [
+    "UR5e Expert: 80% 3/5; 90% 3/5 | NR90 56001,56002",
+    "UR5e Old BC3: 80% 5/5; 90% 5/5",
+    "Flexiv Expert: 80% 2/5; 90% 1/5 | NR90 56001,56002,56003,56004",
+    "Flexiv Old BC3: 80% 3/5; 90% 0/5 | NR90 56001,56002,56003,56004,56005"
+  ],
+  "unavailable_matched_pairs": [
+    "ur5e 56001 receiver80",
+    "ur5e 56001 receiver90",
+    "ur5e 56002 receiver80",
+    "ur5e 56002 receiver90",
+    "flexiv 56001 receiver80",
+    "flexiv 56001 receiver90",
+    "flexiv 56002 receiver80",
+    "flexiv 56002 receiver90",
+    "flexiv 56003 receiver80",
+    "flexiv 56003 receiver90",
+    "flexiv 56004 receiver80",
+    "flexiv 56004 receiver90",
+    "flexiv 56005 receiver90"
+  ],
+  "missing_handling": "All5retained;NOT_REACHED+actualstop/reasoninoperation_timing.json;onlybothobservedpairshavenumericdelta;noimputed23sevent",
+  "no_deadline": true,
+  "no_significance_or_OPD_claim": true,
+  "new_native_steps": 0
+}

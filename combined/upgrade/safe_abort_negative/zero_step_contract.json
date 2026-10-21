@@ -1,0 +1,163 @@
+{
+  "status": "PREPARED_CPU_LOGIC_SOURCE_CHECKS_PASS",
+  "completed_utc": "2026-10-20T20:39:29.582155+00:00",
+  "checks": {
+    "original_stable_upright_and_spill_threshold_fixtures": true,
+    "invalid_diagnosis_rejected": true,
+    "exact_hold_allowed_five_unsafe_command_mutations_denied": true,
+    "bounded_inertia_formula_and_invalid_pulse_preconditions": true,
+    "actual_postpose_frame_response_gate_finite_ge1rad_s": true,
+    "native_source_fence_no_runtime_pose_velocity_or_mass_setter": true,
+    "installed_original_substep_write_path_reviewed_not_executed": true,
+    "prepared_only_one_negative_no_start_or_primary_denominator_change": true
+  },
+  "native_rollouts": 0,
+  "physics_steps": 0,
+  "Kit_started": false,
+  "GPU_jobs": 0,
+  "F_acceptance_runs": 0,
+  "verifier_fixtures": [
+    {
+      "input_changes": {},
+      "actual": "REPLAN_FROM_OBSERVED_POSE",
+      "expected": "REPLAN_FROM_OBSERVED_POSE"
+    },
+    {
+      "input_changes": {
+        "tilt_deg": 10.0
+      },
+      "actual": "REPLAN_FROM_OBSERVED_POSE",
+      "expected": "REPLAN_FROM_OBSERVED_POSE"
+    },
+    {
+      "input_changes": {
+        "tilt_deg": 10.001
+      },
+      "actual": "SAFE_ABORT_TIPPED_OR_SPILLED",
+      "expected": "SAFE_ABORT_TIPPED_OR_SPILLED"
+    },
+    {
+      "input_changes": {
+        "spill_particles": 1
+      },
+      "actual": "SAFE_ABORT_TIPPED_OR_SPILLED",
+      "expected": "SAFE_ABORT_TIPPED_OR_SPILLED"
+    },
+    {
+      "input_changes": {
+        "elapsed_since_loss_s": 0.499
+      },
+      "actual": null,
+      "expected": null
+    },
+    {
+      "input_changes": {
+        "stable_s": 0.249
+      },
+      "actual": null,
+      "expected": null
+    },
+    {
+      "input_changes": {
+        "table_support_present": false
+      },
+      "actual": null,
+      "expected": null
+    },
+    {
+      "input_changes": {
+        "speed_m_s": 0.01
+      },
+      "actual": null,
+      "expected": null
+    },
+    {
+      "input_changes": {
+        "angular_speed_rad_s": 0.1
+      },
+      "actual": null,
+      "expected": null
+    }
+  ],
+  "synthetic_inertia_fixture_plan": {
+    "inertia_body_COM_kg_m2": [
+      [
+        8e-05,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        8e-05,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        6e-05
+      ]
+    ],
+    "inertia_eigenvalues_kg_m2": [
+      6e-05,
+      8e-05,
+      8e-05
+    ],
+    "original_omega_body_rad_s": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "target_omega_body_rad_s": [
+      -20.08603246549902,
+      0.0,
+      0.0
+    ],
+    "target_angle_freeflight_proxy_rad": 1.5707963267948968,
+    "torque_body_Nm": [
+      -0.09641295583439531,
+      0.0,
+      0.0
+    ],
+    "angular_impulse_body_Nms": [
+      -0.0016068825972399218,
+      0.0,
+      0.0
+    ],
+    "force_body_N": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pulse_native_steps": 5,
+    "pulse_duration_s": 0.016666666666666666,
+    "actual_clearance_m": 0.08,
+    "actual_vertical_velocity_m_s": -0.5,
+    "remaining_fall_time_proxy_s": 0.08653674804417735,
+    "target_rotational_energy_J": 0.01613794800820323,
+    "initial_rotational_energy_J": 0.0,
+    "API_coordinates": "pure torque about COM, body-prim/local axes; inertia9 column-major, no additional principal-axis quaternion rotation",
+    "model_limits": "Ballistic rigid-body estimate, not a guaranteed final attitude or calibrated PBD two-way impulse model."
+  },
+  "rejected_pulse_fixtures": [
+    {
+      "clearance_m": 0.049
+    },
+    {
+      "both_contacts_lost": false
+    },
+    {
+      "support_absent": false
+    },
+    {
+      "vertical_velocity_m_s": -10.0
+    },
+    {
+      "mass_kg": 3.0
+    },
+    {
+      "fixture": "large_inertia_torque_or_energy_bound"
+    }
+  ],
+  "physical_claim_boundary": "These tests establish only formula, logical fences and installed source call-path compatibility. No real inertia, torque response, falling cup, spill, SAFE_ABORT branch or render has been observed for this new negative.",
+  "root_readback_required": true
+}

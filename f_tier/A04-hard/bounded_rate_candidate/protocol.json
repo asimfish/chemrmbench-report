@@ -1,0 +1,103 @@
+{
+  "registered_utc": "2026-10-20T23:30:46.151529+00:00",
+  "status": "PREPARED_ONLY_OFFLINE_NOT_AUTHORIZED_TO_LAUNCH",
+  "scope": "Two robots x two execution interfaces; at most 2 native seconds/case, known peak-rate saved initial states; component diagnostic only",
+  "inputs": "initial_states.json",
+  "cases": "casebank.json",
+  "source_equality": "source_equality.json",
+  "runtime_switch": "runtime_switch.json",
+  "maximum_started": 4,
+  "maximum_workers": 2,
+  "maximum_native_duration_s_per_case": 2.0,
+  "zero_native_in_preparation": true,
+  "GPU": false,
+  "CUDA_VISIBLE_DEVICES": "",
+  "threads": {
+    "BLAS": 1,
+    "OMP": 1,
+    "MKL": 1
+  },
+  "nice": 5,
+  "initialization": "Same exact archived peak-state full native_qpos/native_qvel and prior cached IK seed for each paired robot; no initializer IK or state correction; gripper command255",
+  "initial_velocity": "Preserve all recorded velocities, including values already exceeding official references. Initial exceedance is reported, not erased or a reason to remove a case.",
+  "missing_state": "Archived qacc_warmstart/act/ctrl/contact solver state not available; MjData defaults retained, except explicit gripper255. This is not an exact dynamical replay.",
+  "physics": "Byte-identical saved XML, original .002s implicitfast MuJoCo, mj_step then mj_forward. No Warp/fluid/receiver external drive/pushes/new delayed observations/teacher/policy.",
+  "control_schedule": "First control at restored native time; use archived peak actual_control_dt for that first target/FF. Thereafter every5 native steps=.010s, held FF unchanged between solves. Stop after1000 steps or first failed control/gate/native exception.",
+  "world_twist": "Fix the same archived postnoise executed action rotated by its original historical action basis; no new observations, action changes, labels or clipping changes",
+  "Cartesian_target": "At each control, position=actual_site+dt*v_world; rotation=Exp(dt*w_world)*actual_site_rotation. Same target construction for both variants.",
+  "old_interface": "Byte-identical objective-only noninitial IK (positionweight20, orientation1, cached-q .001, one cached start,100nfev, strict1mm/.02rad) plus byte-identical held FF and original apply body.",
+  "bounded_interface": "One lsq_linear fit min||[20Jp;Jw;.001I]qdot-[20v;w;0]||; bounds=officialvmax intersect originallocalMJCF0.03rad buffer Euler step. qIK_local=actual_q+dt*qdot_fit. Exactly one candidate scratch FK, require original strict1mm/.02rad against same Cartesian target; fail closed/no fallback.",
+  "bounded_solver": {
+    "method": "trf",
+    "lsq_solver": "exact",
+    "tol": 1e-10,
+    "max_iter": 100
+  },
+  "held_FF": "Original prepare_held(qIK_local,actual_q,dt,Kp,Kv); equivalent qdot to fitted value within roundoff. Held actuation nominal=qIK_local+(Kv/Kp)*qdot. Original bias-passive compensation, ctrl clipping and XML force limits remain. Kinematic cache separate from temporary actuation nominal.",
+  "pose_gate": {
+    "position_error_m_strict": 0.001,
+    "orientation_error_rad_strict": 0.02,
+    "failure": "Record failed attempt and stop; no relaxing/retargeting/retry"
+  },
+  "velocity_limits": {
+    "ur5e": {
+      "vmax_rad_s": [
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793
+      ],
+      "joint_names": [
+        "shoulder_pan_joint",
+        "shoulder_lift_joint",
+        "elbow_joint",
+        "wrist_1_joint",
+        "wrist_2_joint",
+        "wrist_3_joint"
+      ],
+      "source": "https://raw.githubusercontent.com/UniversalRobots/Universal_Robots_ROS2_Description/f90e50e27036f285c9fb0ab2efbb5e10e69438ad/config/ur5e/joint_limits.yaml",
+      "source_units": "!degrees 180.0 for all six; converted to pi rad/s"
+    },
+    "flexiv": {
+      "vmax_rad_s": [
+        2.0944,
+        2.0944,
+        2.4435,
+        2.4435,
+        4.8869,
+        4.8869,
+        4.8869
+      ],
+      "joint_names": [
+        "joint1",
+        "joint2",
+        "joint3",
+        "joint4",
+        "joint5",
+        "joint6",
+        "joint7"
+      ],
+      "source": "https://raw.githubusercontent.com/flexivrobotics/flexiv_description/920f4effba3f04acde78e6e79293a60093e60416/config/Rizon4/joint_limits.yaml",
+      "source_units": "rad/s; fixed decimal public values"
+    }
+  },
+  "position_limits": "Original MJCF joint range with0.03rad buffer; no substitution of official soft/planning position limits",
+  "unknown_acceleration": "No verified acceleration limits; no guessed acceleration constraint",
+  "records": [
+    "Per-axis requested/actual rates vs officialvmax, initial exceedances included",
+    "Each solve accepted/rejected and original Cartesian step residual",
+    "Per-native-step actual Cartesian target error and separate constant-twist integrated-reference error",
+    "Original ctrl-range clipping, actual actuator/joint-force limits and observed forces",
+    "All started/failed/interrupted cases retained, native stop time and reason"
+  ],
+  "interpretation": [
+    "Euler joint-position bounds do not establish nonlinear/dynamical safety",
+    "Command rate bounds do not guarantee actual rate bounds, especially with initially excessive true velocity",
+    "Two-second native completion is not full-task, pouring, returned-pose, F-tier, DAgger, OPD or ICL success",
+    "No delay/teacher/18D/task experiment is changed; full23s and fixed20 pilot remain unauthorized",
+    "No tuning, branch search, parameter scan, seed deletion or retry"
+  ],
+  "launch_conditions": "Parent reads protocol/source/exact_solver_changes.patch, writes explicit root_readback and enables all3 runtimeflags; fresh CPU resource admission then run_once.py --execute-reviewed-once. No automatic launch."
+}

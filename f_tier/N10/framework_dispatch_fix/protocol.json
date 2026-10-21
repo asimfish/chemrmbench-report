@@ -1,0 +1,156 @@
+{
+  "id": "N10_observed_bed_native",
+  "status": "IMPLEMENTED_PRELAUNCH_REVIEW_NO_NATIVE_STARTED",
+  "scope": "Bounded existing N10 simulation reproduction/controller engineering; no RobotRSI/OPD experiment.",
+  "nominal_trial_label": 1810,
+  "explicit_backend_rng_seed": null,
+  "maximum_positive_started": 1,
+  "maximum_negative_started": 1,
+  "retry_after_start_failure": false,
+  "maximum_cycles": 5,
+  "physics_base": "source_snapshot/base_protocol.json",
+  "collision_geometry_mode": "fixed_67_local_panels",
+  "local_F_gates": [
+    "Complete fixed5cycle positive and5cycle no-scoop paths, report everycycle; fixed particle count/finite native states and native clock error<=2e-5s.",
+    "At least one physically lifted payload>=50grains and one receivertransfer>=50grains; final receiver parameter mass>=.7g (small100\u2013500mg scale checks failed; no extrapolated precision claim).",
+    "Final parameter mass ledger<=1%,independent pre/post spring scale versus receivercount*configuredmass within10%; count does not enter scale formula.",
+    "No-scoop negative ends with<=1% ofstock inreceiver and no verified lifted payload.",
+    "Decodable native-state video with all physical/configuration/measurement differences disclosed."
+  ],
+  "invariants": {
+    "initial_grains": 11200,
+    "grain_parameter_mass_kg": 1e-06,
+    "original_total_parameter_mass_kg": 0.0112,
+    "original_PowderCfg": "Unchanged material, friction, mass, spacing, rest/contact offsets and inactive-on-solids cohesion.",
+    "spoon": "Unchanged original visible STL, same67 explicit convex panel colliders,150g ready-mounted body, existing contact/rest offsets.",
+    "entry_pitch_deg": 15.0,
+    "mesh_target_floor_clearance_m": 0.0005,
+    "pre_level_vertical_lift_m": 0.02,
+    "nominal_native_dt_s": 0.0033333333333333335,
+    "joint_command_rate_rad_s": 0.7,
+    "phase_timeout_s": 15.0,
+    "native_budget_s": 420.0,
+    "scale_gain_kg_per_m": 100.25975050422052,
+    "scale_offset_kg": 0.0,
+    "scale_formula": "Original independent known-load calibration times same-world empty-cup pre-tare minus platform Z. Particle observations never enter weighing.",
+    "final_receiver_mass_min_kg": 0.0007,
+    "true_CAD_payload_min_grains": 50,
+    "receiver_transfer_min_grains": 50,
+    "weighing_relative_error_max": 0.1,
+    "mass_ledger_relative_error_max": 0.01,
+    "native_clock_error_max_s": 2e-05,
+    "no_runtime_particle_or_object_pose_writes": true
+  },
+  "source_lane_centers_x_m": [
+    0.335,
+    0.35,
+    0.365,
+    0.38,
+    0.395,
+    0.41,
+    0.425
+  ],
+  "positive_fixed_rule": [
+    "At most one choice per cycle, no retries within a cycle.",
+    "Exclude previously chosen lane centers. For each remaining center, count currently eligible grains outside the union of prior XY corridor footprints.",
+    "Rank descending new spatial grains, then descending total eligible grains, then ascending abs(x-.38), then ascending x. No random tie breaking.",
+    "If best new spatial count<50, safe-stop incomplete/failed; do not pretend five cycles completed or relax the rule.",
+    "Otherwise translate only source-stage X and execute that one unchanged spoon motion; record choice, all seven scores, fresh observation step/time, and all outcomes."
+  ],
+  "positive_policy_code": "source_snapshot/selector.py::select_lane",
+  "negative_intervention": {
+    "type": "PREDECLARED_PAIRED_NO_SOURCE_CONTACT_INTERVENTION",
+    "admission": "Only after one positive completes all original five-cycle,functional,weighing,clock,finite/video gates.",
+    "lane_sequence": "Freeze exactly the successful positive actual selected X order; no negative reselection.",
+    "source_motion": "Existing raised120mm no-scoop Cartesian template with its original descent interpolation; fixed prechecked raised_negative joint paths.",
+    "fresh_novelty": "Record all seven scores and selected-lane fresh novelty every negative cycle, but do not use novelty to select or stop the negative.",
+    "interpretation": "Predefined intervention on adaptive decisions isolates source contact; not an independent evaluation of the same adaptive policy.",
+    "all_other_gates": "Same physical stock/material/geometry/calibration,home guard,15s phases,420s control budget,five cycles,finite/clock/no-verified-payload and<=1%receiver negative gates. Any failure retained,no retry."
+  },
+  "home_guard": {
+    "reference": "Original initial known-home joint vector; same Cartesian/joint goal for initial,cycle_complete,final_settle.",
+    "native_joint_mapping": "Resolve panda_joint1..7 using runtime robot.joint_names; leave both prismatic fingers and original .04m commands unchanged.",
+    "joint_error_envelope_rad": 0.011666666666666667,
+    "derivation": ".7rad/s * 5*(1/300)s = .7/60rad per revolute arm joint only.",
+    "last_command": "Exact native-float32 known-home representation, not actual-q==home.",
+    "cartesian_threshold_m": 0.0025,
+    "orientation_threshold_rad": 0.03,
+    "original_settling_s": {
+      "initial": 0.2,
+      "cycle_complete": 0.5,
+      "final_settle": 3.0
+    },
+    "phase_timeout_s": 15.0,
+    "control_budget_s": 420.0,
+    "hold": "Same home goal and original command limiter from prior command; no actual state write,new segment or timer reset.",
+    "same_sample": "Publish only before any further sim.step using gate receipt with the exact current(control_id,native_step,segment_id). Read particle positions/velocities in that same paused-between-steps world sample.",
+    "new_segment_first_reference": "Leave last commanded joint reference at known home. Do not seed it from observed actual q.",
+    "nonclaim": "Tracking/readiness guard, not a proof of all-link collision/dynamic safety."
+  },
+  "native_dt_s": 0.0033333333333333335,
+  "control_stride_steps": 5,
+  "native_budget_s": 420.0,
+  "phase_timeout_s": 15.0,
+  "particle_observation_stride_steps": 30,
+  "video_fps": 2,
+  "tare_native_steps": 600,
+  "clock_scope": "Original420s control budget after600 tare steps; callback/native clock includes tare. Pauses keep same world and count in full wall time.",
+  "original_F_thresholds": {
+    "true_CAD_lifted_grains_min": 50,
+    "bbox_lifted_grains_min": 50,
+    "receiver_cycle_delta_min": 50,
+    "positive_final_receiver_kg_min": 0.0007,
+    "weighing_relative_error_max": 0.1,
+    "mass_ledger_relative_error_max": 0.01,
+    "clock_error_s_max": 2e-05,
+    "negative_receiver_stock_fraction_max": 0.01,
+    "negative_verified_payload_grains_exclusive_max": 50
+  },
+  "initialization": "Same original scene initialization/reset once before clock subscription; no actual joint/object/particle state writes during tare/control/recovery.",
+  "source_snapshot_manifest": "source_snapshot/manifest.json",
+  "declared_differences": [
+    "Selecting a fuller/fresh source region may not fix spoon retention, clearance or powder contact mechanics. Existing first cycle already captured119 grains but only60 reached the cup; no claim this rule reaches.7g.",
+    "Saved observations come from the old fixed schedule. Replay evaluates deterministic decision behavior only; later old states are not outcomes of candidate actions.",
+    "Geometric swept-occupancy is not collision impulse, captured amount, guaranteed supply or success. Prior spatial coverage is not a particle-identity depletion ledger.",
+    "Source counts now affect source location, so the old no-count-in-control claim must be removed in any future native report. Count remains excluded from scale calculation.",
+    "Original force/scale precision limitations and prior failed weighing remain; cup-external powder on the platform must be reported separately, never corrected using particle counts.",
+    "Uniform known-home joint reference includes final_settle; old final Cartesian home used a different redundant IK solution.",
+    "Original material sources,11200initial grains/11.2g,150g tool,67panel geometry,calibration and F gates remain fixed.",
+    "One positive and at most one conditional negative only; no success-rate or adaptive-policy generalization claim.",
+    "Old failed native attempts and old selector counterfactual remain unchanged."
+  ],
+  "framework_integration_repair": {
+    "predeclared_utc": "2026-10-20T19:28:39.619246+00:00",
+    "predecessor": "f_tier/N10/observed_bed_native",
+    "predecessor_attempt_status": "FAILED_NATIVE_FUNCTION, source_high original15s timeout,0/5cycles; remains in cumulative denominator",
+    "causal_change": "Explicit original MoveToPose.from_cfg for ordinary nodes; explicit guarded instances only for home nodes. No generic registry config dispatch.",
+    "measurement_only": [
+      "Exact same-sample decision points and velocities retained before selector invocation",
+      "Explicit same-step terminal control observation retained with logical flags; no extra physics"
+    ],
+    "all_material_geometry_policy_control_and_F_thresholds_unchanged": true,
+    "budget": "At most one additional positive STARTED in this distinct integration repair; one predeclared matched negative only after CLOSED all-gate positive; failure no retry/tuning",
+    "measurement_schema": {
+      "decision_observations.npz": [
+        "step",
+        "native_s",
+        "control_id",
+        "segment_id",
+        "points(N,11200,3)",
+        "velocities(N,11200,3)"
+      ],
+      "decision_observations.json": "list[index,control_sample_token,native_s,physics_steps_since_gate=0]",
+      "terminal_control_observation.json": "Complete non-deduplicated actual row+same-step token+logical flags+measurement_only+extra_physics_steps=0",
+      "terminal_control_particles.npz": [
+        "step",
+        "native_s",
+        "control_id",
+        "segment_id",
+        "points(11200,3)",
+        "velocities(11200,3)",
+        "spoon_pose_xyzw",
+        "receiver_pose_xyzw"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2888 @@
+{
+  "status": "ONE_FINAL_ALL20_TIMING_DIAGNOSTIC_COMPLETE",
+  "episodes": 20,
+  "particle_count": 240,
+  "particle_mass_g": 0.015625000000000003,
+  "receiver_inner_radius_m": 0.042,
+  "receiver10to90_windows_reached": 20,
+  "recorded_pulses": 24,
+  "pulses_overlapping_receiver10to90_window": 4,
+  "estimated_fraction_final_transfer_after_pulse_min_max": [
+    0.7239729520803552,
+    0.9826248257436063
+  ],
+  "receiver_XY_path_over_radius_min_max": [
+    0.08548214946229166,
+    0.46275910173022944
+  ],
+  "records": [
+    {
+      "case_id": "ur5e_script_expert_56001",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56001,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000408044817437,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.391585509032328,
+          "native_step": 5256,
+          "interpolated_crossing_native_s": 10.391097238658153
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.69120407462651,
+          "native_step": 5900,
+          "interpolated_crossing_native_s": 10.691121142486766
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.2996185655941819
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.570063157350114,
+          "preceding_sample_native_s": 10.560150105332372,
+          "sample_bracket_s": [
+            10.560150105332372,
+            10.570063157350114
+          ],
+          "preceding_count": 20.0,
+          "observed_count": 26.0,
+          "index": 1056,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.860383819888039,
+          "preceding_sample_native_s": 10.85003353470277,
+          "sample_bracket_s": [
+            10.85003353470277,
+            10.860383819888039
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 219.0,
+          "index": 1085,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.00717614931480898,
+        "actual_observed_XY_path_m": 0.007224050531581914,
+        "displacement_over42mm_radius": 0.17086069797164236,
+        "path_over42mm_radius": 0.1720012031329027,
+        "observed_duration_s": 0.29032066253792443,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.391585509032328,
+        10.853767023195427
+      ],
+      "existing_native_receiver90_observation_s": 10.853767023195427,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.9760572112973436,
+            -0.3085415655625112
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.391585509032328,
+          "actual_end_native_s": 10.511896496074383,
+          "actual_applied_duration_s": 0.12031098704205512,
+          "force_component_impulse_xy_Ns": [
+            -0.23774139354275425,
+            -0.03712094029632668
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 6,
+          "last_logged_force_step_start_native_s": 10.51146229766064,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004341984137425925,
+          "measured_logged_prefix_net_received_particles": 6,
+          "measured_logged_prefix_net_received_mass_g": 0.09375000000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.510154068823036,
+              10.520004383244869
+            ],
+            "counts": [
+              4.0,
+              8.0
+            ],
+            "linear_interpolation_count": 4.70756208450984
+          },
+          "estimated_whole_pulse_net_received_particles": 4.70756208450984,
+          "estimated_whole_pulse_net_received_mass_g": 0.07355565757046627,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.980385157981209,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.391585509032328,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.010855689812362072,
+            0.001711077656094774
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.010989712828250266,
+          "descriptive_first_1mm_displacement_native_s": 10.420586736302216,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.02900122726988741,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.420586736302216,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_old_BC3_56001",
+      "robot": "ur5e",
+      "method": "old_BC3",
+      "seed": 56001,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000397102799305,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.879488426783295,
+          "native_step": 5490,
+          "interpolated_crossing_native_s": 10.878719364667592
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.179842652380005,
+          "native_step": 6141,
+          "interpolated_crossing_native_s": 11.179802252007976
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.30035422559670977
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.060024882149989,
+          "preceding_sample_native_s": 11.050116830778734,
+          "sample_bracket_s": [
+            11.050116830778734,
+            11.060024882149989
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 27.0,
+          "index": 1105,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.350371599409122,
+          "preceding_sample_native_s": 11.340031922846554,
+          "sample_bracket_s": [
+            11.340031922846554,
+            11.350371599409122
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 219.0,
+          "index": 1134,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.0032392635150028277,
+        "actual_observed_XY_path_m": 0.00359025027741625,
+        "displacement_over42mm_radius": 0.0771253217857816,
+        "path_over42mm_radius": 0.08548214946229166,
+        "observed_duration_s": 0.2903467172591334,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.879488426783295,
+        11.34209326454697
+      ],
+      "existing_native_receiver90_observation_s": 11.34209326454697,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.9760572112973436,
+            -0.3085415655625112
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.879488426783295,
+          "actual_end_native_s": 10.999511518870795,
+          "actual_applied_duration_s": 0.12002309208750006,
+          "force_component_impulse_xy_Ns": [
+            -0.23717249664170953,
+            -0.037032112736330725
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 5,
+          "last_logged_force_step_start_native_s": 10.999085009807484,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00042650906331154204,
+          "measured_logged_prefix_net_received_particles": 5,
+          "measured_logged_prefix_net_received_mass_g": 0.07812500000000001,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.990399029861786,
+              11.000362428314661
+            ],
+            "counts": [
+              4.0,
+              5.0
+            ],
+            "linear_interpolation_count": 4.914596465464026
+          },
+          "estimated_whole_pulse_net_received_particles": 4.914596465464026,
+          "estimated_whole_pulse_net_received_mass_g": 0.07679056977287542,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9795225147272332,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.879488426783295,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.007488546702190571,
+            0.008993859865854239
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.01170332632192715,
+          "descriptive_first_1mm_displacement_native_s": 10.910635318026817,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.031146891243521324,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.900273728159972,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_script_expert_56001",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56001,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000178919294687,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.403489604870225,
+          "native_step": 5285,
+          "interpolated_crossing_native_s": 10.403391743012813
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.712448734774497,
+          "native_step": 5945,
+          "interpolated_crossing_native_s": 10.712104849354043
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.308959129904272
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.570180820958505,
+          "preceding_sample_native_s": 10.560173334769738,
+          "sample_bracket_s": [
+            10.560173334769738,
+            10.570180820958505
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 25.0,
+          "index": 1056,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.870302269881007,
+          "preceding_sample_native_s": 10.860398625847552,
+          "sample_bracket_s": [
+            10.860398625847552,
+            10.870302269881007
+          ],
+          "preceding_count": 214.0,
+          "observed_count": 216.0,
+          "index": 1086,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.007533694192449238,
+        "actual_observed_XY_path_m": 0.007589189195042813,
+        "displacement_over42mm_radius": 0.17937367124879136,
+        "path_over42mm_radius": 0.18069498083435268,
+        "observed_duration_s": 0.3001214489225017,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.403489604870225,
+        10.867162301082873
+      ],
+      "existing_native_receiver90_observation_s": 10.867162301082873,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.9760572112973436,
+            -0.3085415655625112
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.403489604870225,
+          "actual_end_native_s": 10.523707339051317,
+          "actual_applied_duration_s": 0.12021773418109127,
+          "force_component_impulse_xy_Ns": [
+            -0.23755712055437259,
+            -0.03709216791261173
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 7,
+          "last_logged_force_step_start_native_s": 10.523275977656017,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00043136139530020046,
+          "measured_logged_prefix_net_received_particles": 7,
+          "measured_logged_prefix_net_received_mass_g": 0.10937500000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.5202339786103,
+              10.530083496814946
+            ],
+            "counts": [
+              6.0,
+              10.0
+            ],
+            "linear_interpolation_count": 7.410570697510304
+          },
+          "estimated_whole_pulse_net_received_particles": 7.410570697510304,
+          "estimated_whole_pulse_net_received_mass_g": 0.11579016714859852,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.969122622093707,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.403489604870225,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.011537872667818269,
+            0.0015030471498361923
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.01163536232497375,
+          "descriptive_first_1mm_displacement_native_s": 10.430304074284264,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.0268144694140382,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.430304074284264,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_old_BC3_56001",
+      "robot": "flexiv",
+      "method": "old_BC3",
+      "seed": 56001,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.00060515642237,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.970349361497048,
+          "native_step": 5598,
+          "interpolated_crossing_native_s": 10.969791889130466
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.431987801188413,
+          "native_step": 6632,
+          "interpolated_crossing_native_s": 11.431807598323992
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.46163843969136487
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.14006895470226,
+          "preceding_sample_native_s": 11.13024701736896,
+          "sample_bracket_s": [
+            11.13024701736896,
+            11.14006895470226
+          ],
+          "preceding_count": 21.0,
+          "observed_count": 26.0,
+          "index": 1113,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.590009652251313,
+          "preceding_sample_native_s": 11.580049076972639,
+          "sample_bracket_s": [
+            11.580049076972639,
+            11.590009652251313
+          ],
+          "preceding_count": 214.0,
+          "observed_count": 216.0,
+          "index": 1158,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.002730314353739504,
+        "actual_observed_XY_path_m": 0.005044058057527365,
+        "displacement_over42mm_radius": 0.06500748461284533,
+        "path_over42mm_radius": 0.12009662041731822,
+        "observed_duration_s": 0.44994069754905297,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.970349361497048,
+        11.585926578837247
+      ],
+      "existing_native_receiver90_observation_s": 11.585926578837247,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.9760572112973436,
+            -0.3085415655625112
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.970349361497048,
+          "actual_end_native_s": 11.090512602293103,
+          "actual_applied_duration_s": 0.1201632407960549,
+          "force_component_impulse_xy_Ns": [
+            -0.23744943850790343,
+            -0.03707535443827981
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 12,
+          "last_logged_force_step_start_native_s": 11.090075457197406,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004371450956970335,
+          "measured_logged_prefix_net_received_particles": 12,
+          "measured_logged_prefix_net_received_mass_g": 0.18750000000000006,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.090075457197406,
+              11.100393679349537
+            ],
+            "counts": [
+              12.0,
+              14.0
+            ],
+            "linear_interpolation_count": 12.084732638869719
+          },
+          "estimated_whole_pulse_net_received_particles": 12.084732638869719,
+          "estimated_whole_pulse_net_received_mass_g": 0.1888239474823394,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9496469473380428,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.970349361497048,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.005329489666997508,
+            0.007121314735820608
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.008894750343727977,
+          "descriptive_first_1mm_displacement_native_s": 11.000327021565154,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.02997766006810565,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.990162750432534,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_script_expert_56002",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56002,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000398469751072,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.391872079984184,
+          "native_step": 5274,
+          "interpolated_crossing_native_s": 10.391409136687528
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.687177376597193,
+          "native_step": 5911,
+          "interpolated_crossing_native_s": 10.687010120991047
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.29530529661300875
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.570324435852234,
+          "preceding_sample_native_s": 10.560025174222604,
+          "sample_bracket_s": [
+            10.560025174222604,
+            10.570324435852234
+          ],
+          "preceding_count": 22.0,
+          "observed_count": 26.0,
+          "index": 1056,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.85026046896304,
+          "preceding_sample_native_s": 10.840296955242852,
+          "sample_bracket_s": [
+            10.840296955242852,
+            10.85026046896304
+          ],
+          "preceding_count": 212.0,
+          "observed_count": 216.0,
+          "index": 1084,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.004473085711777364,
+        "actual_observed_XY_path_m": 0.004778873195891935,
+        "displacement_over42mm_radius": 0.10650204075660391,
+        "path_over42mm_radius": 0.11378269514028416,
+        "observed_duration_s": 0.27993603311080584,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.391872079984184,
+        10.849015806080143
+      ],
+      "existing_native_receiver90_observation_s": 10.849015806080143,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.8913757333826395,
+            0.6501521630905203
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.391872079984184,
+          "actual_end_native_s": 10.512003008713457,
+          "actual_applied_duration_s": 0.12013092872927267,
+          "force_component_impulse_xy_Ns": [
+            -0.22721272342726562,
+            0.07810338316740967
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 5,
+          "last_logged_force_step_start_native_s": 10.511576303269994,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004267054434627937,
+          "measured_logged_prefix_net_received_particles": 5,
+          "measured_logged_prefix_net_received_mass_g": 0.07812500000000001,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.51029034499114,
+              10.520390977659156
+            ],
+            "counts": [
+              5.0,
+              8.0
+            ],
+            "linear_interpolation_count": 5.50868013280213
+          },
+          "estimated_whole_pulse_net_received_particles": 5.50868013280213,
+          "estimated_whole_pulse_net_received_mass_g": 0.0860731270750333,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9770471661133244,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.391872079984184,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.014923216782046953,
+            -0.0024004819646783076
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.015115049215490952,
+          "descriptive_first_1mm_displacement_native_s": 10.410648059738744,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.018775979754559913,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.410648059738744,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_old_BC3_56002",
+      "robot": "ur5e",
+      "method": "old_BC3",
+      "seed": 56002,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000045445875198,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.801962942341719,
+          "native_step": 5471,
+          "interpolated_crossing_native_s": 10.801448778319344
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.204529469522035,
+          "native_step": 6374,
+          "interpolated_crossing_native_s": 11.20421996777912
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.4025665271803156
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.990358835585662,
+          "preceding_sample_native_s": 10.980202590539754,
+          "sample_bracket_s": [
+            10.980202590539754,
+            10.990358835585662
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 26.0,
+          "index": 1098,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.38004185248444,
+          "preceding_sample_native_s": 11.370000979681778,
+          "sample_bracket_s": [
+            11.370000979681778,
+            11.38004185248444
+          ],
+          "preceding_count": 214.0,
+          "observed_count": 216.0,
+          "index": 1137,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.008241969080827449,
+        "actual_observed_XY_path_m": 0.00835604967837747,
+        "displacement_over42mm_radius": 0.1962373590673202,
+        "path_over42mm_radius": 0.19895356377089213,
+        "observed_duration_s": 0.38968301689877904,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.801962942341719,
+        11.375434691418455
+      ],
+      "existing_native_receiver90_observation_s": 11.375434691418455,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.8913757333826395,
+            0.6501521630905203
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.801962942341719,
+          "actual_end_native_s": 10.922392563369717,
+          "actual_applied_duration_s": 0.12042962102799848,
+          "force_component_impulse_xy_Ns": [
+            -0.22777766279282385,
+            0.0782975786115248
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 8,
+          "last_logged_force_step_start_native_s": 10.921954266644232,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00043829672548589826,
+          "measured_logged_prefix_net_received_particles": 8,
+          "measured_logged_prefix_net_received_mass_g": 0.12500000000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.920289359362373,
+              10.930151018577531
+            ],
+            "counts": [
+              8.0,
+              9.0
+            ],
+            "linear_interpolation_count": 8.213270805800263
+          },
+          "estimated_whole_pulse_net_received_particles": 8.213270805800263,
+          "estimated_whole_pulse_net_received_mass_g": 0.12833235634062914,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9657780383091655,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.801962942341719,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.008674247578926588,
+            -0.012576242913740716
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.01527758020387808,
+          "descriptive_first_1mm_displacement_native_s": 10.820156647696011,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.018193705354292433,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.83029544469875,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_script_expert_56002",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56002,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001176626909764,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.409926564490014,
+          "native_step": 5289,
+          "interpolated_crossing_native_s": 10.409423909770082
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.725241551804345,
+          "native_step": 5970,
+          "interpolated_crossing_native_s": 10.724883991863939
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3153149873143306
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.580294603378492,
+          "preceding_sample_native_s": 10.570249946091934,
+          "sample_bracket_s": [
+            10.570249946091934,
+            10.580294603378492
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 26.0,
+          "index": 1057,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.880129034924778,
+          "preceding_sample_native_s": 10.870308762656226,
+          "sample_bracket_s": [
+            10.870308762656226,
+            10.880129034924778
+          ],
+          "preceding_count": 212.0,
+          "observed_count": 217.0,
+          "index": 1087,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.005567574393466507,
+        "actual_observed_XY_path_m": 0.006054817020684381,
+        "displacement_over42mm_radius": 0.1325612950825359,
+        "path_over42mm_radius": 0.1441623100162948,
+        "observed_duration_s": 0.29983443154628553,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.409926564490014,
+        10.878847616010306
+      ],
+      "existing_native_receiver90_observation_s": 10.878847616010306,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.8913757333826395,
+            0.6501521630905203
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.409926564490014,
+          "actual_end_native_s": 10.530167082900007,
+          "actual_applied_duration_s": 0.12024051840999306,
+          "force_component_impulse_xy_Ns": [
+            -0.2274199986900094,
+            0.07817463313538248
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 7,
+          "last_logged_force_step_start_native_s": 10.529743366805656,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.000423716094351434,
+          "measured_logged_prefix_net_received_particles": 7,
+          "measured_logged_prefix_net_received_mass_g": 0.10937500000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.520222214216576,
+              10.530167082900007
+            ],
+            "counts": [
+              6.0,
+              8.0
+            ],
+            "linear_interpolation_count": 8.0
+          },
+          "estimated_whole_pulse_net_received_particles": 8.0,
+          "estimated_whole_pulse_net_received_mass_g": 0.12500000000000003,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9666666666666667,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.409926564490014,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.014465629044767548,
+            -0.004559659129360475
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.01516723162072706,
+          "descriptive_first_1mm_displacement_native_s": 10.430685687487603,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.020759122997588975,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.430685687487603,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_old_BC3_56002",
+      "robot": "flexiv",
+      "method": "old_BC3",
+      "seed": 56002,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001524657136414,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.894880211869715,
+          "native_step": 5582,
+          "interpolated_crossing_native_s": 10.894331242901613
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.479690164195475,
+          "native_step": 6878,
+          "interpolated_crossing_native_s": 11.479450642000513
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.5848099523257595
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.07011966975772,
+          "preceding_sample_native_s": 11.060352894278122,
+          "sample_bracket_s": [
+            11.060352894278122,
+            11.07011966975772
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 26.0,
+          "index": 1106,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.65043771446813,
+          "preceding_sample_native_s": 11.640270246152742,
+          "sample_bracket_s": [
+            11.640270246152742,
+            11.65043771446813
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 217.0,
+          "index": 1164,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.006210658602734691,
+        "actual_observed_XY_path_m": 0.009629660819126943,
+        "displacement_over42mm_radius": 0.1478728238746355,
+        "path_over42mm_radius": 0.22927763855064148,
+        "observed_duration_s": 0.5803180447104097,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.894880211869715,
+        11.642048553940644
+      ],
+      "existing_native_receiver90_observation_s": 11.642048553940644,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            -1.8913757333826395,
+            0.6501521630905203
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.894880211869715,
+          "actual_end_native_s": 11.015295307741107,
+          "actual_applied_duration_s": 0.1204150958713921,
+          "force_component_impulse_xy_Ns": [
+            -0.227750190264095,
+            0.07828813504953797
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 13,
+          "last_logged_force_step_start_native_s": 11.01485508692291,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004402208181968348,
+          "measured_logged_prefix_net_received_particles": 13,
+          "measured_logged_prefix_net_received_mass_g": 0.20312500000000006,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.01040647926803,
+              11.020244927050603
+            ],
+            "counts": [
+              13.0,
+              14.0
+            ],
+            "linear_interpolation_count": 13.49691054738707
+          },
+          "estimated_whole_pulse_net_received_particles": 13.49691054738707,
+          "estimated_whole_pulse_net_received_mass_g": 0.21088922730292303,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9437628727192205,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.894880211869715,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.00486224767475743,
+            -0.013629098437153637
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.014470444936501011,
+          "descriptive_first_1mm_displacement_native_s": 10.92003003668828,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.025149824818564426,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.92003003668828,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_script_expert_56003",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56003,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001158477044598,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.390657498531267,
+          "native_step": 5282,
+          "interpolated_crossing_native_s": 10.390639704618584
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.693924392291825,
+          "native_step": 5932,
+          "interpolated_crossing_native_s": 10.693538843013442
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3032668937605578
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.570376385360968,
+          "preceding_sample_native_s": 10.560113284431678,
+          "sample_bracket_s": [
+            10.560113284431678,
+            10.570376385360968
+          ],
+          "preceding_count": 21.0,
+          "observed_count": 26.0,
+          "index": 1056,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.860139297100798,
+          "preceding_sample_native_s": 10.85020629531105,
+          "sample_bracket_s": [
+            10.85020629531105,
+            10.860139297100798
+          ],
+          "preceding_count": 213.0,
+          "observed_count": 218.0,
+          "index": 1085,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.007839512639429945,
+        "actual_observed_XY_path_m": 0.007852162333937504,
+        "displacement_over42mm_radius": 0.18665506284357009,
+        "path_over42mm_radius": 0.18695624604613104,
+        "observed_duration_s": 0.28976291173982993,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.390657498531267,
+        10.854760318023384
+      ],
+      "existing_native_receiver90_observation_s": 10.854760318023384,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.23362551894317704,
+            1.986307910898643
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.390657498531267,
+          "actual_end_native_s": 10.510933368631894,
+          "actual_applied_duration_s": 0.12027587010062746,
+          "force_component_impulse_xy_Ns": [
+            0.02809951256860125,
+            0.23890491227109384
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 4,
+          "last_logged_force_step_start_native_s": 10.510496864872046,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00043650375984860545,
+          "measured_logged_prefix_net_received_particles": 4,
+          "measured_logged_prefix_net_received_mass_g": 0.06250000000000001,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.510059292403202,
+              10.520340013002459
+            ],
+            "counts": [
+              4.0,
+              6.0
+            ],
+            "linear_interpolation_count": 4.170041821534475
+          },
+          "estimated_whole_pulse_net_received_particles": 4.170041821534475,
+          "estimated_whole_pulse_net_received_mass_g": 0.06515690346147618,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9826248257436063,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.390657498531267,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.012915698089450554,
+            -0.007519529340735403
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.014945185801588995,
+          "descriptive_first_1mm_displacement_native_s": 10.420077082509268,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.02941958397800093,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.410694516566604,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_old_BC3_56003",
+      "robot": "ur5e",
+      "method": "old_BC3",
+      "seed": 56003,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001237574988572,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 11.31127538270619,
+          "native_step": 5741,
+          "interpolated_crossing_native_s": 11.311258586782031
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.772704649119635,
+          "native_step": 6794,
+          "interpolated_crossing_native_s": 11.772363739639829
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.46142926641344495
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.50031234106968,
+          "preceding_sample_native_s": 11.490203075765718,
+          "sample_bracket_s": [
+            11.490203075765718,
+            11.50031234106968
+          ],
+          "preceding_count": 22.0,
+          "observed_count": 25.0,
+          "index": 1149,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.94023542408641,
+          "preceding_sample_native_s": 11.930124648852747,
+          "sample_bracket_s": [
+            11.930124648852747,
+            11.94023542408641
+          ],
+          "preceding_count": 212.0,
+          "observed_count": 216.0,
+          "index": 1193,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.002976328372644031,
+        "actual_observed_XY_path_m": 0.005825625917926662,
+        "displacement_over42mm_radius": 0.07086496125342931,
+        "path_over42mm_radius": 0.13870537899825383,
+        "observed_duration_s": 0.4399230830167298,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        11.31127538270619,
+        11.94023542408641
+      ],
+      "existing_native_receiver90_observation_s": 11.94023542408641,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.23362551894317704,
+            1.986307910898643
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.31127538270619,
+          "actual_end_native_s": 11.43162965985294,
+          "actual_applied_duration_s": 0.12035427714674896,
+          "force_component_impulse_xy_Ns": [
+            0.028117830455440175,
+            0.23906065280707509
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 9,
+          "last_logged_force_step_start_native_s": 11.43121227830025,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00041738155268866706,
+          "measured_logged_prefix_net_received_particles": 9,
+          "measured_logged_prefix_net_received_mass_g": 0.14062500000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.430374508118494,
+              11.440034474970869
+            ],
+            "counts": [
+              9.0,
+              12.0
+            ],
+            "linear_interpolation_count": 9.389800012865663
+          },
+          "estimated_whole_pulse_net_received_particles": 9.389800012865663,
+          "estimated_whole_pulse_net_received_mass_g": 0.14671562520102602,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9608758332797264,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 11.31127538270619,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.00991626141931353,
+            -0.008198015701625892
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.012866223299020993,
+          "descriptive_first_1mm_displacement_native_s": 11.340220900206997,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.028945517500806872,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.340220900206997,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_script_expert_56003",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56003,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000711277241503,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.408979272848713,
+          "native_step": 5289,
+          "interpolated_crossing_native_s": 10.408925691244018
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.718312733417864,
+          "native_step": 5950,
+          "interpolated_crossing_native_s": 10.718195051399535
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.30933346056915134
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.570058203082608,
+          "preceding_sample_native_s": 10.560322510714208,
+          "sample_bracket_s": [
+            10.560322510714208,
+            10.570058203082608
+          ],
+          "preceding_count": 19.0,
+          "observed_count": 25.0,
+          "index": 1056,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.870180816741696,
+          "preceding_sample_native_s": 10.860097130334527,
+          "sample_bracket_s": [
+            10.860097130334527,
+            10.870180816741696
+          ],
+          "preceding_count": 211.0,
+          "observed_count": 216.0,
+          "index": 1086,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.008906306046708019,
+        "actual_observed_XY_path_m": 0.008917715132430414,
+        "displacement_over42mm_radius": 0.21205490587400044,
+        "path_over42mm_radius": 0.21232655077215268,
+        "observed_duration_s": 0.300122613659088,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.408979272848713,
+        10.870180816741696
+      ],
+      "existing_native_receiver90_observation_s": 10.870180816741696,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.23362551894317704,
+            1.986307910898643
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.408979272848713,
+          "actual_end_native_s": 10.52914340722809,
+          "actual_applied_duration_s": 0.12016413437937778,
+          "force_component_impulse_xy_Ns": [
+            0.02807340825273981,
+            0.23868297072404576
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 7,
+          "last_logged_force_step_start_native_s": 10.528712158707119,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004312485209716499,
+          "measured_logged_prefix_net_received_particles": 7,
+          "measured_logged_prefix_net_received_mass_g": 0.10937500000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.520371645624135,
+              10.530003713114615
+            ],
+            "counts": [
+              5.0,
+              8.0
+            ],
+            "linear_interpolation_count": 7.732049462680367
+          },
+          "estimated_whole_pulse_net_received_particles": 7.732049462680367,
+          "estimated_whole_pulse_net_received_mass_g": 0.12081327285438076,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9677831272388318,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.408979272848713,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.009641529616277284,
+            -0.010272229078925364
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.014088214350707184,
+          "descriptive_first_1mm_displacement_native_s": 10.440481113144731,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.0315018402960181,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.430019830572343,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_old_BC3_56003",
+      "robot": "flexiv",
+      "method": "old_BC3",
+      "seed": 56003,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001666693937935,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.98074344335892,
+          "native_step": 5631,
+          "interpolated_crossing_native_s": 10.980244864497381
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.54597992866243,
+          "native_step": 6904,
+          "interpolated_crossing_native_s": 11.545667151487978
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.5652364853035099
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.16010924882252,
+          "preceding_sample_native_s": 11.15012726931546,
+          "sample_bracket_s": [
+            11.15012726931546,
+            11.16010924882252
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 26.0,
+          "index": 1115,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.710240688333116,
+          "preceding_sample_native_s": 11.7000130205894,
+          "sample_bracket_s": [
+            11.7000130205894,
+            11.710240688333116
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 217.0,
+          "index": 1170,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.00944272781098903,
+        "actual_observed_XY_path_m": 0.009997680495874336,
+        "displacement_over42mm_radius": 0.22482685264259597,
+        "path_over42mm_radius": 0.2380400118065318,
+        "observed_duration_s": 0.5501314395105954,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.98074344335892,
+        11.704029851554209
+      ],
+      "existing_native_receiver90_observation_s": 11.704029851554209,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.23362551894317704,
+            1.986307910898643
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.98074344335892,
+          "actual_end_native_s": 11.100937477019363,
+          "actual_applied_duration_s": 0.12019403366044301,
+          "force_component_impulse_xy_Ns": [
+            0.028080393487794675,
+            0.2387423599025558
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 14,
+          "last_logged_force_step_start_native_s": 11.100499955365104,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00043752165425914313,
+          "measured_logged_prefix_net_received_particles": 14,
+          "measured_logged_prefix_net_received_mass_g": 0.21875000000000006,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.100061460128074,
+              11.11021526663326
+            ],
+            "counts": [
+              14.0,
+              15.0
+            ],
+            "linear_interpolation_count": 14.086274727693588
+          },
+          "estimated_whole_pulse_net_received_particles": 14.086274727693588,
+          "estimated_whole_pulse_net_received_mass_g": 0.22009804262021238,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.94130718863461,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.98074344335892,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.0009798833029371198,
+            -0.010332142857753473
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.010378504098394964,
+          "descriptive_first_1mm_displacement_native_s": 11.010046984414075,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.02930354105515498,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.010046984414075,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_script_expert_56004",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56004,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001345786447835,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.36855623086859,
+          "native_step": 5285,
+          "interpolated_crossing_native_s": 10.367786346662513
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.675185158961979,
+          "native_step": 5939,
+          "interpolated_crossing_native_s": 10.674949732001622
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3066289280933887
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.550315385201051,
+          "preceding_sample_native_s": 10.540074010710084,
+          "sample_bracket_s": [
+            10.540074010710084,
+            10.550315385201051
+          ],
+          "preceding_count": 22.0,
+          "observed_count": 27.0,
+          "index": 1054,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.840134178182677,
+          "preceding_sample_native_s": 10.830122083929247,
+          "sample_bracket_s": [
+            10.830122083929247,
+            10.840134178182677
+          ],
+          "preceding_count": 211.0,
+          "observed_count": 216.0,
+          "index": 1083,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.009187760727315484,
+        "actual_observed_XY_path_m": 0.009218159704275492,
+        "displacement_over42mm_radius": 0.2187562077932258,
+        "path_over42mm_radius": 0.21947999295894027,
+        "observed_duration_s": 0.2898187929816256,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.36855623086859,
+        10.83971892355
+      ],
+      "existing_native_receiver90_observation_s": 10.83971892355,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            1.5194975428985957,
+            1.3004334727794151
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.36855623086859,
+          "actual_end_native_s": 10.488916257504771,
+          "actual_applied_duration_s": 0.12036002663618106,
+          "force_component_impulse_xy_Ns": [
+            0.18288676473688664,
+            0.1565202074223119
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 5,
+          "last_logged_force_step_start_native_s": 10.488474310291458,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004419472133125879,
+          "measured_logged_prefix_net_received_particles": 5,
+          "measured_logged_prefix_net_received_mass_g": 0.07812500000000001,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.480378110914122,
+              10.490237492868074
+            ],
+            "counts": [
+              3.0,
+              6.0
+            ],
+            "linear_interpolation_count": 5.597976211042289
+          },
+          "estimated_whole_pulse_net_received_particles": 5.597976211042289,
+          "estimated_whole_pulse_net_received_mass_g": 0.08746837829753577,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9766750991206571,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.36855623086859,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.014536888621742267,
+            0.014753702096280973
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.020712142727075472,
+          "descriptive_first_1mm_displacement_native_s": 10.390702382619034,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.02214615175044443,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.390702382619034,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_old_BC3_56004",
+      "robot": "ur5e",
+      "method": "old_BC3",
+      "seed": 56004,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000050265704434,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 11.226278278444864,
+          "native_step": 5704,
+          "interpolated_crossing_native_s": 11.225578006869979
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.62967299559038,
+          "native_step": 6607,
+          "interpolated_crossing_native_s": 11.629421822221657
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.403394717145515
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.410193048038904,
+          "preceding_sample_native_s": 11.400209293922195,
+          "sample_bracket_s": [
+            11.400209293922195,
+            11.410193048038904
+          ],
+          "preceding_count": 21.0,
+          "observed_count": 24.0,
+          "index": 1140,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.800106947314758,
+          "preceding_sample_native_s": 11.79010543035445,
+          "sample_bracket_s": [
+            11.79010543035445,
+            11.800106947314758
+          ],
+          "preceding_count": 213.0,
+          "observed_count": 216.0,
+          "index": 1179,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.0024761274055562724,
+        "actual_observed_XY_path_m": 0.00659120089252986,
+        "displacement_over42mm_radius": 0.05895541441800648,
+        "path_over42mm_radius": 0.15693335458404428,
+        "observed_duration_s": 0.38991389927585374,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        11.226278278444864,
+        11.79594553474676
+      ],
+      "existing_native_receiver90_observation_s": 11.79594553474676,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            1.5194975428985957,
+            1.3004334727794151
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.226278278444864,
+          "actual_end_native_s": 11.346559387079825,
+          "actual_applied_duration_s": 0.12028110863496089,
+          "force_component_impulse_xy_Ns": [
+            0.18276684902794202,
+            0.15641757981192025
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 7,
+          "last_logged_force_step_start_native_s": 11.346134153429011,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00042523365081414966,
+          "measured_logged_prefix_net_received_particles": 7,
+          "measured_logged_prefix_net_received_mass_g": 0.10937500000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.340221940025092,
+              11.350356061624426
+            ],
+            "counts": [
+              6.0,
+              8.0
+            ],
+            "linear_interpolation_count": 7.250714626346998
+          },
+          "estimated_whole_pulse_net_received_particles": 7.250714626346998,
+          "estimated_whole_pulse_net_received_mass_g": 0.11329241603667187,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9697886890568875,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 11.226278278444864,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.01835549695849695,
+            -0.00858973930272127
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.020265929287405136,
+          "descriptive_first_1mm_displacement_native_s": 11.260035660263132,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.03375738181826726,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.250471848771076,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_script_expert_56004",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56004,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001912291167997,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.403725938247275,
+          "native_step": 5278,
+          "interpolated_crossing_native_s": 10.403065854693983
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.736711691229361,
+          "native_step": 6000,
+          "interpolated_crossing_native_s": 10.736675023949237
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3329857529820863
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.560193165124671,
+          "preceding_sample_native_s": 10.55022269851115,
+          "sample_bracket_s": [
+            10.55022269851115,
+            10.560193165124671
+          ],
+          "preceding_count": 19.0,
+          "observed_count": 24.0,
+          "index": 1055,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.890048323590252,
+          "preceding_sample_native_s": 10.880345153709008,
+          "sample_bracket_s": [
+            10.880345153709008,
+            10.890048323590252
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 219.0,
+          "index": 1088,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.010971380131049696,
+        "actual_observed_XY_path_m": 0.011020074051403497,
+        "displacement_over42mm_radius": 0.26122333645356416,
+        "path_over42mm_radius": 0.26238271550960707,
+        "observed_duration_s": 0.32985515846558044,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.403725938247275,
+        10.885415821229252
+      ],
+      "existing_native_receiver90_observation_s": 10.885415821229252,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            1.5194975428985957,
+            1.3004334727794151
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.403725938247275,
+          "actual_end_native_s": 10.523913051764646,
+          "actual_applied_duration_s": 0.1201871135173711,
+          "force_component_impulse_xy_Ns": [
+            0.18262402367772002,
+            0.15629534541472861
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 8,
+          "last_logged_force_step_start_native_s": 10.523499217571548,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004138341930985945,
+          "measured_logged_prefix_net_received_particles": 8,
+          "measured_logged_prefix_net_received_mass_g": 0.12500000000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.520161455959894,
+              10.530122399813541
+            ],
+            "counts": [
+              8.0,
+              10.0
+            ],
+            "linear_interpolation_count": 8.753261108560276
+          },
+          "estimated_whole_pulse_net_received_particles": 8.753261108560276,
+          "estimated_whole_pulse_net_received_mass_g": 0.13676970482125433,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9635280787143322,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.403725938247275,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.016180892897620675,
+            0.012685012134021942
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.020560418959849894,
+          "descriptive_first_1mm_displacement_native_s": 10.430296178847525,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.026570240600250372,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.430296178847525,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_old_BC3_56004",
+      "robot": "flexiv",
+      "method": "old_BC3",
+      "seed": 56004,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.00006657983509,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 11.113028031845527,
+          "native_step": 5656,
+          "interpolated_crossing_native_s": 11.112396200958655
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.592708227042607,
+          "native_step": 6724,
+          "interpolated_crossing_native_s": 11.592700054668216
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.47968019519707994
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.280244168505979,
+          "preceding_sample_native_s": 11.27025957467738,
+          "sample_bracket_s": [
+            11.27025957467738,
+            11.280244168505979
+          ],
+          "preceding_count": 23.0,
+          "observed_count": 26.0,
+          "index": 1127,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.740037548632202,
+          "preceding_sample_native_s": 11.73010829686603,
+          "sample_bracket_s": [
+            11.73010829686603,
+            11.740037548632202
+          ],
+          "preceding_count": 213.0,
+          "observed_count": 216.0,
+          "index": 1173,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.007595555109139024,
+        "actual_observed_XY_path_m": 0.010357496377367058,
+        "displacement_over42mm_radius": 0.1808465502175958,
+        "path_over42mm_radius": 0.24660705660397758,
+        "observed_duration_s": 0.4597933801262233,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        11.113028031845527,
+        11.740037548632202
+      ],
+      "existing_native_receiver90_observation_s": 11.740037548632202,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            1.5194975428985957,
+            1.3004334727794151
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.113028031845527,
+          "actual_end_native_s": 11.233272766838878,
+          "actual_applied_duration_s": 0.12024473499335109,
+          "force_component_impulse_xy_Ns": [
+            0.18271157936888974,
+            0.1563702783108441
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 13,
+          "last_logged_force_step_start_native_s": 11.232834662876359,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004381039625194205,
+          "measured_logged_prefix_net_received_particles": 13,
+          "measured_logged_prefix_net_received_mass_g": 0.20312500000000006,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.23018873494292,
+              11.240192323780196
+            ],
+            "counts": [
+              12.0,
+              14.0
+            ],
+            "linear_interpolation_count": 12.616585096833578
+          },
+          "estimated_whole_pulse_net_received_particles": 12.616585096833578,
+          "estimated_whole_pulse_net_received_mass_g": 0.19713414213802471,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9474308954298601,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 11.113028031845527,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.018243170832932136,
+            -0.01135360388520239
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.02148761511246952,
+          "descriptive_first_1mm_displacement_native_s": 11.150110280301927,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.03708224845640018,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.140278703156804,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_script_expert_56005",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56005,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.00118455768151,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.389793000613833,
+          "native_step": 5279,
+          "interpolated_crossing_native_s": 10.389444289697755
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.697309242961149,
+          "native_step": 5948,
+          "interpolated_crossing_native_s": 10.696960338728923
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3075162423473152
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.570130245000149,
+          "preceding_sample_native_s": 10.560094188677214,
+          "sample_bracket_s": [
+            10.560094188677214,
+            10.570130245000149
+          ],
+          "preceding_count": 22.0,
+          "observed_count": 25.0,
+          "index": 1056,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.870402859563663,
+          "preceding_sample_native_s": 10.860050460573307,
+          "sample_bracket_s": [
+            10.860050460573307,
+            10.870402859563663
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 220.0,
+          "index": 1086,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.005759882649037116,
+        "actual_observed_XY_path_m": 0.011872206694192276,
+        "displacement_over42mm_radius": 0.13714006307231227,
+        "path_over42mm_radius": 0.28267158795695896,
+        "observed_duration_s": 0.3002726145635144,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.389793000613833,
+        10.860874361102182
+      ],
+      "existing_native_receiver90_observation_s": 10.860874361102182,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.7247186201537502,
+            -1.864076962360311
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.389793000613833,
+          "actual_end_native_s": 10.510146930200124,
+          "actual_applied_duration_s": 0.12035392958629032,
+          "force_component_impulse_xy_Ns": [
+            0.08722273377985792,
+            -0.22434898747133886
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 5,
+          "last_logged_force_step_start_native_s": 10.50971707272456,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00042985747556301135,
+          "measured_logged_prefix_net_received_particles": 5,
+          "measured_logged_prefix_net_received_mass_g": 0.07812500000000001,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.500065769900633,
+              10.510146930200124
+            ],
+            "counts": [
+              4.0,
+              5.0
+            ],
+            "linear_interpolation_count": 5.0
+          },
+          "estimated_whole_pulse_net_received_particles": 5.0,
+          "estimated_whole_pulse_net_received_mass_g": 0.07812500000000001,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9791666666666666,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.389793000613833,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.023751373461853038,
+            -0.009326855742824157
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.025517013527681265,
+          "descriptive_first_1mm_displacement_native_s": 10.410354051763687,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.02056105114985307,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.420284368700166,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        },
+        {
+          "index": 1,
+          "force_xy_N": [
+            -1.6094479175752134,
+            1.1872983620862991
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.510146930200124,
+          "actual_end_native_s": 10.630187241645373,
+          "actual_applied_duration_s": 0.12004031144524951,
+          "force_component_impulse_xy_Ns": [
+            -0.1931986292806368,
+            0.14252366516327394
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 5,
+          "receiver_count_at_last_logged_force_step_start": 58,
+          "last_logged_force_step_start_native_s": 10.629771495706722,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004157459386515683,
+          "measured_logged_prefix_net_received_particles": 53,
+          "measured_logged_prefix_net_received_mass_g": 0.8281250000000002,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.620334818607507,
+              10.630187241645373
+            ],
+            "counts": [
+              52.0,
+              59.0
+            ],
+            "linear_interpolation_count": 59.0
+          },
+          "estimated_whole_pulse_net_received_particles": 54.0,
+          "estimated_whole_pulse_net_received_mass_g": 0.8437500000000002,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.7541666666666667,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.06005699664522446,
+          "raw_force_dt_first_start_native_s": 10.510146930200124,
+          "scheduled_to_actual_force_start_latency_s": 0.00035392958629110183,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.008507311325726533,
+            -0.03477100198649779
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.03579660493870708,
+          "descriptive_first_1mm_displacement_native_s": 10.530011987504457,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.019865057304333078,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.530011987504457,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "ur5e_old_BC3_56005",
+      "robot": "ur5e",
+      "method": "old_BC3",
+      "seed": 56005,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.001865270994703,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 11.240941412851411,
+          "native_step": 5681,
+          "interpolated_crossing_native_s": 11.240940448382085
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 11.605438901285671,
+          "native_step": 6493,
+          "interpolated_crossing_native_s": 11.605375506631908
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3644974884342602
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.420042533260414,
+          "preceding_sample_native_s": 11.410165093435806,
+          "sample_bracket_s": [
+            11.410165093435806,
+            11.420042533260414
+          ],
+          "preceding_count": 20.0,
+          "observed_count": 24.0,
+          "index": 1141,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 11.780173169550494,
+          "preceding_sample_native_s": 11.770041991662712,
+          "sample_bracket_s": [
+            11.770041991662712,
+            11.780173169550494
+          ],
+          "preceding_count": 214.0,
+          "observed_count": 217.0,
+          "index": 1177,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.007054675392809884,
+        "actual_observed_XY_path_m": 0.011578193422945327,
+        "displacement_over42mm_radius": 0.16796846173356866,
+        "path_over42mm_radius": 0.2756712719748887,
+        "observed_duration_s": 0.36013063629008,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        11.240941412851411,
+        11.775112278438232
+      ],
+      "existing_native_receiver90_observation_s": 11.775112278438232,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.7247186201537502,
+            -1.864076962360311
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.240941412851411,
+          "actual_end_native_s": 11.361359771877332,
+          "actual_applied_duration_s": 0.1204183590259209,
+          "force_component_impulse_xy_Ns": [
+            0.08726942699444426,
+            -0.2244690889054521
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 6,
+          "last_logged_force_step_start_native_s": 11.360932562868483,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004272090088495162,
+          "measured_logged_prefix_net_received_particles": 6,
+          "measured_logged_prefix_net_received_mass_g": 0.09375000000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.360075807169304,
+              11.37020982927668
+            ],
+            "counts": [
+              6.0,
+              7.0
+            ],
+            "linear_interpolation_count": 6.126698431720757
+          },
+          "estimated_whole_pulse_net_received_particles": 6.126698431720757,
+          "estimated_whole_pulse_net_received_mass_g": 0.09572966299563686,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9744720898678302,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 11.240941412851411,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.010768324914399567,
+            -0.019373002081024642
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.022164612134965584,
+          "descriptive_first_1mm_displacement_native_s": 11.2603418170828,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.01940040423138889,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.2603418170828,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        },
+        {
+          "index": 1,
+          "force_xy_N": [
+            -1.6094479175752134,
+            1.1872983620862991
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.361359771877332,
+          "actual_end_native_s": 11.481130728865097,
+          "actual_applied_duration_s": 0.11977095698776452,
+          "force_component_impulse_xy_Ns": [
+            -0.1927651173099481,
+            0.1422038610570813
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 6,
+          "receiver_count_at_last_logged_force_step_start": 52,
+          "last_logged_force_step_start_native_s": 11.480714100095925,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004166287691713677,
+          "measured_logged_prefix_net_received_particles": 46,
+          "measured_logged_prefix_net_received_mass_g": 0.7187500000000001,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.480297169417984,
+              11.49036663084905
+            ],
+            "counts": [
+              52.0,
+              56.0
+            ],
+            "linear_interpolation_count": 52.33112374591995
+          },
+          "estimated_whole_pulse_net_received_particles": 46.33112374591995,
+          "estimated_whole_pulse_net_received_mass_g": 0.7239238085299994,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.7819536510586668,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.06108819560468248,
+          "raw_force_dt_first_start_native_s": 11.361359771877332,
+          "scheduled_to_actual_force_start_latency_s": 0.0004183590259216885,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.01635626687283338,
+            -0.030254466566371895
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.03439273489025061,
+          "descriptive_first_1mm_displacement_native_s": 11.380251218447755,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.018891446570423298,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.380251218447755,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_script_expert_56005",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56005,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.00191469775825,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 10.412106534077795,
+          "native_step": 5325,
+          "interpolated_crossing_native_s": 10.411776094659146
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 10.731146865738426,
+          "native_step": 6015,
+          "interpolated_crossing_native_s": 10.7308748823163
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.3190403316606307
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 10.580397171210725,
+          "preceding_sample_native_s": 10.570223321849356,
+          "sample_bracket_s": [
+            10.570223321849356,
+            10.580397171210725
+          ],
+          "preceding_count": 22.0,
+          "observed_count": 27.0,
+          "index": 1057,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 10.89010109231388,
+          "preceding_sample_native_s": 10.880357665463194,
+          "sample_bracket_s": [
+            10.880357665463194,
+            10.89010109231388
+          ],
+          "preceding_count": 215.0,
+          "observed_count": 219.0,
+          "index": 1088,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.0051455262756321335,
+        "actual_observed_XY_path_m": 0.013759582856738553,
+        "displacement_over42mm_radius": 0.12251253037219365,
+        "path_over42mm_radius": 0.3276091156366322,
+        "observed_duration_s": 0.30970392110315537,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        10.412106534077795,
+        10.882472352458384
+      ],
+      "existing_native_receiver90_observation_s": 10.882472352458384,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.7247186201537502,
+            -1.864076962360311
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.412106534077795,
+          "actual_end_native_s": 10.532153650763155,
+          "actual_applied_duration_s": 0.12004711668535961,
+          "force_component_impulse_xy_Ns": [
+            0.08700038075765006,
+            -0.22377706461095903
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 0,
+          "receiver_count_at_last_logged_force_step_start": 7,
+          "last_logged_force_step_start_native_s": 10.531736549877715,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004171008854392255,
+          "measured_logged_prefix_net_received_particles": 7,
+          "measured_logged_prefix_net_received_mass_g": 0.10937500000000003,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.530060719873502,
+              10.540012605847274
+            ],
+            "counts": [
+              7.0,
+              12.0
+            ],
+            "linear_interpolation_count": 8.051524753784667
+          },
+          "estimated_whole_pulse_net_received_particles": 8.051524753784667,
+          "estimated_whole_pulse_net_received_mass_g": 0.12580507427788545,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.966451980192564,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 10.412106534077795,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.02567998030396722,
+            -0.009364009961189497
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.02733397283538199,
+          "descriptive_first_1mm_displacement_native_s": 10.430600326480937,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.01849379240314164,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.440361743741445,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        },
+        {
+          "index": 1,
+          "force_xy_N": [
+            -1.6094479175752134,
+            1.1872983620862991
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 10.532153650763155,
+          "actual_end_native_s": 10.65214514391752,
+          "actual_applied_duration_s": 0.11999149315436597,
+          "force_component_impulse_xy_Ns": [
+            -0.19312005878403476,
+            0.14246570328646807
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 7,
+          "receiver_count_at_last_logged_force_step_start": 67,
+          "last_logged_force_step_start_native_s": 10.651722774559593,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.000422369357927721,
+          "measured_logged_prefix_net_received_particles": 60,
+          "measured_logged_prefix_net_received_mass_g": 0.9375000000000002,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              10.650029763690538,
+              10.660212168748748
+            ],
+            "counts": [
+              65.0,
+              71.0
+            ],
+            "linear_interpolation_count": 66.24649150071477
+          },
+          "estimated_whole_pulse_net_received_particles": 59.24649150071477,
+          "estimated_whole_pulse_net_received_mass_g": 0.9257264296986685,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.7239729520803552,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.07174797270679534,
+          "raw_force_dt_first_start_native_s": 10.532153650763155,
+          "scheduled_to_actual_force_start_latency_s": 4.711668536039326e-05,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            -0.007779703246803927,
+            -0.0328365776178624
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.033745586559759684,
+          "descriptive_first_1mm_displacement_native_s": 10.550078343799152,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.017924693035997308,
+          "descriptive_first_1mm_servo_residual_change_native_s": 10.550078343799152,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    },
+    {
+      "case_id": "flexiv_old_BC3_56005",
+      "robot": "flexiv",
+      "method": "old_BC3",
+      "seed": 56005,
+      "started": true,
+      "closed": true,
+      "calibration_success_unchanged": true,
+      "status": "RECORDED",
+      "native_trace_end_s": 23.000839910572118,
+      "native_trace_samples": 2300,
+      "final_receiver_count": 240,
+      "maximum_receiver_count": 240,
+      "observed_receiver_occupancy_monotone": true,
+      "source_window": {
+        "status": "COMPLETE",
+        "unique10pct": {
+          "status": "REACHED",
+          "unique_count": 24,
+          "observed_native_s": 11.428306167723028,
+          "native_step": 6014,
+          "interpolated_crossing_native_s": 11.428169916288377
+        },
+        "unique90pct": {
+          "status": "REACHED",
+          "unique_count": 216,
+          "observed_native_s": 12.22048753466168,
+          "native_step": 7787,
+          "interpolated_crossing_native_s": 12.220210075983795
+        },
+        "observer": "Unique first recorded upward tube-local rim crossings of original stableparticleIDs, finite-native-step, only8.5..15s",
+        "observed_duration_s": 0.792181366938653
+      },
+      "receiver_landing_window": {
+        "status": "COMPLETE",
+        "receiver10pct": {
+          "status": "REACHED",
+          "threshold_count": 24,
+          "observed_native_s": 11.60037944680364,
+          "preceding_sample_native_s": 11.5903392801142,
+          "sample_bracket_s": [
+            11.5903392801142,
+            11.60037944680364
+          ],
+          "preceding_count": 22.0,
+          "observed_count": 24.0,
+          "index": 1159,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "receiver90pct": {
+          "status": "REACHED",
+          "threshold_count": 216,
+          "observed_native_s": 12.390366074012597,
+          "preceding_sample_native_s": 12.380305845269154,
+          "sample_bracket_s": [
+            12.380305845269154,
+            12.390366074012597
+          ],
+          "preceding_count": 214.0,
+          "observed_count": 216.0,
+          "index": 1238,
+          "scope": "First100Hzoccupancythreshold observation, not exactcontinuousentrytime"
+        },
+        "actual_observed_XY_displacement_m": 0.014569690839110642,
+        "actual_observed_XY_path_m": 0.01943588227266964,
+        "displacement_over42mm_radius": 0.34689740093120575,
+        "path_over42mm_radius": 0.46275910173022944,
+        "observed_duration_s": 0.7899866272089575,
+        "XY_scope": "100Hz sampledactualtrajectory between firstreceiver10%and90%observations; not clearance/error or continuouspathlength"
+      },
+      "original_broad_source90to_receiver90_diagnostic_window_s": [
+        11.428306167723028,
+        12.384699978453728
+      ],
+      "existing_native_receiver90_observation_s": 12.384699978453728,
+      "pulses": [
+        {
+          "index": 0,
+          "force_xy_N": [
+            0.7247186201537502,
+            -1.864076962360311
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.428306167723028,
+          "actual_end_native_s": 11.548725699148212,
+          "actual_applied_duration_s": 0.1204195314251848,
+          "force_component_impulse_xy_Ns": [
+            0.08727027665402108,
+            -0.22447127434791056
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 4,
+          "receiver_count_at_last_logged_force_step_start": 16,
+          "last_logged_force_step_start_native_s": 11.548284158791853,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.0004415403563591269,
+          "measured_logged_prefix_net_received_particles": 12,
+          "measured_logged_prefix_net_received_mass_g": 0.18750000000000006,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.540196669077178,
+              11.550053145547707
+            ],
+            "counts": [
+              16.0,
+              16.0
+            ],
+            "linear_interpolation_count": 16.0
+          },
+          "estimated_whole_pulse_net_received_particles": 12.0,
+          "estimated_whole_pulse_net_received_mass_g": 0.18750000000000006,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.9333333333333333,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.0,
+          "raw_force_dt_first_start_native_s": 11.428306167723028,
+          "scheduled_to_actual_force_start_latency_s": 0.0,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.018597300671017853,
+            -0.015012664979438012
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.0239006213733678,
+          "descriptive_first_1mm_displacement_native_s": 11.450305853562453,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.021999685839425354,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.450305853562453,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        },
+        {
+          "index": 1,
+          "force_xy_N": [
+            -1.6094479175752134,
+            1.1872983620862991
+          ],
+          "nominal_duration_s": 0.12,
+          "actual_start_native_s": 11.548725699148212,
+          "actual_end_native_s": 11.668710092445911,
+          "actual_applied_duration_s": 0.11998439329769894,
+          "force_component_impulse_xy_Ns": [
+            -0.19310863193450692,
+            0.14245727363827637
+          ],
+          "status": "RECORDED",
+          "receiver_count_exact_at_first_logged_force_step": 16,
+          "receiver_count_at_last_logged_force_step_start": 33,
+          "last_logged_force_step_start_native_s": 11.66823046321313,
+          "unarchived_receiver_occupancy_tail_duration_s": 0.00047962923278177527,
+          "measured_logged_prefix_net_received_particles": 17,
+          "measured_logged_prefix_net_received_mass_g": 0.26562500000000006,
+          "pulse_end_100Hz_bracket": {
+            "status": "BRACKETED",
+            "native_times_s": [
+              11.660034710300373,
+              11.670143028540325
+            ],
+            "counts": [
+              33.0,
+              34.0
+            ],
+            "linear_interpolation_count": 33.85824188946186
+          },
+          "estimated_whole_pulse_net_received_particles": 17.85824188946186,
+          "estimated_whole_pulse_net_received_mass_g": 0.2790350295228416,
+          "estimated_fraction_recorded_final_transfer_after_pulse": 0.8589239921272422,
+          "final_receiver_count_reference": 240,
+          "final_reference_scope": "Recordedterminalnativeoccupancy; earlyfailureterminal is notfull23s",
+          "mass_scope": "Netreceiveroccupancy increase, not grossuniqueentries; end linearinterpolation100Hz. No fullfrequencyparticleIDentryarchive exists.",
+          "overlap_receiver10to90_observed_window_s": 0.06833064564227165,
+          "raw_force_dt_first_start_native_s": 11.548725699148212,
+          "scheduled_to_actual_force_start_latency_s": 0.00041953142518558195,
+          "pre_pulse_sampled_XY_velocity_m_s": [
+            0.02802433420829269,
+            -0.03314762505212838
+          ],
+          "pre_pulse_sampled_XY_speed_m_s": 0.04340654736804775,
+          "descriptive_first_1mm_displacement_native_s": 11.5702467251923,
+          "descriptive_first_1mm_displacement_after_force_start_s": 0.021521026044087677,
+          "descriptive_first_1mm_servo_residual_change_native_s": 11.5702467251923,
+          "descriptive_1mm_rule": "Fixedlocaldiagnostic threshold, first100Hzsamplewithinforceend+.5s; not a newacceptancegate",
+          "causal_pulse_to_motion_or_effect_latency": "NOT_IDENTIFIABLE_FROM_SINGLE_TREATED_MOVING_CUP_TRAJECTORY",
+          "effect_scope": "Cup already follows conveyor; descriptiveposition/residual changes include commandedmotion, pulse, fluid and contact. No extra controlrun or causal attribution."
+        }
+      ]
+    }
+  ],
+  "new_native_steps": 0,
+  "new_IK_optimizations": 0,
+  "policy_updates": 0,
+  "frozen_protocol_or_gate_changes": false,
+  "limits": [
+    "Receiver10%and90% times are observed100Hzthresholds; preceding-sample brackets explicitly showtime resolution.",
+    "Sourceunique10\u201390%rim departure, actualreceiver10\u201390%landing, and broadsource90\u2192receiver90diagnosticwindows are distinct.",
+    "Pulse mass and afterfraction are explicitlynetoccupancy measurements/endpoint estimates, not exactgrossunique-entry mass or simulatedscale readings.",
+    "A movingconveyor has no identifiable causalpush-to-motiononset without an additionalcontrol; descriptive1mm timestamps are noteffectlatencies.",
+    "Pulse dt-force is externalincrementalforcecomponent; motionservo/fluid/contact alter netcupdynamics.",
+    "Old\u2192new comparison also changes noninitialIKobjective. No isolatedretiming or BC-ceiling causalclaim."
+  ]
+}

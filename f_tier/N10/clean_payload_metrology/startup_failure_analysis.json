@@ -1,0 +1,20 @@
+{
+  "status": "CLOSED_FRAMEWORK_STARTUP_FAILURE_NOT_METROLOGY_RESULT",
+  "process": "native_run/process.json",
+  "raw_failure": "native_run/result.json",
+  "stack": "native_run/native.log",
+  "source_cause": "AppLauncher(enable_cameras=False) selects isaaclab.python.headless.kit; MatterixBaseEnvCfg RenderCfg requests RTXfractionalCutoutOpacity, which that experience has not registered. SimulationContext rejects missingcarbsetting before scene/loads/reset/explicitstep loop.",
+  "evidence": {
+    "matterix_cfg": "sources/matterix_public/source/matterix/matterix/envs/matterix_base_env_cfg.py:65",
+    "launcher": "/home/liyufeng/safeduo_isaaclab/source/isaaclab/isaaclab/app/app_launcher.py:735",
+    "setting_validation": "/home/liyufeng/safeduo_isaaclab/source/isaaclab/isaaclab/sim/simulation_context.py:789"
+  },
+  "issued_sim_step_calls": 0,
+  "native_clock_subscribed": false,
+  "measured_callback_count": null,
+  "payloads_authored": false,
+  "inferred_PBD_weight_result": null,
+  "retry_in_this_study": false,
+  "root_named_framework_fix": "f_tier/N10/clean_payload_metrology_framework_fix",
+  "exact_old_runtime_unchanged": true
+}

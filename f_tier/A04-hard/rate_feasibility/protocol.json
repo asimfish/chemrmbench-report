@@ -1,0 +1,83 @@
+{
+  "registered_utc": "2026-10-20T23:25:01.462149+00:00",
+  "scope": "Four fixed archived control states; offline instantaneous kinematics only",
+  "selection": "Per robot index 0 and earliest row of global abs(desired_joint_velocities) argmax; no outcome filtering",
+  "inputs": "selected_inputs.json",
+  "source": "analyze.py",
+  "site": "rq_pinch",
+  "maximum_explicit_mj_forward_calls": 4,
+  "maximum_mj_jacSite_calls": 4,
+  "maximum_bounded_linear_solves": 4,
+  "maximum_per_state_each": 1,
+  "native_steps": 0,
+  "controller_or_global_IK_calls": 0,
+  "GPU_contexts": 0,
+  "rate_objective": "min || [20 Jp; Jw; 0.001 I] qdot - [20 v_world; w_world; 0] ||_2",
+  "world_twist": "v_world=delayed_action_basis @ executed_action[3:]; w_world=delayed_action_basis @ executed_action[:3]",
+  "bounds": "max(-vmax,(original_model_joint_min+0.03-actual_q)/actual_dt) <= qdot <= min(vmax,(original_model_joint_max-0.03-actual_q)/actual_dt)",
+  "position_constraint": "One local Euler step of the recorded control dt; no nonlinear pose/path feasibility claim",
+  "solver": {
+    "function": "scipy.optimize.lsq_linear",
+    "method": "trf",
+    "lsq_solver": "exact",
+    "tol": 1e-10,
+    "max_iter": 100
+  },
+  "singular_values": "Raw 6xN geometric J and [20Jp;Jw]; raw mixes translation and rotation units; machine-precision rank criterion",
+  "verified_velocity_sources": {
+    "ur5e": {
+      "vmax_rad_s": [
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793
+      ],
+      "joint_names": [
+        "shoulder_pan_joint",
+        "shoulder_lift_joint",
+        "elbow_joint",
+        "wrist_1_joint",
+        "wrist_2_joint",
+        "wrist_3_joint"
+      ],
+      "source": "https://raw.githubusercontent.com/UniversalRobots/Universal_Robots_ROS2_Description/f90e50e27036f285c9fb0ab2efbb5e10e69438ad/config/ur5e/joint_limits.yaml",
+      "source_units": "!degrees 180.0 for all six; converted to pi rad/s"
+    },
+    "flexiv": {
+      "vmax_rad_s": [
+        2.0944,
+        2.0944,
+        2.4435,
+        2.4435,
+        4.8869,
+        4.8869,
+        4.8869
+      ],
+      "joint_names": [
+        "joint1",
+        "joint2",
+        "joint3",
+        "joint4",
+        "joint5",
+        "joint6",
+        "joint7"
+      ],
+      "source": "https://raw.githubusercontent.com/flexivrobotics/flexiv_description/920f4effba3f04acde78e6e79293a60093e60416/config/Rizon4/joint_limits.yaml",
+      "source_units": "rad/s; fixed decimal public values"
+    }
+  },
+  "velocity_source_verification": "Both fixed-commit official YAMLs independently opened before protocol registration; joint order checked against saved MJCF at execution",
+  "no_acceleration_constraint": "No verified acceleration limits supplied; none guessed",
+  "position_source_boundary": "Keep original local MJCF ranges and 0.03 rad IK buffer; do not substitute official soft or planning positions (including UR elbow planning range)",
+  "all_active_rate_summary": "All 650 archived pre-control actual native_qvel samples per robot versus same vmax; desired rates separately reported; sampled counts, no duration inference",
+  "limitations": [
+    "No native dynamics, contact or new control/teacher execution",
+    "Linear optimizer termination does not establish exact twist feasibility or functional task success",
+    "Instantaneous Jacobian map is local; finite IK displacement and actual tracking dynamics differ",
+    "Cache decomposition alone cannot establish a global IK branch switch or unique cause",
+    "Velocity limits are external diagnostic references; original five physics gates and all F statuses unchanged",
+    "No parameter/seed/pose/regularization scans; no new controller; all 20-pilot switches remain disabled"
+  ]
+}

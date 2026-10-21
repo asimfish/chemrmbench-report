@@ -1,0 +1,35 @@
+{
+  "status": "CPU_FIGURE_FROM_CLOSED_RAW_NEGATIVE",
+  "created_utc": "2026-10-20T20:50:45.504378+00:00",
+  "figure": "combined/upgrade/safe_abort_negative/run/scientific_figure.png",
+  "sources": [
+    "combined/upgrade/safe_abort_negative/run/trajectory.jsonl",
+    "combined/upgrade/safe_abort_negative/run/result.json"
+  ],
+  "raw_trace_rows": 778,
+  "raw_native_time_range_s": [
+    0.016666667070239782,
+    12.96666698064655
+  ],
+  "event_markers_native_s": {
+    "fault_open_planned_s": 8.350000202190131,
+    "native_contact_loss_detected_s": 8.40000020340085,
+    "torque_pulse_start_s": 8.40000020340085,
+    "torque_pulse_end_s": 8.41666687047109,
+    "drop_diagnosis_s": 11.966666956432164,
+    "irreversible_monitor_block_s": 11.966666956432164,
+    "post_abort_observation_stop_s": 12.96666698064655
+  },
+  "expected_negative_caption": "Expected-negative interpretation: the video terminal label \u201cFAILED: SAFE_ABORT_TIPPED_OR_SPILLED\u201d means the pour/heat task failed as intended.\nThe safety-negative response passed: stable native diagnosis, then 1.000 s / 60 observations with fixed open-hold commands and heater OFF.\nTerminal cup visibility is partly occluded by the gripper; video alone is insufficient. Raw cup pose and particle counts support the branch.\nCounts use the original smoothed display-point observer. Gross-wall-leak flag = 3; no raw zero-penetration or positive-task success claim.",
+  "terminal_label_explanation": "FAILED SAFE_ABORT denotes the intentionally failed positive pour/heat task. It does not mean this expected safety-negative response failed.",
+  "visual_limitation": "Gripper partly occludes fallen transparent cup in terminal video. Video alone cannot verify its full pose; raw native cup pose and particle partitions support the branch.",
+  "temporal_scope": "Raw60Hz observations plotted without resampling or inferred substep states. Pulse markers use recorded5 native callbacks; inset shows original samples.",
+  "no_native_or_re_render": true,
+  "physics_steps_executed": 0,
+  "GPU_jobs": 0,
+  "F_acceptance_runs": 0,
+  "primary_positive_count_changed": false,
+  "primary_six_successes": 3,
+  "primary_six_started": 6,
+  "no_canonical_result_or_scoreboard_edit": true
+}

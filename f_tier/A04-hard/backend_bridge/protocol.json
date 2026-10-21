@@ -1,0 +1,92 @@
+{
+  "id": "A04_SINGLE_CASE_CUDA_BACKEND_ENGINEERING_BRIDGE",
+  "registered_utc": "2026-10-20T22:21:25.730759+00:00",
+  "status": "PREPARED_NOT_STARTED",
+  "launch_enabled": false,
+  "root_readback_approved": false,
+  "maximum_started": 1,
+  "retries": 0,
+  "case": {
+    "case_id": "ur5e_old_BC3_56005_gpu_bridge",
+    "robot": "ur5e",
+    "method": "old_BC3",
+    "seed": 56005,
+    "label": "backend_bridge_old_BC3_56005",
+    "configuration": "configurations/56005.json",
+    "policy": "policies/ur5e_old_bc3.npz"
+  },
+  "reference_case": {
+    "case_id": "ur5e_old_BC3_56005",
+    "robot": "ur5e",
+    "method": "old_BC3",
+    "seed": 56005,
+    "label": "corridor_old_BC3_56005",
+    "configuration": "configurations/56005.json",
+    "policy": "policies/ur5e_old_bc3.npz"
+  },
+  "reference_root": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/corridor_arrival_pilot",
+  "reference_cpu_result": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/corridor_arrival_pilot/runs/ur5e/corridor_old_BC3_56005/metrics.json",
+  "reference_cpu_ledger": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/corridor_arrival_pilot/attempts.jsonl",
+  "physical_gpu_index": 1,
+  "physical_gpu_uuid": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+  "physical_gpu_name": "NVIDIA GeForce RTX 5090",
+  "CUDA_VISIBLE_DEVICES": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+  "logical_device": "cuda:0",
+  "device_mapping": "OnlyphysicalGPU1UUIDvisible;logicalcuda:0isphysicalGPU1.NoGPU0visibility.",
+  "resource_gate": {
+    "maximum_active_main_simulations_including_probe": 2,
+    "poll_s": 5,
+    "memory_note": "SIGSTOPpausesCPUwork/enqueue;allocatedGPUmemoryretained.Inflightkernelsmayfinish.",
+    "launch_minimum_free_MiB": 12288,
+    "runtime_minimum_free_MiB": 512,
+    "maximum_other_primary_compute_processes": 1,
+    "primary_definition": "PerPIDlargestusedmemoryallocationacrossallGPUs;exacttiescountasprimaryonalltiedGPUs",
+    "secondary_definition": "Recordsecondaryallocationswithoutcountingduplicatemaininstances",
+    "new_external_primary_compute_process": "Record arrivals; pause only if total active primary-process budget>2 or runtime free<512MiB. A safe one-for-one replacement (e.g. N10 positive->negative) does not require waiting for the replacement to end."
+  },
+  "source_scope": "Readonlybytecopiesofclosedcorridorpilot;onlyCoupleddevicekwargoverriddenbythinwrapper.Nophysical/task/learnerchanges,noactual_anchor.",
+  "unchanged": [
+    "seed56005",
+    "legalgeometry",
+    "corridortrajectory",
+    "receiver-arrivalpushes",
+    "240particles",
+    "23snativeepisode",
+    "materials",
+    "18Dobs",
+    "oldBC3weights",
+    "objective-onlyliveIK/originalinitializer",
+    "actionnoise",
+    "bounded20to40mspastframepairsincludingpendingnextobs",
+    "originalphysicalgates"
+  ],
+  "acceptance": {
+    "rc0_uninterrupted": true,
+    "old_physical_gates": [
+      "full23s",
+      "capture>=.80",
+      "outside<=.10",
+      "scopepenetrations0",
+      "receiverpath>=.020m"
+    ],
+    "original_arrival_pulses": true,
+    "complete_bounded_delay_650plus1": true,
+    "comparison": "Reportcapture/spilldifferencesandwall/nativevsoneknownCPUcase;noexactmatchingthresholdorfallback"
+  },
+  "measurement_scope": "Engineeringbackendcomparison,notnewheldout/training/learningbenefit;wallincludesJITstartup/I/Oandpauses.Noformal640.",
+  "no_native_preparation": true,
+  "resource_gate_mechanical_update": {
+    "utc": "2026-10-20T22:28:17.067041+00:00",
+    "reason": "Rootreadback:crossGPUprimaryallocationandseparatelaunch/runtimememorythresholds",
+    "previous_resource_gate": {
+      "minimum_free_MiB": 12288,
+      "maximum_other_compute_processes": 1,
+      "maximum_active_main_simulations_including_probe": 2,
+      "poll_s": 5,
+      "new_external_compute_process": "Pauseownedprobeuntilnewexternalgone;neverothers",
+      "memory_note": "SIGSTOPpausesCPUwork/enqueue;allocatedGPUmemoryretained.Inflightkernelsmayfinish."
+    },
+    "no_native_started": true
+  },
+  "guidance5_execution_revoked_utc": "2026-10-21T08:53:23.847670+00:00"
+}

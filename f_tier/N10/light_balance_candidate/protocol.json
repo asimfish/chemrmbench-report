@@ -1,0 +1,131 @@
+{
+  "id": "N10_LIGHT_BALANCE_INSTRUMENT_REDESIGN",
+  "status": "PREPARED_OFFLINE_NOT_AUTHORIZED_FOR_NATIVE",
+  "scope": "One future world with seven independent simultaneous stations, <=5s fixed. New local instrument, not original-author CAD and not N10 F acceptance.",
+  "cases": [
+    {
+      "name": "empty",
+      "particle_count": 0,
+      "known_rigid_kg": 0.0
+    },
+    {
+      "name": "rigid_700mg",
+      "particle_count": 0,
+      "known_rigid_kg": 0.0007
+    },
+    {
+      "name": "rigid_1500mg",
+      "particle_count": 0,
+      "known_rigid_kg": 0.0015
+    },
+    {
+      "name": "rigid_3000mg",
+      "particle_count": 0,
+      "known_rigid_kg": 0.003
+    },
+    {
+      "name": "PBD_700mg",
+      "particle_count": 700,
+      "known_rigid_kg": 0.0,
+      "grid_dimensions": [
+        10,
+        10,
+        7
+      ]
+    },
+    {
+      "name": "PBD_1500mg",
+      "particle_count": 1500,
+      "known_rigid_kg": 0.0,
+      "grid_dimensions": [
+        15,
+        10,
+        10
+      ]
+    },
+    {
+      "name": "PBD_3000mg",
+      "particle_count": 3000,
+      "known_rigid_kg": 0.0,
+      "grid_dimensions": [
+        20,
+        15,
+        10
+      ]
+    }
+  ],
+  "native_dt_s": 0.0033333333333333335,
+  "native_steps_max": 1500,
+  "native_budget_s": 5.0,
+  "terminal_average_steps": 300,
+  "particle_observation_stride_steps": 30,
+  "native_attempt_cap": 1,
+  "partial_or_failed_attempt_no_retry": true,
+  "spring": {
+    "platform_mass_kg": 0.01,
+    "platform_size_m": [
+      0.06,
+      0.06,
+      0.006
+    ],
+    "k_N_m": 20.0,
+    "damping_Ns_m": 1.2,
+    "platform_z_m": 0.085,
+    "preload_m": 0.0049050000000000005,
+    "preload_scope": "Compensates platform10g only;5g dish is tared by separate same-clock empty station.",
+    "travel_m": [
+      -0.02,
+      0.02
+    ],
+    "maxforce_N": 2.0
+  },
+  "dish": {
+    "mass_kg": 0.005,
+    "inner_size_m": [
+      0.045,
+      0.035,
+      0.02
+    ],
+    "wall_base_thickness_m": 0.0024,
+    "root_z_m": 0.08800000000000001,
+    "colliders": "Five separate finite boxes; no global convex hull across cavity.",
+    "rigid_contact_offset_m": 0.0003,
+    "rigid_rest_offset_m": 0.0
+  },
+  "powder": {
+    "unchanged_public_PowderCfg": true,
+    "solver_position_iterations": 16,
+    "spacing_m": 0.0014256,
+    "rest_radius_m": 0.0007128,
+    "particle_contact_offset_m": 0.0012,
+    "particle_mass_kg": 1e-06,
+    "friction": 0.5,
+    "cohesion": 0.01,
+    "viscosity": 20,
+    "cfl_coefficient": 1.0,
+    "density": 1000,
+    "lower": "Dish inner floor+3mm; correct CENTER=lower+volume/2 supplied once to original PowderCfg.",
+    "runtime_particle_or_rigid_position_writes": 0
+  },
+  "initialization": "Author all platforms/dishes/knownload bodies/particle systems before one sim.reset; never post-reset teleport or outcome-selected reinitialize.",
+  "readout": {
+    "equation": "k/9.81 * (same-clock empty platform z - loaded platform z), averaged over final300 samples.",
+    "slope_kg_per_m": 2.038735983690112,
+    "gain_fitted": false,
+    "count_in_readout": false,
+    "known_load_scope": "Independent validation only; rigid/PBD reference masses do not enter readout.",
+    "reference_relative_error_target": 0.1
+  },
+  "backend": "Original Matterix CPU tensor pipeline plus PhysXGPU override1, explicitly not CPU-only rigid physics.",
+  "constraints": [
+    "No solver/material/spacing/count/mass search. Default original PBD16 iterations.",
+    "All7 and partial/failing starts retained.",
+    "Fixed5s, final1s window; no convergence-based extension.",
+    "Original instrument and frozen F criteria/results are unchanged."
+  ],
+  "declared_differences": [
+    "Procedural10g60\u00d760\u00d76mm spring platform and5g45\u00d735\u00d720mm weighing dish are an explicit local instrument redesign.",
+    "No original CAD/material identity claimed.",
+    "Rigid collider contact offset.3mm is declared instrument geometry metadata; original PBD settings are unchanged."
+  ]
+}

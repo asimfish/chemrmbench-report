@@ -1,0 +1,3637 @@
+{
+  "id": "A04_CORRIDOR_ARRIVAL_PAIRED_ENGINEERING_PILOT",
+  "status": "PAIRED_PILOT_TARGET_NOT_MET",
+  "updated_utc": "2026-10-20T22:12:23.771779+00:00",
+  "F_PASS": false,
+  "protocol": "protocol.json",
+  "preflight": "preflight/result.json",
+  "maximum_started": 20,
+  "started": 20,
+  "closed": 20,
+  "not_started": 0,
+  "interrupted_started_count": 0,
+  "accounting": "All actual starts final denominator. While active, rates withheld; closed missing/interrupted outcomes failed. No retries/outcome filtering.",
+  "original_physical_successes": 11,
+  "perturbation_validated_successes": 11,
+  "calibration_target_met": false,
+  "groups": [
+    {
+      "robot": "ur5e",
+      "method": "script_expert",
+      "planned": 5,
+      "started": 5,
+      "closed": 5,
+      "not_started": 0,
+      "running": 0,
+      "original_physical_successes": 2,
+      "original_physical_success_rate": 0.4,
+      "original_physical_Wilson95": [
+        0.11762077423264783,
+        0.769275718723987
+      ],
+      "perturbation_validated_successes": 2,
+      "perturbation_validated_success_rate": 0.4,
+      "perturbation_validated_Wilson95": [
+        0.11762077423264783,
+        0.769275718723987
+      ],
+      "continuous_receiver_fraction": {
+        "n": 5,
+        "minimum": 0.0,
+        "median": 0.9333333333333333,
+        "maximum": 0.9875
+      },
+      "continuous_outside_fraction": {
+        "n": 5,
+        "minimum": 0.0,
+        "median": 0.04583333333333333,
+        "maximum": 0.42083333333333334
+      },
+      "source_grasp_min_loaded_lift_m": {
+        "n": 5,
+        "minimum": 0.11646267878605972,
+        "median": 0.11648243333186514,
+        "maximum": 0.11649445342947273
+      },
+      "source_grasp_min_loaded_contact_count": {
+        "n": 5,
+        "minimum": 16.0,
+        "median": 20.0,
+        "maximum": 32.0
+      },
+      "trigger_native_s": {
+        "n": 3,
+        "minimum": 10.569192631782235,
+        "median": 10.575046135262193,
+        "maximum": 10.578538708446093
+      },
+      "delay_actual_age_max_s": {
+        "n": 5,
+        "minimum": 0.039977024155778196,
+        "median": 0.03999060757245232,
+        "maximum": 0.03999980799591718
+      },
+      "episodes": [
+        "ur5e_script_expert_56001",
+        "ur5e_script_expert_56002",
+        "ur5e_script_expert_56003",
+        "ur5e_script_expert_56004",
+        "ur5e_script_expert_56005"
+      ]
+    },
+    {
+      "robot": "ur5e",
+      "method": "old_BC3",
+      "planned": 5,
+      "started": 5,
+      "closed": 5,
+      "not_started": 0,
+      "running": 0,
+      "original_physical_successes": 5,
+      "original_physical_success_rate": 1.0,
+      "original_physical_Wilson95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "perturbation_validated_successes": 5,
+      "perturbation_validated_success_rate": 1.0,
+      "perturbation_validated_Wilson95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "continuous_receiver_fraction": {
+        "n": 5,
+        "minimum": 0.975,
+        "median": 0.9958333333333333,
+        "maximum": 1.0
+      },
+      "continuous_outside_fraction": {
+        "n": 5,
+        "minimum": 0.0,
+        "median": 0.004166666666666667,
+        "maximum": 0.025
+      },
+      "source_grasp_min_loaded_lift_m": {
+        "n": 5,
+        "minimum": 0.11646267878605972,
+        "median": 0.11648243333186514,
+        "maximum": 0.11649445342947273
+      },
+      "source_grasp_min_loaded_contact_count": {
+        "n": 5,
+        "minimum": 16.0,
+        "median": 20.0,
+        "maximum": 32.0
+      },
+      "trigger_native_s": {
+        "n": 5,
+        "minimum": 11.151250433494283,
+        "median": 11.522160063341273,
+        "maximum": 11.698368637464029
+      },
+      "delay_actual_age_max_s": {
+        "n": 5,
+        "minimum": 0.0399868242443695,
+        "median": 0.03999234289749154,
+        "maximum": 0.03999834638521982
+      },
+      "episodes": [
+        "ur5e_old_BC3_56001",
+        "ur5e_old_BC3_56002",
+        "ur5e_old_BC3_56003",
+        "ur5e_old_BC3_56004",
+        "ur5e_old_BC3_56005"
+      ]
+    },
+    {
+      "robot": "flexiv",
+      "method": "script_expert",
+      "planned": 5,
+      "started": 5,
+      "closed": 5,
+      "not_started": 0,
+      "running": 0,
+      "original_physical_successes": 1,
+      "original_physical_success_rate": 0.2,
+      "original_physical_Wilson95": [
+        0.03622410863243014,
+        0.6244653702374747
+      ],
+      "perturbation_validated_successes": 1,
+      "perturbation_validated_success_rate": 0.2,
+      "perturbation_validated_Wilson95": [
+        0.03622410863243014,
+        0.6244653702374747
+      ],
+      "continuous_receiver_fraction": {
+        "n": 5,
+        "minimum": 0.225,
+        "median": 0.6833333333333333,
+        "maximum": 0.9958333333333333
+      },
+      "continuous_outside_fraction": {
+        "n": 5,
+        "minimum": 0.004166666666666667,
+        "median": 0.31666666666666665,
+        "maximum": 0.5333333333333333
+      },
+      "source_grasp_min_loaded_lift_m": {
+        "n": 5,
+        "minimum": 0.11444734513946296,
+        "median": 0.11503342229968579,
+        "maximum": 0.11514362194806793
+      },
+      "source_grasp_min_loaded_contact_count": {
+        "n": 5,
+        "minimum": 16.0,
+        "median": 20.0,
+        "maximum": 20.0
+      },
+      "trigger_native_s": {
+        "n": 5,
+        "minimum": 10.568671906822463,
+        "median": 10.580407466901224,
+        "maximum": 10.596949146888523
+      },
+      "delay_actual_age_max_s": {
+        "n": 5,
+        "minimum": 0.03996466535696719,
+        "median": 0.039979927528328574,
+        "maximum": 0.03999991734091779
+      },
+      "episodes": [
+        "flexiv_script_expert_56001",
+        "flexiv_script_expert_56002",
+        "flexiv_script_expert_56003",
+        "flexiv_script_expert_56004",
+        "flexiv_script_expert_56005"
+      ]
+    },
+    {
+      "robot": "flexiv",
+      "method": "old_BC3",
+      "planned": 5,
+      "started": 5,
+      "closed": 5,
+      "not_started": 0,
+      "running": 0,
+      "original_physical_successes": 3,
+      "original_physical_success_rate": 0.6,
+      "original_physical_Wilson95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "perturbation_validated_successes": 3,
+      "perturbation_validated_success_rate": 0.6,
+      "perturbation_validated_Wilson95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "continuous_receiver_fraction": {
+        "n": 5,
+        "minimum": 0.6875,
+        "median": 0.8041666666666667,
+        "maximum": 0.8791666666666667
+      },
+      "continuous_outside_fraction": {
+        "n": 5,
+        "minimum": 0.0,
+        "median": 0.004166666666666667,
+        "maximum": 0.058333333333333334
+      },
+      "source_grasp_min_loaded_lift_m": {
+        "n": 5,
+        "minimum": 0.11444734513946296,
+        "median": 0.11503342229968579,
+        "maximum": 0.11514362194806793
+      },
+      "source_grasp_min_loaded_contact_count": {
+        "n": 5,
+        "minimum": 16.0,
+        "median": 20.0,
+        "maximum": 20.0
+      },
+      "trigger_native_s": {
+        "n": 5,
+        "minimum": 12.630319901025555,
+        "median": 12.729695709138442,
+        "maximum": 12.972397008377602
+      },
+      "delay_actual_age_max_s": {
+        "n": 5,
+        "minimum": 0.039990828404370404,
+        "median": 0.03999671487912515,
+        "maximum": 0.039999788442793616
+      },
+      "episodes": [
+        "flexiv_old_BC3_56001",
+        "flexiv_old_BC3_56002",
+        "flexiv_old_BC3_56003",
+        "flexiv_old_BC3_56004",
+        "flexiv_old_BC3_56005"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "case": {
+        "case_id": "ur5e_script_expert_56001",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56001,
+        "label": "corridor_script_expert_56001",
+        "configuration": "configurations/56001.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11648243333186514,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 10.000277682242748,
+        "native_steps": 5130,
+        "receiver_xy_path_m": 0.7062428135902542,
+        "final_receiver_fraction": 0.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.2935142299567161,
+        "min_dt_s": 0.0010184234803466087,
+        "wall_run_s": 506.1244326099986
+      },
+      "flow": {
+        "status": "NO_RECEIVER_ARRIVAL_EVENT",
+        "perturbation_protocol_satisfied": false,
+        "trigger": null,
+        "unique_rim_crossings": 0,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          null,
+          null
+        ],
+        "pulses": [],
+        "evidence": "runs/ur5e/corridor_script_expert_56001/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 151,
+        "learned_feedback_samples": 151,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999060757245232,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03977305330104919,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1001,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999060757245232,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable object-centric pose [0.501905085665373, 0.29392804038075176, 0.25727109513826907]",
+      "final_counts": {
+        "source_count": 240,
+        "receiver_count": 0,
+        "spill_count": 0
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 151,
+        "admitted_samples": 150,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 151,
+        "teacher_executed_states": 151,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_script_expert_56001/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_old_BC3_56001",
+        "robot": "ur5e",
+        "method": "old_BC3",
+        "seed": 56001,
+        "label": "corridor_old_BC3_56001",
+        "configuration": "configurations/56001.json",
+        "policy": "policies/ur5e_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11648243333186514,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.00049174576478,
+        "native_steps": 15957,
+        "receiver_xy_path_m": 1.6283625924990113,
+        "final_receiver_fraction": 0.9958333333333333,
+        "final_spill_fraction": 0.004166666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3783543376056529,
+        "min_dt_s": 0.00023302388527022871,
+        "wall_run_s": 875.1622987320006
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 11.151250433494283,
+          "native_step": 5920,
+          "phase": "pour_hold",
+          "unique_rim_crossings": 122,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 11.150829639047565,
+          "source_count": 118,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.971965617605257,
+          11.497842623414607
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              -1.9760572112973436,
+              -0.3085415655625112
+            ],
+            "scheduled_start_s": 11.151250433494283,
+            "scheduled_end_s": 11.271250433494282,
+            "actual_first_start_s": 11.151250433494283,
+            "actual_last_end_s": 11.271551986939203,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12030155344491966,
+            "duration_error_s": 0.0003015534449196666,
+            "impulse_xy_Ns": [
+              -0.23772275221510622,
+              -0.03711802963949766
+            ],
+            "completed_applied_steps": 293,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12030155344491966,
+            "source_count_during_applied_pulse_min_max": [
+              46,
+              118
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              88
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_old_BC3_56001/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.0399868242443695,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03972291294985553,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.0399868242443695,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1498,
+            "native_time_s": 15.000831194173836,
+            "requested_age_s": 0.02,
+            "selected_native_time_s": 14.980483632797046,
+            "actual_age_s": 0.020347561376789614,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 239,
+        "spill_count": 1
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_old_BC3_56001/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_script_expert_56001",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56001,
+        "label": "corridor_script_expert_56001",
+        "configuration": "configurations/56001.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11489080728811278,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 11.610418276818608,
+        "native_steps": 8281,
+        "receiver_xy_path_m": 0.807594857216677,
+        "final_receiver_fraction": 0.6833333333333333,
+        "final_spill_fraction": 0.31666666666666665,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37399338280813754,
+        "min_dt_s": 0.00022582443708736273,
+        "wall_run_s": 575.5007153199986
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.568671906822463,
+          "native_step": 5768,
+          "phase": "tilt",
+          "unique_rim_crossings": 117,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.568274241528503,
+          "source_count": 123,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.407273733387258,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              -1.9760572112973436,
+              -0.3085415655625112
+            ],
+            "scheduled_start_s": 10.568671906822463,
+            "scheduled_end_s": 10.688671906822462,
+            "actual_first_start_s": 10.568671906822463,
+            "actual_last_end_s": 10.688893685212774,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12022177839031123,
+            "duration_error_s": 0.00022177839031123359,
+            "impulse_xy_Ns": [
+              -0.23756511214316567,
+              -0.03709341571925591
+            ],
+            "completed_applied_steps": 341,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              46,
+              123
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              45
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_script_expert_56001/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 312,
+        "learned_feedback_samples": 312,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999937308830148,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.039866869200413026,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1162,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999937308830148,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": false,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable Flexiv object-centric pose [0.4832410827382056, 0.23966077706286504, 0.26296462027801715]",
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 164,
+        "spill_count": 76
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 312,
+        "admitted_samples": 311,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 312,
+        "teacher_executed_states": 312,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_script_expert_56001/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_old_BC3_56001",
+        "robot": "flexiv",
+        "method": "old_BC3",
+        "seed": 56001,
+        "label": "corridor_old_BC3_56001",
+        "configuration": "configurations/56001.json",
+        "policy": "policies/flexiv_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11489080728811278,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.00113724574776,
+        "native_steps": 13379,
+        "receiver_xy_path_m": 1.624571271507233,
+        "final_receiver_fraction": 0.7083333333333334,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3590998435172837,
+        "min_dt_s": 0.0004161011391682201,
+        "wall_run_s": 924.7820708529907
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 12.972397008377602,
+          "native_step": 6911,
+          "phase": "untilt",
+          "unique_rim_crossings": 66,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 12.97193530507149,
+          "source_count": 174,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 171,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          12.818111313919642,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              -1.9760572112973436,
+              -0.3085415655625112
+            ],
+            "scheduled_start_s": 12.972397008377602,
+            "scheduled_end_s": 13.092397008377601,
+            "actual_first_start_s": 12.972397008377602,
+            "actual_last_end_s": 13.092764031186091,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12036702280848921,
+            "duration_error_s": 0.00036702280848921465,
+            "impulse_xy_Ns": [
+              -0.23785212342310696,
+              -0.03713822965942975
+            ],
+            "completed_applied_steps": 273,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              131,
+              174
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              58
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_old_BC3_56001/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.039999788442793616,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03932212837174731,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.039999788442793616,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1498,
+            "native_time_s": 15.001326431515185,
+            "requested_age_s": 0.02,
+            "selected_native_time_s": 14.980165157248164,
+            "actual_age_s": 0.021161274267020858,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 70,
+        "receiver_count": 170,
+        "spill_count": 0
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_old_BC3_56001/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_script_expert_56002",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56002,
+        "label": "corridor_script_expert_56002",
+        "configuration": "configurations/56002.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11649445342947273,
+        "min_loaded_tube_robot_contacts": 32,
+        "native_seconds": 10.540183545766874,
+        "native_steps": 5624,
+        "receiver_xy_path_m": 0.7524646629036049,
+        "final_receiver_fraction": 0.029166666666666667,
+        "final_spill_fraction": 0.42083333333333334,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3493468217398176,
+        "min_dt_s": 0.0003643222313115054,
+        "wall_run_s": 549.9196387990087
+      },
+      "flow": {
+        "status": "NO_RECEIVER_ARRIVAL_EVENT",
+        "perturbation_protocol_satisfied": false,
+        "trigger": null,
+        "unique_rim_crossings": 108,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.407807717555821,
+          null
+        ],
+        "pulses": [],
+        "evidence": "runs/ur5e/corridor_script_expert_56002/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 205,
+        "learned_feedback_samples": 205,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.039977024155778196,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03945268140003862,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1055,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.039977024155778196,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": false,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable object-centric pose [0.5051085150324625, 0.26496042922489255, 0.25400754208398363]",
+      "final_counts": {
+        "source_count": 132,
+        "receiver_count": 7,
+        "spill_count": 101
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 205,
+        "admitted_samples": 204,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 205,
+        "teacher_executed_states": 205,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_script_expert_56002/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_old_BC3_56002",
+        "robot": "ur5e",
+        "method": "old_BC3",
+        "seed": 56002,
+        "label": "corridor_old_BC3_56002",
+        "configuration": "configurations/56002.json",
+        "policy": "policies/ur5e_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11649445342947273,
+        "min_loaded_tube_robot_contacts": 32,
+        "native_seconds": 23.001270824420573,
+        "native_steps": 13967,
+        "receiver_xy_path_m": 1.6378017028582224,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3706931537862373,
+        "min_dt_s": 0.0003834740089840843,
+        "wall_run_s": 888.5667999579746
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 11.698368637464029,
+          "native_step": 6181,
+          "phase": "pour_hold",
+          "unique_rim_crossings": 119,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 11.69795392629861,
+          "source_count": 121,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          11.525813034216737,
+          12.119088692686589
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              -1.8913757333826395,
+              0.6501521630905203
+            ],
+            "scheduled_start_s": 11.698368637464029,
+            "scheduled_end_s": 11.818368637464028,
+            "actual_first_start_s": 11.698368637464029,
+            "actual_last_end_s": 11.818581549257537,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12021291179350868,
+            "duration_error_s": 0.0002129117935086855,
+            "impulse_xy_Ns": [
+              -0.22736778420550993,
+              0.07815668463395961
+            ],
+            "completed_applied_steps": 306,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12021291179350868,
+            "source_count_during_applied_pulse_min_max": [
+              46,
+              121
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              87
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_old_BC3_56002/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.0399975540597417,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.039558058339385305,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.0399975540597417,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.000848496550898,
+            "requested_age_s": 0.03,
+            "selected_native_time_s": 14.970848496550888,
+            "actual_age_s": 0.03000000000001002,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 240,
+        "spill_count": 0
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_old_BC3_56002/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_script_expert_56002",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56002,
+        "label": "corridor_script_expert_56002",
+        "configuration": "configurations/56002.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11444734513946296,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 10.790170064579407,
+        "native_steps": 6353,
+        "receiver_xy_path_m": 0.7784385695935252,
+        "final_receiver_fraction": 0.5416666666666666,
+        "final_spill_fraction": 0.3625,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3507730844148858,
+        "min_dt_s": 0.00023545856296242133,
+        "wall_run_s": 563.8810252220137
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.596949146888523,
+          "native_step": 5698,
+          "phase": "tilt",
+          "unique_rim_crossings": 139,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.596645321325843,
+          "source_count": 101,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 217,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.416645214043877,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              -1.8913757333826395,
+              0.6501521630905203
+            ],
+            "scheduled_start_s": 10.596949146888523,
+            "scheduled_end_s": 10.716949146888522,
+            "actual_first_start_s": 10.596949146888523,
+            "actual_last_end_s": 10.717243235754779,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12029408886625603,
+            "duration_error_s": 0.00029408886625603703,
+            "impulse_xy_Ns": [
+              -0.2275213205510113,
+              0.07820946208339966
+            ],
+            "completed_applied_steps": 406,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              41,
+              101
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              101
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_script_expert_56002/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 230,
+        "learned_feedback_samples": 230,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03996466535696719,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03975418314175565,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1080,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03996466535696719,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": false,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable Flexiv object-centric pose [0.5027599234704859, 0.26512250131036125, 0.17981890426059993]",
+      "final_counts": {
+        "source_count": 23,
+        "receiver_count": 130,
+        "spill_count": 87
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 230,
+        "admitted_samples": 229,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 230,
+        "teacher_executed_states": 230,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_script_expert_56002/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_old_BC3_56002",
+        "robot": "flexiv",
+        "method": "old_BC3",
+        "seed": 56002,
+        "label": "corridor_old_BC3_56002",
+        "configuration": "configurations/56002.json",
+        "policy": "policies/flexiv_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11444734513946296,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.000910775660692,
+        "native_steps": 22492,
+        "receiver_xy_path_m": 1.6276571033739364,
+        "final_receiver_fraction": 0.8041666666666667,
+        "final_spill_fraction": 0.05416666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3844901785743261,
+        "min_dt_s": 0.0002287977144422227,
+        "wall_run_s": 1024.7124966550036
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 12.630319901025555,
+          "native_step": 6739,
+          "phase": "untilt",
+          "unique_rim_crossings": 60,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 12.62985472075287,
+          "source_count": 180,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 206,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          12.47961341891803,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              -1.8913757333826395,
+              0.6501521630905203
+            ],
+            "scheduled_start_s": 12.630319901025555,
+            "scheduled_end_s": 12.750319901025554,
+            "actual_first_start_s": 12.630319901025555,
+            "actual_last_end_s": 12.7505275227608,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12020762173524524,
+            "duration_error_s": 0.00020762173524524474,
+            "impulse_xy_Ns": [
+              -0.22735777871768234,
+              0.07815324529113674
+            ],
+            "completed_applied_steps": 266,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              142,
+              180
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              52
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_old_BC3_56002/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999671487912515,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03940345852539018,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999671487912515,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.000093161455492,
+            "requested_age_s": 0.03,
+            "selected_native_time_s": 14.970593047553,
+            "actual_age_s": 0.02950011390249152,
+            "eligible_count": 1,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 34,
+        "receiver_count": 193,
+        "spill_count": 13
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_old_BC3_56002/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_script_expert_56003",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56003,
+        "label": "corridor_script_expert_56003",
+        "configuration": "configurations/56003.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11647058210694183,
+        "min_loaded_tube_robot_contacts": 16,
+        "native_seconds": 11.360110772016837,
+        "native_steps": 7310,
+        "receiver_xy_path_m": 0.8045689682592361,
+        "final_receiver_fraction": 0.9333333333333333,
+        "final_spill_fraction": 0.06666666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.36470206710281966,
+        "min_dt_s": 0.0003729603765168157,
+        "wall_run_s": 587.7693359339901
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.569192631782235,
+          "native_step": 5679,
+          "phase": "tilt",
+          "unique_rim_crossings": 135,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.568781742846118,
+          "source_count": 105,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.394698279263729,
+          10.915232931877881
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.23362551894317704,
+              1.986307910898643
+            ],
+            "scheduled_start_s": 10.569192631782235,
+            "scheduled_end_s": 10.689192631782234,
+            "actual_first_start_s": 10.569192631782235,
+            "actual_last_end_s": 10.689282715403703,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12009008362146822,
+            "duration_error_s": 9.008362146822879e-05,
+            "impulse_xy_Ns": [
+              0.02805610810599507,
+              0.23853588311780177
+            ],
+            "completed_applied_steps": 302,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12009008362146822,
+            "source_count_during_applied_pulse_min_max": [
+              29,
+              105
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              89
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_script_expert_56003/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 287,
+        "learned_feedback_samples": 287,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999980799591718,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03987083392181549,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1137,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999980799591718,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable object-centric pose [0.492741427562783, 0.29465636388195593, 0.25588066973789425]",
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 224,
+        "spill_count": 16
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 287,
+        "admitted_samples": 286,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 287,
+        "teacher_executed_states": 287,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_script_expert_56003/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_old_BC3_56003",
+        "robot": "ur5e",
+        "method": "old_BC3",
+        "seed": 56003,
+        "label": "corridor_old_BC3_56003",
+        "configuration": "configurations/56003.json",
+        "policy": "policies/ur5e_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11647058210694183,
+        "min_loaded_tube_robot_contacts": 16,
+        "native_seconds": 23.001304023075207,
+        "native_steps": 19262,
+        "receiver_xy_path_m": 1.6232393714078348,
+        "final_receiver_fraction": 0.975,
+        "final_spill_fraction": 0.025,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3781374473757463,
+        "min_dt_s": 0.00023087106403400472,
+        "wall_run_s": 922.5525403299835
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 11.640862491360549,
+          "native_step": 6191,
+          "phase": "pour_hold",
+          "unique_rim_crossings": 98,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 11.640442531866656,
+          "source_count": 142,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          11.452168193046335,
+          12.109236679898558
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.23362551894317704,
+              1.986307910898643
+            ],
+            "scheduled_start_s": 11.640862491360549,
+            "scheduled_end_s": 11.760862491360548,
+            "actual_first_start_s": 11.640862491360549,
+            "actual_last_end_s": 11.761029240595313,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12016674923476423,
+            "duration_error_s": 0.00016674923476422965,
+            "impulse_xy_Ns": [
+              0.028074019149686408,
+              0.23868816463198542
+            ],
+            "completed_applied_steps": 295,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12016674923476423,
+            "source_count_during_applied_pulse_min_max": [
+              81,
+              142
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              64
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_old_BC3_56003/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999834638521982,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.039768627143136115,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999834638521982,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.000358027274164,
+            "requested_age_s": 0.02,
+            "selected_native_time_s": 14.970189836787968,
+            "actual_age_s": 0.030168190486195456,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 234,
+        "spill_count": 6
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_old_BC3_56003/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_script_expert_56003",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56003,
+        "label": "corridor_script_expert_56003",
+        "configuration": "configurations/56003.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11514362194806793,
+        "min_loaded_tube_robot_contacts": 16,
+        "native_seconds": 10.880015375420014,
+        "native_steps": 6453,
+        "receiver_xy_path_m": 0.7677805388075567,
+        "final_receiver_fraction": 0.8291666666666667,
+        "final_spill_fraction": 0.17083333333333334,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.35814164485160466,
+        "min_dt_s": 0.00030487266257626325,
+        "wall_run_s": 560.6780035809788
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.572668593949796,
+          "native_step": 5656,
+          "phase": "tilt",
+          "unique_rim_crossings": 122,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.57224230988031,
+          "source_count": 118,
+          "receiver_count": 25
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.41158987385194,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.23362551894317704,
+              1.986307910898643
+            ],
+            "scheduled_start_s": 10.572668593949796,
+            "scheduled_end_s": 10.692668593949795,
+            "actual_first_start_s": 10.572668593949796,
+            "actual_last_end_s": 10.693018502471794,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12034990852199812,
+            "duration_error_s": 0.0003499085219981213,
+            "impulse_xy_Ns": [
+              0.028116809833215684,
+              0.2390519753731728
+            ],
+            "completed_applied_steps": 295,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              41,
+              118
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              25,
+              86
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_script_expert_56003/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 239,
+        "learned_feedback_samples": 239,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.039979927528328574,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03984954777299858,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1089,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.039979927528328574,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": false,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable Flexiv object-centric pose [0.4813935813919096, 0.2385293610724141, 0.229815176740988]",
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 199,
+        "spill_count": 41
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 239,
+        "admitted_samples": 238,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 239,
+        "teacher_executed_states": 239,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_script_expert_56003/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_old_BC3_56003",
+        "robot": "flexiv",
+        "method": "old_BC3",
+        "seed": 56003,
+        "label": "corridor_old_BC3_56003",
+        "configuration": "configurations/56003.json",
+        "policy": "policies/flexiv_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11514362194806793,
+        "min_loaded_tube_robot_contacts": 16,
+        "native_seconds": 23.000947021328347,
+        "native_steps": 14188,
+        "receiver_xy_path_m": 1.6295448307675031,
+        "final_receiver_fraction": 0.6875,
+        "final_spill_fraction": 0.004166666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37638433221138606,
+        "min_dt_s": 0.00023217769273669073,
+        "wall_run_s": 916.1720180900011
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 12.858809043059848,
+          "native_step": 6897,
+          "phase": "untilt",
+          "unique_rim_crossings": 63,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 12.8583543917118,
+          "source_count": 177,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 167,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          12.700227577110608,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.23362551894317704,
+              1.986307910898643
+            ],
+            "scheduled_start_s": 12.858809043059848,
+            "scheduled_end_s": 12.978809043059847,
+            "actual_first_start_s": 12.858809043059848,
+            "actual_last_end_s": 12.978915673420481,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12010663036063285,
+            "duration_error_s": 0.00010663036063285336,
+            "impulse_xy_Ns": [
+              0.02805997384651921,
+              0.23856875003670427
+            ],
+            "completed_applied_steps": 269,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              142,
+              177
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              54
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_old_BC3_56003/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999414854180294,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03881473719608142,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999414854180294,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1498,
+            "native_time_s": 15.000746041797743,
+            "requested_age_s": 0.02,
+            "selected_native_time_s": 14.980746041797737,
+            "actual_age_s": 0.02000000000000668,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 74,
+        "receiver_count": 165,
+        "spill_count": 1
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_old_BC3_56003/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_script_expert_56004",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56004,
+        "label": "corridor_script_expert_56004",
+        "configuration": "configurations/56004.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11646267878605972,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.00065997769015,
+        "native_steps": 23626,
+        "receiver_xy_path_m": 1.6174474110865855,
+        "final_receiver_fraction": 0.9541666666666667,
+        "final_spill_fraction": 0.04583333333333333,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37906998062187475,
+        "min_dt_s": 0.00019983808379144002,
+        "wall_run_s": 960.0836685819959
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.578538708446093,
+          "native_step": 5691,
+          "phase": "tilt",
+          "unique_rim_crossings": 144,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.578139519441464,
+          "source_count": 96,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.403850871538632,
+          10.875045826610119
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              1.5194975428985957,
+              1.3004334727794151
+            ],
+            "scheduled_start_s": 10.578538708446093,
+            "scheduled_end_s": 10.698538708446092,
+            "actual_first_start_s": 10.578538708446093,
+            "actual_last_end_s": 10.698730546934064,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12019183848797077,
+            "duration_error_s": 0.00019183848797077463,
+            "impulse_xy_Ns": [
+              0.1826312032589366,
+              0.1563014899246545
+            ],
+            "completed_applied_steps": 306,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12019183848797077,
+            "source_count_during_applied_pulse_min_max": [
+              25,
+              96
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              101
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_script_expert_56004/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.039986962968317386,
+        "actual_age_median_s": 0.029962985596501568,
+        "actual_age_p95_s": 0.03988373274975032,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.039986962968317386,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1496,
+            "native_time_s": 15.00014914856171,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.960254975496996,
+            "actual_age_s": 0.03989417306471488,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 229,
+        "spill_count": 11
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 0,
+        "expert_query_count": 650,
+        "teacher_executed_states": 650,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_script_expert_56004/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_old_BC3_56004",
+        "robot": "ur5e",
+        "method": "old_BC3",
+        "seed": 56004,
+        "label": "corridor_old_BC3_56004",
+        "configuration": "configurations/56004.json",
+        "policy": "policies/ur5e_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11646267878605972,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.001327346842306,
+        "native_steps": 15130,
+        "receiver_xy_path_m": 1.6297288521600253,
+        "final_receiver_fraction": 0.9958333333333333,
+        "final_spill_fraction": 0.004166666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37556827082682037,
+        "min_dt_s": 0.00023187880296590073,
+        "wall_run_s": 862.8053636100085
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 11.522160063341273,
+          "native_step": 6148,
+          "phase": "pour_hold",
+          "unique_rim_crossings": 88,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 22,
+          "previous_native_s": 11.521742302242439,
+          "source_count": 152,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          11.342094753688658,
+          11.961412913488894
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              1.5194975428985957,
+              1.3004334727794151
+            ],
+            "scheduled_start_s": 11.522160063341273,
+            "scheduled_end_s": 11.642160063341272,
+            "actual_first_start_s": 11.522160063341273,
+            "actual_last_end_s": 11.642293904507277,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12013384116600356,
+            "duration_error_s": 0.00013384116600356766,
+            "impulse_xy_Ns": [
+              0.18254307647071255,
+              0.15622606826583665
+            ],
+            "completed_applied_steps": 290,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12013384116600356,
+            "source_count_during_applied_pulse_min_max": [
+              89,
+              152
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              65
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_old_BC3_56004/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999234289749154,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03966448325194527,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999234289749154,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.001227796407926,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.970522277626443,
+            "actual_age_s": 0.030705518781482866,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 239,
+        "spill_count": 1
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_old_BC3_56004/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_script_expert_56004",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56004,
+        "label": "corridor_script_expert_56004",
+        "configuration": "configurations/56004.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": false,
+      "original_physical_gates_success": false,
+      "calibration_success": false,
+      "metrics": {
+        "min_loaded_lift_m": 0.11503342229968579,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 10.640212182815684,
+        "native_steps": 5802,
+        "receiver_xy_path_m": 0.7718892190046435,
+        "final_receiver_fraction": 0.225,
+        "final_spill_fraction": 0.5333333333333333,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.34908266668182913,
+        "min_dt_s": 0.000273794375052901,
+        "wall_run_s": 536.0240491559962
+      },
+      "flow": {
+        "status": "PULSES_INCOMPLETE",
+        "perturbation_protocol_satisfied": false,
+        "trigger": {
+          "native_s": 10.584484203224049,
+          "native_step": 5632,
+          "phase": "tilt",
+          "unique_rim_crossings": 135,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.58407854753729,
+          "source_count": 105,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 182,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          10.417109210713418,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              1.5194975428985957,
+              1.3004334727794151
+            ],
+            "scheduled_start_s": 10.584484203224049,
+            "scheduled_end_s": 10.704484203224048,
+            "actual_first_start_s": 10.584484203224049,
+            "actual_last_end_s": 10.640212182815684,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.055727979591635446,
+            "duration_error_s": -0.06427202040836455,
+            "impulse_xy_Ns": [
+              0.08467852806019319,
+              0.07247053003133085
+            ],
+            "completed_applied_steps": 170,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              58,
+              105
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              54
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_script_expert_56004/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": false,
+        "status": "DELAY_CONTRACT_FAILED_OR_INCOMPLETE",
+        "samples": 215,
+        "learned_feedback_samples": 215,
+        "pending_terminal_samples": 0,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": false,
+          "one_bounded_pending_terminal_nextobs": false
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03996865979399722,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.039635861055380237,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1065,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03996865979399722,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 1,
+      "checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": false,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": "Unreachable Flexiv object-centric pose [0.48993390555574207, 0.2624705849757435, 0.21090001841694592]",
+      "final_counts": {
+        "source_count": 58,
+        "receiver_count": 54,
+        "spill_count": 128
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 215,
+        "admitted_samples": 214,
+        "quarantined_samples": 1,
+        "student_executed_states": 0,
+        "expert_query_count": 215,
+        "teacher_executed_states": 215,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_script_expert_56004/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_old_BC3_56004",
+        "robot": "flexiv",
+        "method": "old_BC3",
+        "seed": 56004,
+        "label": "corridor_old_BC3_56004",
+        "configuration": "configurations/56004.json",
+        "policy": "policies/flexiv_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11503342229968579,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.000595077827874,
+        "native_steps": 13673,
+        "receiver_xy_path_m": 1.6376087611520869,
+        "final_receiver_fraction": 0.8791666666666667,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3625731525124261,
+        "min_dt_s": 0.00042361037069409515,
+        "wall_run_s": 923.2899242890126
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 12.713964919681976,
+          "native_step": 6722,
+          "phase": "untilt",
+          "unique_rim_crossings": 64,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 12.713512164894253,
+          "source_count": 176,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 211,
+        "configured_pulse_count": 1,
+        "observed_bulk_landing_window_s": [
+          12.559394402768854,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              1.5194975428985957,
+              1.3004334727794151
+            ],
+            "scheduled_start_s": 12.713964919681976,
+            "scheduled_end_s": 12.833964919681975,
+            "actual_first_start_s": 12.713964919681976,
+            "actual_last_end_s": 12.834348386280592,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.1203834665986161,
+            "duration_error_s": 0.0003834665986161001,
+            "impulse_xy_Ns": [
+              0.18292238170221223,
+              0.15655068953406304
+            ],
+            "completed_applied_steps": 259,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              138,
+              176
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              56
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_old_BC3_56004/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.039990828404370404,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03922821074491001,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.039990828404370404,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.001372058729011,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.970895443644991,
+            "actual_age_s": 0.030476615084019443,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 29,
+        "receiver_count": 211,
+        "spill_count": 0
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_old_BC3_56004/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_script_expert_56005",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56005,
+        "label": "corridor_script_expert_56005",
+        "configuration": "configurations/56005.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11648813261528781,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.00118098299575,
+        "native_steps": 17701,
+        "receiver_xy_path_m": 1.6219595499604378,
+        "final_receiver_fraction": 0.9875,
+        "final_spill_fraction": 0.0125,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3788786882451006,
+        "min_dt_s": 0.00023170051022710413,
+        "wall_run_s": 886.4235893999867
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.575046135262193,
+          "native_step": 5693,
+          "phase": "tilt",
+          "unique_rim_crossings": 137,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.574635530735451,
+          "source_count": 103,
+          "receiver_count": 25
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 2,
+        "observed_bulk_landing_window_s": [
+          10.400447247589977,
+          10.872807462674237
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.7247186201537502,
+              -1.864076962360311
+            ],
+            "scheduled_start_s": 10.575046135262193,
+            "scheduled_end_s": 10.695046135262192,
+            "actual_first_start_s": 10.575046135262193,
+            "actual_last_end_s": 10.695335913292737,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12028977803054453,
+            "duration_error_s": 0.00028977803054452966,
+            "impulse_xy_Ns": [
+              0.08717624195289717,
+              -0.2242294040341734
+            ],
+            "completed_applied_steps": 298,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12028977803054453,
+            "source_count_during_applied_pulse_min_max": [
+              28,
+              103
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              25,
+              98
+            ]
+          },
+          {
+            "index": 1,
+            "force_xy_N": [
+              -1.6094479175752134,
+              1.1872983620862991
+            ],
+            "scheduled_start_s": 10.695046135262192,
+            "scheduled_end_s": 10.815046135262191,
+            "actual_first_start_s": 10.695335913292737,
+            "actual_last_end_s": 10.815313664679769,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.11997775138703126,
+            "duration_error_s": -2.2248612968733816e-05,
+            "impulse_xy_Ns": [
+              -0.19309794212521414,
+              0.14244938770861942
+            ],
+            "completed_applied_steps": 314,
+            "start_lateness_s": 0.0002897780305453068,
+            "overlap_with_observed_bulk_landing_window_s": 0.11997775138703126,
+            "source_count_during_applied_pulse_min_max": [
+              0,
+              28
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              98,
+              189
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_script_expert_56005/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999918361406429,
+        "actual_age_median_s": 0.029967129503884138,
+        "actual_age_p95_s": 0.039829729107050404,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999918361406429,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.000734930543977,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.970694264159187,
+            "actual_age_s": 0.030040666384790526,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 237,
+        "spill_count": 3
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 0,
+        "expert_query_count": 650,
+        "teacher_executed_states": 650,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_script_expert_56005/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "ur5e_old_BC3_56005",
+        "robot": "ur5e",
+        "method": "old_BC3",
+        "seed": 56005,
+        "label": "corridor_old_BC3_56005",
+        "configuration": "configurations/56005.json",
+        "policy": "policies/ur5e_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.11648813261528781,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.000561399901716,
+        "native_steps": 17235,
+        "receiver_xy_path_m": 1.628568278140711,
+        "final_receiver_fraction": 0.9833333333333333,
+        "final_spill_fraction": 0.016666666666666666,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37570472602864247,
+        "min_dt_s": 0.00023059448397783354,
+        "wall_run_s": 894.0891914569947
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 11.331326599649453,
+          "native_step": 6003,
+          "phase": "pour_hold",
+          "unique_rim_crossings": 135,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 11.33091302678945,
+          "source_count": 105,
+          "receiver_count": 26
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 2,
+        "observed_bulk_landing_window_s": [
+          11.141075611231832,
+          11.658598991445949
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.7247186201537502,
+              -1.864076962360311
+            ],
+            "scheduled_start_s": 11.331326599649453,
+            "scheduled_end_s": 11.451326599649452,
+            "actual_first_start_s": 11.331326599649453,
+            "actual_last_end_s": 11.451351497173523,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12002489752407008,
+            "duration_error_s": 2.4897524070088828e-05,
+            "impulse_xy_Ns": [
+              0.08698427811773937,
+              -0.22373564638427623
+            ],
+            "completed_applied_steps": 299,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12002489752407008,
+            "source_count_during_applied_pulse_min_max": [
+              34,
+              105
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              26,
+              96
+            ]
+          },
+          {
+            "index": 1,
+            "force_xy_N": [
+              -1.6094479175752134,
+              1.1872983620862991
+            ],
+            "scheduled_start_s": 11.451326599649452,
+            "scheduled_end_s": 11.571326599649451,
+            "actual_first_start_s": 11.451351497173523,
+            "actual_last_end_s": 11.571394911888785,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12004341471526203,
+            "duration_error_s": 4.3414715262035664e-05,
+            "impulse_xy_Ns": [
+              -0.19320362383209616,
+              0.1425273496706769
+            ],
+            "completed_applied_steps": 294,
+            "start_lateness_s": 2.4897524070865984e-05,
+            "overlap_with_observed_bulk_landing_window_s": 0.12004341471526203,
+            "source_count_during_applied_pulse_min_max": [
+              3,
+              34
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              96,
+              181
+            ]
+          }
+        ],
+        "evidence": "runs/ur5e/corridor_old_BC3_56005/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999067389031552,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03982196352749856,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999067389031552,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1496,
+            "native_time_s": 15.000851187426386,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.961261405871644,
+            "actual_age_s": 0.03958978155474213,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 236,
+        "spill_count": 4
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/ur5e/corridor_old_BC3_56005/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_script_expert_56005",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56005,
+        "label": "corridor_script_expert_56005",
+        "configuration": "configurations/56005.json",
+        "policy": null
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.1150942612212342,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.000738450402654,
+        "native_steps": 16166,
+        "receiver_xy_path_m": 1.6275375368597493,
+        "final_receiver_fraction": 0.9958333333333333,
+        "final_spill_fraction": 0.004166666666666667,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.37670497284631815,
+        "min_dt_s": 0.00023204431522576809,
+        "wall_run_s": 884.5102130199957
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.580407466901224,
+          "native_step": 5657,
+          "phase": "tilt",
+          "unique_rim_crossings": 119,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 22,
+          "previous_native_s": 10.579996085822941,
+          "source_count": 121,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 240,
+        "configured_pulse_count": 2,
+        "observed_bulk_landing_window_s": [
+          10.412729836446104,
+          10.897657378774404
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.7247186201537502,
+              -1.864076962360311
+            ],
+            "scheduled_start_s": 10.580407466901224,
+            "scheduled_end_s": 10.700407466901224,
+            "actual_first_start_s": 10.580407466901224,
+            "actual_last_end_s": 10.700569517078987,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12016205017776294,
+            "duration_error_s": 0.00016205017776294017,
+            "impulse_xy_Ns": [
+              0.08708367519967403,
+              -0.2239913094863515
+            ],
+            "completed_applied_steps": 289,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": 0.12016205017776294,
+            "source_count_during_applied_pulse_min_max": [
+              41,
+              121
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              89
+            ]
+          },
+          {
+            "index": 1,
+            "force_xy_N": [
+              -1.6094479175752134,
+              1.1872983620862991
+            ],
+            "scheduled_start_s": 10.700407466901224,
+            "scheduled_end_s": 10.820407466901223,
+            "actual_first_start_s": 10.700569517078987,
+            "actual_last_end_s": 10.82071909314908,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12014957607009258,
+            "duration_error_s": 0.000149576070092583,
+            "impulse_xy_Ns": [
+              -0.1933744850035552,
+              0.14265339487338402
+            ],
+            "completed_applied_steps": 304,
+            "start_lateness_s": 0.00016205017776371733,
+            "overlap_with_observed_bulk_landing_window_s": 0.12014957607009258,
+            "source_count_during_applied_pulse_min_max": [
+              4,
+              41
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              89,
+              176
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_script_expert_56005/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999991734091779,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.039848375149363235,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999991734091779,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1496,
+            "native_time_s": 15.000439587547664,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.96045298279735,
+            "actual_age_s": 0.03998660475031457,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 0,
+        "receiver_count": 239,
+        "spill_count": 1
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 0,
+        "expert_query_count": 650,
+        "teacher_executed_states": 650,
+        "training": true,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_script_expert_56005/metrics.json"
+    },
+    {
+      "case": {
+        "case_id": "flexiv_old_BC3_56005",
+        "robot": "flexiv",
+        "method": "old_BC3",
+        "seed": 56005,
+        "label": "corridor_old_BC3_56005",
+        "configuration": "configurations/56005.json",
+        "policy": "policies/flexiv_old_bc3.npz"
+      },
+      "started": true,
+      "closed": true,
+      "status": "CLOSED",
+      "raw_original_physical_gates_success": true,
+      "original_physical_gates_success": true,
+      "calibration_success": true,
+      "metrics": {
+        "min_loaded_lift_m": 0.1150942612212342,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.001085087507917,
+        "native_steps": 22485,
+        "receiver_xy_path_m": 1.639746871680682,
+        "final_receiver_fraction": 0.8333333333333334,
+        "final_spill_fraction": 0.058333333333333334,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.38074639227117457,
+        "min_dt_s": 0.00022752937541756883,
+        "wall_run_s": 1068.9775969229813
+      },
+      "flow": {
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 12.729695709138442,
+          "native_step": 6729,
+          "phase": "untilt",
+          "unique_rim_crossings": 65,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 12.729245660977476,
+          "source_count": 175,
+          "receiver_count": 24
+        },
+        "unique_rim_crossings": 214,
+        "configured_pulse_count": 2,
+        "observed_bulk_landing_window_s": [
+          12.576909788816348,
+          null
+        ],
+        "pulses": [
+          {
+            "index": 0,
+            "force_xy_N": [
+              0.7247186201537502,
+              -1.864076962360311
+            ],
+            "scheduled_start_s": 12.729695709138442,
+            "scheduled_end_s": 12.849695709138441,
+            "actual_first_start_s": 12.729695709138442,
+            "actual_last_end_s": 12.849707167995446,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12001145885700382,
+            "duration_error_s": 1.1458857003820988e-05,
+            "impulse_xy_Ns": [
+              0.08697453886548644,
+              -0.22371059567459317
+            ],
+            "completed_applied_steps": 273,
+            "start_lateness_s": 0.0,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              138,
+              175
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              24,
+              55
+            ]
+          },
+          {
+            "index": 1,
+            "force_xy_N": [
+              -1.6094479175752134,
+              1.1872983620862991
+            ],
+            "scheduled_start_s": 12.849695709138441,
+            "scheduled_end_s": 12.96969570913844,
+            "actual_first_start_s": 12.849707167995446,
+            "actual_last_end_s": 12.969988341998297,
+            "nominal_duration_s": 0.12,
+            "applied_duration_s": 0.12028117400285154,
+            "duration_error_s": 0.0002811740028515475,
+            "impulse_xy_Ns": [
+              -0.19358628502239134,
+              0.1428096408834028
+            ],
+            "completed_applied_steps": 270,
+            "start_lateness_s": 1.1458857004598144e-05,
+            "overlap_with_observed_bulk_landing_window_s": null,
+            "source_count_during_applied_pulse_min_max": [
+              97,
+              138
+            ],
+            "receiver_count_during_applied_pulse_min_max": [
+              55,
+              90
+            ]
+          }
+        ],
+        "evidence": "runs/flexiv/corridor_old_BC3_56005/flow_events.json"
+      },
+      "measured_delay": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999713742944522,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03956173939322749,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999713742944522,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.000060387586513,
+            "requested_age_s": 0.04,
+            "selected_native_time_s": 14.970143974578818,
+            "actual_age_s": 0.029916413007695652,
+            "eligible_count": 1,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "returncode": 0,
+      "checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "error": null,
+      "final_counts": {
+        "source_count": 26,
+        "receiver_count": 200,
+        "spill_count": 14
+      },
+      "learning_records_only_no_weight_updates": {
+        "raw_samples": 650,
+        "admitted_samples": 650,
+        "quarantined_samples": 0,
+        "student_executed_states": 650,
+        "expert_query_count": 0,
+        "teacher_executed_states": 0,
+        "training": false,
+        "data": "learning_data.npz",
+        "data_admission": "Finite actual next native state and cumulative container/bench/floor penetration flag0; stop admitting after first invalid state. A final action without observed next step is excluded."
+      },
+      "evidence": "runs/flexiv/corridor_old_BC3_56005/metrics.json"
+    }
+  ],
+  "video": "video.mp4",
+  "plot": "scientific_figure.png",
+  "policy_weight_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "old_A04_pilots_F_counts_unchanged": true,
+  "study_scope": "Paireddevelopmentcalibration:geometryderivedoutwardcorridor,receiverarrivalpulses,andboundedobservedhistorydelay;sharedobjectiveonlyIKretained.OldeasytrainedBC3;notrainingornewholdout.",
+  "difficulty_decision": "Calibration target not met. No formal study, training, or automatic difficulty tuning is launched.",
+  "limits": [
+    "Paired five known development recipes, not new heldout; tiny groupn5 Wilsonintervals reported",
+    "Comparedtoflowalignedpilot:trajectorydefinition/heading,arrival-triggeredpushtiming,andboundeddelaysamplerallchange;nocausalclaimforanysinglefactor;allsharedwithinnewpilot.",
+    "Old easy-trained BC3, not a freshly hard-trained policy",
+    "Privileged particleoracle triggers benchmarkforces only; unchanged18D policyfeatures",
+    "Affineclippedteacher and rich18D errors/feedforward can still make BCceiling; do not auto tune",
+    "NativeadaptiveCFLclock,not100Hzwallrealtime;strict20..40msageandobservedpairidentitycheckedonarchivedselections;full651contractrequirescompleteepisode;exactrequestedagenotpromised.",
+    "Original240particle3.75mL localCPUDFSPH; fluidcontactscopecontainers/bench/floor, not GRID or end-to-endvision",
+    "Observed bulk landing window is count-threshold diagnostic; not instantaneous physicalflowgroundtruth",
+    "Reported dt-times-force is the incremental2N externalpulse component consumed by MuJoCo qfrc_applied, not netreceiver impulse after motionservo/fluid/contact forces.",
+    "Actualreceiver10%occupancycrossingtriggerspulses;itdoesnotguaranteealllandingoverlap.Pulseandreceiver10..90windowdiagnosticsareprespecified."
+  ],
+  "temporal_fidelity": {
+    "nominal_requested_delay_s": [
+      0.02,
+      0.04
+    ],
+    "archived_control_age_min_s": 0.02000000000000668,
+    "archived_control_age_max_s": 0.03999991734091779,
+    "strict_20to40ms_bound_verified": false,
+    "status": "BOUNDED_REAL_OBSERVED_FRAME_SELECTION",
+    "current_sampler_changed": true,
+    "scope": "ActivelearnedfeedbackANDpendingterminalnextobs;scriptednopendingcurrentframeisoutsidefeedbackscope",
+    "exact_requested_age_promised": false,
+    "interpolation": false,
+    "observed_selected_age_bounds_all_started_with_samples": true,
+    "complete_651_selection_contract_episodes": 13,
+    "completion_boundary": "Everyarchivedactive/pendingselectioncanbeageboundedwhileearlyIKstopsstillfailthefull650feedbackplus1terminalcontract;donotcallpartialepisodescomplete."
+  },
+  "planned_full_study_640_status": "NOT_STARTED",
+  "continuous_operation_timing": "operation_timing.json",
+  "closeout": "closeout.json",
+  "timing_diagnostic": "timing_diagnostic.json",
+  "action_mapping_diagnostic": {
+    "scope": "One CPU evaluation of frozen old BC3 and the exact clipped teacher formula on existing archived observed inputs, including expert and student visited states.",
+    "teacher_formula": "Angular clip(4*rotation_error+angular_feedforward, +/-1.5 rad/s); linear clip(4*position_error+linear_feedforward, +/-0.10 m/s).",
+    "primary_error": "Actual runtime clipping before the common action noise; raw unclipped policy errors also reported.",
+    "quantile_definition": "95th/max of absolute component errors pooled across three axes and all samples; per-sample vector L2 is separate.",
+    "clipping_definition": "Fraction of raw teacher components strictly beyond the action limit and fraction of samples with any such component.",
+    "groups": [
+      {
+        "robot": "all",
+        "visited_state_source": "all",
+        "samples": 10089,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.4013774157883189,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4572821095252644,
+            "absolute_component_error_p95": 1.0875238248424488,
+            "absolute_component_error_max": 1.7109186985625409,
+            "per_sample_vector_L2_p95": 1.2461633759456925,
+            "per_sample_vector_L2_max": 1.7109219577335237
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.047882277253939974,
+            "absolute_component_error_p95": 0.08934617552622501,
+            "absolute_component_error_max": 0.12813821813597315,
+            "per_sample_vector_L2_p95": 0.14300541468191288,
+            "per_sample_vector_L2_max": 0.17774802243092105
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.4013780750069331,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.4572821095252644,
+            "absolute_component_error_p95": 1.0875238248424488,
+            "absolute_component_error_max": 1.7109186985625409,
+            "per_sample_vector_L2_p95": 1.2461633759456925,
+            "per_sample_vector_L2_max": 1.7109219577335237
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.047882387773067685,
+            "absolute_component_error_p95": 0.08934617552622501,
+            "absolute_component_error_max": 0.12813821813597315,
+            "per_sample_vector_L2_p95": 0.14300541468191288,
+            "per_sample_vector_L2_max": 0.17774802243092105
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.15006442660323124,
+            "samples_with_any_component_clipped_fraction": 0.4501932798096937
+          },
+          "linear": {
+            "component_fraction": 0.26490897677338354,
+            "samples_with_any_component_clipped_fraction": 0.687679651105164
+          }
+        }
+      },
+      {
+        "robot": "ur5e",
+        "visited_state_source": "script_expert",
+        "samples": 1943,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.3342638925343048,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3697956221511908,
+            "absolute_component_error_p95": 0.9533086417355904,
+            "absolute_component_error_max": 1.4617999911874717,
+            "per_sample_vector_L2_p95": 1.1376116380748413,
+            "per_sample_vector_L2_max": 1.4619337472924632
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.04033453288423636,
+            "absolute_component_error_p95": 0.07298400889875307,
+            "absolute_component_error_max": 0.09169233089738507,
+            "per_sample_vector_L2_p95": 0.0936926183629744,
+            "per_sample_vector_L2_max": 0.1158917123035745
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.3342638925343048,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.3697956221511908,
+            "absolute_component_error_p95": 0.9533086417355904,
+            "absolute_component_error_max": 1.4617999911874717,
+            "per_sample_vector_L2_p95": 1.1376116380748413,
+            "per_sample_vector_L2_max": 1.4619337472924632
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.04033453288423636,
+            "absolute_component_error_p95": 0.07298400889875307,
+            "absolute_component_error_max": 0.09169233089738507,
+            "per_sample_vector_L2_p95": 0.0936926183629744,
+            "per_sample_vector_L2_max": 0.1158917123035745
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.0,
+            "samples_with_any_component_clipped_fraction": 0.0
+          },
+          "linear": {
+            "component_fraction": 0.24343798250128668,
+            "samples_with_any_component_clipped_fraction": 0.7246525990735976
+          }
+        }
+      },
+      {
+        "robot": "ur5e",
+        "visited_state_source": "old_BC3",
+        "samples": 3250,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.34376439042991186,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.43071517392622477,
+            "absolute_component_error_p95": 1.0452370314949322,
+            "absolute_component_error_max": 1.7109186985625409,
+            "per_sample_vector_L2_p95": 1.260880618864276,
+            "per_sample_vector_L2_max": 1.7109219577335237
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.03922965100386424,
+            "absolute_component_error_p95": 0.07384723279989444,
+            "absolute_component_error_max": 0.09073411438224593,
+            "per_sample_vector_L2_p95": 0.10137856736678627,
+            "per_sample_vector_L2_max": 0.12305421871131614
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.34376439042991186,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.43071517392622477,
+            "absolute_component_error_p95": 1.0452370314949322,
+            "absolute_component_error_max": 1.7109186985625409,
+            "per_sample_vector_L2_p95": 1.260880618864276,
+            "per_sample_vector_L2_max": 1.7109219577335237
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.03922965100386424,
+            "absolute_component_error_p95": 0.07384723279989444,
+            "absolute_component_error_max": 0.09073411438224593,
+            "per_sample_vector_L2_p95": 0.10137856736678627,
+            "per_sample_vector_L2_max": 0.12305421871131614
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.20758974358974358,
+            "samples_with_any_component_clipped_fraction": 0.6227692307692307
+          },
+          "linear": {
+            "component_fraction": 0.18656410256410255,
+            "samples_with_any_component_clipped_fraction": 0.5366153846153846
+          }
+        }
+      },
+      {
+        "robot": "flexiv",
+        "visited_state_source": "script_expert",
+        "samples": 1646,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.30301350309450736,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.2797645045099519,
+            "absolute_component_error_p95": 0.6364319161126151,
+            "absolute_component_error_max": 1.4108843403480258,
+            "per_sample_vector_L2_p95": 0.7888160853706114,
+            "per_sample_vector_L2_max": 1.4557551312792263
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.03858089024809641,
+            "absolute_component_error_p95": 0.07314511550963218,
+            "absolute_component_error_max": 0.11551321149361529,
+            "per_sample_vector_L2_p95": 0.1002108961540686,
+            "per_sample_vector_L2_max": 0.1771787420865804
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.30301350309450736,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.2797645045099519,
+            "absolute_component_error_p95": 0.6364319161126151,
+            "absolute_component_error_max": 1.4108843403480258,
+            "per_sample_vector_L2_p95": 0.7888160853706114,
+            "per_sample_vector_L2_max": 1.4557551312792263
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.03858089024809641,
+            "absolute_component_error_p95": 0.07314511550963218,
+            "absolute_component_error_max": 0.11551321149361529,
+            "per_sample_vector_L2_p95": 0.1002108961540686,
+            "per_sample_vector_L2_max": 0.1771787420865804
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.001012555690562981,
+            "samples_with_any_component_clipped_fraction": 0.003037667071688943
+          },
+          "linear": {
+            "component_fraction": 0.2608343458890239,
+            "samples_with_any_component_clipped_fraction": 0.7047387606318347
+          }
+        }
+      },
+      {
+        "robot": "flexiv",
+        "visited_state_source": "old_BC3",
+        "samples": 3250,
+        "runtime_clipped_before_shared_noise_error": {
+          "normalized_component_RMSE": 0.5183061594255939,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.5849975349080399,
+            "absolute_component_error_p95": 1.1733207820559732,
+            "absolute_component_error_max": 1.3684743578695102,
+            "per_sample_vector_L2_p95": 1.2740776486394527,
+            "per_sample_vector_L2_max": 1.4086153662087157
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.06206318003793689,
+            "absolute_component_error_p95": 0.11351837528395257,
+            "absolute_component_error_max": 0.12813821813597315,
+            "per_sample_vector_L2_p95": 0.15090636368097618,
+            "per_sample_vector_L2_max": 0.17774802243092105
+          }
+        },
+        "raw_unclipped_policy_output_error": {
+          "normalized_component_RMSE": 0.5183077441745643,
+          "angular": {
+            "unit": "rad/s",
+            "component_RMSE": 0.5849975349080399,
+            "absolute_component_error_p95": 1.1733207820559732,
+            "absolute_component_error_max": 1.3684743578695102,
+            "per_sample_vector_L2_p95": 1.2740776486394527,
+            "per_sample_vector_L2_max": 1.4086153662087157
+          },
+          "linear": {
+            "unit": "m/s",
+            "component_RMSE": 0.062063444730998424,
+            "absolute_component_error_p95": 0.11351837528395257,
+            "absolute_component_error_max": 0.12813821813597315,
+            "per_sample_vector_L2_p95": 0.15090636368097618,
+            "per_sample_vector_L2_max": 0.17774802243092105
+          }
+        },
+        "teacher_clipping": {
+          "angular": {
+            "component_fraction": 0.25774358974358974,
+            "samples_with_any_component_clipped_fraction": 0.7732307692307693
+          },
+          "linear": {
+            "component_fraction": 0.35815384615384616,
+            "samples_with_any_component_clipped_fraction": 0.808
+          }
+        }
+      }
+    ],
+    "new_rollouts": 0,
+    "new_runtime_teacher_queries": 0,
+    "training_updates": 0,
+    "labels_written_to_buffer": false,
+    "boundary": "Strong low-level IK and scripted pickup/return remain. The upstream goal tracks actual cup XY; observations directly expose delayed goal errors and feedforward. Equal easy-task success is not evidence of DAgger, OPD, ICL, or recovery learning."
+  },
+  "execution_cost_readback": {
+    "source": "ExistingSTARTED/CLOSEDtimestamps,wall_sandrecordedmetrics.native_seconds;readonlyarithmetic,noprofile/newnative",
+    "workers": 4,
+    "started": 20,
+    "closed": 20,
+    "first_start_utc": "2026-10-20T20:55:15.356983+00:00",
+    "last_close_utc": "2026-10-20T22:12:19.167426+00:00",
+    "queue_makespan_s": 4623.810443162918,
+    "summed_episode_wall_s": 16150.198586792045,
+    "summed_known_native_stop_s": 374.8335978588259,
+    "known_native_stops": 20,
+    "closed_episodes_per_wall_hour": 15.571572599059314,
+    "summed_native_s_per_makespan_wall_s": 0.08106595252257377,
+    "summed_native_s_per_summed_episode_wall_s": 0.023209225313512386,
+    "full23s_episodes": 13,
+    "full23s_episode_wall_s": {
+      "n": 13,
+      "minimum": 876.7150217400049,
+      "median": 929.280210612982,
+      "maximum": 1080.839348628011
+    },
+    "limitations": [
+      "Fourworkersoverlap;sumwallisnotqueuemakespan.Episodewallincludesstartup,shutdownandartifactI/O,notpurephysicsprofile.",
+      "Earlyfailureterminationsreduceknownnativetime;throughputisnot23s-success-throughput.",
+      "Nativeobservedhistoryage20..40msisnotwall-clockdeliverylatencyorreal-timesystemlatency."
+    ]
+  },
+  "reference_competence_boundary": {
+    "expert_groups": [
+      {
+        "robot": "ur5e",
+        "successes": 2,
+        "started": 5
+      },
+      {
+        "robot": "flexiv",
+        "successes": 1,
+        "started": 5
+      }
+    ],
+    "statement": "Referencecompetencetargetnotmetwhenexpertgroupsarebelow5/5;oldBCversusfailingreferencecannotestablishlearningmethodsuperiority.",
+    "native_solver_failure_scope": "LocalIKacceptance/trackingobservationsdonotcertifyglobalunreachability.",
+    "command_integrator_interpretation": "Archivedcommand-goal/actualandhistoricalvelocitysupportadiagnostichypothesis;nointerventionhasidentifiedcausality.",
+    "subsequent_native_or_training_authorized_by_this_report": false
+  },
+  "plot_pdf": "scientific_figure.pdf",
+  "operation_timing_figure": "operation_timing_figure.png",
+  "operation_timing_figure_pdf": "operation_timing_figure.pdf",
+  "video_metadata": "video_metadata.json"
+}

@@ -1,7 +1,7 @@
 {
   "id": "N10",
-  "status": "RUNNING",
-  "scope": "Complete fixed five-cycle positive failed one or more frozen functional/measurement requirements; no F acceptance claimed",
+  "status": "F_PASS",
+  "scope": "Original solid-PBD powder scoop/pour functionality with post-hoc declared semantic regional mass scale; original physical spring weighing failed and is not an acceptance gate after guidance5.",
   "positive_recomputed": {
     "case": "positive",
     "native_status": "NATIVE_EPISODE_COMPLETE_PENDING_F_REVIEW",
@@ -204,12 +204,12 @@
       "joint_command_rate_rad_s": 0.7,
       "local_F_gates": [
         "Complete fixed5cycle positive and5cycle no-scoop paths, report everycycle; fixed particle count/finite native states and native clock error<=2e-5s.",
-        "At least one physically lifted payload>=50grains and one receivertransfer>=50grains; final receiver parameter mass>=.7g (small100\u2013500mg scale checks failed; no extrapolated precision claim).",
+        "At least one physically lifted payload>=50grains and one receivertransfer>=50grains; final receiver parameter mass>=.7g (small100–500mg scale checks failed; no extrapolated precision claim).",
         "Final parameter mass ledger<=1%,independent pre/post spring scale versus receivercount*configuredmass within10%; count does not enter scale formula.",
         "No-scoop negative ends with<=1% ofstock inreceiver and no verified lifted payload.",
         "Decodable native-state video with all physical/configuration/measurement differences disclosed."
       ],
-      "calibration": "backend_scale_probe/calibration.json; small_mass_probe raw100\u2013500mg precision FAIL preserved, no offset/solver fitting",
+      "calibration": "backend_scale_probe/calibration.json; small_mass_probe raw100–500mg precision FAIL preserved, no offset/solver fitting",
       "negative": "Same repaired source-entry/sweep/pre-level-clearance/leveling geometry raised120mm; descent is reinterpolated from the unchanged high bowl center to the raised entry. Stock/material/pouring/five-cycle schedule unchanged.",
       "offline_ik_worst_position_error_m": 9.474325346912192e-07,
       "paths": {
@@ -24139,12 +24139,12 @@
     "reason": "The complete fixed positive failed a frozen functional/measurement requirement, so the condition for one same-configuration negative was not satisfied. Preserve this failure and the unexecuted plan; no negative is treated as passed.",
     "pass": null
   },
-  "video": "f_tier/N10/entry_repair/collision_repair/native_positive/video.mp4",
+  "video": "f_tier/N10/mortar_quantity_pair/native_positive/video.mp4",
   "raw_result": "f_tier/N10/entry_repair/collision_repair/native_positive/result.json",
   "raw_particle_observations": "f_tier/N10/entry_repair/collision_repair/native_positive/observations.npz",
   "failure_interpretation": "Actual saved native observations establish the failure. Original flat-entry raw/CAD diagnosis is f_tier/N10/diagnosis.json; the completed entry-repair above-rim false-payload/collider diagnosis is f_tier/N10/entry_repair/diagnosis.json. Same-configuration zero-step cooked geometry and the separately authorized67-panel collision-only repair are preserved; no native success is inferred from static geometry.",
   "initial_outside_partition_scope": "Particles already outside the source/spoon/receiver at the first observation are a separate initialization baseline, not all attributed to robot scoop spill.",
-  "configuration_scope": "Flange-mounted spoon from initialization; no autonomous pickup claim, runtime particle/container pose writes, count-conditioned stopping or count-based scale correction.",
+  "configuration_scope": "Prior closed fixed-path study: Flange-mounted spoon from initialization; no autonomous pickup claim, runtime particle/container pose writes, count-conditioned stopping or count-based scale correction.",
   "evaluation_clarification": "Negative verified-payload predicate is carry<50, matching the frozen positive definition >=50; clarified before any negative data. The negative remains unexecuted, not a passed control.",
   "original_identity_complete": false,
   "attempt_manifest": {
@@ -24464,8 +24464,84 @@
         "partial_retirement": null,
         "trial_label": 1810,
         "explicit_backend_rng_seed": null
+      },
+      {
+        "output": "f_tier/N10/observed_bed_native/native_positive",
+        "configuration_group": "observed_bed_guarded_controller_before_explicit_dispatch_fix",
+        "selected_for_current_report": false,
+        "complete_native_result_exists": true,
+        "full_five_cycle_path_complete": false,
+        "native_status": "FAILED_NATIVE_FUNCTION",
+        "last_durable_native_s": 17.200000416487455,
+        "completed_cycles": 0,
+        "failure": "OriginalHSMtimeout at segment1 action0 source_high",
+        "process": {
+          "returncode": 1,
+          "start_utc": "2026-10-20T19:21:49.645637+00:00",
+          "end_utc": "2026-10-20T19:26:31.178767+00:00",
+          "full_wall_duration_s": 281.53312687101425
+        },
+        "producer_acceptance": "f_tier/N10/observed_bed_native/positive_acceptance.json",
+        "failure_analysis": "f_tier/N10/observed_bed_native/failure_analysis.json",
+        "serializer_failed_receipt": "f_tier/N10/observed_bed_native/producer_serialization_failure.json",
+        "serializer_metadata_closure": "f_tier/N10/observed_bed_native/producer_serialization_closeout.json",
+        "scope": "Consumed STARTED integration failure remains in cumulative all-attempt denominator; no negative permitted and no retry in that study."
+      },
+      {
+        "output": "f_tier/N10/framework_dispatch_fix/native_positive",
+        "configuration_group": "framework_dispatch_fix",
+        "selected_for_current_report": false,
+        "latest_closed_frontier": false,
+        "complete_native_result_exists": true,
+        "full_five_cycle_path_complete": true,
+        "native_status": "NATIVE_EPISODE_COMPLETE_PENDING_F_REVIEW",
+        "last_durable_native_s": 178.5166709893383,
+        "completed_cycles": 5,
+        "process": {
+          "returncode": 0,
+          "start_utc": "2026-10-20T19:35:08.820542+00:00",
+          "end_utc": "2026-10-20T20:13:21.022804+00:00",
+          "full_wall_duration_s": 2292.2022568399843,
+          "wall_timeout": null
+        },
+        "producer_acceptance": "f_tier/N10/framework_dispatch_fix/positive_acceptance.json",
+        "failed_frozen_gates": [
+          "receiver_transfer",
+          "final_receiver_mass",
+          "independent_weighing"
+        ],
+        "negative_started": false,
+        "F_audit_run": false,
+        "native_world_scope": "Separate named implementation repair,one independent world/clock,not continuation or pooled success-rate trial. Prior failures retained."
+      },
+      {
+        "output": "f_tier/N10/initialization_contract_fix/native_positive",
+        "configuration_group": "initialization_contract_fix",
+        "selected_for_current_report": false,
+        "latest_closed_frontier": true,
+        "complete_native_result_exists": true,
+        "full_five_cycle_path_complete": true,
+        "native_status": "NATIVE_EPISODE_COMPLETE_PENDING_F_REVIEW",
+        "last_durable_native_s": 177.68333763582632,
+        "completed_cycles": 5,
+        "process": {
+          "returncode": 0,
+          "start_utc": "2026-10-20T20:19:58.002035+00:00",
+          "end_utc": "2026-10-20T20:42:42.937752+00:00",
+          "full_wall_duration_s": 1364.9357101359928,
+          "wall_timeout": null
+        },
+        "producer_acceptance": "f_tier/N10/initialization_contract_fix/positive_acceptance.json",
+        "failed_frozen_gates": [
+          "final_receiver_mass",
+          "independent_weighing"
+        ],
+        "negative_started": false,
+        "F_audit_run": false,
+        "native_world_scope": "Separate named implementation repair,one independent world/clock,not continuation or pooled success-rate trial. Prior failures retained."
       }
-    ]
+    ],
+    "subsequent_study_scope": "Original first-closed selection rule applies to its historical configuration group; every later explicitly named integration/API repair is retained,not selected by outcome."
   },
   "calibration_device_scope": "Frozen independent scale calibration was obtained on GPU0; the identical RTX5090 GPU1 resource copy uses the same gain/zero offset without refitting. Its actual scale error is judged against the unchanged gate.",
   "failed_run_analysis": {
@@ -24609,7 +24685,7 @@
         "other_particles_above_platform_in_its_XY_footprint_unassigned_support": 1.4e-05,
         "outside_or_below_platform": 0.011073999999999999
       },
-      "upper_height_scope": "14outside-cavity grains are63.34\u201363.41mm above scale top, near cup-rim height; actual contact/force ownership is not logged. 15otherfootprint grains are85.86mm below scale top near floor. Do not count every XY-footprint grain as scale-supported."
+      "upper_height_scope": "14outside-cavity grains are63.34–63.41mm above scale top, near cup-rim height; actual contact/force ownership is not logged. 15otherfootprint grains are85.86mm below scale top near floor. Do not count every XY-footprint grain as scale-supported."
     },
     "matched_drop_correction": {
       "old22_terminal_halfsecond_min_true_CAD": 170,
@@ -24626,12 +24702,355 @@
     ],
     "source": "f_tier/N10/entry_repair/collision_repair/final_diagnosis.py"
   },
-  "F_PASS": false,
-  "scope_status": "COMPLETED_SINGLE_67_PANEL_REPAIR_FAILED_FROZEN_GATES",
+  "F_PASS": true,
+  "scope_status": "QUALITATIVE_FUNCTION_RECONSTRUCTED_WITH_DECLARED_SEMANTIC_WEIGHING",
   "independent_audit": "Not run: candidate failed frozen mass and weighing gates; no F acceptance requested.",
-  "next_action": "No more searches authorized in this closed repair. Root/mentor decides the next mechanism; higherpriorityA04-hard/C01continue.",
+  "next_action": "Freeze reproduction baseline v1; no further powder/scale sweeps in this phase.",
   "scientific_figure": [
     "f_tier/N10/scientific_figure.pdf",
     "f_tier/N10/scientific_figure.png"
-  ]
+  ],
+  "video_scope": "Latest one continuous three-cycle functional positive; paired raised-source negative0; cycles are dependent, not3 independent demonstrations.",
+  "current_frontier": "Guidance5 amended semantic acceptance passed; no new simulation and no physical force-metrology success claimed.",
+  "latest_closed_studies": [
+    {
+      "study_root": "f_tier/N10/framework_dispatch_fix",
+      "status": "CLOSED_FAILED_FROZEN_LOCAL_GATES",
+      "F_PASS": false,
+      "completed_cycles": 5,
+      "gates": {
+        "five_cycles_hsm_and_fresh_handoff": true,
+        "finite_and_fixed11200": true,
+        "clock_and_callbacks": true,
+        "video_closed_and_decodable": true,
+        "mass_ledger": true,
+        "verified_lift": true,
+        "receiver_transfer": false,
+        "final_receiver_mass": false,
+        "independent_weighing": false
+      },
+      "metrics": {
+        "native_steps": 53555,
+        "native_s": 178.5166709893383,
+        "receiver_particles": 40,
+        "receiver_parameter_mass_kg": 3.9999999999999996e-05,
+        "independent_scale_increment_kg": 0.0001949727347424938,
+        "scale_mass_relative_error": 3.8743183685623457,
+        "terminal_scale_std_kg": 2.710505431213761e-20,
+        "mass_ledger_error_max": 0.0,
+        "video_metadata": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "2/1",
+          "duration": "177.000000",
+          "nb_read_frames": "354"
+        },
+        "per_cycle_true_CAD_lifted_grains": [
+          144,
+          22,
+          14,
+          0,
+          9
+        ],
+        "per_cycle_receiver_deltas": [
+          16,
+          5,
+          8,
+          1,
+          10
+        ]
+      },
+      "producer_acceptance": "f_tier/N10/framework_dispatch_fix/positive_acceptance.json",
+      "raw_result": "f_tier/N10/framework_dispatch_fix/native_positive/result.json",
+      "process": "f_tier/N10/framework_dispatch_fix/native_positive/process.json",
+      "video": "f_tier/N10/framework_dispatch_fix/native_positive/video.mp4",
+      "final_scale_support_geometry": "f_tier/N10/framework_dispatch_fix/final_geometry.json",
+      "conditional_negative": "NOT_STARTED_POSITIVE_FAILED",
+      "independent_F_audit": "NOT_RUN_FAILED_PRODUCER_GATES",
+      "selected_x_m": [
+        0.35,
+        0.38,
+        0.335,
+        0.41,
+        0.365
+      ],
+      "process_exit": 0,
+      "process_end_utc": "2026-10-20T20:13:21.022804+00:00"
+    },
+    {
+      "study_root": "f_tier/N10/initialization_contract_fix",
+      "status": "CLOSED_FAILED_FROZEN_LOCAL_GATES",
+      "F_PASS": false,
+      "completed_cycles": 5,
+      "gates": {
+        "five_cycles_hsm_and_fresh_handoff": true,
+        "finite_and_fixed11200": true,
+        "clock_and_callbacks": true,
+        "video_closed_and_decodable": true,
+        "mass_ledger": true,
+        "verified_lift": true,
+        "receiver_transfer": true,
+        "final_receiver_mass": false,
+        "independent_weighing": false
+      },
+      "metrics": {
+        "native_steps": 53305,
+        "native_s": 177.68333763582632,
+        "receiver_particles": 154,
+        "receiver_parameter_mass_kg": 0.000154,
+        "independent_scale_increment_kg": -0.006070678020965706,
+        "scale_mass_relative_error": 40.419987149127955,
+        "terminal_scale_std_kg": 1.9522696614828922e-05,
+        "mass_ledger_error_max": 0.0,
+        "video_metadata": {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 640,
+          "r_frame_rate": "2/1",
+          "duration": "176.000000",
+          "nb_read_frames": "352"
+        },
+        "per_cycle_true_CAD_lifted_grains": [
+          547,
+          50,
+          41,
+          9,
+          8
+        ],
+        "per_cycle_receiver_deltas": [
+          109,
+          29,
+          8,
+          3,
+          5
+        ]
+      },
+      "producer_acceptance": "f_tier/N10/initialization_contract_fix/positive_acceptance.json",
+      "raw_result": "f_tier/N10/initialization_contract_fix/native_positive/result.json",
+      "process": "f_tier/N10/initialization_contract_fix/native_positive/process.json",
+      "video": "f_tier/N10/initialization_contract_fix/native_positive/video.mp4",
+      "final_scale_support_geometry": "f_tier/N10/initialization_contract_fix/final_geometry.json",
+      "conditional_negative": "NOT_STARTED_POSITIVE_FAILED",
+      "independent_F_audit": "NOT_RUN_FAILED_PRODUCER_GATES",
+      "selected_x_m": [
+        0.38,
+        0.41,
+        0.35,
+        0.335,
+        0.425
+      ],
+      "process_exit": 0,
+      "process_end_utc": "2026-10-20T20:42:42.937752+00:00"
+    }
+  ],
+  "historical_failed_videos": [
+    {
+      "path": "f_tier/N10/entry_repair/collision_repair/native_positive/video.mp4",
+      "scope": "Prior67panel fullfailed356frames; old positive_recomputed/raw_result still refer to this historical study."
+    },
+    {
+      "path": "f_tier/N10/framework_dispatch_fix/native_positive/video.mp4",
+      "scope": "Closed framework-dispatch repair failed .040g and independentweighing."
+    }
+  ],
+  "raw_result_scope": "Historical67panel fullfailed study retained unchanged; latest centeredinitialization raw/process/gates explicitly in current_frontier/latest_closed_studies.",
+  "measurement_and_threshold_provenance": {
+    "source_note": "f_tier/N10/original_measurement_source_note.json",
+    "original_F_thresholds_key": "Frozen rawprotocol key means inherited FIRST LOCAL acceptance thresholds,not Natureauthor values. LOCAL .7g and10% must not be attributed to originalpaper.",
+    "original_public_scale_implementation": "Not exposed in available originalpublic code; cannot infer semantic vs force. OriginalIKAcurve is a realexperiment,not simulationforceproof.",
+    "raw_scale_policy": "Negative readout retained without sign/gain/offset/count correction. CPU tensorpipeline+PhysXGPUoverride1 isnot CPU-onlyrigidphysics.",
+    "mechanical_static_nonclaim": "Terminal platformvelocity remains nonzero;low orconstant readoutstd doesnot prove mechanicalstatic equilibrium."
+  },
+  "closed_centered_diagnosis": {
+    "cohort_result": "f_tier/N10/initialization_contract_fix/cohort_retention/result.json",
+    "first_cycle_qualified_true_CAD_grains": 547,
+    "transport_end_tool_partition": 547,
+    "prepour_end": {
+      "tool": 513,
+      "receiver": 18,
+      "outside": 16
+    },
+    "pour_hold_end": {
+      "tool": 0,
+      "receiver": 102,
+      "outside": 445
+    },
+    "interpretation": "Major observed loss duringdischarge; sourcebowl alone cannot establish recovery. Positionevidence only,0.1s sampling/originalUSDarrayindex identity assumption; no exactimpact/collisioncause.",
+    "terminal_scale_geometry": {
+      "cup_grains": 154,
+      "cup_external_near_scale_top_grains": 425,
+      "above_platform_footprint_unassigned_grains": 39,
+      "below_platform_footprint_grains": 10,
+      "outside_platform_footprint_grains": 10572,
+      "scope": "Geometry only,not forceownership or count correction."
+    },
+    "original_scene_fidelity": "Primary Fig4G depicts walled round source mortar/bowl and rectangularscoop. Current flatplate+longspoon omits coregeometry; no further flatplate run planned.",
+    "source_figure": "references/Fig4_workflows.png"
+  },
+  "closed_mortar_prerequisite": {
+    "scope": "One closed center-lane prerequisite, not full N10 F; previous failed raw results/metrics unchanged.",
+    "result": "f_tier/N10/mortar_native_candidate/native_positive/result.json",
+    "closeout": "f_tier/N10/mortar_native_candidate/closeout.json",
+    "video": "f_tier/N10/mortar_native_candidate/native_positive/video.mp4",
+    "native_s": 89.00000215508044,
+    "receiver_particles": 365,
+    "receiver_parameter_mass_kg": 0.000365,
+    "strict_high_lift_cohort_received": [
+      189,
+      189
+    ],
+    "raw_spring_readout_kg": 0.017714897537411824,
+    "weighing_pass": false,
+    "all_prior_failures_retained": true
+  },
+  "known_load_instrument_diagnostics": {
+    "old_frozen_gain_16": "f_tier/N10/clean_payload_metrology_framework_fix/native_run/result.json",
+    "old_frozen_gain_64": "f_tier/N10/clean_payload_metrology_solver64/comparison.json",
+    "light_instrument": "f_tier/N10/light_balance_candidate/native_run/result.json",
+    "light_instrument_figure": "f_tier/N10/light_balance_candidate/known_vs_readout.png",
+    "scope": "All known-load diagnostics closed. Light instrument rigid relative errors~2.52%,containedPBDerrors41.6/71.6/81.5%; no fitted gain/count correction, no sole engine-cause claim. Physical weighing remains NOT_MET."
+  },
+  "closed_quantity_positive": {
+    "scope": "Three real native cycles; quantity function passed, paired negative running; physical weighing still fails and N10 F not accepted. Previous raw results unchanged.",
+    "summary": "f_tier/N10/mortar_quantity_pair/positive_functional_summary.json",
+    "video": "f_tier/N10/mortar_quantity_pair/native_positive/video.mp4",
+    "receiver_parameter_mass_kg": 0.0009739999999999999,
+    "receiver_strict_frustum_particles": 971,
+    "raw_spring_readout_kg": 0.00035316600682244655,
+    "cycles": [
+      368,
+      320,
+      286
+    ],
+    "F_PASS": false
+  },
+  "closed_quantity_pair": {
+    "status": "CLOSED_FUNCTIONAL_PAIR_PASS_NOT_F",
+    "result": "f_tier/N10/mortar_quantity_pair/result.json",
+    "figure": "f_tier/N10/mortar_quantity_pair/pair.png",
+    "positive_video": "f_tier/N10/mortar_quantity_pair/native_positive/video.mp4",
+    "negative_video": "f_tier/N10/mortar_quantity_pair/native_negative/video.mp4",
+    "positive_parameter_mass_kg": 0.0009739999999999999,
+    "strict_frustum_parameter_mass_kg": 0.000971,
+    "negative_parameter_mass_kg": 0.0,
+    "positive_raw_spring_kg": 0.00035316600682244655,
+    "positive_relative_weighing_error": 0.6374065638373237,
+    "F_PASS": false,
+    "independent_F_audit": "NOT_ELIGIBLE_FAILED_WEIGHING_GATE"
+  },
+  "guidance5_acceptance_revision": {
+    "recorded_utc": "2026-10-21T08:51:37.477762+00:00",
+    "instruction": "User guidance #5, relayed by root: cup particle ledger is the primary quantity criterion; semantic pan inventory is the weighing acceptance, physical spring becomes diagnostic.",
+    "reason": "Controlled original-parameter metrology found rigid readout about2.5% error and contained PBD under-read42–82%. New acceptance explicitly changes the measurement definition; it does not retroactively turn historical physical-scale tests into passes.",
+    "old_local_gate": {
+      "description": "Original local .7g quantity plus independent physical spring error <=10%; failed outcomes remain permanent. These were local reproduction gates, not author Nature thresholds.",
+      "failed_result_paths": [
+        "f_tier/N10/entry_repair/collision_repair/native_positive/result.json",
+        "f_tier/N10/framework_dispatch_fix/native_positive/result.json",
+        "f_tier/N10/initialization_contract_fix/native_positive/result.json",
+        "f_tier/N10/mortar_native_candidate/native_positive/result.json",
+        "f_tier/N10/mortar_quantity_pair/result.json"
+      ],
+      "raw_quantity_pair": "f_tier/N10/mortar_quantity_pair/result.json",
+      "raw_positive_spring_kg": 0.00035316600682244655,
+      "historical_10percent_failure_unchanged": true
+    },
+    "new_local_gates": {
+      "true_cup_particle_mass_kg_min": 0.0007,
+      "semantic_scale_relative_error_max": 0.01,
+      "semantic_scale_definition": "Original physical pan XY footprint and upper column, all in-region particles and original load-object masses; empty pan plus empty cup tare. Cup-external pan grains included, no outcome-selected region. Physical spring diagnostic only.",
+      "zero_negative": "Report semantic net absolute error when reference payload is zero; percentage undefined."
+    },
+    "independent_recomputation_script": "f_tier/N10/semantic_balance_guidance5.py",
+    "semantic_result": "f_tier/N10/semantic_balance_guidance5.json",
+    "closed_case_metrics": {
+      "positive_true_cup_grains": 971,
+      "positive_strict_cup_grains": 971,
+      "positive_original_proxy_grains": 974,
+      "positive_pan_grains": 977,
+      "positive_cup_external_pan_grains": 6,
+      "positive_semantic_net_kg": 0.0009770000000000056,
+      "positive_vs_true_cup": {
+        "grains": 971,
+        "mass_kg": 0.000971,
+        "semantic_minus_reference_kg": 6.000000000005675e-06,
+        "absolute_error_kg": 6.000000000005675e-06,
+        "relative_error": 0.006179196704434269,
+        "within_1percent": true,
+        "zero_reference_scope": null
+      },
+      "positive_vs_original_proxy": {
+        "grains": 974,
+        "mass_kg": 0.0009739999999999999,
+        "semantic_minus_reference_kg": 3.0000000000057108e-06,
+        "absolute_error_kg": 3.0000000000057108e-06,
+        "relative_error": 0.0030800821355294774,
+        "within_1percent": true,
+        "zero_reference_scope": null
+      },
+      "negative_semantic_net_kg": 0.0,
+      "negative_absolute_error_kg": 0.0
+    },
+    "eligible_for_root_F_candidate": true,
+    "acceptance_state": "F_CANDIDATE_PENDING_ROOT_ACCEPTANCE",
+    "canonical_F_PASS_not_changed": true,
+    "old_raw_protocols_results_videos_and_metrics_unchanged": true,
+    "new_native_steps": 0,
+    "F_audits_executed": 0,
+    "measurement_scope": "Posthoc declared acceptance revision under explicit guidance; oracle semantic inventory is not independent force metrology. Platform terminal XY/orientation use original prismatic constraints because only terminal Z was logged."
+  },
+  "pre_guidance5_acceptance_state": {
+    "status": "RUNNING",
+    "F_PASS": false,
+    "scope_status": "COMPLETED_INITIALIZATION_CONTRACT_FIX_FAILED_LOCAL_GATES",
+    "current_frontier": "Closed quantity/control pair with .974g proxy/.971g strict vs negative0. Independent10%weighing gate remains failed; no further metrology sweep, no F promotion.",
+    "next_action": "Run quantity/control prerequisite only after technical readiness; do not repeat metrology sweeps or F audit on failed weighing.",
+    "video": "f_tier/N10/initialization_contract_fix/native_positive/video.mp4",
+    "scope": "Prior complete67panel five-cycle failure and metrics remain unchanged. Current explicit-dispatch observed-bed repair is running in one native world; no F acceptance claimed.",
+    "failed_functional_gate": {
+      "local_threshold": {
+        "lifted_particles_min": 50,
+        "true_CAD_lifted_particles_min": 50,
+        "receiver_transfer_particles_min": 50,
+        "final_receiver_parameter_mass_kg_min": 0.0007,
+        "weighing_relative_error_max": 0.1,
+        "ledger_relative_error_max": 0.01
+      },
+      "value": {
+        "maximum_lifted_bbox_particles": 144,
+        "maximum_true_CAD_lifted_particles": 119,
+        "maximum_cycle_receiver_delta_particles": 60,
+        "final_receiver_parameter_mass_kg": 6.8e-05,
+        "scale_mass_relative_error": 1.7023583019522897
+      },
+      "pass": false
+    }
+  },
+  "accepted_at_utc": "2026-10-21T08:52:40.656369+00:00",
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "root",
+    "accepted_utc": "2026-10-21T08:52:40.656369+00:00",
+    "scope": "One terminal functional F admission under explicit user guidance5 amended local gates; not original physical weighing identity or reliability.",
+    "source": "f_tier/N10/semantic_balance_guidance5.json",
+    "independent_recomputation": "Root independently loaded both terminal NPZ arrays, applied SciPy Rotation inverse and original five-ring frustum and original physical pan footprint. Positive cup971/pan977/external6, negative0/0; original USD/native rigid masses and whole-object inclusion reviewed from source.",
+    "checks": {
+      "cup_mass_kg_ge_0_0007": true,
+      "semantic_error_le_1percent": true,
+      "negative_zero_payload_absolute_error": true,
+      "complete_physical_scoop_pour_pair": true,
+      "videos_and_declared_differences": true
+    },
+    "metrics": {
+      "strict_cup_g": 0.971,
+      "original_proxy_g": 0.974,
+      "semantic_net_g": 0.977,
+      "semantic_vs_strict_cup_relative_error": 0.006179196704428424,
+      "negative_cup_g": 0,
+      "negative_semantic_net_g": 0
+    },
+    "preserved_failure": "Original positive spring0.353166g/63.74% error and known-load PBD under-read42–82% remain diagnostic failures; no gain/force correction.",
+    "new_native_steps": 0
+  }
 }

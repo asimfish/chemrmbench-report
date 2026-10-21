@@ -1,0 +1,304 @@
+{
+  "status": "GUIDANCE5_SEMANTIC_GATE_CANDIDATE_PASS",
+  "computed_utc": "2026-10-21T08:50:57.247899+00:00",
+  "F_PASS": false,
+  "eligible_for_root_F_candidate": true,
+  "protocol": {
+    "definition_set_before_classifying_terminal_points": true,
+    "physical_pan_prim": "/World/Scale/Platform",
+    "physical_pan_local_size_m": [
+      0.16,
+      0.16,
+      0.01
+    ],
+    "world_xy_m": [
+      [
+        0.54,
+        -0.22000000000000003
+      ],
+      [
+        0.7,
+        -0.06000000000000001
+      ]
+    ],
+    "vertical_region": "z >= terminal platform_z + physical half-thickness .005 m, with no upper height cutoff",
+    "particle_rule": "Particle centers in exact original physical pan footprint and upper column; no radius/XY dilation, no removal of cup-external pan particles.",
+    "object_rule": "Whole independent rigid objects with physical geometry intersecting the pan column; require the complete XY footprint contained, otherwise fail unresolved. Enumerate original cup and ready-mounted tool explicitly; the scale platform mass is included in gross and tare.",
+    "external_entities": "Panda is an externally fixed-base actuator, not an independent scale load object; fixed source bowl/ground are outside the physical pan; display-only support/housing have no rigid mass or collision APIs. No robot-link mass is inferred from a visual intersection.",
+    "tare": "Same native empty platform plus same native empty receiver body masses; initial particle stock must independently be outside the physical pan region. No loaded/tuned tare, no force-readout correction.",
+    "comparison": "Semantic net inventory is compared separately with original five-ring mesh-frustum cup center/strict count and unchanged legacy cylinder-plus1mm count; cup-external pan mass is not hidden.",
+    "platform_pose_limit": "Only terminal platform Z was logged. XY and orientation use the original Z-only prismatic joint constraints and native initial geometry; this is a semantic inventory, not measured force/support ownership.",
+    "thresholds": {
+      "cup_true_cavity_kg_min": 0.0007,
+      "relative_semantic_vs_cup_ledger_max": 0.01
+    },
+    "no_native_steps": true,
+    "no_F_audit": true,
+    "particle_mass_kg": 1e-06
+  },
+  "cases": {
+    "positive": {
+      "native_step": 76965,
+      "native_s": 256.55000621220097,
+      "terminal_input": "f_tier/N10/mortar_quantity_pair/native_positive/terminal_control_particles.npz",
+      "original_scene": "f_tier/N10/mortar_quantity_pair/native_positive/scene_initial.usda",
+      "physical_platform_top_z_m": 0.08705021917819977,
+      "native_masses_kg": {
+        "spoon": 0.15000000596046448,
+        "receiver": 0.30000001192092896,
+        "scale_platform": 1.0
+      },
+      "matching_USD_mass_attributes": {
+        "scale_platform": {
+          "path": "/World/Scale",
+          "mass_kg": 1.0
+        },
+        "receiver": {
+          "path": "/World/Receiver/Scene/Beaker_500mL",
+          "mass_kg": 0.30000001192092896
+        },
+        "spoon": {
+          "path": "/World/Spoon",
+          "mass_kg": 0.15000000596046448
+        }
+      },
+      "objects": {
+        "receiver": {
+          "geometry_world_aabb_m": [
+            [
+              0.5935991289116667,
+              -0.16493539344758043,
+              0.08805023341976034
+            ],
+            [
+              0.6486485873391845,
+              -0.11506452989072288,
+              0.1477412904605994
+            ]
+          ],
+          "intersects_pan_column": true,
+          "footprint_fully_contained": true,
+          "native_body_mass_kg": 0.30000001192092896,
+          "included_mass_kg": 0.30000001192092896
+        },
+        "tool": {
+          "geometry_world_aabb_m": [
+            [
+              0.36493627294636666,
+              -0.002533369441815536,
+              0.2482778476787265
+            ],
+            [
+              0.3949752300145129,
+              0.2225548325785105,
+              0.30230056255891136
+            ]
+          ],
+          "intersects_pan_column": false,
+          "footprint_fully_contained": false,
+          "native_body_mass_kg": 0.15000000596046448,
+          "included_mass_kg": 0.0
+        }
+      },
+      "initial_tare_pan_particle_count": 0,
+      "pan_particle_count": 977,
+      "cup_mesh_frustum_count": 971,
+      "cup_strict_count": 971,
+      "original_proxy_count": 974,
+      "cup_external_pan_particle_count": 6,
+      "outside_pan_particle_count": 10223,
+      "pan_particle_mass_kg": 0.000977,
+      "semantic_gross_kg": 1.300977011920929,
+      "empty_pan_plus_empty_cup_tare_kg": 1.300000011920929,
+      "semantic_net_kg": 0.0009770000000000056,
+      "comparison": {
+        "true_mesh_frustum_center": {
+          "grains": 971,
+          "mass_kg": 0.000971,
+          "semantic_minus_reference_kg": 6.000000000005675e-06,
+          "absolute_error_kg": 6.000000000005675e-06,
+          "relative_error": 0.006179196704434269,
+          "within_1percent": true,
+          "zero_reference_scope": null
+        },
+        "true_mesh_frustum_strict_rest_envelope": {
+          "grains": 971,
+          "mass_kg": 0.000971,
+          "semantic_minus_reference_kg": 6.000000000005675e-06,
+          "absolute_error_kg": 6.000000000005675e-06,
+          "relative_error": 0.006179196704434269,
+          "within_1percent": true,
+          "zero_reference_scope": null
+        },
+        "legacy_cylinder_plus1mm": {
+          "grains": 974,
+          "mass_kg": 0.0009739999999999999,
+          "semantic_minus_reference_kg": 3.0000000000057108e-06,
+          "absolute_error_kg": 3.0000000000057108e-06,
+          "relative_error": 0.0030800821355294774,
+          "within_1percent": true,
+          "zero_reference_scope": null
+        }
+      },
+      "raw_physical_spring_increment_kg": 0.00035316600682244655,
+      "minimum_particle_distance_to_xy_pan_boundary_m": 4.2864680290105595e-06,
+      "minimum_particle_distance_to_pan_top_m": 3.3080577850341797e-06
+    },
+    "negative": {
+      "native_step": 77140,
+      "native_s": 257.13333955965936,
+      "terminal_input": "f_tier/N10/mortar_quantity_pair/native_negative/terminal_control_particles.npz",
+      "original_scene": "f_tier/N10/mortar_quantity_pair/native_negative/scene_initial.usda",
+      "physical_platform_top_z_m": 0.08705374330282212,
+      "native_masses_kg": {
+        "spoon": 0.15000000596046448,
+        "receiver": 0.30000001192092896,
+        "scale_platform": 1.0
+      },
+      "matching_USD_mass_attributes": {
+        "scale_platform": {
+          "path": "/World/Scale",
+          "mass_kg": 1.0
+        },
+        "receiver": {
+          "path": "/World/Receiver/Scene/Beaker_500mL",
+          "mass_kg": 0.30000001192092896
+        },
+        "spoon": {
+          "path": "/World/Spoon",
+          "mass_kg": 0.15000000596046448
+        }
+      },
+      "objects": {
+        "receiver": {
+          "geometry_world_aabb_m": [
+            [
+              0.5935991286468799,
+              -0.16493538882326703,
+              0.08805375348091343
+            ],
+            [
+              0.6486485871010892,
+              -0.1150645252664162,
+              0.1477448199320491
+            ]
+          ],
+          "intersects_pan_column": true,
+          "footprint_fully_contained": true,
+          "native_body_mass_kg": 0.30000001192092896,
+          "included_mass_kg": 0.30000001192092896
+        },
+        "tool": {
+          "geometry_world_aabb_m": [
+            [
+              0.36493627294636666,
+              -0.002533369441815536,
+              0.2482778476787265
+            ],
+            [
+              0.3949752300145129,
+              0.2225548325785105,
+              0.30230056255891136
+            ]
+          ],
+          "intersects_pan_column": false,
+          "footprint_fully_contained": false,
+          "native_body_mass_kg": 0.15000000596046448,
+          "included_mass_kg": 0.0
+        }
+      },
+      "initial_tare_pan_particle_count": 0,
+      "pan_particle_count": 0,
+      "cup_mesh_frustum_count": 0,
+      "cup_strict_count": 0,
+      "original_proxy_count": 0,
+      "cup_external_pan_particle_count": 0,
+      "outside_pan_particle_count": 11200,
+      "pan_particle_mass_kg": 0.0,
+      "semantic_gross_kg": 1.300000011920929,
+      "empty_pan_plus_empty_cup_tare_kg": 1.300000011920929,
+      "semantic_net_kg": 0.0,
+      "comparison": {
+        "true_mesh_frustum_center": {
+          "grains": 0,
+          "mass_kg": 0.0,
+          "semantic_minus_reference_kg": 0.0,
+          "absolute_error_kg": 0.0,
+          "relative_error": null,
+          "within_1percent": null,
+          "zero_reference_scope": "For zero payload report absolute error; percentage is undefined."
+        },
+        "true_mesh_frustum_strict_rest_envelope": {
+          "grains": 0,
+          "mass_kg": 0.0,
+          "semantic_minus_reference_kg": 0.0,
+          "absolute_error_kg": 0.0,
+          "relative_error": null,
+          "within_1percent": null,
+          "zero_reference_scope": "For zero payload report absolute error; percentage is undefined."
+        },
+        "legacy_cylinder_plus1mm": {
+          "grains": 0,
+          "mass_kg": 0.0,
+          "semantic_minus_reference_kg": 0.0,
+          "absolute_error_kg": 0.0,
+          "relative_error": null,
+          "within_1percent": null,
+          "zero_reference_scope": "For zero payload report absolute error; percentage is undefined."
+        }
+      },
+      "raw_physical_spring_increment_kg": -1.6184855964057893e-07,
+      "minimum_particle_distance_to_xy_pan_boundary_m": 9.572654962528016e-06,
+      "minimum_particle_distance_to_pan_top_m": 7.092952728271484e-06
+    }
+  },
+  "cup_geometry": {
+    "center_xy_m": [
+      -0.0014681306442667554,
+      -4.187198044292451e-10
+    ],
+    "radius_m": 0.02099509527788676,
+    "bottom_z_m": -0.035657,
+    "top_z_m": 0.013797,
+    "radius_profile_z_r_m": [
+      [
+        -0.035657,
+        0.015235136316641524
+      ],
+      [
+        -0.034843,
+        0.018038963414332615
+      ],
+      [
+        -0.032658,
+        0.019949019132282548
+      ],
+      [
+        -0.030384,
+        0.020995096071841367
+      ],
+      [
+        0.013797,
+        0.02099509527788676
+      ]
+    ],
+    "scale": 1.0,
+    "ring_fit_max_residual_m": 9.259842542047592e-09,
+    "conservative_cavity_capacity_ml": 67.36443616506743,
+    "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+    "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+  },
+  "preserved_physical_metrology": "Original physical spring is diagnostic under guidance5; rigid error about2.5%, PBD under-read42\u201382% in controlled light_balance evidence. Original .7g/10% physical-scale failures and all raw readings remain unchanged.",
+  "physical_metrology_evidence": [
+    "f_tier/N10/light_balance_candidate/result.json",
+    "f_tier/N10/mortar_quantity_pair/result.json"
+  ],
+  "prior_gate_failures": [
+    "f_tier/N10/entry_repair/collision_repair/native_positive/result.json",
+    "f_tier/N10/framework_dispatch_fix/native_positive/result.json",
+    "f_tier/N10/initialization_contract_fix/native_positive/result.json",
+    "f_tier/N10/mortar_native_candidate/native_positive/result.json",
+    "f_tier/N10/mortar_quantity_pair/result.json"
+  ],
+  "scope": "Independent closed-state semantic inventory recomputation, no new native/parameter adjustment/F audit. Region fixed from original physical pan geometry; no outcome-selected cup-only region."
+}

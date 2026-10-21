@@ -1,0 +1,2342 @@
+{
+  "status": "FOUR_COMPONENT_CASES_CLOSED",
+  "started": 4,
+  "closed": 4,
+  "component_complete_count": 2,
+  "attempts": [
+    {
+      "event": "CLOSED",
+      "utc": "2026-10-20T23:32:31.334435+00:00",
+      "case_id": "ur5e_old_actual_anchor_FF_peak56002",
+      "returncode": 0,
+      "uninterrupted": true,
+      "component_completed": true
+    },
+    {
+      "event": "CLOSED",
+      "utc": "2026-10-20T23:32:22.671446+00:00",
+      "case_id": "ur5e_bounded_Jacobian_same_FF_peak56002",
+      "returncode": 0,
+      "uninterrupted": true,
+      "component_completed": true
+    },
+    {
+      "event": "CLOSED",
+      "utc": "2026-10-20T23:32:28.912608+00:00",
+      "case_id": "flexiv_old_actual_anchor_FF_peak56002",
+      "returncode": 1,
+      "uninterrupted": true,
+      "component_completed": false
+    },
+    {
+      "event": "CLOSED",
+      "utc": "2026-10-20T23:32:33.011358+00:00",
+      "case_id": "flexiv_bounded_Jacobian_same_FF_peak56002",
+      "returncode": 1,
+      "uninterrupted": true,
+      "component_completed": false
+    }
+  ],
+  "F_PASS": false,
+  "full_task_success_claimed": false,
+  "retry_count": 0,
+  "cases": [
+    {
+      "case_id": "ur5e_old_actual_anchor_FF_peak56002",
+      "robot": "ur5e",
+      "variant": "old_actual_anchor_FF",
+      "status": "COMPONENT_2S_COMPLETE",
+      "closure": {
+        "event": "CLOSED",
+        "utc": "2026-10-20T23:32:31.334435+00:00",
+        "case_id": "ur5e_old_actual_anchor_FF_peak56002",
+        "returncode": 0,
+        "uninterrupted": true,
+        "component_completed": true
+      },
+      "native_duration_s": 2.000000000000668,
+      "native_steps": 1000,
+      "accepted_controls": 200,
+      "error": null,
+      "last_attempted_control": null,
+      "joint_names": [
+        "shoulder_pan_joint",
+        "shoulder_lift_joint",
+        "elbow_joint",
+        "wrist_1_joint",
+        "wrist_2_joint",
+        "wrist_3_joint"
+      ],
+      "initial": {
+        "actual_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.07981139298751788,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.5979576419710804,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 5.458399841354307,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 2.316807187764514
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.5469755217723726,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.06331965710411971,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.09234707479053099,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "first_accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.05635879064696462,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.9675687855901076,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.8259761320003145
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 7.9572539401141515,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 4.815661286524358
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 4.438925075830873,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.2973324222410803
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.24486678326298558,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.10676805273821093,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        }
+      },
+      "whole_observed_run": {
+        "actual_rates_including_initial": {
+          "sample_count": 1001,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.27267837266753947,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.587665452014292,
+              "strict_exceedance_count": 6,
+              "exceedance_over_1e_minus9_rad_s_count": 6,
+              "maximum_positive_excess_rad_s": 0.446072798424499
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 7.21613022352166,
+              "strict_exceedance_count": 40,
+              "exceedance_over_1e_minus9_rad_s_count": 40,
+              "maximum_positive_excess_rad_s": 4.074537569931866
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.4603101440997355,
+              "strict_exceedance_count": 4,
+              "exceedance_over_1e_minus9_rad_s_count": 4,
+              "maximum_positive_excess_rad_s": 0.31871749050994236
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.655179293302322,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2685333946327446,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 40,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 40
+        },
+        "accepted_desired_rates": {
+          "sample_count": 200,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2374144304757575,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 9.821270626535489,
+              "strict_exceedance_count": 9,
+              "exceedance_over_1e_minus9_rad_s_count": 9,
+              "maximum_positive_excess_rad_s": 6.679677972945695
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 20.762797521974797,
+              "strict_exceedance_count": 13,
+              "exceedance_over_1e_minus9_rad_s_count": 13,
+              "maximum_positive_excess_rad_s": 17.621204868385004
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 10.5385044924442,
+              "strict_exceedance_count": 9,
+              "exceedance_over_1e_minus9_rad_s_count": 9,
+              "maximum_positive_excess_rad_s": 7.3969118388544075
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.633006049780449,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2584305377909768,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 13,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 13
+        },
+        "Cartesian_tracking": {
+          "current_step_target_position_error_m": {
+            "maximum": 0.007374253478772564,
+            "last": 0.0006729081571058224
+          },
+          "current_step_target_orientation_error_rad": {
+            "maximum": 0.020365096419067186,
+            "last": 0.0009289048274931284
+          },
+          "constant_twist_reference_position_error_m": {
+            "maximum": 0.08724049047495915,
+            "last": 0.04793846933298238
+          },
+          "constant_twist_reference_orientation_error_rad": {
+            "maximum": 0.682331225733979,
+            "last": 0.682331225733979
+          }
+        },
+        "actuation": {
+          "sample_count": 1000,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            71.7941524004491,
+            150.0,
+            150.0,
+            28.0,
+            20.36153636543395,
+            3.483985159906922
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            71.7941524004491,
+            150.0,
+            150.0,
+            28.0,
+            20.36153636543395,
+            3.483985159906922
+          ]
+        }
+      },
+      "last_half_second": {
+        "requested_window_duration_s": 0.5,
+        "observed_window_start_s": 1.500000000000668,
+        "actual_stop_s": 2.000000000000668,
+        "full_half_second_available": true,
+        "actual_poststep_rates": {
+          "sample_count": 251,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.06488488651034685,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.0035871834209490125,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.0005574244357230611,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.5929207851904467,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.06820780859907478,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2685232042031311,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "accepted_desired_rates": {
+          "sample_count": 50,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.06675330940235646,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.12167848798084607,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.0006508928458923354,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.5720508384658318,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.06393109216141779,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.25841688068800606,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "Cartesian_tracking": {
+          "current_step_target_position_error_m": {
+            "maximum": 0.0008695321990217886,
+            "last": 0.0006729081571058224
+          },
+          "current_step_target_orientation_error_rad": {
+            "maximum": 0.003110916893239527,
+            "last": 0.0009289048274931284
+          },
+          "constant_twist_reference_position_error_m": {
+            "maximum": 0.04793846933298238,
+            "last": 0.04793846933298238
+          },
+          "constant_twist_reference_orientation_error_rad": {
+            "maximum": 0.682331225733979,
+            "last": 0.682331225733979
+          }
+        },
+        "actuation": {
+          "sample_count": 251,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            4.099206304435938,
+            19.515175642501077,
+            16.13722428833068,
+            3.0611983291038314,
+            1.1612773212041247,
+            0.39013829273716283
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            4.099206304435938,
+            19.515175642501077,
+            16.13722428833068,
+            3.0611983291038314,
+            1.1612773212041247,
+            0.39013829273716283
+          ]
+        },
+        "data_status": "FULL_OBSERVED_SUFFIX"
+      },
+      "ctrl_range": [
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -3.1415,
+          3.1415
+        ],
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -6.2831,
+          6.2831
+        ]
+      ],
+      "actuator_force_limited": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "actuator_force_range": [
+        [
+          -150.0,
+          150.0
+        ],
+        [
+          -150.0,
+          150.0
+        ],
+        [
+          -150.0,
+          150.0
+        ],
+        [
+          -28.0,
+          28.0
+        ],
+        [
+          -28.0,
+          28.0
+        ],
+        [
+          -28.0,
+          28.0
+        ]
+      ],
+      "joint_force_limited": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "joint_force_range": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "raw_result": "runs/ur5e_old_actual_anchor_FF_peak56002/result.json"
+    },
+    {
+      "case_id": "ur5e_bounded_Jacobian_same_FF_peak56002",
+      "robot": "ur5e",
+      "variant": "bounded_Jacobian_same_FF",
+      "status": "COMPONENT_2S_COMPLETE",
+      "closure": {
+        "event": "CLOSED",
+        "utc": "2026-10-20T23:32:22.671446+00:00",
+        "case_id": "ur5e_bounded_Jacobian_same_FF_peak56002",
+        "returncode": 0,
+        "uninterrupted": true,
+        "component_completed": true
+      },
+      "native_duration_s": 2.000000000000668,
+      "native_steps": 1000,
+      "accepted_controls": 200,
+      "error": null,
+      "last_attempted_control": null,
+      "joint_names": [
+        "shoulder_pan_joint",
+        "shoulder_lift_joint",
+        "elbow_joint",
+        "wrist_1_joint",
+        "wrist_2_joint",
+        "wrist_3_joint"
+      ],
+      "initial": {
+        "actual_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.07981139298751788,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.5979576419710804,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 5.458399841354307,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 2.316807187764514
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.5469755217723726,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.06331965710411971,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.09234707479053099,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "first_accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.09453457031897608,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 1.6592229244266234,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.1415926535897927,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 1.9468059252115832,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.3240176306370082,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.09883741574053766,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        }
+      },
+      "whole_observed_run": {
+        "actual_rates_including_initial": {
+          "sample_count": 1001,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.19959917590997536,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.5979576419710804,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 5.458399841354307,
+              "strict_exceedance_count": 178,
+              "exceedance_over_1e_minus9_rad_s_count": 178,
+              "maximum_positive_excess_rad_s": 2.316807187764514
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.5469755217723726,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.6234361034597029,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.28656541368380584,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 178,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 178
+        },
+        "accepted_desired_rates": {
+          "sample_count": 200,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.22691327063939504,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 1.67281171161828,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.1415926535897927,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.2411862990200815,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.6021560730626652,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2788268439689823,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "Cartesian_tracking": {
+          "current_step_target_position_error_m": {
+            "maximum": 0.0043648728672733925,
+            "last": 0.0015828650296622175
+          },
+          "current_step_target_orientation_error_rad": {
+            "maximum": 0.016265712075087754,
+            "last": 0.00498751105785697
+          },
+          "constant_twist_reference_position_error_m": {
+            "maximum": 0.092704569952342,
+            "last": 0.09109248171189537
+          },
+          "constant_twist_reference_orientation_error_rad": {
+            "maximum": 0.6762590176785094,
+            "last": 0.6762590176785094
+          }
+        },
+        "actuation": {
+          "sample_count": 1000,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            55.9633650145779,
+            150.0,
+            150.0,
+            28.0,
+            9.570387884563843,
+            1.2492104804571795
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            55.9633650145779,
+            150.0,
+            150.0,
+            28.0,
+            9.570387884563843,
+            1.2492104804571795
+          ]
+        }
+      },
+      "last_half_second": {
+        "requested_window_duration_s": 0.5,
+        "observed_window_start_s": 1.500000000000668,
+        "actual_stop_s": 2.000000000000668,
+        "full_half_second_available": true,
+        "actual_poststep_rates": {
+          "sample_count": 251,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.04009750928306747,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 1.8052697845904162,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.2593129743402622,
+              "strict_exceedance_count": 37,
+              "exceedance_over_1e_minus9_rad_s_count": 37,
+              "maximum_positive_excess_rad_s": 0.11772032075046912
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.313925783816795,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2630827887657898,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.28656541368380584,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 37,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 37
+        },
+        "accepted_desired_rates": {
+          "sample_count": 50,
+          "per_joint": [
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.03948935182815916,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 1.6381086414235204,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 3.1415926535897927,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 2.2411862990200815,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.23734018113711342,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 3.141592653589793,
+              "maximum_abs_rad_s": 0.2788268439689823,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "Cartesian_tracking": {
+          "current_step_target_position_error_m": {
+            "maximum": 0.003968187750195953,
+            "last": 0.0015828650296622175
+          },
+          "current_step_target_orientation_error_rad": {
+            "maximum": 0.015364149345845186,
+            "last": 0.00498751105785697
+          },
+          "constant_twist_reference_position_error_m": {
+            "maximum": 0.092704569952342,
+            "last": 0.09109248171189537
+          },
+          "constant_twist_reference_orientation_error_rad": {
+            "maximum": 0.6762590176785094,
+            "last": 0.6762590176785094
+          }
+        },
+        "actuation": {
+          "sample_count": 251,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            14.581610253520921,
+            150.0,
+            150.0,
+            28.0,
+            6.141103570182622,
+            1.2492104804571795
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            14.581610253520921,
+            150.0,
+            150.0,
+            28.0,
+            6.141103570182622,
+            1.2492104804571795
+          ]
+        },
+        "data_status": "FULL_OBSERVED_SUFFIX"
+      },
+      "ctrl_range": [
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -3.1415,
+          3.1415
+        ],
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -6.2831,
+          6.2831
+        ],
+        [
+          -6.2831,
+          6.2831
+        ]
+      ],
+      "actuator_force_limited": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "actuator_force_range": [
+        [
+          -150.0,
+          150.0
+        ],
+        [
+          -150.0,
+          150.0
+        ],
+        [
+          -150.0,
+          150.0
+        ],
+        [
+          -28.0,
+          28.0
+        ],
+        [
+          -28.0,
+          28.0
+        ],
+        [
+          -28.0,
+          28.0
+        ]
+      ],
+      "joint_force_limited": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "joint_force_range": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "raw_result": "runs/ur5e_bounded_Jacobian_same_FF_peak56002/result.json"
+    },
+    {
+      "case_id": "flexiv_old_actual_anchor_FF_peak56002",
+      "robot": "flexiv",
+      "variant": "old_actual_anchor_FF",
+      "status": "COMPONENT_FAILED",
+      "closure": {
+        "event": "CLOSED",
+        "utc": "2026-10-20T23:32:28.912608+00:00",
+        "case_id": "flexiv_old_actual_anchor_FF_peak56002",
+        "returncode": 1,
+        "uninterrupted": true,
+        "component_completed": false
+      },
+      "native_duration_s": 0.0,
+      "native_steps": 0,
+      "accepted_controls": 1,
+      "error": {
+        "type": "AttributeError",
+        "message": "'Controller' object has no attribute 'n'"
+      },
+      "last_attempted_control": null,
+      "joint_names": [
+        "joint1",
+        "joint2",
+        "joint3",
+        "joint4",
+        "joint5",
+        "joint6",
+        "joint7"
+      ],
+      "initial": {
+        "actual_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 1.3967373020593747,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.8616036177843416,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.7672036177843418
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 8.122018166388266,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 5.678518166388265
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 4.168481675569674,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.724981675569674
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 24.904891900023948,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 20.017991900023947
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.3282093169113693,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.8697365837015697,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "first_accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 4.057101885133412,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.9627018851334124
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.2604847636685106,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.16608476366851077
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 86.04752659909825,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 83.60402659909825
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.6711579518635484,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.22765795186354865
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 84.85903296658404,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 79.97213296658404
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 5.310077947161021,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.42317794716102153
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.9154860725290812,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        }
+      },
+      "whole_observed_run": {
+        "actual_rates_including_initial": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 1.3967373020593747,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.8616036177843416,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.7672036177843418
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 8.122018166388266,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 5.678518166388265
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 4.168481675569674,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.724981675569674
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 24.904891900023948,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 20.017991900023947
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.3282093169113693,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.8697365837015697,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 4.057101885133412,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.9627018851334124
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.2604847636685106,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.16608476366851077
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 86.04752659909825,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 83.60402659909825
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.6711579518635484,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.22765795186354865
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 84.85903296658404,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 79.97213296658404
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 5.310077947161021,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.42317794716102153
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.9154860725290812,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "Cartesian_tracking": null,
+        "actuation": {
+          "sample_count": 0,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "last_half_second": {
+        "requested_window_duration_s": 0.5,
+        "observed_window_start_s": 0.0,
+        "actual_stop_s": 0.0,
+        "full_half_second_available": false,
+        "actual_poststep_rates": {
+          "sample_count": 0,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 4.057101885133412,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.9627018851334124
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.2604847636685106,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.16608476366851077
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 86.04752659909825,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 83.60402659909825
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.6711579518635484,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.22765795186354865
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 84.85903296658404,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 79.97213296658404
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 5.310077947161021,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.42317794716102153
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.9154860725290812,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "Cartesian_tracking": null,
+        "actuation": {
+          "sample_count": 0,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "data_status": "NO_POSTSTEP_DATA"
+      },
+      "ctrl_range": [
+        [
+          -2.8798,
+          2.8798
+        ],
+        [
+          -2.3562,
+          2.3562
+        ],
+        [
+          -3.0543,
+          3.0543
+        ],
+        [
+          -1.9548000000000003,
+          2.7751
+        ],
+        [
+          -3.0543,
+          3.0543
+        ],
+        [
+          -1.4835000000000003,
+          4.6251
+        ],
+        [
+          -3.0543,
+          3.0543
+        ]
+      ],
+      "actuator_force_limited": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "actuator_force_range": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "joint_force_limited": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "joint_force_range": [
+        [
+          -123.0,
+          123.0
+        ],
+        [
+          -123.0,
+          123.0
+        ],
+        [
+          -64.0,
+          64.0
+        ],
+        [
+          -64.0,
+          64.0
+        ],
+        [
+          -39.0,
+          39.0
+        ],
+        [
+          -39.0,
+          39.0
+        ],
+        [
+          -39.0,
+          39.0
+        ]
+      ],
+      "raw_result": "runs/flexiv_old_actual_anchor_FF_peak56002/result.json"
+    },
+    {
+      "case_id": "flexiv_bounded_Jacobian_same_FF_peak56002",
+      "robot": "flexiv",
+      "variant": "bounded_Jacobian_same_FF",
+      "status": "COMPONENT_FAILED",
+      "closure": {
+        "event": "CLOSED",
+        "utc": "2026-10-20T23:32:33.011358+00:00",
+        "case_id": "flexiv_bounded_Jacobian_same_FF_peak56002",
+        "returncode": 1,
+        "uninterrupted": true,
+        "component_completed": false
+      },
+      "native_duration_s": 0.0,
+      "native_steps": 0,
+      "accepted_controls": 1,
+      "error": {
+        "type": "AttributeError",
+        "message": "'Controller' object has no attribute 'n'"
+      },
+      "last_attempted_control": null,
+      "joint_names": [
+        "joint1",
+        "joint2",
+        "joint3",
+        "joint4",
+        "joint5",
+        "joint6",
+        "joint7"
+      ],
+      "initial": {
+        "actual_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 1.3967373020593747,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.8616036177843416,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.7672036177843418
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 8.122018166388266,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 5.678518166388265
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 4.168481675569674,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.724981675569674
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 24.904891900023948,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 20.017991900023947
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.3282093169113693,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.8697365837015697,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "first_accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 0.4226910221935599,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 0.8573676244125965,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.4434999999873566,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.4435,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 3.1010842347885457,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.1556031357533416,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.0179802858118131,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        }
+      },
+      "whole_observed_run": {
+        "actual_rates_including_initial": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 1.3967373020593747,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 2.8616036177843416,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 0.7672036177843418
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 8.122018166388266,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 5.678518166388265
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 4.168481675569674,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 1.724981675569674
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 24.904891900023948,
+              "strict_exceedance_count": 1,
+              "exceedance_over_1e_minus9_rad_s_count": 1,
+              "maximum_positive_excess_rad_s": 20.017991900023947
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.3282093169113693,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.8697365837015697,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 1,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 1
+        },
+        "accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 0.4226910221935599,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 0.8573676244125965,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.4434999999873566,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.4435,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 3.1010842347885457,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.1556031357533416,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.0179802858118131,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "Cartesian_tracking": null,
+        "actuation": {
+          "sample_count": 0,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "last_half_second": {
+        "requested_window_duration_s": 0.5,
+        "observed_window_start_s": 0.0,
+        "actual_stop_s": 0.0,
+        "full_half_second_available": false,
+        "actual_poststep_rates": {
+          "sample_count": 0,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": null,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "accepted_desired_rates": {
+          "sample_count": 1,
+          "per_joint": [
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 0.4226910221935599,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.0944,
+              "maximum_abs_rad_s": 0.8573676244125965,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.4434999999873566,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 2.4435,
+              "maximum_abs_rad_s": 2.4435,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 3.1010842347885457,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 2.1556031357533416,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            },
+            {
+              "vmax_rad_s": 4.8869,
+              "maximum_abs_rad_s": 0.0179802858118131,
+              "strict_exceedance_count": 0,
+              "exceedance_over_1e_minus9_rad_s_count": 0,
+              "maximum_positive_excess_rad_s": 0.0
+            }
+          ],
+          "samples_with_any_strict_exceedance": 0,
+          "samples_with_any_exceedance_over_1e_minus9_rad_s": 0
+        },
+        "Cartesian_tracking": null,
+        "actuation": {
+          "sample_count": 0,
+          "ctrl_clipping_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_actuator_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_joint_force_limit_exceedance_counts_per_joint": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximum_abs_actual_actuator_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "maximum_abs_actual_joint_actuation_force_per_joint_Nm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "data_status": "NO_POSTSTEP_DATA"
+      },
+      "ctrl_range": [
+        [
+          -2.8798,
+          2.8798
+        ],
+        [
+          -2.3562,
+          2.3562
+        ],
+        [
+          -3.0543,
+          3.0543
+        ],
+        [
+          -1.9548000000000003,
+          2.7751
+        ],
+        [
+          -3.0543,
+          3.0543
+        ],
+        [
+          -1.4835000000000003,
+          4.6251
+        ],
+        [
+          -3.0543,
+          3.0543
+        ]
+      ],
+      "actuator_force_limited": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "actuator_force_range": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "joint_force_limited": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "joint_force_range": [
+        [
+          -123.0,
+          123.0
+        ],
+        [
+          -123.0,
+          123.0
+        ],
+        [
+          -64.0,
+          64.0
+        ],
+        [
+          -64.0,
+          64.0
+        ],
+        [
+          -39.0,
+          39.0
+        ],
+        [
+          -39.0,
+          39.0
+        ],
+        [
+          -39.0,
+          39.0
+        ]
+      ],
+      "raw_result": "runs/flexiv_bounded_Jacobian_same_FF_peak56002/result.json"
+    }
+  ],
+  "interpretation": [
+    "All four STARTED cases retained; no retry or filtering",
+    "Initial state already exceeds official rates in both robots; do not interpret initial exceedance as a new controller event",
+    "Strict rate exceedances and an explicit1e-9rad/s roundoff diagnostic are both reported; no original acceptance gate changed",
+    "Last0.5s means observed suffix ending at actual stop; full_half_second_available=false explicitly identifies early censored runs",
+    "Velocity/position command bounds and short completion do not imply actual-rate legality, safety or full-task success",
+    "Cartesian current-target residual is separate from the integrated constant-twist reference; neither changes the strict candidate scratch-FK gate",
+    "No fluid, new observations/delay/teacher/learning, returned-pose evaluation, or full23/fixed20pilot enabled"
+  ],
+  "dynamics_safety_claimed": false,
+  "failure_analysis": {
+    "flexiv_harness_error": {
+      "affected_cases": [
+        "flexiv_old_actual_anchor_FF_peak56002",
+        "flexiv_bounded_Jacobian_same_FF_peak56002"
+      ],
+      "classification": "HARNESS_INITIALIZATION_ERROR_BEFORE_FIRST_NATIVE_STEP",
+      "error": "AttributeError: Controller object has no attribute n",
+      "cause": "The minimal component controller restored original joint indices/state/cache but omitted self.n=7, which the byte-identical original Flexiv apply body requires.",
+      "observations": "Each variant completed one accepted solve and formed a held command. apply then failed before mj_step; zero poststep samples. Only initial actual velocity and first desired command are observed.",
+      "scientific_boundary": "Not an IK/step-gate, rate-mapper or dynamics failure; not usable as a two-second Flexiv comparison.",
+      "original_attempts_permanently_retained": true,
+      "no_retry_started": true,
+      "proposed_unapplied_fix": "unapplied_self_n_fix.patch; one bookkeeping field c.n=n, no algorithm/gate/bounds change",
+      "further_native_authorization": false
+    },
+    "UR_observed_boundary": "Both interfaces passed200 Cartesian scratch gates and completed1000 steps. Bounded desired rates did not enforce actual-rate bounds; its longer actual exceedance and larger integrated-reference position error do not establish a successful repair.",
+    "component_completion_is_not_F_or_task_success": true
+  }
+}

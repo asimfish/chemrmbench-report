@@ -1,0 +1,1073 @@
+{
+  "status": "OFFLINE_GEOMETRY_ENTRY_CHECK_FAILED",
+  "created_utc": "2026-10-20T21:12:01.045836+00:00",
+  "checks": {
+    "finite_geometry": true,
+    "fixed_original_grid_11200_and_mass": true,
+    "stock_rest_envelopes_inside_source": true,
+    "finite_tool_walls_at_least_2p4mm": true,
+    "finite_source_walls_base_at_least_2p4mm": true,
+    "actual_cavity_not_closed_by_global_convex_hull": true,
+    "full_solid_all_seven_continuous_source_sweeps_disjoint": true,
+    "source_floor_clearance_exceeds_combined_p300um_contact_offsets": true,
+    "handle_at_least_25mm_above_rim": true,
+    "source_motion_cover_at_most_p5mm": true,
+    "true_lip_query_preserves_target": true,
+    "original_receiver_top_ring_fit": true,
+    "full_tool_pour_vertical_clearance_5mm": true,
+    "actual_front_band_aperture_margin_5mm": true,
+    "static_bed_has_center_layer_above_front_crown_plus_rest_radius": false
+  },
+  "execution": {
+    "native_steps": 0,
+    "physics_callbacks": 0,
+    "Kit_instances": 0,
+    "GPU_jobs": 0,
+    "F_acceptance_runs": 0,
+    "method": "NumPy full-solid volume coverage and conservative signed-distance bounds; SciPy ConvexHull used only for diagnostic drawing."
+  },
+  "reference": {
+    "path": "references/Fig4_workflows.png",
+    "panels": [
+      "F",
+      "G"
+    ],
+    "interpretation": "Qualitative white round mortar and rectangular scoop workflow. No calibrated dimensions, CAD or author collision parameters are supplied by this image."
+  },
+  "interfaces": {
+    "tool_boxes": [
+      {
+        "name": "base",
+        "center_m": [
+          0.0,
+          -0.15,
+          -0.0495
+        ],
+        "size_m": [
+          0.026,
+          0.021,
+          0.003
+        ]
+      },
+      {
+        "name": "left_wall",
+        "center_m": [
+          -0.0115,
+          -0.15,
+          -0.044
+        ],
+        "size_m": [
+          0.003,
+          0.021,
+          0.008
+        ]
+      },
+      {
+        "name": "right_wall",
+        "center_m": [
+          0.0115,
+          -0.15,
+          -0.044
+        ],
+        "size_m": [
+          0.003,
+          0.021,
+          0.008
+        ]
+      },
+      {
+        "name": "back_wall",
+        "center_m": [
+          0.0,
+          -0.141,
+          -0.044
+        ],
+        "size_m": [
+          0.02,
+          0.003,
+          0.008
+        ]
+      },
+      {
+        "name": "front_wall",
+        "center_m": [
+          0.0,
+          -0.159,
+          -0.044
+        ],
+        "size_m": [
+          0.02,
+          0.003,
+          0.008
+        ]
+      },
+      {
+        "name": "raised_neck",
+        "center_m": [
+          0.0,
+          -0.1365,
+          -0.02
+        ],
+        "size_m": [
+          0.008,
+          0.006,
+          0.046
+        ]
+      },
+      {
+        "name": "handle",
+        "center_m": [
+          0.0,
+          -0.03675,
+          0.0
+        ],
+        "size_m": [
+          0.008,
+          0.1995,
+          0.006
+        ]
+      }
+    ],
+    "cavity_frame": {
+      "tool_root_frame": true,
+      "head_rim_center_local_m": [
+        0.0,
+        -0.15,
+        -0.04
+      ],
+      "cavity_min_local_m": [
+        -0.01,
+        -0.1575,
+        -0.048
+      ],
+      "cavity_max_local_m": [
+        0.01,
+        -0.1425,
+        -0.04
+      ],
+      "inner_size_m": [
+        0.02,
+        0.015,
+        0.008
+      ],
+      "lowest_lip_z_local_m": -0.04,
+      "nominal_capacity_m3": 2.4e-06,
+      "front_lowered": false,
+      "scope": "Pure geometric empty cavity; no captured/retained/transferred mass claim."
+    },
+    "front_lip": {
+      "center_local_m": [
+        0.0,
+        -0.1605,
+        -0.04
+      ],
+      "full_physical_edge_local_m": [
+        [
+          -0.013,
+          -0.1605,
+          -0.04
+        ],
+        [
+          0.013,
+          -0.1605,
+          -0.04
+        ]
+      ],
+      "inner_outlet_edge_local_m": [
+        [
+          -0.01,
+          -0.1575,
+          -0.04
+        ],
+        [
+          0.01,
+          -0.1575,
+          -0.04
+        ]
+      ],
+      "physical_top_band_min_local_m": [
+        -0.013,
+        -0.1605,
+        -0.04
+      ],
+      "physical_top_band_max_local_m": [
+        0.013,
+        -0.1575,
+        -0.04
+      ],
+      "scope": "Actual front-wall/sidewall crown geometry; not head or tool-root centroid."
+    },
+    "ready_mount": {
+      "tool_root_local_attachment_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mass_kg": 0.15,
+      "candidate_EE_relation": "Existing candidate eeR=toolR@Rx(pi), hand offset.1034m; new IK/FK/robot clearance NOT validated.",
+      "head_rim_offset_from_root_m": [
+        0.0,
+        -0.15,
+        -0.04
+      ]
+    },
+    "source_volume": {
+      "center_world_m": [
+        0.38,
+        -0.07,
+        0.0
+      ],
+      "inner_vertex_radius_m": 0.041,
+      "conservative_inner_apothem_m": 0.04095061370441207,
+      "outer_radius_m": 0.046,
+      "floor_world_z_m": 0.08,
+      "rim_world_z_m": 0.1,
+      "base_bottom_world_z_m": 0.076,
+      "sidewall_radial_thickness_m": 0.0049999999999999975,
+      "floor_thickness_m": 0.0040000000000000036,
+      "wall_segments": 64,
+      "cavity_polygon_volume_m3": 0.00010545076025215453,
+      "scope": "Declared faceted cylindrical white mortar approximation, not recovered original-author shape/dimensions."
+    },
+    "public_functions": [
+      "tool_boxes",
+      "cavity_frame",
+      "front_lip",
+      "ready_mount",
+      "source_volume",
+      "powder_grid",
+      "tool_pose_for_head",
+      "tool_pose_for_lip",
+      "source_waypoints",
+      "source_sweep",
+      "receiver_sweep",
+      "author",
+      "author_source"
+    ]
+  },
+  "grid": {
+    "count": 11200,
+    "dims": [
+      40,
+      35,
+      8
+    ],
+    "spacing_m": 0.0014256,
+    "rest_radius_m": 0.0007128,
+    "particle_mass_kg": 1e-06,
+    "total_mass_kg": 0.0112,
+    "original_ParticleSystemCfg_center_argument_m": [
+      0.38,
+      -0.07,
+      0.08618959999999999
+    ],
+    "volume_argument_m": [
+      0.0555984,
+      0.0484704,
+      0.0099792
+    ],
+    "resulting_lower_corner_m": [
+      0.3522008,
+      -0.0942352,
+      0.0812
+    ],
+    "upper_corner_m": [
+      0.4077992,
+      -0.04576480000000001,
+      0.09117919999999999
+    ],
+    "minimum_rest_envelope_margins_m": {
+      "wall": 0.003357731821639606,
+      "floor": 0.0004871999999999932,
+      "rim": 0.008108000000000018
+    },
+    "center_API_proof": "f_tier/N10/initialization_geometry_check/result.json; same original constructor center-minus-half-volume convention, no live state correction."
+  },
+  "capacity": {
+    "empty_cavity_volume_m3": 2.4e-06,
+    "axis_aligned_grid_counts": [
+      14,
+      10,
+      5
+    ],
+    "axis_aligned_grid_centers_with_rest_envelopes": 700,
+    "axis_aligned_nominal_mass_kg": 0.0007,
+    "tilted_20deg_lowest_rim_gravity_plane_proxy_count": 392,
+    "interpretation": "700 is empty axis-aligned packing, not a demonstrated payload. Tilted count is only a frictionless gravity-plane retention proxy; powders can behave differently."
+  },
+  "source_access": {
+    "status": "STATIC_BED_ENTRY_NECESSARY_CHECK_FAILED_NOT_A_NATIVE_FAILURE",
+    "scoop_pitch_deg": 20.0,
+    "head_rim_world_z_m": 0.09542783033356453,
+    "actual_tool_root_world_m": [
+      0.38,
+      0.07727308738485951,
+      0.18431855666385116
+    ],
+    "outer_base_min_world_z_m": 0.0815,
+    "inner_floor_world_z_range_m": [
+      0.08534513829233473,
+      0.09047544044221977
+    ],
+    "stock_center_world_z_range_m": [
+      0.0812,
+      0.09117919999999999
+    ],
+    "stock_rest_envelope_world_z_range_m": [
+      0.0804872,
+      0.09189199999999999
+    ],
+    "original_particle_contact_offset_m": 0.0012,
+    "front_lip_static_analyses": [
+      {
+        "front_drop_m": 0.0,
+        "front_wall_remaining_height_m": 0.008,
+        "axis_aligned_rest_envelope_grid_counts": [
+          14,
+          10,
+          5
+        ],
+        "level_static_grid_capacity": 700,
+        "exact_20deg_to_level_common_gravity_plane_grid_subset": 392,
+        "inner_crown_world_z_at_20deg_m": 0.09286267925862202,
+        "leading_outer_crown_world_z_at_20deg_m": 0.09183661882864501,
+        "original_center_z_layers_above_inner_crown_plus_rest_radius": 0,
+        "original_center_z_layers_above_inner_crown_plus_p1p2mm_contact_offset": 0,
+        "interpretation": "Static center-grid capacity proxy at fixed poses only. This is not a guaranteed captured/retained payload or a successful entry/discharge experiment."
+      },
+      {
+        "front_drop_m": 0.003,
+        "front_wall_remaining_height_m": 0.0049999999999999975,
+        "axis_aligned_rest_envelope_grid_counts": [
+          14,
+          10,
+          3
+        ],
+        "level_static_grid_capacity": 420,
+        "exact_20deg_to_level_common_gravity_plane_grid_subset": 126,
+        "inner_crown_world_z_at_20deg_m": 0.09004360139626429,
+        "leading_outer_crown_world_z_at_20deg_m": 0.08901754096628728,
+        "original_center_z_layers_above_inner_crown_plus_rest_radius": 1,
+        "original_center_z_layers_above_inner_crown_plus_p1p2mm_contact_offset": 0,
+        "interpretation": "Static center-grid capacity proxy at fixed poses only. This is not a guaranteed captured/retained payload or a successful entry/discharge experiment."
+      }
+    ],
+    "unchanged_current_geometry": "Only0mm drop is authored by geometry.py.3mm drop is an explicit unexecuted analytic alternative, not a silently changed candidate.",
+    "conclusion": "Collision-free tool entry does not establish access to powder. Full8mm front crown lies above every stock center, with only55micrometers overlap against the highest rest envelope at its leading outer edge. No direct rest-radius-safe center layer can traverse the inner edge. Bed plowing is a possible physical effect, not demonstrated here."
+  },
+  "swept_source": {
+    "full_solid_samples_per_pose": 21096,
+    "spatial_grid_max_edge_m": 0.001,
+    "spatial_cover_m": 0.0008660254037844386,
+    "temporal_point_cover_m": 0.00025,
+    "continuous_signed_distance_cover_m": 0.0011160254037844387,
+    "all_lanes": [
+      {
+        "lane_offset_m": -0.006,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.002325372684705687,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.0012093472809212484,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9185185185185185,
+            "sample_world_m": [
+              0.361,
+              -0.03637100590516559,
+              0.09964756276043751
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.361,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.361,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.374,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.374,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.374,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.374,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.374,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      },
+      {
+        "lane_offset_m": -0.004,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.003268930570156925,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.002152905166372486,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9185185185185185,
+            "sample_world_m": [
+              0.363,
+              -0.03637100590516559,
+              0.09964756276043751
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.363,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.363,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.376,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.376,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.376,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.376,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.376,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      },
+      {
+        "lane_offset_m": -0.002,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.003930171602476024,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.002814146198691585,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9888888888888889,
+            "sample_world_m": [
+              0.374,
+              -0.033469011327055515,
+              0.09974733116570737
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.365,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.365,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.378,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.378,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.378,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.378,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.378,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      },
+      {
+        "lane_offset_m": 0.0,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.004201285364661439,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.0030852599608770003,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9888888888888889,
+            "sample_world_m": [
+              0.376,
+              -0.033469011327055515,
+              0.09974733116570737
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.367,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.367,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.38,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.38,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.38,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.38,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.38,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      },
+      {
+        "lane_offset_m": 0.002,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.003930171602476024,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.002814146198691585,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9888888888888889,
+            "sample_world_m": [
+              0.386,
+              -0.033469011327055515,
+              0.09974733116570737
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.369,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.369,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.382,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.382,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.382,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.382,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.382,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      },
+      {
+        "lane_offset_m": 0.004,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.003268930570156925,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.002152905166372486,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9185185185185185,
+            "sample_world_m": [
+              0.397,
+              -0.03637100590516559,
+              0.09964756276043751
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.371,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.371,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.384,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.384,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.384,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.384,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.384,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      },
+      {
+        "lane_offset_m": 0.006,
+        "poses": 776,
+        "sampled_min_signed_distance_m": {
+          "wall": 0.002325372684705687,
+          "floor": 0.0015000000000000013,
+          "solid": 0.0015000000000000013
+        },
+        "continuous_lower_bound_m": {
+          "wall": 0.0012093472809212484,
+          "floor": 0.00038397459621556263,
+          "solid": 0.00038397459621556263
+        },
+        "exact_box_vertical_support_floor_lower_bound_m": 0.0012500000000000013,
+        "exact_handle_vertical_support_above_rim_lower_bound_m": 0.03456372923753964,
+        "max_interval_point_travel_bound_m": 0.0004999999999999999,
+        "worst_sample": {
+          "wall": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 0.9185185185185185,
+            "sample_world_m": [
+              0.399,
+              -0.03637100590516559,
+              0.09964756276043751
+            ]
+          },
+          "floor": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.373,
+              -0.056104550941669676,
+              0.0815
+            ]
+          },
+          "solid": {
+            "segment": "entry_high\u2192entry_low",
+            "fraction": 1.0,
+            "sample_world_m": [
+              0.373,
+              -0.056104550941669676,
+              0.0815
+            ]
+          }
+        },
+        "head_waypoints": [
+          [
+            "entry_high",
+            [
+              0.386,
+              -0.05,
+              0.23
+            ],
+            20.0
+          ],
+          [
+            "entry_low",
+            [
+              0.386,
+              -0.05,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "sweep",
+            [
+              0.386,
+              -0.09,
+              0.09542783033356453
+            ],
+            20.0
+          ],
+          [
+            "withdraw",
+            [
+              0.386,
+              -0.09,
+              0.16
+            ],
+            20.0
+          ],
+          [
+            "level_high",
+            [
+              0.386,
+              -0.09,
+              0.23
+            ],
+            0.0
+          ]
+        ]
+      }
+    ],
+    "scope": "Entire seven-box tool checked against conservative source solids. Arm, fingers, fixtures, powder contact and motion feasibility are not checked."
+  },
+  "receiver": {
+    "mesh_path": "evidence/beaker_mesh_root_points_r1.npy",
+    "mesh_vertices": 525,
+    "receiver_root_world_m": [
+      0.62,
+      -0.14,
+      0.15
+    ],
+    "receiver_orientation": "Identity; declared geometric fixture pose, not new measured native state.",
+    "top_inner_ring_vertices": 18,
+    "top_inner_ring_center_local_xy_m": [
+      -0.001468123826678797,
+      -1.7196024666059698e-10
+    ],
+    "top_inner_ring_radius_m": 0.02099509527788676,
+    "top_inner_ring_max_fit_residual_m": 8.114227869476798e-09,
+    "highest_actual_mesh_world_z_m": 0.17284846156835557,
+    "front_lip_world_target_m": [
+      0.6185318761733212,
+      -0.14000000017196026,
+      0.19084846156835555
+    ],
+    "height_above_highest_mesh_m": 0.018,
+    "angles_deg": [
+      0.0,
+      120.0
+    ],
+    "sweep_poses": 955,
+    "sampled_entire_tool_min_vertical_gap_m": 0.0069999999999999785,
+    "continuous_full_solid_vertical_gap_lower_bound_m": 0.00588397459621554,
+    "physical_front_top_band_aperture_margin_sampled_m": 0.007653431213760414,
+    "continuous_band_margin_lower_bound_m": 0.007403431213760414,
+    "nominal_gap_if_12mm_lip_height_m": 0.00099999999999998,
+    "reason_for_18mm": "Actual base is11mm below the true lip at0deg. A12mm target leaves1mm nominal full-tool clearance; 18mm derives from11+5+spatial/temporal cover rounded up, independent of any simulation outcome."
+  },
+  "declared_differences": [
+    "Original mortar/spatula assets were not found locally; candidate is procedural white64-panel round mortar and finite-box rectangular scoop, visually motivated by Fig4F/G only.",
+    "All dimensions are local specifications, not recovered author CAD. Tool cavity20\u00d715\u00d78mm uses a full8mm front wall; a prior unexecuted skeleton suggested lowering front3mm. The full wall is explicit before native use and its effect on real entry/discharge is unknown.",
+    "Tool root stays at the candidate handle attachment; head rim is150mm toward negative localy and40mm below it. A raised neck replaces the flat long spoon geometry.",
+    "Source bowl floor80mm/rim100mm replaces the flat plate only in a future separately authorized harness. Original source, old states, evidence and frozen gates are unchanged.",
+    "Native material/friction/cohesion/particle settings have not been exercised here. The default particle mass and fixed spacing/count are preserved as a geometric contract, not a density validation.",
+    "Receiver original mesh is retained for offline bounds. Lip target18mm above highest actual mesh is a derived geometric candidate; no new controller/native/IK/FK has been run."
+  ],
+  "unresolved": [
+    "Arm/gripper collision and reachable joint configurations for the new head-root offset require later native/FK checks.",
+    "Powder scoop entry, filling, retention, discharge, landing, scale response and the frozen0.7g/10% local F gates remain untested.",
+    "The rectangular full front wall can impede collection and tilted packing is much below700; this geometry-only check does not promise enough captured mass.",
+    "Source collision-panel approximation, PBD support and contact offsets require native validation; geometric separation does not prove zero tunneling or successful contact."
+  ],
+  "artifact_paths": {
+    "geometry": "f_tier/N10/mortar_scoop_candidate/geometry.py",
+    "contract_source": "f_tier/N10/mortar_scoop_candidate/geometry_contract.py",
+    "diagnostic_plot": "f_tier/N10/mortar_scoop_candidate/geometry_diagnostic.png"
+  }
+}

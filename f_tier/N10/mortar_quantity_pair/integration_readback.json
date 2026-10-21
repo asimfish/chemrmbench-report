@@ -1,0 +1,27 @@
+{
+  "status": "ROOT_QUANTITY_PAIR_INTEGRATION_READBACK_PASS",
+  "reviewed_utc": "2026-10-20T21:57:40.830440+00:00",
+  "reviewer": "root",
+  "maximum_positive_STARTED": 1,
+  "maximum_negative_STARTED": 1,
+  "negative_conditionally_enabled": true,
+  "positive_conditions": "Fresh primary-main NVML admission <=1 external with >=12GiB available; no C01 running/waiting world; owned native identity guard only.",
+  "negative_conditions": "Only after closed positive all_functional_gates_pass, process exit0 and fully decoded video; exact actual positive sequence incl revisits, source head +120mm; fresh independent resource admission. No retry.",
+  "readback_scope": [
+    "fixed five-lane prefix [.380,.378,.382,.378,.382], revisits allowed",
+    "original same-sample home gate and original HSM ACK/explicit action dispatch",
+    "fresh >=50 supply on planned lane, parameter receiver stop>=.7g, max5 then final settle",
+    "all actual stop/final quantities, each cycle high payload/delta preserved, scale excluded from stopping",
+    "480s including2s tare, no reset/extra settling beyond frozen phases",
+    "new per-cycle pre-pour actual cup/aperture/lip verification",
+    "original11200 solidPBD/1mg/spacing/material/solver16 and raw frozen spring gain",
+    "display-only props have no collision/rigid APIs; old footage immutable",
+    "final raw NPZ frustum geometry diagnostic only, unchanged online observer",
+    "12 frozen runtime/config files match current; six path families already checked necessary geometry only"
+  ],
+  "implementation_readback_only": true,
+  "independent_F_audit": false,
+  "F_PASS": false,
+  "baseline_F_PASS_unchanged": 34,
+  "scope": "A quantity and actual-physics paired control study, not N10 F acceptance. Known PBD weighing failure retained. No native result/performance claim from this readback."
+}

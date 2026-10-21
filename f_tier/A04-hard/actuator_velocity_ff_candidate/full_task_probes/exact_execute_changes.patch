@@ -1,0 +1,30 @@
+--- actual_anchor_candidate/execute.py
++++ full_task_probes/execute.py
+@@ -1,4 +1,4 @@
+-"""One predeclared pilot case, original initialization plus reviewed live IK."""
++"""One reviewed velocity-FF full known case; original task/initialization/live IK."""
+ import os
+ os.environ.update(MUJOCO_GL='disable', CUDA_VISIBLE_DEVICES='', OPENBLAS_NUM_THREADS='1',
+                   OMP_NUM_THREADS='1', MKL_NUM_THREADS='1')
+@@ -8,9 +8,12 @@
+ import json
+ import signal
+ import traceback
++import sys
+ import numpy as np
+ 
+ B = Path(__file__).resolve().parent
++SOURCE_BASE = B.parent
++sys.path.insert(0, str(SOURCE_BASE))
+ TERMINATION = {}
+ 
+ 
+@@ -29,7 +32,7 @@
+     parser = argparse.ArgumentParser(); parser.add_argument('--case-id', required=True)
+     opts = parser.parse_args()
+     enabled=json.loads((B/'runtime_switch.json').read_text())
+-    assert enabled['native_enabled']and enabled['root_reviewed']and enabled['original20_all_closed_verified_by_root'],'Prepared only; no native authorized'
++    assert enabled['native_enabled']and enabled['root_reviewed']and enabled['two_full_task_probes_authorized'],'Prepared only; no native authorized'
+     case = next(c for c in json.loads((B/'casebank.json').read_text())['cases'] if c['case_id'] == opts.case_id)
+     journal = B/'attempt_details'/case['case_id']; journal.mkdir(parents=True, exist_ok=False)
+     import learner

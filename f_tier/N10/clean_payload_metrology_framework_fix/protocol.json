@@ -1,0 +1,84 @@
+{
+  "id": "N10_METROLOGY_PREREQUISITE",
+  "status": "FROZEN_PRE_NATIVE_READBACK",
+  "scope": "Single fresh world,parallel independent scales,clean originalcups; no robot/spill/gainfit; not N10 F acceptance",
+  "native_dt_s": 0.0033333333333333335,
+  "native_steps_max": 1500,
+  "native_budget_s": 5.0,
+  "particle_observation_stride_steps": 30,
+  "terminal_average_steps": 300,
+  "spring": {
+    "platform_mass_kg": 1.0,
+    "shape_m": [
+      0.16,
+      0.16,
+      0.01
+    ],
+    "base_z_m": 0.085,
+    "k_N_m": 1000.0,
+    "damping_Ns_m": 80.0,
+    "max_force_N": 100.0,
+    "preload_m": 0.00981,
+    "travel_m": [
+      -0.02,
+      0.02
+    ]
+  },
+  "cup": "Unchanged public BEAKER_500ML_INST_CFG,300g,initialrootz.15; separate originalcup in eachscale",
+  "cases": [
+    {
+      "name": "empty_cup",
+      "particle_count": 0,
+      "known_rigid_insert_kg": 0.0
+    },
+    {
+      "name": "rigid_700mg",
+      "particle_count": 0,
+      "known_rigid_insert_kg": 0.0007
+    },
+    {
+      "name": "rigid_3g",
+      "particle_count": 0,
+      "known_rigid_insert_kg": 0.003
+    },
+    {
+      "name": "powder_700mg",
+      "particle_count": 700,
+      "grid_dimensions": [
+        10,
+        10,
+        7
+      ],
+      "known_rigid_insert_kg": 0.0
+    },
+    {
+      "name": "powder_3g",
+      "particle_count": 3000,
+      "grid_dimensions": [
+        20,
+        15,
+        10
+      ],
+      "known_rigid_insert_kg": 0.0
+    }
+  ],
+  "grid": {
+    "spacing_m": 0.0014256,
+    "particle_mass_kg": 1e-06,
+    "contact_offset_m": 0.0012,
+    "rest_radius_m": 0.0007128,
+    "friction": 0.5,
+    "material": "Unchanged public PowderCfg/PowderSystem,solidPBD",
+    "CENTER_API": "Every particle cuboid uses correctCENTER; lower is originalcup cavitybottom+3mm, centered on fittedoriginalinnerXY",
+    "particle_add_remove_or_runtime_position_writes": false
+  },
+  "backend": "Original Matterix CPU tensorpipeline + PhysXGPU override1; not claimed CPU-only rigidphysics",
+  "initialization": "Spawn allfixed-scale/cup/knownload/particlegeometry before one sim.reset; preserve coherent postreset object+particle state. No postreset rigidteleport away from particleloads. Observe authoredpre/postreset andt0 containment; no outcome-selected resets or settling extension.",
+  "readout": "Frozen independent knownrigid gain100.25975050422052*(separate emptycup same-timestep terminalmeanZ -loadedcup terminalmeanZ). Counts enter referenceknownload validation only, never readout or gain.",
+  "reference_comparison_relative_error_max": 0.1,
+  "calibration_snapshot": "calibration_snapshot.json; original rigid100g/220g fit,offset0; no newfit",
+  "native_attempt_cap": 1,
+  "partial_or_failed_attempt_no_retry": true,
+  "diagnosis": "If rigidinserts match while contained PBDpayloads do not, evidence for particle-load/scale incompatibility; any lost containment,clockfailure or rigidfailure makes narrower interpretation necessary. Not a0.7gF pass or originalNature threshold.",
+  "pairforce": "Not collected in first prerequisite; net cup contact is not used as cupweight estimator."
+}

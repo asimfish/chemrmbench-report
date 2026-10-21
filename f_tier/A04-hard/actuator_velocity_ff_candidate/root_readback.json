@@ -1,0 +1,24 @@
+{
+  "reviewed_utc": "2026-10-20T22:54:37.921704+00:00",
+  "reviewer": "root",
+  "scope": "Authorize exactly four fixed robot-only actuator-interface diagnostics, per-case max2native seconds/200controls/1000steps, no retry, all STARTED counted. No full liquid task/training/formal evaluation authorization.",
+  "files_read": [
+    "diagnostic_protocol.json",
+    "diagnostic_inputs.json",
+    "exact_changes.patch",
+    "velocity_ff.py",
+    "diagnostic_runner.py",
+    "launch_diagnostic.py",
+    "summarize_diagnostic.py",
+    "objective_solve.py"
+  ],
+  "readback_findings": [
+    "Original position PD actuator formula and original apply source read; held FF target isolated from IK seed and live state.",
+    "Constant archived world Cartesian twist; per-control actual-anchor target; same baseline/+FF input.",
+    "Corrected post-step mj_forward to match original Coupled.step before any STARTED.",
+    "Both executors log prior-command actuator and joint-force values at apply entry; no fictitious newly submitted force evaluation.",
+    "Saved state dimensions/site/pose validated, original XMLdt.002; missing warmstarts/ctrl/externalforces declared.",
+    "No Warp/GPU/fluid; at most two CPU children, no source/pose/amplitude/gain search."
+  ],
+  "scientific_scope": "Component tracking/saturation only; not expert reliability, F, OPD, ICL, or generalization."
+}

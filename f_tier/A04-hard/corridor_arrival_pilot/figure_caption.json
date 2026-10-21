@@ -1,0 +1,15 @@
+{
+  "title": "Paired engineering calibration: outward corridor and arrival-aligned pushes",
+  "decision": "ExpertcompetencetargetNOTMET;notalearningmethodadvantageclaim",
+  "scope": "All 20 fixed started development cases; five per robot/method, with no replacement or outcome selection.",
+  "panelA": "Full 23 s, at least 80% capture, at most 10% outside, zero flagged scope penetrations and receiver path at least 20 mm. Alsorequiresoriginal1or2arrival-aligned2N/120mspulses,uninterruptedrc0execution,andactualobservedage20..40msincludingpendinglastnextobservation.",
+  "panelB": "Recordedterminalreceiverfraction;crossesforearlyends,notfull23sresults;missingartifactcountsretainedinall20table.Dashedlinelocal80%gate.",
+  "panelC": "Recordedterminaloutsidefraction;crossesforearlyends;dashedlinelocal10%gate.Outsideincludesinflightparticlesduringrun.",
+  "panelD": "Trigger:actualreceiveroccupancycrossesbelow24toatleast24of240particles,usingoriginalreceiverclassifier.Native-stepobservation,notuniqueentrymass;shadingiseligible8.5..15swindow,notadeadline.",
+  "limitations": [
+    "Frozen BC3 trained on the easier task; paired known development recipes, not unseen held-out episodes.",
+    "Comparedtopriorflowalignedpilot,trajectory/heading,arrivaltriggerandboundeddelayallchange;noisolatedcausalclaim.",
+    "State feedback teacher and 18D features retained; no OPD, ICL, or new policy training.",
+    "The particle oracle only triggers the benchmark disturbance. Intervals reflect the small group size of five."
+  ]
+}

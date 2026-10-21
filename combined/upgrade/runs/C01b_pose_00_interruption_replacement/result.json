@@ -1,0 +1,5002 @@
+{
+  "id": "combined_pour_heat_recovery",
+  "pid": 1635071,
+  "device": "cuda:0",
+  "status": "NATIVE_CANDIDATE_PASS",
+  "protocol": {
+    "id": "C01b_pose00_single_interruption_replacement",
+    "status": "FROZEN_BEFORE_NATIVE",
+    "frozen_at_utc": "2026-10-19T12:38:02.021564+00:00",
+    "world_owner": "One MATTERIX/IsaacLab/native PhysX PBD world and clock; no Warp world",
+    "geometry": "combined/scene_geometry.json",
+    "source_case": "N04 pose00 known development fixture, supported SE2 only",
+    "seed": 190019,
+    "physics_dt_s": 0.0033333333333333335,
+    "decimation": 5,
+    "max_episode_native_s": 120,
+    "local_gates": [
+      {
+        "id": "single_native_clock",
+        "callback_count_equals_control_times_decimation": true,
+        "clock_error_s_max": 1e-05,
+        "mid_episode_environment_resets": 0,
+        "post_initialization_object_pose_writes": 0,
+        "attachments": false,
+        "all_planned_commands_applied": true,
+        "scheduling_lateness_s_max": 0.016667666666666667
+      },
+      {
+        "id": "physical_grasp",
+        "source_lift_m_min": 0.05,
+        "double_finger_force_N_min": 0.1,
+        "observed_before_fault": true
+      },
+      {
+        "id": "contact_failure_recovery",
+        "injected_open_faults": 1,
+        "lost_both_finger_force_N_max": 0.001,
+        "lost_streak_control_steps_min": 3,
+        "recovered_both_finger_force_N_min": 0.1,
+        "recovered_streak_control_steps_min": 3,
+        "fault_location": "Native source table still supports cup; HSM motion paused, real fingers open/close, no world reset",
+        "source_table_support_force_N_min": 0.1
+      },
+      {
+        "id": "verified_fluid_transfer",
+        "receiver_fraction_min": 0.5,
+        "spill_fraction_max": 0.1,
+        "mass_accounting_relative_error_max": 0.01,
+        "gross_display_point_wall_leaks_max": 0,
+        "source_return_error_m_max": 0.02
+      },
+      {
+        "id": "contact_gated_heat_and_stop",
+        "plate_setpoint_C": 40.0,
+        "solution_stop_temperature_C": 28.0,
+        "solution_temperature_C_max": 28.2,
+        "heater_off_after_goal": true,
+        "receiver_plate_contact_force_N_min": 0.5,
+        "contact_fraction_while_heating_min": 0.95,
+        "heater_enable_requires_verified_transfer": true
+      }
+    ],
+    "thermal_model": "Reuse f_tier/N07/runner.py OnlineChemistry / frozen effective parameters; chemistry sub_dt=1/300, thermal branch0 only, no reaction or liquid thermal PBD claim",
+    "offline_always_contact_model_time_to_28C_s": 10.2,
+    "negative": "Separate mandatory no-recovery run in upgrade/runs/no_recovery; no O/learned-policy/real-system claim.",
+    "timing": "combined/interfaces.py native observation/command/receipt/verdict, planned/applied/observed effect times; no second clock",
+    "differences": [
+      "Scripted local workflow and known pose00 fixture; no learned agent or unseen-task generalization claim.",
+      "Original scale1 public cup is42mm inner diameter, not calibrated500mL capacity.",
+      "Original PBD defaults+isosurface/smoothing; smoothed display-point observer and gross wall gate, not raw subparticle penetration.",
+      "N07 effective nonreciprocal thermal fit, not recovered author parameters/calorimetric identification.",
+      "GPU static table contact tensor filtering fails even for actual child collider; support guard uses raw native actual-table contact impulse. Absolute GPU support reading ~26.50N differs from CPU2.943N and is not calibrated or interpreted as weight; only support presence is used.",
+      "Five predeclared N04 SE2 poses (00\u201304), all receive the airborne fault. Includes N04 pose04 known pick failure; all launched attempts retained and included. No claim of arbitrary SO3 or held-out method design.",
+      "Fall classification uses native cup attitude, velocity, table-contact presence and unchanged smoothed PBD point partition; not calibrated contact force or exact liquid surface volume.",
+      "Failure to recover or an appropriately safe-aborted tipped cup is reported separately from complete workflow success."
+    ],
+    "source_contact_sensor_filters": [
+      "robot/panda_leftfinger",
+      "robot/panda_rightfinger",
+      "table/Collisions/Cube"
+    ],
+    "sensor_binding_correction": {
+      "previous": "table root has no rigid-body filter match: returned0 before initial grasp despite stable source",
+      "native_support_collider_from_saved_scene": "/World/envs/env_0/StaticObjects_Infrastructure_table/Collisions/Cube",
+      "source_support_visual_collider_top_z_m": -0.003,
+      "change": "Observe exact existing static collision leaf; also retain original raw contact headers/net_forces_w and per-filter vectors. No physical scene, force or threshold changes."
+    },
+    "support_observer": {
+      "kind": "raw native contact header guard",
+      "table_collider_path": "/World/envs/env_0/StaticObjects_Infrastructure_table/Collisions/Cube",
+      "formula": "sum over all five native substeps of source-directed upward table contact impulse_z / actual control interval dt (5/300 s), clipped at0; unchanged >0.1N support-presence threshold",
+      "scope": "Only support existence; not a calibrated force or weight measurement. No collider/material/dynamics change. Native point impulses summed once per header; zero-point lost events ignored.",
+      "CPU_control": "Same original source/table geometries: source native mass0.300000012kg, 600 native steps/2s, net and raw impulse Fz2.94301262N; root tensor filter0, exact child filter2.94301265N.",
+      "GPU_difference": "Original static instance child not matched by GPU tensor filter. Actual-table raw header and net both ~26.50N at rest, ~9x CPU, unresolved absolute force difference retained; not divided by9 or used for weighing.",
+      "evidence": [
+        "combined/support_filter_probe/result.json",
+        "combined/runs/attempt_002_GPU_static_child_filter_empty/trajectory.jsonl"
+      ]
+    },
+    "transport_path_correction": {
+      "evidence": "combined/runs/attempt_003_receiver_tipped_during_transport/trajectory.jsonl",
+      "failure": "Native source-cup to receiver-cup contacts first13.316666989s during low diagonal approach; receiver tips off IKA before pouring.",
+      "correction": "Same source/hover/tilt target, first raise source root to max(current_z,hover_z)+0.10m, translate at that height, descend vertically to original hover; original native HSM/object frame adapter.",
+      "observer": "Add receiver native actor/collider contact headers and upright angle. Before tilt require original plate contact>0.5N and receiver upright<=5deg. No mass/geometry/material/particle/tilt parameter or completed-episode success threshold change.",
+      "cpu_regression": "combined/cpu_transport/result.json (rigid-only, not fluid success)"
+    },
+    "scope_status": "FROZEN_BEFORE_ANY_REPLACEMENT_LAUNCH",
+    "cases": [
+      {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      },
+      {
+        "id": "pose_01",
+        "seed": 170401,
+        "source_xy": [
+          0.55959,
+          0.08574
+        ],
+        "source_yaw_deg": 25.292,
+        "receiver_xy": [
+          0.58432,
+          -0.14243
+        ],
+        "receiver_yaw_deg": -17.012
+      },
+      {
+        "id": "pose_02",
+        "seed": 170402,
+        "source_xy": [
+          0.43455,
+          0.10972
+        ],
+        "source_yaw_deg": -26.082,
+        "receiver_xy": [
+          0.49469,
+          -0.14933
+        ],
+        "receiver_yaw_deg": -6.843
+      },
+      {
+        "id": "pose_03",
+        "seed": 170403,
+        "source_xy": [
+          0.50039,
+          0.11247
+        ],
+        "source_yaw_deg": -9.277,
+        "receiver_xy": [
+          0.54959,
+          -0.19057
+        ],
+        "receiver_yaw_deg": 1.847
+      },
+      {
+        "id": "pose_04",
+        "seed": 170404,
+        "source_xy": [
+          0.53181,
+          0.15621
+        ],
+        "source_yaw_deg": 29.942,
+        "receiver_xy": [
+          0.57222,
+          -0.16158
+        ],
+        "receiver_yaw_deg": -6.815
+      }
+    ],
+    "fault": "Once during transport, actual bottom clearance >=50mm from the native table collider top -3mm and dual contact, open real fingers; no object/particle writes.",
+    "drop_verifier": {
+      "loss_streak_control_steps": 3,
+      "loss_threshold_N_presence_only": 0.001,
+      "fall_displacement_m_min": 0.005,
+      "stable_linear_speed_m_s_max": 0.01,
+      "stable_angular_speed_rad_s_max": 0.1,
+      "stable_duration_s_min": 0.25,
+      "post_loss_observation_s_min": 0.5,
+      "upright_tilt_deg_max": 10.0,
+      "spill_particles_for_recovery_max": 0,
+      "drop_observation_budget_s": 6.0
+    },
+    "recovery": "Upright with no classified spill: rebuild object-centred pregrasp/pick at current observed native cup xyz/yaw; reclose and verify then transport/pour/heat. Tipped or any classified spill: abort with no continuation.",
+    "native_episode_budget_s": 150.0,
+    "all_attempts_in_denominator": true,
+    "rendering_observation_schedule": {
+      "pose_00": {
+        "render_interval_physics_steps": 10,
+        "frozen_before_run": true
+      },
+      "pose_01_to_04": {
+        "render_interval_physics_steps": 60,
+        "approved_render_only_change_utc": "2026-10-20T17:02:53.515977+00:00"
+      },
+      "all_cases": {
+        "video_fps": 5,
+        "control_observations_Hz": 60,
+        "physics_Hz": 300,
+        "no_physics_step_skipping": true,
+        "controller_uses_RGB": false
+      },
+      "scope": "Only unsaved RTX refresh reduction; native dt/decimation/HSM/PBD/force and state observation/gates unchanged. Pose00 in-flight source is preserved untouched in its run."
+    },
+    "lifecycle_repair_for_not_yet_started_pose03_04": {
+      "approved_by": "root after unexplained SIGTERM in pose00; no causal sender or tool TTL established",
+      "timestamp_utc": "2026-10-20T17:36:39.369923+00:00",
+      "child_new_session": true,
+      "term_handling": "Python SIGTERM raises TerminationRequested at next Python boundary, preserves prefix arrays/map/trace and result, exits143; no retry/ignore. No asynchronous native sigaction.",
+      "physics_controller_gates_unchanged": true,
+      "existing_worlds_00_01_02_not_restarted_or_injected": true
+    },
+    "registered_utc": "2026-10-20T17:42:27.612036+00:00",
+    "authorized_maximum_replacement_launches": 1,
+    "launch_only_after_original_five_closed": true,
+    "replacement_case": {
+      "id": "pose_00",
+      "seed": 170400,
+      "source_xy": [
+        0.49834,
+        0.08501
+      ],
+      "source_yaw_deg": -23.674,
+      "receiver_xy": [
+        0.59734,
+        -0.17583
+      ],
+      "receiver_yaw_deg": -7.072
+    },
+    "replacement_of": "combined/upgrade/runs/C01b_pose_00/result.json",
+    "unique_output": "combined/upgrade/runs/C01b_pose_00_interruption_replacement",
+    "rationale": "One explicit administrative interruption replacement authorized by root; not seed/outcome selection. Original00 remains a failed attempt. All six started attempts enter primary denominator.",
+    "original_failure_retained": true,
+    "no_retry_of_pose01_to04": true,
+    "no_additional_retry_if_replacement_fails": true,
+    "render_difference": "Replacement render_interval60 vs original00 interval10, already approved for later cases. Same native dt/control/PBD/HSM/fault/gates; no bitwise identity claim."
+  },
+  "skill_origin": {
+    "engine": "Original public MATTERIX FluidSystem / native PhysX PBD",
+    "fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+    "material_and_render_defaults": "FluidCfg defaults, original anisotropy+smoothing+isosurface ON; no density, mass, contact-offset, cohesion, viscosity, friction or surface-tension modification",
+    "pose_scope": "Fixed supported tabletop SE(2) x/y/yaw poses; not unsupported full SO(3) orientations",
+    "cases": [
+      {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      }
+    ],
+    "negative": "No tilt for pose_00; same pick, transport, hold and return primitives, omitting commanded tilt; arrival-dependent phase durations reported separately",
+    "controller": "Original HSM Move/Open/Close with side pick (20deg downward approach, EE grasp z=-20mm), native double-finger contact and mouth/table clearance verification, plus observed-cup-pose tilt feedback: local graspX axis (grasp frame rotated90deg about objectZ, negative tilt sign; perpendicular to finger closing axis),5degree waypoints held200ms, actual115+/-2deg about a fixed world mouth-center pivot then observed return (lift100mm, high translation, vertical descent); mouth pivot70mm above receiving mouth,15mm upstream along flow; orientation slip diagnostic only,15mm translation and sustained lift-loss guard. Dynamic cups, no weld/kinematic target/mid-episode object writes",
+    "fluid_initialization": "Original create_particles_grid with volume(0.020,0.020,0.020)m inside native scale1 beaker; default particle_mass1e-6kg and density1000 retained despite their known mismatch",
+    "observer": "Original get_current_pos_vel (PointInstancer positions); smoothing may shift display points. Gross wall gate only, not raw solver or subparticle penetration.",
+    "development_scope": "Controller tuned only on pose00, which is included in fixed10; not a held-out generalization estimate.",
+    "local_thresholds": {
+      "receiver_fraction_min": 0.5,
+      "spill_fraction_max": 0.1,
+      "boundary_ambiguous_fraction_max": 0.05,
+      "mass_accounting_relative_error_max": 0.01,
+      "gross_wall_leak_band_m": 0.004,
+      "gross_wall_leak_count_max": 0,
+      "physical_lift_min_m": 0.05,
+      "grasp_position_drift_max_m": 0.015,
+      "grasp_rotation_drift_diagnostic_only": true,
+      "grasp_azimuth_offset_deg": 90.0,
+      "tilt_sign": -1.0,
+      "mouth_pivot_above_receiver_m": 0.07,
+      "actual_tilt_target_deg": 115.0,
+      "tilt_waypoint_deg": 5.0,
+      "waypoint_hold_s": 0.2,
+      "final_source_position_error_max_m": 0.02,
+      "negative_receiver_fraction_max": 0.01,
+      "aggregate_min_successes": 1
+    },
+    "native_physics_dt_s": 0.0033333333333333335,
+    "control_decimation": 5,
+    "video_fps": 15,
+    "all_attempts_reported": true
+  },
+  "skill_origin_scope": "Motion-template provenance only; the actual frozen C01b fault and five-pose protocol is in protocol. Inherited N04 no-tilt negative metadata is not executed here.",
+  "attempts": [
+    {
+      "case": {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      },
+      "negative": false,
+      "success": true,
+      "full_native_robot_workflow": true,
+      "failure": null,
+      "native_s": 73.96666845772415,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.833333523012698,
+        "fault_open_planned_s": 8.350000202190131,
+        "native_contact_loss_detected_s": 8.40000020340085,
+        "native_fall_detected_s": 8.41666687047109,
+        "drop_diagnosis_s": 8.983333550859243,
+        "replan_grasp_started_s": 8.983333550859243,
+        "native_contact_recovered_verified_s": 15.183333700988442,
+        "first_tilt_command_s": 25.366666666666667,
+        "observed_source_tilt5deg_s": 25.850000625941902,
+        "first_observed_receiver_entry_s": 33.13333413563669,
+        "observed_tilt_target_held_s": 36.06666753999889,
+        "observed_upright_held_s": 48.91666785115376,
+        "source_return_complete_s": 63.73333487659693,
+        "heater_on_planned_s": 63.73333487659693,
+        "solution_28C_observed_s": 73.95000179065391,
+        "heater_off_observed_s": 73.96666845772415
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 22190,
+      "wall_s": 930.9275664899906,
+      "max_clock_error_s": 1.7910574854340666e-06,
+      "max_lift_m": 0.23974965512752533,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.014572798921723047,
+        "minimum_tool_table_gap_m": 0.006165879599450912
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.006165879599450912,
+      "max_observed_source_tilt_deg": 113.98915524052431,
+      "observation_archive": "combined/upgrade/runs/C01b_pose_00_interruption_replacement/pose_00_observations.npz",
+      "max_grasp_position_drift_m": 0.003006760881658096,
+      "max_grasp_rotation_drift_rad": 1.8870739565989135e-05,
+      "final_source_position_error_m": 0.00544677022844553,
+      "final_source_upright_angle_rad": 2.0512789335755435e-06,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 1.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 0.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 0.0,
+      "gross_wall_leak_count": 0,
+      "source_gross_leak_count": 0,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true,
+      "drop_diagnosis": {
+        "upright": true,
+        "cup_tilt_deg": 8.955674523836769e-05,
+        "source_particles": 125,
+        "spill_particles": 0,
+        "particle_count": 125,
+        "native_pose_xyzw": [
+          0.4988729655742645,
+          0.0843174159526825,
+          0.03484257310628891,
+          -2.8440263122320175e-07,
+          -7.279450073838234e-07,
+          -0.2228323221206665,
+          0.9748566746711731
+        ],
+        "speed_m_s": 0.0015503127360716462,
+        "angular_speed_rad_s": 0.0005207632784731686,
+        "fall_m": 0.0953175351023674,
+        "decision": "REPLAN_FROM_OBSERVED_POSE"
+      },
+      "fault_cup_bottom_clearance_m": 0.09622234570891194,
+      "recovery_native_s": 6.783333497587591,
+      "safety_abort": false,
+      "command_timing": {
+        "planned_commands": 4440,
+        "applied_commands": 4440,
+        "observed_effect_commands": 3814,
+        "unobserved_effect_commands": 626,
+        "not_applied_commands": 0,
+        "max_scheduling_lateness_s": 0.009666667070241886,
+        "heater_receipts": [
+          {
+            "command_id": "command_003824",
+            "scheduled_s": 63.740334876596926,
+            "applied_step": 19125,
+            "applied_native_s": 63.75000154366717,
+            "effect_native_s": 63.76666821073741,
+            "command_to_effect_s": 0.016666667070239782
+          },
+          {
+            "command_id": "command_004438",
+            "scheduled_s": 73.95000179065391,
+            "applied_step": 22185,
+            "applied_native_s": 73.95000179065391,
+            "effect_native_s": 73.96666845772415,
+            "command_to_effect_s": 0.016666667070239782
+          }
+        ]
+      },
+      "thermal_effective_parameters": {
+        "thermal": {
+          "heater_loss": 0.0018940304291075578,
+          "heater_beaker": 0.011130410263196461,
+          "heater_forcing": 2.250874192021891,
+          "heater_gain": 0.05004165726229912,
+          "beaker_heater": 0.5050316129536182,
+          "beaker_solution": 0.0,
+          "beaker_loss": 0.06313764201149275,
+          "solution_beaker": 0.35437291360608536,
+          "solution_loss": 0.03544692966142632,
+          "inferred_calibration_setpoint_C": 69.98000895980871,
+          "contact_on_s": 8.148,
+          "coefficients_are_conductance_over_heat_capacity": true,
+          "individual_author_heat_capacities_and_conductances_not_identified": true
+        },
+        "kinetics": {
+          "log_rate_at_333_15K": -5.976995327879881,
+          "beta_Ea_over_R_K": 11374.543721292637,
+          "rate_units": "inverse source concentration-state unit per second",
+          "not_original_author_A_or_Ea": true,
+          "optimizer_success": true,
+          "fitted_only_to": "fig5a_1.csv"
+        }
+      },
+      "native_clock": {
+        "callbacks": 22190,
+        "sum_dt_s": 73.96666845772415,
+        "dt_values_s": [
+          0.0033333334140479565
+        ]
+      },
+      "combined_gates": {
+        "single_native_clock": true,
+        "physical_grasp": true,
+        "contact_failure_recovery": true,
+        "verified_fluid_transfer": true,
+        "contact_gated_heat_and_stop": true
+      },
+      "fault_state": "done",
+      "fault_precontact_verified": true,
+      "max_lost_streak": 3,
+      "max_recovered_streak": 3,
+      "heat_observations": [
+        {
+          "t_s": 63.75000154366717,
+          "contact": true,
+          "plate_force_N": 2.9212357997894287,
+          "solution_C": 25.0,
+          "heater_on": false
+        },
+        {
+          "t_s": 63.76666821073741,
+          "contact": true,
+          "plate_force_N": 2.9398770332336426,
+          "solution_C": 25.00000010321672,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.78333487780765,
+          "contact": true,
+          "plate_force_N": 2.928245782852173,
+          "solution_C": 25.000000822232153,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.80000154487789,
+          "contact": true,
+          "plate_force_N": 2.9397740364074707,
+          "solution_C": 25.000002763274505,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.81666821194813,
+          "contact": true,
+          "plate_force_N": 2.9358444213867188,
+          "solution_C": 25.000006522249656,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.833334879018366,
+          "contact": true,
+          "plate_force_N": 2.960278272628784,
+          "solution_C": 25.000012684869926,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.850001546088606,
+          "contact": true,
+          "plate_force_N": 2.9502904415130615,
+          "solution_C": 25.000021826781378,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.866668213158846,
+          "contact": true,
+          "plate_force_N": 2.921147346496582,
+          "solution_C": 25.00003451368973,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.883334880229086,
+          "contact": true,
+          "plate_force_N": 2.9579179286956787,
+          "solution_C": 25.000051301484866,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.900001547299325,
+          "contact": true,
+          "plate_force_N": 2.952014923095703,
+          "solution_C": 25.000072736363947,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.916668214369565,
+          "contact": true,
+          "plate_force_N": 2.957338809967041,
+          "solution_C": 25.000099354953168,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.933334881439805,
+          "contact": true,
+          "plate_force_N": 2.963326930999756,
+          "solution_C": 25.000131684428155,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.950001548510045,
+          "contact": true,
+          "plate_force_N": 2.9187090396881104,
+          "solution_C": 25.00017024263302,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.966668215580285,
+          "contact": true,
+          "plate_force_N": 2.974379777908325,
+          "solution_C": 25.00021553819809,
+          "heater_on": true
+        },
+        {
+          "t_s": 63.983334882650524,
+          "contact": true,
+          "plate_force_N": 2.910748243331909,
+          "solution_C": 25.00026807065633,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.00000154972076,
+          "contact": true,
+          "plate_force_N": 2.953933000564575,
+          "solution_C": 25.00032833055844,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.016668216791,
+          "contact": true,
+          "plate_force_N": 2.9223172664642334,
+          "solution_C": 25.000396799586696,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.03333488386124,
+          "contact": true,
+          "plate_force_N": 2.9521265029907227,
+          "solution_C": 25.00047395066752,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.05000155093148,
+          "contact": true,
+          "plate_force_N": 2.953402042388916,
+          "solution_C": 25.000560248082753,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.06666821800172,
+          "contact": true,
+          "plate_force_N": 2.9219675064086914,
+          "solution_C": 25.000656147579743,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.08333488507196,
+          "contact": true,
+          "plate_force_N": 2.936135768890381,
+          "solution_C": 25.000762096480127,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.1000015521422,
+          "contact": true,
+          "plate_force_N": 2.9707088470458984,
+          "solution_C": 25.000878533787468,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.11666821921244,
+          "contact": true,
+          "plate_force_N": 2.9385716915130615,
+          "solution_C": 25.001005890293623,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.13333488628268,
+          "contact": true,
+          "plate_force_N": 2.9452004432678223,
+          "solution_C": 25.00114458868397,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.15000155335292,
+          "contact": true,
+          "plate_force_N": 2.9261982440948486,
+          "solution_C": 25.001295043641402,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.16666822042316,
+          "contact": true,
+          "plate_force_N": 2.925388813018799,
+          "solution_C": 25.001457661949203,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.1833348874934,
+          "contact": true,
+          "plate_force_N": 2.943737030029297,
+          "solution_C": 25.001632842592716,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.20000155456364,
+          "contact": true,
+          "plate_force_N": 2.914663553237915,
+          "solution_C": 25.001820976859925,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.21666822163388,
+          "contact": true,
+          "plate_force_N": 2.96075701713562,
+          "solution_C": 25.002022448440837,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.23333488870412,
+          "contact": true,
+          "plate_force_N": 2.9231204986572266,
+          "solution_C": 25.00223763352581,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.25000155577436,
+          "contact": true,
+          "plate_force_N": 2.9355366230010986,
+          "solution_C": 25.00246690090273,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.2666682228446,
+          "contact": true,
+          "plate_force_N": 2.9361226558685303,
+          "solution_C": 25.002710612053097,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.28333488991484,
+          "contact": true,
+          "plate_force_N": 2.9578659534454346,
+          "solution_C": 25.002969121247048,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.30000155698508,
+          "contact": true,
+          "plate_force_N": 2.9528050422668457,
+          "solution_C": 25.003242775637272,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.31666822405532,
+          "contact": true,
+          "plate_force_N": 2.9447617530822754,
+          "solution_C": 25.003531915351893,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.33333489112556,
+          "contact": true,
+          "plate_force_N": 2.9253151416778564,
+          "solution_C": 25.00383687358629,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.3500015581958,
+          "contact": true,
+          "plate_force_N": 2.93245267868042,
+          "solution_C": 25.00415797669387,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.36666822526604,
+          "contact": true,
+          "plate_force_N": 2.9645135402679443,
+          "solution_C": 25.004495544275834,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.38333489233628,
+          "contact": true,
+          "plate_force_N": 2.9222676753997803,
+          "solution_C": 25.00484988926988,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.40000155940652,
+          "contact": true,
+          "plate_force_N": 2.9563894271850586,
+          "solution_C": 25.005221318037968,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.41666822647676,
+          "contact": true,
+          "plate_force_N": 2.9827792644500732,
+          "solution_C": 25.00561013045301,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.433334893547,
+          "contact": true,
+          "plate_force_N": 2.9679150581359863,
+          "solution_C": 25.00601661998465,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.45000156061724,
+          "contact": true,
+          "plate_force_N": 2.93207049369812,
+          "solution_C": 25.006441073783996,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.46666822768748,
+          "contact": true,
+          "plate_force_N": 2.9667680263519287,
+          "solution_C": 25.00688377276745,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.48333489475772,
+          "contact": true,
+          "plate_force_N": 2.950161933898926,
+          "solution_C": 25.007344991699544,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.50000156182796,
+          "contact": true,
+          "plate_force_N": 2.9656126499176025,
+          "solution_C": 25.00782499927484,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.5166682288982,
+          "contact": true,
+          "plate_force_N": 2.941006898880005,
+          "solution_C": 25.008324058198895,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.53333489596844,
+          "contact": true,
+          "plate_force_N": 2.9460349082946777,
+          "solution_C": 25.008842425268327,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.55000156303868,
+          "contact": true,
+          "plate_force_N": 2.9356558322906494,
+          "solution_C": 25.009380351449902,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.56666823010892,
+          "contact": true,
+          "plate_force_N": 2.933605194091797,
+          "solution_C": 25.0099380819588,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.58333489717916,
+          "contact": true,
+          "plate_force_N": 2.9487833976745605,
+          "solution_C": 25.010515856335907,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.6000015642494,
+          "contact": true,
+          "plate_force_N": 2.927778959274292,
+          "solution_C": 25.011113908524273,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.61666823131964,
+          "contact": true,
+          "plate_force_N": 2.9336798191070557,
+          "solution_C": 25.01173246694468,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.63333489838988,
+          "contact": true,
+          "plate_force_N": 2.9213263988494873,
+          "solution_C": 25.012371754570324,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.65000156546012,
+          "contact": true,
+          "plate_force_N": 2.9220170974731445,
+          "solution_C": 25.013031989000666,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.66666823253036,
+          "contact": true,
+          "plate_force_N": 2.9477148056030273,
+          "solution_C": 25.013713382534412,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.6833348996006,
+          "contact": true,
+          "plate_force_N": 2.9624080657958984,
+          "solution_C": 25.01441614224167,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.70000156667084,
+          "contact": true,
+          "plate_force_N": 2.9301273822784424,
+          "solution_C": 25.015140470035274,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.71666823374107,
+          "contact": true,
+          "plate_force_N": 2.9350759983062744,
+          "solution_C": 25.015886562741265,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.73333490081131,
+          "contact": true,
+          "plate_force_N": 2.955967903137207,
+          "solution_C": 25.016654612168583,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.75000156788155,
+          "contact": true,
+          "plate_force_N": 2.9211220741271973,
+          "solution_C": 25.017444805177952,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.7666682349518,
+          "contact": true,
+          "plate_force_N": 2.9768483638763428,
+          "solution_C": 25.01825732374996,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.78333490202203,
+          "contact": true,
+          "plate_force_N": 2.9594345092773438,
+          "solution_C": 25.019092345052343,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.80000156909227,
+          "contact": true,
+          "plate_force_N": 2.944566488265991,
+          "solution_C": 25.019950041506522,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.81666823616251,
+          "contact": true,
+          "plate_force_N": 2.9678566455841064,
+          "solution_C": 25.020830580853332,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.83333490323275,
+          "contact": true,
+          "plate_force_N": 2.9136149883270264,
+          "solution_C": 25.021734126218014,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.850001570303,
+          "contact": true,
+          "plate_force_N": 2.928621292114258,
+          "solution_C": 25.022660836174442,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.86666823737323,
+          "contact": true,
+          "plate_force_N": 2.90090274810791,
+          "solution_C": 25.02361086480861,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.88333490444347,
+          "contact": true,
+          "plate_force_N": 2.954770088195801,
+          "solution_C": 25.024584361781375,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.90000157151371,
+          "contact": true,
+          "plate_force_N": 2.939992666244507,
+          "solution_C": 25.025581472390463,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.91666823858395,
+          "contact": true,
+          "plate_force_N": 2.955817937850952,
+          "solution_C": 25.026602337631786,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.93333490565419,
+          "contact": true,
+          "plate_force_N": 2.946000576019287,
+          "solution_C": 25.027647094259986,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.95000157272443,
+          "contact": true,
+          "plate_force_N": 2.9363327026367188,
+          "solution_C": 25.028715874848338,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.96666823979467,
+          "contact": true,
+          "plate_force_N": 2.9314656257629395,
+          "solution_C": 25.029808807847896,
+          "heater_on": true
+        },
+        {
+          "t_s": 64.98333490686491,
+          "contact": true,
+          "plate_force_N": 2.9519920349121094,
+          "solution_C": 25.030926017646,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.00000157393515,
+          "contact": true,
+          "plate_force_N": 2.9502875804901123,
+          "solution_C": 25.032067624624037,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.01666824100539,
+          "contact": true,
+          "plate_force_N": 2.9542651176452637,
+          "solution_C": 25.0332337452146,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.03333490807563,
+          "contact": true,
+          "plate_force_N": 2.9922149181365967,
+          "solution_C": 25.034424491957893,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.05000157514587,
+          "contact": true,
+          "plate_force_N": 2.9076669216156006,
+          "solution_C": 25.035639973557558,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.06666824221611,
+          "contact": true,
+          "plate_force_N": 2.927578926086426,
+          "solution_C": 25.03688029493578,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.08333490928635,
+          "contact": true,
+          "plate_force_N": 2.9630346298217773,
+          "solution_C": 25.038145557287777,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.10000157635659,
+          "contact": true,
+          "plate_force_N": 2.966630697250366,
+          "solution_C": 25.039435858135644,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.11666824342683,
+          "contact": true,
+          "plate_force_N": 2.991617202758789,
+          "solution_C": 25.040751291381557,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.13333491049707,
+          "contact": true,
+          "plate_force_N": 2.896285057067871,
+          "solution_C": 25.042091947360355,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.15000157756731,
+          "contact": true,
+          "plate_force_N": 2.955801248550415,
+          "solution_C": 25.043457912891494,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.16666824463755,
+          "contact": true,
+          "plate_force_N": 2.965519666671753,
+          "solution_C": 25.044849271330392,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.18333491170779,
+          "contact": true,
+          "plate_force_N": 2.9379289150238037,
+          "solution_C": 25.04626610261918,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.20000157877803,
+          "contact": true,
+          "plate_force_N": 2.9315555095672607,
+          "solution_C": 25.047708483336816,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.21666824584827,
+          "contact": true,
+          "plate_force_N": 2.906019687652588,
+          "solution_C": 25.04917648674865,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.23333491291851,
+          "contact": true,
+          "plate_force_N": 2.9693846702575684,
+          "solution_C": 25.050670182855352,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.25000157998875,
+          "contact": true,
+          "plate_force_N": 2.9438815116882324,
+          "solution_C": 25.052189638441316,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.26666824705899,
+          "contact": true,
+          "plate_force_N": 2.966860771179199,
+          "solution_C": 25.053734917122437,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.28333491412923,
+          "contact": true,
+          "plate_force_N": 2.928163766860962,
+          "solution_C": 25.05530607939334,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.30000158119947,
+          "contact": true,
+          "plate_force_N": 2.9226725101470947,
+          "solution_C": 25.056903182674056,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.3166682482697,
+          "contact": true,
+          "plate_force_N": 2.954881191253662,
+          "solution_C": 25.058526281356126,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.33333491533995,
+          "contact": true,
+          "plate_force_N": 2.9296181201934814,
+          "solution_C": 25.060175426848158,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.35000158241019,
+          "contact": true,
+          "plate_force_N": 2.928774356842041,
+          "solution_C": 25.061850667620845,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.36666824948043,
+          "contact": true,
+          "plate_force_N": 2.9990217685699463,
+          "solution_C": 25.063552049251435,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.38333491655067,
+          "contact": true,
+          "plate_force_N": 2.960096597671509,
+          "solution_C": 25.065279614467684,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.4000015836209,
+          "contact": true,
+          "plate_force_N": 2.9140429496765137,
+          "solution_C": 25.06703340319126,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.41666825069115,
+          "contact": true,
+          "plate_force_N": 2.91168212890625,
+          "solution_C": 25.068813452580642,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.43333491776139,
+          "contact": true,
+          "plate_force_N": 2.9839982986450195,
+          "solution_C": 25.070619797073505,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.45000158483163,
+          "contact": true,
+          "plate_force_N": 2.897407293319702,
+          "solution_C": 25.072452468428573,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.46666825190187,
+          "contact": true,
+          "plate_force_N": 2.9199917316436768,
+          "solution_C": 25.074311495767002,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.4833349189721,
+          "contact": true,
+          "plate_force_N": 2.943023204803467,
+          "solution_C": 25.076196905613234,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.50000158604234,
+          "contact": true,
+          "plate_force_N": 2.9418716430664062,
+          "solution_C": 25.07810872193537,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.51666825311258,
+          "contact": true,
+          "plate_force_N": 2.960097551345825,
+          "solution_C": 25.080046966185055,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.53333492018282,
+          "contact": true,
+          "plate_force_N": 2.9695045948028564,
+          "solution_C": 25.082011657336878,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.55000158725306,
+          "contact": true,
+          "plate_force_N": 2.9674317836761475,
+          "solution_C": 25.08400281192731,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.5666682543233,
+          "contact": true,
+          "plate_force_N": 2.9635045528411865,
+          "solution_C": 25.086020444093123,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.58333492139354,
+          "contact": true,
+          "plate_force_N": 2.9032866954803467,
+          "solution_C": 25.088064565609407,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.60000158846378,
+          "contact": true,
+          "plate_force_N": 2.9207749366760254,
+          "solution_C": 25.090135185927082,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.61666825553402,
+          "contact": true,
+          "plate_force_N": 2.9379096031188965,
+          "solution_C": 25.092232312209955,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.63333492260426,
+          "contact": true,
+          "plate_force_N": 2.934053659439087,
+          "solution_C": 25.094355949371344,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.6500015896745,
+          "contact": true,
+          "plate_force_N": 2.961945056915283,
+          "solution_C": 25.09650610011024,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.66666825674474,
+          "contact": true,
+          "plate_force_N": 2.9260125160217285,
+          "solution_C": 25.098682764947032,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.68333492381498,
+          "contact": true,
+          "plate_force_N": 2.9362690448760986,
+          "solution_C": 25.1008859422588,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.70000159088522,
+          "contact": true,
+          "plate_force_N": 2.9337620735168457,
+          "solution_C": 25.103115628314164,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.71666825795546,
+          "contact": true,
+          "plate_force_N": 2.968411684036255,
+          "solution_C": 25.10537181730772,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.7333349250257,
+          "contact": true,
+          "plate_force_N": 2.956915855407715,
+          "solution_C": 25.107654501394034,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.75000159209594,
+          "contact": true,
+          "plate_force_N": 2.9037249088287354,
+          "solution_C": 25.10996367072124,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.76666825916618,
+          "contact": true,
+          "plate_force_N": 2.9523234367370605,
+          "solution_C": 25.112299313464202,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.78333492623642,
+          "contact": true,
+          "plate_force_N": 2.9806594848632812,
+          "solution_C": 25.114661415857295,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.80000159330666,
+          "contact": true,
+          "plate_force_N": 2.919152021408081,
+          "solution_C": 25.11704996222675,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.8166682603769,
+          "contact": true,
+          "plate_force_N": 2.928424119949341,
+          "solution_C": 25.119464935022613,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.83333492744714,
+          "contact": true,
+          "plate_force_N": 2.9430699348449707,
+          "solution_C": 25.121906314850325,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.85000159451738,
+          "contact": true,
+          "plate_force_N": 2.949889898300171,
+          "solution_C": 25.124374080501877,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.86666826158762,
+          "contact": true,
+          "plate_force_N": 2.943953275680542,
+          "solution_C": 25.12686820898661,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.88333492865786,
+          "contact": true,
+          "plate_force_N": 2.944645881652832,
+          "solution_C": 25.12938867556161,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.9000015957281,
+          "contact": true,
+          "plate_force_N": 2.9540598392486572,
+          "solution_C": 25.131935453761734,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.91666826279834,
+          "contact": true,
+          "plate_force_N": 2.952965497970581,
+          "solution_C": 25.134508515429268,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.93333492986858,
+          "contact": true,
+          "plate_force_N": 2.9330689907073975,
+          "solution_C": 25.137107830743197,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.95000159693882,
+          "contact": true,
+          "plate_force_N": 2.915884494781494,
+          "solution_C": 25.139733368248127,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.96666826400906,
+          "contact": true,
+          "plate_force_N": 2.9543871879577637,
+          "solution_C": 25.142385094882833,
+          "heater_on": true
+        },
+        {
+          "t_s": 65.9833349310793,
+          "contact": true,
+          "plate_force_N": 2.9567158222198486,
+          "solution_C": 25.14506297600847,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.00000159814954,
+          "contact": true,
+          "plate_force_N": 2.954237699508667,
+          "solution_C": 25.147766975436387,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.01666826521978,
+          "contact": true,
+          "plate_force_N": 2.981152296066284,
+          "solution_C": 25.15049705545564,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.03333493229002,
+          "contact": true,
+          "plate_force_N": 2.946566343307495,
+          "solution_C": 25.153253176860133,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.05000159936026,
+          "contact": true,
+          "plate_force_N": 2.9403069019317627,
+          "solution_C": 25.156035298975414,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.0666682664305,
+          "contact": true,
+          "plate_force_N": 2.9390437602996826,
+          "solution_C": 25.158843379685145,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.08333493350074,
+          "contact": true,
+          "plate_force_N": 2.9518704414367676,
+          "solution_C": 25.161677375457234,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.10000160057098,
+          "contact": true,
+          "plate_force_N": 2.9368577003479004,
+          "solution_C": 25.164537241369633,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.11666826764122,
+          "contact": true,
+          "plate_force_N": 2.9381301403045654,
+          "solution_C": 25.1674229311358,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.13333493471146,
+          "contact": true,
+          "plate_force_N": 2.959512710571289,
+          "solution_C": 25.17033439712987,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.1500016017817,
+          "contact": true,
+          "plate_force_N": 2.9338934421539307,
+          "solution_C": 25.17327159041146,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.16666826885194,
+          "contact": true,
+          "plate_force_N": 2.92966890335083,
+          "solution_C": 25.176234460750198,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.18333493592218,
+          "contact": true,
+          "plate_force_N": 2.922736644744873,
+          "solution_C": 25.179222956649916,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.20000160299242,
+          "contact": true,
+          "plate_force_N": 2.9564383029937744,
+          "solution_C": 25.182237025372533,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.21666827006266,
+          "contact": true,
+          "plate_force_N": 2.944059133529663,
+          "solution_C": 25.18527661296166,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.2333349371329,
+          "contact": true,
+          "plate_force_N": 2.9513511657714844,
+          "solution_C": 25.188341664265856,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.25000160420313,
+          "contact": true,
+          "plate_force_N": 2.950746536254883,
+          "solution_C": 25.191432122961636,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.26666827127337,
+          "contact": true,
+          "plate_force_N": 2.945103406906128,
+          "solution_C": 25.194547931576146,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.28333493834361,
+          "contact": true,
+          "plate_force_N": 2.933934450149536,
+          "solution_C": 25.19768903150955,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.30000160541385,
+          "contact": true,
+          "plate_force_N": 2.9443118572235107,
+          "solution_C": 25.200855363057162,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.3166682724841,
+          "contact": true,
+          "plate_force_N": 2.9669148921966553,
+          "solution_C": 25.204046865431238,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.33333493955433,
+          "contact": true,
+          "plate_force_N": 2.906841278076172,
+          "solution_C": 25.20726347678253,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.35000160662457,
+          "contact": true,
+          "plate_force_N": 2.9447901248931885,
+          "solution_C": 25.210505134221545,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.36666827369481,
+          "contact": true,
+          "plate_force_N": 2.9670217037200928,
+          "solution_C": 25.21377177383952,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.38333494076505,
+          "contact": true,
+          "plate_force_N": 2.971151113510132,
+          "solution_C": 25.21706333072914,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.40000160783529,
+          "contact": true,
+          "plate_force_N": 2.9559977054595947,
+          "solution_C": 25.220379739004972,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.41666827490553,
+          "contact": true,
+          "plate_force_N": 2.955918788909912,
+          "solution_C": 25.22372093182363,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.43333494197577,
+          "contact": true,
+          "plate_force_N": 2.9522287845611572,
+          "solution_C": 25.227086841403715,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.45000160904601,
+          "contact": true,
+          "plate_force_N": 2.934699058532715,
+          "solution_C": 25.230477399045416,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.46666827611625,
+          "contact": true,
+          "plate_force_N": 2.916126251220703,
+          "solution_C": 25.233892535149934,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.48333494318649,
+          "contact": true,
+          "plate_force_N": 2.9237122535705566,
+          "solution_C": 25.23733217923861,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.50000161025673,
+          "contact": true,
+          "plate_force_N": 2.9552910327911377,
+          "solution_C": 25.2407962599718,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.51666827732697,
+          "contact": true,
+          "plate_force_N": 2.9446749687194824,
+          "solution_C": 25.244284705167516,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.53333494439721,
+          "contact": true,
+          "plate_force_N": 2.946946620941162,
+          "solution_C": 25.24779744181981,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.55000161146745,
+          "contact": true,
+          "plate_force_N": 2.904451608657837,
+          "solution_C": 25.251334396116917,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.56666827853769,
+          "contact": true,
+          "plate_force_N": 2.983738422393799,
+          "solution_C": 25.254895493459152,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.58333494560793,
+          "contact": true,
+          "plate_force_N": 2.9210689067840576,
+          "solution_C": 25.25848065847659,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.60000161267817,
+          "contact": true,
+          "plate_force_N": 2.9385735988616943,
+          "solution_C": 25.26208981504648,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.61666827974841,
+          "contact": true,
+          "plate_force_N": 2.954777717590332,
+          "solution_C": 25.26572288631045,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.63333494681865,
+          "contact": true,
+          "plate_force_N": 2.903618335723877,
+          "solution_C": 25.26937979469146,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.65000161388889,
+          "contact": true,
+          "plate_force_N": 2.937221050262451,
+          "solution_C": 25.27306046191056,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.66666828095913,
+          "contact": true,
+          "plate_force_N": 2.941148281097412,
+          "solution_C": 25.276764809003396,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.68333494802937,
+          "contact": true,
+          "plate_force_N": 2.9362552165985107,
+          "solution_C": 25.28049275633649,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.70000161509961,
+          "contact": true,
+          "plate_force_N": 2.9893741607666016,
+          "solution_C": 25.28424422362333,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.71666828216985,
+          "contact": true,
+          "plate_force_N": 2.9807968139648438,
+          "solution_C": 25.288019129940214,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.73333494924009,
+          "contact": true,
+          "plate_force_N": 2.9247987270355225,
+          "solution_C": 25.291817393741898,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.75000161631033,
+          "contact": true,
+          "plate_force_N": 2.9395995140075684,
+          "solution_C": 25.29563893287701,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.76666828338057,
+          "contact": true,
+          "plate_force_N": 2.9476094245910645,
+          "solution_C": 25.299483664603287,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.78333495045081,
+          "contact": true,
+          "plate_force_N": 2.9586470127105713,
+          "solution_C": 25.30335150560257,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.80000161752105,
+          "contact": true,
+          "plate_force_N": 2.931016445159912,
+          "solution_C": 25.307242371995617,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.81666828459129,
+          "contact": true,
+          "plate_force_N": 2.9459681510925293,
+          "solution_C": 25.311156179356708,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.83333495166153,
+          "contact": true,
+          "plate_force_N": 2.9341869354248047,
+          "solution_C": 25.315092842728042,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.85000161873177,
+          "contact": true,
+          "plate_force_N": 2.9792165756225586,
+          "solution_C": 25.319052276633943,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.866668285802,
+          "contact": true,
+          "plate_force_N": 2.959383249282837,
+          "solution_C": 25.32303439509488,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.88333495287225,
+          "contact": true,
+          "plate_force_N": 2.9437673091888428,
+          "solution_C": 25.327039111641266,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.90000161994249,
+          "contact": true,
+          "plate_force_N": 2.952014446258545,
+          "solution_C": 25.331066339327094,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.91666828701273,
+          "contact": true,
+          "plate_force_N": 2.948347568511963,
+          "solution_C": 25.335115990743372,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.93333495408297,
+          "contact": true,
+          "plate_force_N": 2.9575371742248535,
+          "solution_C": 25.33918797803136,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.9500016211532,
+          "contact": true,
+          "plate_force_N": 2.938016414642334,
+          "solution_C": 25.343282212895662,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.96666828822345,
+          "contact": true,
+          "plate_force_N": 2.954808235168457,
+          "solution_C": 25.34739860661707,
+          "heater_on": true
+        },
+        {
+          "t_s": 66.98333495529369,
+          "contact": true,
+          "plate_force_N": 2.9369101524353027,
+          "solution_C": 25.3515370700653,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.00000162236392,
+          "contact": true,
+          "plate_force_N": 2.9376509189605713,
+          "solution_C": 25.3556975137115,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.01666828943416,
+          "contact": true,
+          "plate_force_N": 2.949234962463379,
+          "solution_C": 25.359879847640592,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.0333349565044,
+          "contact": true,
+          "plate_force_N": 2.9480111598968506,
+          "solution_C": 25.36408398156345,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.05000162357464,
+          "contact": true,
+          "plate_force_N": 2.9374492168426514,
+          "solution_C": 25.36830982482891,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.06666829064488,
+          "contact": true,
+          "plate_force_N": 2.9176905155181885,
+          "solution_C": 25.37255728643559,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.08333495771512,
+          "contact": true,
+          "plate_force_N": 2.983948230743408,
+          "solution_C": 25.37682627504356,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.10000162478536,
+          "contact": true,
+          "plate_force_N": 2.9292235374450684,
+          "solution_C": 25.381116698985828,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.1166682918556,
+          "contact": true,
+          "plate_force_N": 2.9509246349334717,
+          "solution_C": 25.385428466279684,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.13333495892584,
+          "contact": true,
+          "plate_force_N": 2.9439494609832764,
+          "solution_C": 25.38976148463787,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.15000162599608,
+          "contact": true,
+          "plate_force_N": 2.9568092823028564,
+          "solution_C": 25.394115661479574,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.16666829306632,
+          "contact": true,
+          "plate_force_N": 2.9401297569274902,
+          "solution_C": 25.398490903941312,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.18333496013656,
+          "contact": true,
+          "plate_force_N": 2.92743182182312,
+          "solution_C": 25.40288711888759,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.2000016272068,
+          "contact": true,
+          "plate_force_N": 2.9379453659057617,
+          "solution_C": 25.40730421292147,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.21666829427704,
+          "contact": true,
+          "plate_force_N": 2.957885980606079,
+          "solution_C": 25.411742092394938,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.23333496134728,
+          "contact": true,
+          "plate_force_N": 2.9472594261169434,
+          "solution_C": 25.41620066341915,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.25000162841752,
+          "contact": true,
+          "plate_force_N": 2.9642016887664795,
+          "solution_C": 25.42067983187453,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.26666829548776,
+          "contact": true,
+          "plate_force_N": 2.975292921066284,
+          "solution_C": 25.42517950342068,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.283334962558,
+          "contact": true,
+          "plate_force_N": 2.946655511856079,
+          "solution_C": 25.429699583506203,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.30000162962824,
+          "contact": true,
+          "plate_force_N": 2.943453073501587,
+          "solution_C": 25.43423997737834,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.31666829669848,
+          "contact": true,
+          "plate_force_N": 2.936140298843384,
+          "solution_C": 25.43880059009247,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.33333496376872,
+          "contact": true,
+          "plate_force_N": 2.968536138534546,
+          "solution_C": 25.44338132652149,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.35000163083896,
+          "contact": true,
+          "plate_force_N": 2.9189229011535645,
+          "solution_C": 25.447982091365038,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.3666682979092,
+          "contact": true,
+          "plate_force_N": 2.975557565689087,
+          "solution_C": 25.45260278915858,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.38333496497944,
+          "contact": true,
+          "plate_force_N": 2.9413278102874756,
+          "solution_C": 25.45724332428236,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.40000163204968,
+          "contact": true,
+          "plate_force_N": 2.9576852321624756,
+          "solution_C": 25.461903600970235,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.41666829911992,
+          "contact": true,
+          "plate_force_N": 2.973743438720703,
+          "solution_C": 25.46658352331835,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.43333496619016,
+          "contact": true,
+          "plate_force_N": 2.956742286682129,
+          "solution_C": 25.47128299529369,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.4500016332604,
+          "contact": true,
+          "plate_force_N": 2.957151412963867,
+          "solution_C": 25.476001920742537,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.46666830033064,
+          "contact": true,
+          "plate_force_N": 2.910828113555908,
+          "solution_C": 25.480740203398728,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.48333496740088,
+          "contact": true,
+          "plate_force_N": 2.941930055618286,
+          "solution_C": 25.485497746891852,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.50000163447112,
+          "contact": true,
+          "plate_force_N": 2.9521567821502686,
+          "solution_C": 25.490274454755305,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.51666830154136,
+          "contact": true,
+          "plate_force_N": 2.949598789215088,
+          "solution_C": 25.495070230434198,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.5333349686116,
+          "contact": true,
+          "plate_force_N": 2.9723589420318604,
+          "solution_C": 25.499884977293167,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.55000163568184,
+          "contact": true,
+          "plate_force_N": 2.93237566947937,
+          "solution_C": 25.504718598624063,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.56666830275208,
+          "contact": true,
+          "plate_force_N": 2.9403579235076904,
+          "solution_C": 25.509570997653498,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.58333496982232,
+          "contact": true,
+          "plate_force_N": 2.934774398803711,
+          "solution_C": 25.514442077550317,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.60000163689256,
+          "contact": true,
+          "plate_force_N": 2.9623870849609375,
+          "solution_C": 25.51933174143291,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.6166683039628,
+          "contact": true,
+          "plate_force_N": 2.924198865890503,
+          "solution_C": 25.524239892376436,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.63333497103304,
+          "contact": true,
+          "plate_force_N": 2.947683334350586,
+          "solution_C": 25.529166433419917,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.65000163810328,
+          "contact": true,
+          "plate_force_N": 2.917104721069336,
+          "solution_C": 25.53411126757324,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.66666830517352,
+          "contact": true,
+          "plate_force_N": 2.9813663959503174,
+          "solution_C": 25.53907429782404,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.68333497224376,
+          "contact": true,
+          "plate_force_N": 2.942286729812622,
+          "solution_C": 25.544055427144453,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.700001639314,
+          "contact": true,
+          "plate_force_N": 2.9241981506347656,
+          "solution_C": 25.549054558497794,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.71666830638424,
+          "contact": true,
+          "plate_force_N": 2.943519353866577,
+          "solution_C": 25.554071594845116,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.73333497345448,
+          "contact": true,
+          "plate_force_N": 2.941943645477295,
+          "solution_C": 25.559106439151655,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.75000164052472,
+          "contact": true,
+          "plate_force_N": 2.947166919708252,
+          "solution_C": 25.56415899439318,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.76666830759495,
+          "contact": true,
+          "plate_force_N": 2.938683032989502,
+          "solution_C": 25.56922916356223,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.7833349746652,
+          "contact": true,
+          "plate_force_N": 2.9594125747680664,
+          "solution_C": 25.57431684967428,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.80000164173543,
+          "contact": true,
+          "plate_force_N": 2.9409139156341553,
+          "solution_C": 25.57942195577376,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.81666830880567,
+          "contact": true,
+          "plate_force_N": 2.982088804244995,
+          "solution_C": 25.584544384940013,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.83333497587591,
+          "contact": true,
+          "plate_force_N": 2.9565296173095703,
+          "solution_C": 25.58968404029314,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.85000164294615,
+          "contact": true,
+          "plate_force_N": 2.9271793365478516,
+          "solution_C": 25.59484082499975,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.8666683100164,
+          "contact": true,
+          "plate_force_N": 2.9829742908477783,
+          "solution_C": 25.600014642278605,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.88333497708663,
+          "contact": true,
+          "plate_force_N": 2.952112913131714,
+          "solution_C": 25.60520539540621,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.90000164415687,
+          "contact": true,
+          "plate_force_N": 2.9300637245178223,
+          "solution_C": 25.61041298772224,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.91666831122711,
+          "contact": true,
+          "plate_force_N": 2.955618381500244,
+          "solution_C": 25.61563732263495,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.93333497829735,
+          "contact": true,
+          "plate_force_N": 2.988316059112549,
+          "solution_C": 25.620878303626448,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.95000164536759,
+          "contact": true,
+          "plate_force_N": 2.92132568359375,
+          "solution_C": 25.626135834257884,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.96666831243783,
+          "contact": true,
+          "plate_force_N": 2.9270355701446533,
+          "solution_C": 25.63140981817457,
+          "heater_on": true
+        },
+        {
+          "t_s": 67.98333497950807,
+          "contact": true,
+          "plate_force_N": 2.9740586280822754,
+          "solution_C": 25.636700159110994,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.00000164657831,
+          "contact": true,
+          "plate_force_N": 2.9358139038085938,
+          "solution_C": 25.642006760895743,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.01666831364855,
+          "contact": true,
+          "plate_force_N": 2.9486441612243652,
+          "solution_C": 25.64732952745638,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.03333498071879,
+          "contact": true,
+          "plate_force_N": 2.9618210792541504,
+          "solution_C": 25.652668362824176,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.05000164778903,
+          "contact": true,
+          "plate_force_N": 2.9523186683654785,
+          "solution_C": 25.65802317113881,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.06666831485927,
+          "contact": true,
+          "plate_force_N": 2.9475812911987305,
+          "solution_C": 25.663393856652966,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.08333498192951,
+          "contact": true,
+          "plate_force_N": 2.938683032989502,
+          "solution_C": 25.668780323736847,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.10000164899975,
+          "contact": true,
+          "plate_force_N": 2.9227535724639893,
+          "solution_C": 25.674182476882613,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.11666831606999,
+          "contact": true,
+          "plate_force_N": 2.9327683448791504,
+          "solution_C": 25.67960022070875,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.13333498314023,
+          "contact": true,
+          "plate_force_N": 2.9296324253082275,
+          "solution_C": 25.685033459964334,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.15000165021047,
+          "contact": true,
+          "plate_force_N": 2.920281171798706,
+          "solution_C": 25.690482099533252,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.16666831728071,
+          "contact": true,
+          "plate_force_N": 2.992171287536621,
+          "solution_C": 25.695946044438315,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.18333498435095,
+          "contact": true,
+          "plate_force_N": 2.9342169761657715,
+          "solution_C": 25.701425199845325,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.20000165142119,
+          "contact": true,
+          "plate_force_N": 2.922100782394409,
+          "solution_C": 25.706919471067046,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.21666831849143,
+          "contact": true,
+          "plate_force_N": 2.9244656562805176,
+          "solution_C": 25.71242876356711,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.23333498556167,
+          "contact": true,
+          "plate_force_N": 2.9183907508850098,
+          "solution_C": 25.71795298296385,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.25000165263191,
+          "contact": true,
+          "plate_force_N": 2.9599661827087402,
+          "solution_C": 25.72349203503407,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.26666831970215,
+          "contact": true,
+          "plate_force_N": 2.9622228145599365,
+          "solution_C": 25.72904582571672,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.28333498677239,
+          "contact": true,
+          "plate_force_N": 3.010300636291504,
+          "solution_C": 25.734614261116533,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.30000165384263,
+          "contact": true,
+          "plate_force_N": 2.9385149478912354,
+          "solution_C": 25.74019724750758,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.31666832091287,
+          "contact": true,
+          "plate_force_N": 2.977623224258423,
+          "solution_C": 25.745794691336737,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.33333498798311,
+          "contact": true,
+          "plate_force_N": 2.960209608078003,
+          "solution_C": 25.751406499227123,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.35000165505335,
+          "contact": true,
+          "plate_force_N": 2.9603497982025146,
+          "solution_C": 25.757032577981448,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.36666832212359,
+          "contact": true,
+          "plate_force_N": 2.9302754402160645,
+          "solution_C": 25.76267283458529,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.38333498919383,
+          "contact": true,
+          "plate_force_N": 2.9430277347564697,
+          "solution_C": 25.768327176210327,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.40000165626407,
+          "contact": true,
+          "plate_force_N": 2.9326629638671875,
+          "solution_C": 25.773995510217507,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.4166683233343,
+          "contact": true,
+          "plate_force_N": 2.9748659133911133,
+          "solution_C": 25.779677744160118,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.43333499040455,
+          "contact": true,
+          "plate_force_N": 2.9447426795959473,
+          "solution_C": 25.78537378578685,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.45000165747479,
+          "contact": true,
+          "plate_force_N": 2.924848794937134,
+          "solution_C": 25.791083543044753,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.46666832454503,
+          "contact": true,
+          "plate_force_N": 2.905319929122925,
+          "solution_C": 25.79680692408216,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.48333499161527,
+          "contact": true,
+          "plate_force_N": 2.9542527198791504,
+          "solution_C": 25.802543837251523,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.5000016586855,
+          "contact": true,
+          "plate_force_N": 2.933276414871216,
+          "solution_C": 25.808294191112235,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.51666832575575,
+          "contact": true,
+          "plate_force_N": 2.936941385269165,
+          "solution_C": 25.81405789443335,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.53333499282598,
+          "contact": true,
+          "plate_force_N": 2.932400703430176,
+          "solution_C": 25.81983485619627,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.55000165989622,
+          "contact": true,
+          "plate_force_N": 2.950817108154297,
+          "solution_C": 25.825624985597358,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.56666832696646,
+          "contact": true,
+          "plate_force_N": 2.9488184452056885,
+          "solution_C": 25.83142819205052,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.5833349940367,
+          "contact": true,
+          "plate_force_N": 2.9682416915893555,
+          "solution_C": 25.837244385189717,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.60000166110694,
+          "contact": true,
+          "plate_force_N": 2.9337477684020996,
+          "solution_C": 25.843073474871403,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.61666832817718,
+          "contact": true,
+          "plate_force_N": 2.951448440551758,
+          "solution_C": 25.848915371176965,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.63333499524742,
+          "contact": true,
+          "plate_force_N": 2.9735207557678223,
+          "solution_C": 25.854769984415046,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.65000166231766,
+          "contact": true,
+          "plate_force_N": 2.930936336517334,
+          "solution_C": 25.860637225123856,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.6666683293879,
+          "contact": true,
+          "plate_force_N": 2.913567066192627,
+          "solution_C": 25.866517004073426,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.68333499645814,
+          "contact": true,
+          "plate_force_N": 2.9328536987304688,
+          "solution_C": 25.872409232267795,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.70000166352838,
+          "contact": true,
+          "plate_force_N": 2.92995023727417,
+          "solution_C": 25.878313820947167,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.71666833059862,
+          "contact": true,
+          "plate_force_N": 2.9211342334747314,
+          "solution_C": 25.884230681590008,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.73333499766886,
+          "contact": true,
+          "plate_force_N": 2.9257795810699463,
+          "solution_C": 25.89015972591509,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.7500016647391,
+          "contact": true,
+          "plate_force_N": 2.940044403076172,
+          "solution_C": 25.896100865883504,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.76666833180934,
+          "contact": true,
+          "plate_force_N": 2.925048828125,
+          "solution_C": 25.9020540137006,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.78333499887958,
+          "contact": true,
+          "plate_force_N": 2.93196439743042,
+          "solution_C": 25.908019081817905,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.80000166594982,
+          "contact": true,
+          "plate_force_N": 2.9509012699127197,
+          "solution_C": 25.913995982934985,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.81666833302006,
+          "contact": true,
+          "plate_force_N": 2.9251420497894287,
+          "solution_C": 25.919984630001245,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.8333350000903,
+          "contact": true,
+          "plate_force_N": 2.933075428009033,
+          "solution_C": 25.92598493621773,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.85000166716054,
+          "contact": true,
+          "plate_force_N": 2.9623851776123047,
+          "solution_C": 25.931996815038822,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.86666833423078,
+          "contact": true,
+          "plate_force_N": 2.9774179458618164,
+          "solution_C": 25.93802018017393,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.88333500130102,
+          "contact": true,
+          "plate_force_N": 2.957329034805298,
+          "solution_C": 25.944054945589148,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.90000166837126,
+          "contact": true,
+          "plate_force_N": 2.892516851425171,
+          "solution_C": 25.950101025508822,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.9166683354415,
+          "contact": true,
+          "plate_force_N": 2.940279483795166,
+          "solution_C": 25.956158334417136,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.93333500251174,
+          "contact": true,
+          "plate_force_N": 2.930417776107788,
+          "solution_C": 25.9622267870596,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.95000166958198,
+          "contact": true,
+          "plate_force_N": 2.9326376914978027,
+          "solution_C": 25.968306298444535,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.96666833665222,
+          "contact": true,
+          "plate_force_N": 2.9320900440216064,
+          "solution_C": 25.97439678384451,
+          "heater_on": true
+        },
+        {
+          "t_s": 68.98333500372246,
+          "contact": true,
+          "plate_force_N": 2.9244115352630615,
+          "solution_C": 25.98049815879773,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.0000016707927,
+          "contact": true,
+          "plate_force_N": 2.950176477432251,
+          "solution_C": 25.98661033910938,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.01666833786294,
+          "contact": true,
+          "plate_force_N": 2.9608469009399414,
+          "solution_C": 25.992733240852957,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.03333500493318,
+          "contact": true,
+          "plate_force_N": 2.949242115020752,
+          "solution_C": 25.998866780371543,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.05000167200342,
+          "contact": true,
+          "plate_force_N": 2.9205009937286377,
+          "solution_C": 26.00501087427903,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.06666833907366,
+          "contact": true,
+          "plate_force_N": 2.9961066246032715,
+          "solution_C": 26.011165439461347,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.0833350061439,
+          "contact": true,
+          "plate_force_N": 2.9308974742889404,
+          "solution_C": 26.017330393077604,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.10000167321414,
+          "contact": true,
+          "plate_force_N": 2.944749593734741,
+          "solution_C": 26.023505652561237,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.11666834028438,
+          "contact": true,
+          "plate_force_N": 2.9402477741241455,
+          "solution_C": 26.029691135621093,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.13333500735462,
+          "contact": true,
+          "plate_force_N": 2.9239470958709717,
+          "solution_C": 26.035886760242498,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.15000167442486,
+          "contact": true,
+          "plate_force_N": 2.9836642742156982,
+          "solution_C": 26.042092444688272,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.1666683414951,
+          "contact": true,
+          "plate_force_N": 2.933008909225464,
+          "solution_C": 26.04830810749974,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.18333500856534,
+          "contact": true,
+          "plate_force_N": 2.957099676132202,
+          "solution_C": 26.054533667497658,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.20000167563558,
+          "contact": true,
+          "plate_force_N": 2.930290699005127,
+          "solution_C": 26.06076904378317,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.21666834270582,
+          "contact": true,
+          "plate_force_N": 2.9382410049438477,
+          "solution_C": 26.06701415573868,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.23333500977606,
+          "contact": true,
+          "plate_force_N": 2.9488210678100586,
+          "solution_C": 26.07326892302872,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.2500016768463,
+          "contact": true,
+          "plate_force_N": 2.931309223175049,
+          "solution_C": 26.079533265600773,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.26666834391654,
+          "contact": true,
+          "plate_force_N": 2.9552559852600098,
+          "solution_C": 26.08580710368608,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.28333501098678,
+          "contact": true,
+          "plate_force_N": 2.909342050552368,
+          "solution_C": 26.092090357800394,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.30000167805701,
+          "contact": true,
+          "plate_force_N": 2.9404091835021973,
+          "solution_C": 26.09838294874473,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.31666834512725,
+          "contact": true,
+          "plate_force_N": 2.9498722553253174,
+          "solution_C": 26.10468479760606,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.3333350121975,
+          "contact": true,
+          "plate_force_N": 2.977534055709839,
+          "solution_C": 26.110995825757993,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.35000167926773,
+          "contact": true,
+          "plate_force_N": 2.9464006423950195,
+          "solution_C": 26.117315954861425,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.36666834633797,
+          "contact": true,
+          "plate_force_N": 2.9483444690704346,
+          "solution_C": 26.123645106865162,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.38333501340821,
+          "contact": true,
+          "plate_force_N": 2.926852226257324,
+          "solution_C": 26.129983204006503,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.40000168047845,
+          "contact": true,
+          "plate_force_N": 2.9581217765808105,
+          "solution_C": 26.136330168811806,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.4166683475487,
+          "contact": true,
+          "plate_force_N": 2.9192700386047363,
+          "solution_C": 26.14268592409703,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.43333501461893,
+          "contact": true,
+          "plate_force_N": 2.9258103370666504,
+          "solution_C": 26.149050392968242,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.45000168168917,
+          "contact": true,
+          "plate_force_N": 2.9207334518432617,
+          "solution_C": 26.15542349882209,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.46666834875941,
+          "contact": true,
+          "plate_force_N": 2.954374074935913,
+          "solution_C": 26.161805165346276,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.48333501582965,
+          "contact": true,
+          "plate_force_N": 2.935861587524414,
+          "solution_C": 26.16819531651998,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.50000168289989,
+          "contact": true,
+          "plate_force_N": 2.9302449226379395,
+          "solution_C": 26.17459387661426,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.51666834997013,
+          "contact": true,
+          "plate_force_N": 2.9455366134643555,
+          "solution_C": 26.18100077019244,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.53333501704037,
+          "contact": true,
+          "plate_force_N": 2.922945261001587,
+          "solution_C": 26.187415922110468,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.55000168411061,
+          "contact": true,
+          "plate_force_N": 2.9549269676208496,
+          "solution_C": 26.193839257517233,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.56666835118085,
+          "contact": true,
+          "plate_force_N": 2.9425811767578125,
+          "solution_C": 26.200270701854897,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.58333501825109,
+          "contact": true,
+          "plate_force_N": 2.9218814373016357,
+          "solution_C": 26.20671018085916,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.60000168532133,
+          "contact": true,
+          "plate_force_N": 2.9173717498779297,
+          "solution_C": 26.213157620559535,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.61666835239157,
+          "contact": true,
+          "plate_force_N": 2.9319441318511963,
+          "solution_C": 26.219612947279565,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.63333501946181,
+          "contact": true,
+          "plate_force_N": 2.9835290908813477,
+          "solution_C": 26.22607608763707,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.65000168653205,
+          "contact": true,
+          "plate_force_N": 2.933845281600952,
+          "solution_C": 26.232546968544327,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.66666835360229,
+          "contact": true,
+          "plate_force_N": 2.9229846000671387,
+          "solution_C": 26.239025517208226,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.68333502067253,
+          "contact": true,
+          "plate_force_N": 2.9238991737365723,
+          "solution_C": 26.245511661130454,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.70000168774277,
+          "contact": true,
+          "plate_force_N": 2.972367763519287,
+          "solution_C": 26.252005328107597,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.71666835481301,
+          "contact": true,
+          "plate_force_N": 2.9499220848083496,
+          "solution_C": 26.258506446231266,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.73333502188325,
+          "contact": true,
+          "plate_force_N": 2.954759359359741,
+          "solution_C": 26.26501494388818,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.75000168895349,
+          "contact": true,
+          "plate_force_N": 2.9898734092712402,
+          "solution_C": 26.271530749760228,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.76666835602373,
+          "contact": true,
+          "plate_force_N": 2.9327187538146973,
+          "solution_C": 26.27805379282454,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.78333502309397,
+          "contact": true,
+          "plate_force_N": 2.9467577934265137,
+          "solution_C": 26.284584002353487,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.80000169016421,
+          "contact": true,
+          "plate_force_N": 2.919191837310791,
+          "solution_C": 26.291121307914718,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.81666835723445,
+          "contact": true,
+          "plate_force_N": 2.9783990383148193,
+          "solution_C": 26.297665639371136,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.83333502430469,
+          "contact": true,
+          "plate_force_N": 2.9902408123016357,
+          "solution_C": 26.304216926880873,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.85000169137493,
+          "contact": true,
+          "plate_force_N": 2.9830620288848877,
+          "solution_C": 26.31077510089726,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.86666835844517,
+          "contact": true,
+          "plate_force_N": 2.953986644744873,
+          "solution_C": 26.317340092168738,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.88333502551541,
+          "contact": true,
+          "plate_force_N": 2.9540913105010986,
+          "solution_C": 26.323911831738798,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.90000169258565,
+          "contact": true,
+          "plate_force_N": 2.9396839141845703,
+          "solution_C": 26.330490250945875,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.91666835965589,
+          "contact": true,
+          "plate_force_N": 2.9553887844085693,
+          "solution_C": 26.33707528142324,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.93333502672613,
+          "contact": true,
+          "plate_force_N": 2.9647417068481445,
+          "solution_C": 26.343666855098853,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.95000169379637,
+          "contact": true,
+          "plate_force_N": 2.922867774963379,
+          "solution_C": 26.350264904195235,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.9666683608666,
+          "contact": true,
+          "plate_force_N": 2.971437931060791,
+          "solution_C": 26.356869361229283,
+          "heater_on": true
+        },
+        {
+          "t_s": 69.98333502793685,
+          "contact": true,
+          "plate_force_N": 2.9250686168670654,
+          "solution_C": 26.363480159012106,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.00000169500709,
+          "contact": true,
+          "plate_force_N": 2.9059126377105713,
+          "solution_C": 26.370097230648824,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.01666836207733,
+          "contact": true,
+          "plate_force_N": 2.9119672775268555,
+          "solution_C": 26.376720509538345,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.03333502914757,
+          "contact": true,
+          "plate_force_N": 2.9430201053619385,
+          "solution_C": 26.38334992937316,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.0500016962178,
+          "contact": true,
+          "plate_force_N": 2.9444990158081055,
+          "solution_C": 26.38998542413908,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.06666836328804,
+          "contact": true,
+          "plate_force_N": 2.885728597640991,
+          "solution_C": 26.396626928114994,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.08333503035828,
+          "contact": true,
+          "plate_force_N": 2.9563205242156982,
+          "solution_C": 26.403274375872588,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.10000169742852,
+          "contact": true,
+          "plate_force_N": 2.9392476081848145,
+          "solution_C": 26.409927702276068,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.11666836449876,
+          "contact": true,
+          "plate_force_N": 2.972480058670044,
+          "solution_C": 26.41658684248186,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.133335031569,
+          "contact": true,
+          "plate_force_N": 2.9791431427001953,
+          "solution_C": 26.42325173193829,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.15000169863924,
+          "contact": true,
+          "plate_force_N": 2.9417059421539307,
+          "solution_C": 26.429922306385265,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.16666836570948,
+          "contact": true,
+          "plate_force_N": 2.904433250427246,
+          "solution_C": 26.436598501853936,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.18333503277972,
+          "contact": true,
+          "plate_force_N": 2.8962643146514893,
+          "solution_C": 26.44328025466634,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.20000169984996,
+          "contact": true,
+          "plate_force_N": 2.904447317123413,
+          "solution_C": 26.449967501435033,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.2166683669202,
+          "contact": true,
+          "plate_force_N": 2.962765693664551,
+          "solution_C": 26.456660179062723,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.23333503399044,
+          "contact": true,
+          "plate_force_N": 2.9505200386047363,
+          "solution_C": 26.463358224741867,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.25000170106068,
+          "contact": true,
+          "plate_force_N": 2.934375047683716,
+          "solution_C": 26.470061575954283,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.26666836813092,
+          "contact": true,
+          "plate_force_N": 2.9353110790252686,
+          "solution_C": 26.476770170470722,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.28333503520116,
+          "contact": true,
+          "plate_force_N": 2.910402297973633,
+          "solution_C": 26.483483946350454,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.3000017022714,
+          "contact": true,
+          "plate_force_N": 2.886852264404297,
+          "solution_C": 26.490202841940828,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.31666836934164,
+          "contact": true,
+          "plate_force_N": 2.96797776222229,
+          "solution_C": 26.496926795876828,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.33333503641188,
+          "contact": true,
+          "plate_force_N": 2.9382731914520264,
+          "solution_C": 26.503655747080593,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.35000170348212,
+          "contact": true,
+          "plate_force_N": 2.9387729167938232,
+          "solution_C": 26.51038963476098,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.36666837055236,
+          "contact": true,
+          "plate_force_N": 2.923053741455078,
+          "solution_C": 26.51712839841306,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.3833350376226,
+          "contact": true,
+          "plate_force_N": 2.954655408859253,
+          "solution_C": 26.523871977817638,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.40000170469284,
+          "contact": true,
+          "plate_force_N": 2.945258855819702,
+          "solution_C": 26.530620313040746,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.41666837176308,
+          "contact": true,
+          "plate_force_N": 2.952497720718384,
+          "solution_C": 26.537373344433135,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.43333503883332,
+          "contact": true,
+          "plate_force_N": 2.9278247356414795,
+          "solution_C": 26.544131012629755,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.45000170590356,
+          "contact": true,
+          "plate_force_N": 2.9586329460144043,
+          "solution_C": 26.55089325854922,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.4666683729738,
+          "contact": true,
+          "plate_force_N": 2.92718505859375,
+          "solution_C": 26.55766002339328,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.48333504004404,
+          "contact": true,
+          "plate_force_N": 2.9488508701324463,
+          "solution_C": 26.564431248646255,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.50000170711428,
+          "contact": true,
+          "plate_force_N": 2.94791579246521,
+          "solution_C": 26.571206876074488,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.51666837418452,
+          "contact": true,
+          "plate_force_N": 2.9426136016845703,
+          "solution_C": 26.57798684772578,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.53333504125476,
+          "contact": true,
+          "plate_force_N": 2.952855110168457,
+          "solution_C": 26.584771105928805,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.550001708325,
+          "contact": true,
+          "plate_force_N": 2.93131685256958,
+          "solution_C": 26.591559593292537,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.56666837539524,
+          "contact": true,
+          "plate_force_N": 2.949437379837036,
+          "solution_C": 26.598352252705638,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.58333504246548,
+          "contact": true,
+          "plate_force_N": 2.9436492919921875,
+          "solution_C": 26.605149027335887,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.60000170953572,
+          "contact": true,
+          "plate_force_N": 2.94997239112854,
+          "solution_C": 26.61194986062954,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.61666837660596,
+          "contact": true,
+          "plate_force_N": 2.959782361984253,
+          "solution_C": 26.618754696310738,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.6333350436762,
+          "contact": true,
+          "plate_force_N": 2.9544625282287598,
+          "solution_C": 26.625563478380865,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.65000171074644,
+          "contact": true,
+          "plate_force_N": 2.958159923553467,
+          "solution_C": 26.63237615111793,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.66666837781668,
+          "contact": true,
+          "plate_force_N": 2.9496524333953857,
+          "solution_C": 26.63919265907592,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.68333504488692,
+          "contact": true,
+          "plate_force_N": 2.9368908405303955,
+          "solution_C": 26.64601294708415,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.70000171195716,
+          "contact": true,
+          "plate_force_N": 2.957474946975708,
+          "solution_C": 26.652836960246614,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.7166683790274,
+          "contact": true,
+          "plate_force_N": 2.945168972015381,
+          "solution_C": 26.65966464394133,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.73333504609764,
+          "contact": true,
+          "plate_force_N": 2.959047794342041,
+          "solution_C": 26.66649594381967,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.75000171316788,
+          "contact": true,
+          "plate_force_N": 2.9941389560699463,
+          "solution_C": 26.673330805805676,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.76666838023812,
+          "contact": true,
+          "plate_force_N": 2.985025405883789,
+          "solution_C": 26.68016917609539,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.78333504730836,
+          "contact": true,
+          "plate_force_N": 2.977872371673584,
+          "solution_C": 26.687011001156172,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.8000017143786,
+          "contact": true,
+          "plate_force_N": 2.932687520980835,
+          "solution_C": 26.693856227725995,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.81666838144884,
+          "contact": true,
+          "plate_force_N": 2.959042549133301,
+          "solution_C": 26.700704802812748,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.83333504851907,
+          "contact": true,
+          "plate_force_N": 2.9539008140563965,
+          "solution_C": 26.70755667369354,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.85000171558931,
+          "contact": true,
+          "plate_force_N": 2.977370262145996,
+          "solution_C": 26.714411787913985,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.86666838265955,
+          "contact": true,
+          "plate_force_N": 2.9791741371154785,
+          "solution_C": 26.721270093287487,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.8833350497298,
+          "contact": true,
+          "plate_force_N": 2.9419796466827393,
+          "solution_C": 26.728131537894512,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.90000171680003,
+          "contact": true,
+          "plate_force_N": 2.9342432022094727,
+          "solution_C": 26.734996070081877,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.91666838387027,
+          "contact": true,
+          "plate_force_N": 2.946990728378296,
+          "solution_C": 26.741863638461997,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.93333505094051,
+          "contact": true,
+          "plate_force_N": 2.9400362968444824,
+          "solution_C": 26.748734191912167,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.95000171801075,
+          "contact": true,
+          "plate_force_N": 2.9251720905303955,
+          "solution_C": 26.755607679573806,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.966668385081,
+          "contact": true,
+          "plate_force_N": 2.932541847229004,
+          "solution_C": 26.762484050851725,
+          "heater_on": true
+        },
+        {
+          "t_s": 70.98333505215123,
+          "contact": true,
+          "plate_force_N": 2.9208812713623047,
+          "solution_C": 26.769363255413356,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.00000171922147,
+          "contact": true,
+          "plate_force_N": 2.934621572494507,
+          "solution_C": 26.776245243188015,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.01666838629171,
+          "contact": true,
+          "plate_force_N": 2.9287450313568115,
+          "solution_C": 26.783129964366132,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.03333505336195,
+          "contact": true,
+          "plate_force_N": 2.9399349689483643,
+          "solution_C": 26.79001736939848,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.05000172043219,
+          "contact": true,
+          "plate_force_N": 2.943171501159668,
+          "solution_C": 26.796907408995423,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.06666838750243,
+          "contact": true,
+          "plate_force_N": 2.8875253200531006,
+          "solution_C": 26.80380003412613,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.08333505457267,
+          "contact": true,
+          "plate_force_N": 2.926090955734253,
+          "solution_C": 26.8106951960178,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.10000172164291,
+          "contact": true,
+          "plate_force_N": 2.9223220348358154,
+          "solution_C": 26.817592846154884,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.11666838871315,
+          "contact": true,
+          "plate_force_N": 2.948208808898926,
+          "solution_C": 26.824492936278293,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.13333505578339,
+          "contact": true,
+          "plate_force_N": 2.9618701934814453,
+          "solution_C": 26.83139541838462,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.15000172285363,
+          "contact": true,
+          "plate_force_N": 2.9057934284210205,
+          "solution_C": 26.838300244725342,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.16666838992387,
+          "contact": true,
+          "plate_force_N": 2.930079698562622,
+          "solution_C": 26.845207367806026,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.18333505699411,
+          "contact": true,
+          "plate_force_N": 2.9563066959381104,
+          "solution_C": 26.85211674038553,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.20000172406435,
+          "contact": true,
+          "plate_force_N": 2.89349627494812,
+          "solution_C": 26.859028315475193,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.21666839113459,
+          "contact": true,
+          "plate_force_N": 2.9589011669158936,
+          "solution_C": 26.865942046338045,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.23333505820483,
+          "contact": true,
+          "plate_force_N": 2.9425814151763916,
+          "solution_C": 26.872857886487992,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.25000172527507,
+          "contact": true,
+          "plate_force_N": 2.9844813346862793,
+          "solution_C": 26.879775789689,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.26666839234531,
+          "contact": true,
+          "plate_force_N": 2.922826051712036,
+          "solution_C": 26.886695709954285,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.28333505941555,
+          "contact": true,
+          "plate_force_N": 2.9390223026275635,
+          "solution_C": 26.8936176015455,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.30000172648579,
+          "contact": true,
+          "plate_force_N": 2.9274349212646484,
+          "solution_C": 26.900541418971912,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.31666839355603,
+          "contact": true,
+          "plate_force_N": 2.9962263107299805,
+          "solution_C": 26.907467116989572,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.33333506062627,
+          "contact": true,
+          "plate_force_N": 2.9373435974121094,
+          "solution_C": 26.91439465060051,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.35000172769651,
+          "contact": true,
+          "plate_force_N": 2.9313175678253174,
+          "solution_C": 26.92132397505189,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.36666839476675,
+          "contact": true,
+          "plate_force_N": 2.9281575679779053,
+          "solution_C": 26.928255045835193,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.38333506183699,
+          "contact": true,
+          "plate_force_N": 2.928499221801758,
+          "solution_C": 26.935187818685375,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.40000172890723,
+          "contact": true,
+          "plate_force_N": 2.949697732925415,
+          "solution_C": 26.94212224958004,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.41666839597747,
+          "contact": true,
+          "plate_force_N": 2.9486746788024902,
+          "solution_C": 26.949058294738617,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.4333350630477,
+          "contact": true,
+          "plate_force_N": 2.9408984184265137,
+          "solution_C": 26.95599591062149,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.45000173011795,
+          "contact": true,
+          "plate_force_N": 2.944288730621338,
+          "solution_C": 26.962935053929193,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.46666839718819,
+          "contact": true,
+          "plate_force_N": 2.948227882385254,
+          "solution_C": 26.969875681601554,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.48333506425843,
+          "contact": true,
+          "plate_force_N": 2.9283835887908936,
+          "solution_C": 26.97681775081685,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.50000173132867,
+          "contact": true,
+          "plate_force_N": 2.929708242416382,
+          "solution_C": 26.983761218990963,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.5166683983989,
+          "contact": true,
+          "plate_force_N": 2.9406261444091797,
+          "solution_C": 26.990706043776548,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.53333506546915,
+          "contact": true,
+          "plate_force_N": 2.916924476623535,
+          "solution_C": 26.997652183062165,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.55000173253939,
+          "contact": true,
+          "plate_force_N": 2.9360384941101074,
+          "solution_C": 27.004599594971452,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.56666839960963,
+          "contact": true,
+          "plate_force_N": 2.913668155670166,
+          "solution_C": 27.011548237862254,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.58333506667987,
+          "contact": true,
+          "plate_force_N": 2.9027397632598877,
+          "solution_C": 27.018498070325787,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.6000017337501,
+          "contact": true,
+          "plate_force_N": 2.930746555328369,
+          "solution_C": 27.02544905118578,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.61666840082034,
+          "contact": true,
+          "plate_force_N": 2.9930148124694824,
+          "solution_C": 27.03240113949763,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.63333506789058,
+          "contact": true,
+          "plate_force_N": 2.922112226486206,
+          "solution_C": 27.039354294547532,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.65000173496082,
+          "contact": true,
+          "plate_force_N": 2.968597650527954,
+          "solution_C": 27.046308475851628,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.66666840203106,
+          "contact": true,
+          "plate_force_N": 2.9438276290893555,
+          "solution_C": 27.05326364315517,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.6833350691013,
+          "contact": true,
+          "plate_force_N": 2.949183940887451,
+          "solution_C": 27.060219756431636,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.70000173617154,
+          "contact": true,
+          "plate_force_N": 2.935675859451294,
+          "solution_C": 27.06717677588189,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.71666840324178,
+          "contact": true,
+          "plate_force_N": 2.899296760559082,
+          "solution_C": 27.074134661933325,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.73333507031202,
+          "contact": true,
+          "plate_force_N": 2.9288837909698486,
+          "solution_C": 27.08109337523898,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.75000173738226,
+          "contact": true,
+          "plate_force_N": 2.946406602859497,
+          "solution_C": 27.088052876676716,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.7666684044525,
+          "contact": true,
+          "plate_force_N": 2.9222028255462646,
+          "solution_C": 27.095013127348327,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.78333507152274,
+          "contact": true,
+          "plate_force_N": 2.956392288208008,
+          "solution_C": 27.101974088578697,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.80000173859298,
+          "contact": true,
+          "plate_force_N": 2.950709342956543,
+          "solution_C": 27.108935721914925,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.81666840566322,
+          "contact": true,
+          "plate_force_N": 2.906919002532959,
+          "solution_C": 27.115897989125486,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.83333507273346,
+          "contact": true,
+          "plate_force_N": 2.9469714164733887,
+          "solution_C": 27.122860852199345,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.8500017398037,
+          "contact": true,
+          "plate_force_N": 2.928398370742798,
+          "solution_C": 27.129824273345108,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.86666840687394,
+          "contact": true,
+          "plate_force_N": 2.9409241676330566,
+          "solution_C": 27.136788214990155,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.88333507394418,
+          "contact": true,
+          "plate_force_N": 2.9642655849456787,
+          "solution_C": 27.143752639779795,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.90000174101442,
+          "contact": true,
+          "plate_force_N": 2.9524405002593994,
+          "solution_C": 27.150717510576378,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.91666840808466,
+          "contact": true,
+          "plate_force_N": 2.905963897705078,
+          "solution_C": 27.157682790458452,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.9333350751549,
+          "contact": true,
+          "plate_force_N": 2.949979543685913,
+          "solution_C": 27.1646484427199,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.95000174222514,
+          "contact": true,
+          "plate_force_N": 2.943504810333252,
+          "solution_C": 27.17161443086907,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.96666840929538,
+          "contact": true,
+          "plate_force_N": 2.915370464324951,
+          "solution_C": 27.178580718627916,
+          "heater_on": true
+        },
+        {
+          "t_s": 71.98333507636562,
+          "contact": true,
+          "plate_force_N": 2.9806923866271973,
+          "solution_C": 27.185547269931146,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.00000174343586,
+          "contact": true,
+          "plate_force_N": 2.9670584201812744,
+          "solution_C": 27.19251404892535,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.0166684105061,
+          "contact": true,
+          "plate_force_N": 2.931694269180298,
+          "solution_C": 27.19948101996815,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.03333507757634,
+          "contact": true,
+          "plate_force_N": 2.9462528228759766,
+          "solution_C": 27.206448147627334,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.05000174464658,
+          "contact": true,
+          "plate_force_N": 2.949633836746216,
+          "solution_C": 27.213415396679988,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.06666841171682,
+          "contact": true,
+          "plate_force_N": 2.919504165649414,
+          "solution_C": 27.22038273211166,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.08333507878706,
+          "contact": true,
+          "plate_force_N": 2.9447855949401855,
+          "solution_C": 27.227350119115474,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.1000017458573,
+          "contact": true,
+          "plate_force_N": 2.948119640350342,
+          "solution_C": 27.234317523091295,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.11666841292754,
+          "contact": true,
+          "plate_force_N": 2.953878402709961,
+          "solution_C": 27.241284909644865,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.13333507999778,
+          "contact": true,
+          "plate_force_N": 2.9234297275543213,
+          "solution_C": 27.248252244586933,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.15000174706802,
+          "contact": true,
+          "plate_force_N": 2.9598093032836914,
+          "solution_C": 27.255219493932422,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.16666841413826,
+          "contact": true,
+          "plate_force_N": 2.952923059463501,
+          "solution_C": 27.26218662389955,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.1833350812085,
+          "contact": true,
+          "plate_force_N": 2.9465575218200684,
+          "solution_C": 27.269153600908997,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.20000174827874,
+          "contact": true,
+          "plate_force_N": 2.9835281372070312,
+          "solution_C": 27.276120391583035,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.21666841534898,
+          "contact": true,
+          "plate_force_N": 2.954697847366333,
+          "solution_C": 27.283086962744694,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.23333508241922,
+          "contact": true,
+          "plate_force_N": 2.9239275455474854,
+          "solution_C": 27.29005328141688,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.25000174948946,
+          "contact": true,
+          "plate_force_N": 2.9414970874786377,
+          "solution_C": 27.297019314821558,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.2666684165597,
+          "contact": true,
+          "plate_force_N": 2.953747510910034,
+          "solution_C": 27.30398503037888,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.28333508362994,
+          "contact": true,
+          "plate_force_N": 2.9292120933532715,
+          "solution_C": 27.310950395706346,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.30000175070018,
+          "contact": true,
+          "plate_force_N": 2.9617228507995605,
+          "solution_C": 27.31791537861795,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.31666841777042,
+          "contact": true,
+          "plate_force_N": 2.954425096511841,
+          "solution_C": 27.324879947123343,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.33333508484066,
+          "contact": true,
+          "plate_force_N": 2.9379031658172607,
+          "solution_C": 27.33184406942697,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.3500017519109,
+          "contact": true,
+          "plate_force_N": 2.940483331680298,
+          "solution_C": 27.33880771392725,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.36666841898113,
+          "contact": true,
+          "plate_force_N": 2.888345241546631,
+          "solution_C": 27.34577084921571,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.38333508605137,
+          "contact": true,
+          "plate_force_N": 2.9562184810638428,
+          "solution_C": 27.35273344407616,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.40000175312161,
+          "contact": true,
+          "plate_force_N": 2.9652559757232666,
+          "solution_C": 27.35969546748384,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.41666842019185,
+          "contact": true,
+          "plate_force_N": 2.944446325302124,
+          "solution_C": 27.366656888604584,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.4333350872621,
+          "contact": true,
+          "plate_force_N": 2.916731357574463,
+          "solution_C": 27.37361767679399,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.45000175433233,
+          "contact": true,
+          "plate_force_N": 2.9492833614349365,
+          "solution_C": 27.380577801596573,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.46666842140257,
+          "contact": true,
+          "plate_force_N": 2.9441676139831543,
+          "solution_C": 27.38753723274494,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.48333508847281,
+          "contact": true,
+          "plate_force_N": 2.9306185245513916,
+          "solution_C": 27.394495940158937,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.50000175554305,
+          "contact": true,
+          "plate_force_N": 2.915999412536621,
+          "solution_C": 27.401453893944847,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.5166684226133,
+          "contact": true,
+          "plate_force_N": 2.958977699279785,
+          "solution_C": 27.408411064394524,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.53333508968353,
+          "contact": true,
+          "plate_force_N": 2.990186929702759,
+          "solution_C": 27.415367421984598,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.55000175675377,
+          "contact": true,
+          "plate_force_N": 2.959606885910034,
+          "solution_C": 27.422322937375625,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.56666842382401,
+          "contact": true,
+          "plate_force_N": 2.949434995651245,
+          "solution_C": 27.429277581411256,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.58333509089425,
+          "contact": true,
+          "plate_force_N": 2.948817014694214,
+          "solution_C": 27.436231325117436,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.60000175796449,
+          "contact": true,
+          "plate_force_N": 2.9780266284942627,
+          "solution_C": 27.44318413970156,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.61666842503473,
+          "contact": true,
+          "plate_force_N": 2.9562978744506836,
+          "solution_C": 27.45013599655167,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.63333509210497,
+          "contact": true,
+          "plate_force_N": 2.9629666805267334,
+          "solution_C": 27.457086867235603,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.65000175917521,
+          "contact": true,
+          "plate_force_N": 2.9981746673583984,
+          "solution_C": 27.464036723500218,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.66666842624545,
+          "contact": true,
+          "plate_force_N": 2.937856912612915,
+          "solution_C": 27.470985537270543,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.68333509331569,
+          "contact": true,
+          "plate_force_N": 2.943635940551758,
+          "solution_C": 27.477933280648976,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.70000176038593,
+          "contact": true,
+          "plate_force_N": 2.9266226291656494,
+          "solution_C": 27.48487992591447,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.71666842745617,
+          "contact": true,
+          "plate_force_N": 2.9436862468719482,
+          "solution_C": 27.491825445521712,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.73333509452641,
+          "contact": true,
+          "plate_force_N": 2.9656805992126465,
+          "solution_C": 27.498769812100345,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.75000176159665,
+          "contact": true,
+          "plate_force_N": 2.9062087535858154,
+          "solution_C": 27.50571299845412,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.76666842866689,
+          "contact": true,
+          "plate_force_N": 2.932460308074951,
+          "solution_C": 27.512654977560107,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.78333509573713,
+          "contact": true,
+          "plate_force_N": 2.9186320304870605,
+          "solution_C": 27.519595722567914,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.80000176280737,
+          "contact": true,
+          "plate_force_N": 2.9556691646575928,
+          "solution_C": 27.52653520679884,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.81666842987761,
+          "contact": true,
+          "plate_force_N": 2.927628755569458,
+          "solution_C": 27.53347340374512,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.83333509694785,
+          "contact": true,
+          "plate_force_N": 2.9298200607299805,
+          "solution_C": 27.54041028706909,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.85000176401809,
+          "contact": true,
+          "plate_force_N": 2.922029733657837,
+          "solution_C": 27.547345830602417,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.86666843108833,
+          "contact": true,
+          "plate_force_N": 2.9575371742248535,
+          "solution_C": 27.554280008345298,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.88333509815857,
+          "contact": true,
+          "plate_force_N": 2.954188823699951,
+          "solution_C": 27.561212794465657,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.90000176522881,
+          "contact": true,
+          "plate_force_N": 2.94049334526062,
+          "solution_C": 27.568144163298367,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.91666843229905,
+          "contact": true,
+          "plate_force_N": 2.9276771545410156,
+          "solution_C": 27.57507408934446,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.93333509936929,
+          "contact": true,
+          "plate_force_N": 2.9781713485717773,
+          "solution_C": 27.582002547270342,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.95000176643953,
+          "contact": true,
+          "plate_force_N": 2.9285264015197754,
+          "solution_C": 27.588929511906993,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.96666843350977,
+          "contact": true,
+          "plate_force_N": 2.9574966430664062,
+          "solution_C": 27.595854958249213,
+          "heater_on": true
+        },
+        {
+          "t_s": 72.98333510058,
+          "contact": true,
+          "plate_force_N": 2.9308390617370605,
+          "solution_C": 27.60277886145482,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.00000176765025,
+          "contact": true,
+          "plate_force_N": 2.931173801422119,
+          "solution_C": 27.60970119684388,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.01666843472049,
+          "contact": true,
+          "plate_force_N": 2.977719306945801,
+          "solution_C": 27.616621939897936,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.03333510179073,
+          "contact": true,
+          "plate_force_N": 2.938683032989502,
+          "solution_C": 27.623541066259225,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.05000176886097,
+          "contact": true,
+          "plate_force_N": 2.9262053966522217,
+          "solution_C": 27.630458551729912,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.0666684359312,
+          "contact": true,
+          "plate_force_N": 2.907487630844116,
+          "solution_C": 27.63737437227132,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.08333510300145,
+          "contact": true,
+          "plate_force_N": 2.8843352794647217,
+          "solution_C": 27.644288504003164,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.10000177007169,
+          "contact": true,
+          "plate_force_N": 2.939772844314575,
+          "solution_C": 27.65120092320279,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.11666843714193,
+          "contact": true,
+          "plate_force_N": 2.9388833045959473,
+          "solution_C": 27.6581116063044,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.13333510421216,
+          "contact": true,
+          "plate_force_N": 2.940518379211426,
+          "solution_C": 27.6650205298983,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.1500017712824,
+          "contact": true,
+          "plate_force_N": 2.9438672065734863,
+          "solution_C": 27.671927670730145,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.16666843835264,
+          "contact": true,
+          "plate_force_N": 2.941645622253418,
+          "solution_C": 27.678833005700177,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.18333510542288,
+          "contact": true,
+          "plate_force_N": 2.947373151779175,
+          "solution_C": 27.68573651186248,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.20000177249312,
+          "contact": true,
+          "plate_force_N": 2.9125072956085205,
+          "solution_C": 27.692638166424207,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.21666843956336,
+          "contact": true,
+          "plate_force_N": 2.929985284805298,
+          "solution_C": 27.69953794674486,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.2333351066336,
+          "contact": true,
+          "plate_force_N": 2.938616991043091,
+          "solution_C": 27.706435830335526,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.25000177370384,
+          "contact": true,
+          "plate_force_N": 2.947805881500244,
+          "solution_C": 27.713331794858128,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.26666844077408,
+          "contact": true,
+          "plate_force_N": 2.928227424621582,
+          "solution_C": 27.720225818124696,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.28333510784432,
+          "contact": true,
+          "plate_force_N": 2.922461986541748,
+          "solution_C": 27.727117878096625,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.30000177491456,
+          "contact": true,
+          "plate_force_N": 2.989562511444092,
+          "solution_C": 27.73400795288392,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.3166684419848,
+          "contact": true,
+          "plate_force_N": 2.9256553649902344,
+          "solution_C": 27.740896020744493,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.33333510905504,
+          "contact": true,
+          "plate_force_N": 2.942711591720581,
+          "solution_C": 27.747782060083388,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.35000177612528,
+          "contact": true,
+          "plate_force_N": 2.9524221420288086,
+          "solution_C": 27.754666049452094,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.36666844319552,
+          "contact": true,
+          "plate_force_N": 2.9060781002044678,
+          "solution_C": 27.761547967547784,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.38333511026576,
+          "contact": true,
+          "plate_force_N": 2.93664288520813,
+          "solution_C": 27.768427793212602,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.400001777336,
+          "contact": true,
+          "plate_force_N": 2.9223580360412598,
+          "solution_C": 27.77530550543294,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.41666844440624,
+          "contact": true,
+          "plate_force_N": 2.9276790618896484,
+          "solution_C": 27.782181083338717,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.43333511147648,
+          "contact": true,
+          "plate_force_N": 2.9507994651794434,
+          "solution_C": 27.789054506202653,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.45000177854672,
+          "contact": true,
+          "plate_force_N": 2.96018648147583,
+          "solution_C": 27.795925753439565,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.46666844561696,
+          "contact": true,
+          "plate_force_N": 2.949859857559204,
+          "solution_C": 27.80279480460564,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.4833351126872,
+          "contact": true,
+          "plate_force_N": 2.9465484619140625,
+          "solution_C": 27.809661639397724,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.50000177975744,
+          "contact": true,
+          "plate_force_N": 2.985283374786377,
+          "solution_C": 27.816526237652628,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.51666844682768,
+          "contact": true,
+          "plate_force_N": 2.96650767326355,
+          "solution_C": 27.823388579346407,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.53333511389792,
+          "contact": true,
+          "plate_force_N": 2.997006893157959,
+          "solution_C": 27.830248644593652,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.55000178096816,
+          "contact": true,
+          "plate_force_N": 2.9286484718322754,
+          "solution_C": 27.837106413646808,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.5666684480384,
+          "contact": true,
+          "plate_force_N": 2.9163286685943604,
+          "solution_C": 27.84396186689545,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.58333511510864,
+          "contact": true,
+          "plate_force_N": 2.9549832344055176,
+          "solution_C": 27.850814984865607,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.60000178217888,
+          "contact": true,
+          "plate_force_N": 2.939659357070923,
+          "solution_C": 27.857665748219052,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.61666844924912,
+          "contact": true,
+          "plate_force_N": 2.9580748081207275,
+          "solution_C": 27.864514137752614,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.63333511631936,
+          "contact": true,
+          "plate_force_N": 2.969452142715454,
+          "solution_C": 27.871360134397495,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.6500017833896,
+          "contact": true,
+          "plate_force_N": 2.9693057537078857,
+          "solution_C": 27.878203719218572,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.66666845045984,
+          "contact": true,
+          "plate_force_N": 2.931320905685425,
+          "solution_C": 27.88504487341372,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.68333511753008,
+          "contact": true,
+          "plate_force_N": 2.957886219024658,
+          "solution_C": 27.891883578313124,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.70000178460032,
+          "contact": true,
+          "plate_force_N": 2.952939510345459,
+          "solution_C": 27.89871981537861,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.71666845167056,
+          "contact": true,
+          "plate_force_N": 2.989319324493408,
+          "solution_C": 27.905553566202947,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.7333351187408,
+          "contact": true,
+          "plate_force_N": 2.946808099746704,
+          "solution_C": 27.9123848125092,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.75000178581104,
+          "contact": true,
+          "plate_force_N": 2.9728219509124756,
+          "solution_C": 27.919213536150018,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.76666845288128,
+          "contact": true,
+          "plate_force_N": 2.8934643268585205,
+          "solution_C": 27.92603971910701,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.78333511995152,
+          "contact": true,
+          "plate_force_N": 2.9500062465667725,
+          "solution_C": 27.932863343490045,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.80000178702176,
+          "contact": true,
+          "plate_force_N": 2.959465742111206,
+          "solution_C": 27.9396843915366,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.816668454092,
+          "contact": true,
+          "plate_force_N": 2.9965054988861084,
+          "solution_C": 27.946502845611082,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.83333512116224,
+          "contact": true,
+          "plate_force_N": 2.9405648708343506,
+          "solution_C": 27.9533186882042,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.85000178823248,
+          "contact": true,
+          "plate_force_N": 2.9489526748657227,
+          "solution_C": 27.960131901932268,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.86666845530272,
+          "contact": true,
+          "plate_force_N": 2.9479308128356934,
+          "solution_C": 27.966942469536576,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.88333512237296,
+          "contact": true,
+          "plate_force_N": 2.960620641708374,
+          "solution_C": 27.973750373882734,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.9000017894432,
+          "contact": true,
+          "plate_force_N": 2.978074789047241,
+          "solution_C": 27.980555597960013,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.91666845651343,
+          "contact": true,
+          "plate_force_N": 2.9391026496887207,
+          "solution_C": 27.987358124880696,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.93333512358367,
+          "contact": true,
+          "plate_force_N": 2.93782114982605,
+          "solution_C": 27.99415793787945,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.95000179065391,
+          "contact": true,
+          "plate_force_N": 2.9195971488952637,
+          "solution_C": 28.00095502031266,
+          "heater_on": true
+        },
+        {
+          "t_s": 73.96666845772415,
+          "contact": true,
+          "plate_force_N": 2.9956719875335693,
+          "solution_C": 28.00774929263388,
+          "heater_on": false
+        }
+      ],
+      "command_object_frame_roundtrip_max_abs": 5.960464477539063e-08,
+      "thermal_model": "Declared N07 effective model at40C, not original author parameters",
+      "final_solution_C": 28.00774929263388,
+      "final_heater_on": false,
+      "post_initialization_environment_resets": 0,
+      "post_initialization_object_pose_writes": 0,
+      "attachments": false
+    }
+  ],
+  "video": "combined/upgrade/runs/C01b_pose_00_interruption_replacement/video.mp4",
+  "run_scope": "single_world_fault_recover_pour_heat",
+  "full_reference_complete": false,
+  "differences": [
+    "Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.",
+    "Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.",
+    "Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.",
+    "Parameter mass bookkeeping, not a calibrated physical volume/density measurement.",
+    "Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.",
+    "Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim.",
+    "Scripted local workflow and known pose00 fixture; no learned agent or unseen-task generalization claim.",
+    "Original scale1 public cup is42mm inner diameter, not calibrated500mL capacity.",
+    "Original PBD defaults+isosurface/smoothing; smoothed display-point observer and gross wall gate, not raw subparticle penetration.",
+    "N07 effective nonreciprocal thermal fit, not recovered author parameters/calorimetric identification.",
+    "GPU static table contact tensor filtering fails even for actual child collider; support guard uses raw native actual-table contact impulse. Absolute GPU support reading ~26.50N differs from CPU2.943N and is not calibrated or interpreted as weight; only support presence is used.",
+    "Five predeclared N04 SE2 poses (00\u201304), all receive the airborne fault. Includes N04 pose04 known pick failure; all launched attempts retained and included. No claim of arbitrary SO3 or held-out method design.",
+    "Fall classification uses native cup attitude, velocity, table-contact presence and unchanged smoothed PBD point partition; not calibrated contact force or exact liquid surface volume.",
+    "Failure to recover or an appropriately safe-aborted tipped cup is reported separately from complete workflow success."
+  ],
+  "video_fps": 5,
+  "updated_utc": "2026-10-20T19:03:20.963285+00:00",
+  "render_interval_physics_steps": 60,
+  "rendering_scope": "5Hz native frame capture with render_interval60; approved rendering-only reduction from prior pose00 interval10. Physics300Hz/control60Hz and full native callbacks unchanged.",
+  "executed_fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+  "observed_fluid_defaults": {
+    "particle_contact_offset": 0.004,
+    "particle_mass": 1e-06,
+    "density": 1000,
+    "cohesion": 0.01,
+    "viscosity": 0.0091,
+    "surface_tension": 0.074,
+    "friction": 0.01,
+    "cfl_coefficient": 1.0
+  },
+  "cavity": {
+    "center_xy_m": [
+      -0.0014681306442667554,
+      -4.187198044292451e-10
+    ],
+    "radius_m": 0.02099509527788676,
+    "bottom_z_m": -0.035657,
+    "top_z_m": 0.013797,
+    "radius_profile_z_r_m": [
+      [
+        -0.035657,
+        0.015235136316641524
+      ],
+      [
+        -0.034843,
+        0.018038963414332615
+      ],
+      [
+        -0.032658,
+        0.019949019132282548
+      ],
+      [
+        -0.030384,
+        0.020995096071841367
+      ],
+      [
+        0.013797,
+        0.02099509527788676
+      ]
+    ],
+    "scale": 1.0,
+    "ring_fit_max_residual_m": 9.259842542047592e-09,
+    "conservative_cavity_capacity_ml": 67.36443616506743,
+    "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+    "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+  },
+  "observed_render_defaults": {
+    "transparent": true,
+    "color_rgb": [
+      0.85,
+      0.92,
+      0.96
+    ],
+    "native_attributes": {
+      "fluidRestOffset": 0.0023759999312460423,
+      "particleContactOffset": 0.004000000189989805,
+      "physxParticleAnisotropy:max": 3.75,
+      "physxParticleAnisotropy:min": 0.75,
+      "physxParticleAnisotropy:particleAnisotropyEnabled": true,
+      "physxParticleAnisotropy:scale": 2.5,
+      "physxParticleIsosurface:gridFilteringPasses": "GS",
+      "physxParticleIsosurface:gridSmoothingRadius": 0.0023759999312460423,
+      "physxParticleIsosurface:gridSpacing": 0.0021383999846875668,
+      "physxParticleIsosurface:isosurfaceEnabled": true,
+      "physxParticleIsosurface:maxSubgrids": 4096,
+      "physxParticleIsosurface:maxTriangles": 2097152,
+      "physxParticleIsosurface:maxVertices": 1048576,
+      "physxParticleIsosurface:numMeshNormalSmoothingPasses": 8,
+      "physxParticleIsosurface:numMeshSmoothingPasses": 8,
+      "physxParticleIsosurface:surfaceDistance": 0.0022571999579668045,
+      "physxParticleSmoothing:particleSmoothingEnabled": true,
+      "physxParticleSmoothing:strength": 0.5,
+      "solverPositionIterationCount": 32
+    }
+  },
+  "recorded_joint_names": [
+    "panda_joint1",
+    "panda_joint2",
+    "panda_joint3",
+    "panda_joint4",
+    "panda_joint5",
+    "panda_joint6",
+    "panda_joint7",
+    "panda_finger_joint1",
+    "panda_finger_joint2"
+  ],
+  "recorded_tool_bodies": [
+    "panda_hand",
+    "panda_leftfinger",
+    "panda_rightfinger"
+  ],
+  "native_geometry": {
+    "beaker": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460350076,
+        -0.02493543177843094,
+        -0.03684258460998536
+      ],
+      "body_frame_mesh_max_m": [
+        0.02864864468574529,
+        0.024935431778430942,
+        0.022848461568355564
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    },
+    "beaker_2": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0000000000000002,
+        1.0,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460349993,
+        -0.02493543177843095,
+        -0.036842584609985365
+      ],
+      "body_frame_mesh_max_m": [
+        0.028648644685745225,
+        0.024935431778430935,
+        0.02284846156835557
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    }
+  },
+  "PBD_rigid_filter_audit": {
+    "non_particle_collision_enabled": true,
+    "filter_relationships_targeting_particles": [],
+    "scope": "Collision eligibility only; no direct PBD particle-rigid contact-pair API is claimed. Read-only tool clearance uses the convexHull approximation authored on the original colliders; no claim of exact native cooked shape/contact-offset equality.",
+    "cup_contact_sensor_filters": [
+      "/World/envs/env_.*/Articulations_robot/panda_leftfinger",
+      "/World/envs/env_.*/Articulations_robot/panda_rightfinger",
+      "/World/envs/env_.*/StaticObjects_Infrastructure_table/Collisions/Cube"
+    ]
+  },
+  "native_mass_readout": {
+    "beaker": [
+      [
+        0.30000001192092896
+      ]
+    ],
+    "beaker_2": [
+      [
+        0.30000001192092896
+      ]
+    ]
+  },
+  "native_PBD_mass_density_attributes": {
+    "physics:density": 1000.0,
+    "physics:mass": 0.0001250000059371814
+  },
+  "lifecycle_scope": "For poses03/04 and one explicitly predeclared pose00 interruption replacement only: detached child session plus Python SIGTERM failure finalization. No physics/control/acceptance change; termination is not ignored.",
+  "gates": {
+    "single_native_clock": true,
+    "physical_grasp": true,
+    "contact_failure_recovery": true,
+    "verified_fluid_transfer": true,
+    "contact_gated_heat_and_stop": true
+  },
+  "video_frames": 379,
+  "physical_episodes": 1,
+  "environment_owner": "MATTERIX only",
+  "native_isosurface_cache": {
+    "keyframe_count": 22,
+    "keyframes_with_native_mesh": 22,
+    "mesh_snapshots": 22,
+    "missing_native_mesh_keyframes": 0,
+    "capture_errors": 0,
+    "index": "combined/upgrade/runs/C01b_pose_00_interruption_replacement/native_isosurface_keyframes.json",
+    "archive": "combined/upgrade/runs/C01b_pose_00_interruption_replacement/native_isosurface_keyframes.npz"
+  },
+  "process_wall_s_including_startup": 967.4351998260245,
+  "wall_time_scope": "process_wall_s_including_startup covers startup and full native episode; attempt.wall_s covers native control loop; both include OS pauses if any."
+}

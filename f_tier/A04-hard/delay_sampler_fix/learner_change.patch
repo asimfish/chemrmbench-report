@@ -1,0 +1,39 @@
+--- frozen_flow_aligned/learner.py
++++ delay_sampler_fix/learner_proposal.py
+@@ -11,6 +11,7 @@
+ import numpy as np,mujoco
+ from scipy.spatial.transform import Rotation
+ import task
++from observed_history import select_observed
+ sys.path.insert(0,str(task.R/'f_tier/A04/coupled_moving_receiver'))
+ import flexiv_task as flex
+ import pour_runner as shared
+@@ -51,7 +52,12 @@
+    if self.last_goal is not None and dt>1e-7:
+     oldp,oldr=self.last_goal;ff=np.r_[(rotation*oldr.inv()).as_rotvec()/dt,(p-oldp)/dt]
+    instant_obs=self.observation(p,rotation,ff);basis_now=self.d.xmat[self.cup].reshape(3,3).copy();self.obs_history.append((now,instant_obs.copy(),basis_now));delay_ticks=config['delay_ticks'][min(len(self.obs_history)-1,len(config['delay_ticks'])-1)];cutoff=now-.01*delay_ticks
+-   historical=next((h for h in reversed(self.obs_history) if h[0]<=cutoff+1e-9),self.obs_history[0]);obs=historical[1].copy();action_basis=historical[2];self.delay_log.append([now,delay_ticks*.01,historical[0],now-historical[0]])
++   learned_window=8.5-1e-8<=now<15.-1e-8
++   # Scripted setup/return do not execute learned delayed feedback.
++   # Within the learned window, no eligible real past frame is a hard failure.
++   historical=(select_observed(self.obs_history,now,delay_ticks*.01)[0]
++               if learned_window else self.obs_history[-1])
++   obs=historical[1].copy();action_basis=historical[2];self.delay_log.append([now,delay_ticks*.01,historical[0],now-historical[0]])
+    if self.pending is not None:
+     self.pending['next_observation']=obs.copy();valid=self.native_ok() and np.isfinite(obs).all()
+     self.quarantined|=not valid;self.pending['admitted']=bool(valid and not self.quarantined);self.pending=None
+@@ -87,7 +93,13 @@
+   data={k:np.asarray([s[v] for s in samples]) for k,v in fields.items()}
+   data.update(times=np.array([s['time'] for s in samples]),admitted=np.array([s['admitted'] for s in samples],bool),student_executed=np.array([s['student'] for s in samples],bool))
+  else:data={k:np.zeros((0,n)) for k,n in [('observations',18),('expert_labels',6),('executed_actions',6),('next_observations',18)]};data.update(times=np.array([]),admitted=np.array([],bool),student_executed=np.array([],bool))
+- data['observation_delay_trace']=np.asarray([s for c in controllers for s in c.delay_log]);np.savez_compressed(out/'learning_data.npz',**data)
++ data['observation_delay_trace']=np.asarray([s for c in controllers for s in c.delay_log])
++ # Save real recorded pairs in future runs, removing the old payload archive gap.
++ histories=[entry for controller in controllers for entry in controller.obs_history]
++ data['observation_history_times']=np.asarray([entry[0] for entry in histories])
++ data['observation_history_observations']=np.asarray([entry[1] for entry in histories])
++ data['observation_history_action_bases']=np.asarray([entry[2] for entry in histories])
++ np.savez_compressed(out/'learning_data.npz',**data)
+  if not (out/'learning_adapter_source.py').exists():(out/'learning_adapter_source.py').write_text(source_text)
+  j=json.loads((out/'metrics.json').read_text());j.update(status='HYBRID_FEEDBACK_TRAINING' if a.training else 'HYBRID_FEEDBACK_HELDOUT',F_PASS=False)
+  j['protocol'].update(robot=a.robot,controller_scope='Scripted pickup/transfer/return; learned 6D object-frame EE feedback only during tilt/pour/untilt, native8.5..15s',observations='18D: goal position/rotation error, actual EE angular/linear velocity, command goal angular/linear velocity; all in actual cup frame. No privileged particle state or teacher action observed.',training=a.training,beta=a.beta if a.training else None,policy=a.policy,student_actions_clipped={'angular_rad_s':1.5,'linear_m_s':.10},source='learned_executor copied after A12 source freeze + LearnedController wrapper + unchanged A01 Coupled')

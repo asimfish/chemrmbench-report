@@ -1,0 +1,2302 @@
+{
+  "status": "TWO_KNOWN_CASE_VELOCITY_FF_PROBES_CLOSED_NOT_METHOD_EVALUATION",
+  "closed_utc": "2026-10-20T23:12:50.737500+00:00",
+  "started": 2,
+  "closed": 2,
+  "successes": 0,
+  "primary_denominator": 2,
+  "all_STARTED_in_denominator": true,
+  "cases": [
+    {
+      "case": {
+        "case_id": "ur5e_velocity_ff_script_expert_56002",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56002,
+        "label": "velocity_ff_script_expert_56002",
+        "configuration": "configurations/56002.json",
+        "policy": null
+      },
+      "returncode": 1,
+      "wall_s": 877.9794415429933,
+      "metrics_path": "runs/ur5e/velocity_ff_script_expert_56002/metrics.json",
+      "closure": {
+        "closed_utc": "2026-10-20T23:12:43.314700+00:00",
+        "termination": null,
+        "outer_error": null,
+        "policy_weight_updates": 0,
+        "formal_evaluation_episodes": 0
+      },
+      "missing_evidence": [],
+      "adapter_readback": {
+        "recorded_feedback_samples": 650,
+        "all_finite": true,
+        "native_feedback_time_range_s": [
+          8.501950005368474,
+          14.99193075871448
+        ],
+        "actual_dt_range_s": [
+          0.008458288893358201,
+          0.011956558273114481
+        ],
+        "maximum_command_minus_actual_anchor_m": 0.0014867695850144262,
+        "maximum_command_minus_actual_anchor_angle_rad": 0.013518256816215596,
+        "maximum_linear_bound_m": 0.002070936641269228,
+        "maximum_angular_bound_rad": 0.031064049619038418,
+        "linear_bound_violations": 0,
+        "angular_bound_violations": 0,
+        "measured_angular_steps_below_p02rad": 650,
+        "maximum_anchor_equation_translation_residual_m": 5.918621824615036e-17,
+        "maximum_anchor_equation_rotation_residual_rad": 2.225864683633256e-16,
+        "command_anchor_equations_satisfied": true,
+        "actual_to_task_goal_position_error_m": {
+          "first": 0.01789936126889216,
+          "last": 0.026204351888083146,
+          "maximum": 0.03295920317628179,
+          "median": 0.004257170220271345
+        },
+        "actual_to_task_goal_orientation_error_rad": {
+          "first": 0.0001326802296403622,
+          "last": 0.058287829216643,
+          "maximum": 0.1274047664869621,
+          "median": 0.013712442167306582
+        },
+        "actual_feedback_path_length_m": 0.579804267934643,
+        "scope": "Command-step limit is relative to fresh actual anchor by construction. It does not bound actual robot motion, goal tracking, fluid success or IK work."
+      },
+      "original_physical_checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": false,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "physical_metrics": {
+        "min_loaded_lift_m": 0.11649445342947273,
+        "min_loaded_tube_robot_contacts": 32,
+        "native_seconds": 23.000351655611205,
+        "native_steps": 23955,
+        "receiver_xy_path_m": 1.6266828030305809,
+        "final_receiver_fraction": 0.7291666666666666,
+        "final_spill_fraction": 0.2625,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.38523957338692866,
+        "min_dt_s": 0.0001764418045147547,
+        "wall_run_s": 866.3286267369986
+      },
+      "error": null,
+      "particle_final_partition": {
+        "time_s": 23.000351655611205,
+        "phase": "released_settle",
+        "source_count": 2,
+        "receiver_count": 175,
+        "spill_count": 63,
+        "support_N": 2.033797128665416,
+        "receiver_x": 0.5733340808175429,
+        "receiver_y": 0.2791393141384935,
+        "receiver_z": 0.0017085269276220204,
+        "tube_z": 0.014914301033663792,
+        "tube_ee_distance_m": 0.2760852205970472,
+        "tube_ee_relative_position_x": -0.05599373855684427,
+        "tube_ee_relative_position_y": -0.0956451953560793,
+        "tube_ee_relative_position_z": 0.25286309908692745,
+        "tube_robot_contact_count": 0,
+        "ee_x": 0.43558857561930037,
+        "ee_y": 0.1890999556609185,
+        "ee_z": 0.27463696818985595,
+        "command_index": 2300,
+        "native_steps": 23955,
+        "ever_native_solid_penetration_particles": 0,
+        "max_CFL": 0.38523957338692866,
+        "min_dt_s": 0.0001764418045147547
+      },
+      "arrival_pulses": {
+        "evidence": "flow_events.json",
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.572671853649064,
+          "native_step": 5811,
+          "phase": "tilt",
+          "unique_rim_crossings": 125,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 23,
+          "previous_native_s": 10.57236419534176,
+          "source_count": 115,
+          "receiver_count": 24
+        },
+        "physical_success_original_gates": false,
+        "calibration_success_including_perturbation": false
+      },
+      "IK_readback": {
+        "records": 2302,
+        "accepted": 2302,
+        "rejected": 0,
+        "actual_state_unchanged_all": true,
+        "feedback_samples_matching_same_time_journal": 650,
+        "feedback_anchor_position_max_journal_difference_m": 0.0,
+        "last_rejection": null,
+        "matched_feedback_optimizer_summary": {
+          "nfev_median": 4.0,
+          "optimized_orientation_error_median_rad": 1.6621370169161293e-08,
+          "optimized_orientation_error_max_rad": 0.01088259725549077,
+          "nominal_joint_delta_median_rad": 0.008012060584586367,
+          "nominal_joint_delta_max_rad": 0.0549112591654766,
+          "scope": "Recorded optimizer results, not an observed actuator causal model or a counterfactual IK rerun."
+        }
+      },
+      "delay_readback": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.039999883450569484,
+        "actual_age_median_s": 0.029990700871058706,
+        "actual_age_p95_s": 0.03983363616330493,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.039999883450569484,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.001930758714483,
+            "requested_age_s": 0.03,
+            "selected_native_time_s": 14.971930758714473,
+            "actual_age_s": 0.03000000000001002,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "particle_trace_readback": {
+        "samples": 2300,
+        "total_count_min": 240,
+        "total_count_max": 240,
+        "all_partitions_sum_240": true,
+        "last_record": {
+          "time_s": "23.000351655611205",
+          "phase": "released_settle",
+          "source_count": "2",
+          "receiver_count": "175",
+          "spill_count": "63",
+          "support_N": "2.033797128665416",
+          "receiver_x": "0.5733340808175429",
+          "receiver_y": "0.2791393141384935",
+          "receiver_z": "0.0017085269276220204",
+          "tube_z": "0.014914301033663792",
+          "tube_ee_distance_m": "0.2760852205970472",
+          "tube_ee_relative_position_x": "-0.05599373855684427",
+          "tube_ee_relative_position_y": "-0.0956451953560793",
+          "tube_ee_relative_position_z": "0.25286309908692745",
+          "tube_robot_contact_count": "0",
+          "ee_x": "0.43558857561930037",
+          "ee_y": "0.1890999556609185",
+          "ee_z": "0.27463696818985595",
+          "command_index": "2300",
+          "native_steps": "23955",
+          "ever_native_solid_penetration_particles": "0",
+          "max_CFL": "0.38523957338692866",
+          "min_dt_s": "0.0001764418045147547"
+        }
+      },
+      "probe_pass": false,
+      "previous_same_known_case": {
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/actual_anchor_candidate/runs/ur5e/actual_anchor_script_expert_56002/metrics.json",
+        "original_physical_checks": {
+          "full_23s": true,
+          "receiver_xy_path_at_least_20mm": true,
+          "final_receiver_at_least_80pct": false,
+          "final_spill_at_most_10pct": true,
+          "zero_container_bench_floor_particle_penetrations": true
+        },
+        "metrics": {
+          "min_loaded_lift_m": 0.11649445342947273,
+          "min_loaded_tube_robot_contacts": 32,
+          "native_seconds": 23.000376844184224,
+          "native_steps": 11546,
+          "receiver_xy_path_m": 1.6370204334843939,
+          "final_receiver_fraction": 0.0,
+          "final_spill_fraction": 0.0,
+          "native_scope_penetration_particles": 0,
+          "max_CFL": 0.29472396733842227,
+          "min_dt_s": 0.0011748062157978867,
+          "wall_run_s": 1264.5627639660088
+        },
+        "error": null
+      },
+      "velocity_ff_readback": {
+        "records": 5317,
+        "control_intervals": 650,
+        "all_finite": true,
+        "native_time_range_s": [
+          8.501950005368474,
+          14.999930758714482
+        ],
+        "maximum_hold_formula_error_rad": 2.220446049250313e-16,
+        "maximum_desired_rate_formula_error_rad_s": 0.0,
+        "ctrl_saturated_axis_applications": 0,
+        "max_abs_actual_ctrl_clip_delta_rad": 0.0,
+        "max_abs_desired_joint_velocity_rad_s": 7.9572539401141515,
+        "max_abs_velocity_ff_position_offset_rad": 1.5914507880228304,
+        "nominal_outside_physical_joint_axis_applications": 0,
+        "ff_recomputed_in_apply": false,
+        "measurement_finite_and_hold_formula_consistent": true,
+        "scope": "Force readback is before newctrl evaluation; clipping flags, FF contribution and desired joint rates kept separate. This is not measured servo dynamics."
+      }
+    },
+    {
+      "case": {
+        "case_id": "flexiv_velocity_ff_script_expert_56002",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56002,
+        "label": "velocity_ff_script_expert_56002",
+        "configuration": "configurations/56002.json",
+        "policy": null
+      },
+      "returncode": 1,
+      "wall_s": 688.0509779549902,
+      "metrics_path": "runs/flexiv/velocity_ff_script_expert_56002/metrics.json",
+      "closure": {
+        "closed_utc": "2026-10-20T23:09:33.434991+00:00",
+        "termination": null,
+        "outer_error": null,
+        "policy_weight_updates": 0,
+        "formal_evaluation_episodes": 0
+      },
+      "missing_evidence": [],
+      "adapter_readback": {
+        "recorded_feedback_samples": 650,
+        "all_finite": true,
+        "native_feedback_time_range_s": [
+          8.5001113438008,
+          14.99076792918071
+        ],
+        "actual_dt_range_s": [
+          0.008533204605958744,
+          0.011818531194435877
+        ],
+        "maximum_command_minus_actual_anchor_m": 0.0018313550765275677,
+        "maximum_command_minus_actual_anchor_angle_rad": 0.026838228461076814,
+        "maximum_linear_bound_m": 0.002047029649960063,
+        "maximum_angular_bound_rad": 0.030705444749400946,
+        "linear_bound_violations": 0,
+        "angular_bound_violations": 0,
+        "measured_angular_steps_below_p02rad": 568,
+        "maximum_anchor_equation_translation_residual_m": 6.06015674756028e-17,
+        "maximum_anchor_equation_rotation_residual_rad": 2.2929868617541516e-16,
+        "command_anchor_equations_satisfied": true,
+        "actual_to_task_goal_position_error_m": {
+          "first": 0.01842759872941342,
+          "last": 0.007960151596257901,
+          "maximum": 0.3615349240168001,
+          "median": 0.01669936318050133
+        },
+        "actual_to_task_goal_orientation_error_rad": {
+          "first": 0.016817300335338053,
+          "last": 0.02616918587370061,
+          "maximum": 1.380397267847621,
+          "median": 0.035023726990910074
+        },
+        "actual_feedback_path_length_m": 1.4756848912225617,
+        "scope": "Command-step limit is relative to fresh actual anchor by construction. It does not bound actual robot motion, goal tracking, fluid success or IK work."
+      },
+      "original_physical_checks": {
+        "full_23s": false,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": true,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "physical_metrics": {
+        "min_loaded_lift_m": 0.11444734513946296,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 16.04034311103157,
+        "native_steps": 15941,
+        "receiver_xy_path_m": 1.1269930801161558,
+        "final_receiver_fraction": 0.9666666666666667,
+        "final_spill_fraction": 0.03333333333333333,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3664024806530252,
+        "min_dt_s": 0.00010044125680849317,
+        "wall_run_s": 679.3446347090066
+      },
+      "error": "Unreachable Flexiv object-centric pose [0.4836100303783379, 0.18938817260048438, 0.2422590393446703]",
+      "particle_final_partition": {
+        "time_s": 16.04034311103157,
+        "phase": "return_above_source",
+        "source_count": 0,
+        "receiver_count": 232,
+        "spill_count": 8,
+        "support_N": 1.6130944898624398,
+        "receiver_x": 0.544493356509298,
+        "receiver_y": 0.22787644673778018,
+        "receiver_z": 0.0022721933132771517,
+        "tube_z": 0.1238959183069368,
+        "tube_ee_distance_m": 0.09361226903499056,
+        "tube_ee_relative_position_x": -0.037345714389354905,
+        "tube_ee_relative_position_y": -5.68397746898047e-05,
+        "tube_ee_relative_position_z": 0.08584026619173657,
+        "tube_robot_contact_count": 14,
+        "ee_x": 0.4250159318786225,
+        "ee_y": 0.2725772582391565,
+        "ee_z": 0.20406473046565854,
+        "command_index": 1604,
+        "native_steps": 15941,
+        "ever_native_solid_penetration_particles": 0,
+        "max_CFL": 0.3664024806530252,
+        "min_dt_s": 0.00010044125680849317
+      },
+      "arrival_pulses": {
+        "evidence": "flow_events.json",
+        "status": "PULSES_COMPLETE",
+        "perturbation_protocol_satisfied": true,
+        "trigger": {
+          "native_s": 10.534584732260782,
+          "native_step": 5711,
+          "phase": "tilt",
+          "unique_rim_crossings": 109,
+          "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+          "previous_receiver_count": 22,
+          "previous_native_s": 10.534175183436687,
+          "source_count": 131,
+          "receiver_count": 24
+        },
+        "physical_success_original_gates": false,
+        "calibration_success_including_perturbation": false
+      },
+      "IK_readback": {
+        "records": 1607,
+        "accepted": 1606,
+        "rejected": 1,
+        "actual_state_unchanged_all": true,
+        "feedback_samples_matching_same_time_journal": 650,
+        "feedback_anchor_position_max_journal_difference_m": 0.0,
+        "last_rejection": {
+          "instance": 1,
+          "original_class": "FlexivController",
+          "native_s": 16.04034311103157,
+          "initial": false,
+          "requested_position_m": [
+            0.4836100303783379,
+            0.18938817260048438,
+            0.2422590393446703
+          ],
+          "requested_quaternion_xyzw": [
+            0.9897460874592543,
+            0.06297741746257803,
+            0.12804590206447636,
+            -0.006385468920691738
+          ],
+          "actual_arm_q_before": [
+            1.787863562486359,
+            -1.2254244346685639,
+            1.6750958618025278,
+            -1.9217307120054925,
+            -1.5280573134568092,
+            0.10756353292381624,
+            1.2872285826749563
+          ],
+          "prior_nominal_q": [
+            1.6672476548744888,
+            -1.824680492093893,
+            1.2794003088323413,
+            -1.9247999999999998,
+            -1.3536980153620528,
+            -0.12429665517830009,
+            1.2676952409326365
+          ],
+          "prior_nominal_tracking_error_rad": [
+            -0.12061590761187024,
+            -0.5992560574253292,
+            -0.39569555297018644,
+            -0.0030692879945073415,
+            0.17435929809475637,
+            -0.23186018810211634,
+            -0.0195333417423198
+          ],
+          "actual_ee_position_before_m": [
+            0.4250159318786225,
+            0.2725772582391565,
+            0.20406473046565854
+          ],
+          "actual_position_error_before_m": 0.1086853144593971,
+          "actual_orientation_error_before_rad": 0.4452200343807995,
+          "actual_physical_joint_margin_rad": [
+            1.091936437513641,
+            1.130775565331436,
+            1.3792041381974722,
+            0.03306928799450759,
+            1.5262426865431908,
+            1.5910635329238163,
+            1.7670714173250437
+          ],
+          "accepted": false,
+          "exception_type": "ObjectiveIKFailure",
+          "error": "Unreachable Flexiv object-centric pose [0.4836100303783379, 0.18938817260048438, 0.2422590393446703]",
+          "diagnostic": {
+            "position_error_m": 0.00020876417740444086,
+            "orientation_error_rad": 0.020302481684636633,
+            "weighted_objective_residual": [
+              0.0036695787754414955,
+              0.001602541074571806,
+              0.0011828129277619004,
+              -0.006028938555711656,
+              -0.019386661972770232,
+              2.0088007060928537e-09,
+              -3.664963313243952e-06,
+              -3.5606775141445725e-06,
+              -3.4021381002797836e-06,
+              0.0,
+              7.138564178470475e-07,
+              -6.08445252814073e-06,
+              -2.19656330138851e-06
+            ],
+            "nfev": 13,
+            "maximum_joint_delta_rad": 0.00608445252814073,
+            "minimum_buffered_joint_margin_rad": 2.220446049250313e-16,
+            "q": [
+              1.6635826915612448,
+              -1.8282411696080376,
+              1.2759981707320616,
+              -1.9247999999999998,
+              -1.3529841589442058,
+              -0.13038110770644082,
+              1.265498677631248
+            ]
+          },
+          "ik_wall_s": 0.017005760979373008,
+          "ik_cpu_s": 0.01695496100001037,
+          "live_state_unchanged_by_solve": true
+        },
+        "matched_feedback_optimizer_summary": {
+          "nfev_median": 13.5,
+          "optimized_orientation_error_median_rad": 5.062054002879156e-08,
+          "optimized_orientation_error_max_rad": 0.017883608502203583,
+          "nominal_joint_delta_median_rad": 0.011938497550598781,
+          "nominal_joint_delta_max_rad": 0.4902998901436493,
+          "scope": "Recorded optimizer results, not an observed actuator causal model or a counterfactual IK rerun."
+        }
+      },
+      "delay_readback": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03999630248439345,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.039903779615904966,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 1605,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03999630248439345,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.00004645165093,
+            "requested_age_s": 0.03,
+            "selected_native_time_s": 14.970549678125478,
+            "actual_age_s": 0.02949677352545166,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "particle_trace_readback": {
+        "samples": 1604,
+        "total_count_min": 240,
+        "total_count_max": 240,
+        "all_partitions_sum_240": true,
+        "last_record": {
+          "time_s": "16.04034311103157",
+          "phase": "return_above_source",
+          "source_count": "0",
+          "receiver_count": "232",
+          "spill_count": "8",
+          "support_N": "1.6130944898624398",
+          "receiver_x": "0.544493356509298",
+          "receiver_y": "0.22787644673778018",
+          "receiver_z": "0.0022721933132771517",
+          "tube_z": "0.1238959183069368",
+          "tube_ee_distance_m": "0.09361226903499056",
+          "tube_ee_relative_position_x": "-0.037345714389354905",
+          "tube_ee_relative_position_y": "-5.68397746898047e-05",
+          "tube_ee_relative_position_z": "0.08584026619173657",
+          "tube_robot_contact_count": "14",
+          "ee_x": "0.4250159318786225",
+          "ee_y": "0.2725772582391565",
+          "ee_z": "0.20406473046565854",
+          "command_index": "1604",
+          "native_steps": "15941",
+          "ever_native_solid_penetration_particles": "0",
+          "max_CFL": "0.3664024806530252",
+          "min_dt_s": "0.00010044125680849317"
+        }
+      },
+      "probe_pass": false,
+      "previous_same_known_case": {
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/actual_anchor_candidate/runs/flexiv/actual_anchor_script_expert_56002/metrics.json",
+        "original_physical_checks": {
+          "full_23s": true,
+          "receiver_xy_path_at_least_20mm": true,
+          "final_receiver_at_least_80pct": false,
+          "final_spill_at_most_10pct": true,
+          "zero_container_bench_floor_particle_penetrations": true
+        },
+        "metrics": {
+          "min_loaded_lift_m": 0.11444734513946296,
+          "min_loaded_tube_robot_contacts": 20,
+          "native_seconds": 23.000467697910334,
+          "native_steps": 11639,
+          "receiver_xy_path_m": 1.6374402653292597,
+          "final_receiver_fraction": 0.0,
+          "final_spill_fraction": 0.0,
+          "native_scope_penetration_particles": 0,
+          "max_CFL": 0.3009610755454456,
+          "min_dt_s": 0.0007080692582167519,
+          "wall_run_s": 1202.405090079992
+        },
+        "error": null
+      },
+      "velocity_ff_readback": {
+        "records": 10279,
+        "control_intervals": 650,
+        "all_finite": true,
+        "native_time_range_s": [
+          8.5001113438008,
+          14.99920535989933
+        ],
+        "maximum_hold_formula_error_rad": 8.881784197001252e-16,
+        "maximum_desired_rate_formula_error_rad_s": 0.0,
+        "ctrl_saturated_axis_applications": 4671,
+        "max_abs_actual_ctrl_clip_delta_rad": 12.316803099538282,
+        "max_abs_desired_joint_velocity_rad_s": 86.04752659909825,
+        "max_abs_velocity_ff_position_offset_rad": 13.829066774855077,
+        "nominal_outside_physical_joint_axis_applications": 4671,
+        "ff_recomputed_in_apply": false,
+        "measurement_finite_and_hold_formula_consistent": true,
+        "scope": "Force readback is before newctrl evaluation; clipping flags, FF contribution and desired joint rates kept separate. This is not measured servo dynamics."
+      }
+    }
+  ],
+  "F_PASS": false,
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "native_steps_added_by_closeout": 0,
+  "interpretation": "Only two previously failed actual-anchor development instances, with reviewed standard velocity feedforward added. Success cannot establish expert>=90%, BC benefit, OPD improvement or windup as sole cause. Failures are retained without retries or a second controller search.",
+  "interface_interpretation": {
+    "baseline_position_servo": "tau=Kp*(qIK-qactual)-Kv*qdot+bias/passive_compensation; actual-anchor qIK leads by only one control dt, so small position error alone need not generate desired velocity.",
+    "added_velocity_feedforward": "tau=Kp*(qIK-qactual)+Kv*(qdot_des-qdot)+bias/passive_compensation before unchanged native limits; qdot_des computed once per successful control action.",
+    "limits": "Velocity projection need not equal1; component probes observed UR~1.027 linear and Flex~1.116 angular. Full known-case outcomes do not establish a complete or unique root-cause repair, expert>=90%, BC benefit or OPD gain."
+  },
+  "video": "video.mp4",
+  "video_metadata": "video_metadata.json",
+  "failure_analysis": {
+    "scope": "Closedtrace/IKjournal/NPZ/sourcegeometry only; no new dynamics/IK optimization/controller tuning. Position-based chronology is not a wall-crossing or unique causal test.",
+    "new_native_steps": 0,
+    "new_IK_solves": 0,
+    "GPU_contexts": 0,
+    "FK_evaluations": 0,
+    "body_pose_source": "Archivedworldrootfreejointqpos directly; modelonlyusedforjointaddress/type checks, no MjData/forward.",
+    "ur5e": {
+      "phase_count_table": [
+        {
+          "phase": "settle",
+          "first_native_s": 0.01,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 0.5012543825290033,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "approach",
+          "first_native_s": 0.5112543825290033,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 2.5012543825289493,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "close",
+          "first_native_s": 2.511254382528948,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 3.501950005368802,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "lift",
+          "first_native_s": 3.511950005368801,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 5.501950005368582,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "loaded_hold",
+          "first_native_s": 5.511950005368581,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 6.501950005368472,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "transfer",
+          "first_native_s": 6.511950005368471,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 8.501950005368474,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "tilt",
+          "first_native_s": 8.511950005368478,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 11.000553465564009,
+          "last": {
+            "source_count": 65,
+            "receiver_count": 173,
+            "spill_count": 2
+          }
+        },
+        {
+          "phase": "pour_hold",
+          "first_native_s": 11.010497261429682,
+          "first": {
+            "source_count": 65,
+            "receiver_count": 173,
+            "spill_count": 2
+          },
+          "last_native_s": 12.501429152070552,
+          "last": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          }
+        },
+        {
+          "phase": "untilt",
+          "first_native_s": 12.510591473692944,
+          "first": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          },
+          "last_native_s": 15.001930758714483,
+          "last": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          }
+        },
+        {
+          "phase": "return_above_source",
+          "first_native_s": 15.011930758714486,
+          "first": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          },
+          "last_native_s": 17.000582136378007,
+          "last": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          }
+        },
+        {
+          "phase": "lower_source",
+          "first_native_s": 17.010597738091732,
+          "first": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          },
+          "last_native_s": 19.00174281610908,
+          "last": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          }
+        },
+        {
+          "phase": "release",
+          "first_native_s": 19.011742816109074,
+          "first": {
+            "source_count": 64,
+            "receiver_count": 175,
+            "spill_count": 1
+          },
+          "last_native_s": 20.000034114956218,
+          "last": {
+            "source_count": 3,
+            "receiver_count": 175,
+            "spill_count": 62
+          }
+        },
+        {
+          "phase": "retract",
+          "first_native_s": 20.01022108307614,
+          "first": {
+            "source_count": 3,
+            "receiver_count": 175,
+            "spill_count": 62
+          },
+          "last_native_s": 22.00013420558591,
+          "last": {
+            "source_count": 2,
+            "receiver_count": 175,
+            "spill_count": 63
+          }
+        },
+        {
+          "phase": "released_settle",
+          "first_native_s": 22.01021208081139,
+          "first": {
+            "source_count": 2,
+            "receiver_count": 175,
+            "spill_count": 63
+          },
+          "last_native_s": 23.000351655611205,
+          "last": {
+            "source_count": 2,
+            "receiver_count": 175,
+            "spill_count": 63
+          }
+        }
+      ],
+      "arrival_trigger": {
+        "native_s": 10.572671853649064,
+        "native_step": 5811,
+        "phase": "tilt",
+        "unique_rim_crossings": 125,
+        "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+        "previous_receiver_count": 23,
+        "previous_native_s": 10.57236419534176,
+        "source_count": 115,
+        "receiver_count": 24
+      },
+      "pulses": [
+        {
+          "index": 0,
+          "original_wall_clock_start_s": 9.8736820886732,
+          "scheduled_start_s": 10.572671853649064,
+          "nominal_duration_s": 0.12,
+          "scheduled_end_s": 10.692671853649063,
+          "force_xy_N": [
+            -1.8913757333826395,
+            0.6501521630905203
+          ],
+          "actual_first_start_s": 10.572671853649064,
+          "actual_last_end_s": 10.692812118858779,
+          "completed_applied_steps": 348,
+          "applied_duration_s": 0.12014026520971477,
+          "impulse_xy_Ns": [
+            -0.22723038221980918,
+            0.07810945330036484
+          ],
+          "nominal_interval_elapsed": true,
+          "applied_at_least_once": true,
+          "start_lateness_s": 0.0,
+          "duration_error_s": 0.00014026520971477385,
+          "duration_within_one_maximum_native_step": true,
+          "overlap_with_observed_bulk_landing_window_s": null
+        }
+      ],
+      "original_failure": null,
+      "FF_full_task_limits": {
+        "records": 5317,
+        "control_intervals": 650,
+        "all_finite": true,
+        "native_time_range_s": [
+          8.501950005368474,
+          14.999930758714482
+        ],
+        "maximum_hold_formula_error_rad": 2.220446049250313e-16,
+        "maximum_desired_rate_formula_error_rad_s": 0.0,
+        "ctrl_saturated_axis_applications": 0,
+        "max_abs_actual_ctrl_clip_delta_rad": 0.0,
+        "max_abs_desired_joint_velocity_rad_s": 7.9572539401141515,
+        "max_abs_velocity_ff_position_offset_rad": 1.5914507880228304,
+        "nominal_outside_physical_joint_axis_applications": 0,
+        "ff_recomputed_in_apply": false,
+        "measurement_finite_and_hold_formula_consistent": true,
+        "scope": "Force readback is before newctrl evaluation; clipping flags, FF contribution and desired joint rates kept separate. This is not measured servo dynamics."
+      },
+      "active_window_actuation_limits": {
+        "by_phase": {
+          "transfer": {
+            "apply_records": 1,
+            "ctrl_saturated_axis_applications": 0,
+            "noninitial_observed_force_at_limit_axis_applications": 0,
+            "force_hit_rows": 0,
+            "force_hit_first_native_s": null,
+            "force_hit_last_native_s": null,
+            "ctrl_clip_first_native_s": null,
+            "ctrl_clip_last_native_s": null,
+            "max_abs_desired_joint_velocity_rad_s": 0.316565250360723
+          },
+          "tilt": {
+            "apply_records": 2527,
+            "ctrl_saturated_axis_applications": 0,
+            "noninitial_observed_force_at_limit_axis_applications": 597,
+            "force_hit_rows": 259,
+            "force_hit_first_native_s": 10.570446207020886,
+            "force_hit_last_native_s": 10.814879840608931,
+            "ctrl_clip_first_native_s": null,
+            "ctrl_clip_last_native_s": null,
+            "max_abs_desired_joint_velocity_rad_s": 7.9572539401141515
+          },
+          "pour_hold": {
+            "apply_records": 1306,
+            "ctrl_saturated_axis_applications": 0,
+            "noninitial_observed_force_at_limit_axis_applications": 320,
+            "force_hit_rows": 144,
+            "force_hit_first_native_s": 11.031460272650106,
+            "force_hit_last_native_s": 12.063492886861296,
+            "ctrl_clip_first_native_s": null,
+            "ctrl_clip_last_native_s": null,
+            "max_abs_desired_joint_velocity_rad_s": 6.400438224144905
+          },
+          "untilt": {
+            "apply_records": 1483,
+            "ctrl_saturated_axis_applications": 0,
+            "noninitial_observed_force_at_limit_axis_applications": 0,
+            "force_hit_rows": 0,
+            "force_hit_first_native_s": null,
+            "force_hit_last_native_s": null,
+            "ctrl_clip_first_native_s": null,
+            "ctrl_clip_last_native_s": null,
+            "max_abs_desired_joint_velocity_rad_s": 1.3440261959782651
+          }
+        },
+        "noninitial_observed_force_at_limit_axis_applications": 917,
+        "force_observation_scope": "Existingforcebeforeeachnewctrl; act/jointenabledlimitflagsunionperaxis, tolerance1e-6. Fullworldalreadyadvanced8.5s; componentzeroctrlinitialization is not present here.",
+        "phase_scope": "Phaseatnearestnextsavedtrace; not a newnativeobservation or causalforce model."
+      },
+      "tube_to_EE_active_window_readback": {
+        "samples": 650,
+        "exact_time_trace_matches": 650,
+        "first_native_s": 8.501950005368474,
+        "last_native_s": 14.99193075871448,
+        "first_relative_position_m": [
+          -7.080729594793126e-05,
+          -1.4607941665265249e-05,
+          0.07577388622200391
+        ],
+        "last_relative_position_m": [
+          -0.022074539845473473,
+          -4.698781971255847e-05,
+          0.06791119702330725
+        ],
+        "max_relative_position_change_from_first_m": 0.03372252199911404,
+        "terminal_relative_position_change_from_first_m": 0.023366368481277815,
+        "first_relative_quaternion_xyzw": [
+          -0.9999979963213366,
+          0.000438891881688247,
+          -0.001951951294318763,
+          6.792181435572752e-05
+        ],
+        "last_relative_quaternion_xyzw": [
+          -0.9757640776927585,
+          -0.15197491369417013,
+          -0.15560907615739372,
+          -0.023956329215728833
+        ],
+        "max_relative_orientation_change_from_first_rad": 0.5782417855925268,
+        "terminal_relative_orientation_change_from_first_rad": 0.4390817954192448,
+        "minimum_reported_tube_robot_contact_count": 8,
+        "zero_contact_samples": 0,
+        "source": "ExistingexacttimeTraceEEframepositions+learningnativefreejointquaternion+actualanchorquaternion;0FK/0optimization/0newnative.",
+        "interpretation": "Relativeposechange/contactloss can show gripper-object relative motion; compliance, slip,release/contact cause require care. Not a uniquelyidentified cause of task failure."
+      },
+      "native_snapshot_geometry": [
+        {
+          "saved_state_index": 103,
+          "native_s": 10.301303478777273,
+          "nearest_trace_native_s": 10.301303478777273,
+          "phase": "tilt",
+          "recomputed_counts": {
+            "source": 238,
+            "receiver": 0,
+            "outside_including_flight": 2
+          },
+          "source_mouth_world_m": [
+            0.49187734712585435,
+            0.24687379823951455,
+            0.25435420346685844
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5553974858249803,
+            0.2476394733559471,
+            0.0010064191314532343
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5553869667599517,
+            0.24764691767361893,
+            0.08800641817703601
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.06349004845931527,
+            -0.0007423462700820565,
+            0.25335539618300656
+          ],
+          "source_mouth_center_radial_offset_m": 0.06349438818786197,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.06416803292652307,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 89.12311290561291,
+          "source_mouth_height_above_receiver_mouth_m": 0.16635539618300657,
+          "requested_checkpoint_s": 10.3
+        },
+        {
+          "saved_state_index": 106,
+          "native_s": 10.600127116199303,
+          "nearest_trace_native_s": 10.600127116199303,
+          "phase": "tilt",
+          "recomputed_counts": {
+            "source": 99,
+            "receiver": 35,
+            "outside_including_flight": 106
+          },
+          "source_mouth_world_m": [
+            0.504484419171079,
+            0.2668938838431686,
+            0.2593277742835596
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5651711055350931,
+            0.26827978191899843,
+            0.004141806281547718
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.565171035534972,
+            0.26828088657758387,
+            0.0911418062745065
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.060684091615669504,
+            -0.0014898694624591172,
+            0.2551859992127517
+          ],
+          "source_mouth_center_radial_offset_m": 0.06070237792899169,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.061934308633885486,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 84.96843389139573,
+          "source_mouth_height_above_receiver_mouth_m": 0.1681859992127517,
+          "requested_checkpoint_s": 10.6
+        },
+        {
+          "saved_state_index": 110,
+          "native_s": 11.000553465564009,
+          "nearest_trace_native_s": 11.000553465564009,
+          "phase": "tilt",
+          "recomputed_counts": {
+            "source": 65,
+            "receiver": 173,
+            "outside_including_flight": 2
+          },
+          "source_mouth_world_m": [
+            0.5142300828846489,
+            0.2826613060448816,
+            0.25772234616235995
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5748683317449644,
+            0.28230013554375677,
+            0.0015750579970552222
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5748714107476834,
+            0.282299737908283,
+            0.08857505794166227
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.0606475851763696,
+            0.00031370310744917583,
+            0.256145140313166
+          ],
+          "source_mouth_center_radial_offset_m": 0.06064839649458697,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.06287331001673221,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 79.66390723458001,
+          "source_mouth_height_above_receiver_mouth_m": 0.169145140313166,
+          "requested_checkpoint_s": 11.0
+        },
+        {
+          "saved_state_index": 125,
+          "native_s": 12.501429152070552,
+          "nearest_trace_native_s": 12.501429152070552,
+          "phase": "pour_hold",
+          "recomputed_counts": {
+            "source": 64,
+            "receiver": 175,
+            "outside_including_flight": 1
+          },
+          "source_mouth_world_m": [
+            0.4933121126021829,
+            0.2442439030578455,
+            0.27736822834612096
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5550500265079489,
+            0.2463502345151294,
+            0.0008924374817575891
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.555072641535739,
+            0.24637795691813538,
+            0.0878924301256015
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.061813406422270414,
+            -0.0020897742979225607,
+            0.27645904797922227
+          ],
+          "source_mouth_center_radial_offset_m": 0.061848721653248735,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.06427354343089754,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 75.65682004851226,
+          "source_mouth_height_above_receiver_mouth_m": 0.18945904797922228,
+          "requested_checkpoint_s": 12.5
+        },
+        {
+          "saved_state_index": 150,
+          "native_s": 15.001930758714483,
+          "nearest_trace_native_s": 15.001930758714483,
+          "phase": "untilt",
+          "recomputed_counts": {
+            "source": 64,
+            "receiver": 175,
+            "outside_including_flight": 1
+          },
+          "source_mouth_world_m": [
+            0.5102136106633711,
+            0.2624124888627179,
+            0.2833618158530857
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.57397765657084,
+            0.2804382405081647,
+            0.0009605883974418618
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5739633726212364,
+            0.2804109160159413,
+            0.08796058293388369
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.06373889877856857,
+            -0.01786150354786513,
+            0.2824173401454529
+          ],
+          "source_mouth_center_radial_offset_m": 0.066194263546738,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.07440973068236735,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 15.126824195549258,
+          "source_mouth_height_above_receiver_mouth_m": 0.1954173401454529,
+          "requested_checkpoint_s": 15.0
+        },
+        {
+          "saved_state_index": 170,
+          "native_s": 17.000582136378007,
+          "nearest_trace_native_s": 17.000582136378007,
+          "phase": "return_above_source",
+          "recomputed_counts": {
+            "source": 64,
+            "receiver": 175,
+            "outside_including_flight": 1
+          },
+          "source_mouth_world_m": [
+            0.4271287352817331,
+            0.21317110340155015,
+            0.2858730641978482
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.574055495897228,
+            0.2800650581579353,
+            0.0008003055127047694
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5740464024054786,
+            0.27999523032296686,
+            0.08780027701489478
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.14684720811678004,
+            -0.06677464314255399,
+            0.2851417128618013
+          ],
+          "source_mouth_center_radial_offset_m": 0.1613163212403145,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.16975090275985016,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 7.648943947549951,
+          "source_mouth_height_above_receiver_mouth_m": 0.1981417128618013,
+          "requested_checkpoint_s": 17.0
+        },
+        {
+          "saved_state_index": 185,
+          "native_s": 18.501769918893377,
+          "nearest_trace_native_s": 18.501769918893377,
+          "phase": "lower_source",
+          "recomputed_counts": {
+            "source": 64,
+            "receiver": 175,
+            "outside_including_flight": 1
+          },
+          "source_mouth_world_m": [
+            0.408476827499462,
+            0.2167810630189661,
+            0.3139573008136317
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5546984233762645,
+            0.2459821241938882,
+            0.0014092885485374033
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.55466422627414,
+            0.24602310548771628,
+            0.08840927217550003
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.14606727040475148,
+            -0.02950449336094835,
+            0.3125916736469176
+          ],
+          "source_mouth_center_radial_offset_m": 0.14901732319425495,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.15663862533472783,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 26.42815765633487,
+          "source_mouth_height_above_receiver_mouth_m": 0.2255916736469176,
+          "requested_checkpoint_s": 18.5
+        },
+        {
+          "saved_state_index": 190,
+          "native_s": 19.00174281610908,
+          "nearest_trace_native_s": 19.00174281610908,
+          "phase": "lower_source",
+          "recomputed_counts": {
+            "source": 64,
+            "receiver": 175,
+            "outside_including_flight": 1
+          },
+          "source_mouth_world_m": [
+            0.41363552870883136,
+            0.21164609129826853,
+            0.32690573149709173
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5740920348017076,
+            0.28051593934166474,
+            0.0011667430253674686
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5741225528897032,
+            0.2805036710750216,
+            0.08816673680775769
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.16061832210220922,
+            -0.06871284929609194,
+            0.3256923914897604
+          ],
+          "source_mouth_center_radial_offset_m": 0.17469888681189835,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.1822046559311296,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 29.711152360788432,
+          "source_mouth_height_above_receiver_mouth_m": 0.23869239148976043,
+          "requested_checkpoint_s": 19.0
+        },
+        {
+          "saved_state_index": 195,
+          "native_s": 19.50021405392752,
+          "nearest_trace_native_s": 19.50021405392752,
+          "phase": "release",
+          "recomputed_counts": {
+            "source": 50,
+            "receiver": 175,
+            "outside_including_flight": 15
+          },
+          "source_mouth_world_m": [
+            0.3745840465311624,
+            0.3319144947562335,
+            0.009969796749320727
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5655524959554201,
+            0.2654578299868708,
+            0.002821091453633919
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5655531252036229,
+            0.2654640521369497,
+            0.08982109122885745
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.19098031827748427,
+            0.06642218590879746,
+            0.007152076964439694
+          ],
+          "source_mouth_center_radial_offset_m": 0.20220135694468533,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.20499068539170562,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 93.3082519960634,
+          "source_mouth_height_above_receiver_mouth_m": -0.0798479230355603,
+          "requested_checkpoint_s": 19.5
+        },
+        {
+          "saved_state_index": 200,
+          "native_s": 20.000034114956218,
+          "nearest_trace_native_s": 20.000034114956218,
+          "phase": "release",
+          "recomputed_counts": {
+            "source": 3,
+            "receiver": 175,
+            "outside_including_flight": 62
+          },
+          "source_mouth_world_m": [
+            0.37543841371971454,
+            0.33182325274449653,
+            0.014907425822022223
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5458588556581019,
+            0.23076823385527606,
+            0.0041789156521363
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5458583230491184,
+            0.2307683022839551,
+            0.09117891565047909
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.17043455142712122,
+            0.10103110144940346,
+            0.010729632957265317
+          ],
+          "source_mouth_center_radial_offset_m": 0.19812930066056278,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.19923556511707885,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 90.00435028676772,
+          "source_mouth_height_above_receiver_mouth_m": -0.07627036704273468,
+          "requested_checkpoint_s": 20.0
+        },
+        {
+          "saved_state_index": 230,
+          "native_s": 23.000351655611205,
+          "nearest_trace_native_s": 23.000351655611205,
+          "phase": "released_settle",
+          "recomputed_counts": {
+            "source": 2,
+            "receiver": 175,
+            "outside_including_flight": 63
+          },
+          "source_mouth_world_m": [
+            0.37545390178951843,
+            0.33184307722206724,
+            0.014910653944622826
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.5733340808175429,
+            0.2791393141384935,
+            0.0017085269276220204
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.573335105549082,
+            0.27913932611072534,
+            0.08870852692158628
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.19788079219196103,
+            0.052702042856922815,
+            0.013199803532421237
+          ],
+          "source_mouth_center_radial_offset_m": 0.20477869332479634,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.2081140283377381,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 90.00254832694664,
+          "source_mouth_height_above_receiver_mouth_m": -0.07380019646757875,
+          "requested_checkpoint_s": 23.0
+        }
+      ],
+      "retained_source_cohort_at_feedback_end": {
+        "snapshot": {
+          "saved_state_index": 150,
+          "native_s": 15.001930758714483,
+          "nearest_trace_native_s": 15.001930758714483,
+          "phase": "untilt",
+          "recomputed_counts": {
+            "source": 64,
+            "receiver": 175,
+            "outside_including_flight": 1
+          },
+          "source_mouth_world_m": [
+            0.5102136106633711,
+            0.2624124888627179,
+            0.2833618158530857
+          ],
+          "actual_receiver_body_origin_world_m": [
+            0.57397765657084,
+            0.2804382405081647,
+            0.0009605883974418618
+          ],
+          "actual_receiver_mouth_center_world_m": [
+            0.5739633726212364,
+            0.2804109160159413,
+            0.08796058293388369
+          ],
+          "source_mouth_in_receiver_frame_m": [
+            -0.06373889877856857,
+            -0.01786150354786513,
+            0.2824173401454529
+          ],
+          "source_mouth_center_radial_offset_m": 0.066194263546738,
+          "source_projected_rim_max_radius_in_receiver_frame_m": 0.07440973068236735,
+          "receiver_inner_radius_m": 0.042,
+          "source_axis_tilt_from_world_up_deg": 15.126824195549258,
+          "source_mouth_height_above_receiver_mouth_m": 0.1954173401454529
+        },
+        "stable_original_particle_indices": [
+          2,
+          14,
+          16,
+          19,
+          21,
+          23,
+          24,
+          29,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          42,
+          45,
+          51,
+          53,
+          55,
+          59,
+          60,
+          61,
+          70,
+          72,
+          79,
+          83,
+          85,
+          86,
+          92,
+          96,
+          100,
+          104,
+          113,
+          118,
+          122,
+          131,
+          133,
+          134,
+          139,
+          140,
+          141,
+          144,
+          149,
+          154,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          172,
+          184,
+          185,
+          191,
+          192,
+          193,
+          201,
+          207,
+          210,
+          214,
+          217,
+          227,
+          235,
+          236
+        ],
+        "initial_count": 64,
+        "final_native_s": 23.000351655611205,
+        "final_partition": {
+          "source": 2,
+          "receiver": 0,
+          "outside": 62
+        },
+        "identity_evidence": "Original DFSPH x[i] index; hash grid does not reorder x",
+        "identity_limit": "Originalfixed240arrayindices; no spawned/deleted particles or archive interpolation. Not a reconstructed contact trajectory."
+      },
+      "first_any_outside_record": {
+        "native_s": 10.301303478777273,
+        "phase": "tilt",
+        "counts": {
+          "source_count": 238,
+          "receiver_count": 0,
+          "spill_count": 2
+        }
+      },
+      "last_untilt": {
+        "native_s": 15.001930758714483,
+        "counts": {
+          "source_count": 64,
+          "receiver_count": 175,
+          "spill_count": 1
+        }
+      },
+      "first_postfeedback_outside_increase": {
+        "native_s": 19.3601295542948,
+        "phase": "release",
+        "counts": {
+          "source_count": 63,
+          "receiver_count": 175,
+          "spill_count": 2
+        }
+      },
+      "last_learned_action": {
+        "native_s": 14.99193075871448,
+        "executed_object_frame_twist": [
+          -0.03180805733806405,
+          0.1284150098078805,
+          0.07210798934483856,
+          0.01927266102254698,
+          0.1,
+          -0.08441261431154524
+        ],
+        "actual_anchor_position_m": [
+          0.5070177547107038,
+          0.26169243909621354,
+          0.2731499966624349
+        ],
+        "command_position_m": [
+          0.5072109226601573,
+          0.2626927265914375,
+          0.27230631214676354
+        ]
+      },
+      "interpretation": "At end-of-feedback64particles remained in source,175receiver,1outside; the stable-indexcohort has2source/0receiver/62outside at final. Thus62of63finaloutside are residualsource released later, not direct missed capture during primary pour. Receiver count stayed175. Phase chronology/source-mouth geometry and saved coarse states support post-pour handling/release loss; they do not identify contact/bounce/through-wall cause or exclude delayed effects of earlier perturbation. Finaloutside is the original benchmark region classifier, includes any flight.",
+      "design_decision_needed": "Method owner must decide how to address incomplete discharge plus post-feedback residual-liquid handling/release. No teacher/control/tilt/recovery change or extra rollout was tested."
+    },
+    "flexiv": {
+      "phase_count_table": [
+        {
+          "phase": "settle",
+          "first_native_s": 0.01,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 0.5012543825290043,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "approach",
+          "first_native_s": 0.5112543825290043,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 2.5012543825289506,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "close",
+          "first_native_s": 2.5112543825289495,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 3.500111343801128,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "lift",
+          "first_native_s": 3.510111343801127,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 5.500111343800908,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "loaded_hold",
+          "first_native_s": 5.510111343800907,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 6.500111343800798,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "transfer",
+          "first_native_s": 6.510111343800797,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 8.5001113438008,
+          "last": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          }
+        },
+        {
+          "phase": "tilt",
+          "first_native_s": 8.510111343800803,
+          "first": {
+            "source_count": 240,
+            "receiver_count": 0,
+            "spill_count": 0
+          },
+          "last_native_s": 11.000210732298443,
+          "last": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          }
+        },
+        {
+          "phase": "pour_hold",
+          "first_native_s": 11.010241646240281,
+          "first": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          },
+          "last_native_s": 12.50036471607212,
+          "last": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          }
+        },
+        {
+          "phase": "untilt",
+          "first_native_s": 12.510535865075385,
+          "first": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          },
+          "last_native_s": 15.00004645165093,
+          "last": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          }
+        },
+        {
+          "phase": "return_above_source",
+          "first_native_s": 15.01015023843106,
+          "first": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          },
+          "last_native_s": 16.04034311103157,
+          "last": {
+            "source_count": 0,
+            "receiver_count": 232,
+            "spill_count": 8
+          }
+        }
+      ],
+      "arrival_trigger": {
+        "native_s": 10.534584732260782,
+        "native_step": 5711,
+        "phase": "tilt",
+        "unique_rim_crossings": 109,
+        "event": "ACTUAL_RECEIVER_OCCUPANCY_10PCT_NATIVE_CROSSING",
+        "previous_receiver_count": 22,
+        "previous_native_s": 10.534175183436687,
+        "source_count": 131,
+        "receiver_count": 24
+      },
+      "pulses": [
+        {
+          "index": 0,
+          "original_wall_clock_start_s": 9.8736820886732,
+          "scheduled_start_s": 10.534584732260782,
+          "nominal_duration_s": 0.12,
+          "scheduled_end_s": 10.654584732260782,
+          "force_xy_N": [
+            -1.8913757333826395,
+            0.6501521630905203
+          ],
+          "actual_first_start_s": 10.534584732260782,
+          "actual_last_end_s": 10.65485172198058,
+          "completed_applied_steps": 299,
+          "applied_duration_s": 0.12026698971979677,
+          "impulse_xy_Ns": [
+            -0.227470065883003,
+            0.0781918435147112
+          ],
+          "nominal_interval_elapsed": true,
+          "applied_at_least_once": true,
+          "start_lateness_s": 0.0,
+          "duration_error_s": 0.000266989719796773,
+          "duration_within_one_maximum_native_step": true,
+          "overlap_with_observed_bulk_landing_window_s": 0.12026698971979677
+        }
+      ],
+      "original_failure": "Unreachable Flexiv object-centric pose [0.4836100303783379, 0.18938817260048438, 0.2422590393446703]",
+      "FF_full_task_limits": {
+        "records": 10279,
+        "control_intervals": 650,
+        "all_finite": true,
+        "native_time_range_s": [
+          8.5001113438008,
+          14.99920535989933
+        ],
+        "maximum_hold_formula_error_rad": 8.881784197001252e-16,
+        "maximum_desired_rate_formula_error_rad_s": 0.0,
+        "ctrl_saturated_axis_applications": 4671,
+        "max_abs_actual_ctrl_clip_delta_rad": 12.316803099538282,
+        "max_abs_desired_joint_velocity_rad_s": 86.04752659909825,
+        "max_abs_velocity_ff_position_offset_rad": 13.829066774855077,
+        "nominal_outside_physical_joint_axis_applications": 4671,
+        "ff_recomputed_in_apply": false,
+        "measurement_finite_and_hold_formula_consistent": true,
+        "scope": "Force readback is before newctrl evaluation; clipping flags, FF contribution and desired joint rates kept separate. This is not measured servo dynamics."
+      },
+      "active_window_actuation_limits": {
+        "by_phase": {
+          "transfer": {
+            "apply_records": 1,
+            "ctrl_saturated_axis_applications": 0,
+            "noninitial_observed_force_at_limit_axis_applications": 0,
+            "force_hit_rows": 0,
+            "force_hit_first_native_s": null,
+            "force_hit_last_native_s": null,
+            "ctrl_clip_first_native_s": null,
+            "ctrl_clip_last_native_s": null,
+            "max_abs_desired_joint_velocity_rad_s": 0.3081735680936948
+          },
+          "tilt": {
+            "apply_records": 3241,
+            "ctrl_saturated_axis_applications": 3077,
+            "noninitial_observed_force_at_limit_axis_applications": 5358,
+            "force_hit_rows": 1284,
+            "force_hit_first_native_s": 10.760578648939642,
+            "force_hit_last_native_s": 11.000210732298443,
+            "ctrl_clip_first_native_s": 10.710173168812911,
+            "ctrl_clip_last_native_s": 11.000210732298443,
+            "max_abs_desired_joint_velocity_rad_s": 86.04752659909825
+          },
+          "pour_hold": {
+            "apply_records": 3792,
+            "ctrl_saturated_axis_applications": 1594,
+            "noninitial_observed_force_at_limit_axis_applications": 3271,
+            "force_hit_rows": 1217,
+            "force_hit_first_native_s": 11.000546029441644,
+            "force_hit_last_native_s": 11.577141909237518,
+            "ctrl_clip_first_native_s": 11.000546029441644,
+            "ctrl_clip_last_native_s": 11.63991926514309,
+            "max_abs_desired_joint_velocity_rad_s": 81.8335403447561
+          },
+          "untilt": {
+            "apply_records": 3245,
+            "ctrl_saturated_axis_applications": 0,
+            "noninitial_observed_force_at_limit_axis_applications": 77,
+            "force_hit_rows": 27,
+            "force_hit_first_native_s": 12.99132238419545,
+            "force_hit_last_native_s": 13.021233639599807,
+            "ctrl_clip_first_native_s": null,
+            "ctrl_clip_last_native_s": null,
+            "max_abs_desired_joint_velocity_rad_s": 3.3478732259075077
+          }
+        },
+        "noninitial_observed_force_at_limit_axis_applications": 8706,
+        "force_observation_scope": "Existingforcebeforeeachnewctrl; act/jointenabledlimitflagsunionperaxis, tolerance1e-6. Fullworldalreadyadvanced8.5s; componentzeroctrlinitialization is not present here.",
+        "phase_scope": "Phaseatnearestnextsavedtrace; not a newnativeobservation or causalforce model."
+      },
+      "tube_to_EE_active_window_readback": {
+        "samples": 650,
+        "exact_time_trace_matches": 650,
+        "first_native_s": 8.5001113438008,
+        "last_native_s": 14.99076792918071,
+        "first_relative_position_m": [
+          -0.002270026162412733,
+          1.6520863324538382e-05,
+          0.0766944280211909
+        ],
+        "last_relative_position_m": [
+          -0.03779537648731139,
+          -0.00020702982778868285,
+          0.08483404177378948
+        ],
+        "max_relative_position_change_from_first_m": 0.04249715120616591,
+        "terminal_relative_position_change_from_first_m": 0.03644658835418984,
+        "first_relative_quaternion_xyzw": [
+          -0.9998563184998631,
+          0.016106214109982017,
+          -0.005285070779646606,
+          1.580499993553071e-05
+        ],
+        "last_relative_quaternion_xyzw": [
+          -0.969867751634785,
+          0.004824861850793422,
+          -0.2435703726911751,
+          0.0025958802148627704
+        ],
+        "max_relative_orientation_change_from_first_rad": 0.5650281668831405,
+        "terminal_relative_orientation_change_from_first_rad": 0.48205320001449864,
+        "minimum_reported_tube_robot_contact_count": 10,
+        "zero_contact_samples": 0,
+        "source": "ExistingexacttimeTraceEEframepositions+learningnativefreejointquaternion+actualanchorquaternion;0FK/0optimization/0newnative.",
+        "interpretation": "Relativeposechange/contactloss can show gripper-object relative motion; compliance, slip,release/contact cause require care. Not a uniquelyidentified cause of task failure."
+      },
+      "last_accepted_IK": {
+        "native_s": 16.03014124666022,
+        "accepted": true,
+        "requested_position_m": [
+          0.4838164039953297,
+          0.19078545566429309,
+          0.2423871238625353
+        ],
+        "requested_quaternion_xyzw": [
+          0.9899945608487938,
+          0.06277210879783647,
+          0.1262210511539918,
+          -0.006219171364272125
+        ],
+        "actual_ee_position_before_m": [
+          0.4311648257652062,
+          0.26715374482834553,
+          0.20605768716547837
+        ],
+        "actual_position_error_before_m": 0.09961993902172703,
+        "actual_orientation_error_before_rad": 0.40729491148367275,
+        "actual_arm_q_before": [
+          1.790945276245716,
+          -1.1985548296364414,
+          1.6974713839427955,
+          -1.9209923389384076,
+          -1.5696584382298442,
+          0.16547758149546454,
+          1.2929943782082323
+        ],
+        "prior_nominal_q": [
+          1.6707291802772515,
+          -1.8214397093383379,
+          1.2825894241741493,
+          -1.9247999999999974,
+          -1.3543580663962997,
+          -0.11855008509886918,
+          1.2698139100047223
+        ],
+        "prior_nominal_tracking_error_rad": [
+          -0.12021609596846461,
+          -0.6228848797018964,
+          -0.41488195976864617,
+          -0.0038076610615898066,
+          0.21530037183354445,
+          -0.2840276665943337,
+          -0.02318046820350994
+        ],
+        "actual_physical_joint_margin_rad": [
+          1.0888547237542838,
+          1.1576451703635584,
+          1.3568286160572045,
+          0.0338076610615925,
+          1.4846415617701558,
+          1.6489775814954646,
+          1.7613056217917678
+        ],
+        "nominal_q_after": [
+          1.6672476548744888,
+          -1.824680492093893,
+          1.2794003088323413,
+          -1.9247999999999998,
+          -1.3536980153620528,
+          -0.12429665517830009,
+          1.2676952409326365
+        ],
+        "diagnostic": {
+          "position_error_m": 0.0001431757576959006,
+          "orientation_error_rad": 0.01389012827710532,
+          "weighted_objective_residual": [
+            0.0025159008413666584,
+            0.0011045400763159963,
+            0.0008061967582051466,
+            -0.004152897786637649,
+            -0.013254776630640104,
+            4.232118924220214e-09,
+            -3.4815254027626973e-06,
+            -3.240782755555172e-06,
+            -3.189115341807991e-06,
+            -2.4424906541753442e-18,
+            6.600510342469335e-07,
+            -5.7465700794309125e-06,
+            -2.118669072085799e-06
+          ],
+          "nfev": 17,
+          "maximum_joint_delta_rad": 0.005746570079430913,
+          "minimum_buffered_joint_margin_rad": 2.220446049250313e-16,
+          "q": [
+            1.6672476548744888,
+            -1.824680492093893,
+            1.2794003088323413,
+            -1.9247999999999998,
+            -1.3536980153620528,
+            -0.12429665517830009,
+            1.2676952409326365
+          ]
+        },
+        "live_state_unchanged_by_solve": true,
+        "error": null
+      },
+      "rejected_IK": {
+        "native_s": 16.04034311103157,
+        "accepted": false,
+        "requested_position_m": [
+          0.4836100303783379,
+          0.18938817260048438,
+          0.2422590393446703
+        ],
+        "requested_quaternion_xyzw": [
+          0.9897460874592543,
+          0.06297741746257803,
+          0.12804590206447636,
+          -0.006385468920691738
+        ],
+        "actual_ee_position_before_m": [
+          0.4250159318786225,
+          0.2725772582391565,
+          0.20406473046565854
+        ],
+        "actual_position_error_before_m": 0.1086853144593971,
+        "actual_orientation_error_before_rad": 0.4452200343807995,
+        "actual_arm_q_before": [
+          1.787863562486359,
+          -1.2254244346685639,
+          1.6750958618025278,
+          -1.9217307120054925,
+          -1.5280573134568092,
+          0.10756353292381624,
+          1.2872285826749563
+        ],
+        "prior_nominal_q": [
+          1.6672476548744888,
+          -1.824680492093893,
+          1.2794003088323413,
+          -1.9247999999999998,
+          -1.3536980153620528,
+          -0.12429665517830009,
+          1.2676952409326365
+        ],
+        "prior_nominal_tracking_error_rad": [
+          -0.12061590761187024,
+          -0.5992560574253292,
+          -0.39569555297018644,
+          -0.0030692879945073415,
+          0.17435929809475637,
+          -0.23186018810211634,
+          -0.0195333417423198
+        ],
+        "actual_physical_joint_margin_rad": [
+          1.091936437513641,
+          1.130775565331436,
+          1.3792041381974722,
+          0.03306928799450759,
+          1.5262426865431908,
+          1.5910635329238163,
+          1.7670714173250437
+        ],
+        "nominal_q_after": null,
+        "diagnostic": {
+          "position_error_m": 0.00020876417740444086,
+          "orientation_error_rad": 0.020302481684636633,
+          "weighted_objective_residual": [
+            0.0036695787754414955,
+            0.001602541074571806,
+            0.0011828129277619004,
+            -0.006028938555711656,
+            -0.019386661972770232,
+            2.0088007060928537e-09,
+            -3.664963313243952e-06,
+            -3.5606775141445725e-06,
+            -3.4021381002797836e-06,
+            0.0,
+            7.138564178470475e-07,
+            -6.08445252814073e-06,
+            -2.19656330138851e-06
+          ],
+          "nfev": 13,
+          "maximum_joint_delta_rad": 0.00608445252814073,
+          "minimum_buffered_joint_margin_rad": 2.220446049250313e-16,
+          "q": [
+            1.6635826915612448,
+            -1.8282411696080376,
+            1.2759981707320616,
+            -1.9247999999999998,
+            -1.3529841589442058,
+            -0.13038110770644082,
+            1.265498677631248
+          ]
+        },
+        "live_state_unchanged_by_solve": true,
+        "error": "Unreachable Flexiv object-centric pose [0.4836100303783379, 0.18938817260048438, 0.2422590393446703]"
+      },
+      "last_accepted_to_rejected_request_change": {
+        "dt_s": 0.010201864371349956,
+        "requested_position_delta_m": [
+          -0.00020637361699182843,
+          -0.0013972830638087075,
+          -0.0001280845178650014
+        ],
+        "requested_position_delta_norm_m": 0.0014182368186990665,
+        "requested_orientation_delta_rad": 0.0037210898373818187
+      },
+      "feedback_to_return_phase_boundary": {
+        "last_active_feedback": {
+          "native_s": 14.99076792918071,
+          "accepted": true,
+          "requested_position_m": [
+            0.49913329264795236,
+            0.2855712737669871,
+            0.25340255130540373
+          ],
+          "requested_quaternion_xyzw": [
+            0.9976769440976418,
+            0.0670844524165608,
+            0.011744412234920665,
+            0.0015685156095519737
+          ],
+          "actual_ee_position_before_m": [
+            0.4987022044724008,
+            0.2851381994150724,
+            0.25348095881467003
+          ],
+          "actual_position_error_before_m": 0.0006160666740670498,
+          "actual_orientation_error_before_rad": 0.0007729157534056527,
+          "actual_arm_q_before": [
+            1.7243162553255933,
+            -0.8681613702510778,
+            2.012402580210828,
+            -1.7706700481358728,
+            -2.2694720268477617,
+            0.48690594875788323,
+            1.727289577285921
+          ],
+          "prior_nominal_q": [
+            1.7239999073651082,
+            -0.8676233255458926,
+            2.01206323249523,
+            -1.7707159141187498,
+            -2.269772316896911,
+            0.486362986874773,
+            1.7270352485881413
+          ],
+          "prior_nominal_tracking_error_rad": [
+            -0.00031634796048507496,
+            0.0005380447051851478,
+            -0.0003393477155979596,
+            -4.5865982877035805e-05,
+            -0.0003002900491493321,
+            -0.0005429618831102601,
+            -0.00025432869777963774
+          ],
+          "actual_physical_joint_margin_rad": [
+            1.1554837446744066,
+            1.488038629748922,
+            1.041897419789172,
+            0.18412995186412728,
+            0.7848279731522383,
+            1.9704059487578833,
+            1.327010422714079
+          ],
+          "nominal_q_after": [
+            1.7228684844450348,
+            -0.8688892369237713,
+            2.013305150193331,
+            -1.7687474223527255,
+            -2.269405394328376,
+            0.4862722485787511,
+            1.7284584670625125
+          ],
+          "diagnostic": {
+            "position_error_m": 3.2725266533883e-11,
+            "orientation_error_rad": 2.871057573544243e-09,
+            "weighted_objective_residual": [
+              -5.292244420473935e-10,
+              -3.277245141930507e-10,
+              2.0222601371244764e-10,
+              1.0769267730185992e-09,
+              2.2483670414558724e-09,
+              -1.424094787244329e-09,
+              -1.1314229200733994e-06,
+              -1.2659113778786812e-06,
+              1.2419176981008917e-06,
+              1.968491766024316e-06,
+              3.669225685349886e-07,
+              -9.073829602185279e-08,
+              1.423218474371213e-06
+            ],
+            "nfev": 11,
+            "maximum_joint_delta_rad": 0.001968491766024316,
+            "minimum_buffered_joint_margin_rad": 0.15605257764727454,
+            "q": [
+              1.7228684844450348,
+              -0.8688892369237713,
+              2.013305150193331,
+              -1.7687474223527255,
+              -2.269405394328376,
+              0.4862722485787511,
+              1.7284584670625125
+            ]
+          },
+          "live_state_unchanged_by_solve": true,
+          "error": null
+        },
+        "first_scripted_return": {
+          "native_s": 15.00004645165093,
+          "accepted": true,
+          "requested_position_m": [
+            0.49891432904461097,
+            0.28579210645848174,
+            0.2533611793849373
+          ],
+          "requested_quaternion_xyzw": [
+            0.9976503449231671,
+            0.06747718693544595,
+            0.01174431844358692,
+            0.0016399702010465624
+          ],
+          "actual_ee_position_before_m": [
+            0.4989143290905316,
+            0.2857921067531622,
+            0.2533611794125032
+          ],
+          "actual_position_error_before_m": 2.9950818160626945e-10,
+          "actual_orientation_error_before_rad": 7.585573128529406e-10,
+          "actual_arm_q_before": [
+            1.7235761814937507,
+            -0.8688921403145473,
+            2.0133045534054195,
+            -1.768994248172917,
+            -2.269467544069529,
+            0.4863962809432843,
+            1.7282387175911247
+          ],
+          "prior_nominal_q": [
+            1.7228684844450348,
+            -0.8688892369237713,
+            2.013305150193331,
+            -1.7687474223527255,
+            -2.269405394328376,
+            0.4862722485787511,
+            1.7284584670625125
+          ],
+          "prior_nominal_tracking_error_rad": [
+            -0.0007076970487158718,
+            2.9033907760211974e-06,
+            5.967879115331698e-07,
+            0.0002468258201915319,
+            6.214974115303917e-05,
+            -0.00012403236453317756,
+            0.00021974947138780898
+          ],
+          "actual_physical_joint_margin_rad": [
+            1.1562238185062492,
+            1.4873078596854525,
+            1.0409954465945805,
+            0.18580575182708303,
+            0.7848324559304709,
+            1.9698962809432843,
+            1.3260612824088753
+          ],
+          "nominal_q_after": [
+            1.7235734265775435,
+            -0.8688776086226789,
+            2.0133175513239734,
+            -1.768998474692042,
+            -2.269483812348675,
+            0.4864067576920956,
+            1.728248813774118
+          ],
+          "diagnostic": {
+            "position_error_m": 7.47283703499868e-12,
+            "orientation_error_rad": 7.973700110105303e-10,
+            "weighted_objective_residual": [
+              1.401612159668275e-10,
+              5.1284532176509856e-11,
+              -7.877032359715486e-12,
+              1.2383453637521136e-11,
+              -7.698393304669642e-10,
+              2.0734750975383558e-10,
+              7.049421325087124e-07,
+              1.1628301092359017e-08,
+              1.240113064238102e-08,
+              -2.5105233931643767e-07,
+              -7.841802029906476e-08,
+              1.3450911334450534e-07,
+              -2.096532883943958e-07
+            ],
+            "nfev": 5,
+            "maximum_joint_delta_rad": 0.0007049421325087124,
+            "minimum_buffered_joint_margin_rad": 0.1558015253079581,
+            "q": [
+              1.7235734265775435,
+              -0.8688776086226789,
+              2.0133175513239734,
+              -1.768998474692042,
+              -2.269483812348675,
+              0.4864067576920956,
+              1.728248813774118
+            ]
+          },
+          "live_state_unchanged_by_solve": true,
+          "error": null
+        },
+        "request_jump": {
+          "dt_s": 0.009278522470220096,
+          "requested_position_delta_m": [
+            -0.0002189636033413933,
+            0.00022083269149464346,
+            -4.137192046643756e-05
+          ],
+          "requested_position_delta_norm_m": 0.0003137256333551606,
+          "requested_orientation_delta_rad": 0.0008001342087023382
+        }
+      },
+      "acceptance_rule": "Originalnoninitiallocal:positionerror<.001m,orientationerror<.02rad; jointboundsbuffered.03rad; one warmstart,100maxnfev unchanged.",
+      "interpretation": "Failure occurs during scripted return after650feedback/pendingnextobs. Last accepted orientationresidual.013890rad rises to.020302rad, just exceeding original.02gate; positionresidual.0002088m remains within1mm. The attemptedsolution is at joint4bufferedlowerbound, while actualjoint4 has~.03307rad physicalmargin. A bounded local IK rejection is not a proof that the requested pose has no globally valid solution. FulltaskFF saturation precedes this failure; chronology alone does not establish unique causality.",
+      "design_decision_needed": "Method owner must decide whether return trajectory/joint feasibility and high desired-rate/saturation need a separately designed candidate. No new solver, rate clip, trajectory, gain or retry was applied."
+    }
+  },
+  "video_visual_readback": "Viewedframe120(native~12s)and230(URterminal23s/Flexstopped16.040s). Overviewpartlyoccludesgripper/source/stream duringpour; quantitative partitions supported by rawtrace/particles, not videoalone.",
+  "supplement_figures": {
+    "failure_timeline": {
+      "image": "failure_timeline.png",
+      "pdf": "failure_timeline.pdf",
+      "source": "plot_failure_timeline.py",
+      "scope": "Closed sampled CSV and IKjournal only;0native/FK/optimization; UR counts include flight until container entry."
+    },
+    "failure_keyframes": {
+      "image": "failure_keyframes.png",
+      "pdf": "failure_keyframes.pdf",
+      "metadata": "failure_keyframes_metadata.json",
+      "scope": "Exactly3savedstates/nointerpolation/nochangedmaterial/0native;12.0019,15.0019,19.4002s. Final62outsidecohort is from23.00035s, notallalreadyoutsideat19.4s."
+    }
+  }
+}

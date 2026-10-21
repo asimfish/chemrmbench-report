@@ -1,0 +1,76 @@
+{
+  "registered_utc": "2026-10-20T22:57:27.216343+00:00",
+  "flat_physical_modules": [
+    {
+      "source": "task.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    },
+    {
+      "source": "flow_trigger.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    },
+    {
+      "source": "corridor_motion.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    },
+    {
+      "source": "observed_history.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    },
+    {
+      "source": "controller_factory.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    },
+    {
+      "source": "objective_solve.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    },
+    {
+      "source": "verify_delay.py",
+      "equal_to_actual_anchor": true,
+      "equal_to_snapshot": true
+    }
+  ],
+  "shared": [
+    {
+      "live_source": "f_tier/A01/pour_runner.py",
+      "frozen_copy": "source_snapshot/shared/f_tier/A01/pour_runner.py",
+      "equal_to_actual_anchor_frozen": true
+    },
+    {
+      "live_source": "f_tier/A01/pour_fluid.py",
+      "frozen_copy": "source_snapshot/shared/f_tier/A01/pour_fluid.py",
+      "equal_to_actual_anchor_frozen": true
+    },
+    {
+      "live_source": "auto_repro_dfsph_r4.py",
+      "frozen_copy": "source_snapshot/shared/auto_repro_dfsph_r4.py",
+      "equal_to_actual_anchor_frozen": true
+    },
+    {
+      "live_source": "f_tier/A04/coupled_moving_receiver/flexiv_task.py",
+      "frozen_copy": "source_snapshot/shared/f_tier/A04/coupled_moving_receiver/flexiv_task.py",
+      "equal_to_actual_anchor_frozen": true
+    },
+    {
+      "live_source": "f_tier/A04/coupled_moving_receiver/expert_task.py",
+      "frozen_copy": "source_snapshot/shared/f_tier/A04/coupled_moving_receiver/expert_task.py",
+      "equal_to_actual_anchor_frozen": true
+    },
+    {
+      "live_source": "auto_repro_bc_dagger_r1.py",
+      "frozen_copy": "source_snapshot/shared/auto_repro_bc_dagger_r1.py",
+      "equal_to_actual_anchor_frozen": true
+    }
+  ],
+  "configuration_byte_equal": true,
+  "learner_single_candidate_change": "Reviewed held standard Kv*qdot_des position-servo feedforward on actual-anchor; helper snapshot exact. No teacher/task/IK/control-rate/physics changes.",
+  "source_entry": "Controlled import of parent learner.main; original task.py stays at original path depth so task.R/import semantics remain unchanged.",
+  "hashes_generated": false
+}

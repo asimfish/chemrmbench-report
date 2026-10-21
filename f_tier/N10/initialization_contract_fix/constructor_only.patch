@@ -1,0 +1,11 @@
+--- framework_dispatch_fix/native.py
++++ initialization_contract_fix/native.py
+@@ -70,7 +70,7 @@
+  spoon_root=spoon_geometry.author(stage,'/World/Spoon');initial_origin=path[0]['point_m'];UsdGeom.Xformable(spoon_root).AddTranslateOp().Set(Gf.Vec3d(*initial_origin));spoon=RigidObject(RigidObjectCfg(prim_path='/World/Spoon',spawn=None,init_state=RigidObjectCfg.InitialStateCfg(pos=tuple(initial_origin))))
+  assert stage.GetPrimAtPath('/World/Panda/panda_hand').IsValid()
+  mount=UsdPhysics.FixedJoint.Define(stage,'/World/ReadyMountedUtensil');mount.CreateBody0Rel().SetTargets(['/World/Panda/panda_hand']);mount.CreateBody1Rel().SetTargets(['/World/Spoon']);mount.CreateLocalPos0Attr(Gf.Vec3f(0,0,.1034));mount.CreateLocalPos1Attr(Gf.Vec3f(0));mount.CreateLocalRot0Attr(Gf.Quatf(0,Gf.Vec3f(1,0,0)));mount.CreateLocalRot1Attr(Gf.Quatf(1,Gf.Vec3f(0)));mount.CreateCollisionEnabledAttr(False)
+- spacing=.0014256;powder=PowderSystem('stock',PowderCfg(pos=(.38-39*spacing/2,-.07-34*spacing/2,.0812),volume=(39*spacing,34*spacing,7*spacing)),SimpleNamespace());powder.create(stage,Sdf.Path('/physicsScene'),'/World/Powder');assert len(powder.positions)==11200
++ spacing=.0014256;powder=PowderSystem('stock',PowderCfg(pos=(.38,-.07,.0812+7*spacing/2),volume=(39*spacing,34*spacing,7*spacing)),SimpleNamespace());powder.create(stage,Sdf.Path('/physicsScene'),'/World/Powder');assert len(powder.positions)==11200
+  for prim in stage.Traverse():
+   if prim.HasAPI(UsdPhysics.RigidBodyAPI):PhysxSchema.PhysxRigidBodyAPI.Apply(prim).CreateSolverVelocityIterationCountAttr(8)
+  sim.reset();robot.write_joint_state_to_sim(robot.data.default_joint_pos.clone(),robot.data.default_joint_vel.clone());robot.reset()

@@ -1,0 +1,283 @@
+{
+  "status": "PURE_USD_INITIAL_GEOMETRY_AND_KNOWN_MASS_PASS_NOT_NATIVE",
+  "created_utc": "2026-10-20T21:24:40.967760+00:00",
+  "native_steps": 0,
+  "Kit_instances": 0,
+  "GPU_jobs": 0,
+  "F_audits": 0,
+  "cases": [
+    {
+      "case": "empty",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        0.0,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "particle_count": 0
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.0024525,
+        "increment_from_empty_m": 0.0,
+        "required_spring_force_N": 0.14715,
+        "natural_angular_frequency_rad_s": 36.51483716701107,
+        "damping_ratio": 1.0954451150103324
+      }
+    },
+    {
+      "case": "rigid_700mg",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        0.2,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "authored_rigid_mass_kg": 0.000699999975040555,
+        "known_total_kg": 0.0007,
+        "initial_eight_corner_containment": {
+          "inside_count": 8,
+          "minimum_rest_envelope_margin_m": 0.0030000000000000022
+        }
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.002795849999999999,
+        "increment_from_empty_m": 0.00034335,
+        "required_spring_force_N": 0.154017,
+        "natural_angular_frequency_rad_s": 35.691530512412484,
+        "damping_ratio": 1.0707459153723746
+      }
+    },
+    {
+      "case": "rigid_1500mg",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        0.4,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "authored_rigid_mass_kg": 0.001500000013038516,
+        "known_total_kg": 0.0015,
+        "initial_eight_corner_containment": {
+          "inside_count": 8,
+          "minimum_rest_envelope_margin_m": 0.0030000000000000022
+        }
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.0031882499999999992,
+        "increment_from_empty_m": 0.0007357500000000001,
+        "required_spring_force_N": 0.161865,
+        "natural_angular_frequency_rad_s": 34.81553119113956,
+        "damping_ratio": 1.044465935734187
+      }
+    },
+    {
+      "case": "rigid_3000mg",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        0.6000000000000001,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "authored_rigid_mass_kg": 0.003000000026077032,
+        "known_total_kg": 0.003,
+        "initial_eight_corner_containment": {
+          "inside_count": 8,
+          "minimum_rest_envelope_margin_m": 0.0030000000000000022
+        }
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.0039239999999999995,
+        "increment_from_empty_m": 0.0014715000000000002,
+        "required_spring_force_N": 0.17658,
+        "natural_angular_frequency_rad_s": 33.333333333333336,
+        "damping_ratio": 1.0
+      }
+    },
+    {
+      "case": "PBD_700mg",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        0.8,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "particle_count": 700,
+        "particle_mass_kg": 1e-06,
+        "known_total_kg": 0.0007,
+        "correct_CENTER_argument_m": [
+          0.8,
+          0.0,
+          0.09767680000000001
+        ],
+        "volume_argument_m": [
+          0.012830399999999999,
+          0.012830399999999999,
+          0.0085536
+        ],
+        "exact_original_postinit_lower_m": [
+          0.7935848000000001,
+          -0.006415199999999999,
+          0.09340000000000001
+        ],
+        "lower_world_m": [
+          0.7935848000000001,
+          -0.006415199999999999,
+          0.09340000000000001
+        ],
+        "upper_world_m": [
+          0.8064152000000001,
+          0.006415199999999999,
+          0.1019536
+        ],
+        "initial_rest_envelope": {
+          "inside_count": 700,
+          "minimum_rest_envelope_margin_m": 0.0022872000000000023
+        }
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.002795849999999999,
+        "increment_from_empty_m": 0.00034335,
+        "required_spring_force_N": 0.154017,
+        "natural_angular_frequency_rad_s": 35.691530512412484,
+        "damping_ratio": 1.0707459153723746
+      }
+    },
+    {
+      "case": "PBD_1500mg",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        1.0,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "particle_count": 1500,
+        "particle_mass_kg": 1e-06,
+        "known_total_kg": 0.0015,
+        "correct_CENTER_argument_m": [
+          1.0,
+          0.0,
+          0.0998152
+        ],
+        "volume_argument_m": [
+          0.0199584,
+          0.012830399999999999,
+          0.012830399999999999
+        ],
+        "exact_original_postinit_lower_m": [
+          0.9900208,
+          -0.006415199999999999,
+          0.09340000000000001
+        ],
+        "lower_world_m": [
+          0.9900208,
+          -0.006415199999999999,
+          0.09340000000000001
+        ],
+        "upper_world_m": [
+          1.0099792,
+          0.006415199999999999,
+          0.1062304
+        ],
+        "initial_rest_envelope": {
+          "inside_count": 1500,
+          "minimum_rest_envelope_margin_m": 0.0022872000000000023
+        }
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.0031882499999999992,
+        "increment_from_empty_m": 0.0007357500000000001,
+        "required_spring_force_N": 0.161865,
+        "natural_angular_frequency_rad_s": 34.81553119113956,
+        "damping_ratio": 1.044465935734187
+      }
+    },
+    {
+      "case": "PBD_3000mg",
+      "authored_platform_mass_kg": 0.009999999776482582,
+      "authored_dish_mass_kg": 0.004999999888241291,
+      "authored_dish_world_root_m": [
+        1.2000000000000002,
+        0.0,
+        0.08800000000000001
+      ],
+      "known_payload_contract": {
+        "particle_count": 3000,
+        "particle_mass_kg": 1e-06,
+        "known_total_kg": 0.003,
+        "correct_CENTER_argument_m": [
+          1.2000000000000002,
+          0.0,
+          0.0998152
+        ],
+        "volume_argument_m": [
+          0.0270864,
+          0.0199584,
+          0.012830399999999999
+        ],
+        "exact_original_postinit_lower_m": [
+          1.1864568000000002,
+          -0.0099792,
+          0.09340000000000001
+        ],
+        "lower_world_m": [
+          1.1864568000000002,
+          -0.0099792,
+          0.09340000000000001
+        ],
+        "upper_world_m": [
+          1.2135432000000002,
+          0.0099792,
+          0.1062304
+        ],
+        "initial_rest_envelope": {
+          "inside_count": 3000,
+          "minimum_rest_envelope_margin_m": 0.0022872000000000023
+        }
+      },
+      "ideal_linear_model_only": {
+        "equilibrium_joint_position_m": -0.0039239999999999995,
+        "increment_from_empty_m": 0.0014715000000000002,
+        "required_spring_force_N": 0.17658,
+        "natural_angular_frequency_rad_s": 33.333333333333336,
+        "damping_ratio": 1.0
+      }
+    }
+  ],
+  "case_count": 7,
+  "original_PBD_solver_position_iterations": 16,
+  "actual_original_constructor_AST_executed": true,
+  "framework": "Shared author_station actually ran with real UsdGeom/UsdPhysics in an in-memory stage. Exact public ParticleSystemCfg post-init body checked all3CENTER inputs. No simulation module imported.",
+  "model_only_limits": [
+    "Equilibria/damping are ideal analytic predictions, not observed convergence or metrology accuracy.",
+    "PureUSD cannot validate PhysX schema/runtime response; native remains disabled.",
+    "Unchanged original particle density1000 does not match particle mass/spacing. Existing declared source limitation retained.",
+    "Geometry and initial known mass do not establish correct PBD support-force transmission."
+  ],
+  "provenance": {
+    "geometry_author": "configuration.py::author_station",
+    "runtime_reuse": "clean_payload_metrology_framework_fix/native.py",
+    "original_constructor": "sources/matterix_public/source/matterix/matterix/particle_systems/particle_cfg.py::__post_init__",
+    "original_powder": "sources/matterix_public/source/matterix/matterix/particle_systems/powder_system.py",
+    "prior_instruments_unchanged": true
+  },
+  "readout_gain_kg_per_m": 2.038735983690112,
+  "exact_redesign": {
+    "platform": "1kg160\u00d7160\u00d710mm\u219210g60\u00d760\u00d76mm",
+    "dish": "Original300g beaker\u2192declared5g45\u00d735\u00d720mm inner dish,five2.4mm-wall/base boxes",
+    "spring": "k1000\u219220N/m,damping80\u21921.2Ns/m,maxforce100\u21922N,targetpreload.00981\u2192.004905m,travel unchanged\u00b120mm",
+    "readout": "Previously fitted100.25975kg/m replaced by physicalk/g=2.03873598369kg/m; nofit. Reference masses remain validation only.",
+    "cases": "Added independent1.5g rigid and PBD cases,7total,all pre-one-reset. DefaultPBD16/material/dx/mass unchanged."
+  }
+}

@@ -1,0 +1,887 @@
+{
+  "status": "OFFLINE_TEMPORAL_CONTRACT_REGRESSION_PASS",
+  "utc": "2026-10-20T20:36:54.075383+00:00",
+  "scope": "Candidate timing selector only; no native dynamics or policy evaluation",
+  "episodes": 20,
+  "active_samples": 13000,
+  "fixtures": {
+    "identity_and_paired_basis": true,
+    "nearest_and_newer_tie": true,
+    "inclusive_exact_endpoints": true,
+    "failclosed_cases": 3,
+    "malformed_future_or_duplicate_rejected": 2,
+    "interpolated_frames": 0
+  },
+  "old_red": {
+    "actual_age": {
+      "n": 13000,
+      "min_s": 0.02000000000000668,
+      "p05_s": 0.02000000000000668,
+      "median_s": 0.03000000000001002,
+      "p95_s": 0.04065038785652879,
+      "max_s": 0.05177490488529024,
+      "mean_s": 0.03120113370727132
+    },
+    "over_40ms": 4403,
+    "under_20ms": 0,
+    "strict_bound_pass": false,
+    "above40ms_numeric_precision_context": {
+      "strict_double": 4403,
+      "excess_gt_1ns": 1168,
+      "excess_gt_1us": 1164,
+      "note": "Strict selector uses no expanding epsilon; sub-nanosecond double timestamp effects are reported separately from physical sampling lag."
+    }
+  },
+  "new_green": {
+    "actual_age": {
+      "n": 13000,
+      "min_s": 0.02000000000000668,
+      "p05_s": 0.02000000000000668,
+      "median_s": 0.03000000000001002,
+      "p95_s": 0.03093945063445069,
+      "max_s": 0.03999984968332804,
+      "mean_s": 0.027482690485574716
+    },
+    "strict_bounds_pass": true,
+    "all_timestamps_actually_recorded_and_past": true,
+    "active_failclosed_events": 0,
+    "timestamp_changes": 4815,
+    "stored_pair_identity_checks": 10753,
+    "selected_payload_not_archived": 2247,
+    "payload_identity_scope": "Fixture objects and exact actually archived observation/basis intersection only"
+  },
+  "effective_delay_distribution_change": {
+    "requested": {
+      "n": 13000,
+      "min_s": 0.02,
+      "p05_s": 0.02,
+      "median_s": 0.03,
+      "p95_s": 0.04,
+      "max_s": 0.04,
+      "mean_s": 0.029898461538461544
+    },
+    "old_minus_requested": {
+      "n": 13000,
+      "min_s": 6.678685382510707e-15,
+      "p05_s": 6.678685382510707e-15,
+      "median_s": 1.0019762797242038e-14,
+      "p95_s": 0.009934930778809033,
+      "max_s": 0.011935411353286157,
+      "mean_s": 0.0013026721688097812
+    },
+    "new_minus_requested": {
+      "n": 13000,
+      "min_s": -0.01145806225711695,
+      "p05_s": -0.009999999999989982,
+      "median_s": 6.678685382510707e-15,
+      "p95_s": 0.0009504095214149097,
+      "max_s": 0.011880997279040812,
+      "mean_s": -0.0024157710528868222
+    },
+    "exact_request_is_not_promised": true
+  },
+  "episodes_detail": [
+    {
+      "case_id": "ur5e_script_expert_56001",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_script_expert_56001/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04107327934566891,
+        "max_s": 0.05109503033187046,
+        "mean_s": 0.03172881281459455
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03147915162303095,
+        "max_s": 0.039979335062330534,
+        "mean_s": 0.02776891845950554
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.02989230769230769
+      },
+      "old_age_over_40ms": 222,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 256,
+      "available_exact_archived_pair_identity_checks": 530,
+      "selected_payload_not_archived": 120,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_old_BC3_56001",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_old_BC3_56001/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.049147440519458914,
+        "max_s": 0.050214826857370554,
+        "mean_s": 0.03153329962891735
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03909694690369951,
+        "max_s": 0.03999649633647273,
+        "mean_s": 0.027748476853455103
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.02989230769230769
+      },
+      "old_age_over_40ms": 222,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 245,
+      "available_exact_archived_pair_identity_checks": 531,
+      "selected_payload_not_archived": 119,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_script_expert_56001",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_script_expert_56001/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.040296161674926355,
+        "max_s": 0.05135943376496499,
+        "mean_s": 0.030907603068967546
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03064371584146004,
+        "max_s": 0.03997542792285991,
+        "mean_s": 0.027295352112002465
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.02989230769230769
+      },
+      "old_age_over_40ms": 223,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 234,
+      "available_exact_archived_pair_identity_checks": 543,
+      "selected_payload_not_archived": 107,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_old_BC3_56001",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_old_BC3_56001/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04020825176799168,
+        "max_s": 0.05012499603864562,
+        "mean_s": 0.030862892609164503
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03026967072782307,
+        "max_s": 0.03997173470285453,
+        "mean_s": 0.027129378148487347
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.02989230769230769
+      },
+      "old_age_over_40ms": 225,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 242,
+      "available_exact_archived_pair_identity_checks": 539,
+      "selected_payload_not_archived": 111,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_script_expert_56002",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_script_expert_56002/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04951300357487094,
+        "max_s": 0.05093598887790485,
+        "mean_s": 0.0316812500900819
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.039596634478699495,
+        "max_s": 0.039999097227646274,
+        "mean_s": 0.027950891310666703
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.0298
+      },
+      "old_age_over_40ms": 217,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 241,
+      "available_exact_archived_pair_identity_checks": 531,
+      "selected_payload_not_archived": 119,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_old_BC3_56002",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_old_BC3_56002/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04158938706989161,
+        "max_s": 0.05022579258701221,
+        "mean_s": 0.0312239607837954
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03164119051974356,
+        "max_s": 0.03999591537524516,
+        "mean_s": 0.027537571129032146
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.0298
+      },
+      "old_age_over_40ms": 217,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 239,
+      "available_exact_archived_pair_identity_checks": 532,
+      "selected_payload_not_archived": 118,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_script_expert_56002",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_script_expert_56002/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04023465389917149,
+        "max_s": 0.05043200132705472,
+        "mean_s": 0.030701717606982645
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030276120637730664,
+        "max_s": 0.03997904482410242,
+        "mean_s": 0.027186355203292423
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.0298
+      },
+      "old_age_over_40ms": 214,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 228,
+      "available_exact_archived_pair_identity_checks": 538,
+      "selected_payload_not_archived": 112,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_old_BC3_56002",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_old_BC3_56002/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04017907589357757,
+        "max_s": 0.050371201429030066,
+        "mean_s": 0.03071797401752451
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030270592911053384,
+        "max_s": 0.039986850940366025,
+        "mean_s": 0.02712151694401384
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.0298
+      },
+      "old_age_over_40ms": 218,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 233,
+      "available_exact_archived_pair_identity_checks": 541,
+      "selected_payload_not_archived": 109,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_script_expert_56003",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_script_expert_56003/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.048806656940619315,
+        "max_s": 0.05128248344690434,
+        "mean_s": 0.0318843003476214
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03908845816992992,
+        "max_s": 0.03999629236461644,
+        "mean_s": 0.027876911523393198
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030153846153846156
+      },
+      "old_age_over_40ms": 227,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 259,
+      "available_exact_archived_pair_identity_checks": 535,
+      "selected_payload_not_archived": 115,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_old_BC3_56003",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_old_BC3_56003/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04006178489419918,
+        "max_s": 0.05037274005212211,
+        "mean_s": 0.03105623109437333
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030256437097310938,
+        "max_s": 0.039975542716955914,
+        "mean_s": 0.027428149590132
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030153846153846156
+      },
+      "old_age_over_40ms": 224,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 235,
+      "available_exact_archived_pair_identity_checks": 545,
+      "selected_payload_not_archived": 105,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_script_expert_56003",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_script_expert_56003/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.040214829199609343,
+        "max_s": 0.050291057086557345,
+        "mean_s": 0.031209612342349292
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030359680738709115,
+        "max_s": 0.039953039024752,
+        "mean_s": 0.02747183151024272
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030153846153846156
+      },
+      "old_age_over_40ms": 227,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 242,
+      "available_exact_archived_pair_identity_checks": 546,
+      "selected_payload_not_archived": 104,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_old_BC3_56003",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_old_BC3_56003/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.040110046687499956,
+        "max_s": 0.05026752108510557,
+        "mean_s": 0.031161376096993102
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.0302071762500983,
+        "max_s": 0.03997935632148675,
+        "mean_s": 0.027445514303894084
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030153846153846156
+      },
+      "old_age_over_40ms": 222,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 241,
+      "available_exact_archived_pair_identity_checks": 543,
+      "selected_payload_not_archived": 107,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_script_expert_56004",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_script_expert_56004/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.049751302048253176,
+        "max_s": 0.05177490488529024,
+        "mean_s": 0.03157882291887727
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.039648341635700565,
+        "max_s": 0.03999697821956261,
+        "mean_s": 0.027725494593533503
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.029507692307692308
+      },
+      "old_age_over_40ms": 217,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 248,
+      "available_exact_archived_pair_identity_checks": 536,
+      "selected_payload_not_archived": 114,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_old_BC3_56004",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_old_BC3_56004/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04043173353037383,
+        "max_s": 0.05029509311350289,
+        "mean_s": 0.03068415746763212
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030624712584326638,
+        "max_s": 0.03999130494404746,
+        "mean_s": 0.02715136868952045
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.029507692307692308
+      },
+      "old_age_over_40ms": 206,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 229,
+      "available_exact_archived_pair_identity_checks": 538,
+      "selected_payload_not_archived": 112,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_script_expert_56004",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_script_expert_56004/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04028256634339095,
+        "max_s": 0.05050933527319046,
+        "mean_s": 0.03060301331829208
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03041280611210917,
+        "max_s": 0.03999214028741527,
+        "mean_s": 0.027097769724954427
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.029507692307692308
+      },
+      "old_age_over_40ms": 209,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 227,
+      "available_exact_archived_pair_identity_checks": 548,
+      "selected_payload_not_archived": 102,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_old_BC3_56004",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_old_BC3_56004/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04007816262987518,
+        "max_s": 0.05005901096570753,
+        "mean_s": 0.03044978592397188
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030187312291759305,
+        "max_s": 0.03997114929177137,
+        "mean_s": 0.027001927292286204
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.029507692307692308
+      },
+      "old_age_over_40ms": 205,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 224,
+      "available_exact_archived_pair_identity_checks": 550,
+      "selected_payload_not_archived": 100,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_script_expert_56005",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_script_expert_56005/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04915194508342626,
+        "max_s": 0.050444159108799624,
+        "mean_s": 0.03183984333718833
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03929341290449031,
+        "max_s": 0.03999830314891639,
+        "mean_s": 0.02796219986536307
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030138461538461538
+      },
+      "old_age_over_40ms": 228,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 251,
+      "available_exact_archived_pair_identity_checks": 529,
+      "selected_payload_not_archived": 121,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "ur5e_old_BC3_56005",
+      "archive": "flow_aligned_pilot/runs/ur5e/flow_old_BC3_56005/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04023724135574218,
+        "max_s": 0.050398378672193545,
+        "mean_s": 0.031153322745020456
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030419232087569446,
+        "max_s": 0.03999496062911412,
+        "mean_s": 0.02746665253108767
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030138461538461538
+      },
+      "old_age_over_40ms": 224,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 239,
+      "available_exact_archived_pair_identity_checks": 539,
+      "selected_payload_not_archived": 111,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_script_expert_56005",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_script_expert_56005/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04019541911037505,
+        "max_s": 0.050328122883231075,
+        "mean_s": 0.031180106655395654
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.030372435070121016,
+        "max_s": 0.03999817568061026,
+        "mean_s": 0.027430509532877637
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030138461538461538
+      },
+      "old_age_over_40ms": 223,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 243,
+      "available_exact_archived_pair_identity_checks": 531,
+      "selected_payload_not_archived": 119,
+      "active_no_eligible_frames": 0
+    },
+    {
+      "case_id": "flexiv_old_BC3_56005",
+      "archive": "flow_aligned_pilot/runs/flexiv/flow_old_BC3_56005/learning_data.npz",
+      "active_rows": 650,
+      "full_history_timestamp_rows": 2300,
+      "old": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.04968806558417951,
+        "max_s": 0.05079073145984658,
+        "mean_s": 0.031864591277683076
+      },
+      "new": {
+        "n": 650,
+        "min_s": 0.02000000000000668,
+        "p05_s": 0.02000000000000668,
+        "median_s": 0.03000000000001002,
+        "p95_s": 0.03968003173130965,
+        "max_s": 0.03999984968332804,
+        "mean_s": 0.02785702039375378
+      },
+      "requested": {
+        "n": 650,
+        "min_s": 0.02,
+        "p05_s": 0.02,
+        "median_s": 0.03,
+        "p95_s": 0.04,
+        "max_s": 0.04,
+        "mean_s": 0.030138461538461538
+      },
+      "old_age_over_40ms": 233,
+      "old_age_under_20ms": 0,
+      "changed_selected_timestamp": 259,
+      "available_exact_archived_pair_identity_checks": 528,
+      "selected_payload_not_archived": 122,
+      "active_no_eligible_frames": 0
+    }
+  ],
+  "output_columns": [
+    "native_s",
+    "requested_age_s",
+    "old_selected_native_s",
+    "old_actual_age_s",
+    "new_selected_native_s",
+    "new_actual_age_s",
+    "history_index",
+    "payload_available"
+  ],
+  "limitations": [
+    "All history timestamps were archived; instantaneous observation/basis payloads were not all saved.",
+    "New selected timestamps and ages are exact for the old recorded histories. Missing payloads are not reconstructed.",
+    "A future native rollout will visit changed states; this offline result is not a dynamics or task success claim.",
+    "The observed age distribution changes; exact requested20/30/40ms is not guaranteed.",
+    "Only setup/scripted phases may use the current frame; learned feedback fails closed when no eligible history frame exists."
+  ],
+  "new_native_steps": 0,
+  "new_GPU_contexts": 0,
+  "policy_updates": 0,
+  "formal_episodes": 0,
+  "candidate_compile_passed": true
+}

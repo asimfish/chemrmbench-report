@@ -1,0 +1,3952 @@
+{
+  "id": "C01b_SAFE_ABORT_BRANCH_NEGATIVE",
+  "pid": 2147420,
+  "device": "cuda:1",
+  "status": "BRANCH_NEGATIVE_CANDIDATE_PASS",
+  "protocol": {
+    "id": "C01b_SAFE_ABORT_BRANCH_NEGATIVE",
+    "status": "FROZEN_BEFORE_SINGLE_BRANCH_NEGATIVE",
+    "prepared_utc": "2026-10-20T20:33:46.632504+00:00",
+    "base_episode": "combined/upgrade/c01b_episode.py",
+    "base_frozen_protocol": "combined/upgrade/c01b_protocol.json",
+    "base_frozen_at_utc": "2026-10-19T12:38:02.021564+00:00",
+    "case": {
+      "id": "pose_00",
+      "seed": 170400,
+      "source_xy": [
+        0.49834,
+        0.08501
+      ],
+      "source_yaw_deg": -23.674,
+      "receiver_xy": [
+        0.59734,
+        -0.17583
+      ],
+      "receiver_yaw_deg": -7.072
+    },
+    "maximum_started": 1,
+    "retry_permitted": false,
+    "primary_positive_starts_added": 0,
+    "original_six_positive_denominator_immutable": true,
+    "F_review": false,
+    "physics_dt_s": 0.0033333333333333335,
+    "control_decimation": 5,
+    "render_interval_native_steps": 60,
+    "video_fps": 5,
+    "max_native_s": 25,
+    "world_owner": "Single MATTERIX IsaacLab native PhysX/PBD world and clock",
+    "fault": {
+      "open_fingers": "Same original C01b trigger: actual cup mesh bottom>=.05m over native table collider and dual-finger contact presence.",
+      "angular_disturbance": "After3 consecutive both-contact-loss samples, require cup bottom still>=.05m and support absent; apply exactlyone5-native-step pure local torque pulse.",
+      "local_axis": "Declared body local-X negative; no assumed away-from-receiver assertion.",
+      "inertia": "Actual runtime root_physx_view.get_inertias at COM, expressed body-prim frame,9column-major; no principal-frame rotation. Old inertias were not archived; no invented actual inertia.",
+      "formula": "t_free=(vz+sqrt(vz^2+2*9.81*h))/9.81; delta=5/300; w_goal=min(30,(pi/2)/(t_free-delta/2)); target_body_omega=(-w_goal,0,0); tau=I_body@(target-current_body_omega)/delta.",
+      "bounds": {
+        "clearance_m_min": 0.05,
+        "remaining_freefall_proxy_s_min": 0.05,
+        "torque_norm_Nm_max": 0.5,
+        "target_and_initial_rotational_energy_J_max": 0.15,
+        "angular_target_rad_s_max": 30,
+        "native_mass_kg_range": [
+          0.299,
+          0.301
+        ],
+        "inertia_eigenvalue_kg_m2_range_exclusive": [
+          1e-07,
+          0.005
+        ]
+      },
+      "invalid_preconditions": "Fail without impulse, retain attempt; never search/clip torque bounds/retry.",
+      "pulse_receipts": "Measure original source.write_data_to_sim return and composed torque buffer at EACH of5 native steps, actual callbacks/dt, integrated angular impulse, native omega before/after; explicitly zero permanent force/torque buffer after interval and in finally."
+    },
+    "drop_verifier": {
+      "loss_streak_control_steps": 3,
+      "loss_threshold_N_presence_only": 0.001,
+      "fall_displacement_m_min": 0.005,
+      "stable_linear_speed_m_s_max": 0.01,
+      "stable_angular_speed_rad_s_max": 0.1,
+      "stable_duration_s_min": 0.25,
+      "post_loss_observation_s_min": 0.5,
+      "upright_tilt_deg_max": 10.0,
+      "spill_particles_for_recovery_max": 0,
+      "drop_observation_budget_s": 6.0
+    },
+    "expected_negative": "Original stable-fall diagnosis tilt>10deg OR any classified spill -> SAFE_ABORT. Hold sameEE/openfingers1native second with native pose/particles/command/video evidence; no regrasp/pour/heater.",
+    "branch_not_triggered": "Stable upright/no-spill after pulse -> BRANCH_NOT_TRIGGERED failure and same hold, never continue workflow. No new attempt.",
+    "physical_state_writes": "Original initialization only; no mid-episode pose, velocity, particle, material, mass, inertia or collision writes. Pure external torque is the sole new physical perturbation.",
+    "differences": [
+      "One explicit physical disturbance branch-coverage negative, not original-author robustness protocol, learned policy, seventh positive or statistical success estimate.",
+      "Original PBD/materials/125particles/robot/chemistry/clock and C01b stable verifier retained. Absolute GPU contact forces used for presence only, never calibrated weight.",
+      "Ballistic/inertia pulse model is an approximation and does not guarantee tipping. Runtime actual observation alone determines branch outcome.",
+      "Original6 positives and supported no-recovery negative remain untouched; no F re-audit or retroactive denominator/threshold change."
+    ],
+    "perturbation_validity_sanity_gate": {
+      "registered_utc": "2026-10-20T20:38:26.004844+00:00",
+      "finite_native_angular_response": true,
+      "projected_negative_body_X_angular_speed_increase_rad_s_min": 1.0,
+      "formula": "omega_after_body=R_actual_postpulse.T@omega_after_world; increase=(-omega_after_body_x)-(-omega_before_body_x)>=1rad/s",
+      "record": "Actual native pre-body omega, post-world omega, post-body omega and actual postpulse cup pose/rotation. No additional physics step.",
+      "scope": "Sanity response only; never exact predictedomega agreement or causal attribution. Failed/nonfinite response stops as failed negative, no retry."
+    },
+    "frozen_at_utc": "2026-10-20T20:40:24.433154+00:00",
+    "launch_authorization": "Root approved max1 resource-admitted negative after native angular-response sanity addition; no seventh positive/no F re-audit."
+  },
+  "skill_origin": {
+    "engine": "Original public MATTERIX FluidSystem / native PhysX PBD",
+    "fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+    "material_and_render_defaults": "FluidCfg defaults, original anisotropy+smoothing+isosurface ON; no density, mass, contact-offset, cohesion, viscosity, friction or surface-tension modification",
+    "pose_scope": "Fixed supported tabletop SE(2) x/y/yaw poses; not unsupported full SO(3) orientations",
+    "cases": [
+      {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      }
+    ],
+    "negative": "No tilt for pose_00; same pick, transport, hold and return primitives, omitting commanded tilt; arrival-dependent phase durations reported separately",
+    "controller": "Original HSM Move/Open/Close with side pick (20deg downward approach, EE grasp z=-20mm), native double-finger contact and mouth/table clearance verification, plus observed-cup-pose tilt feedback: local graspX axis (grasp frame rotated90deg about objectZ, negative tilt sign; perpendicular to finger closing axis),5degree waypoints held200ms, actual115+/-2deg about a fixed world mouth-center pivot then observed return (lift100mm, high translation, vertical descent); mouth pivot70mm above receiving mouth,15mm upstream along flow; orientation slip diagnostic only,15mm translation and sustained lift-loss guard. Dynamic cups, no weld/kinematic target/mid-episode object writes",
+    "fluid_initialization": "Original create_particles_grid with volume(0.020,0.020,0.020)m inside native scale1 beaker; default particle_mass1e-6kg and density1000 retained despite their known mismatch",
+    "observer": "Original get_current_pos_vel (PointInstancer positions); smoothing may shift display points. Gross wall gate only, not raw solver or subparticle penetration.",
+    "development_scope": "Controller tuned only on pose00, which is included in fixed10; not a held-out generalization estimate.",
+    "local_thresholds": {
+      "receiver_fraction_min": 0.5,
+      "spill_fraction_max": 0.1,
+      "boundary_ambiguous_fraction_max": 0.05,
+      "mass_accounting_relative_error_max": 0.01,
+      "gross_wall_leak_band_m": 0.004,
+      "gross_wall_leak_count_max": 0,
+      "physical_lift_min_m": 0.05,
+      "grasp_position_drift_max_m": 0.015,
+      "grasp_rotation_drift_diagnostic_only": true,
+      "grasp_azimuth_offset_deg": 90.0,
+      "tilt_sign": -1.0,
+      "mouth_pivot_above_receiver_m": 0.07,
+      "actual_tilt_target_deg": 115.0,
+      "tilt_waypoint_deg": 5.0,
+      "waypoint_hold_s": 0.2,
+      "final_source_position_error_max_m": 0.02,
+      "negative_receiver_fraction_max": 0.01,
+      "aggregate_min_successes": 1
+    },
+    "native_physics_dt_s": 0.0033333333333333335,
+    "control_decimation": 5,
+    "video_fps": 15,
+    "all_attempts_reported": true
+  },
+  "skill_origin_scope": "Original motion-template provenance only; this separate one-pose branch-negative protocol governs the actual physical fault. No primary six-positive workflow or inherited no-tilt control is executed.",
+  "attempts": [
+    {
+      "case": {
+        "id": "pose_00",
+        "seed": 170400,
+        "source_xy": [
+          0.49834,
+          0.08501
+        ],
+        "source_yaw_deg": -23.674,
+        "receiver_xy": [
+          0.59734,
+          -0.17583
+        ],
+        "receiver_yaw_deg": -7.072
+      },
+      "negative": true,
+      "success": false,
+      "full_native_robot_workflow": false,
+      "failure": "SAFE_ABORT_TIPPED_OR_SPILLED",
+      "native_s": 12.96666698064655,
+      "events_simulation_s": {
+        "observed_source_lift50mm_s": 7.833333523012698,
+        "fault_open_planned_s": 8.350000202190131,
+        "native_contact_loss_detected_s": 8.40000020340085,
+        "torque_pulse_start_s": 8.40000020340085,
+        "torque_pulse_end_s": 8.41666687047109,
+        "native_fall_detected_s": 8.41666687047109,
+        "drop_diagnosis_s": 11.966666956432164,
+        "irreversible_monitor_block_s": 11.966666956432164,
+        "post_abort_observation_stop_s": 12.96666698064655
+      },
+      "event_observation_resolution_s": 0.016666666666666666,
+      "native_physics_steps": 3890,
+      "wall_s": 158.33268444001442,
+      "max_clock_error_s": 3.1397988387027453e-07,
+      "max_lift_m": 0.09231933951377869,
+      "pick_verification": {
+        "both_finger_contact_frames_over0.1N_last12": 12,
+        "mouth_disk_tool_triangle_clearance_m": 0.013940048246587112,
+        "minimum_tool_table_gap_m": 0.00917172727492397
+      },
+      "min_observed_tool_mesh_table_gap_m": 0.00917172727492397,
+      "max_observed_source_tilt_deg": 149.81280762027788,
+      "observation_archive": "combined/upgrade/safe_abort_negative/run/pose_00_observations.npz",
+      "max_grasp_position_drift_m": 0.0,
+      "max_grasp_rotation_drift_rad": 0.0,
+      "final_source_position_error_m": 0.24830159544944763,
+      "final_source_upright_angle_rad": 1.5347443761628694,
+      "particle_count": 125,
+      "parameter_total_mass_kg": 0.000125,
+      "fractions": {
+        "source": 0.0,
+        "receiver": 0.0,
+        "boundary_ambiguous": 0.0,
+        "transit": 0.0,
+        "spill_near_table": 1.0,
+        "outside_unresolved": 0.0
+      },
+      "spill_fraction": 1.0,
+      "gross_wall_leak_count": 3,
+      "source_gross_leak_count": 3,
+      "receiver_gross_leak_count": 0,
+      "mass_accounting_relative_error": 0.0,
+      "particle_count_max_error": 0,
+      "all_particle_states_finite": true,
+      "drop_diagnosis": {
+        "upright": false,
+        "cup_tilt_deg": 87.93417117882214,
+        "source_particles": 0,
+        "spill_particles": 125,
+        "particle_count": 125,
+        "native_pose_xyzw": [
+          0.4214794337749481,
+          -0.15067526698112488,
+          0.023769231513142586,
+          0.548527717590332,
+          0.425550639629364,
+          0.09012684226036072,
+          -0.7140734195709229
+        ],
+        "speed_m_s": 0.0011627257335931063,
+        "angular_speed_rad_s": 0.012328471057116985,
+        "fall_m": 0.10639269649982452,
+        "decision": "SAFE_ABORT_TIPPED_OR_SPILLED"
+      },
+      "fault_cup_bottom_clearance_m": 0.09623974172048161,
+      "recovery_native_s": null,
+      "safety_abort": true,
+      "command_timing": {
+        "planned_commands": 778,
+        "applied_commands": 778,
+        "observed_effect_commands": 778,
+        "unobserved_effect_commands": 0,
+        "not_applied_commands": 0,
+        "max_scheduling_lateness_s": 0.0,
+        "heater_receipts": []
+      },
+      "thermal_effective_parameters": {
+        "thermal": {
+          "heater_loss": 0.0018940304291075578,
+          "heater_beaker": 0.011130410263196461,
+          "heater_forcing": 2.250874192021891,
+          "heater_gain": 0.05004165726229912,
+          "beaker_heater": 0.5050316129536182,
+          "beaker_solution": 0.0,
+          "beaker_loss": 0.06313764201149275,
+          "solution_beaker": 0.35437291360608536,
+          "solution_loss": 0.03544692966142632,
+          "inferred_calibration_setpoint_C": 69.98000895980871,
+          "contact_on_s": 8.148,
+          "coefficients_are_conductance_over_heat_capacity": true,
+          "individual_author_heat_capacities_and_conductances_not_identified": true
+        },
+        "kinetics": {
+          "log_rate_at_333_15K": -5.976995327879881,
+          "beta_Ea_over_R_K": 11374.543721292637,
+          "rate_units": "inverse source concentration-state unit per second",
+          "not_original_author_A_or_Ea": true,
+          "optimizer_success": true,
+          "fitted_only_to": "fig5a_1.csv"
+        }
+      },
+      "native_clock": {
+        "callbacks": 3890,
+        "sum_dt_s": 12.96666698064655,
+        "dt_values_s": [
+          0.0033333334140479565
+        ]
+      },
+      "combined_gates": {
+        "single_native_clock": true,
+        "physical_grasp": true,
+        "contact_failure_recovery": false,
+        "verified_fluid_transfer": false,
+        "contact_gated_heat_and_stop": false
+      },
+      "fault_state": "safe_abort_observe",
+      "fault_precontact_verified": true,
+      "max_lost_streak": 3,
+      "max_recovered_streak": 0,
+      "heat_observations": [],
+      "command_object_frame_roundtrip_max_abs": 5.960464477539063e-08,
+      "thermal_model": "Declared N07 effective model at40C, not original author parameters",
+      "final_solution_C": 25.0,
+      "final_heater_on": false,
+      "post_initialization_environment_resets": 0,
+      "post_initialization_object_pose_writes": 0,
+      "attachments": false,
+      "branch_negative_success": true,
+      "branch_gates": {
+        "native_angular_response": true,
+        "native_clock": true,
+        "initial_physical_grasp": true,
+        "airborne_post_release_impulse": true,
+        "actual_native_fall": true,
+        "irreversible_native_diagnosis": true,
+        "post_block_observations": true,
+        "command_fence": true,
+        "no_regrasp_pour_or_heater": true,
+        "fixed_finite_particles": true,
+        "zero_wrench_after_pulse": true
+      },
+      "physical_torque_pulse": {
+        "inertia_body_COM_kg_m2": [
+          [
+            0.0001779757731128484,
+            2.8430352472241793e-07,
+            -1.523780497336702e-07
+          ],
+          [
+            2.8430352472241793e-07,
+            0.0001781970204319805,
+            1.5229295513563557e-07
+          ],
+          [
+            -1.5237810657708906e-07,
+            1.5229295513563557e-07,
+            0.0001358096778858453
+          ]
+        ],
+        "inertia_eigenvalues_kg_m2": [
+          0.0001358085726530367,
+          0.00017778239760854732,
+          0.00017839150116909008
+        ],
+        "original_omega_body_rad_s": [
+          -0.02520884216737906,
+          0.04504312490115272,
+          -0.025836707815439033
+        ],
+        "target_omega_body_rad_s": [
+          -19.07470799541005,
+          0.0,
+          0.0
+        ],
+        "target_angle_freeflight_proxy_rad": 1.5707963267948968,
+        "torque_body_Nm": [
+          -0.20342196492463427,
+          -0.0008063073391926227,
+          0.000384284509659523
+        ],
+        "angular_impulse_body_Nms": [
+          -0.003390366082077238,
+          -1.3438455653210378e-05,
+          6.404741827658716e-06
+        ],
+        "force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pulse_native_steps": 5,
+        "pulse_duration_s": 0.016666666666666666,
+        "actual_clearance_m": 0.08372277341237083,
+        "actual_vertical_velocity_m_s": -0.4784461259841919,
+        "remaining_fall_time_proxy_s": 0.09068302524855833,
+        "target_rotational_energy_J": 0.032377751765163505,
+        "initial_rotational_energy_J": 2.820505801173298e-07,
+        "API_coordinates": "pure torque about COM, body-prim/local axes; inertia9 column-major, no additional principal-axis quaternion rotation",
+        "model_limits": "Ballistic rigid-body estimate, not a guaranteed final attitude or calibrated PBD two-way impulse model.",
+        "start_native_s": 8.40000020340085,
+        "start_native_callbacks": 2520,
+        "native_omega_world_before_rad_s": [
+          -0.00496710604056716,
+          0.051305171102285385,
+          -0.025980984792113304
+        ],
+        "native_velocity_before_m_s": [
+          -0.0013562600361183286,
+          0.0013686937745660543,
+          -0.4784461259841919
+        ],
+        "source_pose_xyzw_at_start": [
+          0.49949681758880615,
+          0.0849255919456482,
+          0.11768228560686111,
+          -0.002226399490609765,
+          0.0024308764841407537,
+          -0.20685164630413055,
+          0.9783667325973511
+        ],
+        "torque_axis_scope": "Declared local-X negative direction only; no assumed away-from-receiver property",
+        "native_dt_s": [
+          0.0033333334140479565,
+          0.0033333334140479565,
+          0.0033333334140479565,
+          0.0033333334140479565,
+          0.0033333334140479565
+        ],
+        "submissions": [
+          {
+            "native_callbacks_before": 2520,
+            "native_t_before_s": 8.40000020340085,
+            "force_body_N": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "torque_body_Nm": [
+              -0.2034219652414322,
+              -0.0008063073619268835,
+              0.000384284503525123
+            ],
+            "original_write_returned": true
+          },
+          {
+            "native_callbacks_before": 2521,
+            "native_t_before_s": 8.403333536814898,
+            "force_body_N": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "torque_body_Nm": [
+              -0.2034219652414322,
+              -0.0008063073619268835,
+              0.000384284503525123
+            ],
+            "original_write_returned": true
+          },
+          {
+            "native_callbacks_before": 2522,
+            "native_t_before_s": 8.406666870228946,
+            "force_body_N": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "torque_body_Nm": [
+              -0.2034219652414322,
+              -0.0008063073619268835,
+              0.000384284503525123
+            ],
+            "original_write_returned": true
+          },
+          {
+            "native_callbacks_before": 2523,
+            "native_t_before_s": 8.410000203642994,
+            "force_body_N": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "torque_body_Nm": [
+              -0.2034219652414322,
+              -0.0008063073619268835,
+              0.000384284503525123
+            ],
+            "original_write_returned": true
+          },
+          {
+            "native_callbacks_before": 2524,
+            "native_t_before_s": 8.413333537057042,
+            "force_body_N": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "torque_body_Nm": [
+              -0.2034219652414322,
+              -0.0008063073619268835,
+              0.000384284503525123
+            ],
+            "original_write_returned": true
+          }
+        ],
+        "end_native_s": 8.41666687047109,
+        "end_native_callbacks": 2525,
+        "native_omega_world_after_rad_s": [
+          -17.431394577026367,
+          7.716503620147705,
+          0.07346958667039871
+        ],
+        "cleared_force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cleared_torque_body_Nm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "integrated_submitted_angular_impulse_body_Nms": [
+          -0.0033903661694528395,
+          -1.3438456357518699e-05,
+          6.404741880505611e-06
+        ],
+        "native_angular_response": {
+          "finite_native_response": true,
+          "before_omega_body_rad_s": [
+            -0.02520884216737906,
+            0.04504312490115272,
+            -0.025836707815439033
+          ],
+          "after_omega_world_rad_s": [
+            -17.431394577026367,
+            7.716503620147705,
+            0.07346958667039871
+          ],
+          "after_omega_body_rad_s": [
+            -19.063139989982815,
+            -0.0026355308520530384,
+            -0.005438400272547002
+          ],
+          "after_body_to_world_rotation": [
+            [
+              0.9143247341011473,
+              0.39646638947594065,
+              0.08261163735684077
+            ],
+            [
+              -0.4049610032685173,
+              0.8971220866975297,
+              0.17657448114386834
+            ],
+            [
+              -0.0041068774783715525,
+              -0.1949009070665966,
+              0.9808143402204088
+            ]
+          ],
+          "projected_negative_local_X_increase_rad_s": 19.037931147815435,
+          "minimum_increase_rad_s": 1.0,
+          "passed": true,
+          "scope": "Observed native response sanity; not exact predicted-omega agreement or attribution of later tip/spill to this torque alone."
+        },
+        "native_pose_xyzw_after_pulse": [
+          0.5001916885375977,
+          0.08656370639801025,
+          0.10791932046413422,
+          -0.09537859261035919,
+          0.022265512496232986,
+          -0.20577141642570496,
+          0.9736863970756531
+        ]
+      },
+      "post_abort_observations": [
+        {
+          "t_s": 11.983333623502403,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147886753082275,
+            -0.15067556500434875,
+            0.02376919984817505,
+            0.5485228300094604,
+            0.4255581200122833,
+            0.09013480693101883,
+            -0.7140718698501587
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93427382720138
+        },
+        {
+          "t_s": 12.000000290572643,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147937417030334,
+            -0.15067537128925323,
+            0.02376922406256199,
+            0.5485259294509888,
+            0.4255529046058655,
+            0.09012969583272934,
+            -0.714073121547699
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9341642567659
+        },
+        {
+          "t_s": 12.016666957642883,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214784502983093,
+            -0.15067575871944427,
+            0.023769304156303406,
+            0.548518180847168,
+            0.42556333541870117,
+            0.09014158695936203,
+            -0.7140714526176453
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93419992209495
+        },
+        {
+          "t_s": 12.033333624713123,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147693037986755,
+            -0.15067657828330994,
+            0.02376926690340042,
+            0.5485063195228577,
+            0.42558369040489197,
+            0.09016327559947968,
+            -0.7140657901763916
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9346869104541
+        },
+        {
+          "t_s": 12.050000291783363,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214770197868347,
+            -0.15067633986473083,
+            0.02376939170062542,
+            0.5485084056854248,
+            0.42558035254478455,
+            0.09015987813472748,
+            -0.7140664458274841
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93463620075848
+        },
+        {
+          "t_s": 12.066666958853602,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214778244495392,
+            -0.15067607164382935,
+            0.023769211024045944,
+            0.5485147833824158,
+            0.4255719780921936,
+            0.0901494026184082,
+            -0.7140678763389587
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93461987426937
+        },
+        {
+          "t_s": 12.083333625923842,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147719860076904,
+            -0.15067650377750397,
+            0.023769346997141838,
+            0.5485073924064636,
+            0.4255785346031189,
+            0.09015887975692749,
+            -0.7140684723854065
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93432825803453
+        },
+        {
+          "t_s": 12.100000292994082,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214783310890198,
+            -0.15067587792873383,
+            0.02376929298043251,
+            0.5485177636146545,
+            0.42556485533714294,
+            0.0901426374912262,
+            -0.7140707969665527
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93429085813047
+        },
+        {
+          "t_s": 12.116666960064322,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214786887168884,
+            -0.15067563951015472,
+            0.023769211024045944,
+            0.5485211610794067,
+            0.4255598187446594,
+            0.09013719856739044,
+            -0.7140718102455139
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93423183093702
+        },
+        {
+          "t_s": 12.133333627134562,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214783310890198,
+            -0.15067586302757263,
+            0.02376939170062542,
+            0.5485181212425232,
+            0.4255635142326355,
+            0.09014322608709335,
+            -0.7140711545944214
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93421226897851
+        },
+        {
+          "t_s": 12.150000294204801,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214780628681183,
+            -0.15067599713802338,
+            0.023769233375787735,
+            0.5485169887542725,
+            0.425567090511322,
+            0.09014519304037094,
+            -0.7140696048736572
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93442199574092
+        },
+        {
+          "t_s": 12.166666961275041,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147839069366455,
+            -0.15067581832408905,
+            0.023769212886691093,
+            0.5485193133354187,
+            0.42556318640708923,
+            0.09014052897691727,
+            -0.7140707969665527
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9343284763449
+        },
+        {
+          "t_s": 12.18333362834528,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214785397052765,
+            -0.1506757140159607,
+            0.023769337683916092,
+            0.5485206246376038,
+            0.42556115984916687,
+            0.09013909101486206,
+            -0.7140711545944214
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93429757015421
+        },
+        {
+          "t_s": 12.20000029541552,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214783310890198,
+            -0.15067584812641144,
+            0.023769265040755272,
+            0.5485185384750366,
+            0.42556387186050415,
+            0.09014131873846054,
+            -0.7140709161758423
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93429536002638
+        },
+        {
+          "t_s": 12.21666696248576,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214777946472168,
+            -0.1506761610507965,
+            0.02376927249133587,
+            0.548513650894165,
+            0.42557084560394287,
+            0.09014973044395447,
+            -0.7140695452690125
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93435382990684
+        },
+        {
+          "t_s": 12.233333629556,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147859930992126,
+            -0.1506756991147995,
+            0.023769233375787735,
+            0.5485205054283142,
+            0.42556124925613403,
+            0.09013837575912476,
+            -0.7140713334083557
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93428733492291
+        },
+        {
+          "t_s": 12.25000029662624,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214785397052765,
+            -0.15067583322525024,
+            0.02376924827694893,
+            0.5485188364982605,
+            0.42556262016296387,
+            0.09014176577329636,
+            -0.7140713930130005
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93420940867216
+        },
+        {
+          "t_s": 12.26666696369648,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214780628681183,
+            -0.15067605674266815,
+            0.023769237101078033,
+            0.5485153198242188,
+            0.4255680739879608,
+            0.0901469737291336,
+            -0.7140700817108154
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93430758557686
+        },
+        {
+          "t_s": 12.28333363076672,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147859930992126,
+            -0.1506756991147995,
+            0.023769227787852287,
+            0.5485204458236694,
+            0.4255610406398773,
+            0.09013840556144714,
+            -0.71407151222229
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9342584935559
+        },
+        {
+          "t_s": 12.30000029783696,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147985100746155,
+            -0.15067508816719055,
+            0.023769084364175797,
+            0.5485326647758484,
+            0.42554742097854614,
+            0.09012186527252197,
+            -0.7140722870826721
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93446980845088
+        },
+        {
+          "t_s": 12.3166669649072,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214796721935272,
+            -0.15067514777183533,
+            0.023769106715917587,
+            0.5485303997993469,
+            0.42554956674575806,
+            0.09012449532747269,
+            -0.7140724658966064
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93439037685782
+        },
+        {
+          "t_s": 12.333333631977439,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147931456565857,
+            -0.15067531168460846,
+            0.023769153282046318,
+            0.5485267639160156,
+            0.42555367946624756,
+            0.0901293084025383,
+            -0.7140721678733826
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93433693949522
+        },
+        {
+          "t_s": 12.350000299047679,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214775860309601,
+            -0.1506761610507965,
+            0.023769238963723183,
+            0.5485114455223083,
+            0.42557424306869507,
+            0.09015392512083054,
+            -0.714068591594696
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93441536238312
+        },
+        {
+          "t_s": 12.366666966117918,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214767813682556,
+            -0.1506766825914383,
+            0.0237694401293993,
+            0.5485036373138428,
+            0.4255826771259308,
+            0.09016437083482742,
+            -0.7140682339668274
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93425710369246
+        },
+        {
+          "t_s": 12.383333633188158,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147770524024963,
+            -0.15067622065544128,
+            0.023769356310367584,
+            0.54851233959198,
+            0.42557212710380554,
+            0.09015239030122757,
+            -0.7140693068504333
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93432548451302
+        },
+        {
+          "t_s": 12.400000300258398,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214784502983093,
+            -0.15067589282989502,
+            0.023769263178110123,
+            0.5485181212425232,
+            0.425563246011734,
+            0.09014273434877396,
+            -0.7140713930130005
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93418479021153
+        },
+        {
+          "t_s": 12.416666967328638,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214779734611511,
+            -0.15067611634731293,
+            0.023769201710820198,
+            0.5485149621963501,
+            0.4255688786506653,
+            0.09014755487442017,
+            -0.7140699028968811
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93433328570873
+        },
+        {
+          "t_s": 12.433333634398878,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214802086353302,
+            -0.1506747603416443,
+            0.02376917377114296,
+            0.5485349297523499,
+            0.4255415201187134,
+            0.09011577814817429,
+            -0.7140748500823975
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93417743269993
+        },
+        {
+          "t_s": 12.450000301469117,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214801788330078,
+            -0.15067492425441742,
+            0.02376924268901348,
+            0.5485327839851379,
+            0.42554372549057007,
+            0.0901191309094429,
+            -0.7140747904777527
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93412040143727
+        },
+        {
+          "t_s": 12.466666968539357,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214787483215332,
+            -0.15067559480667114,
+            0.023769158869981766,
+            0.5485219955444336,
+            0.42556053400039673,
+            0.09013698995113373,
+            -0.7140707969665527
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93440442354883
+        },
+        {
+          "t_s": 12.483333635609597,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147865891456604,
+            -0.1506756693124771,
+            0.023769134655594826,
+            0.5485218167304993,
+            0.42556169629096985,
+            0.09013843536376953,
+            -0.7140700817108154
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93449358546222
+        },
+        {
+          "t_s": 12.500000302679837,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214787781238556,
+            -0.15067563951015472,
+            0.02376917377114296,
+            0.5485223531723022,
+            0.4255606234073639,
+            0.09013698995113373,
+            -0.7140704393386841
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9344604750669
+        },
+        {
+          "t_s": 12.516666969750077,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214783012866974,
+            -0.15067584812641144,
+            0.023769158869981766,
+            0.5485186576843262,
+            0.42556625604629517,
+            0.09014298766851425,
+            -0.7140692472457886
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93453876197526
+        },
+        {
+          "t_s": 12.533333636820316,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.421478807926178,
+            -0.15067557990550995,
+            0.02376917004585266,
+            0.5485233068466187,
+            0.42556026577949524,
+            0.0901356190443039,
+            -0.7140700817108154
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93454642539663
+        },
+        {
+          "t_s": 12.550000303890556,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214792847633362,
+            -0.15067529678344727,
+            0.02376914769411087,
+            0.5485273003578186,
+            0.4255540072917938,
+            0.09012875705957413,
+            -0.7140717506408691
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93442689398653
+        },
+        {
+          "t_s": 12.566666970960796,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214792847633362,
+            -0.15067535638809204,
+            0.023769136518239975,
+            0.5485271215438843,
+            0.42555469274520874,
+            0.09013033658266068,
+            -0.7140711545944214
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93448120446594
+        },
+        {
+          "t_s": 12.583333638031036,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214794337749481,
+            -0.15067529678344727,
+            0.023769143968820572,
+            0.5485274791717529,
+            0.42555320262908936,
+            0.0901281014084816,
+            -0.714072048664093
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93438087545923
+        },
+        {
+          "t_s": 12.600000305101275,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214785695075989,
+            -0.15067565441131592,
+            0.02376927249133587,
+            0.5485199093818665,
+            0.42556241154670715,
+            0.0901397094130516,
+            -0.7140709161758423
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93432689937971
+        },
+        {
+          "t_s": 12.616666972171515,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214784801006317,
+            -0.15067574381828308,
+            0.023769158869981766,
+            0.5485203862190247,
+            0.42556461691856384,
+            0.09014054387807846,
+            -0.7140691876411438
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93459758406897
+        },
+        {
+          "t_s": 12.633333639241755,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214786887168884,
+            -0.15067565441131592,
+            0.023769117891788483,
+            0.548521876335144,
+            0.42556095123291016,
+            0.09013783931732178,
+            -0.7140705585479736
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93442810473287
+        },
+        {
+          "t_s": 12.650000306311995,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214787185192108,
+            -0.15067565441131592,
+            0.023769117891788483,
+            0.5485219955444336,
+            0.42556053400039673,
+            0.09013734757900238,
+            -0.714070737361908
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93440556495456
+        },
+        {
+          "t_s": 12.666666973382235,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147934436798096,
+            -0.15067532658576965,
+            0.02376922033727169,
+            0.5485268831253052,
+            0.425552636384964,
+            0.09012799710035324,
+            -0.7140729427337646
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93424387918262
+        },
+        {
+          "t_s": 12.683333640452474,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214786887168884,
+            -0.1506756991147995,
+            0.023769328370690346,
+            0.5485206246376038,
+            0.4255601167678833,
+            0.09013882279396057,
+            -0.7140717506408691
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93420046319821
+        },
+        {
+          "t_s": 12.700000307522714,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214785397052765,
+            -0.1506757140159607,
+            0.023769229650497437,
+            0.5485206842422485,
+            0.4255618453025818,
+            0.09013865888118744,
+            -0.7140708565711975
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93436393623118
+        },
+        {
+          "t_s": 12.716666974592954,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147892713546753,
+            -0.15067553520202637,
+            0.023769229650497437,
+            0.5485237836837769,
+            0.4255571961402893,
+            0.09013345837593079,
+            -0.7140718698501587
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93430270074579
+        },
+        {
+          "t_s": 12.733333641663194,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214792847633362,
+            -0.15067535638809204,
+            0.023769104853272438,
+            0.5485274195671082,
+            0.42555442452430725,
+            0.09012898057699203,
+            -0.7140712141990662
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9344958694196
+        },
+        {
+          "t_s": 12.750000308733433,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214787185192108,
+            -0.15067562460899353,
+            0.02376917190849781,
+            0.5485223531723022,
+            0.4255602955818176,
+            0.0901370495557785,
+            -0.7140706777572632
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93442448960496
+        },
+        {
+          "t_s": 12.766666975803673,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214785397052765,
+            -0.1506757289171219,
+            0.023769265040755272,
+            0.548520565032959,
+            0.42556169629096985,
+            0.09013884514570236,
+            -0.7140709161758423
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93434207430445
+        },
+        {
+          "t_s": 12.783333642873913,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.421478807926178,
+            -0.15067557990550995,
+            0.023769279941916466,
+            0.5485225915908813,
+            0.42555826902389526,
+            0.0901358351111412,
+            -0.7140717506408691
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93426498962387
+        },
+        {
+          "t_s": 12.800000309944153,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214784801006317,
+            -0.1506757289171219,
+            0.023769143968820572,
+            0.5485203266143799,
+            0.42556294798851013,
+            0.09014051407575607,
+            -0.714070200920105
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93442964515897
+        },
+        {
+          "t_s": 12.816666977014393,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.421478271484375,
+            -0.15067589282989502,
+            0.023769386112689972,
+            0.5485172867774963,
+            0.42556464672088623,
+            0.09014438092708588,
+            -0.7140710949897766
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93420834503829
+        },
+        {
+          "t_s": 12.833333644084632,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214782416820526,
+            -0.1506759375333786,
+            0.023769395425915718,
+            0.5485167503356934,
+            0.4255649149417877,
+            0.0901450365781784,
+            -0.7140712738037109
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93416630267602
+        },
+        {
+          "t_s": 12.850000311154872,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147764563560486,
+            -0.15067628026008606,
+            0.023769276216626167,
+            0.5485119223594666,
+            0.42557328939437866,
+            0.09015252441167831,
+            -0.7140688896179199
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93438865422748
+        },
+        {
+          "t_s": 12.866666978225112,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147910594940186,
+            -0.15067541599273682,
+            0.023769212886691093,
+            0.548525333404541,
+            0.4255548119544983,
+            0.0901310071349144,
+            -0.7140725255012512
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93425582410616
+        },
+        {
+          "t_s": 12.883333645295352,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147886753082275,
+            -0.15067556500434875,
+            0.023769300431013107,
+            0.5485230088233948,
+            0.425557404756546,
+            0.09013508260250092,
+            -0.7140719890594482
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93423716352261
+        },
+        {
+          "t_s": 12.900000312365592,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147961258888245,
+            -0.1506752222776413,
+            0.02376912534236908,
+            0.5485289096832275,
+            0.42555099725723267,
+            0.09012551605701447,
+            -0.714072585105896
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93434601586738
+        },
+        {
+          "t_s": 12.916666979435831,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147862911224365,
+            -0.15067563951015472,
+            0.023769265040755272,
+            0.5485206842422485,
+            0.4255618751049042,
+            0.09013888239860535,
+            -0.7140709161758423
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93435851145692
+        },
+        {
+          "t_s": 12.933333646506071,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.42147690057754517,
+            -0.15067657828330994,
+            0.023769410327076912,
+            0.5485044717788696,
+            0.4255819618701935,
+            0.09016331285238266,
+            -0.7140681743621826
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.9342905648885
+        },
+        {
+          "t_s": 12.95000031357631,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.421477347612381,
+            -0.1506761908531189,
+            0.023769337683916092,
+            0.5485111474990845,
+            0.4255760908126831,
+            0.09015429764986038,
+            -0.7140675783157349
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93456562451168
+        },
+        {
+          "t_s": 12.96666698064655,
+          "phase": "safe_abort_observation",
+          "command": [
+            0.49834001064300537,
+            0.08500999957323074,
+            0.11784258484840393,
+            0.4801509976387024,
+            -0.44809481501579285,
+            0.6857267022132874,
+            0.31375935673713684,
+            1.0
+          ],
+          "heater_on": false,
+          "source_pose_xyzw": [
+            0.4214782416820526,
+            -0.15067599713802338,
+            0.023769216611981392,
+            0.5485171675682068,
+            0.4255664646625519,
+            0.0901445597410202,
+            -0.7140700221061707
+          ],
+          "counts": {
+            "source": 0,
+            "receiver": 0,
+            "boundary_ambiguous": 0,
+            "transit": 0,
+            "spill_near_table": 125,
+            "outside_unresolved": 0
+          },
+          "tilt_deg": 87.93437538557085
+        }
+      ],
+      "post_abort_commands": [
+        {
+          "t_s": 11.966666956432164,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 11.983333623502403,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.000000290572643,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.016666957642883,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.033333624713123,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.050000291783363,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.066666958853602,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.083333625923842,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.100000292994082,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.116666960064322,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.133333627134562,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.150000294204801,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.166666961275041,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.18333362834528,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.20000029541552,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.21666696248576,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.233333629556,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.25000029662624,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.26666696369648,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.28333363076672,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.30000029783696,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.3166669649072,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.333333631977439,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.350000299047679,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.366666966117918,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.383333633188158,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.400000300258398,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.416666967328638,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.433333634398878,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.450000301469117,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.466666968539357,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.483333635609597,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.500000302679837,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.516666969750077,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.533333636820316,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.550000303890556,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.566666970960796,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.583333638031036,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.600000305101275,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.616666972171515,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.633333639241755,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.650000306311995,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.666666973382235,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.683333640452474,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.700000307522714,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.716666974592954,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.733333641663194,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.750000308733433,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.766666975803673,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.783333642873913,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.800000309944153,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.816666977014393,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.833333644084632,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.850000311154872,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.866666978225112,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.883333645295352,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.900000312365592,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.916666979435831,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.933333646506071,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        },
+        {
+          "t_s": 12.95000031357631,
+          "command": [
+            [
+              0.49834001064300537,
+              0.08500999957323074,
+              0.11784258484840393,
+              0.4801509976387024,
+              -0.44809481501579285,
+              0.6857267022132874,
+              0.31375935673713684,
+              1.0
+            ]
+          ],
+          "stage": "safe_abort_observe"
+        }
+      ],
+      "denominator_scope": "One explicit branch-coverage negative; never a seventh positive or a reset of original6 attempts",
+      "F_review_performed": false
+    }
+  ],
+  "video": "combined/upgrade/safe_abort_negative/run/video.mp4",
+  "run_scope": "ONE_branch_coverage_negative_NOT_primary_positive_or_F_review",
+  "primary_positive_episodes": 0,
+  "branch_negative_STARTED": 1,
+  "F_review_performed": false,
+  "full_reference_complete": false,
+  "differences": [
+    "Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.",
+    "Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.",
+    "Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.",
+    "Parameter mass bookkeeping, not a calibrated physical volume/density measurement.",
+    "Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.",
+    "Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim.",
+    "One explicit physical disturbance branch-coverage negative, not original-author robustness protocol, learned policy, seventh positive or statistical success estimate.",
+    "Original PBD/materials/125particles/robot/chemistry/clock and C01b stable verifier retained. Absolute GPU contact forces used for presence only, never calibrated weight.",
+    "Ballistic/inertia pulse model is an approximation and does not guarantee tipping. Runtime actual observation alone determines branch outcome.",
+    "Original6 positives and supported no-recovery negative remain untouched; no F re-audit or retroactive denominator/threshold change."
+  ],
+  "video_fps": 5,
+  "updated_utc": "2026-10-20T20:46:08.618273+00:00",
+  "render_interval_physics_steps": 60,
+  "rendering_scope": "5Hz native frame capture with render_interval60; approved rendering-only reduction from prior pose00 interval10. Physics300Hz/control60Hz and full native callbacks unchanged.",
+  "executed_fluid_source": "sources/matterix_public/source/matterix/matterix/particle_systems/fluid_system.py",
+  "observed_fluid_defaults": {
+    "particle_contact_offset": 0.004,
+    "particle_mass": 1e-06,
+    "density": 1000,
+    "cohesion": 0.01,
+    "viscosity": 0.0091,
+    "surface_tension": 0.074,
+    "friction": 0.01,
+    "cfl_coefficient": 1.0
+  },
+  "cavity": {
+    "center_xy_m": [
+      -0.0014681306442667554,
+      -4.187198044292451e-10
+    ],
+    "radius_m": 0.02099509527788676,
+    "bottom_z_m": -0.035657,
+    "top_z_m": 0.013797,
+    "radius_profile_z_r_m": [
+      [
+        -0.035657,
+        0.015235136316641524
+      ],
+      [
+        -0.034843,
+        0.018038963414332615
+      ],
+      [
+        -0.032658,
+        0.019949019132282548
+      ],
+      [
+        -0.030384,
+        0.020995096071841367
+      ],
+      [
+        0.013797,
+        0.02099509527788676
+      ]
+    ],
+    "scale": 1.0,
+    "ring_fit_max_residual_m": 9.259842542047592e-09,
+    "conservative_cavity_capacity_ml": 67.36443616506743,
+    "lower_wall_shape": "piecewise conical frusta fitted to inner mesh rings",
+    "excludes": "flared upper rim and spout; not a complete CAD capacity calibration"
+  },
+  "observed_render_defaults": {
+    "transparent": true,
+    "color_rgb": [
+      0.85,
+      0.92,
+      0.96
+    ],
+    "native_attributes": {
+      "fluidRestOffset": 0.0023759999312460423,
+      "particleContactOffset": 0.004000000189989805,
+      "physxParticleAnisotropy:max": 3.75,
+      "physxParticleAnisotropy:min": 0.75,
+      "physxParticleAnisotropy:particleAnisotropyEnabled": true,
+      "physxParticleAnisotropy:scale": 2.5,
+      "physxParticleIsosurface:gridFilteringPasses": "GS",
+      "physxParticleIsosurface:gridSmoothingRadius": 0.0023759999312460423,
+      "physxParticleIsosurface:gridSpacing": 0.0021383999846875668,
+      "physxParticleIsosurface:isosurfaceEnabled": true,
+      "physxParticleIsosurface:maxSubgrids": 4096,
+      "physxParticleIsosurface:maxTriangles": 2097152,
+      "physxParticleIsosurface:maxVertices": 1048576,
+      "physxParticleIsosurface:numMeshNormalSmoothingPasses": 8,
+      "physxParticleIsosurface:numMeshSmoothingPasses": 8,
+      "physxParticleIsosurface:surfaceDistance": 0.0022571999579668045,
+      "physxParticleSmoothing:particleSmoothingEnabled": true,
+      "physxParticleSmoothing:strength": 0.5,
+      "solverPositionIterationCount": 32
+    }
+  },
+  "recorded_joint_names": [
+    "panda_joint1",
+    "panda_joint2",
+    "panda_joint3",
+    "panda_joint4",
+    "panda_joint5",
+    "panda_joint6",
+    "panda_joint7",
+    "panda_finger_joint1",
+    "panda_finger_joint2"
+  ],
+  "recorded_tool_bodies": [
+    "panda_hand",
+    "panda_leftfinger",
+    "panda_rightfinger"
+  ],
+  "native_geometry": {
+    "beaker": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460350076,
+        -0.02493543177843094,
+        -0.03684258460998536
+      ],
+      "body_frame_mesh_max_m": [
+        0.02864864468574529,
+        0.024935431778430942,
+        0.022848461568355564
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    },
+    "beaker_2": {
+      "cfg_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "USD_root_to_PhysX_position_delta_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_root_scale_singular_values": [
+        1.0000000000000002,
+        1.0,
+        0.9999999999999999
+      ],
+      "frame_scope": "Consistent USD root rigid frame with scale retained; PhysX/USD snapshot position delta recorded separately",
+      "source_task_scale_override": false,
+      "body_frame_mesh_min_m": [
+        -0.026400813460349993,
+        -0.02493543177843095,
+        -0.036842584609985365
+      ],
+      "body_frame_mesh_max_m": [
+        0.028648644685745225,
+        0.024935431778430935,
+        0.02284846156835557
+      ],
+      "mesh_matches_cavity_input_max_abs_m": 5.898059818321144e-17,
+      "inner_diameter_m": 0.04199019055577352,
+      "conservative_inner_height_m": 0.049454
+    }
+  },
+  "PBD_rigid_filter_audit": {
+    "non_particle_collision_enabled": true,
+    "filter_relationships_targeting_particles": [],
+    "scope": "Collision eligibility only; no direct PBD particle-rigid contact-pair API is claimed. Read-only tool clearance uses the convexHull approximation authored on the original colliders; no claim of exact native cooked shape/contact-offset equality.",
+    "cup_contact_sensor_filters": [
+      "/World/envs/env_.*/Articulations_robot/panda_leftfinger",
+      "/World/envs/env_.*/Articulations_robot/panda_rightfinger",
+      "/World/envs/env_.*/StaticObjects_Infrastructure_table/Collisions/Cube"
+    ]
+  },
+  "native_mass_readout": {
+    "beaker": [
+      [
+        0.30000001192092896
+      ]
+    ],
+    "beaker_2": [
+      [
+        0.30000001192092896
+      ]
+    ]
+  },
+  "native_PBD_mass_density_attributes": {
+    "physics:density": 1000.0,
+    "physics:mass": 0.0001250000059371814
+  },
+  "lifecycle_scope": "One branch negative only; future approved launcher must create a detached child session. Python SIGTERM preserves partial raw and exits143; senderunknown, no ignore or retry.",
+  "branch_gates": {
+    "native_angular_response": true,
+    "native_clock": true,
+    "initial_physical_grasp": true,
+    "airborne_post_release_impulse": true,
+    "actual_native_fall": true,
+    "irreversible_native_diagnosis": true,
+    "post_block_observations": true,
+    "command_fence": true,
+    "no_regrasp_pour_or_heater": true,
+    "fixed_finite_particles": true,
+    "zero_wrench_after_pulse": true
+  },
+  "video_frames": 74,
+  "physical_episodes": 1,
+  "environment_owner": "MATTERIX only",
+  "physical_torque_pulse": {
+    "inertia_body_COM_kg_m2": [
+      [
+        0.0001779757731128484,
+        2.8430352472241793e-07,
+        -1.523780497336702e-07
+      ],
+      [
+        2.8430352472241793e-07,
+        0.0001781970204319805,
+        1.5229295513563557e-07
+      ],
+      [
+        -1.5237810657708906e-07,
+        1.5229295513563557e-07,
+        0.0001358096778858453
+      ]
+    ],
+    "inertia_eigenvalues_kg_m2": [
+      0.0001358085726530367,
+      0.00017778239760854732,
+      0.00017839150116909008
+    ],
+    "original_omega_body_rad_s": [
+      -0.02520884216737906,
+      0.04504312490115272,
+      -0.025836707815439033
+    ],
+    "target_omega_body_rad_s": [
+      -19.07470799541005,
+      0.0,
+      0.0
+    ],
+    "target_angle_freeflight_proxy_rad": 1.5707963267948968,
+    "torque_body_Nm": [
+      -0.20342196492463427,
+      -0.0008063073391926227,
+      0.000384284509659523
+    ],
+    "angular_impulse_body_Nms": [
+      -0.003390366082077238,
+      -1.3438455653210378e-05,
+      6.404741827658716e-06
+    ],
+    "force_body_N": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pulse_native_steps": 5,
+    "pulse_duration_s": 0.016666666666666666,
+    "actual_clearance_m": 0.08372277341237083,
+    "actual_vertical_velocity_m_s": -0.4784461259841919,
+    "remaining_fall_time_proxy_s": 0.09068302524855833,
+    "target_rotational_energy_J": 0.032377751765163505,
+    "initial_rotational_energy_J": 2.820505801173298e-07,
+    "API_coordinates": "pure torque about COM, body-prim/local axes; inertia9 column-major, no additional principal-axis quaternion rotation",
+    "model_limits": "Ballistic rigid-body estimate, not a guaranteed final attitude or calibrated PBD two-way impulse model.",
+    "start_native_s": 8.40000020340085,
+    "start_native_callbacks": 2520,
+    "native_omega_world_before_rad_s": [
+      -0.00496710604056716,
+      0.051305171102285385,
+      -0.025980984792113304
+    ],
+    "native_velocity_before_m_s": [
+      -0.0013562600361183286,
+      0.0013686937745660543,
+      -0.4784461259841919
+    ],
+    "source_pose_xyzw_at_start": [
+      0.49949681758880615,
+      0.0849255919456482,
+      0.11768228560686111,
+      -0.002226399490609765,
+      0.0024308764841407537,
+      -0.20685164630413055,
+      0.9783667325973511
+    ],
+    "torque_axis_scope": "Declared local-X negative direction only; no assumed away-from-receiver property",
+    "native_dt_s": [
+      0.0033333334140479565,
+      0.0033333334140479565,
+      0.0033333334140479565,
+      0.0033333334140479565,
+      0.0033333334140479565
+    ],
+    "submissions": [
+      {
+        "native_callbacks_before": 2520,
+        "native_t_before_s": 8.40000020340085,
+        "force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "torque_body_Nm": [
+          -0.2034219652414322,
+          -0.0008063073619268835,
+          0.000384284503525123
+        ],
+        "original_write_returned": true
+      },
+      {
+        "native_callbacks_before": 2521,
+        "native_t_before_s": 8.403333536814898,
+        "force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "torque_body_Nm": [
+          -0.2034219652414322,
+          -0.0008063073619268835,
+          0.000384284503525123
+        ],
+        "original_write_returned": true
+      },
+      {
+        "native_callbacks_before": 2522,
+        "native_t_before_s": 8.406666870228946,
+        "force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "torque_body_Nm": [
+          -0.2034219652414322,
+          -0.0008063073619268835,
+          0.000384284503525123
+        ],
+        "original_write_returned": true
+      },
+      {
+        "native_callbacks_before": 2523,
+        "native_t_before_s": 8.410000203642994,
+        "force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "torque_body_Nm": [
+          -0.2034219652414322,
+          -0.0008063073619268835,
+          0.000384284503525123
+        ],
+        "original_write_returned": true
+      },
+      {
+        "native_callbacks_before": 2524,
+        "native_t_before_s": 8.413333537057042,
+        "force_body_N": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "torque_body_Nm": [
+          -0.2034219652414322,
+          -0.0008063073619268835,
+          0.000384284503525123
+        ],
+        "original_write_returned": true
+      }
+    ],
+    "end_native_s": 8.41666687047109,
+    "end_native_callbacks": 2525,
+    "native_omega_world_after_rad_s": [
+      -17.431394577026367,
+      7.716503620147705,
+      0.07346958667039871
+    ],
+    "cleared_force_body_N": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cleared_torque_body_Nm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "integrated_submitted_angular_impulse_body_Nms": [
+      -0.0033903661694528395,
+      -1.3438456357518699e-05,
+      6.404741880505611e-06
+    ],
+    "native_angular_response": {
+      "finite_native_response": true,
+      "before_omega_body_rad_s": [
+        -0.02520884216737906,
+        0.04504312490115272,
+        -0.025836707815439033
+      ],
+      "after_omega_world_rad_s": [
+        -17.431394577026367,
+        7.716503620147705,
+        0.07346958667039871
+      ],
+      "after_omega_body_rad_s": [
+        -19.063139989982815,
+        -0.0026355308520530384,
+        -0.005438400272547002
+      ],
+      "after_body_to_world_rotation": [
+        [
+          0.9143247341011473,
+          0.39646638947594065,
+          0.08261163735684077
+        ],
+        [
+          -0.4049610032685173,
+          0.8971220866975297,
+          0.17657448114386834
+        ],
+        [
+          -0.0041068774783715525,
+          -0.1949009070665966,
+          0.9808143402204088
+        ]
+      ],
+      "projected_negative_local_X_increase_rad_s": 19.037931147815435,
+      "minimum_increase_rad_s": 1.0,
+      "passed": true,
+      "scope": "Observed native response sanity; not exact predicted-omega agreement or attribution of later tip/spill to this torque alone."
+    },
+    "native_pose_xyzw_after_pulse": [
+      0.5001916885375977,
+      0.08656370639801025,
+      0.10791932046413422,
+      -0.09537859261035919,
+      0.022265512496232986,
+      -0.20577141642570496,
+      0.9736863970756531
+    ]
+  },
+  "process_wall_s_including_startup": 200.170455865009,
+  "wall_time_scope": "process_wall_s_including_startup covers startup and full native episode; attempt.wall_s covers native control loop; both include OS pauses if any."
+}

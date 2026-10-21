@@ -1,0 +1,85 @@
+{
+  "id": "A04_Flexiv56004_objective_only_single_native_regression",
+  "status": "SINGLE_NATIVE_REGRESSION_SUCCESS",
+  "started": 1,
+  "successes": 1,
+  "success_rate": 1,
+  "all_started_in_denominator": true,
+  "maximum_authorized_starts": 1,
+  "F_PASS": false,
+  "old_pilot_results_modified": false,
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "protocol": "protocol.json",
+  "preflight": "preflight/result.json",
+  "closure": {
+    "event": "FINISHED",
+    "ended_utc": "2026-10-20T19:11:17.012337+00:00",
+    "returncode": 0,
+    "started": 1,
+    "successes": 1,
+    "success": true,
+    "wall_s": 811.3269658510108,
+    "supervisor_error": null,
+    "supervisor_termination": null,
+    "child_closure": {
+      "closed_utc": "2026-10-20T19:11:16.330522+00:00",
+      "termination": null,
+      "outer_error": null,
+      "new_policy_training_updates": 0,
+      "new_formal_evaluation_episodes": 0
+    }
+  },
+  "metrics": {
+    "min_loaded_lift_m": 0.111173772497398,
+    "min_loaded_tube_robot_contacts": 18,
+    "native_seconds": 23.000667670116705,
+    "native_steps": 12817,
+    "receiver_xy_path_m": 0.581947012535762,
+    "final_receiver_fraction": 1.0,
+    "final_spill_fraction": 0.0,
+    "native_scope_penetration_particles": 0,
+    "max_CFL": 0.363865486087364,
+    "min_dt_s": 0.00041582645915419746,
+    "wall_run_s": 801.0688627609925
+  },
+  "checks": {
+    "full_23s": true,
+    "receiver_xy_path_at_least_20mm": true,
+    "final_receiver_at_least_80pct": true,
+    "final_spill_at_most_10pct": true,
+    "zero_container_bench_floor_particle_penetrations": true
+  },
+  "native_error": null,
+  "ik_diagnostics": {
+    "all_instances_including_unchanged_tare": [
+      0,
+      1
+    ],
+    "main_task_instance": 1,
+    "main_task_ik_calls": 2301,
+    "main_task_noninitial_ik_calls": 2300,
+    "initial_calls": 2,
+    "all_solve_calls_preserved_actual_qpos_qvel_time": true,
+    "failed_main_task_ik_calls": [],
+    "ik_wall_s_p50_p95_max": [
+      0.016009047511033714,
+      0.0426353742397623,
+      0.08931814797688276
+    ],
+    "maximum_actual_ee_position_error_before_command_m": 0.07480633373076419,
+    "maximum_actual_ee_orientation_error_before_command_rad": 0.2576968655033239,
+    "maximum_actual_to_prior_nominal_joint_error_rad": 0.3886595623390864,
+    "scope": "Actual errors are measured before each command; target IK residuals in diagnostic are scratch FK. Walltime quantiles are observations, not a hard real-time deadline guarantee."
+  },
+  "raw_ik_journal": "ik_diagnostics.jsonl",
+  "raw_task_output": "runs/flexiv/expert56004_once",
+  "retry_permitted": false,
+  "installed_in_old_controller": false,
+  "claim_boundary": "Independent implementation variant, not a retry of the combined candidate, difficulty calibration, model success-rate estimate or new method result. Each variant's STARTED/outcome is indexed separately; old pilot/F counts remain unchanged.",
+  "closeout": "f_tier/A04-hard/objective_only_native_regression/closeout.json",
+  "video": "f_tier/A04-hard/objective_only_native_regression/video.mp4",
+  "video_metadata": "f_tier/A04-hard/objective_only_native_regression/video_metadata.json",
+  "pour_frame": "f_tier/A04-hard/objective_only_native_regression/pour_frame.png",
+  "final_frame": "f_tier/A04-hard/objective_only_native_regression/final_frame.png"
+}

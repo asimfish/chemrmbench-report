@@ -1,0 +1,107 @@
+{
+  "id": "N10",
+  "case": "positive",
+  "status": "NATIVE_EPISODE_COMPLETE_PENDING_F_REVIEW",
+  "failure": null,
+  "hsm_success": true,
+  "hsm_success_scope": "All5 original timed Cartesian home/action segments plus fresh joint gate and final settling completed through the guarded HSM publisher.",
+  "original_state_machine_sequence_success_at_termination": true,
+  "particle_count": 11200,
+  "original_particle_mass_kg": 1e-06,
+  "native_steps": 53305,
+  "issued_native_steps": 53305,
+  "native_callbacks_equal_issued_steps": true,
+  "native_s": 177.68333763582632,
+  "native_clock_error_s": 4.302492982333206e-06,
+  "wall_s_including_pauses": 1326.1581770220073,
+  "video_frames": 352,
+  "particle_observation_stride_steps": 30,
+  "no_count_in_scale": true,
+  "particle_observations_guide_positive_selection_and_stop": true,
+  "negative_fixed_paired_intervention": false,
+  "selected_x_m": [
+    0.38,
+    0.41,
+    0.35,
+    0.335,
+    0.425
+  ],
+  "completed_cycles": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "runtime_actual_state_writes": 0,
+  "controller_events": "controller_events.json",
+  "native_masses_kg": {
+    "spoon": [
+      [
+        0.15000000596046448
+      ]
+    ],
+    "receiver": [
+      [
+        0.30000001192092896
+      ]
+    ],
+    "scale_platform": [
+      [
+        1.0
+      ]
+    ]
+  },
+  "calibration": "calibration_snapshot.json",
+  "scope": "One STARTED-only bounded episode. Five cycles remain required; early safety stop is failure. Same stock/material/67panel spoon/independent scale; no success-rate estimate.",
+  "cycles": [
+    {
+      "cycle": 0,
+      "complete": true,
+      "rows": 342,
+      "max_physically_lifted_bbox_payload_particles": 630,
+      "last_receiver_count": 109,
+      "new_receiver_particles": 109
+    },
+    {
+      "cycle": 1,
+      "complete": true,
+      "rows": 358,
+      "max_physically_lifted_bbox_payload_particles": 69,
+      "last_receiver_count": 138,
+      "new_receiver_particles": 29
+    },
+    {
+      "cycle": 2,
+      "complete": true,
+      "rows": 334,
+      "max_physically_lifted_bbox_payload_particles": 51,
+      "last_receiver_count": 146,
+      "new_receiver_particles": 8
+    },
+    {
+      "cycle": 3,
+      "complete": true,
+      "rows": 352,
+      "max_physically_lifted_bbox_payload_particles": 16,
+      "last_receiver_count": 149,
+      "new_receiver_particles": 3
+    },
+    {
+      "cycle": 4,
+      "complete": true,
+      "rows": 338,
+      "max_physically_lifted_bbox_payload_particles": 13,
+      "last_receiver_count": 154,
+      "new_receiver_particles": 5
+    }
+  ],
+  "receiver_particles": 154,
+  "receiver_parameter_mass_kg": 0.000154,
+  "independent_scale_increment_kg": -0.006070678020965706,
+  "scale_mass_relative_error": 40.419987149127955,
+  "scale_terminal_std_kg": 1.9522696614828922e-05,
+  "parameter_mass_ledger_error_max": 0.0,
+  "final_unreceived_outside_source_or_spoon_particles": 1602,
+  "all_finite": true
+}

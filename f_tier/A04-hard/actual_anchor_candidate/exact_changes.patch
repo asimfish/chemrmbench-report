@@ -1,0 +1,119 @@
+--- frozen_baseline/learner.py
++++ actual_anchor_candidate/learner.py
+@@ -73,9 +73,14 @@
+    action=label.copy() if teacher else np.asarray(policy.predict(obs))
+    action=np.r_[np.clip(action[:3],-1.5,1.5),np.clip(action[3:],-.10,.10)]
+    noise=np.asarray(config['action_noise'][min(int(round(now/.01)),len(config['action_noise'])-1)]);action+=noise;action=np.r_[np.clip(action[:3],-1.5,1.5),np.clip(action[3:],-.10,.10)]
+-   basis=action_basis;self.cmdp=self.cmdp+(basis@action[3:])*dt;self.cmdR=Rotation.from_rotvec(basis@action[:3]*dt)*self.cmdR
++   # Execution middleware sees current actual pose; policy inputs and delayed
++   # action basis remain unchanged. This is not a teacher-label/PD change.
++   basis=action_basis;actual_p=self.d.site_xpos[self.site].copy();actual_R=Rotation.from_matrix(self.d.site_xmat[self.site].reshape(3,3).copy())
++   self.cmdp=actual_p+(basis@action[3:])*dt;self.cmdR=Rotation.from_rotvec(basis@action[:3]*dt)*actual_R
+    sample={'time':now,'observation':obs.copy(),'label':label.copy(),'action':action.copy(),'student':not teacher,'admitted':False,'next_observation':np.full(18,np.nan),
+     'command_position':self.cmdp.copy(),'command_quaternion_xyzw':self.cmdR.as_quat(),'delayed_action_basis':action_basis.copy(),'native_qpos':self.d.qpos.copy(),'native_qvel':self.d.qvel.copy(),'goal_position':p.copy(),'goal_quaternion_xyzw':rotation.as_quat(),'goal_velocity_world':ff.copy()}
++   # Measurement only; these current middleware values are never policy input.
++   sample.update(actual_anchor_position=actual_p.copy(),actual_anchor_quaternion_xyzw=actual_R.as_quat(),actual_control_dt=float(dt))
+    self.data.append(sample);self.pending=sample
+    try:return super().solve(self.cmdp,self.cmdR,False)
+    except Exception:
+@@ -94,6 +99,9 @@
+   data={k:np.asarray([s[v] for s in samples]) for k,v in fields.items()}
+   data.update(times=np.array([s['time'] for s in samples]),admitted=np.array([s['admitted'] for s in samples],bool),student_executed=np.array([s['student'] for s in samples],bool))
+  else:data={k:np.zeros((0,n)) for k,n in [('observations',18),('expert_labels',6),('executed_actions',6),('next_observations',18)]};data.update(times=np.array([]),admitted=np.array([],bool),student_executed=np.array([],bool))
++ data['actual_anchor_positions']=np.asarray([s['actual_anchor_position']for s in samples]).reshape(-1,3)
++ data['actual_anchor_quaternions_xyzw']=np.asarray([s['actual_anchor_quaternion_xyzw']for s in samples]).reshape(-1,4)
++ data['actual_control_dts']=np.asarray([s['actual_control_dt']for s in samples])
+  data['observation_delay_trace']=np.asarray([s for c in controllers for s in c.delay_log])
+  # Save real recorded pairs in future runs, removing the old payload archive gap.
+  histories=[entry for controller in controllers for entry in controller.obs_history]
+--- frozen_baseline/execute.py
++++ actual_anchor_candidate/execute.py
+@@ -9,12 +9,6 @@
+ import signal
+ import traceback
+ import numpy as np
+-import learner
+-import task
+-import flexiv_task as flex
+-import pour_runner as shared
+-from controller_factory import wrap_controller
+-from verify_delay import verify as verify_delay
+ 
+ B = Path(__file__).resolve().parent
+ TERMINATION = {}
+@@ -34,8 +28,16 @@
+ def main():
+     parser = argparse.ArgumentParser(); parser.add_argument('--case-id', required=True)
+     opts = parser.parse_args()
++    enabled=json.loads((B/'runtime_switch.json').read_text())
++    assert enabled['native_enabled']and enabled['root_reviewed']and enabled['original20_all_closed_verified_by_root'],'Prepared only; no native authorized'
+     case = next(c for c in json.loads((B/'casebank.json').read_text())['cases'] if c['case_id'] == opts.case_id)
+     journal = B/'attempt_details'/case['case_id']; journal.mkdir(parents=True, exist_ok=False)
++    import learner
++    import task
++    import flexiv_task as flex
++    import pour_runner as shared
++    from controller_factory import wrap_controller
++    from verify_delay import verify as verify_delay
+     signal.signal(signal.SIGTERM, terminate)
+     flex.FlexivController = wrap_controller(flex.FlexivController, journal/'ik_diagnostics.jsonl')
+     shared.Controller = wrap_controller(shared.Controller, journal/'ik_diagnostics.jsonl')
+--- prepared_serial/run_prepared.py
++++ prepared_parallel_max2/run_prepared.py
+@@ -1,6 +1,7 @@
+ """Disabled by default. At most two once-only known-failure expert probes."""
+ from pathlib import Path
+ import argparse
++import concurrent.futures
+ import datetime
+ import fcntl
+ import json
+@@ -14,6 +15,25 @@
+ 
+ 
+ def utc():return datetime.datetime.now(datetime.timezone.utc).isoformat()
++
++
++def append(event):
++    with(B/'attempts.jsonl').open('a')as f:
++        fcntl.flock(f,fcntl.LOCK_EX)
++        f.write(json.dumps(event)+'\n');f.flush();os.fsync(f.fileno())
++
++
++def run_case(case):
++    with(B/'logs'/f"{case['case_id']}.log").open('x')as log:
++        command=[sys.executable,str(B/'execute.py'),'--case-id',case['case_id']]
++        env=dict(os.environ,MUJOCO_GL='disable',CUDA_VISIBLE_DEVICES='',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',MKL_NUM_THREADS='1')
++        started=time.monotonic();process=subprocess.Popen(command,cwd=B,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
++        stat=Path(f'/proc/{process.pid}/stat').read_text().rsplit(')',1)[1].split()
++        record=dict(event='STARTED',case=case,utc=utc(),pid=process.pid,starttime_ticks=int(stat[19]),ppid=int(stat[1]),pgid=int(stat[2]),sid=int(stat[3]),command=command,
++                    accounting='Every started counts even if interrupted/failed/missing; no retry or denominator reset.')
++        append(record)
++        returncode=process.wait()
++    append(dict(event='CLOSED',case=case,utc=utc(),returncode=returncode,wall_s=time.monotonic()-started))
+ 
+ 
+ def main():
+@@ -35,19 +55,10 @@
+         assert(root/source['live_source']).read_bytes()==(B/source['frozen_copy']).read_bytes()
+     cases=json.loads((B/'casebank.json').read_text())['cases']
+     assert len(cases)==2 and{c['robot']for c in cases}=={'ur5e','flexiv'}and all(c['seed']==56002 and c['method']=='script_expert'and c['policy']is None for c in cases)
+-    with(B/'pilot_launch_once.json').open('x')as f:json.dump(dict(utc=utc(),max_started=2,per_case_cap=1,no_retry=True,training_updates=0,original20_closed=True),f)
++    with(B/'pilot_launch_once.json').open('x')as f:json.dump(dict(utc=utc(),max_started=2,max_concurrent=2,per_case_cap=1,no_retry=True,training_updates=0,original20_closed=True),f)
+     (B/'logs').mkdir(exist_ok=False)
+-    for case in cases:
+-        with(B/'logs'/f"{case['case_id']}.log").open('x')as log:
+-            command=[sys.executable,str(B/'execute.py'),'--case-id',case['case_id']]
+-            env=dict(os.environ,MUJOCO_GL='disable',CUDA_VISIBLE_DEVICES='',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',MKL_NUM_THREADS='1')
+-            started=time.monotonic();process=subprocess.Popen(command,cwd=B,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+-            stat=Path(f'/proc/{process.pid}/stat').read_text().rsplit(')',1)[1].split()
+-            record=dict(event='STARTED',case=case,utc=utc(),pid=process.pid,starttime_ticks=int(stat[19]),ppid=int(stat[1]),pgid=int(stat[2]),sid=int(stat[3]),command=command,
+-                        accounting='Every started counts even if interrupted/failed/missing; no retry or denominator reset.')
+-            with(B/'attempts.jsonl').open('a')as f:f.write(json.dumps(record)+'\n');f.flush();os.fsync(f.fileno())
+-            returncode=process.wait()
+-        with(B/'attempts.jsonl').open('a')as f:f.write(json.dumps(dict(event='CLOSED',case=case,utc=utc(),returncode=returncode,wall_s=time.monotonic()-started))+'\n');f.flush();os.fsync(f.fileno())
++    with concurrent.futures.ThreadPoolExecutor(max_workers=2)as pool:
++        list(pool.map(run_case,cases))
+ 
+ 
+ if __name__=='__main__':main()

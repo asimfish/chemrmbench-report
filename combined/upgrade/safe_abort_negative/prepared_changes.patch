@@ -1,0 +1,223 @@
+--- combined/upgrade/c01b_episode.py
++++ combined/upgrade/safe_abort_negative/episode.py
+@@ -8,7 +8,11 @@
+ from pathlib import Path
+ import argparse,datetime,json,math,random,time,traceback,os,signal
+ R=Path('/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011')
+-O=R/'combined'
++STUDY=R/'combined/upgrade/safe_abort_negative'
++O=STUDY/'run'
++import sys
++sys.path.insert(0,str(R))
++from combined.upgrade.safe_abort_negative.fault_policy import plan_pulse,drop_verdict,assert_blocked_command,angular_response
+ class TerminationRequested(BaseException):pass
+ 
+ LOCAL={'receiver_fraction_min':.50,'spill_fraction_max':.10,'boundary_ambiguous_fraction_max':.05,
+@@ -29,21 +33,27 @@
+  'development_scope':'Controller tuned only on pose00, which is included in fixed10; not a held-out generalization estimate.','local_thresholds':LOCAL,'native_physics_dt_s':1/300,'control_decimation':5,'video_fps':15,'all_attempts_reported':True}
+ 
+ def main():
+- p=argparse.ArgumentParser();p.add_argument('--interruption-replacement',action='store_true');p.add_argument('--case-index',type=int,choices=range(5),default=0);p.add_argument('--preview',action='store_true');p.add_argument('--no-recovery',action='store_true');p.add_argument('--device',default='cuda:0');p.add_argument('--asset-root',default=str(R/'assets/nvidia_5_1'));a=p.parse_args()
++ p=argparse.ArgumentParser();p.add_argument('--interruption-replacement',action='store_true');p.add_argument('--case-index',type=int,choices=range(5),default=0);p.add_argument('--preview',action='store_true');p.add_argument('--no-recovery',action='store_true');p.add_argument('--device',default='cuda:0');p.add_argument('--asset-root',default=str(R/'assets/nvidia_5_1'));p.add_argument('--execute',action='store_true');p.add_argument('--trial-token');a=p.parse_args()
+  global _CASE
+  _CASE=a.case_index
++ if not a.execute or a.preview:print((STUDY/'protocol.json').read_text());return 0
++ if _CASE!=0 or a.interruption_replacement or a.no_recovery:raise ValueError('One pose00 branch negative only; no alternative condition')
++ if not json.loads((STUDY/'runtime_switch.json').read_text())['native_enabled']:raise RuntimeError('Native disabled pending root readback/resource admission')
++ receipt=json.loads((STUDY/'STARTED.json').read_text())
++ if not a.trial_token or receipt['token']!=a.trial_token:raise RuntimeError('Exclusive one-STARTED launcher receipt required')
++ with (STUDY/'NATIVE_ENTERED.json').open('x')as entry:json.dump(dict(token=a.trial_token,pid=os.getpid(),utc=datetime.datetime.now(datetime.timezone.utc).isoformat()),entry)
+  if a.interruption_replacement and _CASE!=0:raise ValueError('Only the one approved pose00 interruption replacement is permitted')
+  if a.preview:print((R/'combined/protocol.json').read_text());return 0
+- O=R/'combined/upgrade/runs'/('C01b_pose_00_interruption_replacement'if a.interruption_replacement else'C01b_'+cases()[0]['id'])
++ O=STUDY/'run'
+  O.mkdir(parents=True,exist_ok=True)
+  if (O/'result.json').exists():raise FileExistsError('Preserve canonical result; do not silently rerun the fixed trial set')
+  process_started=time.monotonic()
+- result={'id':'combined_pour_heat_recovery','pid':os.getpid(),'device':a.device,'status':'RUNNING','protocol':json.loads((R/'combined/upgrade'/('c01b_replacement_protocol.json'if a.interruption_replacement else'c01b_protocol.json')).read_text()),'skill_origin':protocol(),'skill_origin_scope':'Motion-template provenance only; the actual frozen C01b fault and five-pose protocol is in protocol. Inherited N04 no-tilt negative metadata is not executed here.','attempts':[],'video':str((O/'video.mp4').relative_to(R)),'run_scope':'single_world_fault_recover_pour_heat','full_reference_complete':False,'differences':['Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.','Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.','Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.','Parameter mass bookkeeping, not a calibrated physical volume/density measurement.','Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.','Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim.']}
++ result={'id':'C01b_SAFE_ABORT_BRANCH_NEGATIVE','pid':os.getpid(),'device':a.device,'status':'RUNNING','protocol':json.loads((STUDY/'protocol.json').read_text()),'skill_origin':protocol(),'skill_origin_scope':'Original motion-template provenance only; this separate one-pose branch-negative protocol governs the actual physical fault. No primary six-positive workflow or inherited no-tilt control is executed.','attempts':[],'video':str((O/'video.mp4').relative_to(R)),'run_scope':'ONE_branch_coverage_negative_NOT_primary_positive_or_F_review','primary_positive_episodes':0,'branch_negative_STARTED':1,'F_review_performed':False,'full_reference_complete':False,'differences':['Supported tabletop SE(2) poses and local 50% receiver/10% spill thresholds; not original trial distribution.','Original public fluid implementation/defaults and scale1 cup retained; original Fig6B controller unavailable, composing a local20deg side pick and mouth-pivot pouring from public HSM primitives. Contact reporting added without material/collider mutation.','Default public scale1 cup retains the authored child Scene scale0.4: inner diameter~42mm and conservative cavity~67mL despite the500mL asset name; no calibrated nominal capacity claim.','Parameter mass bookkeeping, not a calibrated physical volume/density measurement.','Public Panda observed EE offset0.1034m and action point0.107m differ; actual native tool body poses independently verify clearance/contact, and physical feedback/tolerances account for observed task execution.','Gross leak observer uses the upstream smoothed display-point API; no raw or subparticle zero-penetration claim.']}
+  def save():
+   result['updated_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();(O/'status.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
+  result['differences']+=result['protocol']['differences'];result['video_fps']=5;save();app=env=writer=adapter=None
+  try:
+-  import shutil;shutil.copy2(__file__,O/'executed_episode.py');(O/'executed_protocol.json').write_text(json.dumps(result['protocol'],indent=2)+'\n')
++  import shutil;shutil.copy2(STUDY/'fault_policy.py',O/'executed_fault_policy.py');shutil.copy2(__file__,O/'executed_episode.py');(O/'executed_protocol.json').write_text(json.dumps(result['protocol'],indent=2)+'\n')
+   if a.interruption_replacement:shutil.copy2(R/'combined/upgrade/native_iso_cache.py',O/'executed_native_iso_cache.py')
+   from isaaclab.app import AppLauncher
+   app=AppLauncher(headless=True,enable_cameras=True,device=a.device,kit_args='--/renderer/multiGpu/enabled=false --/renderer/activeGpu='+a.device.split(':')[-1]+' --/persistent/isaac/asset_root/cloud='+a.asset_root).app
+@@ -208,9 +218,12 @@
+     def apply_heater(payload):heater.set_value(SemanticInfo(type='IsHeaterOn',asset_name='ika_plate',value=payload['on'],additional_info={'target_temperature':313.15}))
+     adapter=NativeAdapter(env,physics_counter=lambda:len(native_callbacks),read_objects=read_objects,read_robots=read_robots,read_semantics=read_semantics,apply_robot=apply_robot,apply_semantic=apply_heater,journal=O/'commands.jsonl')
+     def publish_robot(raw,effect='ee_pose'):
++     if safe_abort_latched:
++      held=fault_hold.clone();held[:,7]=1.;assert_blocked_command(raw.cpu().numpy(),held.cpu().numpy(),heater_on=bool(heater.is_heater_on[0]),commanded_stage=stage);blocked_commands.append(dict(t_s=float(env.sim.current_time)-t0,command=raw.cpu().tolist(),stage=stage))
+      observed=adapter.observe();robot_m=mat(robot.data.root_pos_w[0].cpu().numpy(),robot.data.root_quat_w[0].cpu().numpy());world=robot_m@mat(raw[0,:3].cpu().numpy(),raw[0,3:7].cpu().numpy());relative=np.linalg.inv(mat(*pose(source)))@world;q=Rotation.from_matrix(relative[:3,:3]).as_quat()[[3,0,1,2]];payload=dict(kind='robot',translation_m=relative[:3,3].tolist(),quaternion_wxyz=q.tolist(),native_quaternion_reference=raw[0,3:7].cpu().tolist(),gripper=float(raw[0,7]),ee_world_position_m=world[:3,3].tolist(),effect=effect,stage=stage)
+      return adapter.publish(Action(observed.clock,'robot','beaker',payload,observed.clock.simulation_s+2.))
+     def publish_heater(on,delay_s=0.):
++     if on:raise RuntimeError('HEATER_ON_FORBIDDEN_IN_BRANCH_NEGATIVE')
+      observed=adapter.observe();return adapter.publish(Action(observed.clock,'heater','beaker_2',dict(kind='heater',on=on,effect='heater_switch',scheduled_s=observed.clock.simulation_s+delay_s),observed.clock.simulation_s+1.))
+     obs=env.observation_manager.compute()
+     for key in ['/physics/updateToUsd','/physics/updateParticlesToUsd','/physics/updateVelocitiesToUsd']:settings.set_bool(key,True)
+@@ -225,7 +238,17 @@
+      return MoveToPoseCfg(agent_assets='robot',target_positions=torch.tensor(pos[None],dtype=torch.float32,device=env.device),target_orientations=torch.tensor(q[None],dtype=torch.float32,device=env.device),position_threshold=.006,orientation_threshold=.05,settling_time=.1,timeout=6.,action_space_info=FRANKA_IK_ACTION_SPACE)
+     sm.set_action_sequence([WaitCfg(duration=1.),OpenGripperCfg(agent_assets='robot',action_space_info=FRANKA_IK_ACTION_SPACE),move_ee(pre_p+np.array([0,0,.1]),pick_r),move_ee(pre_p,pick_r),move_ee(pick_p,pick_r),CloseGripperCfg(agent_assets='robot',action_space_info=FRANKA_IK_ACTION_SPACE),move_ee(pick_p+np.array([0,0,.1]),pick_r)]);sm.reset()
+     action=None;transport_built=False;final_counts=None;started=time.monotonic();max_grasp_position_drift=0.;max_grasp_rotation_drift=0.;release_index=None;events={};theta_wp=0.;wp_hold=0.;feedback_started=0.;low_lift_s=0.;max_actual_tilt=0.;saved_points=[];saved_vel=[];saved_sp=[];saved_rp=[];saved_ee=[];saved_t=[];saved_qpos=[];saved_tool=[];saved_contact=[];min_tool_table_gap=float('inf');pick_verification=None;fault_state='not_injected';fault_started=None;fault_hold=None;fault_precontact=False;lost_streak=0;recovered_streak=0;max_lost_streak=0;max_recovered_streak=0;drop_initial_position=None;drop_stable_s=0.;drop_decision=None;fault_bottom_clearance=None;source_workflow_complete=False;heater_on_id=None;heater_off_id=None;heat_rows=[];command_roundtrip_error_max=0.
+-    iso_cache=NativeIsoCache(env.scene.stage)if a.interruption_replacement else None
++    pulse=None;pulse_active=False;pulse_submissions=[];pulse_start_callback=None;safe_abort_latched=False;abort_started=None;abort_outcome=None;blocked_commands=[];post_abort_observations=[]
++    source_write_original=source.write_data_to_sim
++    def measured_source_write():
++     if pulse_active:
++      submission=dict(native_callbacks_before=len(native_callbacks)-c0,native_t_before_s=float(env.sim.current_time)-t0,force_body_N=source.permanent_wrench_composer.composed_force_as_torch.cpu().numpy().reshape(-1,3)[0].tolist(),torque_body_Nm=source.permanent_wrench_composer.composed_torque_as_torch.cpu().numpy().reshape(-1,3)[0].tolist())
++      source_write_original();submission['original_write_returned']=True;pulse_submissions.append(submission)
++     else:source_write_original()
++    source.write_data_to_sim=measured_source_write
++    def set_cup_torque(torque):
++     source.permanent_wrench_composer.set_forces_and_torques(forces=torch.zeros((1,1,3),dtype=torch.float32,device=env.device),torques=torch.tensor([[torque]],dtype=torch.float32,device=env.device),body_ids=[0],env_ids=[0],is_global=False)
++    iso_cache=None
+     termination_event={}
+     def on_term(signum,frame):
+      # Python dispatch at its next safe bytecode boundary; sender is unknown.
+@@ -233,8 +256,8 @@
+      signal.signal(signal.SIGTERM,signal.SIG_DFL)
+      raise TerminationRequested('SIGTERM requested; close partial raw and exit, no retry')
+     signal.signal(signal.SIGTERM,on_term)
+-    result['lifecycle_scope']='For poses03/04 and one explicitly predeclared pose00 interruption replacement only: detached child session plus Python SIGTERM failure finalization. No physics/control/acceptance change; termination is not ignored.'
+-    while control*env.step_dt<150.:
++    result['lifecycle_scope']='One branch negative only; future approved launcher must create a detached child session. Python SIGTERM preserves partial raw and exits143; senderunknown, no ignore or retry.'
++    while control*env.step_dt<25.:
+      feedback=stage in ['tilt_feedback','untilt_feedback']
+      command_idx=int(sm.current_action_idx[0]) if not feedback else -1
+      phase=stage
+@@ -250,6 +273,14 @@
+        if lost_streak>=3:
+         events.setdefault('native_contact_loss_detected_s',float(env.sim.current_time)-t0);fault_state='falling'
+       if float(env.sim.current_time)-t0-fault_started>6.:failure='airborne_drop_observation_timeout';break
++     if fault_state=='falling' and pulse is None:
++      current_clearance=cup_bottom_z-(-.003);inertia=source.root_physx_view.get_inertias()[0].cpu().numpy().copy();omega_world=source.data.root_ang_vel_w[0].cpu().numpy().copy();omega_body=cup_matrix[:3,:3].T@omega_world;velocity=source.data.root_lin_vel_w[0].cpu().numpy().copy()
++      try:pulse=plan_pulse(inertia,omega_body,mass_kg=float(source.root_physx_view.get_masses()[0].cpu().item()),clearance_m=current_clearance,vertical_velocity_m_s=float(velocity[2]),both_contacts_lost=bool(np.all(finger_forces()<=.001)),support_absent=source_table_force()<=.1)
++      except ValueError as pulse_error:failure='PULSE_PRECONDITION_FAILED:'+str(pulse_error);events['pulse_rejected_s']=float(env.sim.current_time)-t0;break
++      pulse.update(start_native_s=float(env.sim.current_time)-t0,start_native_callbacks=len(native_callbacks)-c0,native_omega_world_before_rad_s=omega_world.tolist(),native_velocity_before_m_s=velocity.tolist(),source_pose_xyzw_at_start=pxpose(source).tolist(),torque_axis_scope='Declared local-X negative direction only; no assumed away-from-receiver property')
++      pulse_start_callback=len(native_callbacks);set_cup_torque(pulse['torque_body_Nm']);pulse_active=True;events['torque_pulse_start_s']=float(env.sim.current_time)-t0
++     if fault_state=='safe_abort_observe':
++      recovering=True;action=fault_hold.clone();action[:,7]=1.;phase='safe_abort_observation';effect_kind='contacts_lost'
+      if stage=='pick' and fault_state=='regrasping' and command_idx>=6:
+       recovered_streak=recovered_streak+1 if np.all(finger_forces()>.1)else 0;max_recovered_streak=max(max_recovered_streak,recovered_streak)
+       if recovered_streak>=3:
+@@ -265,6 +296,16 @@
+       if stage=='tilt_feedback':events.setdefault('first_tilt_command_s',control*env.step_dt)
+      else:action,_=sm.step(obs)
+      command_id=publish_robot(action,effect_kind);adapter.apply_due();command_roundtrip_error_max=max(command_roundtrip_error_max,float(torch.max(torch.abs(executed_action['tensor']-action)).item()));source_contact_reports.clear();receiver_contact_reports.clear();obs,_,terminated,truncated,_=env.step(executed_action['tensor'],semantic_actions=None);control+=1;adapter.evaluate_pending(adapter.observe())
++     if pulse_active:
++      set_cup_torque([0.,0.,0.]);pulse_active=False
++      pulse['native_dt_s']=list(native_callbacks[pulse_start_callback:]);pulse['submissions']=list(pulse_submissions);pulse['end_native_s']=float(env.sim.current_time)-t0;pulse['end_native_callbacks']=len(native_callbacks)-c0;pulse['native_omega_world_after_rad_s']=source.data.root_ang_vel_w[0].cpu().tolist();pulse['cleared_force_body_N']=source.permanent_wrench_composer.composed_force_as_torch.cpu().numpy().reshape(-1,3)[0].tolist();pulse['cleared_torque_body_Nm']=source.permanent_wrench_composer.composed_torque_as_torch.cpu().numpy().reshape(-1,3)[0].tolist()
++      if len(pulse_submissions)!=5 or len(pulse['native_dt_s'])!=5:raise RuntimeError('Pulse did not submit exactly5 native writes/callbacks')
++      pulse['integrated_submitted_angular_impulse_body_Nms']=(np.asarray([r['torque_body_Nm']for r in pulse_submissions])*np.asarray(pulse['native_dt_s'])[:,None]).sum(0).tolist()
++      if any(np.any(np.asarray(r['force_body_N'])!=0)for r in pulse_submissions)or np.any(np.asarray(pulse['cleared_force_body_N'])!=0)or np.any(np.asarray(pulse['cleared_torque_body_Nm'])!=0):raise RuntimeError('Pure pulse/explicit zero buffer check failed')
++      if not np.allclose(pulse['integrated_submitted_angular_impulse_body_Nms'],pulse['angular_impulse_body_Nms'],rtol=2e-6,atol=1e-10):raise RuntimeError('Actual dt integrated submitted impulse mismatch')
++      response=angular_response(pulse['original_omega_body_rad_s'],source.data.root_ang_vel_w[0].cpu().numpy(),mat(*pose(source))[:3,:3]);pulse['native_angular_response']=response;pulse['native_pose_xyzw_after_pulse']=pxpose(source).tolist()
++      if not response['passed']:failure='NATIVE_ANGULAR_RESPONSE_SANITY_GATE_FAILED';break
++      events['torque_pulse_end_s']=float(env.sim.current_time)-t0
+      engine=float(env.sim.current_time)-t0;expected=control*env.step_dt
+      max_clock_error=max(max_clock_error,abs(engine-expected))
+      if len(native_callbacks)-c0!=control*cfg.decimation or abs(engine-expected)>1e-5:raise RuntimeError('Actual native callback/clock mismatch')
+@@ -292,6 +333,8 @@
+      if counts['receiver']>0:events.setdefault('first_observed_receiver_entry_s',engine)
+      if transport_built and phase in ['tilt_feedback','pour_hold','untilt_feedback'] and math.acos(np.clip(mat(*pose(source))[2,2],-1,1))>math.radians(5.):events.setdefault('observed_source_tilt5deg_s',engine)
+      row={'case':case['id'],'control_step':control,'native_physics_steps':len(native_callbacks)-c0,'t_s':engine,'phase':phase,'actual_source_tilt_deg':math.degrees(actual_tilt),'requested_cup_tilt_waypoint_deg':math.degrees(theta_wp) if feedback else None,'observed_ee_pose_wxyz':ee_actual.tolist(),'native_qpos':qpos.tolist(),'native_tool_poses_wxyz':tool_pose.tolist(),'source_cup_finger_contact_force_norm_N':finger_force.tolist(),'tool_mesh_table_gap_m':tool_gap,'command_action_index':command_idx,'command_time_s':engine-env.step_dt,'source_pose_xyzw':sp.tolist(),'receiver_pose_xyzw':rp.tolist(),'counts':counts,'particle_count':n,'parameter_mass_kg':initial_mass,'gross_leak_count':int(all_leaked.sum()),'command':executed_action['tensor'][0].cpu().tolist(),'command_id':command_id,'fault_state':fault_state,'drop_cup_bottom_clearance_m':fault_bottom_clearance,'drop_diagnosis':drop_decision,'source_workflow_complete':source_workflow_complete,'source_table_force_N':source_table_force(),'source_table_tensor_filter_force_N':source_table_tensor_force(),'source_net_contact_force_world_N':contact_sensor.data.net_forces_w[0].sum(dim=0).cpu().tolist(),'source_filtered_contact_vectors_world_N':contact_sensor.data.force_matrix_w[0].sum(dim=0).cpu().tolist(),'native_source_contact_reports':list(source_contact_reports),'native_receiver_contact_reports':list(receiver_contact_reports),'receiver_upright_tilt_deg':float(math.degrees(math.acos(np.clip(mat(*pose(receiver))[2,2],-1,1)))),'receiver_plate_force_N':plate_force(),'thermal_contact_gate_for_next_interval':prior_plate_contact,'temperature_C':chemistry.snapshot()['temperature_C'][0],'heater_on':bool(heater.is_heater_on[0])}
++     row.update(native_source_linear_velocity_m_s=source.data.root_lin_vel_w[0].cpu().tolist(),native_source_angular_velocity_rad_s=source.data.root_ang_vel_w[0].cpu().tolist(),safe_abort_latched=safe_abort_latched,pulse_applied=pulse is not None,pulse_native_submissions=len(pulse_submissions))
++     if safe_abort_latched:post_abort_observations.append(dict(t_s=engine,phase=phase,command=row['command'],heater_on=row['heater_on'],source_pose_xyzw=sp.tolist(),counts=counts,tilt_deg=math.degrees(actual_tilt)))
+      trace.write(json.dumps(row,allow_nan=False)+'\n')
+      if control%60==0:
+       trace.flush();adapter.log.flush();print(json.dumps({'case':case['id'],'t_s':engine,'phase':phase,'actual_tilt_deg':math.degrees(actual_tilt),'requested_tilt_deg':math.degrees(theta_wp) if feedback else None,'receiver':counts['receiver'],'gross_leak':int(all_leaked.sum())}),flush=True)
+@@ -300,7 +343,7 @@
+      if iso_cache is not None and control%12==0:iso_cache.capture(t_s=engine,native_steps=len(native_callbacks)-c0,phase=phase,fault_state=fault_state,video_frame=video_frame-1)
+      if tool_gap<-.0005:failure='tool_mesh_table_penetration';break
+      monitor_grasp=stage in ['transport','tilt_feedback','pour_hold','untilt_feedback'] or (stage=='return' and command_idx<release_index)
+-     if monitor_grasp and fault_state not in ['opening','falling']:
++     if monitor_grasp and fault_state not in ['opening','falling','safe_abort_observe']:
+       sm.update_scene_data_from_obs(obs);e=sm.scene_data.articulations['robot'];pred=mat(e.ee_pos_w[0].cpu().numpy(),e.ee_quat_w[0].cpu().numpy())@ee_to_object;actual=mat(*pose(source))
+       dp=float(np.linalg.norm(pred[:3,3]-actual[:3,3]));dr=float(Rotation.from_matrix(pred[:3,:3].T@actual[:3,:3]).magnitude());max_grasp_position_drift=max(max_grasp_position_drift,dp);max_grasp_rotation_drift=max(max_grasp_rotation_drift,dr)
+       if dp>.015:failure='lost_grasp_observed_translation';break
+@@ -322,10 +365,13 @@
+       if elapsed_since_loss>=.5 and drop_stable_s>=.25:
+        spill_after_fall=sum(counts.get(k,0)for k in ['spill_near_table','transit','outside_unresolved']);upright=actual_tilt<=math.radians(10.);events['drop_diagnosis_s']=engine
+        drop_decision={'upright':bool(upright),'cup_tilt_deg':math.degrees(actual_tilt),'source_particles':counts['source'],'spill_particles':spill_after_fall,'particle_count':n,'native_pose_xyzw':sp.tolist(),'speed_m_s':speed,'angular_speed_rad_s':angular_speed,'fall_m':fallen,'decision':'REPLAN_FROM_OBSERVED_POSE'if upright and spill_after_fall==0 else 'SAFE_ABORT_TIPPED_OR_SPILLED'}
+-       if not upright or spill_after_fall>0:failure='SAFE_ABORT_TIPPED_OR_SPILLED';break
+-       # Reconstruct the same object-centred approach at the new native pose.
+-       observed_p,observed_q=pose(source);observed_yaw=math.atan2(mat(observed_p,observed_q)[1,0],mat(observed_p,observed_q)[0,0]);pick_r=Rotation.from_euler('z',observed_yaw+math.radians(LOCAL['grasp_azimuth_offset_deg'])).as_matrix()@Rotation.from_euler('y',110,degrees=True).as_matrix();pick_p=observed_p+np.array([0.,0.,-.020]);pre_p=pick_p-.10*pick_r[:,2]
+-       sm.set_action_sequence([OpenGripperCfg(agent_assets='robot',action_space_info=FRANKA_IK_ACTION_SPACE),move_ee(pre_p+np.array([0,0,.1]),pick_r),move_ee(pre_p,pick_r),move_ee(pick_p,pick_r),CloseGripperCfg(agent_assets='robot',action_space_info=FRANKA_IK_ACTION_SPACE),WaitCfg(duration=.10),move_ee(pick_p+np.array([0,0,.1]),pick_r)]);sm.reset();stage='pick';transport_built=False;fault_state='regrasping';events['replan_grasp_started_s']=engine
++       decision=drop_verdict(elapsed_since_loss_s=elapsed_since_loss,stable_s=drop_stable_s,table_support_present=source_table_force()>.1,speed_m_s=speed,angular_speed_rad_s=angular_speed,tilt_deg=math.degrees(actual_tilt),spill_particles=spill_after_fall)
++       if decision!=drop_decision['decision']:raise RuntimeError('Extracted verifier differs from unchanged native decision')
++       safe_abort_latched=True;abort_started=engine;abort_outcome='SAFE_ABORT_TIPPED_OR_SPILLED'if decision=='SAFE_ABORT_TIPPED_OR_SPILLED'else'BRANCH_NOT_TRIGGERED_UPRIGHT_NO_SPILL';events['irreversible_monitor_block_s']=engine;stage='safe_abort_observe';fault_state='safe_abort_observe';recovering=True
++       # This negative never releases a recovery/pour/heat sequence. A branch
++       # miss remains failure, with the same post-block observation period.
++       continue
++     if safe_abort_latched and engine-abort_started>=1.:events['post_abort_observation_stop_s']=engine;failure=abort_outcome;break
+      if recovering:continue
+      if feedback:
+       goal=math.radians(115.) if stage=='tilt_feedback' else 0.
+@@ -364,6 +410,7 @@
+         for f in np.linspace(0,1,n_points)[1:]:seq.append(move(mat(begin+(end-begin)*f,oq)))
+        seq.append(WaitCfg(duration=.5));sm.set_action_sequence(seq);sm.reset();transport_built=True;stage='transport';continue
+       if stage=='transport':
++       failure='BRANCH_FAULT_OR_DIAGNOSIS_NOT_REACHED_NO_TILT';break
+        if plate_force()<=.5 or math.acos(np.clip(mat(*pose(receiver))[2,2],-1,1))>math.radians(5.):failure='verifier_blocks_tilt_receiver_not_supported_upright';break
+        if negative:stage='pour_hold';sm.set_action_sequence([CloseGripperCfg(agent_assets='robot',action_space_info=FRANKA_IK_ACTION_SPACE),WaitCfg(duration=2.)]);sm.reset()
+        else:stage='tilt_feedback';theta_wp=math.radians(5.);wp_hold=0.;feedback_started=control*env.step_dt
+@@ -375,7 +422,7 @@
+        transfer=counts['receiver']/n;spill_now=sum(counts[k]for k in ['spill_near_table','transit','outside_unresolved'])/n
+        if transfer<.5 or spill_now>.1 or plate_force()<=.5:failure='verifier_blocks_heater_without_transfer_or_plate_contact';break
+        stage='heat';heater_on_id=publish_heater(True,.007);events['heater_on_planned_s']=engine;continue
+-    if not full_workflow and failure is None:failure='local150s_budget_exhausted'
++    if not full_workflow and failure is None:failure='branch_negative25s_budget_exhausted'
+     # Show the exact terminal observation, including the verifier's heater-off
+     # effect, even when it falls between ordinary5fps samples. The labelled
+     # terminal hold repeats a saved image and advances no physical clock.
+@@ -391,25 +438,34 @@
+     success=bool(final_position_error<=.02 and final_upright_angle<=math.radians(10.) and max_actual_tilt>=math.radians(113.) and full_workflow and finite and max_count_error==0 and max_lift>=.05 and fractions.get('receiver',0.)>=.5 and spill<=.1 and fractions.get('boundary_ambiguous',1.)<=.05 and not (leaked|receiver_leaked).any() and account<=.01)
+     if negative:success=bool(final_position_error<=.02 and final_upright_angle<=math.radians(10.) and full_workflow and finite and max_count_error==0 and fractions.get('receiver',1.)<=.01 )
+     if not success and failure is None:failure='completed_workflow_but_local_quality_gate_failed'
+-    attempt={'case':case,'negative':False,'success':success,'full_native_robot_workflow':full_workflow,'failure':failure,'native_s':float(env.sim.current_time)-t0,'events_simulation_s':events,'event_observation_resolution_s':env.step_dt,'native_physics_steps':len(native_callbacks)-c0,'wall_s':time.monotonic()-started,'max_clock_error_s':max_clock_error,'max_lift_m':max_lift,'pick_verification':pick_verification,'min_observed_tool_mesh_table_gap_m':min_tool_table_gap,'max_observed_source_tilt_deg':math.degrees(max_actual_tilt),'observation_archive':str((O/f'{case["id"]}_observations.npz').relative_to(R)),'max_grasp_position_drift_m':max_grasp_position_drift,'max_grasp_rotation_drift_rad':max_grasp_rotation_drift,'final_source_position_error_m':final_position_error,'final_source_upright_angle_rad':final_upright_angle,'particle_count':n,'parameter_total_mass_kg':initial_mass,'fractions':fractions,'spill_fraction':spill,'gross_wall_leak_count':int((leaked|receiver_leaked).sum()),'source_gross_leak_count':int(leaked.sum()),'receiver_gross_leak_count':int(receiver_leaked.sum()),'mass_accounting_relative_error':account,'particle_count_max_error':max_count_error,'all_particle_states_finite':finite}
++    attempt={'case':case,'negative':True,'success':False,'full_native_robot_workflow':full_workflow,'failure':failure,'native_s':float(env.sim.current_time)-t0,'events_simulation_s':events,'event_observation_resolution_s':env.step_dt,'native_physics_steps':len(native_callbacks)-c0,'wall_s':time.monotonic()-started,'max_clock_error_s':max_clock_error,'max_lift_m':max_lift,'pick_verification':pick_verification,'min_observed_tool_mesh_table_gap_m':min_tool_table_gap,'max_observed_source_tilt_deg':math.degrees(max_actual_tilt),'observation_archive':str((O/f'{case["id"]}_observations.npz').relative_to(R)),'max_grasp_position_drift_m':max_grasp_position_drift,'max_grasp_rotation_drift_rad':max_grasp_rotation_drift,'final_source_position_error_m':final_position_error,'final_source_upright_angle_rad':final_upright_angle,'particle_count':n,'parameter_total_mass_kg':initial_mass,'fractions':fractions,'spill_fraction':spill,'gross_wall_leak_count':int((leaked|receiver_leaked).sum()),'source_gross_leak_count':int(leaked.sum()),'receiver_gross_leak_count':int(receiver_leaked.sum()),'mass_accounting_relative_error':account,'particle_count_max_error':max_count_error,'all_particle_states_finite':finite}
+     receipts=[e['receipt']for e in adapter.entries.values()if e['receipt']is not None];scheduling_lateness=max((r.scheduling_lateness_s for r in receipts),default=0.);timing_summary=dict(planned_commands=len(adapter.entries),applied_commands=len(receipts),observed_effect_commands=sum(r.effect_at is not None for r in receipts),unobserved_effect_commands=sum(r.effect_at is None for r in receipts),not_applied_commands=len(adapter.entries)-len(receipts),max_scheduling_lateness_s=scheduling_lateness,heater_receipts=[dict(command_id=k,scheduled_s=e['receipt'].scheduled_s,applied_step=e['receipt'].applied_at.step,applied_native_s=e['receipt'].applied_at.simulation_s,effect_native_s=e['receipt'].effect_at.simulation_s if e['receipt'].effect_at else None,command_to_effect_s=e['receipt'].command_to_effect_s)for k,e in adapter.entries.items()if e['command'].object_relative_target['kind']=='heater'and e['receipt']is not None])
+     combined_gates=dict(single_native_clock=max_clock_error<=1e-5 and len(native_callbacks)-c0==control*cfg.decimation and timing_summary['not_applied_commands']==0 and scheduling_lateness<=env.step_dt+1e-6,physical_grasp=max_lift>=.05 and fault_precontact,contact_failure_recovery=fault_state=='done'and max_lost_streak>=3 and max_recovered_streak>=3,verified_fluid_transfer=source_workflow_complete and fractions.get('receiver',0.)>=.5 and spill<=.1 and account<=.01 and not(leaked|receiver_leaked).any()and final_position_error<=.02,contact_gated_heat_and_stop=bool(heat_rows)and 28.<=chemistry.state[0,2]+25.<=28.2 and not bool(heater.is_heater_on[0])and sum(x['contact']and x['plate_force_N']>.5 for x in heat_rows)/max(1,len(heat_rows))>=.95)
+     attempt.update(drop_diagnosis=drop_decision,fault_cup_bottom_clearance_m=fault_bottom_clearance,recovery_native_s=(events.get('native_contact_recovered_verified_s',0.)-events['native_contact_loss_detected_s']) if 'native_contact_recovered_verified_s' in events else None,safety_abort=failure=='SAFE_ABORT_TIPPED_OR_SPILLED',command_timing=timing_summary,thermal_effective_parameters=chemistry.parameters,success=all(combined_gates.values())and failure is None and full_workflow,native_clock=dict(callbacks=len(native_callbacks)-c0,sum_dt_s=sum(native_callbacks[c0:]),dt_values_s=sorted(set(native_callbacks[c0:]))),combined_gates=combined_gates,fault_state=fault_state,fault_precontact_verified=fault_precontact,max_lost_streak=max_lost_streak,max_recovered_streak=max_recovered_streak,heat_observations=heat_rows,command_object_frame_roundtrip_max_abs=command_roundtrip_error_max,thermal_model='Declared N07 effective model at40C, not original author parameters',final_solution_C=float(chemistry.state[0,2]+25.),final_heater_on=bool(heater.is_heater_on[0]),post_initialization_environment_resets=0,post_initialization_object_pose_writes=0,attachments=False)
+-    adapter.close();result['attempts'].append(attempt);save();print(json.dumps(attempt),flush=True)
+-  gates=result['attempts'][0]['combined_gates'];result.update(status='NATIVE_CANDIDATE_PASS'if result['attempts'][0]['success']else'SAFE_ABORT_TIPPED_OR_SPILLED'if result['attempts'][0]['failure']=='SAFE_ABORT_TIPPED_OR_SPILLED'else'FAILED_NATIVE_EPISODE',gates=gates,video_frames=video_frame,physical_episodes=1,environment_owner='MATTERIX only',full_reference_complete=False)
++    branch_gates=dict(native_angular_response=bool(pulse)and pulse.get('native_angular_response',{}).get('passed',False),native_clock=combined_gates['single_native_clock'],initial_physical_grasp=fault_precontact and max_lift>=.05,airborne_post_release_impulse=bool(pulse)and pulse['actual_clearance_m']>=.05 and len(pulse_submissions)==5,actual_native_fall='native_fall_detected_s'in events,irreversible_native_diagnosis=bool(drop_decision)and drop_decision['decision']=='SAFE_ABORT_TIPPED_OR_SPILLED',post_block_observations=abort_started is not None and float(env.sim.current_time)-t0-abort_started>=1. and len(post_abort_observations)>=60,command_fence=bool(blocked_commands)and len(blocked_commands)==len(post_abort_observations),no_regrasp_pour_or_heater='replan_grasp_started_s'not in events and'first_tilt_command_s'not in events and heater_on_id is None and not bool(heater.is_heater_on[0]),fixed_finite_particles=finite and max_count_error==0 and n==125,zero_wrench_after_pulse=bool(pulse)and not np.asarray(pulse['cleared_torque_body_Nm']).any()and not np.asarray(pulse['cleared_force_body_N']).any())
++    branch_success=all(branch_gates.values())and failure=='SAFE_ABORT_TIPPED_OR_SPILLED'
++    attempt.update(negative=True,success=False,branch_negative_success=branch_success,branch_gates=branch_gates,physical_torque_pulse=pulse,post_abort_observations=post_abort_observations,post_abort_commands=blocked_commands,denominator_scope='One explicit branch-coverage negative; never a seventh positive or a reset of original6 attempts',F_review_performed=False)
++    adapter.close();result['attempts'].append(attempt);save();print(json.dumps(dict(branch_negative_success=branch_success,branch_gates=branch_gates,failure=failure,native_s=attempt['native_s'])),flush=True)
++  result.update(status='BRANCH_NEGATIVE_CANDIDATE_PASS'if result['attempts'][0]['branch_negative_success']else'FAILED_BRANCH_NEGATIVE',branch_gates=result['attempts'][0]['branch_gates'],video_frames=video_frame,physical_episodes=1,primary_positive_episodes=0,environment_owner='MATTERIX only',full_reference_complete=False,F_review_performed=False)
+   (O/'video-frame-map.json').write_text(json.dumps(video_map)+'\n')
+  except BaseException as exc:
+   interrupted=isinstance(exc,TerminationRequested)
+-  result.update(status='FAILED_INTERRUPTED_NATIVE'if interrupted else'TODO',execution_error=repr(exc),traceback=traceback.format_exc());traceback.print_exc()
++  result.update(status='FAILED_INTERRUPTED_NATIVE'if interrupted else'FAILED_BRANCH_NEGATIVE',execution_error=repr(exc),traceback=traceback.format_exc());traceback.print_exc()
+   if interrupted:
+    result['termination']=termination_event;result['termination_sender']='UNKNOWN';result['video_is_partial']=True;result['all_started_attempts_in_denominator']=True
+    result['partial_checkpoint_scope']='Already copied native observations only; no render/physics/reset/pose writes in termination finalization.'
+    if saved_t:
+     np.savez_compressed(O/f'{case["id"]}_observations.npz',points=np.asarray(saved_points,dtype=np.float32),velocities=np.asarray(saved_vel,dtype=np.float32),source_pose_xyzw=np.asarray(saved_sp),receiver_pose_xyzw=np.asarray(saved_rp),ee_pose_wxyz=np.asarray(saved_ee),time_s=np.asarray(saved_t),joint_positions=np.asarray(saved_qpos),tool_poses_wxyz=np.asarray(saved_tool),cup_finger_contact_force_norm_N=np.asarray(saved_contact))
+    (O/'video-frame-map.json').write_text(json.dumps(video_map)+'\n')
+-   result['attempts']=[dict(case=case,negative=False,success=False,full_native_robot_workflow=False,failure='ADMINISTRATIVELY_INTERRUPTED_SIGTERM_UNKNOWN_SENDER',native_s=float(env.sim.current_time)-t0,native_physics_steps=len(native_callbacks)-c0,wall_s=time.monotonic()-started,last_saved_native_s=saved_t[-1]if saved_t else None,exact_OS_signal_native_step=None,events_simulation_s=events,particle_count=n,fractions={k:v/n for k,v in(final_counts or{}).items()},spill_fraction=sum((final_counts or{}).get(k,0)for k in['spill_near_table','transit','outside_unresolved'])/n,drop_diagnosis=drop_decision,fault_cup_bottom_clearance_m=fault_bottom_clearance,recovery_native_s=(events.get('native_contact_recovered_verified_s',0.)-events['native_contact_loss_detected_s'])if'native_contact_recovered_verified_s'in events else None,safety_abort=False,final_heater_on=bool(heater.is_heater_on[0]),final_solution_C=float(chemistry.state[0,2]+25.),partial_raw_not_terminal_success=True)]
++   result['attempts']=[dict(case=case,negative=True,primary_positive_episodes=0,success=False,branch_negative_success=False,full_native_robot_workflow=False,failure='ADMINISTRATIVELY_INTERRUPTED_SIGTERM_UNKNOWN_SENDER',native_s=float(env.sim.current_time)-t0,native_physics_steps=len(native_callbacks)-c0,wall_s=time.monotonic()-started,last_saved_native_s=saved_t[-1]if saved_t else None,exact_OS_signal_native_step=None,events_simulation_s=events,particle_count=n,fractions={k:v/n for k,v in(final_counts or{}).items()},spill_fraction=sum((final_counts or{}).get(k,0)for k in['spill_near_table','transit','outside_unresolved'])/n,drop_diagnosis=drop_decision,fault_cup_bottom_clearance_m=fault_bottom_clearance,recovery_native_s=(events.get('native_contact_recovered_verified_s',0.)-events['native_contact_loss_detected_s'])if'native_contact_recovered_verified_s'in events else None,safety_abort=False,final_heater_on=bool(heater.is_heater_on[0]),final_solution_C=float(chemistry.state[0,2]+25.),partial_raw_not_terminal_success=True)]
+ 
+  finally:
++  if 'source'in locals()and 'set_cup_torque'in locals():
++   try:set_cup_torque([0.,0.,0.])
++   except Exception as zero_error:result['zero_wrench_cleanup_error']=repr(zero_error);result['status']='FAILED_BRANCH_NEGATIVE'
++  if 'pulse'in locals():result['physical_torque_pulse']=pulse
++  if result.get('status')=='FAILED_BRANCH_NEGATIVE'and 'saved_t'in locals()and saved_t and not(O/f'{case["id"]}_observations.npz').exists():
++   np.savez_compressed(O/f'{case["id"]}_observations.npz',points=np.asarray(saved_points,dtype=np.float32),velocities=np.asarray(saved_vel,dtype=np.float32),source_pose_xyzw=np.asarray(saved_sp),receiver_pose_xyzw=np.asarray(saved_rp),ee_pose_wxyz=np.asarray(saved_ee),time_s=np.asarray(saved_t),joint_positions=np.asarray(saved_qpos),tool_poses_wxyz=np.asarray(saved_tool),cup_finger_contact_force_norm_N=np.asarray(saved_contact));(O/'video-frame-map.json').write_text(json.dumps(video_map)+'\n');result['generic_failure_partial_scope']='Already observed prefix only; no added render/physics/state write.'
+   if adapter is not None and not adapter.log.closed:adapter.close()
+   if writer is not None:writer.close()
+   if a.interruption_replacement and 'iso_cache'in locals()and iso_cache is not None:
+@@ -419,6 +475,6 @@
+   result['process_wall_s_including_startup']=time.monotonic()-process_started
+   result['wall_time_scope']='process_wall_s_including_startup covers startup and full native episode; attempt.wall_s covers native control loop; both include OS pauses if any.'
+   result['updated_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();(O/'result.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
+-  import sys;sys.stdout.flush();sys.stderr.flush();os._exit(128+result['termination']['signum']if result.get('termination')else 0 if result.get('status')in['NATIVE_CANDIDATE_PASS','SAFE_BLOCKED_NEGATIVE']else 1)
++  import sys;sys.stdout.flush();sys.stderr.flush();os._exit(128+result['termination']['signum']if result.get('termination')else 0 if result.get('status')=='BRANCH_NEGATIVE_CANDIDATE_PASS'else 1)
+ 
+ if __name__=='__main__':raise SystemExit(main())

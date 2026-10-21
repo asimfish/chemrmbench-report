@@ -1,0 +1,84 @@
+{
+  "status": "LOCAL_SOURCE_SCOPE_RECONCILED_NO_ACCEPTANCE_CHANGE",
+  "original_scale_readout_verdict": "NOT_DETERMINABLE_FROM_AVAILABLE_PUBLIC_IMPLEMENTATION",
+  "finding": "The local public MATTERIX source contains the PBD powder implementation and a balance-tagged IKA asset, but no implemented powder scoop/weigh workflow or scale mass-readout function was found. Neither an independent force-derived original scale nor a semantic inventory-derived original scale is demonstrated by this checkout.",
+  "original_code_evidence": [
+    {
+      "path": "sources/matterix_public/source/matterix/matterix/particle_systems/powder_cfg.py",
+      "lines": [23, 30],
+      "supports": "Original powder contact/material parameters and configured particle_mass=1e-6kg. This supplies particle physical parameter mass, not a scale readout."
+    },
+    {
+      "path": "sources/matterix_public/source/matterix/matterix/particle_systems/powder_system.py",
+      "lines": [154, 176],
+      "supports": "Creates a fixed grid and passes configured particle_mass to the PhysX solid particle set. No container inventory-to-scale or balance force-to-mass readout here."
+    },
+    {
+      "path": "sources/matterix_public/source/matterix_assets/matterix_assets/equipment/ika_plate.py",
+      "lines": [28, 44],
+      "supports": "IKA asset references the balance-heater-stirrer USD, sets object mass1kg, activate_contact_sensors=False, and semantic tag class=balance. An asset label/configured mass is not a measurement implementation."
+    },
+    {
+      "path": "sources/matterix_public/source/matterix_tasks/matterix_tasks/test_dev_tasks/test_particle_systems.py",
+      "lines": [49, 58],
+      "supports": "Available original particle task config only initializes fluid/powder and reserved systems with5s episode length. It does not define scooping, weighing, dose target or scale precision."
+    },
+    {
+      "path": "sources/matterix_public/source/matterix_tasks/matterix_tasks/test_dev_tasks/__init__.py",
+      "lines": [9, 46],
+      "supports": "Available registered examples cover beakers, particle systems, beaker lift and heat-transfer semantics; no scoop/weigh task config is registered."
+    },
+    {
+      "path": "sources/matterix_public/source/matterix/matterix/managers/semantics/primitive_semantics/is_in_contact.py",
+      "lines": [163, 189],
+      "supports": "Physics contact semantics reads forces and thresholds them into a contact predicate; this is not a weighing output or calibrated force-to-mass scale."
+    },
+    {
+      "path": "sources/matterix_public/source/matterix/matterix/managers/semantics/primitive_semantics/heat_transfer/heat_convection.py",
+      "lines": [95, 109],
+      "supports": "Semantic heat transfer uses configured object mass. This must not be conflated with a container inventory-based weighing implementation."
+    }
+  ],
+  "paper_evidence": [
+    {
+      "path": "references/matterix_arxiv_full_with_supplement_r1.txt",
+      "lines": [602, 607],
+      "supports": "Paper describes Fig4 examples including scooping/weighing powder, without a stated0.7g target or10percent spring-balance metric in this passage."
+    },
+    {
+      "path": "references/matterix_arxiv_full_with_supplement_r1.txt",
+      "lines": [702, 706],
+      "supports": "Fig5B red mass-change curve is explicitly a REAL experiment measured using an IKA RET control scale; it does not establish the implementation of a simulated scale."
+    }
+  ],
+  "local_added_measurement_and_thresholds": [
+    {
+      "path": "f_tier/N10/native.py",
+      "lines": [58, 60],
+      "supports": "Our local native study authors the mechanical prismatic spring platform with1000N/m stiffness and80 damping. This is local reconstruction machinery."
+    },
+    {
+      "path": "f_tier/N10/native.py",
+      "lines": [93, 105],
+      "supports": "Our scale output is independent calibrated gain times tare_z minus platform_z; particle counts are a separate geometric observer."
+    },
+    {
+      "path": "f_tier/N10/protocol.json",
+      "lines": [36, 43],
+      "supports": "Explicitly named local_F_gates introduce final receiver mass>=0.7g and independent spring-scale error<=10percent; local text notes failed100-500mg checks. These are our local acceptance conditions, not recovered original-author values."
+    },
+    {
+      "path": "f_tier/N10/observed_bed_native/protocol.json",
+      "lines": [98, 107],
+      "supports": "The key original_F_thresholds preserves the earlier frozen LOCAL F thresholds. The word original in this key does not establish paper provenance."
+    }
+  ],
+  "search_scope_and_limits": "Read-only searches covered the locally available matterix_public and matterix_paper Python/config/docs, visible balance USDA text and archived full paper/supplement text. No mass readout or powder-weigh task source was found. This absence is a source-availability limitation, not proof that no such author implementation ever existed or that the original scale used inventory semantics.",
+  "acceptance_integrity": "No criteria, canonical F status, physics, live experiment, prepared independent audit or raw evidence was changed. Failing frozen local studies remain failing; this source note is not a retroactive relaxation.",
+  "execution": {
+    "native_rollouts": 0,
+    "physics_steps": 0,
+    "acceptance_runs": 0,
+    "GPU_jobs": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "status": "CLOSED_IMPLEMENTATION_REGRESSION_READBACK",
+  "native_status": "SINGLE_NATIVE_REGRESSION_SUCCESS",
+  "started": 1,
+  "successes": 1,
+  "all_original_local_checks": {
+    "full_23s": true,
+    "receiver_xy_path_at_least_20mm": true,
+    "final_receiver_at_least_80pct": true,
+    "final_spill_at_most_10pct": true,
+    "zero_container_bench_floor_particle_penetrations": true
+  },
+  "native_metrics": {
+    "min_loaded_lift_m": 0.111173772497398,
+    "min_loaded_tube_robot_contacts": 18,
+    "native_seconds": 23.000667670116705,
+    "native_steps": 12817,
+    "receiver_xy_path_m": 0.581947012535762,
+    "final_receiver_fraction": 1.0,
+    "final_spill_fraction": 0.0,
+    "native_scope_penetration_particles": 0,
+    "max_CFL": 0.363865486087364,
+    "min_dt_s": 0.00041582645915419746,
+    "wall_run_s": 801.0688627609925
+  },
+  "phase_order": [
+    "settle",
+    "approach",
+    "close",
+    "lift",
+    "loaded_hold",
+    "transfer",
+    "tilt",
+    "pour_hold",
+    "untilt",
+    "return_above_source",
+    "lower_source",
+    "release",
+    "retract",
+    "released_settle"
+  ],
+  "native_trace_rows": 2300,
+  "final_particle_membership_readback": {
+    "test_tube": 0,
+    "beaker": 240,
+    "outside_including_transit": 0
+  },
+  "loaded_hold_observations": 100,
+  "loaded_hold_min_contacts": 18,
+  "final_released_tube_contacts": 0,
+  "noninitial_accepted_calls": 2300,
+  "noninitial_failed_calls": 0,
+  "maximum_accepted_position_IK_error_m": 0.0001480235611497134,
+  "maximum_accepted_orientation_IK_error_rad": 0.012520506594815774,
+  "maximum_nominal_joint_increment_rad_no_new_cap": 0.13470312130853246,
+  "minimum_actual_physical_joint_margin_rad": 0.030464751116163757,
+  "maximum_native_command_lateness_s": 0.0018457946675667358,
+  "expert_label_samples": 650,
+  "admitted_expert_label_samples": 650,
+  "nominal_requested_delay_min_max_s_in_learning_window": [
+    0.02,
+    0.04
+  ],
+  "actual_recorded_delay_min_max_s_in_learning_window": [
+    0.02000000000000668,
+    0.05064183784547005
+  ],
+  "configuration_byte_identical": true,
+  "all_executed_source_snapshots_byte_identical": true,
+  "original_fixture_failure_preserved": {
+    "native_s": 12.350714756435488,
+    "error": "Unreachable Flexiv object-centric pose [0.48960375668127937, 0.22219533203792755, 0.2437994536252943]",
+    "full23": false
+  },
+  "new_native_steps_in_readback": 0,
+  "new_IK_optimizations_in_readback": 0,
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "old_pilot_and_F_counts_modified": false,
+  "limitations": [
+    "One known development fixture and seed; not new difficulty calibration or a model success-rate estimate.",
+    "No100Hz wall-clock guarantee: simulator-native control scheduling and measured CPU IK durations are separate.",
+    "Nominal delay requests are20\u201340ms; actual historical-sample ages are reported separately without modifying the inherited delay sampler.",
+    "Original coarse240particle CPU liquid and limited container/bench/floor collision observer scope remain; not originalGRID or photorealism validation."
+  ]
+}

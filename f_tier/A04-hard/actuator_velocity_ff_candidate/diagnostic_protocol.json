@@ -1,0 +1,81 @@
+{
+  "id": "ACTUATOR_VELOCITY_FF_FIXED_TWIST_DIAGNOSTIC",
+  "status": "ROOT_REVIEWED_FOUR_BOUNDED_COMPONENT_DIAGNOSTICS_ONLY",
+  "registered_utc": "2026-10-20T22:43:54.939685+00:00",
+  "source_candidate": "learner.py+velocity_ff.py; teacher/18D/delay/noise/IK/source/CFL/fulltask remain parent semantics; no future fulltask entry authorized.",
+  "single_actuation_change": "After successful originalIK, qdot_des=(qIK\u2212actual_q_at_that_controlsample)/actual_dt. Heldactuationnominal=qIK+(Kv/Kp)*qdot_des. Originalapply retains bias\u2212passive compensation and all existingctrl/force/joint limits. Restore self.nominal afterapply; self.q remains IKqIK.",
+  "hold_scope": "Calculate once each100Hzcontrol action, hold untilnext action; do not recompute from each native physicsstep actualq.",
+  "diagnostic_reference": {
+    "input": "Original6Dexecutedaction from each closed8p5firstfeedback packet, fixed for whole2s. Transform by that archivedreal historicalbasis once to a fixedworldCartesian twist.",
+    "per_action": "BothbaselineandFF re-anchorcurrentactualsite p/R,integrate samefixedworldtwist overactualcontrol dt,run identicaloriginalnoninitialIK,thenapply baselinepositiontarget or heldvelocityFF.",
+    "no_fixed_absolute_qIK_loop": true,
+    "no_new_pose_or_amplitude_search": true,
+    "not_fulltask_teacher_inference": "This componentstepinputreusesone alreadyexecutedclippednoisyaction; no policy/teacher queries or newdelayselectorin thisrobot-onlydiagnostic. Integratedfulltasksource remains unchanged exceptactuationFF.",
+    "fixed_basis_scope": "Use archivedselectedbasis to express the originalaction as a fixedworldtwist, common to both executors; do not rotate the input with subsequently moving objects."
+  },
+  "cases": [
+    {
+      "case_id": "ur5e_actual_anchor_baseline",
+      "robot": "ur5e",
+      "executor": "actual_anchor_baseline",
+      "seed": 56002,
+      "maximum_started": 1,
+      "native_duration_max_s": 2.0
+    },
+    {
+      "case_id": "ur5e_actual_anchor_plus_velocity_ff",
+      "robot": "ur5e",
+      "executor": "actual_anchor_plus_velocity_ff",
+      "seed": 56002,
+      "maximum_started": 1,
+      "native_duration_max_s": 2.0
+    },
+    {
+      "case_id": "flexiv_actual_anchor_baseline",
+      "robot": "flexiv",
+      "executor": "actual_anchor_baseline",
+      "seed": 56002,
+      "maximum_started": 1,
+      "native_duration_max_s": 2.0
+    },
+    {
+      "case_id": "flexiv_actual_anchor_plus_velocity_ff",
+      "robot": "flexiv",
+      "executor": "actual_anchor_plus_velocity_ff",
+      "seed": 56002,
+      "maximum_started": 1,
+      "native_duration_max_s": 2.0
+    }
+  ],
+  "maximum_started": 4,
+  "maximum_native_duration_total_s": 8.0,
+  "retry_budget": 0,
+  "all_STARTED_in_denominator": true,
+  "initialization": "Readactualclosedscene.xml directly,notbuild. Copy exact archivedfirstfeedback fullqpos/qvel/time and originalpriornominalIKseed beforefirststep. Both executorssameinitialstate. Warmstartsnotarchived,defaultzeropairingdeclared. Existingqfrc_applied/contactwarmstarts/currentctrl are not reconstructed. In both casesoriginalrobot-onlyexternalforcearraysstartzero;ctrl is generatedbeforefirststep,grip255 peroriginaltiltphase.",
+  "world_scope": "No Warp/DFSPH or fluid. OriginalXMLrigidrobot/gripper/vessels/rack remain; nooriginaltaskloop,corridorservo orpush. This is a shortactuatorinterfacediagnostic,not liquidbenchmark success.",
+  "control_dt_s": 0.01,
+  "native_dt": "OriginalXML.002s; nofluidCFL to evaluate. Failclosed if sourceXMLdiffers.",
+  "native_time": "SingleMuJoCo clockstarts at archived8p5time; diagnosticelapsed\u22642s,max200actions/1000stepspercase, noextensions.",
+  "limits": "No new velocityclip/gain/PD/objective search. OriginalIKjointbuffer,ctrlclips,actuatorforceandjointforce limits stay active; preserve failures/aborts. qdot_des is not inherently bounded by6Dactionclips.",
+  "record": [
+    "peraction actualsitep/R,actualjointq/qdot,originalqIK,IKseed,actualdt,desiredjointvelocity,heldFFtorque/positionoffset",
+    "pernativeapply originalbias\u2212passive residual,withoutFF/unclippedwithFF/finalclippedctrl,clipdelta,allctrl/force/jointlimits",
+    "nativejointandsitevelocity,responseprojection/displacementversusfixedtwist,contact/finite/saturation/IKfailure; no predictedforceclippingcalledmeasured"
+  ],
+  "interpretation": "qdot_des is a one-control-interval desiredjointvelocity inferred from Cartesian poseincrementIK/currentencoder,not derivative of successiveqIKtrajectorytargets. Kv/Kp is a coefficientratio,not measuredtimeconstant. Compare shorttermtrackingand saturation only; no tasksuccess,training,formal generalization or sole-root-cause claim.",
+  "launch_state": "root_readback.json authorizes sole four-case launcher; full task CLI remains disabled. No STARTED at review.",
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "native_steps_at_registration": 0,
+  "native_refresh": "Reuse originalCoupled.step order mj_step then mj_forward then observe; no extra integrationstep. qactual/sitepose coherent at each100Hzcontrol sample.",
+  "initial_state_checks": {
+    "rq_pinch_site_id": ">=0",
+    "qpos_qvel_dimensions": "Exact savedlengths equalmodel nq/nv",
+    "fresh_saved_site_position_error_max_m": 1e-07,
+    "fresh_saved_site_orientation_error_max_rad": 1e-07,
+    "mismatch_rule": "Failclosedandretainattempt;noinitialposecorrection/search."
+  },
+  "runner": "diagnostic_runner.py",
+  "launcher": "launch_diagnostic.py (defaultstatic,exclusiveonce/max4,max2CPUconcurrent)",
+  "producer": "summarize_diagnostic.py,oneaggregateandtracking_saturationPNG/PDF"
+}

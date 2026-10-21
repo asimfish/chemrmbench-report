@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "actual_CDP_viewports_checked": true,
+  "template_version": "guidance5-baseline-v1-34-of36",
+  "checked_at_utc": "2026-10-21T08:55:38.781177+00:00",
+  "scope": "One baseline/extension template change; actual desktop/mobile viewport,38rows with original36 denominator,limits and milestone; body has no horizontal overflow. No per-experiment browser gate.",
+  "initial_CLI_preview_limitation": "A narrow Chrome --window-size screenshot alone does not establish the actual mobile layout viewport. CLI previews retained; final check uses CDP device metrics.",
+  "checks": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "f_tier/scoreboard_desktop.png",
+      "viewportWidth": 1440,
+      "clientWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "rows": 38,
+      "counts": "34 / 36 基线 F_PASS · 2 项扩展研究 · 复现基线 v1（冻结）",
+      "limitations": 11,
+      "galleryImages": 4,
+      "combinedVisible": true,
+      "combinedText": "联合闭环：3/6 次完整成功 · 73.30 秒 · 转移 125/125 · 溶液 28.008 °C · 热板关闭C01扩展：全部正例3/6（原5例2/5）；桌面故障关闭恢复的阻断负例、空中倾倒洒漏后安全终止负例均完成。成功案例为局部脚本，不代表稳健泛化或OPD。 ▶ 完整视频 结果 独立复算"
+    },
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "screenshot": "f_tier/scoreboard_mobile.png",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "bodyScrollWidth": 390,
+      "rows": 38,
+      "counts": "34 / 36 基线 F_PASS · 2 项扩展研究 · 复现基线 v1（冻结）",
+      "limitations": 11,
+      "galleryImages": 4,
+      "combinedVisible": true,
+      "combinedText": "联合闭环：3/6 次完整成功 · 73.30 秒 · 转移 125/125 · 溶液 28.008 °C · 热板关闭C01扩展：全部正例3/6（原5例2/5）；桌面故障关闭恢复的阻断负例、空中倾倒洒漏后安全终止负例均完成。成功案例为局部脚本，不代表稳健泛化或OPD。 ▶ 完整视频 结果 独立复算"
+    }
+  ],
+  "local_only": true,
+  "CI_polling": false
+}

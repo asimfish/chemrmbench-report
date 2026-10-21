@@ -1,0 +1,170 @@
+{
+  "status": "CONFIRMED_CONFIG_CENTER_VS_LOWER_CORNER_API_ERROR",
+  "created_utc": "2026-10-20T20:10:19.341703+00:00",
+  "USD_version": [
+    0,
+    24,
+    5
+  ],
+  "Kit_started": false,
+  "physics_steps_executed": 0,
+  "native_rollouts": 0,
+  "acceptance_runs": 0,
+  "scene_mutations": 0,
+  "source_scene": "f_tier/N10/entry_repair/collision_repair/native_positive/scene_initial.usda",
+  "source_closed_process_end_utc": "2026-10-20T17:30:05.602720+00:00",
+  "config_proof": {
+    "real_IsaacLab_configclass_source": "/home/liyufeng/IsaacLab/source/isaaclab/isaaclab/utils/configclass.py",
+    "public_particle_cfg": "sources/matterix_public/source/matterix/matterix/particle_systems/particle_cfg.py",
+    "public_powder_cfg": "sources/matterix_public/source/matterix/matterix/particle_systems/powder_cfg.py",
+    "serialization_helpers_unused": true,
+    "actual_constructor_argument_m": [
+      0.3522008,
+      -0.0942352,
+      0.0812
+    ],
+    "actual_constructor_result_lower_m": [
+      0.32440159999999996,
+      -0.1184704,
+      0.0762104
+    ],
+    "exactly_one_volume_half_subtraction_confirmed": true,
+    "documented_API": "pos is center of cuboid; original __post_init__ converts center to lower corner.",
+    "frozen_particle_cfg_matches_public": true,
+    "frozen_powder_cfg_matches_public": true
+  },
+  "grid_proof": {
+    "unchanged_original_pure_grid_function": "/home/liyufeng/miniforge3/envs/safeduo/lib/python3.11/site-packages/isaacsim/extscache/omni.physx-107.3.26+107.3.3.lx64.r.cp311.u353/omni/physx/scripts/particleUtils.py",
+    "dimensions": [
+      40,
+      35,
+      8
+    ],
+    "spacing_m": 0.0014255999999999997,
+    "rest_radius_m": 0.0007127999999999999,
+    "particle_mass_kg": 1e-06,
+    "volume_m": [
+      0.0555984,
+      0.0484704,
+      0.0099792
+    ],
+    "particle_count": 11200
+  },
+  "source_plate": {
+    "path": "/World/SourcePlate",
+    "world_box_min_m": [
+      0.30000000178813935,
+      -0.14999999821186066,
+      0.0700000001117587
+    ],
+    "world_box_max_m": [
+      0.45999999821186066,
+      0.00999999821186065,
+      0.07999999988824129
+    ]
+  },
+  "analytic_config_generated_pre_reset": {
+    "count": 11200,
+    "minimum_m": [
+      0.3244015872478485,
+      -0.11847040057182312,
+      0.0762104019522667
+    ],
+    "maximum_m": [
+      0.3799999952316284,
+      -0.07000000029802322,
+      0.08618959784507751
+    ],
+    "mean_m": [
+      0.3522008001804352,
+      -0.09423520011561258,
+      0.0811999998986721
+    ],
+    "centers_inside_source_plate_box": 4200,
+    "rest_radius_AABBs_intersect_source_plate_box": 5600,
+    "rest_radius_AABBs_fully_inside_source_plate_box": 4200,
+    "centers_below_source_plate_top": 4200,
+    "lowest_center_clearance_above_plate_top_m": -0.003789597935974595,
+    "lowest_rest_envelope_clearance_above_plate_top_m": -0.004502397935974595
+  },
+  "actual_saved_post_reset_points": {
+    "count": 11200,
+    "minimum_m": [
+      0.3244015872478485,
+      -0.11983976513147354,
+      0.0811164379119873
+    ],
+    "maximum_m": [
+      0.3800484836101532,
+      -0.0686306357383728,
+      0.08784130960702896
+    ],
+    "mean_m": [
+      0.3522008116756167,
+      -0.09423517419490963,
+      0.08471486278277422
+    ],
+    "centers_inside_source_plate_box": 0,
+    "rest_radius_AABBs_intersect_source_plate_box": 0,
+    "rest_radius_AABBs_fully_inside_source_plate_box": 0,
+    "centers_below_source_plate_top": 0,
+    "lowest_center_clearance_above_plate_top_m": 0.0011164380237460164,
+    "lowest_rest_envelope_clearance_above_plate_top_m": 0.00040363802374601687
+  },
+  "actual_saved_maximum_speed_m_s": 2.2067568863883005,
+  "corrected_CENTER_argument_m": [
+    0.38,
+    -0.07,
+    0.08618959999999999
+  ],
+  "corrected_constructor_lower_m": [
+    0.3522008,
+    -0.0942352,
+    0.0812
+  ],
+  "corrected_analytic_grid_no_physics": {
+    "count": 11200,
+    "minimum_m": [
+      0.35220080614089966,
+      -0.09423519670963287,
+      0.0812000036239624
+    ],
+    "maximum_m": [
+      0.40779921412467957,
+      -0.045764800161123276,
+      0.09117919951677322
+    ],
+    "mean_m": [
+      0.3800000011920929,
+      -0.07000000008514949,
+      0.08618959970772266
+    ],
+    "centers_inside_source_plate_box": 0,
+    "rest_radius_AABBs_intersect_source_plate_box": 0,
+    "rest_radius_AABBs_fully_inside_source_plate_box": 0,
+    "centers_below_source_plate_top": 0,
+    "lowest_center_clearance_above_plate_top_m": 0.001200003735721114,
+    "lowest_rest_envelope_clearance_above_plate_top_m": 0.00048720373572111453
+  },
+  "old_and_current_same_bad_constructor_statement": true,
+  "old_executed_constructor_statement": "spacing=.0014256;powder=PowderSystem('stock',PowderCfg(pos=(.38-39*spacing/2,-.07-34*spacing/2,.0812),volume=(39*spacing,34*spacing,7*spacing)),SimpleNamespace());powder.create(stage,Sdf.Path('/physicsScene'),'/World/Powder');assert len(powder.positions)==11200",
+  "current_executed_constructor_statement": "spacing=.0014256;powder=PowderSystem('stock',PowderCfg(pos=(.38-39*spacing/2,-.07-34*spacing/2,.0812),volume=(39*spacing,34*spacing,7*spacing)),SimpleNamespace());powder.create(stage,Sdf.Path('/physicsScene'),'/World/Powder');assert len(powder.positions)==11200",
+  "evidence_interpretation": [
+    "The REAL unmodified IsaacLab decorator and unmodified public PowderCfg constructor were executed CPU-only; config output directly proves __post_init__ subtraction applies, rather than assuming it.",
+    "The unchanged original pure create_particles_grid function was evaluated only as a data constructor. No Kit/PhysX/native physics or particle-system creation ran.",
+    "The closed saved scene was exported AFTER original sim.reset(). Its particles have nonzero velocities and are already displaced from the analytic initial grid; actual saved minimum z is not the pre-reset minz.",
+    "Saved x/y mean matches the doubly shifted analytic grid to sub-micrometer precision, independently supporting constructor-coordinate provenance.",
+    "Corrected center argument restores the intended lower corner without changing spacing/count/mass/material. Analytic corrected grid is not a native outcome or proof of improved transfer.",
+    "Rest-radius AABB/solid-plate overlap is a geometric initialization check, not a measured force, solver impulse, collision penetration history or robot-caused spill.",
+    "No current running state/trajectory or process was inspected; only its immutable executed source statement was read. Historical transport diagnosis and current protocol/results remain unchanged."
+  ],
+  "proposed_minimal_diff": {
+    "before": "PowderCfg(pos=(.38-39*spacing/2,-.07-34*spacing/2,.0812), volume=(39*spacing,34*spacing,7*spacing))",
+    "after": "PowderCfg(pos=(.38,-.07,.0812+7*spacing/2), volume=(39*spacing,34*spacing,7*spacing))",
+    "scope": "Proposal only. Do not apply to current live world or rewrite historical evidence. Any future native variant requires root authorization and separate preserved attempt."
+  },
+  "mean_xy_saved_minus_bad_grid_m": [
+    1.1495181473364369e-08,
+    2.5920702945159135e-08
+  ]
+}

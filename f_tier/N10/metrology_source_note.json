@@ -1,0 +1,11 @@
+{
+  "scope": "Bounded source check for known-load diagnostic; not an established engine root cause",
+  "checked_utc": "2026-10-20T21:09:36.594981+00:00",
+  "local_result": "clean_payload_metrology_framework_fix/native_run/result.json",
+  "primary_source_url": "https://forums.developer.nvidia.com/t/particle-set-total-mass-not-fully-transferred-to-rigid-body/373127",
+  "source_status": "NVIDIA forum experiment plus NVIDIA staff responses June-July2026; not a peer-reviewed accuracy guarantee",
+  "paraphrase": "The discussion reports incomplete particle load transfer in a different heavy-particle/light-body configuration. NVIDIA staff identify finite-iteration PBD contact and mass-ratio conditioning as limitations and recommend adequate particle iteration budgets. The reported improvement does not establish the cause in our much lighter-grain setup.",
+  "local_configuration_difference": "Local grain mass1e-6kg, native cup mass0.3000000119kg; particle/body mass ratio~3.33e-6, opposite to the heavy-particle example. The700mg rigid control also exceeds10% local error.",
+  "bounded_next_comparison": "One identical5s fixture, particle solver iteration count16→64 only, all known loads/gain/dt retained; no parameter search or convergence claim from two points.",
+  "mass_API_check": "Installed particleUtils.py configure_particle_set explicitly multiplies per-particle mass by count and authors positive MassAPI mass; density is lower precedence. Actual post_reset.usda particle-set masses0.0007/0.003kg agree. No per-particle/total-mass API bug found."
+}

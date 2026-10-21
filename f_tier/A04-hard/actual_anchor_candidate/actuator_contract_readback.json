@@ -1,0 +1,1015 @@
+{
+  "status": "OFFLINE_SAVED_MODEL_ACTUATOR_CONTRACT_READBACK",
+  "created_utc": "2026-10-20T22:37:45.955066+00:00",
+  "mujoco_version": "3.3.7",
+  "execution_scope": {
+    "loaded_actual_closed_XML_models": 2,
+    "new_scenes_built": 0,
+    "MjData_created": 0,
+    "native_steps": 0,
+    "GPU_contexts": 0,
+    "runtime_FK_calls": 0,
+    "IK_or_other_optimizations": 0,
+    "controllers_added_or_modified": 0
+  },
+  "robots": [
+    {
+      "robot": "ur5e",
+      "status": "READ_SAVED_CLOSED_XML_COMPILED_MODEL_ONLY",
+      "saved_XML": "runs/ur5e/actual_anchor_script_expert_56002/scene.xml",
+      "arm_actuators": 6,
+      "all_arm_are_position_servos_not_velocity_setpoints": true,
+      "actual_recorded_control_dt_range_s": [
+        0.01,
+        0.01000000000000334
+      ],
+      "executed_learner_snapshot_matches_frozen_candidate": true,
+      "actuators": [
+        {
+          "index": 0,
+          "actuator": "shoulder_pan",
+          "joint": "shoulder_pan_joint",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            2000.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -2000.0,
+            -400.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 2000.0,
+          "Kv_Nms_per_rad": 400.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.2,
+          "ratio_to_actual_control_dt_p01": 20.0,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -6.2831,
+            6.2831
+          ],
+          "actuator_force_limited": true,
+          "actuator_force_range_Nm": [
+            -150.0,
+            150.0
+          ],
+          "joint_actuator_force_limited": false,
+          "joint_actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -6.28319,
+            6.28319
+          ],
+          "IK_buffered_joint_range_rad": [
+            -6.25319,
+            6.25319
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.1
+        },
+        {
+          "index": 1,
+          "actuator": "shoulder_lift",
+          "joint": "shoulder_lift_joint",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            2000.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -2000.0,
+            -400.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 2000.0,
+          "Kv_Nms_per_rad": 400.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.2,
+          "ratio_to_actual_control_dt_p01": 20.0,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -6.2831,
+            6.2831
+          ],
+          "actuator_force_limited": true,
+          "actuator_force_range_Nm": [
+            -150.0,
+            150.0
+          ],
+          "joint_actuator_force_limited": false,
+          "joint_actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -6.28319,
+            6.28319
+          ],
+          "IK_buffered_joint_range_rad": [
+            -6.25319,
+            6.25319
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.1
+        },
+        {
+          "index": 2,
+          "actuator": "elbow",
+          "joint": "elbow_joint",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            2000.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -2000.0,
+            -400.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 2000.0,
+          "Kv_Nms_per_rad": 400.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.2,
+          "ratio_to_actual_control_dt_p01": 20.0,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -3.1415,
+            3.1415
+          ],
+          "actuator_force_limited": true,
+          "actuator_force_range_Nm": [
+            -150.0,
+            150.0
+          ],
+          "joint_actuator_force_limited": false,
+          "joint_actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -3.1415,
+            3.1415
+          ],
+          "IK_buffered_joint_range_rad": [
+            -3.1115000000000004,
+            3.1115000000000004
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.1
+        },
+        {
+          "index": 3,
+          "actuator": "wrist_1",
+          "joint": "wrist_1_joint",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -500.0,
+            -100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 500.0,
+          "Kv_Nms_per_rad": 100.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.2,
+          "ratio_to_actual_control_dt_p01": 20.0,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -6.2831,
+            6.2831
+          ],
+          "actuator_force_limited": true,
+          "actuator_force_range_Nm": [
+            -28.0,
+            28.0
+          ],
+          "joint_actuator_force_limited": false,
+          "joint_actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -6.28319,
+            6.28319
+          ],
+          "IK_buffered_joint_range_rad": [
+            -6.25319,
+            6.25319
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.1
+        },
+        {
+          "index": 4,
+          "actuator": "wrist_2",
+          "joint": "wrist_2_joint",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -500.0,
+            -100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 500.0,
+          "Kv_Nms_per_rad": 100.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.2,
+          "ratio_to_actual_control_dt_p01": 20.0,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -6.2831,
+            6.2831
+          ],
+          "actuator_force_limited": true,
+          "actuator_force_range_Nm": [
+            -28.0,
+            28.0
+          ],
+          "joint_actuator_force_limited": false,
+          "joint_actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -6.28319,
+            6.28319
+          ],
+          "IK_buffered_joint_range_rad": [
+            -6.25319,
+            6.25319
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.1
+        },
+        {
+          "index": 5,
+          "actuator": "wrist_3",
+          "joint": "wrist_3_joint",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -500.0,
+            -100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 500.0,
+          "Kv_Nms_per_rad": 100.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.2,
+          "ratio_to_actual_control_dt_p01": 20.0,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -6.2831,
+            6.2831
+          ],
+          "actuator_force_limited": true,
+          "actuator_force_range_Nm": [
+            -28.0,
+            28.0
+          ],
+          "joint_actuator_force_limited": false,
+          "joint_actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -6.28319,
+            6.28319
+          ],
+          "IK_buffered_joint_range_rad": [
+            -6.25319,
+            6.25319
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.1
+        }
+      ]
+    },
+    {
+      "robot": "flexiv",
+      "status": "READ_SAVED_CLOSED_XML_COMPILED_MODEL_ONLY",
+      "saved_XML": "runs/flexiv/actual_anchor_script_expert_56002/scene.xml",
+      "arm_actuators": 7,
+      "all_arm_are_position_servos_not_velocity_setpoints": true,
+      "actual_recorded_control_dt_range_s": [
+        0.01,
+        0.01000000000000334
+      ],
+      "executed_learner_snapshot_matches_frozen_candidate": true,
+      "actuators": [
+        {
+          "index": 0,
+          "actuator": "joint1",
+          "joint": "joint1",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            289.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -289.0,
+            -61.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 289.0,
+          "Kv_Nms_per_rad": 61.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.21107266435986158,
+          "ratio_to_actual_control_dt_p01": 21.10726643598616,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -2.8798,
+            2.8798
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -123.0,
+            123.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -2.8798,
+            2.8798
+          ],
+          "IK_buffered_joint_range_rad": [
+            -2.8498,
+            2.8498
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 3.17
+        },
+        {
+          "index": 1,
+          "actuator": "joint2",
+          "joint": "joint2",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            673.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -673.0,
+            -143.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 673.0,
+          "Kv_Nms_per_rad": 143.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.212481426448737,
+          "ratio_to_actual_control_dt_p01": 21.2481426448737,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -2.3562,
+            2.3562
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -123.0,
+            123.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -2.3562,
+            2.3562
+          ],
+          "IK_buffered_joint_range_rad": [
+            -2.3262,
+            2.3262
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 3.17
+        },
+        {
+          "index": 2,
+          "actuator": "joint3",
+          "joint": "joint3",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            224.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -224.0,
+            -36.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 224.0,
+          "Kv_Nms_per_rad": 36.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.16071428571428573,
+          "ratio_to_actual_control_dt_p01": 16.071428571428573,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -3.0543,
+            3.0543
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -64.0,
+            64.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -3.0543,
+            3.0543
+          ],
+          "IK_buffered_joint_range_rad": [
+            -3.0243,
+            3.0243
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 1.38
+        },
+        {
+          "index": 3,
+          "actuator": "joint4",
+          "joint": "joint4",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            373.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -373.0,
+            -59.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 373.0,
+          "Kv_Nms_per_rad": 59.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.1581769436997319,
+          "ratio_to_actual_control_dt_p01": 15.81769436997319,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -1.9548000000000003,
+            2.7751
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -64.0,
+            64.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -1.9548,
+            2.7751
+          ],
+          "IK_buffered_joint_range_rad": [
+            -1.9248,
+            2.7451000000000003
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 1.38
+        },
+        {
+          "index": 4,
+          "actuator": "joint5",
+          "joint": "joint5",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            237.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -237.0,
+            -13.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 237.0,
+          "Kv_Nms_per_rad": 13.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.05485232067510549,
+          "ratio_to_actual_control_dt_p01": 5.485232067510549,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -3.0543,
+            3.0543
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -39.0,
+            39.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -3.0543,
+            3.0543
+          ],
+          "IK_buffered_joint_range_rad": [
+            -3.0243,
+            3.0243
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.13
+        },
+        {
+          "index": 5,
+          "actuator": "joint6",
+          "joint": "joint6",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            232.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -232.0,
+            -12.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 232.0,
+          "Kv_Nms_per_rad": 12.0,
+          "coefficient_ratio_Kv_over_Kp_s": 0.05172413793103448,
+          "ratio_to_actual_control_dt_p01": 5.172413793103448,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -1.4835000000000003,
+            4.6251
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -39.0,
+            39.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -1.4835,
+            4.6251
+          ],
+          "IK_buffered_joint_range_rad": [
+            -1.4535,
+            4.5950999999999995
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.13
+        },
+        {
+          "index": 6,
+          "actuator": "joint7",
+          "joint": "joint7",
+          "classification": "JOINT_POSITION_SERVO_WITH_VELOCITY_DAMPING",
+          "gaintype": "mjGAIN_FIXED",
+          "biastype": "mjBIAS_AFFINE",
+          "dyntype": "mjDYN_NONE",
+          "transmission": "mjTRN_JOINT",
+          "gainprm": [
+            186.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "biasprm": [
+            0.0,
+            -186.0,
+            -9.9,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gear": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Kp_Nm_per_rad": 186.0,
+          "Kv_Nms_per_rad": 9.9,
+          "coefficient_ratio_Kv_over_Kp_s": 0.05322580645161291,
+          "ratio_to_actual_control_dt_p01": 5.322580645161291,
+          "ctrl_limited": true,
+          "ctrl_range_rad": [
+            -3.0543,
+            3.0543
+          ],
+          "actuator_force_limited": false,
+          "actuator_force_range_Nm": [
+            0.0,
+            0.0
+          ],
+          "joint_actuator_force_limited": true,
+          "joint_actuator_force_range_Nm": [
+            -39.0,
+            39.0
+          ],
+          "joint_limited": true,
+          "joint_range_rad": [
+            -3.0543,
+            3.0543
+          ],
+          "IK_buffered_joint_range_rad": [
+            -3.0243,
+            3.0243
+          ],
+          "passive_joint_damping_Nms_per_rad": 0.0,
+          "joint_frictionloss_Nm": 0.0,
+          "armature_kg_m2": 0.13
+        }
+      ]
+    }
+  ],
+  "unit_and_interface_chain": [
+    "Policy/teacher action is6D object-frame velocity: first3 angular rad/s,last3 linear m/s,clipped after unchanged noise.",
+    "The selected historical action basis rotates these velocities into world axes. Actual-anchor adapter multiplies them by the recorded control dt\u2248.01s, producing a world pose increment(m,rad), not an actuator velocity setpoint.",
+    "Unchanged noninitial pose IK solves joint-angle targets q_nominal(rad), stores self.nominal, and does not change the live native state.",
+    "Original apply() sets arm ctrl=clip(q_nominal+(qfrc_bias\u2212qfrc_passive)/Kp,ctrlrange), using a scratch state with zero velocity for residual/gravity compensation.",
+    "Compiled unit-gear hinge actuator equation before saturation is tau=Kp*ctrl\u2212Kp*q\u2212Kv*qdot. Thus ctrl is a joint-position reference, with damping on actual joint velocity; no explicit desired joint-velocity reference or velocity feedforward term is supplied to the actuators by apply().",
+    "After ctrl clipping, actuator-force and/or joint summed-actuator-force limits can also constrain output; raw flags and ranges are retained, including disabled limits."
+  ],
+  "ratio_interpretation": {
+    "definition": "Kv/Kp has units seconds; URall.2s,Flexapproximately.0517\u2013.2125s versus control dt.01s.",
+    "limits": "This coefficient ratio is not a measured step-response or closed-loop time constant. Robot inertia/coupling,gravity compensation,passive forces,contact,IK and saturation remain relevant. No FK/IK simulation or dynamic response identification was run.",
+    "failure_boundary": "Velocity-declared actions are realized here by short pose increments followed by joint-position servos. This clarifies the interface contract but does not establish it as the sole cause of the two0/2outcomes or prove a remedy."
+  },
+  "source_references": {
+    "actual_adapter": "learner.py::LearnedController.solve; also each closedrun learning_adapter_source.py",
+    "IK": "objective_solve.py::solve_noninitial (read only,notexecuted)",
+    "UR_apply": "shared_sources/f_tier/A01/pour_runner.py:87\u201390",
+    "Flex_apply": "shared_sources/f_tier/A04/coupled_moving_receiver/flexiv_task.py:38\u201341"
+  },
+  "old_and_current_failed_evidence_preserved": true,
+  "new_native_authorized_or_started": false
+}

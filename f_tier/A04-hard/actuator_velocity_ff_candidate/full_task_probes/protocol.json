@@ -1,0 +1,53 @@
+{
+  "id": "A04_VELOCITY_FF_TWO_KNOWN_FULL_TASK_PROBES",
+  "registered_utc": "2026-10-20T22:57:27.216343+00:00",
+  "scope": "Two known failed engineering cases; not training/heldout/F/difficulty calibration",
+  "cases": [
+    {
+      "case_id": "ur5e_velocity_ff_script_expert_56002",
+      "robot": "ur5e",
+      "method": "script_expert",
+      "seed": 56002,
+      "label": "velocity_ff_script_expert_56002",
+      "configuration": "configurations/56002.json",
+      "policy": null
+    },
+    {
+      "case_id": "flexiv_velocity_ff_script_expert_56002",
+      "robot": "flexiv",
+      "method": "script_expert",
+      "seed": 56002,
+      "label": "velocity_ff_script_expert_56002",
+      "configuration": "configurations/56002.json",
+      "policy": null
+    }
+  ],
+  "maximum_started": 2,
+  "cap_per_case": 1,
+  "max_concurrent": 2,
+  "no_retry": true,
+  "all_STARTED_in_denominator": true,
+  "native_duration_target_s": 23.0,
+  "control_hz": 100,
+  "active_feedback_samples": 650,
+  "bounded_pending_terminal_next_observation": 1,
+  "single_execution_change": "Same actual-anchor -> original objective IK -> qdot_des=(qIK-qactual_at_control)/actual_dt -> nominal=qIK+(Kv/Kp)*qdot_des, original residual/passive compensation and ctrl/force/joint bounds. Hold nominal only for that action interval; qIK cache independent.",
+  "unchanged": [
+    "Same expert teacher4*delayed_error+ff,18D observations,history/strict20\u201340ms/noise/action clips",
+    "Same source/configuration56002 and full23s pickup/lift/transfer/tilt/pour/untilt/return/release",
+    "Same CPU MuJoCo+Warp DFSPH 240particles/CFL/two-way container coupling",
+    "Same native physical gates:full23s,receiver path>=20mm,finalreceiver>=80%,finalspill<=10%,zero scoped particle penetrations",
+    "Same actual arrival-triggered pulse validity and full650+1 observed delay verification",
+    "Same original initializer and objective-only noninitialIK; same per-solve journal; no native q/object/particle writes introduced"
+  ],
+  "runtime": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OPENBLAS_NUM_THREADS": 1,
+    "OMP_NUM_THREADS": 1,
+    "MKL_NUM_THREADS": 1
+  },
+  "previous_actual_anchor_result": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/actual_anchor_candidate/result.json",
+  "evidence_rule": "One aggregate result after two CLOSED, all raw retained including errors/partial/TERM; source equality snapshots/no hashes.",
+  "video": "CPU saved-state replay only; no new physics steps/GPU context, spherical particle center display declared",
+  "interpretation": "Four robot-only components showed better fixedtwist tracking; full task success remains unknown, no new algorithm/seed retry authorized."
+}

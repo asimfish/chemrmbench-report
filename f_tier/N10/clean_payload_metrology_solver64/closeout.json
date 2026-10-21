@@ -1,0 +1,42 @@
+{
+  "status": "CLOSED_SINGLE_SOLVER64_CONTROL_NO_F",
+  "closed_utc": "2026-10-20T21:11:30.744171+00:00",
+  "native_result": "native_run/result.json",
+  "native_process": "native_run/process.json",
+  "native_raw_trace": "native_run/trace.json",
+  "control_protocol": "control_protocol.json",
+  "exact_patch": "solver_only.patch",
+  "saved_actual_parameters": "authored_solver_readback.json",
+  "comparison": "comparison.json",
+  "figures": [
+    "solver_comparison.png",
+    "solver_comparison.pdf",
+    "metrology.png",
+    "metrology.pdf"
+  ],
+  "native_steps": 1500,
+  "native_s": 5.000000121071935,
+  "clock_error_s": 1.210719347000122e-07,
+  "full_wall_s": 50.617890089022694,
+  "native_and_guard_gone": true,
+  "runtime_snapshot_unchanged": true,
+  "same_material_geometry_gain_cases_and_dt": true,
+  "native_STARTED_count_this_study": 1,
+  "cap_exhausted": true,
+  "F_PASS": false,
+  "readout_g": {
+    "solver16": [
+      0.6092477776945003,
+      2.882206618361208,
+      0.3304349991286376,
+      0.760967107393004
+    ],
+    "solver64": [
+      0.6871542043270435,
+      2.9636288937029573,
+      0.9308234356703281,
+      1.0092228779151438
+    ]
+  },
+  "interpretation": "NeitherPBDcase passes10%at64;0.7g overreads and3g underreads. Rigids in64world passlocal10%but changedacrossindependentworlds. No intrinsiccause/convergence/robustinstrumentqualification. Stopiterationbudgetsearch and defernewgeometryintegration to reviewedcandidate."
+}

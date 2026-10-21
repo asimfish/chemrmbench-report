@@ -1,0 +1,157 @@
+{
+  "status": "METROLOGY_PREREQUISITE_CLOSED_NOT_N10_F",
+  "failure": null,
+  "native_steps": 1500,
+  "native_s": 5.000000121071935,
+  "issued_steps": 1500,
+  "native_clock_error_s": 1.210719347000122e-07,
+  "cases": [
+    {
+      "case": "empty_cup",
+      "reference_known_load_kg": 0.0,
+      "frozen_gain_readout_increment_kg": 0.0,
+      "relative_error": null,
+      "terminal_mean_platform_z_m": 0.08201495575408141,
+      "terminal_platform_z_std_m": 9.471684384837486e-09,
+      "terminal_platform_speed_max_m_s": 0.01507634115834418,
+      "particle_count_reference": 0,
+      "particle_containment_all_samples": null,
+      "all_finite": true,
+      "native_cup_mass_kg": [
+        [
+          0.30000001192092896
+        ]
+      ],
+      "native_known_rigid_insert_mass_kg": null,
+      "native_PBD_particle_mass_kg": null,
+      "native_platform_mass_kg": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "case": "rigid_700mg",
+      "reference_known_load_kg": 0.0007,
+      "frozen_gain_readout_increment_kg": 0.0006092477776945003,
+      "relative_error": 0.12964603186499954,
+      "terminal_mean_platform_z_m": 0.08200887906054656,
+      "terminal_platform_z_std_m": 3.105273722262442e-08,
+      "terminal_platform_speed_max_m_s": 0.014962021678669751,
+      "particle_count_reference": 0,
+      "particle_containment_all_samples": null,
+      "all_finite": true,
+      "native_cup_mass_kg": [
+        [
+          0.30000001192092896
+        ]
+      ],
+      "native_known_rigid_insert_mass_kg": [
+        [
+          0.000699999975040555
+        ]
+      ],
+      "native_PBD_particle_mass_kg": null,
+      "native_platform_mass_kg": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "case": "rigid_3g",
+      "reference_known_load_kg": 0.003,
+      "frozen_gain_readout_increment_kg": 0.002882206618361208,
+      "relative_error": 0.039264460546263966,
+      "terminal_mean_platform_z_m": 0.08198620835940043,
+      "terminal_platform_z_std_m": 8.287094131300503e-09,
+      "terminal_platform_speed_max_m_s": 0.014899408586868047,
+      "particle_count_reference": 0,
+      "particle_containment_all_samples": null,
+      "all_finite": true,
+      "native_cup_mass_kg": [
+        [
+          0.30000001192092896
+        ]
+      ],
+      "native_known_rigid_insert_mass_kg": [
+        [
+          0.0029999997932463884
+        ]
+      ],
+      "native_PBD_particle_mass_kg": null,
+      "native_platform_mass_kg": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "case": "powder_700mg",
+      "reference_known_load_kg": 0.0007,
+      "frozen_gain_readout_increment_kg": 0.00033043499912863763,
+      "relative_error": 0.5279500012448034,
+      "terminal_mean_platform_z_m": 0.08201165996491909,
+      "terminal_platform_z_std_m": 1.0095131638389967e-07,
+      "terminal_platform_speed_max_m_s": 0.01514425968869554,
+      "particle_count_reference": 700,
+      "particle_containment_all_samples": true,
+      "all_finite": true,
+      "native_cup_mass_kg": [
+        [
+          0.30000001192092896
+        ]
+      ],
+      "native_known_rigid_insert_mass_kg": null,
+      "native_PBD_particle_mass_kg": 1e-06,
+      "native_platform_mass_kg": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "case": "powder_3g",
+      "reference_known_load_kg": 0.003,
+      "frozen_gain_readout_increment_kg": 0.000760967107393004,
+      "relative_error": 0.7463442975356654,
+      "terminal_mean_platform_z_m": 0.08200736579795678,
+      "terminal_platform_z_std_m": 6.148259055955316e-08,
+      "terminal_platform_speed_max_m_s": 0.015159690741864481,
+      "particle_count_reference": 3000,
+      "particle_containment_all_samples": true,
+      "all_finite": true,
+      "native_cup_mass_kg": [
+        [
+          0.30000001192092896
+        ]
+      ],
+      "native_known_rigid_insert_mass_kg": null,
+      "native_PBD_particle_mass_kg": 1e-06,
+      "native_platform_mass_kg": [
+        [
+          1.0
+        ]
+      ]
+    }
+  ],
+  "separate_emptycup_terminal_mean_z_m": 0.08201495575408141,
+  "frozen_gain": {
+    "frozen": true,
+    "fitting_cases": [
+      "cube100g",
+      "cube220g"
+    ],
+    "slope_kg_per_m": 100.25975050422052,
+    "offset_kg": 0.0,
+    "fit_basis": "Independent known rigid loads only; no powder count/transfer/result used",
+    "backend": "cuda:0",
+    "dt_s": 0.0033333333333333335
+  },
+  "gain_refitted": false,
+  "particle_count_in_readout": false,
+  "runtime_body_or_particle_state_writes": 0,
+  "pipeline": "Original CPU tensor pipeline + PhysXGPU override1; not CPU-only rigid physics",
+  "F_PASS": false,
+  "scope": "One <=5s prerequisite only. Negative/zero readings retained. Rigid vs containedPBD knownload comparisons distinguish narrower failure modes; no claim of powder manipulation,originalNature scale fidelity or new calibration."
+}

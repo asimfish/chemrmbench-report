@@ -1,0 +1,479 @@
+{
+  "status": "TWO_KNOWN_CASE_ENGINEERING_PROBES_CLOSED_NOT_METHOD_EVALUATION",
+  "closed_utc": "2026-10-20T22:34:55.655032+00:00",
+  "started": 2,
+  "closed": 2,
+  "successes": 0,
+  "primary_denominator": 2,
+  "all_STARTED_in_denominator": true,
+  "cases": [
+    {
+      "case": {
+        "case_id": "ur5e_script_expert_56002",
+        "robot": "ur5e",
+        "method": "script_expert",
+        "seed": 56002,
+        "label": "actual_anchor_script_expert_56002",
+        "configuration": "configurations/56002.json",
+        "policy": null
+      },
+      "returncode": 1,
+      "wall_s": 1282.3212444020028,
+      "metrics_path": "runs/ur5e/actual_anchor_script_expert_56002/metrics.json",
+      "closure": {
+        "closed_utc": "2026-10-20T22:34:41.048217+00:00",
+        "termination": null,
+        "outer_error": null,
+        "policy_weight_updates": 0,
+        "formal_evaluation_episodes": 0
+      },
+      "missing_evidence": [],
+      "adapter_readback": {
+        "recorded_feedback_samples": 650,
+        "all_finite": true,
+        "native_feedback_time_range_s": [
+          8.501950005368474,
+          14.991950005370642
+        ],
+        "actual_dt_range_s": [
+          0.01,
+          0.01000000000000334
+        ],
+        "maximum_command_minus_actual_anchor_m": 0.0014292712718688067,
+        "maximum_command_minus_actual_anchor_angle_rad": 0.015030474549457558,
+        "maximum_linear_bound_m": 0.0017320508075694557,
+        "maximum_angular_bound_rad": 0.025980762113541837,
+        "linear_bound_violations": 0,
+        "angular_bound_violations": 0,
+        "measured_angular_steps_below_p02rad": 650,
+        "maximum_anchor_equation_translation_residual_m": 4.058341990619939e-17,
+        "maximum_anchor_equation_rotation_residual_rad": 1.1129661401407935e-16,
+        "command_anchor_equations_satisfied": true,
+        "actual_to_task_goal_position_error_m": {
+          "first": 0.01789936126889216,
+          "last": 0.039963649870006675,
+          "maximum": 0.05275086620490294,
+          "median": 0.020583214098513866
+        },
+        "actual_to_task_goal_orientation_error_rad": {
+          "first": 0.0001326802296403622,
+          "last": 0.32609823154190754,
+          "maximum": 1.738417346644231,
+          "median": 1.15098189717797
+        },
+        "actual_feedback_path_length_m": 0.028672028117519947,
+        "scope": "Command-step limit is relative to fresh actual anchor by construction. It does not bound actual robot motion, goal tracking, fluid success or IK work."
+      },
+      "original_physical_checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "physical_metrics": {
+        "min_loaded_lift_m": 0.11649445342947273,
+        "min_loaded_tube_robot_contacts": 32,
+        "native_seconds": 23.000376844184224,
+        "native_steps": 11546,
+        "receiver_xy_path_m": 1.6370204334843939,
+        "final_receiver_fraction": 0.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.29472396733842227,
+        "min_dt_s": 0.0011748062157978867,
+        "wall_run_s": 1264.5627639660088
+      },
+      "error": null,
+      "particle_final_partition": {
+        "time_s": 23.000376844184224,
+        "phase": "released_settle",
+        "source_count": 240,
+        "receiver_count": 0,
+        "spill_count": 0,
+        "support_N": 1.506198704549671,
+        "receiver_x": 0.5741449069581458,
+        "receiver_y": 0.28045387907367153,
+        "receiver_z": 0.0010659637785870655,
+        "tube_z": 0.003933785425886609,
+        "tube_ee_distance_m": 0.20590824065097746,
+        "tube_ee_relative_position_x": 0.0003583763653307927,
+        "tube_ee_relative_position_y": -1.4459289647892725e-05,
+        "tube_ee_relative_position_z": 0.2059079282720568,
+        "tube_robot_contact_count": 0,
+        "ee_x": 0.4744635073396485,
+        "ee_y": 0.10446070257981303,
+        "ee_z": 0.20984188510398558,
+        "command_index": 2300,
+        "native_steps": 11546,
+        "ever_native_solid_penetration_particles": 0,
+        "max_CFL": 0.29472396733842227,
+        "min_dt_s": 0.0011748062157978867
+      },
+      "arrival_pulses": {
+        "evidence": "flow_events.json",
+        "status": "NO_RECEIVER_ARRIVAL_EVENT",
+        "perturbation_protocol_satisfied": false,
+        "trigger": null,
+        "physical_success_original_gates": false,
+        "calibration_success_including_perturbation": false
+      },
+      "IK_readback": {
+        "records": 2302,
+        "accepted": 2302,
+        "rejected": 0,
+        "actual_state_unchanged_all": true,
+        "feedback_samples_matching_same_time_journal": 650,
+        "feedback_anchor_position_max_journal_difference_m": 0.0,
+        "last_rejection": null,
+        "matched_feedback_optimizer_summary": {
+          "nfev_median": 3.0,
+          "optimized_orientation_error_median_rad": 2.0858523204945392e-09,
+          "optimized_orientation_error_max_rad": 6.82734832752929e-08,
+          "nominal_joint_delta_median_rad": 0.0009459531682841638,
+          "nominal_joint_delta_max_rad": 0.033304711975177925,
+          "scope": "Recorded optimizer results, not an observed actuator causal model or a counterfactual IK rerun."
+        }
+      },
+      "delay_readback": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03000000000001002,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03000000000001002,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03000000000001002,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.001950005370645,
+            "requested_age_s": 0.03,
+            "selected_native_time_s": 14.971950005370635,
+            "actual_age_s": 0.03000000000001002,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "particle_trace_readback": {
+        "samples": 2300,
+        "total_count_min": 240,
+        "total_count_max": 240,
+        "all_partitions_sum_240": true,
+        "last_record": {
+          "time_s": "23.000376844184224",
+          "phase": "released_settle",
+          "source_count": "240",
+          "receiver_count": "0",
+          "spill_count": "0",
+          "support_N": "1.506198704549671",
+          "receiver_x": "0.5741449069581458",
+          "receiver_y": "0.28045387907367153",
+          "receiver_z": "0.0010659637785870655",
+          "tube_z": "0.003933785425886609",
+          "tube_ee_distance_m": "0.20590824065097746",
+          "tube_ee_relative_position_x": "0.0003583763653307927",
+          "tube_ee_relative_position_y": "-1.4459289647892725e-05",
+          "tube_ee_relative_position_z": "0.2059079282720568",
+          "tube_robot_contact_count": "0",
+          "ee_x": "0.4744635073396485",
+          "ee_y": "0.10446070257981303",
+          "ee_z": "0.20984188510398558",
+          "command_index": "2300",
+          "native_steps": "11546",
+          "ever_native_solid_penetration_particles": "0",
+          "max_CFL": "0.29472396733842227",
+          "min_dt_s": "0.0011748062157978867"
+        }
+      },
+      "probe_pass": false,
+      "previous_same_known_case": {
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/corridor_arrival_pilot/runs/ur5e/corridor_script_expert_56002/metrics.json",
+        "original_physical_checks": {
+          "full_23s": false,
+          "receiver_xy_path_at_least_20mm": true,
+          "final_receiver_at_least_80pct": false,
+          "final_spill_at_most_10pct": false,
+          "zero_container_bench_floor_particle_penetrations": true
+        },
+        "metrics": {
+          "min_loaded_lift_m": 0.11649445342947273,
+          "min_loaded_tube_robot_contacts": 32,
+          "native_seconds": 10.540183545766874,
+          "native_steps": 5624,
+          "receiver_xy_path_m": 0.7524646629036049,
+          "final_receiver_fraction": 0.029166666666666667,
+          "final_spill_fraction": 0.42083333333333334,
+          "native_scope_penetration_particles": 0,
+          "max_CFL": 0.3493468217398176,
+          "min_dt_s": 0.0003643222313115054,
+          "wall_run_s": 549.9196387990087
+        },
+        "error": "Unreachable object-centric pose [0.5051085150324625, 0.26496042922489255, 0.25400754208398363]"
+      }
+    },
+    {
+      "case": {
+        "case_id": "flexiv_script_expert_56002",
+        "robot": "flexiv",
+        "method": "script_expert",
+        "seed": 56002,
+        "label": "actual_anchor_script_expert_56002",
+        "configuration": "configurations/56002.json",
+        "policy": null
+      },
+      "returncode": 1,
+      "wall_s": 1215.2382643639867,
+      "metrics_path": "runs/flexiv/actual_anchor_script_expert_56002/metrics.json",
+      "closure": {
+        "closed_utc": "2026-10-20T22:33:34.329668+00:00",
+        "termination": null,
+        "outer_error": null,
+        "policy_weight_updates": 0,
+        "formal_evaluation_episodes": 0
+      },
+      "missing_evidence": [],
+      "adapter_readback": {
+        "recorded_feedback_samples": 650,
+        "all_finite": true,
+        "native_feedback_time_range_s": [
+          8.5001113438008,
+          14.990111343802967
+        ],
+        "actual_dt_range_s": [
+          0.01,
+          0.01000000000000334
+        ],
+        "maximum_command_minus_actual_anchor_m": 0.0017320508075694718,
+        "maximum_command_minus_actual_anchor_angle_rad": 0.015789884132864262,
+        "maximum_linear_bound_m": 0.0017320508075694557,
+        "maximum_angular_bound_rad": 0.025980762113541837,
+        "linear_bound_violations": 0,
+        "angular_bound_violations": 0,
+        "measured_angular_steps_below_p02rad": 650,
+        "maximum_anchor_equation_translation_residual_m": 3.84611551851215e-17,
+        "maximum_anchor_equation_rotation_residual_rad": 2.2410183525673157e-16,
+        "command_anchor_equations_satisfied": true,
+        "actual_to_task_goal_position_error_m": {
+          "first": 0.01842759872941342,
+          "last": 0.16323536134193767,
+          "maximum": 0.21852566541306676,
+          "median": 0.1645415423600826
+        },
+        "actual_to_task_goal_orientation_error_rad": {
+          "first": 0.016817300335338053,
+          "last": 0.8618210020287992,
+          "maximum": 1.2152582074493359,
+          "median": 0.7639275817775563
+        },
+        "actual_feedback_path_length_m": 0.31886951436878397,
+        "scope": "Command-step limit is relative to fresh actual anchor by construction. It does not bound actual robot motion, goal tracking, fluid success or IK work."
+      },
+      "original_physical_checks": {
+        "full_23s": true,
+        "receiver_xy_path_at_least_20mm": true,
+        "final_receiver_at_least_80pct": false,
+        "final_spill_at_most_10pct": true,
+        "zero_container_bench_floor_particle_penetrations": true
+      },
+      "physical_metrics": {
+        "min_loaded_lift_m": 0.11444734513946296,
+        "min_loaded_tube_robot_contacts": 20,
+        "native_seconds": 23.000467697910334,
+        "native_steps": 11639,
+        "receiver_xy_path_m": 1.6374402653292597,
+        "final_receiver_fraction": 0.0,
+        "final_spill_fraction": 0.0,
+        "native_scope_penetration_particles": 0,
+        "max_CFL": 0.3009610755454456,
+        "min_dt_s": 0.0007080692582167519,
+        "wall_run_s": 1202.405090079992
+      },
+      "error": null,
+      "particle_final_partition": {
+        "time_s": 23.000467697910334,
+        "phase": "released_settle",
+        "source_count": 240,
+        "receiver_count": 0,
+        "spill_count": 0,
+        "support_N": 2.4468948138498456,
+        "receiver_x": 0.5741341424202323,
+        "receiver_y": 0.2804682979146648,
+        "receiver_z": 0.00092642335592495,
+        "tube_z": 0.00387018324401631,
+        "tube_ee_distance_m": 0.2070278371886566,
+        "tube_ee_relative_position_x": 0.001752524224812839,
+        "tube_ee_relative_position_y": -0.001865255105497676,
+        "tube_ee_relative_position_z": 0.20701201620496756,
+        "tube_robot_contact_count": 0,
+        "ee_x": 0.47611176030655156,
+        "ee_y": 0.10467186230392884,
+        "ee_z": 0.21088434261340963,
+        "command_index": 2300,
+        "native_steps": 11639,
+        "ever_native_solid_penetration_particles": 0,
+        "max_CFL": 0.3009610755454456,
+        "min_dt_s": 0.0007080692582167519
+      },
+      "arrival_pulses": {
+        "evidence": "flow_events.json",
+        "status": "NO_RECEIVER_ARRIVAL_EVENT",
+        "perturbation_protocol_satisfied": false,
+        "trigger": null,
+        "physical_success_original_gates": false,
+        "calibration_success_including_perturbation": false
+      },
+      "IK_readback": {
+        "records": 2302,
+        "accepted": 2302,
+        "rejected": 0,
+        "actual_state_unchanged_all": true,
+        "feedback_samples_matching_same_time_journal": 650,
+        "feedback_anchor_position_max_journal_difference_m": 0.0,
+        "last_rejection": null,
+        "matched_feedback_optimizer_summary": {
+          "nfev_median": 5.0,
+          "optimized_orientation_error_median_rad": 3.904892179247782e-09,
+          "optimized_orientation_error_max_rad": 3.417329990316968e-08,
+          "nominal_joint_delta_median_rad": 0.002645806649888449,
+          "nominal_joint_delta_max_rad": 0.03136526301123732,
+          "scope": "Recorded optimizer results, not an observed actuator causal model or a counterfactual IK rerun."
+        }
+      },
+      "delay_readback": {
+        "protocol_satisfied": true,
+        "status": "BOUNDED_OBSERVED_DELAY_PASS",
+        "samples": 651,
+        "learned_feedback_samples": 650,
+        "pending_terminal_samples": 1,
+        "checks": {
+          "full_trace_and_modes_same_length": true,
+          "timestamps_strictly_increasing": true,
+          "actual_age_bounds": true,
+          "exact_recorded_timestamps": true,
+          "paired_payload_identity": true,
+          "next_observation_identity": true,
+          "full_650_feedback_samples": true,
+          "one_bounded_pending_terminal_nextobs": true
+        },
+        "actual_age_min_s": 0.02000000000000668,
+        "actual_age_max_s": 0.03000000000001002,
+        "actual_age_median_s": 0.03000000000001002,
+        "actual_age_p95_s": 0.03000000000001002,
+        "requested_min_s": 0.02,
+        "requested_max_s": 0.04,
+        "history_trace_total_rows": 2300,
+        "all_phase_history_age_min_s": 0.0,
+        "all_phase_history_age_max_s": 0.03000000000001002,
+        "sample_scope": "ActivelearnedfeedbackANDpendingterminalnextobservation;scriptednopendingcurrentframesseparate",
+        "exact_requested_age_promised": false,
+        "interpolated_or_synthetic_frames": 0,
+        "terminal_boundary": [
+          {
+            "history_index": 1497,
+            "native_time_s": 15.00011134380297,
+            "requested_age_s": 0.03,
+            "selected_native_time_s": 14.97011134380296,
+            "actual_age_s": 0.03000000000001002,
+            "eligible_count": 2,
+            "selection": "nearest_requested_age_tie_newer",
+            "payload": "original_observation_and_basis_pair",
+            "selection_scope": "pending_learned_transition_next_observation"
+          }
+        ],
+        "source": "Actualnativehistorytimestamp/observation/basispairsandselectionmodelog"
+      },
+      "particle_trace_readback": {
+        "samples": 2300,
+        "total_count_min": 240,
+        "total_count_max": 240,
+        "all_partitions_sum_240": true,
+        "last_record": {
+          "time_s": "23.000467697910334",
+          "phase": "released_settle",
+          "source_count": "240",
+          "receiver_count": "0",
+          "spill_count": "0",
+          "support_N": "2.4468948138498456",
+          "receiver_x": "0.5741341424202323",
+          "receiver_y": "0.2804682979146648",
+          "receiver_z": "0.00092642335592495",
+          "tube_z": "0.00387018324401631",
+          "tube_ee_distance_m": "0.2070278371886566",
+          "tube_ee_relative_position_x": "0.001752524224812839",
+          "tube_ee_relative_position_y": "-0.001865255105497676",
+          "tube_ee_relative_position_z": "0.20701201620496756",
+          "tube_robot_contact_count": "0",
+          "ee_x": "0.47611176030655156",
+          "ee_y": "0.10467186230392884",
+          "ee_z": "0.21088434261340963",
+          "command_index": "2300",
+          "native_steps": "11639",
+          "ever_native_solid_penetration_particles": "0",
+          "max_CFL": "0.3009610755454456",
+          "min_dt_s": "0.0007080692582167519"
+        }
+      },
+      "probe_pass": false,
+      "previous_same_known_case": {
+        "path": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A04-hard/corridor_arrival_pilot/runs/flexiv/corridor_script_expert_56002/metrics.json",
+        "original_physical_checks": {
+          "full_23s": false,
+          "receiver_xy_path_at_least_20mm": true,
+          "final_receiver_at_least_80pct": false,
+          "final_spill_at_most_10pct": false,
+          "zero_container_bench_floor_particle_penetrations": true
+        },
+        "metrics": {
+          "min_loaded_lift_m": 0.11444734513946296,
+          "min_loaded_tube_robot_contacts": 20,
+          "native_seconds": 10.790170064579407,
+          "native_steps": 6353,
+          "receiver_xy_path_m": 0.7784385695935252,
+          "final_receiver_fraction": 0.5416666666666666,
+          "final_spill_fraction": 0.3625,
+          "native_scope_penetration_particles": 0,
+          "max_CFL": 0.3507730844148858,
+          "min_dt_s": 0.00023545856296242133,
+          "wall_run_s": 563.8810252220137
+        },
+        "error": "Unreachable Flexiv object-centric pose [0.5027599234704859, 0.26512250131036125, 0.17981890426059993]"
+      }
+    }
+  ],
+  "F_PASS": false,
+  "training_updates": 0,
+  "formal_evaluation_episodes": 0,
+  "native_steps_added_by_closeout": 0,
+  "interpretation": "Only two previously failed development instances under changed execution-adapter semantics. Success cannot establish expert>=90%, BC benefit, OPD improvement or windup as sole cause. Failures are retained without retries or a second controller search.",
+  "observed_failure_analysis": {
+    "physical_outcome": "Both known-case probes complete original23s with0receiver/0spill/all240source, so0/2task success; arrival-triggered perturbation never becomes applicable and pulse validity fails.",
+    "adapter_vs_task": "Actual-anchor equations and local step bounds pass, but actual-to-task-goal position/orientation errors remain large. Bounded local commands alone are insufficient for task completion in these two cases.",
+    "IK_boundary": "Both have2302acceptedIKrecords and0rejects, while recorded optimized orientation residual maxima are below7e-8rad. The data do not support declaring a simple20mradIK acceptance dead zone as the failure cause. Optimized nominal pose fit does not establish actuator or physical goal tracking.",
+    "paired_previous_scope": "Previously failed known56002instances abort on unreachable commands at10.54sUR/10.79sFlex; changed-adapter instances avoid those aborts but do not transfer liquid. This does not prove windup was the sole cause, general expert success, BC/OPD benefit, or a completed control repair.",
+    "next_work_boundary": "No secondcontroller,PD,label,clip,training,formal evaluation or additional native starts were executed. Future changes require root decision."
+  }
+}
