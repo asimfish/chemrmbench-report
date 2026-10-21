@@ -58,32 +58,51 @@ def evaluation_projection():
     f0=read(ROOT/'step6_f0_paused/metrics.json',{})
     cpu=[]
     for task in sorted(mt):
-        entry={'task_id':task}
+        entry={'task_id':task,**({'task_revision':'T4-v1','superseded':True} if task=='press' else {})}
         for policy in ['privileged_expert','ablation','public_heuristic']:
             metrics=f0.get('policies',{}).get(policy,{}).get('tasks',{}).get(task,{})
             attempts=metrics.get('attempts');successes=metrics.get('successes')
             if type(attempts) is int and type(successes) is int and 0<=successes<=attempts<=50:
                 entry[policy]={'attempts':attempts,'successes':successes}
         cpu.append(entry)
-    native=[]
+    groups={}
     for label,task in [('t4','press'),('t7','endpoint_stop'),('t8','delayed_cue_memory'),('t3','pour'),('t6','timed_stirring')]:
         for mode in ['paused','latency_charged']:
-            root=ROOT/('step6_native_'+label+'_'+mode);config=read(root/'collection.json',{})
-            path=root/'manifest.jsonl'
-            if config.get('collection_kind')!='heldout_evaluation' or not path.exists():continue
-            rows=[]
-            for line in path.read_text().splitlines():
-                try:row=json.loads(line)
-                except ValueError:continue
-                if (row.get('task_id')==task and type(row.get('seed')) is int and 1000<=row['seed']<=1049
-                    and row.get('expert_kind')=='evaluation_public_heuristic'
-                    and row.get('status') in {'success','fail','error'}):rows.append(row)
-            native.append({'task_id':task,'clock_mode':mode,'attempts':len(rows),
-                'successes':sum(r['status']=='success' for r in rows),
-                'status_counts':dict(Counter(r['status'] for r in rows)),
-                'task_revision':'T4-v1' if task=='press' else None,
-                'superseded':task=='press',
-                'recording_accepted':read(root/'dataset_acceptance.json',{}).get('acceptance_passed') is True})
+            roots=[ROOT/('step6_native_'+label+'_'+mode)]
+            if task=='press':roots.append(ROOT/('step6_native_t4_v2_'+mode+'_ssd'))
+            elif task=='endpoint_stop' and mode=='paused':
+                fixed=ROOT/'step6_native_t7_paused_fixed50'
+                roots=[fixed] if (fixed/'manifest.jsonl').exists() else [
+                    ROOT/'t7_public_retained_1000_1002',ROOT/'t7_public_retained_1003',
+                    ROOT/'step6_native_t7_paused_ssd']
+            else:roots.append(ROOT/('step6_native_'+label+'_'+mode+'_ssd'))
+            for root in roots:
+                config=read(root/'collection.json',{});path=root/'manifest.jsonl'
+                heldout=config.get('collection_kind')=='heldout_evaluation' or (
+                    config.get('collection_kind')=='view' and config.get('collection_purpose')=='heldout_evaluation')
+                if task=='endpoint_stop' and root.name.startswith('t7_public_retained_'):
+                    heldout=config.get('collection_kind')=='view'
+                if not heldout or not path.exists():continue
+                revision=('T4-v2' if '_t4_v2_' in root.name else 'T4-v1') if task=='press' else None
+                group=groups.setdefault((task,mode,revision),{'rows':{},'acceptances':[]})
+                group['acceptances'].append(read(root/'dataset_acceptance.json',{}).get('acceptance_passed') is True)
+                for line in path.read_text().splitlines():
+                    try:row=json.loads(line)
+                    except ValueError:continue
+                    if (row.get('task_id')==task and type(row.get('seed')) is int and 1000<=row['seed']<=1049
+                        and row.get('expert_kind')=='evaluation_public_heuristic'
+                        and row.get('status') in {'success','fail','error'}):
+                        previous=group['rows'].get(row['seed'])
+                        if previous and previous['status']!=row['status']:raise ValueError('conflicting public evaluation attempts')
+                        group['rows'][row['seed']]=row
+    native=[]
+    for (task,mode,revision),group in sorted(groups.items()):
+        rows=list(group['rows'].values())
+        native.append({'task_id':task,'clock_mode':mode,'attempts':len(rows),
+            'successes':sum(r['status']=='success' for r in rows),
+            'status_counts':dict(Counter(r['status'] for r in rows)),
+            'task_revision':revision,'superseded':revision=='T4-v1',
+            'recording_accepted':len(rows)==50 and all(group['acceptances'])})
     return {'seeds_per_task':50,'seed_range':[1000,1049],
         'clock_modes':['paused','latency_charged'],'f0_cpu_contracts':cpu,'native_public_observation':native,
         'scope':'F0 schematic RGB/clock contracts are separate from native physical solvability; learned model results remain separate; T1 pipeline pilot is not a baseline.'}
@@ -151,6 +170,7 @@ def training_expansion_projection():
 def ssd_projection():
     result=[]
     for name,label in [('t4_v2_twenty_seed','T4-v2 main'),('t4_v2_ablation_ten_seed','T4-v2 ablation'),
+        ('step6_native_t4_v2_paused_ssd','T4-v2 public'),
         ('step6_native_t7_paused_ssd','T7 public suffix'),('step6_native_t8_paused_ssd','T8 public'),
         ('step6_native_t3_paused_ssd','T3 public')]:
         config=read(SSD/name/'collection.json',{})
@@ -161,12 +181,20 @@ def ssd_projection():
                 try:row=json.loads(line)
                 except ValueError:continue
                 if row.get('status') in {'success','fail','error'}:rows.append(row)
+        destination=name+'_ssd' if name in {'t4_v2_twenty_seed','t4_v2_ablation_ten_seed'} else name
+        mirrored=0;manifest=ROOT/destination/'manifest.jsonl'
+        if manifest.exists():
+            mirrored=sum(1 for line in manifest.read_text().splitlines() if line.strip())
+        receipt=read(SSD/name/'NAS_mirror_receipt.json',{})
         result.append({'label':label,'closed_attempts':len(rows),'expected_attempts':config['episodes_per_task'],
             'measured_status_counts':dict(Counter(r['status'] for r in rows)),
             'batch_recording_accepted':read(SSD/name/'dataset_acceptance.json',{}).get('acceptance_passed') is True,
-            'NAS_mirror_pending':True})
-    return {'scope':'durable SSD staging during NAS write stall; separate from NAS admitted cohort counts',
-        'cohorts':result,'T7_retained_valid_successes':3,'T7_case1003_original_receipt_pending':True}
+            'mirrored_closed_attempts':mirrored,
+            'NAS_mirror_pending':receipt.get('NAS_acceptance_passed') is not True})
+    retained=read(SSD/'T7_RETAINED_PREFIX_REPORT.json',{})
+    return {'scope':'durable SSD storage with NAS mirror; staging counts are not added to task cards',
+        'cohorts':result,'T7_retained_valid_successes':retained.get('retained_successes',0),
+        'T7_case1003_original_receipt_pending':1003 not in retained.get('closed_seeds',[])}
 
 
 def collect_task_library():

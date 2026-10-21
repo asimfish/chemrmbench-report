@@ -13,7 +13,7 @@ async function refreshStats(){
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
   const pilot=data.pipeline_pilot;
   if(data.ssd_staging && $('ssdStaging')){
-   const r=data.ssd_staging;$('ssdStaging').textContent='NAS 写入等待响应；后续数据保存于本机持久 SSD，尚未计入 NAS 验收统计。'+r.cohorts.map(c=>`${c.label} 已闭合 ${c.closed_attempts}/${c.expected_attempts} 条，批量离线验收${c.batch_recording_accepted?'通过':'待完成'}`).join('；')+'。';
+   const r=data.ssd_staging;$('ssdStaging').textContent='新增数据保存在本机持久 SSD，并逐条回传 NAS；以下进度不与任务卡数量相加。'+r.cohorts.map(c=>`${c.label} 已关闭 ${c.closed_attempts}/${c.expected_attempts} 条，已回传 ${c.mirrored_closed_attempts||0} 条，整批录像复核${c.batch_recording_accepted?'通过':'待完成'}`).join('；')+'。';
   }
   if(data.training_expansion && $('trainingExpansion')){
    const r=data.training_expansion;$('trainingExpansion').textContent=`远程训练数据扩采：已回传并验收 ${r.received_and_validated_attempts}/${r.target_new_attempts} 条，${r.admitted_successes} 条通过独立训练准入。严格 V2 等价未通过；远程数据仅用于训练，专家、消融和评测主表均在本机产生。`;
@@ -32,7 +32,7 @@ async function refreshStats(){
     const title=document.createElement('h3');title.textContent=names[task.task_id]||task.task_id;
     const cpu=document.createElement('p');
     const count=key=>task[key]?`${task[key].successes}/${task[key].attempts}`:'待测';
-    cpu.textContent=`CPU 示意合同：特权上界 ${count('privileged_expert')} · 固定响应下界 ${count('ablation')} · 公开观测规则 ${count('public_heuristic')}`;
+    cpu.textContent=`CPU 示意合同${task.superseded?'（T4-v1 旧设计，不能代表 v2）':''}：特权上界 ${count('privileged_expert')} · 固定响应下界 ${count('ablation')} · 公开观测规则 ${count('public_heuristic')}`;
     const native=document.createElement('p');const rows=protocol.native_public_observation.filter(r=>r.task_id===task.task_id);
     native.textContent=rows.length?'原生公开观测：'+rows.map(r=>`${r.superseded?'T4-v1 已停用：':''}${r.clock_mode} ${r.successes}/${r.attempts}，录像${r.recording_accepted?'已复核':'待复核'}`).join('；'):'原生公开观测：排在主批量与消融之后，尚未开始。';
     card.append(title,cpu,native);return card;

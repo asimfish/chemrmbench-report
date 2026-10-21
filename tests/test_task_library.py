@@ -116,6 +116,7 @@ class RuntimeProjection(unittest.TestCase):
         value=module.evaluation_projection()
         press=next(r for r in value['f0_cpu_contracts'] if r['task_id']=='press')
         self.assertEqual(press['public_heuristic'],{'attempts':50,'successes':50})
+        self.assertTrue(press['superseded']);self.assertEqual(press['task_revision'],'T4-v1')
         for private in ['needle_token','cue_time',str(root)]:self.assertNotIn(private,json.dumps(value))
 
     def test_training_progress_never_exports_hostnames_or_private_paths(self):
@@ -135,6 +136,28 @@ class RuntimeProjection(unittest.TestCase):
         value=module.collect_task_library()
         self.assertEqual(value['dataset_attempts'],0)
         self.assertEqual(value['ssd_staging']['cohorts'][0]['closed_attempts'],1)
+        self.assertEqual(value['ssd_staging']['cohorts'][0]['mirrored_closed_attempts'],0)
         for private in ['needle_token',str(p)]:self.assertNotIn(private,json.dumps(value))
+
+    def test_native_segments_are_deduplicated_and_revision_labels_stay_separate(self):
+        for name,kind,seed,revision in [
+            ('t7_public_retained_1000_1002','view',1000,None),
+            ('t7_public_retained_1003','view',1003,None),
+            ('step6_native_t7_paused_ssd','heldout_evaluation',1004,None),
+            ('step6_native_t4_paused','heldout_evaluation',1000,'T4-v1'),
+            ('step6_native_t4_v2_paused_ssd','heldout_evaluation',1000,'T4-v2')]:
+            p=self.root/name;p.mkdir()
+            task='press' if revision else 'endpoint_stop'
+            (p/'collection.json').write_text(json.dumps({'collection_kind':kind}))
+            row={'task_id':task,'seed':seed,'expert_kind':'evaluation_public_heuristic',
+                 'status':'success','hidden_answer':'needle_token','directory':str(p)}
+            (p/'manifest.jsonl').write_text(json.dumps(row)+'\n')
+        data=module.evaluation_projection()
+        native=data['native_public_observation']
+        self.assertEqual(next(r for r in native if r['task_id']=='endpoint_stop')['attempts'],3)
+        press=[r for r in native if r['task_id']=='press']
+        self.assertEqual({r['task_revision'] for r in press},{'T4-v1','T4-v2'})
+        self.assertEqual(sum(r['superseded'] for r in press),1)
+        self.assertNotIn('needle_token',json.dumps(data));self.assertNotIn(str(self.root),json.dumps(data))
 
 if __name__=='__main__':unittest.main()
