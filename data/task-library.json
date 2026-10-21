@@ -134,9 +134,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 14,
+    "received_and_validated_attempts": 16,
     "target_new_attempts": 400,
-    "admitted_successes": 12,
+    "admitted_successes": 14,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -154,7 +154,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 12
+        "attempts": 14
       }
     ]
   },
@@ -175,20 +175,20 @@
     "cohorts": [
       {
         "label": "T4-v2 main",
-        "closed_attempts": 3,
+        "closed_attempts": 5,
         "expected_attempts": 20,
         "measured_status_counts": {
-          "success": 3
+          "success": 5
         },
         "batch_recording_accepted": false,
         "NAS_mirror_pending": true
       },
       {
         "label": "T7 public suffix",
-        "closed_attempts": 2,
+        "closed_attempts": 4,
         "expected_attempts": 46,
         "measured_status_counts": {
-          "success": 2
+          "success": 4
         },
         "batch_recording_accepted": false,
         "NAS_mirror_pending": true
@@ -197,7 +197,7 @@
     "T7_retained_valid_successes": 3,
     "T7_case1003_original_receipt_pending": true
   },
-  "updated_at_utc": "2026-10-21T14:33:49.210882+00:00",
+  "updated_at_utc": "2026-10-21T14:48:49.983175+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1311,8 +1311,8 @@
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
       "status": "collecting",
-      "dataset_attempts": 0,
-      "dataset_unique_seeds": 0,
+      "dataset_attempts": 5,
+      "dataset_unique_seeds": 5,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "task_revision": "T4-v2",
@@ -1327,9 +1327,11 @@
       },
       "qualification_gate": null,
       "runtime_rejections": 0,
-      "successes": 0,
-      "success_rate": null,
-      "status_counts": {},
+      "successes": 5,
+      "success_rate": 1.0,
+      "status_counts": {
+        "success": 5
+      },
       "verified_dataset_attempts": 0,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
@@ -1352,7 +1354,133 @@
       "observation_profile": null,
       "render_diagnostic_attempts": 0,
       "failure_reasons": {},
-      "trials": [],
+      "trials": [
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 0,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 388.55,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 1,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 363.59,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 2,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 324.72,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 3,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 320.29,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 4,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 392.55,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        }
+      ],
       "engineering_only": false
     },
     {
@@ -1432,8 +1560,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 4,
-      "evaluation_successes": 4,
+      "evaluation_attempts": 8,
+      "evaluation_successes": 8,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
@@ -3722,8 +3850,8 @@
       "engineering_only": false
     }
   ],
-  "native_tasks_with_dataset": 6,
-  "dataset_attempts": 123,
+  "native_tasks_with_dataset": 7,
+  "dataset_attempts": 128,
   "calibration_attempts": 0,
   "benchmark_complete": false,
   "conference_ready": false,
