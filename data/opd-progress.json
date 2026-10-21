@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T11:14:36Z",
+  "snapshot_utc": "2026-10-21T11:33:27Z",
   "snapshot_kind": "curated_static_snapshot",
   "phase_status": "IN_PROGRESS",
   "current_milestone": "Mc",
@@ -362,7 +362,7 @@
         "strict_local_safety_all_passed": false,
         "training_buffer_rows": 0
       },
-      "result_note": "Measurements closed with limitations. Both candidate-2 nominal runs are 20/20. N03 takeover: 50/50 (proxy 25/25; random 25/25), with 3/3 verified regrasp-and-task successes among genuine grasp-interruption opportunities. N12 takeover: 44/50 (proxy 25/25; random 19/25); all six unrecoverable failures remain in the denominator. Observed N12 grasp-interruption opportunities: 14; sampled subsequent regrasp plus task success: 7/14. Six tasks failed; one more task completed without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator. This opportunity definition does not cover every possible failure or disturbance. Already done at takeover: 0 for both tasks. Each 50-episode set reuses 20 source scenes; this is not 50 independent-task generalization trials. N12 strict local safety is NOT_ALL_PASSED: case09 recorded one actual-acceleration exceedance above the 15.0001 rad/s² local threshold, and case49 one command-acceleration exceedance above 2.51 rad/s². High-rate peak magnitudes and exact ticks are unavailable. The 46,000 / 41,811 geometry-feasibility candidates for N03 / N12 are not training admissions or evidence that every safety gate passed. Qualification-role data remain outside training; buffer rows and training updates are 0. Candidate 1’s N03 0/20 remains retained.",
+      "result_note": "Measurements closed with limitations. Both candidate-2 nominal runs are 20/20. N03 takeover: 50/50 (proxy 25/25; random 25/25), with 3/3 verified regrasp-and-task successes among genuine grasp-interruption opportunities. N12 takeover: 44/50 (proxy 25/25; random 19/25); all six unrecoverable failures remain in the denominator. Observed N12 grasp-interruption opportunities: 14; sampled subsequent regrasp plus task success: 7/14. Six tasks failed; one more task completed without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator. This opportunity definition does not cover every possible failure or disturbance. Already done at takeover: 0 for both tasks. Each 50-episode set reuses 20 source scenes; this is not 50 independent-task generalization trials. N12 strict local safety is NOT_ALL_PASSED: case09 recorded one actual-acceleration exceedance above the 15.0001 rad/s² local threshold, and case49 one command-acceleration exceedance above 2.51 rad/s². High-rate peak magnitudes and exact ticks are unavailable. The 46,000 / 41,811 geometry-feasibility candidates for N03 / N12 are not training admissions or evidence that every safety gate passed. Qualification-role data remain outside training, with 0 qualification buffer rows and 0 qualification parameter updates. Separate new training-role data and BC20 fits are reported under Mc. Candidate 1’s N03 0/20 remains retained.",
       "progress": "MEASUREMENTS_CLOSED_N12_SAFETY_NOT_ALL_PASSED"
     },
     {
@@ -372,7 +372,7 @@
       "scope": "Unify the vector environment, trajectory records and stage-wise verifier across the four Panda tasks.",
       "acceptance": "Shared observation/action contract; saved trajectories; explicit verifier admission and rejection records.",
       "result": {
-        "scope": "Shared-policy and dataset CPU component preparation; no native training acceptance.",
+        "scope": "New native expert/data acceptance plus BC20 CPU pilot fitting; student zero-query native acceptance remains pending.",
         "boundary_regressions_passed": 4,
         "task_level_verifier_acceptance": "NOT_ESTABLISHED",
         "N03_measurement_integrity_passed": true,
@@ -386,18 +386,29 @@
         "N12_training_rejected_missing_evidence": 14000,
         "shared_policy_CPU_boundary_checks_passed": 4,
         "data_CPU_boundary_checks_passed": 19,
-        "native_training_acceptance": false,
-        "training_buffer_rows": 0,
-        "training_updates": 0,
+        "training_buffer_rows": 28000,
+        "training_updates": 8000,
         "qualification_takeover_geometry_candidates": {
           "N03": 46000,
           "N12": 41811
         },
         "qualification_takeover_training_admitted": 0,
-        "N12_strict_local_safety_status": "NOT_ALL_PASSED"
+        "N12_strict_local_safety_status": "NOT_ALL_PASSED",
+        "native_expert_and_dataset_accepted": true,
+        "new_training_role_queries": 28000,
+        "new_training_role_admitted_rows": 28000,
+        "qualification_training_buffer_rows": 0,
+        "training_updates_scope": "Two BC20 calibration pilots only",
+        "formal_M1_M4_training_updates": 0,
+        "student_zero_query_native_accepted": false,
+        "N17_N18_native_training_data_accepted": false,
+        "BC20_train_only_loss": {
+          "N03": 0.00617105077832405,
+          "N12": 0.006140918875595421
+        }
       },
-      "result_note": "In progress / component preparation. Shared-policy CPU checks: 4 passed; data CPU checks: 19 passed. These are component checks, not native training acceptance or proof that every task-level verifier passed. Both nominal collections still lack raw per-tick verifier evidence and have 0 training admission. Takeover raw evidence supports 46,000 / 41,811 geometry-feasibility candidates for N03 / N12, but qualification role prevents direct training use; N12 strict local safety is NOT_ALL_PASSED. The 41D observation, 8D action and physics remain fixed. Training updates and buffer rows are 0.",
-      "progress": "COMPONENT_PREPARATION"
+      "result_note": "In progress. New training-role collections for N03 and N12 each completed 20/20 expert episodes on the fixed new 20-instance bank: 14,000 queried = 14,000 admitted, with all four local velocity/acceleration exceedance counters at 0. The accepted training buffer contains 28,000 rows; no qualification rows were used. Each single-task BC20 calibration pilot completed 4,000 CPU updates (4 threads, seed 20261031). Final full training-set losses: N03 0.006171051; N12 0.006140919. Final model tensors and training-only normalization checks passed. These are calibration fits, not formal M1–M4 training, whose update count remains 0. Student zero-query native rollout acceptance, native student closed-loop evaluation and N17/N18 training-data acceptance remain unmeasured. CPU component checks (policy 4; data 19) remain supporting evidence, not a substitute for native acceptance.",
+      "progress": "NATIVE_EXPERT_DATA_ACCEPTED_STUDENT_NATIVE_PENDING"
     },
     {
       "id": "Md",
@@ -504,7 +515,7 @@
     },
     {
       "name": "Verifier admission / rejection",
-      "protocol": "Nominal: 28,000 active labels remain training-rejected for missing raw verifier evidence. Takeover: N03 46,000 and N12 41,811 geometry-feasibility candidates; qualification role admits 0 to training. N12 strict local safety is NOT_ALL_PASSED, with two retained acceleration exceptions. Shared-policy 4 and data 19 CPU checks are component evidence only, not native training acceptance.",
+      "protocol": "Earlier qualification nominal labels (28,000) still lack raw verifier evidence and remain outside training. Qualification takeover geometric candidates (N03 46,000; N12 41,811) also have 0 training admission; N12 strict local safety remains NOT_ALL_PASSED. Separate new training-role collections now have 28,000 queried = admitted rows with four local-limit counters at 0 per task. Native expert/data acceptance is complete for N03/N12; student zero-query native acceptance is pending.",
       "status": "PARTIAL",
       "value": {
         "N03_active_labels": 14000,
@@ -518,30 +529,36 @@
         },
         "takeover_training_admitted": 0,
         "N12_strict_local_safety_status": "NOT_ALL_PASSED",
-        "native_training_acceptance": false
+        "new_training_role_queries": 28000,
+        "new_training_role_admitted_rows": 28000,
+        "native_expert_and_dataset_accepted": true,
+        "student_zero_query_native_accepted": false
       }
     }
   ],
   "unmeasured_results": {
     "trained_policy_success": null,
-    "learning_curves": null,
     "c01_student_integration": null,
     "task_level_verifier_acceptance": null,
     "formal_heldout_50_new_instances": null,
-    "native_training_acceptance": null
+    "student_zero_query_native_acceptance": null,
+    "native_student_closed_loop_success": null,
+    "formal_M1_M4_learning_curves": null,
+    "N17_N18_native_training_data_acceptance": null
   },
   "disclosures": [
     "This page describes the approved phase-2 plan and a dated local evidence summary.",
     "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
     "No OPD learning curves or policy success scores have been measured in this snapshot.",
-    "Nominal task success and measurement integrity are separate from training admission. Current nominal traces lack raw per-tick verifier evidence; training admission is 0. Four data-boundary regressions do not establish task-level verifier acceptance.",
+    "Qualification nominal task success and measurement integrity are separate from training admission. Earlier qualification nominal traces lack raw per-tick verifier evidence; training admission is 0. Four data-boundary regressions do not establish task-level verifier acceptance.",
     "Ma and Mb measurement reports are closed with declared limitations; N12 strict local safety did not pass every local gate.",
     "Both task takeover sets use 50 episodes from 20 source scenes. Their Wilson intervals are descriptive episode intervals, not independent-task generalization evidence.",
     "Only three N03 cases met the independent grasp-interruption opportunity definition; recovery was 3/3 in those cases, not 50 recovery trials.",
-    "Geometry-feasibility candidates remain outside training by collection role. Shared-policy/data CPU checks do not establish native training acceptance; buffer rows and updates are 0.",
-    "N12 had 14 observed grasp-interruption opportunities: 7 subsequent sampled regrasp-and-task successes, 6 failed tasks and 1 task completion without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator; this observation-based definition is not exhaustive fault coverage."
+    "N12 had 14 observed grasp-interruption opportunities: 7 subsequent sampled regrasp-and-task successes, 6 failed tasks and 1 task completion without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator; this observation-based definition is not exhaustive fault coverage.",
+    "Qualification datasets remain outside training. Separate new training-role collections contribute 28,000 accepted labels; the two BC20 calibration fits performed 4,000 CPU updates each.",
+    "BC20 losses are measured on admitted training samples only. They do not establish native student task success, shifted robustness or formal M1–M4 performance; formal method training updates remain 0."
   ],
-  "phase_progress": "MA_MB_CLOSED_WITH_LIMITATIONS_MC_COMPONENT_PREPARATION",
+  "phase_progress": "MC_NATIVE_EXPERT_DATA_ACCEPTED_BC20_PILOTS_FIT_STUDENT_NATIVE_PENDING",
   "current_measurements": {
     "throughput": {
       "status": "COMPLETE_MEASURED_SHARED_LOAD",
@@ -937,22 +954,116 @@
         "interim_success_rate": null
       },
       "training_buffer_rows": 0,
-      "scope": "Each task uses 50 interruption episodes from 20 source scenes. This is not 50 independent-task generalization trials; formal heldout evaluation on 50 new instances is unrun."
+      "scope": "Each task uses 50 interruption episodes from 20 source scenes. This is not 50 independent-task generalization trials; formal heldout evaluation on 50 new instances is unrun.",
+      "training_scope": "Qualification measurements only; separate new training-role collections and BC20 fits are reported separately."
     },
     "component_preparation": {
-      "status": "PREPARED_NOT_NATIVE_ACCEPTED",
+      "status": "NATIVE_EXPERT_DATA_ACCEPTED_STUDENT_NATIVE_PENDING",
       "shared_policy_CPU_checks_passed": 4,
       "data_CPU_checks_passed": 19,
-      "native_training_acceptance": false,
-      "training_updates": 0,
-      "training_buffer_rows": 0
+      "training_updates": 8000,
+      "training_buffer_rows": 28000,
+      "native_expert_and_dataset_accepted": true,
+      "student_zero_query_native_accepted": false,
+      "training_updates_scope": "BC20 calibration pilots only",
+      "formal_method_training_updates": 0
+    },
+    "bc20_calibration_pilots": {
+      "scope": "Single-task BC20 pilots for Md calibration, not the formal M1–M4 comparison. Losses are training-only; no native student evaluation has run.",
+      "training_instances_disjoint_from_qualification": true,
+      "training_buffer_rows": 28000,
+      "training_updates_total": 8000,
+      "formal_M1_M4_training_updates": 0,
+      "optimizer": "Adam",
+      "learning_rate": 0.0003,
+      "batch_size": 256,
+      "updates_per_task": 4000,
+      "shared_network": "41→256→256→8, SiLU",
+      "extra_expert_queries_during_fitting": 0,
+      "native_student_closed_loop_evaluated": false,
+      "tasks": [
+        {
+          "task": "N03",
+          "collection_role": "training",
+          "new_fixed_instances": 20,
+          "expert_successes": 20,
+          "expert_episodes": 20,
+          "queried_labels": 14000,
+          "admitted_rows": 14000,
+          "rejected_labels": 0,
+          "local_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "native_expert_and_dataset_accepted": true,
+          "pilot_training_updates": 4000,
+          "pilot_seed": 20261031,
+          "training_device": "CPU",
+          "cpu_threads": 4,
+          "full_entry_wall_s": 23.92534084498766,
+          "full_entry_wall_scope": "Preparation, imports, normalization, parameter fitting and final model writing.",
+          "train_only_loss": {
+            "total_loss": 0.00617105077832405,
+            "translation": 0.0050206812460507665,
+            "rotation": 0.0007517320769173759,
+            "grip": 0.00039863729285090295
+          },
+          "train_loss_curve_points": 40,
+          "first_100_update_mean_loss": 0.3672336615622044,
+          "final_100_update_mean_loss": 0.006214833313133567,
+          "final_model_tensors_finite": true,
+          "normalization_from_admitted_training_only": true,
+          "selection": "Final fixed update; no shifted/test-driven model selection.",
+          "native_student_closed_loop_episodes": 0,
+          "expert_queries_added_during_fitting": 0
+        },
+        {
+          "task": "N12",
+          "collection_role": "training",
+          "new_fixed_instances": 20,
+          "expert_successes": 20,
+          "expert_episodes": 20,
+          "queried_labels": 14000,
+          "admitted_rows": 14000,
+          "rejected_labels": 0,
+          "local_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "native_expert_and_dataset_accepted": true,
+          "pilot_training_updates": 4000,
+          "pilot_seed": 20261031,
+          "training_device": "CPU",
+          "cpu_threads": 4,
+          "full_entry_wall_s": 18.304927999997744,
+          "full_entry_wall_scope": "Preparation, imports, normalization, parameter fitting and final model writing.",
+          "train_only_loss": {
+            "total_loss": 0.006140918875595421,
+            "translation": 0.0041317247721765725,
+            "rotation": 0.0009514604296003069,
+            "grip": 0.0010577337865946349
+          },
+          "train_loss_curve_points": 40,
+          "first_100_update_mean_loss": 0.30272660341113805,
+          "final_100_update_mean_loss": 0.006481379026081413,
+          "final_model_tensors_finite": true,
+          "normalization_from_admitted_training_only": true,
+          "selection": "Final fixed update; no shifted/test-driven model selection.",
+          "native_student_closed_loop_episodes": 0,
+          "expert_queries_added_during_fitting": 0
+        }
+      ]
     }
   },
   "verifier_admission": {
     "meaning": "Sample and expert-label validity; not equivalent to episode success.",
     "failure_recovery_segments": "Verified failure and recovery segments may enter weighted learning.",
     "status": "PARTIAL_PREPARATION",
-    "current_nominal_boundary": "Measurement-valid nominal data are not training-admissible without raw per-tick verifier evidence.",
+    "current_nominal_boundary": "Earlier qualification nominal traces lack raw per-tick verifier evidence and remain outside training. Separate new training-role collections are accepted.",
     "N03_active_labels": 14000,
     "N03_training_admitted": 0,
     "N03_training_rejected": 14000,
@@ -977,16 +1088,21 @@
     },
     "takeover_collection_role": "QUALIFICATION_MEASUREMENT",
     "takeover_training_admitted": 0,
-    "training_buffer_rows": 0,
+    "training_buffer_rows": 28000,
     "strict_N12_safety": "NOT_ALL_PASSED",
     "data_CPU_boundary_checks_passed": 19,
-    "scope": "Geometry feasibility, strict local safety, collection-role/split admission and episode success are separate facts."
+    "scope": "Geometry feasibility, strict local safety, collection-role/split admission and episode success are separate facts.",
+    "total_nominal_active_labels_scope": "Earlier qualification nominal collections only",
+    "new_training_role_queries": 28000,
+    "new_training_role_admitted_rows": 28000,
+    "native_expert_and_dataset_accepted": true,
+    "student_zero_query_native_accepted": false
   },
   "snapshot_state": "FINAL_CURATED_SNAPSHOT",
-  "training_updates": 0,
+  "training_updates": 8000,
   "formal_method_evaluation_episodes": 0,
   "milestone_completion_scope": "Ma measured; Mb measurement report closed with declared limitations. Completion does not mean every local safety gate passed.",
-  "training_buffer_rows": 0,
+  "training_buffer_rows": 28000,
   "safety_alert": {
     "task": "N12",
     "status": "NOT_ALL_PASSED",
@@ -1012,5 +1128,8 @@
     "geometry_candidates_are_not_safety_passes": true,
     "training_admitted": 0,
     "prominent_disclosure": true
-  }
+  },
+  "training_updates_scope": "Two BC20 calibration pilots only, 4000 updates per task; not formal M1–M4 method training.",
+  "formal_method_training_updates": 0,
+  "qualification_training_buffer_rows": 0
 }
