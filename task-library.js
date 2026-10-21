@@ -54,6 +54,10 @@ async function refreshStats(){
    const phases={not_submitted:'未提交',waiting_gpu_lease:'等待GPU租约',starting_or_training:'训练进程已启动',checkpoint_pending_transfer:'checkpoint待回传',checkpoint_returned:'checkpoint已回传，等待本机评测',native_evaluation_complete:'本机50条评测已完成',evaluation_stopped_prefix:'本机评测停止，保留前缀待复核',training_error:'训练报错，记录保留',unknown:'提交结果待核对'};
    $('trainingExpansion').textContent+=' 正式DP：'+data.formal_training.map(t=>`${names[t.task_id]} ${phases[t.phase]||'状态待核对'}`+(t.attempts!==null?`，第${t.attempt}次进程，${t.successful_public_demonstrations}/${t.attempts}条可用演示，本次单卡上限${t.single_GPU_hour_cap===null?'待核对':t.single_GPU_hour_cap.toFixed(3)}小时，host=${t.execution_host_alias}`:'')+(t.prior_failed_attempts?`；保留${t.prior_failed_attempts}次初始化失败`:'')).join('；')+'。训练状态不代表评测成功率。';
   }
+  if(data.throughput && data.throughput.gpu_states.length && $('trainingExpansion')){
+   const p=data.throughput, labels={running_wave:'正在采集',wave_closed:'本批已关闭',waiting_memory:'等待显存',waiting_training_lease:'等待训练释放'};
+   $('trainingExpansion').textContent+=' 扩采调度：'+p.gpu_states.map(s=>`${s.gpu_alias} ${labels[s.phase]||'待核对'}`+(s.slots!==null?`，${s.slots}槽`:'' )+(s.training_colocation_trial?'（与训练同卡试运行）':'')+(s.training_speed_ratio!==null?`，训练步速比${s.training_speed_ratio.toFixed(3)}`:'')).join('；')+`。已关闭${p.completed_waves}个测量批次`+(p.colocation_paused?'；同卡采集因步速门禁暂停':'')+'。调度结果不计入基准得分。';
+  }
   if(data.current_t6 && $('t6CurrentProgress')){
    const r=data.current_t6;$('t6CurrentProgress').textContent=`指导${r.guidance ?? 7} 全臂修复：${r.moving_colliders} 个机器人碰撞体，CPU 连续路径资格 ${r.cpu_passed?'3/3通过':'进行中'}${r.minimum_clearance_mm!==null?'，最小运动界后余量 '+r.minimum_clearance_mm.toFixed(2)+' mm（含1mm跟踪余量）':''}。搅拌器保持原位；原生资格 ${r.native_passed}/${r.native_required} 通过，已尝试 ${r.native_attempts} 条，原始力上限仍为 ${r.raw_force_limit_n} N。${r.native_all_passed?'已满足主批量前置资格。':'尚未满足主批量前置资格。'}`;
    if(r.native_startup_errors)$('t6CurrentProgress').textContent+=`${r.native_startup_errors} 条在首个任务动作前报错，不能计为物理安全通过。`;

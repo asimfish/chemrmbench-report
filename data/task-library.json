@@ -380,32 +380,32 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 49,
-            "successes": 49,
+            "attempts": 50,
+            "successes": 50,
             "expected_attempts": 50,
-            "complete": false,
+            "complete": true,
             "verifier_protocols": [
               "measured-v1"
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 49,
+              "recorded_host_attempts": 50,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.9273021807795035,
-              0.9999999999999999
+              0.9286524008666414,
+              1.0
             ],
             "time_error_s": {
               "mean": 0.0,
               "p95": 0.0,
-              "observed_count": 49
+              "observed_count": 50
             },
             "response_latency_s": {
-              "mean": 2.3788265306124723,
-              "p95": 2.453333333333723,
-              "observed_count": 49
+              "mean": 2.377916666666891,
+              "p95": 2.452708333333736,
+              "observed_count": 50
             },
             "memory_accuracy": null
           },
@@ -680,8 +680,8 @@
             "memory_accuracy": 0.3
           },
           "public_heuristic": {
-            "attempts": 16,
-            "successes": 16,
+            "attempts": 18,
+            "successes": 18,
             "expected_attempts": 50,
             "complete": false,
             "verifier_protocols": [
@@ -689,12 +689,12 @@
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 16,
+              "recorded_host_attempts": 18,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.8063923194655637,
+              0.8241207763533425,
               1.0
             ],
             "time_error_s": {
@@ -868,10 +868,10 @@
       {
         "task_id": "delayed_cue_memory",
         "clock_mode": "paused",
-        "attempts": 16,
-        "successes": 16,
+        "attempts": 18,
+        "successes": 18,
         "status_counts": {
-          "success": 16
+          "success": 18
         },
         "task_revision": null,
         "superseded": false,
@@ -887,18 +887,6 @@
         },
         "task_revision": "T4-v1",
         "superseded": true,
-        "recording_accepted": false
-      },
-      {
-        "task_id": "press",
-        "clock_mode": "paused",
-        "attempts": 49,
-        "successes": 49,
-        "status_counts": {
-          "success": 49
-        },
-        "task_revision": "T4-v2",
-        "superseded": false,
         "recording_accepted": false
       }
     ],
@@ -923,15 +911,15 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 90,
+    "received_and_validated_attempts": 91,
     "target_new_attempts": 400,
-    "admitted_successes": 83,
+    "admitted_successes": 84,
     "by_task_status": [
       {
         "task_id": "open_cabinet",
         "status": "success",
         "training_admitted": true,
-        "attempts": 10
+        "attempts": 11
       },
       {
         "task_id": "pick_place",
@@ -958,6 +946,30 @@
         "attempts": 73
       }
     ]
+  },
+  "throughput": {
+    "scope": "training_only_scheduling_not_a_benchmark_score",
+    "gpu_states": [
+      {
+        "gpu_alias": "remote-rtx-0",
+        "phase": "running_wave",
+        "slots": 1,
+        "training_colocation_trial": false,
+        "training_speed_ratio": null
+      },
+      {
+        "gpu_alias": "remote-rtx-1",
+        "phase": "running_wave",
+        "slots": 1,
+        "training_colocation_trial": true,
+        "training_speed_ratio": null
+      }
+    ],
+    "CPU_cores": 180,
+    "CPU_load_limit": 135.0,
+    "training_baseline_steps_per_second": 2.396859005312538,
+    "completed_waves": 0,
+    "colocation_paused": false
   },
   "current_t6": {
     "guidance": 9,
@@ -1036,13 +1048,22 @@
       },
       {
         "label": "T8 public",
-        "closed_attempts": 16,
+        "closed_attempts": 18,
         "expected_attempts": 50,
         "measured_status_counts": {
-          "success": 16
+          "success": 18
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 16,
+        "mirrored_closed_attempts": 18,
+        "NAS_mirror_pending": true
+      },
+      {
+        "label": "T3 public",
+        "closed_attempts": 0,
+        "expected_attempts": 50,
+        "measured_status_counts": {},
+        "batch_recording_accepted": false,
+        "mirrored_closed_attempts": 0,
         "NAS_mirror_pending": true
       },
       {
@@ -1070,14 +1091,14 @@
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 44,
+        "closed_attempts": 45,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 44
+          "success": 45
         },
-        "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 44,
-        "NAS_mirror_pending": true
+        "batch_recording_accepted": true,
+        "mirrored_closed_attempts": 45,
+        "NAS_mirror_pending": false
       },
       {
         "label": "T6 prior qualification",
@@ -1116,7 +1137,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T23:11:45.002199+00:00",
+  "updated_at_utc": "2026-10-21T23:19:30.513604+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2257,8 +2278,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
-      "evaluation_attempts": 49,
-      "evaluation_successes": 49,
+      "evaluation_attempts": 50,
+      "evaluation_successes": 50,
       "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
@@ -3420,8 +3441,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 5,
       "qualification_safe_successes": 4,
-      "evaluation_attempts": 16,
-      "evaluation_successes": 16,
+      "evaluation_attempts": 18,
+      "evaluation_successes": 18,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {

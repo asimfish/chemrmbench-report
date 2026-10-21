@@ -2,6 +2,7 @@
 from collections import Counter
 from datetime import datetime, timezone
 import json
+import math
 from pathlib import Path
 import re
 
@@ -197,6 +198,25 @@ def training_expansion_projection():
         'admitted_successes':sum(n for (task,status,admitted),n in counts.items() if admitted and status=='success'),
         'by_task_status':[{'task_id':k[0],'status':k[1],'training_admitted':k[2],'attempts':n}
             for k,n in sorted(counts.items())]}
+
+
+def throughput_projection():
+    raw=read(ROOT/'GUIDANCE15_THROUGHPUT_STATUS.json',{})
+    phases={'running_wave','wave_closed','waiting_memory','waiting_training_lease'}
+    def number(value):return value if type(value) in (int,float) and math.isfinite(value) else None
+    # Only approved numeric fields and fixed aliases leave the private report.
+    states=[]
+    for row in raw.get('gpu_states',[]):
+        if str(row.get('gpu')) not in {'0','1'}:continue
+        states.append({'gpu_alias':'remote-rtx-'+str(row['gpu']),
+            'phase':row.get('state') if row.get('state') in phases else 'unknown',
+            'slots':number(row.get('slots')),'training_colocation_trial':row.get('training_colocation_trial') is True,
+            'training_speed_ratio':number(row.get('training_speed_ratio'))})
+    return {'scope':'training_only_scheduling_not_a_benchmark_score','gpu_states':states,
+        'CPU_cores':number(raw.get('cores')),'CPU_load_limit':.75*raw['cores'] if type(raw.get('cores')) is int else None,
+        'training_baseline_steps_per_second':number((raw.get('training_baseline') or {}).get('steps_per_second')),
+        'completed_waves':len(raw.get('closed_waves',[])),
+        'colocation_paused':bool(raw.get('colocation_pauses'))}
 
 
 def ssd_projection():
@@ -443,7 +463,8 @@ def collect_task_library():
     return {'schema_version':'chemrmbench-task-library-0.1','release':release_projection(),
             'formal_training':formal_training_projection(),
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
-            'training_expansion':training_expansion_projection(),'current_t6':current_t6_projection(),
+            'training_expansion':training_expansion_projection(),'throughput':throughput_projection(),
+            'current_t6':current_t6_projection(),
             'ssd_staging':ssd_projection(),
             'updated_at_utc':datetime.now(timezone.utc).isoformat(),
             'tasks':tasks,'native_tasks_with_dataset':sum(t['dataset_attempts']>0 for t in tasks),

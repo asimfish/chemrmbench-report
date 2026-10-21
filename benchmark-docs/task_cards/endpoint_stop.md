@@ -16,3 +16,10 @@ Main20/20, minimum RGB contrast0.319. Fixed-five-additions lower bound3/10,
 analytical optimum1/5. Colour is an engineered event, not a chemical endpoint
 model; there is no liquid. Expert truth access is marked privileged. The public
 heuristic must inspect pixels after each increment, not query N*.
+
+The fixed public-observation evaluation retains all50 attempts:49 successes
+and one infrastructure error (seed1025). Its native worker exited with code137
+without a result. This is not a measured task or safety failure; the precise
+cause of termination is unconfirmed. It remains in the success-rate denominator,
+and its safety outcome is unknown rather than counted as safe. No replacement
+seed was collected.
