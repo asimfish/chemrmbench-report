@@ -134,10 +134,16 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 10,
+    "received_and_validated_attempts": 12,
     "target_new_attempts": 400,
-    "admitted_successes": 9,
+    "admitted_successes": 10,
     "by_task_status": [
+      {
+        "task_id": "pick_place",
+        "status": "error",
+        "training_admitted": false,
+        "attempts": 1
+      },
       {
         "task_id": "pick_place",
         "status": "fail",
@@ -148,7 +154,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 9
+        "attempts": 10
       }
     ]
   },
@@ -164,7 +170,7 @@
     "fixture_moved": false,
     "raw_force_limit_n": 25
   },
-  "updated_at_utc": "2026-10-21T14:04:11.863343+00:00",
+  "updated_at_utc": "2026-10-21T14:19:08.930849+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1277,7 +1283,7 @@
       "id": "press",
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
-      "status": "planned",
+      "status": "collecting",
       "dataset_attempts": 0,
       "dataset_unique_seeds": 0,
       "target_unique_seeds": 20,
@@ -1399,8 +1405,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 3,
-      "evaluation_successes": 3,
+      "evaluation_attempts": 4,
+      "evaluation_successes": 4,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
