@@ -1,0 +1,646 @@
+{
+  "schema": "chemopd_g9_public_progress_v1",
+  "generated_utc": "2026-10-21T20:22:40.059645+00:00",
+  "dated_snapshot": true,
+  "v2": {
+    "planned_models": 45,
+    "trained_cpu_checked_models": 3,
+    "failed_models": 0,
+    "active_training_models": 3,
+    "closed_native_banks": 0,
+    "nominal_executions": 0,
+    "planned_nominal_executions": 4500,
+    "unique_task_source_instances": 100,
+    "teacher_queries_added_by_refits": 0,
+    "phase_in_input": false,
+    "features": 57,
+    "raw_observation": 41,
+    "network": "MLP 4 x 512 + LayerNorm",
+    "updates_per_fit": 40000,
+    "off_policy_data_for_v2": true,
+    "rows": [
+      {
+        "identity": "M1_standard_budget28000_seed20261031",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 28000,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget28000_seed20261032",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 28000,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget28000_seed20261033",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 28000,
+        "status": "TRAINED_CPU_CHECKED",
+        "training_updates": 40000,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget28000_seed20261031",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 28000,
+        "status": "TRAINING",
+        "training_updates": 16900,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget28000_seed20261032",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 28000,
+        "status": "TRAINING",
+        "training_updates": 16900,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget28000_seed20261033",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 28000,
+        "status": "TRAINING",
+        "training_updates": 17000,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget28000_seed20261031",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget28000_seed20261032",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget28000_seed20261033",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget42000_seed20261031",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget42000_seed20261032",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget42000_seed20261033",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget42000_seed20261031",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget42000_seed20261032",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget42000_seed20261033",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget42000_seed20261031",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget42000_seed20261032",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget42000_seed20261033",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget56000_seed20261031",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget56000_seed20261032",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M1_standard_budget56000_seed20261033",
+        "method": "M1",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget56000_seed20261031",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget56000_seed20261032",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M3_standard_budget56000_seed20261033",
+        "method": "M3",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget56000_seed20261031",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261031,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget56000_seed20261032",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261032,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_standard_budget56000_seed20261033",
+        "method": "M4",
+        "variant": "standard",
+        "seed": 20261033,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget28000_seed20261031",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261031,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget28000_seed20261032",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261032,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget28000_seed20261033",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261033,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget28000_seed20261031",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261031,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget28000_seed20261032",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261032,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget28000_seed20261033",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261033,
+        "budget_per_task": 28000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget42000_seed20261031",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261031,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget42000_seed20261032",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261032,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget42000_seed20261033",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261033,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget42000_seed20261031",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261031,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget42000_seed20261032",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261032,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget42000_seed20261033",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261033,
+        "budget_per_task": 42000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget56000_seed20261031",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261031,
+        "budget_per_task": 56000,
+        "status": "WAITING_BUDGET_REPAIR",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget56000_seed20261032",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261032,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_semantic_filter_budget56000_seed20261033",
+        "method": "M4",
+        "variant": "without_semantic_filter",
+        "seed": 20261033,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget56000_seed20261031",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261031,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget56000_seed20261032",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261032,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      },
+      {
+        "identity": "M4_without_recovery_weight_budget56000_seed20261033",
+        "method": "M4",
+        "variant": "without_recovery_weight",
+        "seed": 20261033,
+        "budget_per_task": 56000,
+        "status": "PLANNED",
+        "training_updates": 0,
+        "nominal_results": {
+          "N03": null,
+          "N12": null
+        }
+      }
+    ],
+    "measured_outcomes": []
+  },
+  "gate": {
+    "n03_successes_required": 10,
+    "denominator": 50,
+    "reached": false,
+    "perturbation_evaluation_started": false
+  },
+  "v1": {
+    "matched28k_executions": 1500,
+    "closed42k_banks": 18,
+    "closed42k_executions": 900,
+    "original_interrupted_paid": {
+      "N03": 5200,
+      "N12": 5392
+    },
+    "approved_remaining_queries": {
+      "N03": 8800,
+      "N12": 8608
+    },
+    "prior_results_retained": true
+  },
+  "diagnostics": {
+    "recorded_datasets": 52,
+    "recorded_rows": 728000,
+    "current_transport_rows": 5860,
+    "transport_boundary_rows": 600,
+    "transport_interior_rows": 5242,
+    "dataset_edge_rows": 18,
+    "teacher_queries_added": 0,
+    "phases": "Offline rule-derived proxies; not original saved expert phase logs",
+    "large_angle_alone_not_causal": true
+  },
+  "dart": {
+    "status": "WAITING_LABEL_ACQUISITION_DECISION",
+    "native_training_labels_authorized": false,
+    "reason": "Strict DART requires clean expert labels at new perturbed expert-visited states; existing labels alone do not supply them"
+  }
+}
