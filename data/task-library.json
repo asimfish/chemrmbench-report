@@ -93,10 +93,10 @@
       {
         "task_id": "endpoint_stop",
         "clock_mode": "paused",
-        "attempts": 17,
-        "successes": 17,
+        "attempts": 18,
+        "successes": 18,
         "status_counts": {
-          "success": 17
+          "success": 18
         },
         "task_revision": null,
         "superseded": false,
@@ -136,9 +136,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 29,
+    "received_and_validated_attempts": 31,
     "target_new_attempts": 400,
-    "admitted_successes": 26,
+    "admitted_successes": 28,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -156,7 +156,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 26
+        "attempts": 28
       }
     ]
   },
@@ -182,13 +182,13 @@
     "cohorts": [
       {
         "label": "T4-v2 main",
-        "closed_attempts": 17,
+        "closed_attempts": 19,
         "expected_attempts": 20,
         "measured_status_counts": {
-          "success": 17
+          "success": 19
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 17,
+        "mirrored_closed_attempts": 18,
         "NAS_mirror_pending": true
       },
       {
@@ -204,13 +204,13 @@
       },
       {
         "label": "T7 remaining public cases",
-        "closed_attempts": 2,
+        "closed_attempts": 3,
         "expected_attempts": 35,
         "measured_status_counts": {
-          "success": 2
+          "success": 3
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 2,
+        "mirrored_closed_attempts": 3,
         "NAS_mirror_pending": true
       },
       {
@@ -228,7 +228,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T16:09:40.635080+00:00",
+  "updated_at_utc": "2026-10-21T16:20:08.214668+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1342,8 +1342,8 @@
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
       "status": "collecting",
-      "dataset_attempts": 17,
-      "dataset_unique_seeds": 17,
+      "dataset_attempts": 18,
+      "dataset_unique_seeds": 18,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "task_revision": "T4-v2",
@@ -1358,12 +1358,12 @@
       },
       "qualification_gate": null,
       "runtime_rejections": 0,
-      "successes": 17,
+      "successes": 18,
       "success_rate": 1.0,
       "status_counts": {
-        "success": 17
+        "success": 18
       },
-      "verified_dataset_attempts": 17,
+      "verified_dataset_attempts": 18,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
@@ -1810,6 +1810,31 @@
           "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 17,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 526.13,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": true,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
         }
       ],
       "engineering_only": false
@@ -1891,8 +1916,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 17,
-      "evaluation_successes": 17,
+      "evaluation_attempts": 18,
+      "evaluation_successes": 18,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
@@ -4182,7 +4207,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 140,
+  "dataset_attempts": 141,
   "calibration_attempts": 0,
   "benchmark_complete": false,
   "conference_ready": false,
