@@ -17,8 +17,13 @@ The action track exposes both RGB cameras and18D joint position/velocity at20Hz,
 and accepts nine FR3 joint targets (seven arm, two fingers), held for12 native
 240Hz physics ticks. A policy never receives verifier states, sampled hidden
 parameters or expert phase labels. Task grading must be independent of the
-policy supplying correct phase names. T2's legacy stage-dependent verifier
-currently needs a protocol decision before formal action evaluation is admitted.
+policy supplying correct phase names. The measured-v1 protocol removes expert completion/stage dependencies for all
+seven tasks; see [the verdict ADR](verifier_protocol.md). Each formal baseline
+(T1/T5/T7) requires its complete development audit before native evaluation.
+T2 uses a 90 s horizon and measured subgoal order; its DP is deferred to v0.1.1.
+Action policies save only policy_start and policy_end full-scene archives.
+Historical verdicts are preserved and ongoing legacy cohorts remain explicitly
+versioned; audit comparisons do not rewrite their saved files.
 
 In paused mode, decision latency consumes no simulated time. In latency_charged
 mode, measured monotonic latency advances the simulator with the prior command
@@ -37,7 +42,7 @@ cohorts and intervals; do not imply a paired50-seed upper/lower experiment.
 
 Success denominators include fail/error attempts. Wilson95% intervals are used
 for binomial rates. Report timing error/latency mean and p95 with observed
-counts, T8 selected-object accuracy separately from physical success, safety
+counts, T8 measured first-lift choice accuracy separately from physical success, safety
 coverage and violation rates, and mean simulation/wall duration. Missing
 measurements remain null. Safety-force scope differs in historical verifiers;
 the data card describes it rather than claiming full-robot calibrated safety.

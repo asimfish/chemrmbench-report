@@ -36,9 +36,12 @@ must finish before data enter a formal manifest. Unknown durations remain
 unknown. Near-clearance legacy paths (7.6–9.7mm) use record-only geometry
 diagnostics; new/changed paths require the strict10mm screen. Raw contact peaks
 are impulse/dt measurements, not glass stress or calibrated human safety.
-T2's historical force metric covers robot/bottle contact; its stage predicates
-also limit direct use with an unlabeled action policy. Other task verifiers
-report their own contact scope and coverage. No averaging redefines25N.
+T2's historical force metric covers robot/bottle contact; legacy grading also
+required expert stages. Its candidate measured-v1 replacement uses raw robot
+contact peaks, measured transport/subgoals and a90s horizon. All seven tasks
+undergo development-only old/new and controller-metadata invariance audits.
+Old verdicts remain available; discrepancies require review. Other tasks retain
+their recorded force scope. No averaging redefines25N.
 
 Assets are external. SafeLab provides beaker, vessel and stirrer CAD plus task
 and metric conventions; preserve its asset-specific licenses. A-Lab scene
@@ -59,3 +62,6 @@ counts, host-class counts, this card and license notices, with a confirmed
 download location. Reconstruct assets from their original sources; do not
 bundle restricted CAD indiscriminately. The minimal reproduction commands are
 in [release_v0_1.md](release_v0_1.md).
+
+Dataset hosting is awaiting the user’s choice. The data card remains candidate
+and a release tag, when eligible, must remain local until that choice.

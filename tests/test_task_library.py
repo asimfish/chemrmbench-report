@@ -64,6 +64,17 @@ class RuntimeProjection(unittest.TestCase):
         self.assertAlmostEqual(value['maximum_boundary_tcp_error_mm'],4.195)
         self.assertNotIn('needle_token',json.dumps(value))
 
+    def test_verifier_audit_exports_counts_without_paths_or_hidden_details(self):
+        root=self.root/'verifier_audit_guidance12';root.mkdir()
+        (root/'audit.json').write_text(json.dumps({'secret':'needle_token','tasks':{
+            'bottle_balance':{'rows':[{'seed':0,'old_new_agreement':True,'metadata_invariant':True,
+                'directory':'/private/needle_token','measured_verdict':{'hidden_cue':2}}]}}}))
+        value=module.release_projection()
+        entry=next(t for t in value['verifier_audit'] if t['task_id']=='bottle_balance')
+        self.assertEqual(entry['attempts'],1);self.assertEqual(entry['metadata_invariant'],1)
+        self.assertEqual(value['formal_baseline_tasks'],['pick_place','open_cabinet','endpoint_stop'])
+        self.assertNotIn('needle_token',json.dumps(value));self.assertNotIn('hidden_cue',json.dumps(value))
+
     def test_release_scope_keeps_t6_as_history_and_filters_private_table_fields(self):
         p=self.root/'release_v0_1';p.mkdir()
         (p/'public_main_table.json').write_text(json.dumps({'state':'candidate','secret':'needle_token',

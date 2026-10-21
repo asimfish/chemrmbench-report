@@ -1,11 +1,21 @@
 # Version history and evidence boundaries
 
-## v0.1 candidate, Guidance11
+## v0.1 candidate, Guidance12
 
 Seven active tasks: T1/T2/T3/T4-v2/T5/T7/T8. Release waits for four public50
 evaluations, three formal DP baselines and their local50 action evaluations,
 the complete table/documentation/site and the final reviewed Git tag.
 No release tag has been issued merely for completing software contracts.
+
+## Policy-independent grading migration
+
+Formal baselines are T1/T5/T7; T2 DP moves to v0.1.1. Seven measured-v1 graders
+remove controller phase, finish/cursor and expert-stage requirements. T2 uses
+ordered measured subgoals and a measured contact denominator with a90s horizon.
+The T2 development audit agrees on all20 grades (17 success/3 fail), and all20
+metadata-invariance checks pass. Legacy files remain historical evidence. T8 choice is inferred from physical candidate motion,
+not the controller target event. No historical verdict file is overwritten.
+Full-dataset hosting awaits the user; the eventual tag stays local until then.
 
 ## T4-v1 to T4-v2
 

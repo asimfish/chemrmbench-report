@@ -261,7 +261,18 @@ def release_projection():
             value['memory_accuracy']=accuracy if type(accuracy) in {int,float} and 0<=accuracy<=1 else None
             policies[role]=value
         rows.append({'task_id':item['task_id'],'policies':policies})
+    audit=read(ROOT/'verifier_audit_guidance12/audit.json',{})
+    audit_counts=[]
+    for task in sorted(active):
+        entry=audit.get('tasks',{}).get(task,{})
+        results=entry.get('rows',[])
+        valid=[r for r in results if type(r.get('seed')) is int and 0<=r['seed']<20]
+        audit_counts.append({'task_id':task,'attempts':len(valid),
+            'old_new_agreements':sum(r.get('old_new_agreement') is True for r in valid),
+            'metadata_invariant':sum(r.get('metadata_invariant') is True for r in valid),
+            'requires_review':any(r.get('old_new_agreement') is not True or r.get('metadata_invariant') is not True for r in valid)})
     return {'state':'released' if report.get('state')=='released' else 'candidate',
+        'verifier_audit':audit_counts,'formal_baseline_tasks':['pick_place','open_cabinet','endpoint_stop'],
         'active_tasks':sorted(active),'deferred_tasks':['timed_stirring'],
         'table':rows,'interval':'95% Wilson',
         'cohort_note':'Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons.'}
