@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T11:33:27Z",
+  "snapshot_utc": "2026-10-21T12:55:16Z",
   "snapshot_kind": "curated_static_snapshot",
-  "phase_status": "IN_PROGRESS",
+  "phase_status": "IN_PROGRESS_NATIVE_SAFETY_BLOCKED",
   "current_milestone": "Mc",
   "completed_milestones": 2,
   "milestone_total": 6,
@@ -150,11 +150,12 @@
       "acceptance": "Record measured throughput and controller tracking before selecting the rollout configuration.",
       "result": {
         "throughput_status": "16_64_256_MEASURED_SHARED_LOAD",
-        "controller_status": "ACTUAL_TRACKING_PASSED_FULL_LOCAL_FD_GATE_FAILED",
+        "controller_status": "BENIGN_TRACKING_ONLY_STUDENT_STATE_LIMITS_FAILED",
         "milestone_passed": true,
-        "original_full_local_FD_gate_passed": false
+        "original_full_local_FD_gate_passed": false,
+        "milestone_passed_scope": "Historical measurement closure only; not broad controller deployment acceptance"
       },
-      "result_note": "Complete with a declared FD limitation: 16 / 64 / 256 environments measured 877.744721 / 3,393.919703 / 12,829.080117 env-steps/s; per-world sim/wall was 0.45715873 / 0.44191665 / 0.41761331. All use the same frozen N03/HSM GPU PhysX + Fabric rigid-body workload, 100 warmup + 1000 timed-prefix steps, no render, one shared-load run each. This is not completed tasks/s. Valid 4 / 16 / 64-env process peaks were 4,931 MiB; 256-env peak was 5,061 MiB with 10,002 MiB minimum free and no guard stop. A fixed-overhead model replaced the earlier proportional overestimate, followed by staged measurements. The failed 1-env initialization (0 native steps) remains retained and is excluded from the model. B1 actual tracking passed across 16 Panda worlds: worst position RMS/max 4.1217 / 6.0730 mm and orientation RMS/max 0.81688° / 1.25805°; command and actual speed/acceleration exceedances were 0. Acceleration limiting affected 50,142/403,200 joint-steps (12.4%); speed limiting was 0. The clock recorded 3,600 callbacks / 30.000001565 native s, wall 529.614 s. The original full local FD gate remains false at far-origin x≈22 / 30 m in float32, alongside the independently passed tracking diagnostic; all three earlier failures remain retained.",
+      "result_note": "Complete with a declared FD limitation: 16 / 64 / 256 environments measured 877.744721 / 3,393.919703 / 12,829.080117 env-steps/s; per-world sim/wall was 0.45715873 / 0.44191665 / 0.41761331. All use the same frozen N03/HSM GPU PhysX + Fabric rigid-body workload, 100 warmup + 1000 timed-prefix steps, no render, one shared-load run each. This is not completed tasks/s. Valid 4 / 16 / 64-env process peaks were 4,931 MiB; 256-env peak was 5,061 MiB with 10,002 MiB minimum free and no guard stop. A fixed-overhead model replaced the earlier proportional overestimate, followed by staged measurements. The failed 1-env initialization (0 native steps) remains retained and is excluded from the model. B1 actual tracking passed across 16 Panda worlds: worst position RMS/max 4.1217 / 6.0730 mm and orientation RMS/max 0.81688° / 1.25805°; command and actual speed/acceleration exceedances were 0. Acceleration limiting affected 50,142/403,200 joint-steps (12.4%); speed limiting was 0. The clock recorded 3,600 callbacks / 30.000001565 native s, wall 529.614 s. The original full local FD gate remains false at far-origin x≈22 / 30 m in float32, alongside the independently passed tracking diagnostic; all three earlier failures remain retained. The tracking result covers a benign free-space trajectory only. Subsequent v1 student-state tests failed local command/actual limits. Separate C3 student-stack throughput is now measured at16/64/256 with full cache and diagnostics, as reported above; it is a different workload with recorded actual-motion violations, not task or safety acceptance.",
       "progress": "COMPLETE_WITH_DECLARED_ORIGINAL_FD_GATE_LIMITATION"
     },
     {
@@ -372,7 +373,7 @@
       "scope": "Unify the vector environment, trajectory records and stage-wise verifier across the four Panda tasks.",
       "acceptance": "Shared observation/action contract; saved trajectories; explicit verifier admission and rejection records.",
       "result": {
-        "scope": "New native expert/data acceptance plus BC20 CPU pilot fitting; student zero-query native acceptance remains pending.",
+        "scope": "Native expert/data and zero-query student execution path proven; student task behavior and controller safety failed.",
         "boundary_regressions_passed": 4,
         "task_level_verifier_acceptance": "NOT_ESTABLISHED",
         "N03_measurement_integrity_passed": true,
@@ -387,7 +388,7 @@
         "shared_policy_CPU_boundary_checks_passed": 4,
         "data_CPU_boundary_checks_passed": 19,
         "training_buffer_rows": 28000,
-        "training_updates": 8000,
+        "training_updates": 168000,
         "qualification_takeover_geometry_candidates": {
           "N03": 46000,
           "N12": 41811
@@ -398,17 +399,45 @@
         "new_training_role_queries": 28000,
         "new_training_role_admitted_rows": 28000,
         "qualification_training_buffer_rows": 0,
-        "training_updates_scope": "Two BC20 calibration pilots only",
+        "training_updates_scope": "Six completed BC20 diagnostic-pilot fits: v1 uniform4000/task, v2 uniform40000/task, v3 start-mixture40000/task. Formal M1–M4 updates remain0.",
         "formal_M1_M4_training_updates": 0,
         "student_zero_query_native_accepted": false,
         "N17_N18_native_training_data_accepted": false,
         "BC20_train_only_loss": {
           "N03": 0.00617105077832405,
           "N12": 0.006140918875595421
-        }
+        },
+        "student_zero_query_native_path_verified": true,
+        "student_v1_native_episodes": 40,
+        "student_v1_native_successes": 0,
+        "operational_blocker": "C3_STUDENT_TASK_AND_ACTUAL_TRAJECTORY_FAILED_N12_TRAIN_FIT_LIMITATION_RETAINED",
+        "BC20_fit_v2_train_only_loss": {
+          "N03": 0.0026959764589888175,
+          "N12": 0.0022710329773752685
+        },
+        "BC20_fit_v2_native_episodes": 0,
+        "BC20_fit_v3_train_targets_met": {
+          "N03": true,
+          "N12": false
+        },
+        "BC20_fit_v3_native_episodes": 40,
+        "C3_N12_expert_successes": 20,
+        "C3_N12_expert_episodes": 20,
+        "C3_N12_student4k_successes": 0,
+        "C3_N12_student4k_episodes": 20,
+        "C3_N03_original_qualification_complete": false,
+        "C3_N03_new_expert_successes": 20,
+        "C3_N03_new_expert_episodes": 20,
+        "C3_N03_all_expert_started": 40,
+        "C3_N03_all_expert_strict_successes": 36,
+        "C3_N03_validation_queries_charged": 26472,
+        "formal_comparison_training_buffer_rows": 0,
+        "training_buffer_rows_scope": "28000 retained original C2 diagnostic-pilot rows only; separate canonical C3 candidate rows28000. No implicit aggregation; formal M1–M4 selected rows0.",
+        "canonical_C3_candidate_rows": 28000,
+        "formal_M1_M4_selected_rows": 0
       },
-      "result_note": "In progress. New training-role collections for N03 and N12 each completed 20/20 expert episodes on the fixed new 20-instance bank: 14,000 queried = 14,000 admitted, with all four local velocity/acceleration exceedance counters at 0. The accepted training buffer contains 28,000 rows; no qualification rows were used. Each single-task BC20 calibration pilot completed 4,000 CPU updates (4 threads, seed 20261031). Final full training-set losses: N03 0.006171051; N12 0.006140919. Final model tensors and training-only normalization checks passed. These are calibration fits, not formal M1–M4 training, whose update count remains 0. Student zero-query native rollout acceptance, native student closed-loop evaluation and N17/N18 training-data acceptance remain unmeasured. CPU component checks (policy 4; data 19) remain supporting evidence, not a substitute for native acceptance.",
-      "progress": "NATIVE_EXPERT_DATA_ACCEPTED_STUDENT_NATIVE_PENDING"
+      "result_note": "Original C2 training-role banks each completed20/20 with14000 queried=admitted and all four local-limit counters0;28000 rows remain diagnostic-pilot data, not formal C3 comparison data. Three bounded fits/task total168000 updates; formal M1–M4 updates remain0. N03v3 meets its train-only fit targets; N12v3 misses translation targets, with no further recipe changes. Fixed-final-v3 C3 native diagnostics closed0/20 each, finite20/20 and query/sentinel/evaluation-update0. Both recorded zero command-limit exceedances, but actual acceleration exceedances were82/761 for N03/N12. Separate same-source C3 experts each closed20/20 with all four counters0. Old N03 C3 attempts retain16 completed+4 interrupted; combining old and new expert starts gives36/40 strict successes including4 infrastructure interruptions on the same20 sources, not40 independent instances. Fresh matching C3 training-role20 collections are now CLOSED20/20 each, with14000 queried=independent-verifier/root-loader-admitted candidates each and all four measured limit counters0. Canonical C3 candidate rows total28000; formal M1–M4 selected rows remain0. No old C2 or qualification rows are aggregated. Mc remains open; Md has not run.",
+      "progress": "C3_ZERO_QUERY_PATH_PROVEN_STUDENT_TASK_AND_ACTUAL_SAFETY_FAILED"
     },
     {
       "id": "Md",
@@ -416,8 +445,29 @@
       "title": "Qualify a recoverable challenge",
       "scope": "Expand pose ranges by 50%; add 2–3 cm object pushes, slip events and 30 ms observation delay.",
       "acceptance": "Expert success ≥85% and single-task BC with 20 demonstrations ≤60%. At most two difficulty adjustments.",
-      "result": null,
-      "result_note": "Challenge qualification not yet measured; the earlier CPU pose-bank results do not satisfy this gate."
+      "result": {
+        "status": "ATTEMPT1_INITIALIZATION_FAILED_PRESERVED_ATTEMPT2_AUTHORIZED_API_FIX",
+        "task": "N12",
+        "scope": "Physical API integration probe only; not a formal Md success-rate or difficulty qualification.",
+        "attempt1": {
+          "status": "INITIALIZATION_FAILED",
+          "reason": "Missing legacy external-wrench attribute on the actual composer API.",
+          "policy_steps": 0,
+          "queried_labels": 0,
+          "parameter_updates": 0,
+          "original_failure_retained": true
+        },
+        "attempt2": {
+          "status": "AUTHORIZED_PREPARATION_NO_RESULT_IN_THIS_SNAPSHOT",
+          "change": "Minimal adaptation to the actual composer API; identical numerical settings.",
+          "difficulty_adjustment": false
+        },
+        "difficulty_adjustments_consumed": 0,
+        "formal_Md_qualification_measured": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null
+      },
+      "result_note": "Not run. Nominal in-sample student failures and unresolved physical trajectories do not qualify Md or satisfy the expert≥85% / BC20≤60% challenge gate. N12 v3 also misses the train-only translation-fit gate. No further fitting recipe search; difficulty adjustments consumed:0. Physical API probe attempt1 failed at initialization on a missing legacy wrench attribute, with0 policy steps/queries; failure preserved. Root authorized a minimal actual-composer API fix for independent attempt2 with identical numeric settings. No attempt2 outcome is reported here; this is not a difficulty adjustment."
     },
     {
       "id": "Me",
@@ -515,7 +565,7 @@
     },
     {
       "name": "Verifier admission / rejection",
-      "protocol": "Earlier qualification nominal labels (28,000) still lack raw verifier evidence and remain outside training. Qualification takeover geometric candidates (N03 46,000; N12 41,811) also have 0 training admission; N12 strict local safety remains NOT_ALL_PASSED. Separate new training-role collections now have 28,000 queried = admitted rows with four local-limit counters at 0 per task. Native expert/data acceptance is complete for N03/N12; student zero-query native acceptance is pending.",
+      "protocol": "Earlier qualification nominal labels (28,000) still lack raw verifier evidence and remain outside training. Qualification takeover geometric candidates (N03 46,000; N12 41,811) also have 0 training admission; N12 strict local safety remains NOT_ALL_PASSED. Separate new training-role collections now have 28,000 queried = admitted rows with four local-limit counters at 0 per task. Native expert/data acceptance is complete for N03/N12; zero-query student native execution is verified, but task behavior and controller safety failed.",
       "status": "PARTIAL",
       "value": {
         "N03_active_labels": 14000,
@@ -532,33 +582,41 @@
         "new_training_role_queries": 28000,
         "new_training_role_admitted_rows": 28000,
         "native_expert_and_dataset_accepted": true,
-        "student_zero_query_native_accepted": false
+        "student_zero_query_native_accepted": false,
+        "student_zero_query_native_path_verified": true,
+        "student_task_and_controller_safety_accepted": false
       }
     }
   ],
   "unmeasured_results": {
-    "trained_policy_success": null,
     "c01_student_integration": null,
     "task_level_verifier_acceptance": null,
     "formal_heldout_50_new_instances": null,
-    "student_zero_query_native_acceptance": null,
-    "native_student_closed_loop_success": null,
     "formal_M1_M4_learning_curves": null,
-    "N17_N18_native_training_data_acceptance": null
+    "N17_N18_native_training_data_acceptance": null,
+    "formal_M1_M4_policy_success": null,
+    "student_task_and_controller_safety_acceptance": null,
+    "BC20_fit_v2_native_student_success": null,
+    "Md_shifted_challenge_qualification": null,
+    "formal_M1_M4_dataset_selection": null
   },
   "disclosures": [
     "This page describes the approved phase-2 plan and a dated local evidence summary.",
     "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
-    "No OPD learning curves or policy success scores have been measured in this snapshot.",
+    "No formal M1–M4 results have been measured. Retained v1 single-task BC20 in-sample native diagnostics are0/20 per task with controller-limit failures; v2 fitting remains train-only.",
     "Qualification nominal task success and measurement integrity are separate from training admission. Earlier qualification nominal traces lack raw per-tick verifier evidence; training admission is 0. Four data-boundary regressions do not establish task-level verifier acceptance.",
     "Ma and Mb measurement reports are closed with declared limitations; N12 strict local safety did not pass every local gate.",
     "Both task takeover sets use 50 episodes from 20 source scenes. Their Wilson intervals are descriptive episode intervals, not independent-task generalization evidence.",
     "Only three N03 cases met the independent grasp-interruption opportunity definition; recovery was 3/3 in those cases, not 50 recovery trials.",
     "N12 had 14 observed grasp-interruption opportunities: 7 subsequent sampled regrasp-and-task successes, 6 failed tasks and 1 task completion without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator; this observation-based definition is not exhaustive fault coverage.",
-    "Qualification datasets remain outside training. Separate new training-role collections contribute 28,000 accepted labels; the two BC20 calibration fits performed 4,000 CPU updates each.",
-    "BC20 losses are measured on admitted training samples only. They do not establish native student task success, shifted robustness or formal M1–M4 performance; formal method training updates remain 0."
+    "Qualification datasets remain outside training. Original C2 training-role banks retain28000 diagnostic-pilot rows. Separate canonical C3 training-role banks each closed20/20 with14000 independent-verifier/root-loader-admitted candidate rows. Canonical C3 candidates total28000; formal M1–M4 selected rows0; no implicit aggregation.",
+    "BC20 losses are measured on admitted training samples only. They do not establish native student task success, shifted robustness or formal M1–M4 performance; formal method training updates remain 0.",
+    "Finite zero-query native execution, task success, local controller safety and shifted difficulty acceptance are distinct. Benign Ma tracking cannot override later student-state limit failures; low BC success under this failure does not establish Md difficulty.",
+    "Six completed diagnostic-pilot fits total168000 parameter updates on original C2 data; formal M1–M4 updates remain0. N03v3 meets train-fit targets and N12v3 does not. Both fixed-final-v3 C3 in-sample native diagnostics are0/20, with actual-motion violations. No further recipe changes or native-driven checkpoint selection.",
+    "C3 qualification labels remain outside training. Original N03 interrupted expert query cost12472 plus new persistent expert14000 equals26472 validation queries. Old interrupted records remain;36/40 strict expert successes reuse20 sources. Missing labels/outcomes were not backfilled.",
+    "C3 student-stack throughput uses16 fixed source scenes replicated1/4/16 times for16/64/256 environments. Single shared-load10s truncated runs report performance and retain actual-motion violations; task-success statistics are not computed."
   ],
-  "phase_progress": "MC_NATIVE_EXPERT_DATA_ACCEPTED_BC20_PILOTS_FIT_STUDENT_NATIVE_PENDING",
+  "phase_progress": "C3_NATIVE_PATH_AND_PERFORMANCE_MEASURED_STUDENT_TASK_AND_ACTUAL_SAFETY_FAILED",
   "current_measurements": {
     "throughput": {
       "status": "COMPLETE_MEASURED_SHARED_LOAD",
@@ -610,7 +668,7 @@
       "measurement_load": "SHARED_EXTERNAL_LOAD",
       "load_sampling_period_s": 5,
       "repetitions_per_batch": 1,
-      "scope": "Single shared-load timed prefix; environment-steps/s is not completed tasks/s, isolated hardware capacity or learned-policy training throughput.",
+      "scope": "Single shared-load timed prefix; environment-steps/s is not completed tasks/s, isolated hardware capacity or learned-policy training throughput. These historical HSM timings do not represent the new StudentPolicy/controller/cache/telemetry stack.",
       "memory_model": {
         "status": "FIXED_OVERHEAD_MODEL_WITH_STAGED_MEASUREMENTS",
         "valid_anchors_MiB": {
@@ -637,7 +695,7 @@
       "raw_evidence_url": null
     },
     "controller_B1": {
-      "status": "ACTUAL_TRACKING_PASSED_FULL_LOCAL_FD_GATE_FAILED",
+      "status": "HISTORICAL_BENIGN_TRACKING_PASSED_STUDENT_SAFETY_BLOCKED",
       "attempt": 4,
       "tracking_executed": true,
       "actual_tracking_passed": true,
@@ -686,11 +744,13 @@
         "speed_saturation_joint_steps": 0
       },
       "full_gate_limitation": "The original full finite-difference gate remains false at far-origin x≈22 / 30 m in float32. Actual trajectory tracking passes independently; no FD threshold or controller gain was relaxed.",
-      "next_step": "Centered N03 / N12 preflights and takeover measurements are closed; Mc remains component preparation without native training acceptance.",
+      "next_step": "New persistent C3 N03 expert20 qualification completed; student physical/task failures remain. Historical benign tracking evidence is unchanged.",
       "scope": "One 30-native-second free-space diagnostic across 16 Panda worlds. It does not establish task success, contact skills, general workspace reliability or learned-policy performance.",
       "raw_evidence_published": false,
       "raw_evidence_url": null,
-      "tracking_pose_frame": "World coordinates; the recorded 30-second tracking metrics retain their original frame."
+      "tracking_pose_frame": "World coordinates; the recorded 30-second tracking metrics retain their original frame.",
+      "deployment_scope": "Only the historical C2 benign free-space tracking diagnostic passed. C3 command-boundary correction is separate; student physical trajectory failure still blocks broad controller acceptance.",
+      "controller_revision": "C2"
     },
     "secondary_node": {
       "name": "pro6000",
@@ -958,18 +1018,25 @@
       "training_scope": "Qualification measurements only; separate new training-role collections and BC20 fits are reported separately."
     },
     "component_preparation": {
-      "status": "NATIVE_EXPERT_DATA_ACCEPTED_STUDENT_NATIVE_PENDING",
+      "status": "NATIVE_EXPERT_DATA_AND_ZERO_QUERY_PATH_PROVEN_SAFETY_BLOCKED",
       "shared_policy_CPU_checks_passed": 4,
       "data_CPU_checks_passed": 19,
-      "training_updates": 8000,
+      "training_updates": 168000,
       "training_buffer_rows": 28000,
       "native_expert_and_dataset_accepted": true,
       "student_zero_query_native_accepted": false,
-      "training_updates_scope": "BC20 calibration pilots only",
-      "formal_method_training_updates": 0
+      "training_updates_scope": "Six completed BC20 diagnostic-pilot fits: v1 uniform4000/task, v2 uniform40000/task, v3 start-mixture40000/task. Formal M1–M4 updates remain0.",
+      "formal_method_training_updates": 0,
+      "student_zero_query_native_path_verified": true,
+      "student_task_and_safety_accepted": false,
+      "training_buffer_rows_scope": "28000 retained original C2 diagnostic-pilot rows only; separate canonical C3 candidate rows28000. No implicit aggregation; formal M1–M4 selected rows0.",
+      "formal_comparison_training_buffer_rows": 0,
+      "native_expert_and_dataset_accepted_scope": "Original C2 pilot data and separate fresh canonical C3 candidates accepted. Formal M1–M4 selection remains pending.",
+      "canonical_C3_candidate_rows": 28000,
+      "formal_M1_M4_selected_rows": 0
     },
     "bc20_calibration_pilots": {
-      "scope": "Single-task BC20 pilots for Md calibration, not the formal M1–M4 comparison. Losses are training-only; no native student evaluation has run.",
+      "scope": "Retained C2 training-role20-bank data and v1 fixed4000 diagnostic pilots; later C2 native tests are0/20/task with local-limit failures. Not formal M1–M4 data or results.",
       "training_instances_disjoint_from_qualification": true,
       "training_buffer_rows": 28000,
       "training_updates_total": 8000,
@@ -980,7 +1047,7 @@
       "updates_per_task": 4000,
       "shared_network": "41→256→256→8, SiLU",
       "extra_expert_queries_during_fitting": 0,
-      "native_student_closed_loop_evaluated": false,
+      "native_student_closed_loop_evaluated": true,
       "tasks": [
         {
           "task": "N03",
@@ -1016,8 +1083,10 @@
           "final_model_tensors_finite": true,
           "normalization_from_admitted_training_only": true,
           "selection": "Final fixed update; no shifted/test-driven model selection.",
-          "native_student_closed_loop_episodes": 0,
-          "expert_queries_added_during_fitting": 0
+          "native_student_closed_loop_episodes": 20,
+          "expert_queries_added_during_fitting": 0,
+          "native_student_closed_loop_successes": 0,
+          "native_student_safety_accepted": false
         },
         {
           "task": "N12",
@@ -1053,17 +1122,1238 @@
           "final_model_tensors_finite": true,
           "normalization_from_admitted_training_only": true,
           "selection": "Final fixed update; no shifted/test-driven model selection.",
-          "native_student_closed_loop_episodes": 0,
-          "expert_queries_added_during_fitting": 0
+          "native_student_closed_loop_episodes": 20,
+          "expert_queries_added_during_fitting": 0,
+          "native_student_closed_loop_successes": 0,
+          "native_student_safety_accepted": false
+        }
+      ],
+      "native_student_closed_loop_evaluation_episodes": 40,
+      "data_controller_revision": "C2",
+      "formal_comparison_eligible": false
+    },
+    "student_native_v1": {
+      "scope": "Frozen v1 BC20 models on the same20 training instances per task; every failure retained. Finite/zero-query execution is separate from task success and controller safety.",
+      "tasks": [
+        {
+          "task": "N03",
+          "status": "CLOSED_TASK_AND_SAFETY_FAILED",
+          "policy_version": "BC20_v1_final4000",
+          "scope": "In-sample fixed20 training-instance diagnostic, not shifted or heldout evaluation",
+          "successes": 0,
+          "episodes": 20,
+          "finite_cases": 20,
+          "query_count": 0,
+          "teacher_sentinel_invocations": 0,
+          "parameter_updates_during_evaluation": 0,
+          "native_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 230,
+            "actual_velocity_exceedances": 2,
+            "actual_acceleration_exceedances": 4756
+          },
+          "maximum_command_acceleration_rad_s2": 14.124296188354492,
+          "maximum_actual_acceleration_rad_s2": 626.4017944335938,
+          "all_failures_retained": true,
+          "task_behavior_accepted": false,
+          "controller_safety_accepted": false,
+          "raw_evidence_published": false,
+          "raw_evidence_url": null,
+          "controller_revision": "C2"
+        },
+        {
+          "task": "N12",
+          "status": "CLOSED_TASK_AND_SAFETY_FAILED",
+          "policy_version": "BC20_v1_final4000",
+          "scope": "In-sample fixed20 training-instance diagnostic, not shifted or heldout evaluation",
+          "successes": 0,
+          "episodes": 20,
+          "finite_cases": 20,
+          "query_count": 0,
+          "teacher_sentinel_invocations": 0,
+          "parameter_updates_during_evaluation": 0,
+          "native_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 134,
+            "actual_velocity_exceedances": 1,
+            "actual_acceleration_exceedances": 375
+          },
+          "maximum_command_acceleration_rad_s2": 14.591215133666992,
+          "maximum_actual_acceleration_rad_s2": 460.43243408203125,
+          "all_failures_retained": true,
+          "task_behavior_accepted": false,
+          "controller_safety_accepted": false,
+          "raw_evidence_published": false,
+          "raw_evidence_url": null,
+          "controller_revision": "C2"
         }
       ]
+    },
+    "bc20_fit_v2": {
+      "scope": "Predeclared train-only stronger-fit diagnostic on the identical accepted20-bank labels. Only duration changes4000→40000; v1 remains retained. Fitting metrics do not establish a strong native baseline or Md qualification.",
+      "shared_network": "41→256→256→8, SiLU",
+      "optimizer": "Adam",
+      "learning_rate": 0.0003,
+      "batch_size": 256,
+      "sampling": "Uniform admitted rows with replacement; unchanged seed and sampling stream",
+      "training_updates_total": 80000,
+      "expert_queries_added": 0,
+      "formal_M1_M4_training_updates": 0,
+      "tasks": [
+        {
+          "task": "N03",
+          "status": "FIT_COMPLETE_TRAIN_ONLY_NATIVE_UNTESTED",
+          "updates": 40000,
+          "seed": 20261031,
+          "device": "CPU",
+          "cpu_threads": 4,
+          "queried_labels": 14000,
+          "admitted_labels": 14000,
+          "additional_teacher_queries": 0,
+          "native_evaluation_episodes": 0,
+          "full_entry_wall_s": 204.96327408601064,
+          "train_only_loss": {
+            "total_loss": 0.0026959764589888175,
+            "translation": 0.002568098815956286,
+            "rotation": 0.0001265866415841239,
+            "grip": 1.291002744204509e-06
+          },
+          "curve_points": 400,
+          "final_model_tensors_finite": true,
+          "normalization_from_admitted_training_only": true,
+          "checkpoint_selection": "Final fixed40000 update only; no native/shift/heldout selection",
+          "predeclared_train_time_windows": [
+            {
+              "start_s": 0,
+              "end_s": 0.05,
+              "rows": 20,
+              "translation_error_mm": {
+                "median": 2.282138627437362,
+                "p95": 4.219769447140448,
+                "max": 4.247548852917453,
+                "mean": 2.2708337788532273
+              },
+              "rotation_error_deg": {
+                "median": 0.18046335819203152,
+                "p95": 0.42992008210449245,
+                "max": 0.7349892388922951,
+                "mean": 0.21987629476651457
+              }
+            },
+            {
+              "start_s": 0,
+              "end_s": 2,
+              "rows": 800,
+              "translation_error_mm": {
+                "median": 0.6794688341838314,
+                "p95": 3.5489592109215513,
+                "max": 11.696868329206984,
+                "mean": 1.1469709141514037
+              },
+              "rotation_error_deg": {
+                "median": 0.08078672975944312,
+                "p95": 0.3222244542947366,
+                "max": 0.7377556375681755,
+                "mean": 0.11337338098514671
+              }
+            },
+            {
+              "start_s": 2,
+              "end_s": 5,
+              "rows": 1200,
+              "translation_error_mm": {
+                "median": 0.4290717247683799,
+                "p95": 1.179110992333193,
+                "max": 13.105006097707784,
+                "mean": 0.5700957640183382
+              },
+              "rotation_error_deg": {
+                "median": 0.07588076689987255,
+                "p95": 0.22620335232537495,
+                "max": 0.7728035589776552,
+                "mean": 0.09852351065654882
+              }
+            },
+            {
+              "start_s": 5,
+              "end_s": 10,
+              "rows": 2000,
+              "translation_error_mm": {
+                "median": 0.33538315885764713,
+                "p95": 1.6707711488230037,
+                "max": 20.422820340337527,
+                "mean": 0.680286468657737
+              },
+              "rotation_error_deg": {
+                "median": 0.055145280064545325,
+                "p95": 0.20714639727352846,
+                "max": 0.5958737685960304,
+                "mean": 0.0742580773932911
+              }
+            },
+            {
+              "start_s": 10,
+              "end_s": 20,
+              "rows": 4000,
+              "translation_error_mm": {
+                "median": 0.46806946104605684,
+                "p95": 4.30775769759456,
+                "max": 20.50273540064589,
+                "mean": 0.9482063431181507
+              },
+              "rotation_error_deg": {
+                "median": 0.0169693587589084,
+                "p95": 0.03380166062331492,
+                "max": 0.09487809503047454,
+                "mean": 0.018499028065558816
+              }
+            },
+            {
+              "start_s": 20,
+              "end_s": 35,
+              "rows": 6000,
+              "translation_error_mm": {
+                "median": 0.18676486075610443,
+                "p95": 1.2753661806244008,
+                "max": 9.137420108932162,
+                "mean": 0.383128468074899
+              },
+              "rotation_error_deg": {
+                "median": 0.016630640718328538,
+                "p95": 0.046090650539864636,
+                "max": 0.11921237745791954,
+                "mean": 0.021710297290179256
+              }
+            }
+          ],
+          "initial_state_error": {
+            "start_s": 0,
+            "end_s": 0.05,
+            "rows": 20,
+            "translation_error_mm": {
+              "median": 2.282138627437362,
+              "p95": 4.219769447140448,
+              "max": 4.247548852917453,
+              "mean": 2.2708337788532273
+            },
+            "rotation_error_deg": {
+              "median": 0.18046335819203152,
+              "p95": 0.42992008210449245,
+              "max": 0.7349892388922951,
+              "mean": 0.21987629476651457
+            }
+          },
+          "initial_state_per_case_records": 20,
+          "first4000_curve_exactly_matches_retained_v1": true
+        },
+        {
+          "task": "N12",
+          "status": "FIT_COMPLETE_TRAIN_ONLY_NATIVE_UNTESTED",
+          "updates": 40000,
+          "seed": 20261031,
+          "device": "CPU",
+          "cpu_threads": 4,
+          "queried_labels": 14000,
+          "admitted_labels": 14000,
+          "additional_teacher_queries": 0,
+          "native_evaluation_episodes": 0,
+          "full_entry_wall_s": 194.2258428859932,
+          "train_only_loss": {
+            "total_loss": 0.0022710329773752685,
+            "translation": 0.0018455348781176975,
+            "rotation": 0.0003179311752319336,
+            "grip": 0.00010756694720277389
+          },
+          "curve_points": 400,
+          "final_model_tensors_finite": true,
+          "normalization_from_admitted_training_only": true,
+          "checkpoint_selection": "Final fixed40000 update only; no native/shift/heldout selection",
+          "predeclared_train_time_windows": [
+            {
+              "start_s": 0,
+              "end_s": 0.05,
+              "rows": 20,
+              "translation_error_mm": {
+                "median": 7.28500193764685,
+                "p95": 9.237120382958985,
+                "max": 10.839283061562277,
+                "mean": 7.0049055961141775
+              },
+              "rotation_error_deg": {
+                "median": 0.1053388587949469,
+                "p95": 0.1525804246182288,
+                "max": 0.16646334686061992,
+                "mean": 0.10037957981644592
+              }
+            },
+            {
+              "start_s": 0,
+              "end_s": 2,
+              "rows": 800,
+              "translation_error_mm": {
+                "median": 0.4229799478446355,
+                "p95": 5.18579759478979,
+                "max": 13.640741143499971,
+                "mean": 1.284255181781467
+              },
+              "rotation_error_deg": {
+                "median": 0.05721807438399219,
+                "p95": 0.1269662401442288,
+                "max": 0.2369270529212785,
+                "mean": 0.06405508311295481
+              }
+            },
+            {
+              "start_s": 2,
+              "end_s": 5,
+              "rows": 1200,
+              "translation_error_mm": {
+                "median": 0.33866536832205785,
+                "p95": 1.5426581957923093,
+                "max": 5.453511692193589,
+                "mean": 0.5214626406789958
+              },
+              "rotation_error_deg": {
+                "median": 0.07819265314756126,
+                "p95": 0.34041649956267006,
+                "max": 1.4689332513752948,
+                "mean": 0.12109698162970246
+              }
+            },
+            {
+              "start_s": 5,
+              "end_s": 10,
+              "rows": 2000,
+              "translation_error_mm": {
+                "median": 0.1331284384623196,
+                "p95": 1.207777006700184,
+                "max": 8.479673123092596,
+                "mean": 0.374604764093591
+              },
+              "rotation_error_deg": {
+                "median": 0.024841678282569925,
+                "p95": 0.09404197940411406,
+                "max": 0.4487519779822981,
+                "mean": 0.03812298395816333
+              }
+            },
+            {
+              "start_s": 10,
+              "end_s": 20,
+              "rows": 4000,
+              "translation_error_mm": {
+                "median": 0.35768758150658,
+                "p95": 4.0462293291182085,
+                "max": 6.062293182091598,
+                "mean": 0.7610176271998634
+              },
+              "rotation_error_deg": {
+                "median": 0.06540041414847245,
+                "p95": 0.0979073998223357,
+                "max": 0.16975522094775045,
+                "mean": 0.05681888764211454
+              }
+            },
+            {
+              "start_s": 20,
+              "end_s": 35,
+              "rows": 6000,
+              "translation_error_mm": {
+                "median": 0.26371926610827046,
+                "p95": 0.7462231845871594,
+                "max": 6.364422260834614,
+                "mean": 0.33505655589830896
+              },
+              "rotation_error_deg": {
+                "median": 0.013294385025682445,
+                "p95": 0.12273295863209054,
+                "max": 2.668285374342538,
+                "mean": 0.04102778000377613
+              }
+            }
+          ],
+          "initial_state_error": {
+            "start_s": 0,
+            "end_s": 0.05,
+            "rows": 20,
+            "translation_error_mm": {
+              "median": 7.28500193764685,
+              "p95": 9.237120382958985,
+              "max": 10.839283061562277,
+              "mean": 7.0049055961141775
+            },
+            "rotation_error_deg": {
+              "median": 0.1053388587949469,
+              "p95": 0.1525804246182288,
+              "max": 0.16646334686061992,
+              "mean": 0.10037957981644592
+            }
+          },
+          "initial_state_per_case_records": 20,
+          "first4000_curve_exactly_matches_retained_v1": true
+        }
+      ]
+    },
+    "student_stack_throughput": {
+      "status": "COMPLETE_SHARED_LOAD_PERFORMANCE_ONLY",
+      "controller_revision": "C3",
+      "task": "N03",
+      "policy_version": "Retained v1 fixed4000 BC20 pilot",
+      "distinct_source_scenes": 16,
+      "replicas_per_source": {
+        "16": 1,
+        "64": 4,
+        "256": 16
+      },
+      "independent_task_generalization": false,
+      "workload": "Fixed first16 original training-bank source poses at every scale; StudentPolicy to C3 controller with full transition cache and 120Hz diagnostics.",
+      "policy_hz": 20,
+      "physics_hz": 120,
+      "policy_ticks": 200,
+      "warmup_policy_ticks": 20,
+      "timed_policy_ticks": 180,
+      "native_seconds_per_environment": 10,
+      "timed_native_seconds_per_environment": 9,
+      "measurement_load": "SHARED_LOAD_SINGLE_RUN_PER_SCALE",
+      "completed_measurement_launches": 3,
+      "rows": [
+        {
+          "num_envs": 16,
+          "status": "CLOSED_PERFORMANCE_ONLY_ACTUAL_LIMIT_FAILURES_RETAINED",
+          "replicas_per_source": 1,
+          "timed_wall_s": 25.50225976202637,
+          "timed_policy_ticks": 180,
+          "timed_physics_steps_per_environment": 1080,
+          "policy_envsteps_per_s": 112.93116872287555,
+          "physics_envsteps_per_s": 677.5870123372533,
+          "timed_native_s_per_environment": 9.000000469386578,
+          "per_world_native_time_over_wall": 0.3529099206646718,
+          "timing_scope": "observation,evidence,StudentPolicy,bounded8,controller,120Hzdiagnostics,transitioncache; CUDA-synchronized boundaries; finish/CPUexport/serialization excluded",
+          "entry_end_to_end_wall_s": 38.13467552897055,
+          "own_peak_sampled_MiB": 2830,
+          "minimum_sampled_free_MiB": 17452,
+          "resource_sample_count": 8,
+          "sampled_total_GPU_utilization_percent_range": [
+            52,
+            71
+          ],
+          "resource_stop_reason": null,
+          "FD_gate_passed": true,
+          "maximum_linear_FD_error_m_per_rad": 0.000433351691956277,
+          "maximum_angular_FD_error_rad_per_rad": 0.00020243064244831153,
+          "native_clock": {
+            "issued_steps": 1200,
+            "callbacks": 1200,
+            "sum_dt_s": 10.000000521540642,
+            "dt_values_s": [
+              0.008333333767950535
+            ],
+            "warmup_callbacks": 120,
+            "timed_callbacks": 1080,
+            "warmup_sum_dt_s": 1.0000000521540642,
+            "timed_sum_dt_s": 9.000000469386578
+          },
+          "all_native_finite": true,
+          "all_cached_transitions_finite": true,
+          "query_count": 0,
+          "teacher_guard_invocations": 0,
+          "parameter_updates": 0,
+          "native_limit_counts": {
+            "joint_speed_saturations": 11501,
+            "joint_acceleration_saturations": 44756,
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 158
+          },
+          "maximum_actual_acceleration_rad_s2": 244.2286834716797,
+          "success_statistics": null,
+          "success_statistics_status": "NOT_COMPUTED_SHORT_TRUNCATION_IS_NOT_TASK_EVALUATION",
+          "service_stop_receipt": "SUCCESS_EXITED_0",
+          "raw_evidence_published": false,
+          "raw_evidence_url": null
+        },
+        {
+          "num_envs": 64,
+          "status": "CLOSED_PERFORMANCE_ONLY_ACTUAL_LIMIT_FAILURES_RETAINED",
+          "replicas_per_source": 4,
+          "timed_wall_s": 30.350370299012866,
+          "timed_policy_ticks": 180,
+          "timed_physics_steps_per_environment": 1080,
+          "policy_envsteps_per_s": 379.56703284027753,
+          "physics_envsteps_per_s": 2277.402197041665,
+          "timed_native_s_per_environment": 9.000000469386578,
+          "per_world_native_time_over_wall": 0.29653675987206324,
+          "timing_scope": "observation,evidence,StudentPolicy,bounded8,controller,120Hzdiagnostics,transitioncache; CUDA-synchronized boundaries; finish/CPUexport/serialization excluded",
+          "entry_end_to_end_wall_s": 42.560843384009786,
+          "own_peak_sampled_MiB": 2836,
+          "minimum_sampled_free_MiB": 17294,
+          "resource_sample_count": 9,
+          "sampled_total_GPU_utilization_percent_range": [
+            1,
+            82
+          ],
+          "resource_stop_reason": null,
+          "FD_gate_passed": true,
+          "maximum_linear_FD_error_m_per_rad": 0.000433351691956277,
+          "maximum_angular_FD_error_rad_per_rad": 0.00020243064244831153,
+          "native_clock": {
+            "issued_steps": 1200,
+            "callbacks": 1200,
+            "sum_dt_s": 10.000000521540642,
+            "dt_values_s": [
+              0.008333333767950535
+            ],
+            "warmup_callbacks": 120,
+            "timed_callbacks": 1080,
+            "warmup_sum_dt_s": 1.0000000521540642,
+            "timed_sum_dt_s": 9.000000469386578
+          },
+          "all_native_finite": true,
+          "all_cached_transitions_finite": true,
+          "query_count": 0,
+          "teacher_guard_invocations": 0,
+          "parameter_updates": 0,
+          "native_limit_counts": {
+            "joint_speed_saturations": 45721,
+            "joint_acceleration_saturations": 179078,
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 347
+          },
+          "maximum_actual_acceleration_rad_s2": 216.22784423828125,
+          "success_statistics": null,
+          "success_statistics_status": "NOT_COMPUTED_SHORT_TRUNCATION_IS_NOT_TASK_EVALUATION",
+          "service_stop_receipt": "SUCCESS_EXITED_0",
+          "raw_evidence_published": false,
+          "raw_evidence_url": null
+        },
+        {
+          "num_envs": 256,
+          "status": "CLOSED_PERFORMANCE_ONLY_ACTUAL_LIMIT_FAILURES_RETAINED",
+          "replicas_per_source": 16,
+          "timed_wall_s": 51.96480645396514,
+          "timed_policy_ticks": 180,
+          "timed_physics_steps_per_environment": 1080,
+          "policy_envsteps_per_s": 886.7540003410115,
+          "physics_envsteps_per_s": 5320.524002046069,
+          "timed_native_s_per_environment": 9.000000469386578,
+          "per_world_native_time_over_wall": 0.17319414972438213,
+          "timing_scope": "observation,evidence,StudentPolicy,bounded8,controller,120Hzdiagnostics,transitioncache; CUDA-synchronized boundaries; finish/CPUexport/serialization excluded",
+          "entry_end_to_end_wall_s": 68.4808506819536,
+          "own_peak_sampled_MiB": 2984,
+          "minimum_sampled_free_MiB": 14221,
+          "resource_sample_count": 14,
+          "sampled_total_GPU_utilization_percent_range": [
+            57,
+            90
+          ],
+          "resource_stop_reason": null,
+          "FD_gate_passed": true,
+          "maximum_linear_FD_error_m_per_rad": 0.0012465660687815774,
+          "maximum_angular_FD_error_rad_per_rad": 0.00020243064244831153,
+          "native_clock": {
+            "issued_steps": 1200,
+            "callbacks": 1200,
+            "sum_dt_s": 10.000000521540642,
+            "dt_values_s": [
+              0.008333333767950535
+            ],
+            "warmup_callbacks": 120,
+            "timed_callbacks": 1080,
+            "warmup_sum_dt_s": 1.0000000521540642,
+            "timed_sum_dt_s": 9.000000469386578
+          },
+          "all_native_finite": true,
+          "all_cached_transitions_finite": true,
+          "query_count": 0,
+          "teacher_guard_invocations": 0,
+          "parameter_updates": 0,
+          "native_limit_counts": {
+            "joint_speed_saturations": 183041,
+            "joint_acceleration_saturations": 720029,
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 1,
+            "actual_acceleration_exceedances": 1530
+          },
+          "maximum_actual_acceleration_rad_s2": 352.3254699707031,
+          "success_statistics": null,
+          "success_statistics_status": "NOT_COMPUTED_SHORT_TRUNCATION_IS_NOT_TASK_EVALUATION",
+          "service_stop_receipt": "SUCCESS_EXITED_0",
+          "raw_evidence_published": false,
+          "raw_evidence_url": null
+        }
+      ],
+      "teacher_query_budget": 0,
+      "parameter_updates": 0,
+      "timing_scope": "CUDA-synchronized observation/evidence/policy/controller/120Hz-diagnostics/cache loop. Finish, CPU export and serialization excluded from timed rate; entry wall reported separately.",
+      "memory_scope": "Own-process NVML-only peak sampled every5s, including model CUDA; sampled peak is not an allocation upper bound. Shared load varied; no isolated scaling claim.",
+      "FD_gate": "Unchanged epsilon.001rad, linear<=.002m/rad and angular<=.005rad/rad; passed separately at each scale.",
+      "safety_status": "NOT_ALL_PASSED",
+      "version_acceptance_scope": "Runtime interface only; no task-success or actual-motion safety acceptance.",
+      "retained_initial16_pre_scene_failure": {
+        "status": "FAILED_BEFORE_SCENE_RETAINED",
+        "reason": "First service omitted the accepted runtime environment; later independent service used the reviewed environment.",
+        "native_steps": 0,
+        "overwritten": false
+      },
+      "raw_evidence_published": false,
+      "raw_evidence_url": null
+    },
+    "bc20_fit_v3": {
+      "scope": "Final bounded train-only sampler diagnostic on original C2 pilot labels; no further recipe search. Later fixed-final-model C3 in-sample diagnostics are reported separately; no native/heldout checkpoint selection.",
+      "sampling": "Bernoulli20% first0.5native seconds (10ticks/episode),80% all admitted rows; all-row draws can also be early.",
+      "start_window_admitted_rows_per_task": 200,
+      "all_admitted_rows_per_task": 14000,
+      "expected_actual_early_row_fraction": 0.21142857142857144,
+      "fitting_quality_targets": {
+        "initial_translation_median_mm_max": 1.0,
+        "initial_translation_max_mm_max": 2.0,
+        "initial_rotation_p95_deg_max": 0.25
+      },
+      "targets_are_native_acceptance": false,
+      "training_updates_total": 80000,
+      "tasks": [
+        {
+          "task": "N03",
+          "status": "TRAIN_ONLY_TARGETS_MET",
+          "updates": 40000,
+          "seed": 20261031,
+          "device": "CPU",
+          "cpu_threads": 4,
+          "queried_labels": 14000,
+          "admitted_labels": 14000,
+          "additional_teacher_queries": 0,
+          "native_evaluation_episodes": 20,
+          "full_entry_wall_s": 183.85886266001035,
+          "train_only_loss": {
+            "total_loss": 0.0026551102006051224,
+            "translation": 0.0025599025514509,
+            "rotation": 9.46181161063058e-05,
+            "grip": 5.895088280051421e-07
+          },
+          "curve_points": 400,
+          "final_model_tensors_finite": true,
+          "normalization_from_admitted_training_only": true,
+          "initial_state_error": {
+            "start_s": 0,
+            "end_s": 0.05,
+            "rows": 20,
+            "translation_error_mm": {
+              "median": 0.5429382392820055,
+              "p95": 1.6107304615455837,
+              "max": 1.722744215521003,
+              "mean": 0.7166978690105947
+            },
+            "rotation_error_deg": {
+              "median": 0.038698347540458464,
+              "p95": 0.08690928982408447,
+              "max": 0.09091612705691891,
+              "mean": 0.04289667954273936
+            }
+          },
+          "predeclared_train_time_windows": [
+            {
+              "start_s": 0,
+              "end_s": 0.05,
+              "rows": 20,
+              "translation_error_mm": {
+                "median": 0.5429382392820055,
+                "p95": 1.6107304615455837,
+                "max": 1.722744215521003,
+                "mean": 0.7166978690105947
+              },
+              "rotation_error_deg": {
+                "median": 0.038698347540458464,
+                "p95": 0.08690928982408447,
+                "max": 0.09091612705691891,
+                "mean": 0.04289667954273936
+              }
+            },
+            {
+              "start_s": 0,
+              "end_s": 2,
+              "rows": 800,
+              "translation_error_mm": {
+                "median": 0.6412871412214762,
+                "p95": 3.5318639994938477,
+                "max": 11.444537146532916,
+                "mean": 1.0378703226368378
+              },
+              "rotation_error_deg": {
+                "median": 0.047956910929738195,
+                "p95": 0.29652530178220315,
+                "max": 0.781668543664188,
+                "mean": 0.08435534239755448
+              }
+            },
+            {
+              "start_s": 2,
+              "end_s": 5,
+              "rows": 1200,
+              "translation_error_mm": {
+                "median": 0.5190190530856977,
+                "p95": 1.3489765136361203,
+                "max": 11.958073041478462,
+                "mean": 0.6467898638441314
+              },
+              "rotation_error_deg": {
+                "median": 0.059595828786409,
+                "p95": 0.22503790063713414,
+                "max": 0.6727761207533072,
+                "mean": 0.08147447057480268
+              }
+            },
+            {
+              "start_s": 5,
+              "end_s": 10,
+              "rows": 2000,
+              "translation_error_mm": {
+                "median": 0.5158743255099636,
+                "p95": 1.5649921254774803,
+                "max": 20.129743507519795,
+                "mean": 0.7987789975774715
+              },
+              "rotation_error_deg": {
+                "median": 0.03919202341717619,
+                "p95": 0.13964030158850102,
+                "max": 0.4240536318984996,
+                "mean": 0.05182998836741924
+              }
+            },
+            {
+              "start_s": 10,
+              "end_s": 20,
+              "rows": 4000,
+              "translation_error_mm": {
+                "median": 0.5188170868016627,
+                "p95": 4.671986923197941,
+                "max": 20.226629062233116,
+                "mean": 0.9220860219456004
+              },
+              "rotation_error_deg": {
+                "median": 0.0189429362963935,
+                "p95": 0.03745829899138445,
+                "max": 0.09156911614180217,
+                "mean": 0.020597215476594766
+              }
+            },
+            {
+              "start_s": 20,
+              "end_s": 35,
+              "rows": 6000,
+              "translation_error_mm": {
+                "median": 0.20328487355424973,
+                "p95": 1.168220583237026,
+                "max": 8.832849363398536,
+                "mean": 0.36109259157081797
+              },
+              "rotation_error_deg": {
+                "median": 0.007804568270124794,
+                "p95": 0.0584174216763227,
+                "max": 0.12373614412111063,
+                "mean": 0.016882366846547234
+              }
+            }
+          ],
+          "initial_state_per_case_records": 20,
+          "train_only_target_checks": {
+            "initial_translation_median_mm": true,
+            "initial_translation_max_mm": true,
+            "initial_rotation_p95_deg": true
+          },
+          "all_predeclared_train_targets_met": true,
+          "sampling_counts": {
+            "start_component_draws": 2046689,
+            "all_rows_component_draws": 8193311,
+            "actual_early_row_draws": 2163580,
+            "total_draws": 10240000,
+            "actual_start_component_fraction": 0.19987197265625,
+            "actual_early_row_fraction": 0.211287109375
+          },
+          "checkpoint_selection": "Final fixed40000 update only; no native/shift/heldout selection",
+          "native_successes": 0,
+          "native_controller_revision": "C3",
+          "native_actual_safety_accepted": false
+        },
+        {
+          "task": "N12",
+          "status": "TRAIN_ONLY_FITTING_LIMITATION",
+          "updates": 40000,
+          "seed": 20261031,
+          "device": "CPU",
+          "cpu_threads": 4,
+          "queried_labels": 14000,
+          "admitted_labels": 14000,
+          "additional_teacher_queries": 0,
+          "native_evaluation_episodes": 20,
+          "full_entry_wall_s": 193.32024316798197,
+          "train_only_loss": {
+            "total_loss": 0.0027069985681342328,
+            "translation": 0.002101659988319235,
+            "rotation": 0.00037831578935895645,
+            "grip": 0.00022702277801488132
+          },
+          "curve_points": 400,
+          "final_model_tensors_finite": true,
+          "normalization_from_admitted_training_only": true,
+          "initial_state_error": {
+            "start_s": 0,
+            "end_s": 0.05,
+            "rows": 20,
+            "translation_error_mm": {
+              "median": 1.819812660179331,
+              "p95": 2.4981016146505626,
+              "max": 3.067359741875712,
+              "mean": 1.805822571786948
+            },
+            "rotation_error_deg": {
+              "median": 0.0342219762830291,
+              "p95": 0.05148760933312659,
+              "max": 0.06980883703027355,
+              "mean": 0.03658065055469871
+            }
+          },
+          "predeclared_train_time_windows": [
+            {
+              "start_s": 0,
+              "end_s": 0.05,
+              "rows": 20,
+              "translation_error_mm": {
+                "median": 1.819812660179331,
+                "p95": 2.4981016146505626,
+                "max": 3.067359741875712,
+                "mean": 1.805822571786948
+              },
+              "rotation_error_deg": {
+                "median": 0.0342219762830291,
+                "p95": 0.05148760933312659,
+                "max": 0.06980883703027355,
+                "mean": 0.03658065055469871
+              }
+            },
+            {
+              "start_s": 0,
+              "end_s": 2,
+              "rows": 800,
+              "translation_error_mm": {
+                "median": 0.37153958004437876,
+                "p95": 3.0715926304922814,
+                "max": 16.058254473769075,
+                "mean": 0.9409336182641552
+              },
+              "rotation_error_deg": {
+                "median": 0.08813527906034054,
+                "p95": 0.14646922283935668,
+                "max": 0.2144091353731278,
+                "mean": 0.08777559977786403
+              }
+            },
+            {
+              "start_s": 2,
+              "end_s": 5,
+              "rows": 1200,
+              "translation_error_mm": {
+                "median": 0.3862917184660799,
+                "p95": 2.72183660440383,
+                "max": 8.088885989367416,
+                "mean": 0.695877971713794
+              },
+              "rotation_error_deg": {
+                "median": 0.07032288104741752,
+                "p95": 0.3655844094353993,
+                "max": 1.7159522309514272,
+                "mean": 0.11980272252948282
+              }
+            },
+            {
+              "start_s": 5,
+              "end_s": 10,
+              "rows": 2000,
+              "translation_error_mm": {
+                "median": 0.2972008200865983,
+                "p95": 1.3111576737573098,
+                "max": 10.4222301079,
+                "mean": 0.5561853678971643
+              },
+              "rotation_error_deg": {
+                "median": 0.026507144741914075,
+                "p95": 0.09042043238522723,
+                "max": 0.4599710293786928,
+                "mean": 0.03707073734324217
+              }
+            },
+            {
+              "start_s": 10,
+              "end_s": 20,
+              "rows": 4000,
+              "translation_error_mm": {
+                "median": 0.3883398013081327,
+                "p95": 3.8024727835074716,
+                "max": 6.48691586206523,
+                "mean": 0.7569177420882217
+              },
+              "rotation_error_deg": {
+                "median": 0.05334747320566641,
+                "p95": 0.10819713640741448,
+                "max": 0.2672552179509363,
+                "mean": 0.055470651328835545
+              }
+            },
+            {
+              "start_s": 20,
+              "end_s": 35,
+              "rows": 6000,
+              "translation_error_mm": {
+                "median": 0.11901400725059748,
+                "p95": 1.1581177365370936,
+                "max": 6.573586488824721,
+                "mean": 0.2979018037607819
+              },
+              "rotation_error_deg": {
+                "median": 0.009762164545110592,
+                "p95": 0.15412282154681578,
+                "max": 2.5955826816168597,
+                "mean": 0.040693359520908245
+              }
+            }
+          ],
+          "initial_state_per_case_records": 20,
+          "train_only_target_checks": {
+            "initial_translation_median_mm": false,
+            "initial_translation_max_mm": false,
+            "initial_rotation_p95_deg": true
+          },
+          "all_predeclared_train_targets_met": false,
+          "sampling_counts": {
+            "start_component_draws": 2046689,
+            "all_rows_component_draws": 8193311,
+            "actual_early_row_draws": 2163580,
+            "total_draws": 10240000,
+            "actual_start_component_fraction": 0.19987197265625,
+            "actual_early_row_fraction": 0.211287109375
+          },
+          "checkpoint_selection": "Final fixed40000 update only; no native/shift/heldout selection",
+          "native_successes": 0,
+          "native_controller_revision": "C3",
+          "native_actual_safety_accepted": false
+        }
+      ],
+      "future_method_fairness": "If adopted, this ordinary strong-baseline sampler must apply to all matched M1–M4 methods, not only OPD."
+    },
+    "controller_C3_qualification": {
+      "status": "COMMAND_BOUNDARY_CORRECTED_STUDENT_PHYSICAL_FAILURE_PERSISTS",
+      "scope": "Separate expert and unchanged v1 final4000 student sources isolate controller contribution. These are in-sample qualification runs, not strong-BC final evaluation or training data.",
+      "N12": {
+        "status": "CLOSED",
+        "tasks": [
+          {
+            "policy_source": "expert",
+            "status": "CLOSED",
+            "successes": 20,
+            "episodes": 20,
+            "finite_cases": 20,
+            "native_limit_exceedances": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
+            "maximum_command_acceleration_rad_s2": 2.506256103515625,
+            "maximum_actual_acceleration_rad_s2": 3.192479372024536,
+            "teacher_query_count": 14000,
+            "teacher_sentinel_invocations": 0,
+            "parameter_updates_during_evaluation": 0,
+            "collection_role": "qualification_evaluation",
+            "training_admitted": 0
+          },
+          {
+            "policy_source": "student4k",
+            "status": "CLOSED",
+            "successes": 0,
+            "episodes": 20,
+            "finite_cases": 20,
+            "native_limit_exceedances": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 1,
+              "actual_acceleration_exceedances": 339
+            },
+            "maximum_command_acceleration_rad_s2": 2.506256103515625,
+            "maximum_actual_acceleration_rad_s2": 447.5213928222656,
+            "teacher_query_count": 0,
+            "teacher_sentinel_invocations": 0,
+            "parameter_updates_during_evaluation": 0,
+            "collection_role": "qualification_evaluation",
+            "training_admitted": 0
+          }
+        ]
+      },
+      "N03_original_interrupted20": {
+        "status": "INCOMPLETE_ALL_STARTED_CASES_RETAINED",
+        "tasks": [
+          {
+            "policy_source": "expert",
+            "status": "INCOMPLETE_INTERRUPTION_RETAINED",
+            "started_cases": 20,
+            "completed_cases": 16,
+            "observed_successes": 16,
+            "interrupted_cases": 4,
+            "final_success_rate": null,
+            "all_started_cases_retained": true,
+            "reserved_teacher_queries": 12472,
+            "queries_charged_including_interrupted_partial_batch": true,
+            "partial_labels_backfilled": false,
+            "original_manifest_status": "STARTED",
+            "exit_code": null,
+            "interruption_cause": "UNKNOWN",
+            "native_full20_acceptance": false,
+            "collection_role": "qualification_evaluation",
+            "training_admitted": 0
+          },
+          {
+            "policy_source": "bc4000",
+            "status": "INCOMPLETE_INTERRUPTION_RETAINED",
+            "started_cases": 20,
+            "completed_cases": 16,
+            "observed_successes": 0,
+            "interrupted_cases": 4,
+            "final_success_rate": null,
+            "all_started_cases_retained": true,
+            "reserved_teacher_queries": 0,
+            "queries_charged_including_interrupted_partial_batch": true,
+            "partial_labels_backfilled": false,
+            "original_manifest_status": "STARTED",
+            "exit_code": null,
+            "interruption_cause": "UNKNOWN",
+            "native_full20_acceptance": false,
+            "collection_role": "qualification_evaluation",
+            "training_admitted": 0
+          }
+        ],
+        "next_step": "New independent persistent expert20 closed20/20; old16-completed+4-interrupted attempt remains preserved without backfill."
+      },
+      "command_fix_scope": "C3 corrects the emitted-command braking boundary. Both new expert20 runs and both v3 student20 runs recorded zero command-limit exceedances; student physical/task failures remain.",
+      "new_training_labels_from_qualification": 0,
+      "raw_evidence_published": false,
+      "raw_evidence_url": null,
+      "N03_new_persistent_expert20": {
+        "task": "N03",
+        "policy_source": "expert",
+        "status": "CLOSED",
+        "controller_revision": "C3",
+        "successes": 20,
+        "episodes": 20,
+        "finite_cases": 20,
+        "native_limit_exceedances": {
+          "command_velocity_exceedances": 0,
+          "command_acceleration_exceedances": 0,
+          "actual_velocity_exceedances": 0,
+          "actual_acceleration_exceedances": 0
+        },
+        "maximum_command_acceleration_rad_s2": 2.506256103515625,
+        "maximum_actual_acceleration_rad_s2": 8.391115188598633,
+        "teacher_query_count": 14000,
+        "teacher_guard_invocations": 0,
+        "parameter_updates_during_evaluation": 0,
+        "is_heldout": false,
+        "training_admitted": 0,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null,
+        "positive_clock_gaps": 0,
+        "clock_roundoff_snaps": 0,
+        "service_stop_receipt": "SUCCESS_EXITED_0"
+      },
+      "N03_expert_all_attempts": {
+        "strict_successes": 36,
+        "started_episodes": 40,
+        "infrastructure_interrupted": 4,
+        "distinct_source_instances": 20,
+        "independent_40_instances": false,
+        "validation_queries_charged": 26472,
+        "training_admitted": 0
+      },
+      "v2_native_evaluation_episodes": 0,
+      "v3_native_evaluation_episodes": 40
+    },
+    "student_native_v3_C3": {
+      "status": "CLOSED_TASK_AND_ACTUAL_SAFETY_FAILED",
+      "scope": "Fixed-final-model in-sample diagnostic on same20 sources/task; no shifted or heldout evaluation.",
+      "tasks": [
+        {
+          "task": "N03",
+          "policy_source": "student_v3_final40000",
+          "status": "CLOSED",
+          "controller_revision": "C3",
+          "successes": 0,
+          "episodes": 20,
+          "finite_cases": 20,
+          "native_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 82
+          },
+          "maximum_command_acceleration_rad_s2": 2.506256103515625,
+          "maximum_actual_acceleration_rad_s2": 65.64362335205078,
+          "teacher_query_count": 0,
+          "teacher_guard_invocations": 0,
+          "parameter_updates_during_evaluation": 0,
+          "is_heldout": false,
+          "training_admitted": 0,
+          "raw_evidence_published": false,
+          "raw_evidence_url": null,
+          "physical_stage_reached_counts": {
+            "grasp": 5,
+            "lift": 4,
+            "transport": 0,
+            "place": 0,
+            "release": 0
+          },
+          "actual_acceleration_exceedance_cases": 5,
+          "scope": "Same20 original training instances; in-sample fixed-final-model diagnostic, not shifted/heldout or strong-baseline qualification.",
+          "task_behavior_accepted": false,
+          "actual_motion_safety_accepted": false,
+          "all_failures_retained": true
+        },
+        {
+          "task": "N12",
+          "policy_source": "student_v3_final40000",
+          "status": "CLOSED",
+          "controller_revision": "C3",
+          "successes": 0,
+          "episodes": 20,
+          "finite_cases": 20,
+          "native_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 761
+          },
+          "maximum_command_acceleration_rad_s2": 2.506256103515625,
+          "maximum_actual_acceleration_rad_s2": 238.2090606689453,
+          "teacher_query_count": 0,
+          "teacher_guard_invocations": 0,
+          "parameter_updates_during_evaluation": 0,
+          "is_heldout": false,
+          "training_admitted": 0,
+          "raw_evidence_published": false,
+          "raw_evidence_url": null,
+          "physical_stage_reached_counts": {
+            "grasp": 1,
+            "lift": 0,
+            "transport": 0,
+            "place": 0,
+            "release": 0
+          },
+          "scope": "Same20 original training instances; in-sample fixed-final-model diagnostic, not shifted/heldout or strong-baseline qualification.",
+          "task_behavior_accepted": false,
+          "actual_motion_safety_accepted": false,
+          "all_failures_retained": true
+        }
+      ],
+      "teacher_queries_added": 0,
+      "evaluation_parameter_updates": 0,
+      "strong_baseline_qualified": false,
+      "N12_train_fit_limitation_retained": true,
+      "N12_fixed_model_native_authorization": "A single root-authorized diagnostic despite the retained train-only fit limitation; no recipe change or native-driven checkpoint selection."
+    },
+    "C3_matching_training_collection": {
+      "status": "COMPLETE_CANDIDATE_DATA_ACCEPTED_FORMAL_METHOD_SELECTION_PENDING",
+      "tasks": [
+        {
+          "task": "N03",
+          "status": "CLOSED_INDEPENDENT_VERIFIER_AND_ROOT_LOADER_ACCEPTED",
+          "dataset_version": "N03_C3_nominal_v1",
+          "controller_revision": "C3",
+          "collection_role": "training",
+          "source_instances": 20,
+          "closed_episodes": 20,
+          "task_successes": 20,
+          "native_data_valid_count": 20,
+          "queried_labels": 14000,
+          "canonical_C3_candidate_rows": 14000,
+          "independent_verifier_admitted_rows": 14000,
+          "root_loader_admitted_rows": 14000,
+          "formal_M1_M4_selected_rows": 0,
+          "local_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "prior_C2_pilot_rows_included": 0,
+          "qualification_evaluation_rows_imported": 0,
+          "parameter_training_updates": 0,
+          "automatic_dataset_aggregation": false,
+          "raw_evidence_published": false,
+          "raw_evidence_url": null
+        },
+        {
+          "task": "N12",
+          "status": "CLOSED_INDEPENDENT_VERIFIER_AND_ROOT_LOADER_ACCEPTED",
+          "dataset_version": "N12_C3_nominal_v1",
+          "controller_revision": "C3",
+          "collection_role": "training",
+          "source_instances": 20,
+          "closed_episodes": 20,
+          "task_successes": 20,
+          "native_data_valid_count": 20,
+          "queried_labels": 14000,
+          "canonical_C3_candidate_rows": 14000,
+          "independent_verifier_admitted_rows": 14000,
+          "root_loader_admitted_rows": 14000,
+          "formal_M1_M4_selected_rows": 0,
+          "local_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
+          "prior_C2_pilot_rows_included": 0,
+          "qualification_evaluation_rows_imported": 0,
+          "parameter_training_updates": 0,
+          "automatic_dataset_aggregation": false,
+          "raw_evidence_published": false,
+          "raw_evidence_url": null
+        }
+      ],
+      "canonical_C3_candidate_rows": 28000,
+      "formal_M1_M4_selected_rows": 0,
+      "scope": "One fixed20-instance C3 version per task,14000 fresh queries and independently admitted/root-loader-accepted candidates each. These are real accepted C3 data; formal M1–M4 selection and budgets are not frozen. Original C2 pilot rows and qualification/evaluation rows are not aggregated.",
+      "raw_evidence_published": false,
+      "raw_evidence_url": null
+    },
+    "Md_physical_API_probe": {
+      "status": "ATTEMPT1_INITIALIZATION_FAILED_PRESERVED_ATTEMPT2_AUTHORIZED_API_FIX",
+      "task": "N12",
+      "scope": "Physical API integration probe only; not a formal Md success-rate or difficulty qualification.",
+      "attempt1": {
+        "status": "INITIALIZATION_FAILED",
+        "reason": "Missing legacy external-wrench attribute on the actual composer API.",
+        "policy_steps": 0,
+        "queried_labels": 0,
+        "parameter_updates": 0,
+        "original_failure_retained": true
+      },
+      "attempt2": {
+        "status": "AUTHORIZED_PREPARATION_NO_RESULT_IN_THIS_SNAPSHOT",
+        "change": "Minimal adaptation to the actual composer API; identical numerical settings.",
+        "difficulty_adjustment": false
+      },
+      "difficulty_adjustments_consumed": 0,
+      "formal_Md_qualification_measured": false,
+      "raw_evidence_published": false,
+      "raw_evidence_url": null
     }
   },
   "verifier_admission": {
     "meaning": "Sample and expert-label validity; not equivalent to episode success.",
     "failure_recovery_segments": "Verified failure and recovery segments may enter weighted learning.",
     "status": "PARTIAL_PREPARATION",
-    "current_nominal_boundary": "Earlier qualification nominal traces lack raw per-tick verifier evidence and remain outside training. Separate new training-role collections are accepted.",
+    "current_nominal_boundary": "Earlier qualification nominal traces lack raw per-tick verifier evidence and remain outside training. Original C2 training-role20 banks remain pilots. Fresh C3 training-role20 banks each have14000 independent verifier/root-loader-admitted candidates; formal M1–M4 selected rows0.",
     "N03_active_labels": 14000,
     "N03_training_admitted": 0,
     "N03_training_rejected": 14000,
@@ -1096,12 +2386,18 @@
     "new_training_role_queries": 28000,
     "new_training_role_admitted_rows": 28000,
     "native_expert_and_dataset_accepted": true,
-    "student_zero_query_native_accepted": false
+    "student_zero_query_native_accepted": false,
+    "student_zero_query_native_path_verified": true,
+    "student_task_and_controller_safety_accepted": false,
+    "training_buffer_rows_scope": "28000 retained original C2 diagnostic-pilot rows only; separate canonical C3 candidate rows28000. No implicit aggregation; formal M1–M4 selected rows0.",
+    "formal_comparison_training_buffer_rows": 0,
+    "canonical_C3_candidate_rows": 28000,
+    "formal_M1_M4_selected_rows": 0
   },
-  "snapshot_state": "FINAL_CURATED_SNAPSHOT",
-  "training_updates": 8000,
+  "snapshot_state": "PREPARED_FOR_ROOT_SNAPSHOT_DECISION",
+  "training_updates": 168000,
   "formal_method_evaluation_episodes": 0,
-  "milestone_completion_scope": "Ma measured; Mb measurement report closed with declared limitations. Completion does not mean every local safety gate passed.",
+  "milestone_completion_scope": "Ma historical measurement and Mb qualification report are closed with limitations (2/6). Benign tracking does not establish controller safety under student states.",
   "training_buffer_rows": 28000,
   "safety_alert": {
     "task": "N12",
@@ -1129,7 +2425,160 @@
     "training_admitted": 0,
     "prominent_disclosure": true
   },
-  "training_updates_scope": "Two BC20 calibration pilots only, 4000 updates per task; not formal M1–M4 method training.",
+  "training_updates_scope": "Six completed BC20 diagnostic-pilot fits: v1 uniform4000/task, v2 uniform40000/task, v3 start-mixture40000/task. Formal M1–M4 updates remain0.",
   "formal_method_training_updates": 0,
-  "qualification_training_buffer_rows": 0
+  "qualification_training_buffer_rows": 0,
+  "operational_blocker": {
+    "status": "C3_STUDENT_TASK_AND_ACTUAL_TRAJECTORY_FAILED_N12_TRAIN_FIT_LIMITATION_RETAINED",
+    "prominent_disclosure": true,
+    "native_zero_query_execution_path_verified": true,
+    "task_and_controller_safety_accepted": false,
+    "native_student_v1": [
+      {
+        "task": "N03",
+        "status": "CLOSED_TASK_AND_SAFETY_FAILED",
+        "policy_version": "BC20_v1_final4000",
+        "scope": "In-sample fixed20 training-instance diagnostic, not shifted or heldout evaluation",
+        "successes": 0,
+        "episodes": 20,
+        "finite_cases": 20,
+        "query_count": 0,
+        "teacher_sentinel_invocations": 0,
+        "parameter_updates_during_evaluation": 0,
+        "native_limit_exceedances": {
+          "command_velocity_exceedances": 0,
+          "command_acceleration_exceedances": 230,
+          "actual_velocity_exceedances": 2,
+          "actual_acceleration_exceedances": 4756
+        },
+        "maximum_command_acceleration_rad_s2": 14.124296188354492,
+        "maximum_actual_acceleration_rad_s2": 626.4017944335938,
+        "all_failures_retained": true,
+        "task_behavior_accepted": false,
+        "controller_safety_accepted": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null,
+        "controller_revision": "C2"
+      },
+      {
+        "task": "N12",
+        "status": "CLOSED_TASK_AND_SAFETY_FAILED",
+        "policy_version": "BC20_v1_final4000",
+        "scope": "In-sample fixed20 training-instance diagnostic, not shifted or heldout evaluation",
+        "successes": 0,
+        "episodes": 20,
+        "finite_cases": 20,
+        "query_count": 0,
+        "teacher_sentinel_invocations": 0,
+        "parameter_updates_during_evaluation": 0,
+        "native_limit_exceedances": {
+          "command_velocity_exceedances": 0,
+          "command_acceleration_exceedances": 134,
+          "actual_velocity_exceedances": 1,
+          "actual_acceleration_exceedances": 375
+        },
+        "maximum_command_acceleration_rad_s2": 14.591215133666992,
+        "maximum_actual_acceleration_rad_s2": 460.43243408203125,
+        "all_failures_retained": true,
+        "task_behavior_accepted": false,
+        "controller_safety_accepted": false,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null,
+        "controller_revision": "C2"
+      }
+    ],
+    "command_boundary_diagnosis": "C3 corrects emitted-command braking: both new expert20 runs and v3 student20 diagnostics have zero command-limit exceedances.",
+    "physical_impulse_diagnosis": "C3 v3 students remain0/20 each. Actual acceleration exceedances: N03 82 across5cases, N12 761. New same-source C3 experts each complete20/20 with all four measured limit counters0. No causal explanation is established.",
+    "initial_fit_check": "N03 initial student/expert-training observations match; CPU checkpoint and first native action differ by at most5.96e-8. This initial check does not establish trajectory success.",
+    "Md_challenge_qualification_run": false,
+    "difficulty_adjustments_consumed": 0,
+    "fitting_limitations": {
+      "N03_v3_train_targets_met": true,
+      "N03_v3_native_evaluated": true,
+      "N12_v3_train_targets_met": false,
+      "further_recipe_changes_planned": false,
+      "N12_v3_native_evaluated": true,
+      "N12_fixed_model_diagnostic_permitted": true
+    },
+    "C3_separate_qualification_recorded": true,
+    "native_student_v3_C3": [
+      {
+        "task": "N03",
+        "policy_source": "student_v3_final40000",
+        "status": "CLOSED",
+        "controller_revision": "C3",
+        "successes": 0,
+        "episodes": 20,
+        "finite_cases": 20,
+        "native_limit_exceedances": {
+          "command_velocity_exceedances": 0,
+          "command_acceleration_exceedances": 0,
+          "actual_velocity_exceedances": 0,
+          "actual_acceleration_exceedances": 82
+        },
+        "maximum_command_acceleration_rad_s2": 2.506256103515625,
+        "maximum_actual_acceleration_rad_s2": 65.64362335205078,
+        "teacher_query_count": 0,
+        "teacher_guard_invocations": 0,
+        "parameter_updates_during_evaluation": 0,
+        "is_heldout": false,
+        "training_admitted": 0,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null,
+        "physical_stage_reached_counts": {
+          "grasp": 5,
+          "lift": 4,
+          "transport": 0,
+          "place": 0,
+          "release": 0
+        },
+        "actual_acceleration_exceedance_cases": 5,
+        "scope": "Same20 original training instances; in-sample fixed-final-model diagnostic, not shifted/heldout or strong-baseline qualification.",
+        "task_behavior_accepted": false,
+        "actual_motion_safety_accepted": false,
+        "all_failures_retained": true
+      },
+      {
+        "task": "N12",
+        "policy_source": "student_v3_final40000",
+        "status": "CLOSED",
+        "controller_revision": "C3",
+        "successes": 0,
+        "episodes": 20,
+        "finite_cases": 20,
+        "native_limit_exceedances": {
+          "command_velocity_exceedances": 0,
+          "command_acceleration_exceedances": 0,
+          "actual_velocity_exceedances": 0,
+          "actual_acceleration_exceedances": 761
+        },
+        "maximum_command_acceleration_rad_s2": 2.506256103515625,
+        "maximum_actual_acceleration_rad_s2": 238.2090606689453,
+        "teacher_query_count": 0,
+        "teacher_guard_invocations": 0,
+        "parameter_updates_during_evaluation": 0,
+        "is_heldout": false,
+        "training_admitted": 0,
+        "raw_evidence_published": false,
+        "raw_evidence_url": null,
+        "physical_stage_reached_counts": {
+          "grasp": 1,
+          "lift": 0,
+          "transport": 0,
+          "place": 0,
+          "release": 0
+        },
+        "scope": "Same20 original training instances; in-sample fixed-final-model diagnostic, not shifted/heldout or strong-baseline qualification.",
+        "task_behavior_accepted": false,
+        "actual_motion_safety_accepted": false,
+        "all_failures_retained": true
+      }
+    ],
+    "new_stack_throughput_measured": true,
+    "shifted_challenge_native_run": false
+  },
+  "training_buffer_rows_scope": "28000 retained original C2 diagnostic-pilot rows only; separate canonical C3 candidate rows28000. No implicit aggregation; formal M1–M4 selected rows0.",
+  "formal_comparison_training_buffer_rows": 0,
+  "canonical_C3_candidate_rows": 28000,
+  "formal_M1_M4_selected_rows": 0
 }
