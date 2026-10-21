@@ -1,5 +1,494 @@
 {
   "schema_version": "chemrmbench-task-library-0.1",
+  "release": {
+    "state": "candidate",
+    "active_tasks": [
+      "bottle_balance",
+      "delayed_cue_memory",
+      "endpoint_stop",
+      "open_cabinet",
+      "pick_place",
+      "pour",
+      "press"
+    ],
+    "deferred_tasks": [
+      "timed_stirring"
+    ],
+    "table": [
+      {
+        "task_id": "pick_place",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 19,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.763868806553258,
+              0.9911185511992047
+            ],
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      },
+      {
+        "task_id": "bottle_balance",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 17,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.6395811352592431,
+              0.9476312541037835
+            ],
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      },
+      {
+        "task_id": "pour",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 17,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.6395811352592431,
+              0.9476312541037835
+            ],
+            "time_error_s": {
+              "mean": 3.6253469362337557e-12,
+              "p95": 4.774847184307873e-12,
+              "observed_count": 18
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "ablation": {
+            "attempts": 10,
+            "successes": 4,
+            "expected_attempts": 10,
+            "complete": true,
+            "success_wilson95": [
+              0.16818032970623614,
+              0.6873262302663417
+            ],
+            "time_error_s": {
+              "mean": 1.2,
+              "p95": 2.0000000000003184,
+              "observed_count": 10
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "public_heuristic": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      },
+      {
+        "task_id": "press",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 19,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.763868806553258,
+              0.9911185511992047
+            ],
+            "time_error_s": {
+              "mean": 0.0,
+              "p95": 0.0,
+              "observed_count": 19
+            },
+            "response_latency_s": {
+              "mean": 2.066666666666963,
+              "p95": 2.0666666666672606,
+              "observed_count": 19
+            },
+            "memory_accuracy": null
+          },
+          "ablation": {
+            "attempts": 10,
+            "successes": 4,
+            "expected_attempts": 10,
+            "complete": true,
+            "success_wilson95": [
+              0.16818032970623614,
+              0.6873262302663417
+            ],
+            "time_error_s": {
+              "mean": 0.33250000000001434,
+              "p95": 1.330000000000057,
+              "observed_count": 5
+            },
+            "response_latency_s": {
+              "mean": 1.8541666666667875,
+              "p95": 4.285833333333379,
+              "observed_count": 5
+            },
+            "memory_accuracy": null
+          },
+          "public_heuristic": {
+            "attempts": 5,
+            "successes": 5,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "time_error_s": {
+              "mean": 0.0,
+              "p95": 0.0,
+              "observed_count": 5
+            },
+            "response_latency_s": {
+              "mean": 2.3641666666668524,
+              "p95": 2.416666666666679,
+              "observed_count": 5
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      },
+      {
+        "task_id": "open_cabinet",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 20,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.8388748419471806,
+              1.0
+            ],
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      },
+      {
+        "task_id": "endpoint_stop",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 20,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.8388748419471806,
+              1.0
+            ],
+            "time_error_s": {
+              "mean": 0.0,
+              "p95": 0.0,
+              "observed_count": 20
+            },
+            "response_latency_s": {
+              "mean": 3.4666666666666663,
+              "p95": 3.466666666666667,
+              "observed_count": 20
+            },
+            "memory_accuracy": null
+          },
+          "ablation": {
+            "attempts": 10,
+            "successes": 3,
+            "expected_attempts": 10,
+            "complete": true,
+            "success_wilson95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ],
+            "time_error_s": {
+              "mean": 0.0,
+              "p95": 0.0,
+              "observed_count": 3
+            },
+            "response_latency_s": {
+              "mean": 3.466666666666667,
+              "p95": 3.466666666666667,
+              "observed_count": 3
+            },
+            "memory_accuracy": null
+          },
+          "public_heuristic": {
+            "attempts": 26,
+            "successes": 25,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": [
+              0.8110722109696524,
+              0.9931780150064564
+            ],
+            "time_error_s": {
+              "mean": 0.0,
+              "p95": 0.0,
+              "observed_count": 25
+            },
+            "response_latency_s": {
+              "mean": 3.4666666666666672,
+              "p95": 3.4666666666666686,
+              "observed_count": 25
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      },
+      {
+        "task_id": "delayed_cue_memory",
+        "policies": {
+          "expert": {
+            "attempts": 20,
+            "successes": 20,
+            "expected_attempts": 20,
+            "complete": true,
+            "success_wilson95": [
+              0.8388748419471806,
+              1.0
+            ],
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "ablation": {
+            "attempts": 10,
+            "successes": 3,
+            "expected_attempts": 10,
+            "complete": true,
+            "success_wilson95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ],
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "public_heuristic": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          },
+          "dp": {
+            "attempts": 0,
+            "successes": 0,
+            "expected_attempts": 50,
+            "complete": false,
+            "success_wilson95": null,
+            "time_error_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "response_latency_s": {
+              "mean": null,
+              "p95": null,
+              "observed_count": 0
+            },
+            "memory_accuracy": null
+          }
+        }
+      }
+    ],
+    "interval": "95% Wilson",
+    "cohort_note": "Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons."
+  },
   "evaluation_protocol": {
     "seeds_per_task": 50,
     "seed_range": [
@@ -149,9 +638,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 51,
+    "received_and_validated_attempts": 53,
     "target_new_attempts": 400,
-    "admitted_successes": 47,
+    "admitted_successes": 48,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -168,8 +657,14 @@
       {
         "task_id": "pick_place",
         "status": "success",
+        "training_admitted": false,
+        "attempts": 1
+      },
+      {
+        "task_id": "pick_place",
+        "status": "success",
         "training_admitted": true,
-        "attempts": 47
+        "attempts": 48
       }
     ]
   },
@@ -262,10 +757,10 @@
       },
       {
         "label": "T7 unattempted public continuation",
-        "closed_attempts": 2,
+        "closed_attempts": 4,
         "expected_attempts": 24,
         "measured_status_counts": {
-          "success": 2
+          "success": 4
         },
         "batch_recording_accepted": false,
         "mirrored_closed_attempts": 0,
@@ -273,10 +768,10 @@
       },
       {
         "label": "T4-v2 unattempted public continuation",
-        "closed_attempts": 2,
+        "closed_attempts": 4,
         "expected_attempts": 45,
         "measured_status_counts": {
-          "success": 2
+          "success": 4
         },
         "batch_recording_accepted": false,
         "mirrored_closed_attempts": 0,
@@ -319,7 +814,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T18:44:27.193641+00:00",
+  "updated_at_utc": "2026-10-21T18:58:18.809829+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -874,7 +1369,8 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": false
+      "engineering_only": false,
+      "release_in_v0_1": true
     },
     {
       "number": "T1",
@@ -1425,7 +1921,8 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": false
+      "engineering_only": false,
+      "release_in_v0_1": true
     },
     {
       "number": "T4",
@@ -1988,20 +2485,21 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": false
+      "engineering_only": false,
+      "release_in_v0_1": true
     },
     {
       "number": "T6",
       "id": "timed_stirring",
       "title": "按钮启停搅拌",
       "dimension": "T-dur · 4 / 8 / 12 秒",
-      "status": "needs_expert_fix",
+      "status": "deferred",
       "dataset_attempts": 0,
       "dataset_unique_seeds": 0,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "task_revision": null,
-      "revision_note": null,
+      "revision_note": "T6推迟：两轮资格测试都是段边界跟踪失败，失败记录和视频全部保留；不阻塞七任务v0.1。",
       "superseded_history": null,
       "qualification_gate": {
         "local_panel_contact_approved": true,
@@ -2042,7 +2540,8 @@
       "render_diagnostic_attempts": 0,
       "failure_reasons": {},
       "trials": [],
-      "engineering_only": true
+      "engineering_only": true,
+      "release_in_v0_1": false
     },
     {
       "number": "T7",
@@ -2593,7 +3092,8 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": true
+      "engineering_only": true,
+      "release_in_v0_1": true
     },
     {
       "number": "T8",
@@ -3144,7 +3644,8 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": false
+      "engineering_only": false,
+      "release_in_v0_1": true
     },
     {
       "number": "T3",
@@ -3808,7 +4309,8 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": true
+      "engineering_only": true,
+      "release_in_v0_1": true
     },
     {
       "number": "T5",
@@ -4354,7 +4856,8 @@
           "visual_contrast_flag": false
         }
       ],
-      "engineering_only": false
+      "engineering_only": false,
+      "release_in_v0_1": true
     }
   ],
   "native_tasks_with_dataset": 7,

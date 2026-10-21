@@ -64,6 +64,18 @@ class RuntimeProjection(unittest.TestCase):
         self.assertAlmostEqual(value['maximum_boundary_tcp_error_mm'],4.195)
         self.assertNotIn('needle_token',json.dumps(value))
 
+    def test_release_scope_keeps_t6_as_history_and_filters_private_table_fields(self):
+        p=self.root/'release_v0_1';p.mkdir()
+        (p/'public_main_table.json').write_text(json.dumps({'state':'candidate','secret':'needle_token',
+            'tasks':[{'task_id':'pick_place','policies':{'expert':{'attempts':20,'successes':19,
+                'expected_attempts':20,'complete':True,'success_wilson95':[.76,.99],
+                'source_path':str(p),'failure_reasons':{'needle_token':1}}}}]}))
+        data=module.collect_task_library()
+        self.assertEqual(len(data['release']['active_tasks']),7)
+        t6=next(t for t in data['tasks'] if t['id']=='timed_stirring')
+        self.assertFalse(t6['release_in_v0_1']);self.assertEqual(t6['status'],'deferred')
+        self.assertNotIn('needle_token',json.dumps(data));self.assertNotIn(str(p),json.dumps(data))
+
     def test_legacy_gpu_error_rejects_success_without_exporting_private_log(self):
         root=self.collection('old',['success'],warning=True)
         data=module.collect_task_library();task=next(t for t in data['tasks'] if t['id']=='pour')

@@ -235,6 +235,38 @@ def ssd_projection():
         'T7_case1003_original_receipt_pending':1003 not in retained.get('closed_seeds',[])}
 
 
+def release_projection():
+    """Fixed public schema; never forward source maps or arbitrary report text."""
+    active={row[1] for row in CATALOG}-{'timed_stirring'}
+    report=read(ROOT/'release_v0_1/public_main_table.json',{})
+    rows=[]
+    for item in report.get('tasks',[]):
+        if item.get('task_id') not in active:continue
+        policies={}
+        for role in ['expert','ablation','public_heuristic','dp']:
+            raw=item.get('policies',{}).get(role)
+            if not isinstance(raw,dict):continue
+            counts={k:raw.get(k) for k in ['attempts','successes','expected_attempts']}
+            if not all(type(v) is int and 0<=v<=100 for v in counts.values()):continue
+            if counts['successes']>counts['attempts']:continue
+            value={**counts,'complete':raw.get('complete') is True}
+            interval=raw.get('success_wilson95')
+            value['success_wilson95']=interval if (isinstance(interval,list) and len(interval)==2
+                and all(type(v) in {int,float} and 0<=v<=1 for v in interval)) else None
+            for key in ['time_error_s','response_latency_s']:
+                metric=raw.get(key,{})
+                value[key]={k:v if type(v) in {int,float} and 0<=v<1e6 else None
+                    for k in ['mean','p95','observed_count'] for v in [metric.get(k)]}
+            accuracy=raw.get('memory_accuracy')
+            value['memory_accuracy']=accuracy if type(accuracy) in {int,float} and 0<=accuracy<=1 else None
+            policies[role]=value
+        rows.append({'task_id':item['task_id'],'policies':policies})
+    return {'state':'released' if report.get('state')=='released' else 'candidate',
+        'active_tasks':sorted(active),'deferred_tasks':['timed_stirring'],
+        'table':rows,'interval':'95% Wilson',
+        'cohort_note':'Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons.'}
+
+
 def collect_task_library():
     ids={t[1] for t in CATALOG};records={t:[] for t in ids};active=set()
     memory_gates=read(ROOT/'T8_MEMORY_GATES.json',{})
@@ -347,7 +379,11 @@ def collect_task_library():
             'render_diagnostic_attempts':sum(r['diagnostic_prefix'] for r in all_rows),
             'failure_reasons':dict(Counter(v for r in rows for v in r['failure_reasons'])),
             'trials':rows,'engineering_only':number in {'T3','T6','T7'}})
-    return {'schema_version':'chemrmbench-task-library-0.1',
+    for task in tasks:
+        task['release_in_v0_1']=task['id']!='timed_stirring'
+        if task['id']=='timed_stirring':
+            task.update(status='deferred',revision_note='T6推迟：两轮资格测试都是段边界跟踪失败，失败记录和视频全部保留；不阻塞七任务v0.1。')
+    return {'schema_version':'chemrmbench-task-library-0.1','release':release_projection(),
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
             'training_expansion':training_expansion_projection(),'current_t6':current_t6_projection(),
             'ssd_staging':ssd_projection(),

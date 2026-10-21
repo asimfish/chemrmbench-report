@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const labels={planned:'尚未原生采集',collecting:'采集中',batch_collected:'已采满 20 个 seed',smoke_passed:'原生冒烟通过',needs_expert_fix:'需修复专家'};
+const labels={planned:'尚未原生采集',collecting:'采集中',batch_collected:'已采满 20 个 seed',smoke_passed:'原生冒烟通过',needs_expert_fix:'需修复专家',deferred:'推迟，不计入v0.1'};
 const stageNames={tilt_started:'倾角越过60°',tilt_ended:'倾角回落60°',open:'开启',hold:'保持',release:'松爪',ready:'就绪',wait_cue:'提示出现',press:'物理按压',endpoint_observed:'颜色端点',stopped:'完成',cue_observed:'提示熄灭',retention_end:'保留结束',approach:'接近',grasp:'抓取',lift:'提起',transport:'运送',place_release:'放置与松爪',regrasp:'再次抓取',return:'返回',retreat:'撤退'};
 async function refreshStats(){
  try{
@@ -9,6 +9,31 @@ async function refreshStats(){
    try{const signal=typeof AbortSignal!=='undefined' && typeof AbortSignal.timeout==='function'?AbortSignal.timeout(8000):undefined;const response=await fetch(url,{cache:'no-store',signal});if(!response.ok)continue;data=await response.json();if(Array.isArray(data.tasks))break;data=null;}catch(error){/* Retain the published snapshot as a fallback. */}
   }
   if(!data)throw Error('statistics unavailable');
+  if(data.release && $('releaseTable')){
+   const r=data.release;
+   $('releaseStatus').textContent=r.state==='released'?'v0.1已发布':'v0.1发布候选：7个任务。公开观测50条评测和至少3条正式DP基线仍须完成；T6已推迟，不在发布关键路径。';
+   const names=Object.fromEntries(data.tasks.map(t=>[t.id,t.number]));
+   const cell=p=>{
+    if(!p || !p.attempts)return '待完成';
+    const ci=p.success_wilson95;
+    return `${p.successes}/${p.attempts}`+(ci?` [${(100*ci[0]).toFixed(1)}%, ${(100*ci[1]).toFixed(1)}%]`:'')+(p.complete?'':' · 部分数据');
+   };
+   $('releaseTable').replaceChildren(...r.table.map(t=>{
+    const row=document.createElement('tr');
+    const metric=t.policies.public_heuristic;
+    let value='—';
+    if(t.task_id==='delayed_cue_memory' && metric?.memory_accuracy!==null && metric?.memory_accuracy!==undefined)value='选择准确率 '+(100*metric.memory_accuracy).toFixed(1)+'%';
+    else if(['pour','press','endpoint_stop'].includes(t.task_id)){
+     const timing=t.task_id==='pour'?metric?.time_error_s:metric?.response_latency_s;
+     if(timing?.observed_count && timing.mean!==null && timing.p95!==null)value=`${t.task_id==='pour'?'绝对时间误差':'响应延迟'}：均值 ${timing.mean.toFixed(3)}s，P95 ${timing.p95.toFixed(3)}s（n=${timing.observed_count}）`;
+     else value='尚无时间测量';
+    }
+    for(const text of [names[t.task_id]||t.task_id,cell(t.policies.expert),t.policies.ablation?cell(t.policies.ablation):'不适用',t.policies.public_heuristic?cell(t.policies.public_heuristic):'不适用',cell(t.policies.dp),value]){
+     const td=document.createElement('td');td.textContent=text;row.append(td);
+    }
+    return row;
+   }));
+  }
   $('nativeCount').textContent=data.native_tasks_with_dataset;$('attemptCount').textContent=data.dataset_attempts;
   $('updated').textContent='记录更新时间：'+new Date(data.updated_at_utc).toLocaleString('zh-CN',{hour12:false})+' · 统计每分钟刷新';
   const pilot=data.pipeline_pilot;
@@ -24,7 +49,7 @@ async function refreshStats(){
    if(r.native_tracking_stops)$('t6CurrentProgress').textContent+=`执行动作后触发路径跟踪保护：${r.maximum_start_tracking_error_mm.toFixed(3)} mm 超过 ${r.tracking_allowance_mm} mm 预算，后续资格与主批量已停止。`;
    if(r.guidance===9)$('t6CurrentProgress').textContent+=`当前为控制修复第 ${r.control_iteration}/${r.maximum_control_iterations} 轮：自由段末收敛到规划关节构型，全臂误差 ≤${r.boundary_convergence_mm} mm，额外超时 ${r.boundary_timeout_s} s；接触后使用实测构型检查连接段。${r.control_phase==='waiting_for_existing_GPU_queue'?'等待现有采集队列释放 GPU。':''}${r.prior_tracking_stops?'上一版跟踪停止记录仍然保留。':''}`;
    if(r.native_boundary_stops)$('t6CurrentProgress').textContent+=`段边界收敛超时 ${r.native_boundary_stops} 次${r.maximum_boundary_tcp_error_mm!==null?'，TCP残差 '+r.maximum_boundary_tcp_error_mm.toFixed(3)+' mm':''}。`;
-   if(r.stop_loss_reached)$('t6CurrentProgress').textContent+='两轮控制修复已用完，已停止T6资格测试和主批量，等待配置调整或延期决定。';
+   if(r.stop_loss_reached)$('t6CurrentProgress').textContent+='两轮控制修复已用完，T6已移出v0.1；原失败完整保留。仅允许低优先级规划一致性尝试，不挤占公开评测和DP基线。';
   }
   if(pilot && $('pipelineNotice')){
    $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，训练累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;
