@@ -2,11 +2,11 @@
   "schema_version": 1,
   "project": "ChemOPD-4",
   "phase": "Phase 2 / OPD",
-  "snapshot_utc": "2026-10-21T10:45:41Z",
+  "snapshot_utc": "2026-10-21T11:14:36Z",
   "snapshot_kind": "curated_static_snapshot",
   "phase_status": "IN_PROGRESS",
-  "current_milestone": "Mb",
-  "completed_milestones": 1,
+  "current_milestone": "Mc",
+  "completed_milestones": 2,
   "milestone_total": 6,
   "baseline_v1": {
     "status": "FROZEN",
@@ -159,7 +159,7 @@
     },
     {
       "id": "Mb",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE_WITH_LIMITATIONS",
       "title": "State-driven, re-entrant experts",
       "scope": "Start with N03 / N12. Each expert must resume from the current observed state rather than depend on a one-way script.",
       "acceptance": "Centered 4×4 task domain: pass a native TCP Jacobian preflight at the same thresholds first; then 20 nominal episodes and 50 real mid-trajectory rollout-state takeover tests per task. State-driven experts must match prior nominal success before takeover.",
@@ -174,28 +174,139 @@
           {
             "task": "N03",
             "mode": "takeover",
-            "status": "RUNNING",
+            "status": "CLOSED",
             "planned_states": 50,
-            "first_batch_states": 16,
-            "started_states": 16,
-            "closed_states": 0,
-            "successes": null,
-            "final_result": null,
+            "started_states": 50,
+            "closed_states": 50,
+            "successes": 50,
+            "wilson95": [
+              0.9286524008666414,
+              1.0
+            ],
+            "wilson_scope": "Descriptive binomial episode interval; repeated source instances are not independent-task replicates",
+            "distinct_source_seeds": 20,
+            "generator_success": {
+              "proxy_noisy_expert": {
+                "successes": 25,
+                "denominator": 25
+              },
+              "random_action_interruption": {
+                "successes": 25,
+                "denominator": 25
+              }
+            },
+            "already_done_at_takeover": 0,
+            "measurement_integrity_passed": true,
+            "continuity_max_abs": 0.0,
+            "native_clock_valid": true,
+            "case_ids_match": true,
+            "active_queried_labels": 46000,
+            "geometry_feasibility_candidates": 46000,
+            "geometry_rejected_transitions": 0,
+            "native_limit_exceedances": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 0,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 0
+            },
             "training_admitted": 0,
-            "started_utc": "2026-10-21T10:44:28.335711+00:00"
+            "training_buffer_rows": 0,
+            "collection_role": "QUALIFICATION_MEASUREMENT",
+            "raw_evidence_published": false,
+            "raw_evidence_url": null,
+            "final_result": {
+              "successes": 50,
+              "episodes": 50
+            },
+            "strict_local_safety_status": "NO_RECORDED_LOCAL_LIMIT_EXCEEDANCES",
+            "actual_grasp_interruption_recovery": {
+              "definition": "Independent grasp occurred in the prefix; at takeover the object was not independently grasped and was not placed.",
+              "opportunities": 3,
+              "regrasp_and_task_success": 3,
+              "scope": "Three genuine grasp-interruption opportunities; the 50 takeover episodes are not all recovery opportunities."
+            }
           },
           {
             "task": "N12",
             "mode": "takeover",
-            "status": "RUNNING",
+            "status": "CLOSED_WITH_LIMITATIONS",
             "planned_states": 50,
-            "first_batch_states": 16,
-            "started_states": 16,
-            "closed_states": 0,
-            "successes": null,
-            "final_result": null,
+            "started_states": 50,
+            "closed_states": 50,
+            "successes": 44,
+            "wilson95": [
+              0.7619518261679701,
+              0.9438239984906773
+            ],
+            "wilson_scope": "Descriptive binomial episode interval; repeated source instances are not independent-task replicates",
+            "distinct_source_seeds": 20,
+            "generator_success": {
+              "proxy_noisy_expert": {
+                "successes": 25,
+                "denominator": 25
+              },
+              "random_action_interruption": {
+                "successes": 19,
+                "denominator": 25
+              }
+            },
+            "already_done_at_takeover": 0,
+            "measurement_integrity_passed": true,
+            "continuity_max_abs": 0.0,
+            "native_clock_valid": true,
+            "case_ids_match": true,
+            "active_queried_labels": 46000,
+            "geometry_feasibility_candidates": 41811,
+            "geometry_rejected_transitions": 4189,
+            "native_limit_exceedances": {
+              "command_velocity_exceedances": 0,
+              "command_acceleration_exceedances": 1,
+              "actual_velocity_exceedances": 0,
+              "actual_acceleration_exceedances": 1
+            },
             "training_admitted": 0,
-            "started_utc": "2026-10-21T10:42:23.122861+00:00"
+            "training_buffer_rows": 0,
+            "collection_role": "QUALIFICATION_MEASUREMENT",
+            "raw_evidence_published": false,
+            "raw_evidence_url": null,
+            "final_result": {
+              "successes": 44,
+              "episodes": 50
+            },
+            "failure_types": {
+              "UNRECOVERABLE_VERTICAL_GRASP_FAMILY": 6
+            },
+            "all_failures_retained": true,
+            "strict_local_safety_status": "NOT_ALL_PASSED",
+            "high_rate_peak_and_tick_available": false,
+            "limit_exceptions": [
+              {
+                "case": "N12_takeover_09",
+                "metric": "actual_acceleration_exceedances",
+                "count": 1,
+                "local_threshold_rad_s2": 15.0001,
+                "peak_rad_s2": null,
+                "exact_tick": null
+              },
+              {
+                "case": "N12_takeover_49",
+                "metric": "command_acceleration_exceedances",
+                "count": 1,
+                "local_threshold_rad_s2": 2.51,
+                "peak_rad_s2": null,
+                "exact_tick": null
+              }
+            ],
+            "actual_grasp_interruption_recovery": {
+              "definition": "Independent grasp occurred in the prefix; at takeover the object was not independently grasped and was not placed. Same observed opportunity definition as N03.",
+              "opportunities": 14,
+              "subsequent_regrasp_and_task_success": 7,
+              "failed_task": 6,
+              "task_success_without_sampled_regrasp": 1,
+              "prefix_unsafe_cases_retained_in_full_denominator": 2,
+              "already_done_at_takeover": 0,
+              "scope": "An observed opportunity definition, not exhaustive detection of all failures or disturbances. Do not count the unverified regrasp as an eighth observed recovery."
+            }
           }
         ],
         "candidate2": {
@@ -246,10 +357,13 @@
         },
         "N03_centered_preflight": "PASSED",
         "pro6000_N12_centered_preflight": "PASSED",
-        "training_updates": 0
+        "training_updates": 0,
+        "milestone_measurements_closed": true,
+        "strict_local_safety_all_passed": false,
+        "training_buffer_rows": 0
       },
-      "result_note": "Candidate 2: N03 and N12 each completed 20/20 nominal episodes. Independent NPZ audits passed continuity, case-ID and native-clock checks; each task contains 14,000 active transitions with continuity error 0. Candidate 1’s N03 result (0/20) remains retained. N12’s first 16-state takeover batch STARTED at 2026-10-21T10:42:23.122861+00:00; N03’s first 16-state batch has started. Neither task has a final 50-state takeover result. Timing is fixed at 2 / 5 / 9 / 17 / 22 s, 10 states per time; each task uses 25 noisy-expert proxy states and 25 random-action interruptions, with no state reset at takeover. Passive raw velocity/contact/clock logging was added without changing the 41D observation, 8D action or physics. Existing nominal raw verifier evidence is absent: training admission and learning updates remain 0.",
-      "progress": "NOMINAL_QUALIFIED_TAKEOVER_RUNNING"
+      "result_note": "Measurements closed with limitations. Both candidate-2 nominal runs are 20/20. N03 takeover: 50/50 (proxy 25/25; random 25/25), with 3/3 verified regrasp-and-task successes among genuine grasp-interruption opportunities. N12 takeover: 44/50 (proxy 25/25; random 19/25); all six unrecoverable failures remain in the denominator. Observed N12 grasp-interruption opportunities: 14; sampled subsequent regrasp plus task success: 7/14. Six tasks failed; one more task completed without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator. This opportunity definition does not cover every possible failure or disturbance. Already done at takeover: 0 for both tasks. Each 50-episode set reuses 20 source scenes; this is not 50 independent-task generalization trials. N12 strict local safety is NOT_ALL_PASSED: case09 recorded one actual-acceleration exceedance above the 15.0001 rad/s² local threshold, and case49 one command-acceleration exceedance above 2.51 rad/s². High-rate peak magnitudes and exact ticks are unavailable. The 46,000 / 41,811 geometry-feasibility candidates for N03 / N12 are not training admissions or evidence that every safety gate passed. Qualification-role data remain outside training; buffer rows and training updates are 0. Candidate 1’s N03 0/20 remains retained.",
+      "progress": "MEASUREMENTS_CLOSED_N12_SAFETY_NOT_ALL_PASSED"
     },
     {
       "id": "Mc",
@@ -258,7 +372,7 @@
       "scope": "Unify the vector environment, trajectory records and stage-wise verifier across the four Panda tasks.",
       "acceptance": "Shared observation/action contract; saved trajectories; explicit verifier admission and rejection records.",
       "result": {
-        "scope": "Data-admission boundary preparation only",
+        "scope": "Shared-policy and dataset CPU component preparation; no native training acceptance.",
         "boundary_regressions_passed": 4,
         "task_level_verifier_acceptance": "NOT_ESTABLISHED",
         "N03_measurement_integrity_passed": true,
@@ -269,10 +383,21 @@
         "N12_measurement_integrity_passed": true,
         "N12_active_transitions": 14000,
         "N12_training_admitted": 0,
-        "N12_training_rejected_missing_evidence": 14000
+        "N12_training_rejected_missing_evidence": 14000,
+        "shared_policy_CPU_boundary_checks_passed": 4,
+        "data_CPU_boundary_checks_passed": 19,
+        "native_training_acceptance": false,
+        "training_buffer_rows": 0,
+        "training_updates": 0,
+        "qualification_takeover_geometry_candidates": {
+          "N03": 46000,
+          "N12": 41811
+        },
+        "qualification_takeover_training_admitted": 0,
+        "N12_strict_local_safety_status": "NOT_ALL_PASSED"
       },
-      "result_note": "Partial / preparation: four data-admission boundary regressions passed; this does not establish every task-level verifier. N03 and N12 nominal measurements independently pass continuity, case-ID and clock audits, but each task’s 14,000 active labels is training-rejected because raw per-tick verifier evidence is missing. Total nominal training admission is 0. Passive velocity/contact/clock logging was added for the takeover batches; the 41D observation, 8D action and physics remain fixed.",
-      "progress": "PARTIAL_PREPARATION"
+      "result_note": "In progress / component preparation. Shared-policy CPU checks: 4 passed; data CPU checks: 19 passed. These are component checks, not native training acceptance or proof that every task-level verifier passed. Both nominal collections still lack raw per-tick verifier evidence and have 0 training admission. Takeover raw evidence supports 46,000 / 41,811 geometry-feasibility candidates for N03 / N12, but qualification role prevents direct training use; N12 strict local safety is NOT_ALL_PASSED. The 41D observation, 8D action and physics remain fixed. Training updates and buffer rows are 0.",
+      "progress": "COMPONENT_PREPARATION"
     },
     {
       "id": "Md",
@@ -379,32 +504,44 @@
     },
     {
       "name": "Verifier admission / rejection",
-      "protocol": "Data-boundary evidence only: N03 and N12 nominal each queried 14,000 active labels; all 28,000 are training-rejected for missing per-tick raw verifier evidence, with 0 admitted. Four boundary regressions passed; task-level verifier acceptance remains open. Verified failure/recovery segments remain eligible independently of episode success.",
+      "protocol": "Nominal: 28,000 active labels remain training-rejected for missing raw verifier evidence. Takeover: N03 46,000 and N12 41,811 geometry-feasibility candidates; qualification role admits 0 to training. N12 strict local safety is NOT_ALL_PASSED, with two retained acceleration exceptions. Shared-policy 4 and data 19 CPU checks are component evidence only, not native training acceptance.",
       "status": "PARTIAL",
       "value": {
         "N03_active_labels": 14000,
         "N12_active_labels": 14000,
         "training_admitted": 0,
         "training_rejected": 28000,
-        "task_level_verifier_acceptance": "NOT_ESTABLISHED"
+        "task_level_verifier_acceptance": "NOT_ESTABLISHED",
+        "takeover_geometry_candidates": {
+          "N03": 46000,
+          "N12": 41811
+        },
+        "takeover_training_admitted": 0,
+        "N12_strict_local_safety_status": "NOT_ALL_PASSED",
+        "native_training_acceptance": false
       }
     }
   ],
   "unmeasured_results": {
-    "takeover_success": null,
     "trained_policy_success": null,
     "learning_curves": null,
     "c01_student_integration": null,
-    "task_level_verifier_acceptance": null
+    "task_level_verifier_acceptance": null,
+    "formal_heldout_50_new_instances": null,
+    "native_training_acceptance": null
   },
   "disclosures": [
     "This page describes the approved phase-2 plan and a dated local evidence summary.",
     "A completed expert reliability measurement does not establish learned-policy performance, recovery capability or a phase-2 milestone pass.",
     "No OPD learning curves or policy success scores have been measured in this snapshot.",
     "Nominal task success and measurement integrity are separate from training admission. Current nominal traces lack raw per-tick verifier evidence; training admission is 0. Four data-boundary regressions do not establish task-level verifier acceptance.",
-    "Ma is complete with its original full local FD-gate limitation declared. All three throughput batches are measured once under shared load. Both task nominal runs are complete; final takeover50 outcomes and trained-policy evaluation remain unmeasured."
+    "Ma and Mb measurement reports are closed with declared limitations; N12 strict local safety did not pass every local gate.",
+    "Both task takeover sets use 50 episodes from 20 source scenes. Their Wilson intervals are descriptive episode intervals, not independent-task generalization evidence.",
+    "Only three N03 cases met the independent grasp-interruption opportunity definition; recovery was 3/3 in those cases, not 50 recovery trials.",
+    "Geometry-feasibility candidates remain outside training by collection role. Shared-policy/data CPU checks do not establish native training acceptance; buffer rows and updates are 0.",
+    "N12 had 14 observed grasp-interruption opportunities: 7 subsequent sampled regrasp-and-task successes, 6 failed tasks and 1 task completion without sampled regrasp evidence. Two prefix-unsafe cases remain in the full denominator; this observation-based definition is not exhaustive fault coverage."
   ],
-  "phase_progress": "MA_COMPLETE_MB_RUNNING_MC_PARTIAL",
+  "phase_progress": "MA_MB_CLOSED_WITH_LIMITATIONS_MC_COMPONENT_PREPARATION",
   "current_measurements": {
     "throughput": {
       "status": "COMPLETE_MEASURED_SHARED_LOAD",
@@ -532,7 +669,7 @@
         "speed_saturation_joint_steps": 0
       },
       "full_gate_limitation": "The original full finite-difference gate remains false at far-origin x≈22 / 30 m in float32. Actual trajectory tracking passes independently; no FD threshold or controller gain was relaxed.",
-      "next_step": "Centered N03 / N12 native FD preflights passed separately; their takeover evaluation is running.",
+      "next_step": "Centered N03 / N12 preflights and takeover measurements are closed; Mc remains component preparation without native training acceptance.",
       "scope": "One 30-native-second free-space diagnostic across 16 Panda worlds. It does not establish task success, contact skills, general workspace reliability or learned-policy performance.",
       "raw_evidence_published": false,
       "raw_evidence_url": null,
@@ -569,7 +706,7 @@
       "raw_evidence_url": null
     },
     "reentrant_experts": {
-      "status": "NOMINAL20_EACH_CLOSED_TAKEOVER50_RUNNING",
+      "status": "COMPLETE_WITH_N12_LOCAL_ACCELERATION_LIMITATIONS",
       "nominal": [
         {
           "task": "N03",
@@ -620,28 +757,139 @@
         {
           "task": "N03",
           "mode": "takeover",
-          "status": "RUNNING",
+          "status": "CLOSED",
           "planned_states": 50,
-          "first_batch_states": 16,
-          "started_states": 16,
-          "closed_states": 0,
-          "successes": null,
-          "final_result": null,
+          "started_states": 50,
+          "closed_states": 50,
+          "successes": 50,
+          "wilson95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "wilson_scope": "Descriptive binomial episode interval; repeated source instances are not independent-task replicates",
+          "distinct_source_seeds": 20,
+          "generator_success": {
+            "proxy_noisy_expert": {
+              "successes": 25,
+              "denominator": 25
+            },
+            "random_action_interruption": {
+              "successes": 25,
+              "denominator": 25
+            }
+          },
+          "already_done_at_takeover": 0,
+          "measurement_integrity_passed": true,
+          "continuity_max_abs": 0.0,
+          "native_clock_valid": true,
+          "case_ids_match": true,
+          "active_queried_labels": 46000,
+          "geometry_feasibility_candidates": 46000,
+          "geometry_rejected_transitions": 0,
+          "native_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 0,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 0
+          },
           "training_admitted": 0,
-          "started_utc": "2026-10-21T10:44:28.335711+00:00"
+          "training_buffer_rows": 0,
+          "collection_role": "QUALIFICATION_MEASUREMENT",
+          "raw_evidence_published": false,
+          "raw_evidence_url": null,
+          "final_result": {
+            "successes": 50,
+            "episodes": 50
+          },
+          "strict_local_safety_status": "NO_RECORDED_LOCAL_LIMIT_EXCEEDANCES",
+          "actual_grasp_interruption_recovery": {
+            "definition": "Independent grasp occurred in the prefix; at takeover the object was not independently grasped and was not placed.",
+            "opportunities": 3,
+            "regrasp_and_task_success": 3,
+            "scope": "Three genuine grasp-interruption opportunities; the 50 takeover episodes are not all recovery opportunities."
+          }
         },
         {
           "task": "N12",
           "mode": "takeover",
-          "status": "RUNNING",
+          "status": "CLOSED_WITH_LIMITATIONS",
           "planned_states": 50,
-          "first_batch_states": 16,
-          "started_states": 16,
-          "closed_states": 0,
-          "successes": null,
-          "final_result": null,
+          "started_states": 50,
+          "closed_states": 50,
+          "successes": 44,
+          "wilson95": [
+            0.7619518261679701,
+            0.9438239984906773
+          ],
+          "wilson_scope": "Descriptive binomial episode interval; repeated source instances are not independent-task replicates",
+          "distinct_source_seeds": 20,
+          "generator_success": {
+            "proxy_noisy_expert": {
+              "successes": 25,
+              "denominator": 25
+            },
+            "random_action_interruption": {
+              "successes": 19,
+              "denominator": 25
+            }
+          },
+          "already_done_at_takeover": 0,
+          "measurement_integrity_passed": true,
+          "continuity_max_abs": 0.0,
+          "native_clock_valid": true,
+          "case_ids_match": true,
+          "active_queried_labels": 46000,
+          "geometry_feasibility_candidates": 41811,
+          "geometry_rejected_transitions": 4189,
+          "native_limit_exceedances": {
+            "command_velocity_exceedances": 0,
+            "command_acceleration_exceedances": 1,
+            "actual_velocity_exceedances": 0,
+            "actual_acceleration_exceedances": 1
+          },
           "training_admitted": 0,
-          "started_utc": "2026-10-21T10:42:23.122861+00:00"
+          "training_buffer_rows": 0,
+          "collection_role": "QUALIFICATION_MEASUREMENT",
+          "raw_evidence_published": false,
+          "raw_evidence_url": null,
+          "final_result": {
+            "successes": 44,
+            "episodes": 50
+          },
+          "failure_types": {
+            "UNRECOVERABLE_VERTICAL_GRASP_FAMILY": 6
+          },
+          "all_failures_retained": true,
+          "strict_local_safety_status": "NOT_ALL_PASSED",
+          "high_rate_peak_and_tick_available": false,
+          "limit_exceptions": [
+            {
+              "case": "N12_takeover_09",
+              "metric": "actual_acceleration_exceedances",
+              "count": 1,
+              "local_threshold_rad_s2": 15.0001,
+              "peak_rad_s2": null,
+              "exact_tick": null
+            },
+            {
+              "case": "N12_takeover_49",
+              "metric": "command_acceleration_exceedances",
+              "count": 1,
+              "local_threshold_rad_s2": 2.51,
+              "peak_rad_s2": null,
+              "exact_tick": null
+            }
+          ],
+          "actual_grasp_interruption_recovery": {
+            "definition": "Independent grasp occurred in the prefix; at takeover the object was not independently grasped and was not placed. Same observed opportunity definition as N03.",
+            "opportunities": 14,
+            "subsequent_regrasp_and_task_success": 7,
+            "failed_task": 6,
+            "task_success_without_sampled_regrasp": 1,
+            "prefix_unsafe_cases_retained_in_full_denominator": 2,
+            "already_done_at_takeover": 0,
+            "scope": "An observed opportunity definition, not exhaustive detection of all failures or disturbances. Do not count the unverified regrasp as an eighth observed recovery."
+          }
         }
       ],
       "retained_prior_candidates": [
@@ -687,7 +935,17 @@
         "all_started_cases_retained": true,
         "unrecoverable_states_in_denominator": true,
         "interim_success_rate": null
-      }
+      },
+      "training_buffer_rows": 0,
+      "scope": "Each task uses 50 interruption episodes from 20 source scenes. This is not 50 independent-task generalization trials; formal heldout evaluation on 50 new instances is unrun."
+    },
+    "component_preparation": {
+      "status": "PREPARED_NOT_NATIVE_ACCEPTED",
+      "shared_policy_CPU_checks_passed": 4,
+      "data_CPU_checks_passed": 19,
+      "native_training_acceptance": false,
+      "training_updates": 0,
+      "training_buffer_rows": 0
     }
   },
   "verifier_admission": {
@@ -712,9 +970,47 @@
     "N12_training_rejected": 14000,
     "total_nominal_active_labels": 28000,
     "total_nominal_training_admitted": 0,
-    "passive_logger_added_before_takeover_start": true
+    "passive_logger_added_before_takeover_start": true,
+    "takeover_geometry_feasibility_candidates": {
+      "N03": 46000,
+      "N12": 41811
+    },
+    "takeover_collection_role": "QUALIFICATION_MEASUREMENT",
+    "takeover_training_admitted": 0,
+    "training_buffer_rows": 0,
+    "strict_N12_safety": "NOT_ALL_PASSED",
+    "data_CPU_boundary_checks_passed": 19,
+    "scope": "Geometry feasibility, strict local safety, collection-role/split admission and episode success are separate facts."
   },
   "snapshot_state": "FINAL_CURATED_SNAPSHOT",
   "training_updates": 0,
-  "formal_method_evaluation_episodes": 0
+  "formal_method_evaluation_episodes": 0,
+  "milestone_completion_scope": "Ma measured; Mb measurement report closed with declared limitations. Completion does not mean every local safety gate passed.",
+  "training_buffer_rows": 0,
+  "safety_alert": {
+    "task": "N12",
+    "status": "NOT_ALL_PASSED",
+    "limit_exceptions": [
+      {
+        "case": "N12_takeover_09",
+        "metric": "actual_acceleration_exceedances",
+        "count": 1,
+        "local_threshold_rad_s2": 15.0001,
+        "peak_rad_s2": null,
+        "exact_tick": null
+      },
+      {
+        "case": "N12_takeover_49",
+        "metric": "command_acceleration_exceedances",
+        "count": 1,
+        "local_threshold_rad_s2": 2.51,
+        "peak_rad_s2": null,
+        "exact_tick": null
+      }
+    ],
+    "high_rate_peak_and_tick_available": false,
+    "geometry_candidates_are_not_safety_passes": true,
+    "training_admitted": 0,
+    "prominent_disclosure": true
+  }
 }
