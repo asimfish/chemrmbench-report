@@ -90,7 +90,7 @@
     "native_public_observation": [],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; model evaluation and training are not started."
   },
-  "updated_at_utc": "2026-10-21T09:03:50.139009+00:00",
+  "updated_at_utc": "2026-10-21T09:18:51.062592+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -2911,20 +2911,20 @@
       "id": "pour",
       "title": "限时倾倒",
       "dimension": "T-dur · 2 / 4 / 6 秒；工程级",
-      "status": "collecting",
-      "dataset_attempts": 21,
-      "dataset_unique_seeds": 18,
+      "status": "needs_expert_fix",
+      "dataset_attempts": 23,
+      "dataset_unique_seeds": 20,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "runtime_rejections": 14,
-      "successes": 15,
-      "success_rate": 0.7142857142857143,
+      "successes": 17,
+      "success_rate": 0.7391304347826086,
       "status_counts": {
-        "success": 15,
+        "success": 17,
         "fail": 1,
         "error": 5
       },
-      "verified_dataset_attempts": 9,
+      "verified_dataset_attempts": 18,
       "qualification_attempts": 11,
       "qualification_safe_successes": 0,
       "evaluation_attempts": 0,
@@ -2975,7 +2975,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -2998,7 +2998,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3021,7 +3021,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3044,7 +3044,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3067,7 +3067,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3090,7 +3090,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3113,7 +3113,7 @@
           "placement_error_mm": null,
           "return_error_mm": null,
           "stage_count": 8,
-          "recording_verified": false,
+          "recording_verified": true,
           "failure_reasons": [],
           "visual_contrast_flag": false
         },
@@ -3211,6 +3211,52 @@
           "failure_reasons": [
             "instrumentation_invalid"
           ],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 18,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": true,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 603.05,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 8,
+          "recording_verified": true,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
+        },
+        {
+          "seed": 19,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": true,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 634.18,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 8,
+          "recording_verified": true,
+          "failure_reasons": [],
           "visual_contrast_flag": false
         },
         {
@@ -3965,7 +4011,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 141,
+  "dataset_attempts": 143,
   "calibration_attempts": 10,
   "benchmark_complete": false,
   "conference_ready": false,
