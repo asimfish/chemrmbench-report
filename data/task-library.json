@@ -114,6 +114,18 @@
         "task_revision": "T4-v1",
         "superseded": true,
         "recording_accepted": false
+      },
+      {
+        "task_id": "press",
+        "clock_mode": "paused",
+        "attempts": 1,
+        "successes": 1,
+        "status_counts": {
+          "success": 1
+        },
+        "task_revision": "T4-v2",
+        "superseded": false,
+        "recording_accepted": false
       }
     ],
     "scope": "F0 schematic RGB/clock contracts are separate from native physical solvability; learned model results remain separate; T1 pipeline pilot is not a baseline."
@@ -137,9 +149,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 42,
+    "received_and_validated_attempts": 43,
     "target_new_attempts": 400,
-    "admitted_successes": 38,
+    "admitted_successes": 39,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -157,7 +169,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 38
+        "attempts": 39
       }
     ]
   },
@@ -165,7 +177,7 @@
     "guidance": 9,
     "control_iteration": 1,
     "maximum_control_iterations": 2,
-    "control_phase": "qualification_running",
+    "control_phase": "qualification_failed_control_review",
     "boundary_convergence_mm": 0.5,
     "boundary_timeout_s": 1.0,
     "prior_tracking_stops": 1,
@@ -173,14 +185,14 @@
     "cpu_attempts": 3,
     "moving_colliders": 17,
     "minimum_clearance_mm": 11.003797312165515,
-    "native_attempts": 0,
+    "native_attempts": 1,
     "native_passed": 0,
     "native_required": 3,
     "native_all_passed": false,
     "native_startup_errors": 0,
-    "native_tracking_stops": 0,
+    "native_tracking_stops": 1,
     "tracking_allowance_mm": 1.0,
-    "maximum_start_tracking_error_mm": null,
+    "maximum_start_tracking_error_mm": 1.6620000000000001,
     "fixture_moved": false,
     "raw_force_limit_n": 25
   },
@@ -210,6 +222,17 @@
         "batch_recording_accepted": true,
         "mirrored_closed_attempts": 10,
         "NAS_mirror_pending": false
+      },
+      {
+        "label": "T4-v2 public",
+        "closed_attempts": 1,
+        "expected_attempts": 50,
+        "measured_status_counts": {
+          "success": 1
+        },
+        "batch_recording_accepted": false,
+        "mirrored_closed_attempts": 1,
+        "NAS_mirror_pending": true
       },
       {
         "label": "T7 public suffix",
@@ -247,18 +270,20 @@
       },
       {
         "label": "T6 control round 1: qualification_seed5000",
-        "closed_attempts": 0,
+        "closed_attempts": 1,
         "expected_attempts": 1,
-        "measured_status_counts": {},
-        "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 0,
-        "NAS_mirror_pending": true
+        "measured_status_counts": {
+          "error": 1
+        },
+        "batch_recording_accepted": true,
+        "mirrored_closed_attempts": 1,
+        "NAS_mirror_pending": false
       }
     ],
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T17:46:30.263906+00:00",
+  "updated_at_utc": "2026-10-21T17:56:39.980862+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1397,8 +1422,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 0,
       "qualification_safe_successes": 0,
-      "evaluation_attempts": 0,
-      "evaluation_successes": 0,
+      "evaluation_attempts": 1,
+      "evaluation_successes": 1,
       "ablation_attempts": 10,
       "ablation_successes": 4,
       "ablation_status_counts": {
