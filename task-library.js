@@ -46,7 +46,7 @@ async function refreshStats(){
    }
    if(task.qualification_gate){
     const gate=task.qualification_gate;const note=document.createElement('p');
-    note.textContent=`新版顶部抓取资格：全场景 CPU 路径预检${gate.whole_scene_transit_screen_passed?'通过':'待通过'}${gate.minimum_transit_clearance_mm!==null?'，最小余量 '+gate.minimum_transit_clearance_mm.toFixed(2)+' mm':''}。局部面板指垫接触${gate.local_panel_contact_approved?'已确认':'待确认'}；原生资格 ${gate.native_passed}/${gate.native_required} 通过（已尝试 ${gate.native_attempts} 条）${gate.maximum_raw_global_force_n!==null?'，全机器人原始力峰值 '+gate.maximum_raw_global_force_n.toFixed(2)+' N':''}，上限 ${gate.raw_force_limit_n} N。${gate.all_native_qualifications_passed?'主批量已获准入。':'尚未获主批量准入。'}`;
+    note.textContent=`新版顶部抓取资格：针对全场景障碍物的 CPU 手部路径预检${gate.whole_scene_transit_screen_passed?'通过':'待通过'}${gate.minimum_transit_clearance_mm!==null?'，手部最小余量 '+gate.minimum_transit_clearance_mm.toFixed(2)+' mm':''}；尚未覆盖手臂连杆。局部面板指垫接触${gate.local_panel_contact_approved?'已确认':'待确认'}；原生资格 ${gate.native_passed}/${gate.native_required} 通过（已尝试 ${gate.native_attempts} 条）${gate.maximum_raw_global_force_n!==null?'，全机器人原始力峰值 '+gate.maximum_raw_global_force_n.toFixed(2)+' N':''}，上限 ${gate.raw_force_limit_n} N。${gate.all_native_qualifications_passed?'主批量已获准入。':'尚未获主批量准入。'}`;
     card.append(note);
    }
    if(task.evaluation_attempts){const note=document.createElement('p');note.textContent=`公开观测 held-out 评测：${task.evaluation_successes}/${task.evaluation_attempts}成功，独立于专家采集和消融。`;card.append(note);}

@@ -109,6 +109,7 @@ def t6_qualification_projection():
     attempts=report.get('attempts',[])
     forces=[a['raw_global_robot_peak_n'] for a in attempts if a.get('raw_global_robot_peak_n') is not None]
     return {'local_panel_contact_approved':approval.get('approved_by')=='explicit user reply',
+        'moving_geometry_scope':'hand_only; arm links are not covered',
         'whole_scene_transit_screen_passed':screen.get('passed') is True,
         'minimum_transit_clearance_mm':min((r['minimum_lower_bound_m']*1000
             for r in screen.get('results',[]) if r.get('passed')),default=None),
