@@ -250,6 +250,14 @@ def release_projection():
             if not all(type(v) is int and 0<=v<=100 for v in counts.values()):continue
             if counts['successes']>counts['attempts']:continue
             value={**counts,'complete':raw.get('complete') is True}
+            value['verifier_protocols']=[v for v in raw.get('verifier_protocols',[])
+                if v in {'legacy','measured-v1'}]
+            runtime=raw.get('runtime',{})
+            coverage={k:runtime.get(k) for k in ['recorded_host_attempts','missing_host_attempts','distinct_recorded_hosts']}
+            valid_coverage=(all(type(v) is int and 0<=v<=counts['attempts'] for v in coverage.values())
+                and coverage['recorded_host_attempts']+coverage['missing_host_attempts']==counts['attempts'])
+            value['runtime']={'host_alias':'primary-local' if runtime.get('host_alias')=='primary-local' else None,
+                **{k:v if valid_coverage else None for k,v in coverage.items()}}
             interval=raw.get('success_wilson95')
             value['success_wilson95']=interval if (isinstance(interval,list) and len(interval)==2
                 and all(type(v) in {int,float} and 0<=v<=1 for v in interval)) else None
@@ -276,7 +284,7 @@ def release_projection():
         'checks':{key:report.get('checks',{}).get(key) is True for key in ['main_batches','ablations','public_evaluations','three_DP_baselines','policy_independent_verifiers','policy_independent_primary_scores','download_URL','release_tag']},
         'active_tasks':sorted(active),'deferred_tasks':['timed_stirring'],
         'table':rows,'interval':'95% Wilson',
-        'cohort_note':'Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons.'}
+        'cohort_note':'Expert development20; lower matched development10; public heuristic/DP held-out50. Different cohorts are not paired policy comparisons. Host primary-local means the local evaluation runtime; missing legacy per-episode host labels remain explicit.'}
 
 
 def collect_task_library():

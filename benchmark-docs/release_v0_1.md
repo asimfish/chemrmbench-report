@@ -42,6 +42,10 @@ python -m chemrm.bench.release --sources /persistent/release_sources.json \
 
 It writes `public_main_table.json` and `main_table.md`, keeps missing scores
 null, rejects duplicate seeds and T4-v1 evidence, and reports incomplete gates.
+Each observed cell also names its verdict protocol and execution-host alias
+(`primary-local`), with recorded/missing per-episode host counts. This alias
+denotes the retained local primary cohort; it does not invent missing historical
+host labels. Raw machine names remain in the original private manifests.
 The source map uses expert/ablation/public_heuristic/dp dictionaries mapping
 task IDs to lists of cohort directories, training_runs mapping the three baseline task IDs
 to training directories, plus budget_ledger, website_receipt and verifier_audit paths. The download_url

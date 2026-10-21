@@ -19,7 +19,10 @@ async function refreshStats(){
    const cell=p=>{
     if(!p || !p.attempts)return '待完成';
     const ci=p.success_wilson95;
-    return `${p.successes}/${p.attempts}`+(ci?` [${(100*ci[0]).toFixed(1)}%, ${(100*ci[1]).toFixed(1)}%]`:'')+(p.complete?'':' · 部分数据');
+    const protocol=p.verifier_protocols?.length?p.verifier_protocols.join(', '):'判定版本待标注';
+    const runtime=p.runtime;
+    const host=runtime?.host_alias==='primary-local'?`primary-local（逐条host已记录 ${runtime.recorded_host_attempts ?? '待核对'}/${p.attempts}；历史缺失 ${runtime.missing_host_attempts ?? '待核对'}）`:'host待核对';
+    return `${p.successes}/${p.attempts}`+(ci?` [${(100*ci[0]).toFixed(1)}%, ${(100*ci[1]).toFixed(1)}%]`:'')+(p.complete?'':' · 部分数据')+` · ${protocol} · ${host}`;
    };
    $('releaseTable').replaceChildren(...r.table.map(t=>{
     const row=document.createElement('tr');
