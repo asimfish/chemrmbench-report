@@ -149,9 +149,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 47,
+    "received_and_validated_attempts": 49,
     "target_new_attempts": 400,
-    "admitted_successes": 43,
+    "admitted_successes": 45,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -169,7 +169,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 43
+        "attempts": 45
       }
     ]
   },
@@ -177,7 +177,7 @@
     "guidance": 9,
     "control_iteration": 2,
     "maximum_control_iterations": 2,
-    "control_phase": "qualification_running",
+    "control_phase": "STOP_LOSS_TWO_ROUNDS_USED",
     "boundary_convergence_mm": 0.5,
     "boundary_timeout_s": 1.0,
     "prior_tracking_stops": 1,
@@ -185,13 +185,16 @@
     "cpu_attempts": 3,
     "moving_colliders": 17,
     "minimum_clearance_mm": 11.003797312165515,
-    "native_attempts": 0,
+    "native_attempts": 1,
     "native_passed": 0,
     "native_required": 3,
     "native_all_passed": false,
     "native_startup_errors": 0,
     "native_tracking_stops": 0,
     "tracking_allowance_mm": 1.0,
+    "native_boundary_stops": 1,
+    "maximum_boundary_tcp_error_mm": 4.195,
+    "stop_loss_reached": true,
     "maximum_start_tracking_error_mm": null,
     "fixture_moved": false,
     "raw_force_limit_n": 25
@@ -258,6 +261,26 @@
         "NAS_mirror_pending": true
       },
       {
+        "label": "T7 unattempted public continuation",
+        "closed_attempts": 1,
+        "expected_attempts": 24,
+        "measured_status_counts": {
+          "success": 1
+        },
+        "batch_recording_accepted": false,
+        "mirrored_closed_attempts": 0,
+        "NAS_mirror_pending": true
+      },
+      {
+        "label": "T4-v2 unattempted public continuation",
+        "closed_attempts": 0,
+        "expected_attempts": 45,
+        "measured_status_counts": {},
+        "batch_recording_accepted": false,
+        "mirrored_closed_attempts": 0,
+        "NAS_mirror_pending": true
+      },
+      {
         "label": "T6 prior qualification",
         "closed_attempts": 1,
         "expected_attempts": 1,
@@ -281,18 +304,20 @@
       },
       {
         "label": "T6 control round 2: qualification_seed5000",
-        "closed_attempts": 0,
+        "closed_attempts": 1,
         "expected_attempts": 1,
-        "measured_status_counts": {},
-        "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 0,
-        "NAS_mirror_pending": true
+        "measured_status_counts": {
+          "error": 1
+        },
+        "batch_recording_accepted": true,
+        "mirrored_closed_attempts": 1,
+        "NAS_mirror_pending": false
       }
     ],
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T18:27:24.548452+00:00",
+  "updated_at_utc": "2026-10-21T18:32:55.921192+00:00",
   "tasks": [
     {
       "number": "T2",

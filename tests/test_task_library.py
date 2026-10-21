@@ -52,6 +52,18 @@ class RuntimeProjection(unittest.TestCase):
         self.assertEqual(value['boundary_convergence_mm'],.5)
         self.assertFalse(value['native_all_passed']);self.assertNotIn('needle_token',json.dumps(value))
 
+    def test_second_round_stop_loss_exports_only_bounded_boundary_metrics(self):
+        folder=self.root/'ssd/guidance9_t6/round2';folder.mkdir(parents=True)
+        (folder/'progress.json').write_text(json.dumps({'phase':'STOP_LOSS_TWO_ROUNDS_USED'}))
+        (folder/'qualification_report.json').write_text(json.dumps({'attempts':[
+            {'status':'error','passed':False,'task_actions_executed':8684,
+             'error':'T6_BOUNDARY_CONVERGENCE:retreat:geometry_error_m=0.000039,tcp_error_m=0.004195,orientation_error_rad=0.000055 needle_token'}]}))
+        value=module.current_t6_projection()
+        self.assertTrue(value['stop_loss_reached']);self.assertEqual(value['control_iteration'],2)
+        self.assertEqual(value['native_boundary_stops'],1)
+        self.assertAlmostEqual(value['maximum_boundary_tcp_error_mm'],4.195)
+        self.assertNotIn('needle_token',json.dumps(value))
+
     def test_legacy_gpu_error_rejects_success_without_exporting_private_log(self):
         root=self.collection('old',['success'],warning=True)
         data=module.collect_task_library();task=next(t for t in data['tasks'] if t['id']=='pour')
@@ -167,8 +179,10 @@ class RuntimeProjection(unittest.TestCase):
             ('t7_public_retained_1000_1002','view',1000,None),
             ('t7_public_retained_1003','view',1003,None),
             ('step6_native_t7_paused_ssd','heldout_evaluation',1004,None),
+            ('step6_native_t7_guidance10_remaining','heldout_evaluation',1026,None),
             ('step6_native_t4_paused','heldout_evaluation',1000,'T4-v1'),
-            ('step6_native_t4_v2_paused_ssd','heldout_evaluation',1000,'T4-v2')]:
+            ('step6_native_t4_v2_paused_ssd','heldout_evaluation',1000,'T4-v2'),
+            ('step6_native_t4_v2_guidance10_remaining','heldout_evaluation',1005,'T4-v2')]:
             p=self.root/name;p.mkdir()
             task='press' if revision else 'endpoint_stop'
             (p/'collection.json').write_text(json.dumps({'collection_kind':kind}))
@@ -177,9 +191,10 @@ class RuntimeProjection(unittest.TestCase):
             (p/'manifest.jsonl').write_text(json.dumps(row)+'\n')
         data=module.evaluation_projection()
         native=data['native_public_observation']
-        self.assertEqual(next(r for r in native if r['task_id']=='endpoint_stop')['attempts'],3)
+        self.assertEqual(next(r for r in native if r['task_id']=='endpoint_stop')['attempts'],4)
         press=[r for r in native if r['task_id']=='press']
         self.assertEqual({r['task_revision'] for r in press},{'T4-v1','T4-v2'})
+        self.assertEqual(next(r for r in press if r['task_revision']=='T4-v2')['attempts'],2)
         self.assertEqual(sum(r['superseded'] for r in press),1)
         self.assertNotIn('needle_token',json.dumps(data));self.assertNotIn(str(self.root),json.dumps(data))
 

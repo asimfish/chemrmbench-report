@@ -23,6 +23,8 @@ async function refreshStats(){
    if(r.native_startup_errors)$('t6CurrentProgress').textContent+=`${r.native_startup_errors} 条在首个任务动作前报错，不能计为物理安全通过。`;
    if(r.native_tracking_stops)$('t6CurrentProgress').textContent+=`执行动作后触发路径跟踪保护：${r.maximum_start_tracking_error_mm.toFixed(3)} mm 超过 ${r.tracking_allowance_mm} mm 预算，后续资格与主批量已停止。`;
    if(r.guidance===9)$('t6CurrentProgress').textContent+=`当前为控制修复第 ${r.control_iteration}/${r.maximum_control_iterations} 轮：自由段末收敛到规划关节构型，全臂误差 ≤${r.boundary_convergence_mm} mm，额外超时 ${r.boundary_timeout_s} s；接触后使用实测构型检查连接段。${r.control_phase==='waiting_for_existing_GPU_queue'?'等待现有采集队列释放 GPU。':''}${r.prior_tracking_stops?'上一版跟踪停止记录仍然保留。':''}`;
+   if(r.native_boundary_stops)$('t6CurrentProgress').textContent+=`段边界收敛超时 ${r.native_boundary_stops} 次${r.maximum_boundary_tcp_error_mm!==null?'，TCP残差 '+r.maximum_boundary_tcp_error_mm.toFixed(3)+' mm':''}。`;
+   if(r.stop_loss_reached)$('t6CurrentProgress').textContent+='两轮控制修复已用完，已停止T6资格测试和主批量，等待配置调整或延期决定。';
   }
   if(pilot && $('pipelineNotice')){
    $('pipelineNotice').textContent=`CPU 示意环境结果仅验证接口。T1 DP 链路试点：${pilot.training_updates} 次更新，训练累计 ${pilot.training_gpu_hours.toFixed(3)} GPU·小时（含失败）；检查点${pilot.checkpoint_saved?'已保存':'待保存'}，公开输入 CPU 推理${pilot.cpu_public_inference_passed?'通过':'待验收'}。原生动作轨道已记录 ${pilot.native_action_attempts}/${pilot.native_action_required} 条，${pilot.pipeline_complete?'链路已验收':'链路尚未验收'}。试点不作为基线数字；尚未调用 LLM/VLM。`;

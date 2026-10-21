@@ -69,12 +69,17 @@ def evaluation_projection():
     for label,task in [('t4','press'),('t7','endpoint_stop'),('t8','delayed_cue_memory'),('t3','pour'),('t6','timed_stirring')]:
         for mode in ['paused','latency_charged']:
             roots=[ROOT/('step6_native_'+label+'_'+mode)]
-            if task=='press':roots.append(ROOT/('step6_native_t4_v2_'+mode+'_ssd'))
+            if task=='press':
+                fixed=ROOT/'step6_native_t4_v2_paused_fixed50'
+                roots.extend([fixed] if mode=='paused' and (fixed/'manifest.jsonl').exists() else [
+                    ROOT/('step6_native_t4_v2_'+mode+'_ssd'),
+                    *([ROOT/'step6_native_t4_v2_guidance10_remaining'] if mode=='paused' else [])])
             elif task=='endpoint_stop' and mode=='paused':
                 fixed=ROOT/'step6_native_t7_paused_fixed50'
                 roots=[fixed] if (fixed/'manifest.jsonl').exists() else [
                     ROOT/'t7_public_retained_1000_1002',ROOT/'t7_public_retained_1003',
-                    ROOT/'step6_native_t7_paused_ssd',ROOT/'step6_native_t7_guidance8_remaining']
+                    ROOT/'step6_native_t7_paused_ssd',ROOT/'step6_native_t7_guidance8_remaining',
+                    ROOT/'step6_native_t7_guidance10_remaining']
             else:roots.append(ROOT/('step6_native_'+label+'_'+mode+'_ssd'))
             for root in roots:
                 config=read(root/'collection.json',{});path=root/'manifest.jsonl'
@@ -153,6 +158,7 @@ def current_t6_projection():
             native=latest;control={'iteration':iteration,'phase':progress.get('phase')};break
     attempts=native.get('attempts',[])
     tracking=[a for a in attempts if 'T6_PATH_TRACKING_BUDGET:' in (a.get('error') or '')]
+    boundary=[a for a in attempts if 'T6_BOUNDARY_CONVERGENCE:' in (a.get('error') or '')]
     safe_phases={'waiting_for_existing_GPU_queue','qualification_running','qualification_failed_control_review',
         'STOP_LOSS_TWO_ROUNDS_USED','running_main','running_ablation_no_timing','T6_COMPLETE','cohort_review_required'}
     return {'guidance':9 if control else 8 if native.get('guidance')==8 else 7,
@@ -168,6 +174,10 @@ def current_t6_projection():
         'native_required':3,'native_all_passed':native.get('passed') is True,
         'native_startup_errors':sum(a.get('status')=='error' and a.get('task_actions_executed')==0 for a in attempts),
         'native_tracking_stops':len(tracking),'tracking_allowance_mm':1.0,
+        'native_boundary_stops':len(boundary),
+        'maximum_boundary_tcp_error_mm':max((float(m.group(1))*1000 for a in boundary
+            if (m:=re.search(r'(?:^|,)tcp_error_m=([0-9.]+)',a.get('error','')))),default=None),
+        'stop_loss_reached':bool(control and control['phase']=='STOP_LOSS_TWO_ROUNDS_USED'),
         'maximum_start_tracking_error_mm':max((float(m.group(1))*1000 for a in tracking
             if (m:=re.search(r'start_geometry_error_m=([0-9.]+)',a.get('error','')))),default=None),
         'fixture_moved':False,'raw_force_limit_n':25}
@@ -195,6 +205,8 @@ def ssd_projection():
         ('step6_native_t7_paused_ssd','T7 public suffix'),('step6_native_t8_paused_ssd','T8 public'),
         ('step6_native_t3_paused_ssd','T3 public'),
         ('step6_native_t7_guidance8_remaining','T7 remaining public cases'),
+        ('step6_native_t7_guidance10_remaining','T7 unattempted public continuation'),
+        ('step6_native_t4_v2_guidance10_remaining','T4-v2 unattempted public continuation'),
         ('guidance8_t6/qualification_seed5000','T6 prior qualification'),
         *[(f'guidance9_t6/round{iteration}/{name}',f'T6 control round {iteration}: {name}')
             for iteration in (1,2) for name in ['qualification_seed5000','qualification_seed5001',
