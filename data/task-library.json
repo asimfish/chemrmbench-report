@@ -93,10 +93,10 @@
       {
         "task_id": "endpoint_stop",
         "clock_mode": "paused",
-        "attempts": 13,
-        "successes": 13,
+        "attempts": 14,
+        "successes": 14,
         "status_counts": {
-          "success": 13
+          "success": 14
         },
         "task_revision": null,
         "superseded": false,
@@ -136,9 +136,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 22,
+    "received_and_validated_attempts": 23,
     "target_new_attempts": 400,
-    "admitted_successes": 20,
+    "admitted_successes": 21,
     "by_task_status": [
       {
         "task_id": "pick_place",
@@ -156,7 +156,7 @@
         "task_id": "pick_place",
         "status": "success",
         "training_admitted": true,
-        "attempts": 20
+        "attempts": 21
       }
     ]
   },
@@ -178,31 +178,31 @@
     "cohorts": [
       {
         "label": "T4-v2 main",
-        "closed_attempts": 11,
+        "closed_attempts": 12,
         "expected_attempts": 20,
         "measured_status_counts": {
-          "success": 11
+          "success": 12
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 11,
+        "mirrored_closed_attempts": 12,
         "NAS_mirror_pending": true
       },
       {
         "label": "T7 public suffix",
-        "closed_attempts": 9,
+        "closed_attempts": 10,
         "expected_attempts": 46,
         "measured_status_counts": {
-          "success": 9
+          "success": 10
         },
         "batch_recording_accepted": false,
-        "mirrored_closed_attempts": 9,
+        "mirrored_closed_attempts": 10,
         "NAS_mirror_pending": true
       }
     ],
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-21T15:23:37.654924+00:00",
+  "updated_at_utc": "2026-10-21T15:34:20.817997+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1316,8 +1316,8 @@
       "title": "提示后按压",
       "dimension": "T-dl · 3 秒响应窗口",
       "status": "collecting",
-      "dataset_attempts": 11,
-      "dataset_unique_seeds": 11,
+      "dataset_attempts": 12,
+      "dataset_unique_seeds": 12,
       "target_unique_seeds": 20,
       "primary_cohort": null,
       "task_revision": "T4-v2",
@@ -1332,10 +1332,10 @@
       },
       "qualification_gate": null,
       "runtime_rejections": 0,
-      "successes": 11,
+      "successes": 12,
       "success_rate": 1.0,
       "status_counts": {
-        "success": 11
+        "success": 12
       },
       "verified_dataset_attempts": 0,
       "qualification_attempts": 0,
@@ -1634,6 +1634,31 @@
           "recording_verified": false,
           "failure_reasons": [],
           "visual_contrast_flag": false
+        },
+        {
+          "superseded": false,
+          "primary_legacy_press": false,
+          "seed": 11,
+          "variant": "default",
+          "dataset": true,
+          "evaluation": false,
+          "expert_kind": "main",
+          "ablation": false,
+          "calibration": false,
+          "memory_gate": false,
+          "diagnostic_prefix": false,
+          "status": "success",
+          "measured_status": "success",
+          "particle_runtime_supported": null,
+          "runtime_rejected": false,
+          "safe_success": true,
+          "wall_time_s": 311.67,
+          "placement_error_mm": null,
+          "return_error_mm": null,
+          "stage_count": 4,
+          "recording_verified": false,
+          "failure_reasons": [],
+          "visual_contrast_flag": false
         }
       ],
       "engineering_only": false
@@ -1715,8 +1740,8 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 2,
       "qualification_safe_successes": 1,
-      "evaluation_attempts": 13,
-      "evaluation_successes": 13,
+      "evaluation_attempts": 14,
+      "evaluation_successes": 14,
       "ablation_attempts": 10,
       "ablation_successes": 3,
       "ablation_status_counts": {
@@ -4006,7 +4031,7 @@
     }
   ],
   "native_tasks_with_dataset": 7,
-  "dataset_attempts": 134,
+  "dataset_attempts": 135,
   "calibration_attempts": 0,
   "benchmark_complete": false,
   "conference_ready": false,
