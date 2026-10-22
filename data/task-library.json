@@ -785,6 +785,33 @@
       "native_evaluation_complete": false
     }
   ],
+  "data_candidates": {
+    "tasks": [
+      {
+        "task_id": "pick_place",
+        "state": "candidate_packaged_not_uploaded",
+        "attempts": 100,
+        "exported_successes": 92,
+        "archive_bytes": 1283696640
+      },
+      {
+        "task_id": "open_cabinet",
+        "state": "waiting_complete_NAS_cohort",
+        "attempts": null,
+        "exported_successes": null,
+        "archive_bytes": null
+      },
+      {
+        "task_id": "endpoint_stop",
+        "state": "waiting_complete_NAS_cohort",
+        "attempts": null,
+        "exported_successes": null,
+        "archive_bytes": null
+      }
+    ],
+    "uploaded": false,
+    "hosting_and_license": "awaiting_owner_decision"
+  },
   "evaluation_protocol": {
     "seeds_per_task": 50,
     "seed_range": [
@@ -993,14 +1020,14 @@
     "gpu_states": [
       {
         "gpu_alias": "remote-rtx-0",
-        "phase": "wave_closed",
+        "phase": "running_wave",
         "slots": 1,
         "training_colocation_trial": false,
         "training_speed_ratio": null
       },
       {
         "gpu_alias": "remote-rtx-1",
-        "phase": "wave_closed",
+        "phase": "running_wave",
         "slots": 1,
         "training_colocation_trial": false,
         "training_speed_ratio": null
@@ -1203,7 +1230,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-22T18:47:42.978702+00:00",
+  "updated_at_utc": "2026-10-22T18:50:32.131799+00:00",
   "tasks": [
     {
       "number": "T2",

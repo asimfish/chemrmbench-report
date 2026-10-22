@@ -224,6 +224,23 @@ def local_training_projection():
     return {**lanes[0],'lanes':lanes,'purpose':'training_only','seed_claims_required_before_remote_resume':True}
 
 
+def package_projection():
+    raw=read(ROOT/'public_dataset_candidates/status.json',{})
+    states={'candidate_packaged_not_uploaded','waiting_complete_NAS_cohort','error_preserve_partial_candidate'}
+    rows=[]
+    for row in raw.get('tasks',[]):
+        if row.get('task_id') not in {'pick_place','open_cabinet','endpoint_stop'}:continue
+        values={k:row.get(k) for k in ['attempts','exported_successes','archive_bytes']}
+        for key,limit in [('attempts',100),('exported_successes',100),('archive_bytes',20*1024**3)]:
+            if type(values[key]) is not int or not 0<=values[key]<=limit:values[key]=None
+        if values['exported_successes'] is not None and (
+                values['attempts'] is None or values['exported_successes']>values['attempts']):
+            values['exported_successes']=None
+        rows.append({'task_id':row['task_id'],
+            'state':row.get('state') if row.get('state') in states else 'unknown',**values})
+    return {'tasks':rows,'uploaded':False,'hosting_and_license':'awaiting_owner_decision'}
+
+
 def throughput_projection():
     raw=read(ROOT/'GUIDANCE15_THROUGHPUT_STATUS.json',{})
     review=read(ROOT/'GUIDANCE16_TRIAL_REVIEW.json',{})
@@ -500,7 +517,7 @@ def collect_task_library():
         if task['id']=='timed_stirring':
             task.update(status='deferred',revision_note='T6推迟：两轮资格测试都是段边界跟踪失败，失败记录和视频全部保留；不阻塞七任务v0.1。')
     return {'schema_version':'chemrmbench-task-library-0.1','release':release_projection(),
-            'formal_training':formal_training_projection(),
+            'formal_training':formal_training_projection(),'data_candidates':package_projection(),
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
             'training_expansion':training_expansion_projection(),'throughput':throughput_projection(),
             'local_training':local_training_projection(),

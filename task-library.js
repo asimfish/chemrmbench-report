@@ -66,6 +66,10 @@ async function refreshStats(){
    const r=data.local_training,names={open_cabinet:'T5',endpoint_stop:'T7'},states={waiting_gpu_capacity:'等待显存',running:'正在采集',closed_one:'本条已关闭'};
    $('trainingExpansion').textContent+=' 本机补采：'+(r.lanes||[r]).filter(x=>x.phase!=='not_running').map(x=>`${names[x.task_id]||'T5/T7'} ${states[x.phase]}，host=${x.GPU_alias||'primary-local'}`).join('；')+'。仅用于训练，入库前完成NAS大小校验和离线重算。';
   }
+  if(data.data_candidates?.tasks.length && $('trainingExpansion')){
+   const names={pick_place:'T1',open_cabinet:'T5',endpoint_stop:'T7'};
+   $('trainingExpansion').textContent+=' 可迁移训练候选包：'+data.data_candidates.tasks.map(t=>`${names[t.task_id]} `+(t.state==='candidate_packaged_not_uploaded'?`${t.attempts}次尝试、${t.exported_successes}条演示`+(t.archive_bytes!==null?`、${(t.archive_bytes/1e9).toFixed(2)} GB`:''):t.state==='waiting_complete_NAS_cohort'?'等待100条验收':'待复核')).join('；')+'。候选包采用相对路径，不含原生真值或CAD；托管与许可待定，尚未上传。';
+  }
   if(data.current_t6 && $('t6CurrentProgress')){
    const r=data.current_t6;$('t6CurrentProgress').textContent=`指导${r.guidance ?? 7} 全臂修复：${r.moving_colliders} 个机器人碰撞体，CPU 连续路径资格 ${r.cpu_passed?'3/3通过':'进行中'}${r.minimum_clearance_mm!==null?'，最小运动界后余量 '+r.minimum_clearance_mm.toFixed(2)+' mm（含1mm跟踪余量）':''}。搅拌器保持原位；原生资格 ${r.native_passed}/${r.native_required} 通过，已尝试 ${r.native_attempts} 条，原始力上限仍为 ${r.raw_force_limit_n} N。${r.native_all_passed?'已满足主批量前置资格。':'尚未满足主批量前置资格。'}`;
    if(r.native_startup_errors)$('t6CurrentProgress').textContent+=`${r.native_startup_errors} 条在首个任务动作前报错，不能计为物理安全通过。`;
