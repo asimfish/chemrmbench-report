@@ -1,0 +1,164 @@
+{
+  "schema": "reproduction-followup-20261022-v1",
+  "updated_utc": "2026-10-22T20:35:46.307278+00:00",
+  "baseline_F_PASS": 34,
+  "baseline_total": 36,
+  "complete_original_reproduction": false,
+  "frozen_v1_unchanged": true,
+  "summary": "34/36，A03 与 A06 均在运行。新结果为前置测试，尚未增加通过项；完整复现仍未完成。",
+  "A03": {
+    "status": "RUNNING",
+    "rows": [
+      {
+        "robot": "ur5e",
+        "scope": "六秒空载闭合和运动学前置测试；未验收带载倾倒",
+        "native_callbacks": 1800,
+        "native_seconds": 6.000000145286322,
+        "driver_median_rad": 0.726875364780426,
+        "pad_gap_mm": [
+          5.941286683082581,
+          5.9418827295303345
+        ],
+        "motion_exceedance_joint_steps": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "jacobian_pass": true,
+        "F_PASS": false
+      },
+      {
+        "robot": "flexiv",
+        "scope": "六秒空载闭合和运动学前置测试；未验收带载倾倒",
+        "native_callbacks": 1800,
+        "native_seconds": 6.000000145286322,
+        "driver_median_rad": 0.7266268134117126,
+        "pad_gap_mm": [
+          6.114639341831207,
+          6.11492246389389
+        ],
+        "motion_exceedance_joint_steps": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "jacobian_pass": true,
+        "F_PASS": false
+      }
+    ],
+    "failed_loaded_prerequisites": [
+      {
+        "robot": "ur5e",
+        "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+        "native_callbacks": 2215,
+        "native_seconds": 7.383333512116224,
+        "minimum_observed_loaded_lift_mm": 98.9491268992424,
+        "loaded_hold_samples": 60,
+        "motion_exceedance_joint_steps": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 10
+        },
+        "F_PASS": false,
+        "scope": "原架刚体带载前置失败；未运行液体，不进入正式六例成功率分母"
+      },
+      {
+        "robot": "flexiv",
+        "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+        "native_callbacks": 1267,
+        "native_seconds": 4.223333435598761,
+        "minimum_observed_loaded_lift_mm": 0.0,
+        "loaded_hold_samples": 0,
+        "motion_exceedance_joint_steps": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 3
+        },
+        "F_PASS": false,
+        "scope": "原架刚体带载前置失败；未运行液体，不进入正式六例成功率分母"
+      }
+    ],
+    "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及 Flexiv 源 armature。移除与闭环连杆重复的 mimic 约束，保留两外驱动耦合。",
+    "remaining": "原试管架带载抓取、两机器人各三种新位姿的完整液体倾倒、负对照和视频仍待验收。旧 UR5e 3/3、Flexiv 1/3 失败记录保留。"
+  },
+  "A06": {
+    "status": "RUNNING",
+    "source": {
+      "title": "Titration NaOH HCl PP",
+      "author": "MaytouchL.",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Titration_NaOH_HCl_PP.ogv",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "recording_device": "UNKNOWN",
+      "conservative_native_frames": [
+        83,
+        194
+      ],
+      "train_frames": [
+        83,
+        149
+      ],
+      "suffix_frames": [
+        150,
+        194
+      ],
+      "assumptions": "真实人类视频的粗略瓶身下缘二维代理。100 mm/427 px 比例、水平平面和直立姿态均为声明假设；未恢复深度或完整六维位姿，不是原作者手机输入。"
+    },
+    "fluid_initialization": {
+      "scope": "原 MATTERIX CPU 刚体 + GPU-PBD 初始化短测，不是旋摇或 BC 验收",
+      "particle_count": 125,
+      "native_callbacks_including_initialization": 302,
+      "native_seconds": 1.0066666910424829,
+      "initial_world_min_m": [
+        0.3400000035762787,
+        -0.4099999964237213,
+        0.08699999749660492
+      ],
+      "final_world_min_m": [
+        0.33172687888145447,
+        -0.41996344923973083,
+        0.08564101904630661
+      ],
+      "final_ideal_cavity_inside_centers": 125,
+      "final_bottle_tilt_deg": 0.0,
+      "readback_flush_adds_physics_steps": false,
+      "limitations": "原默认参数及平滑显示粒子坐标；不是原始求解器位置或已标定的液体质量测量。"
+    },
+    "failed_tracking": {
+      "scope": "此前空瓶原速跟踪的独立只读诊断；并非含液完成结果",
+      "native_proxy_rows": 112,
+      "source_motion_Hz_by_thirds": [
+        5.135000000000004,
+        5.470000000000004,
+        5.980000000000005
+      ],
+      "result": "原速视频跟踪未过冻结门槛。保留失败，不用程序圆轨迹替代。"
+    },
+    "contact_controls": {
+      "source_support_force_N": 0.7849100232124329,
+      "suspended_finger_force_N": [
+        0.0,
+        0.0
+      ],
+      "positive_static_support_pass": true,
+      "negative_no_contact_pass": true,
+      "scope": "新接触观测正负对照通过；不证明抓持、跟踪或 BC。旧三通道零读数尝试完整保留。"
+    },
+    "remaining": "接触报告正负对照、含液抓持和原速轨迹跟踪、无旋摇负对照、真实训练及留出评测。尚无合格旋摇示范或 BC 结果。",
+    "BC_boundary": "计划的 BC 是接收视频参考目标和参考速度的条件跟踪器，配共享抓放 harness；不代表目标自由的运动生成或端到端视频策略。"
+  },
+  "figures": [
+    {
+      "src": "source-profile.png",
+      "caption": "真实输入画帧与声明尺度下的锥形瓶重建。源图和改编资产：MaytouchL.，CC BY-SA 4.0；详见署名。"
+    },
+    {
+      "src": "tracking-response.png",
+      "caption": "此前原速空瓶跟踪失败：参考与实际瓶身响应。周期信号的相关峰不唯一，不将其解释成确定的控制延迟。"
+    }
+  ]
+}
