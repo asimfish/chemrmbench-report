@@ -1,0 +1,1922 @@
+{
+  "schema_version": "chemrmbench-descriptive-analysis-0.1",
+  "updated_at_utc": "2026-10-22T17:45:10.152228+00:00",
+  "GPU_allocated": false,
+  "policy_or_verifier_changed": false,
+  "split_revision": "chemrmbench-eval-split-0.1.1",
+  "public_heuristic": {
+    "pour": {
+      "complete": false,
+      "expected_attempts": 50,
+      "attempts": 5,
+      "successes": 4,
+      "status_counts": {
+        "success": 4,
+        "error": 1
+      },
+      "success_rate": 0.8,
+      "success_wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ],
+      "time_error_s": {
+        "observed_count": 4,
+        "mean": 2.3874235921539366e-12,
+        "p95": 3.183231456205249e-12
+      },
+      "response_latency_s": {
+        "observed_count": 0,
+        "mean": null,
+        "p95": null
+      },
+      "memory_accuracy": null,
+      "memory_choice_observed_count": 0,
+      "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+      "safety_violation_rate": 0.0,
+      "safety_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "safety_observed_count": 4,
+      "safety_unknown_count": 1,
+      "sim_duration_s": {
+        "observed_count": 5,
+        "mean": 52.08750000001449,
+        "p95": 56.28750000001783
+      },
+      "wall_duration_s": {
+        "observed_count": 5,
+        "mean": 709.7710127074039,
+        "p95": 1098.0078583209774
+      },
+      "failure_reasons": {
+        "instrumentation_invalid": 1
+      },
+      "strata": {
+        "tilt_duration_s": [
+          {
+            "values": {
+              "tilt_duration_s": 2.0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 15,
+            "complete": false,
+            "realized_variant_observed_count": 2,
+            "memory_wilson95": null,
+            "attempts": 2,
+            "successes": 2,
+            "status_counts": {
+              "success": 2
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.34238022750665303,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 2,
+              "mean": 1.5916157281026244e-12,
+              "p95": 1.5916157281026244e-12
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.6576197724933469
+            ],
+            "safety_observed_count": 2,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 2,
+              "mean": 54.28750000001624,
+              "p95": 54.28750000001624
+            },
+            "wall_duration_s": {
+              "observed_count": 2,
+              "mean": 908.940272131993,
+              "p95": 1182.9644319745712
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "tilt_duration_s": 4.0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 14,
+            "complete": false,
+            "realized_variant_observed_count": 3,
+            "memory_wilson95": null,
+            "attempts": 3,
+            "successes": 2,
+            "status_counts": {
+              "success": 2,
+              "error": 1
+            },
+            "success_rate": 0.6666666666666666,
+            "success_wilson95": [
+              0.2076596008020477,
+              0.9385080552796037
+            ],
+            "time_error_s": {
+              "observed_count": 2,
+              "mean": 3.183231456205249e-12,
+              "p95": 3.183231456205249e-12
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.6576197724933469
+            ],
+            "safety_observed_count": 2,
+            "safety_unknown_count": 1,
+            "sim_duration_s": {
+              "observed_count": 3,
+              "mean": 50.62083333334666,
+              "p95": 56.28750000001783
+            },
+            "wall_duration_s": {
+              "observed_count": 3,
+              "mean": 576.9915064243445,
+              "p95": 634.9667441732133
+            },
+            "failure_reasons": {
+              "instrumentation_invalid": 1
+            }
+          },
+          {
+            "values": {
+              "tilt_duration_s": 6.0
+            },
+            "expected_attempts": 16,
+            "missing_attempts": 16,
+            "complete": false,
+            "realized_variant_observed_count": 0,
+            "memory_wilson95": null,
+            "attempts": 0,
+            "successes": 0,
+            "status_counts": {},
+            "success_rate": null,
+            "success_wilson95": null,
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": null,
+            "safety_wilson95": null,
+            "safety_observed_count": 0,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "wall_duration_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "failure_reasons": {}
+          }
+        ]
+      }
+    },
+    "press": {
+      "complete": true,
+      "expected_attempts": 50,
+      "attempts": 50,
+      "successes": 50,
+      "status_counts": {
+        "success": 50
+      },
+      "success_rate": 1.0,
+      "success_wilson95": [
+        0.9286524008666414,
+        1.0
+      ],
+      "time_error_s": {
+        "observed_count": 50,
+        "mean": 0.0,
+        "p95": 0.0
+      },
+      "response_latency_s": {
+        "observed_count": 50,
+        "mean": 2.377916666666891,
+        "p95": 2.452708333333736
+      },
+      "memory_accuracy": null,
+      "memory_choice_observed_count": 0,
+      "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+      "safety_violation_rate": 0.0,
+      "safety_wilson95": [
+        6.938893903907228e-18,
+        0.07134759913335872
+      ],
+      "safety_observed_count": 50,
+      "safety_unknown_count": 0,
+      "sim_duration_s": {
+        "observed_count": 50,
+        "mean": 12.799999999999596,
+        "p95": 19.774999999999196
+      },
+      "wall_duration_s": {
+        "observed_count": 50,
+        "mean": 352.7864467876614,
+        "p95": 426.13608817460477
+      },
+      "failure_reasons": {},
+      "strata": {
+        "cue_bin": [
+          {
+            "values": {
+              "cue_bin": 0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": null,
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 17,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 17,
+              "mean": 2.3833333333333213,
+              "p95": 2.4399999999999453
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 7.910294117646932,
+              "p95": 10.264999999999738
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 323.6600802981822,
+              "p95": 366.996648082789
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_bin": 1
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": null,
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 17,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 17,
+              "mean": 2.3867647058825523,
+              "p95": 2.4666666666669297
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 12.75147058823489,
+              "p95": 14.404999999999502
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 351.46504342540936,
+              "p95": 386.1254113436094
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_bin": 2
+            },
+            "expected_attempts": 16,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 16,
+            "memory_wilson95": null,
+            "attempts": 16,
+            "successes": 16,
+            "status_counts": {
+              "success": 16
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 16,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 16,
+              "mean": 2.3627604166671676,
+              "p95": 2.417708333333837
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1936076805344365
+            ],
+            "safety_observed_count": 16,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 16,
+              "mean": 18.046874999999297,
+              "p95": 20.44999999999916
+            },
+            "wall_duration_s": {
+              "observed_count": 16,
+              "mean": 385.1372022551259,
+              "p95": 432.84071284545644
+            },
+            "failure_reasons": {}
+          }
+        ]
+      }
+    },
+    "endpoint_stop": {
+      "complete": true,
+      "expected_attempts": 50,
+      "attempts": 50,
+      "successes": 49,
+      "status_counts": {
+        "success": 49,
+        "error": 1
+      },
+      "success_rate": 0.98,
+      "success_wilson95": [
+        0.8950455641036219,
+        0.9964607407283539
+      ],
+      "time_error_s": {
+        "observed_count": 49,
+        "mean": 0.0,
+        "p95": 0.0
+      },
+      "response_latency_s": {
+        "observed_count": 49,
+        "mean": 3.4666666666666672,
+        "p95": 3.4666666666666686
+      },
+      "memory_accuracy": null,
+      "memory_choice_observed_count": 0,
+      "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+      "safety_violation_rate": 0.0,
+      "safety_wilson95": [
+        6.938893903907228e-18,
+        0.07269781922049637
+      ],
+      "safety_observed_count": 49,
+      "safety_unknown_count": 1,
+      "sim_duration_s": {
+        "observed_count": 49,
+        "mean": 21.57491496598549,
+        "p95": 28.437499999998707
+      },
+      "wall_duration_s": {
+        "observed_count": 50,
+        "mean": 447.23025658534374,
+        "p95": 542.7278222365916
+      },
+      "failure_reasons": {
+        "instrumentation_invalid": 1
+      },
+      "strata": {
+        "n_star": [
+          {
+            "values": {
+              "n_star": 3
+            },
+            "expected_attempts": 10,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 10,
+            "memory_wilson95": null,
+            "attempts": 10,
+            "successes": 10,
+            "status_counts": {
+              "success": 10
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.7224672001371107,
+              0.9999999999999999
+            ],
+            "time_error_s": {
+              "observed_count": 10,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 10,
+              "mean": 3.4666666666666672,
+              "p95": 3.466666666666667
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "safety_observed_count": 10,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 10,
+              "mean": 14.570833333332825,
+              "p95": 14.570833333332827
+            },
+            "wall_duration_s": {
+              "observed_count": 10,
+              "mean": 400.43351612310505,
+              "p95": 457.6445563447778
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "n_star": 4
+            },
+            "expected_attempts": 10,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 10,
+            "memory_wilson95": null,
+            "attempts": 10,
+            "successes": 9,
+            "status_counts": {
+              "success": 9,
+              "error": 1
+            },
+            "success_rate": 0.9,
+            "success_wilson95": [
+              0.5958499732047615,
+              0.9821237869049271
+            ],
+            "time_error_s": {
+              "observed_count": 9,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 9,
+              "mean": 3.466666666666665,
+              "p95": 3.466666666666665
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.2991450484195441
+            ],
+            "safety_observed_count": 9,
+            "safety_unknown_count": 1,
+            "sim_duration_s": {
+              "observed_count": 9,
+              "mean": 18.037499999999298,
+              "p95": 18.037499999999298
+            },
+            "wall_duration_s": {
+              "observed_count": 10,
+              "mean": 453.1236659391085,
+              "p95": 688.3542450845703
+            },
+            "failure_reasons": {
+              "instrumentation_invalid": 1
+            }
+          },
+          {
+            "values": {
+              "n_star": 5
+            },
+            "expected_attempts": 10,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 10,
+            "memory_wilson95": null,
+            "attempts": 10,
+            "successes": 10,
+            "status_counts": {
+              "success": 10
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.7224672001371107,
+              0.9999999999999999
+            ],
+            "time_error_s": {
+              "observed_count": 10,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 10,
+              "mean": 3.4666666666666686,
+              "p95": 3.4666666666666686
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "safety_observed_count": 10,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 10,
+              "mean": 21.504166666665764,
+              "p95": 21.504166666665768
+            },
+            "wall_duration_s": {
+              "observed_count": 10,
+              "mean": 443.4697894865996,
+              "p95": 502.45868916964963
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "n_star": 6
+            },
+            "expected_attempts": 10,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 10,
+            "memory_wilson95": null,
+            "attempts": 10,
+            "successes": 10,
+            "status_counts": {
+              "success": 10
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.7224672001371107,
+              0.9999999999999999
+            ],
+            "time_error_s": {
+              "observed_count": 10,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 10,
+              "mean": 3.466666666666665,
+              "p95": 3.466666666666665
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "safety_observed_count": 10,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 10,
+              "mean": 24.970833333332234,
+              "p95": 24.970833333332237
+            },
+            "wall_duration_s": {
+              "observed_count": 10,
+              "mean": 453.6709531840985,
+              "p95": 513.445372066283
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "n_star": 7
+            },
+            "expected_attempts": 10,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 10,
+            "memory_wilson95": null,
+            "attempts": 10,
+            "successes": 10,
+            "status_counts": {
+              "success": 10
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.7224672001371107,
+              0.9999999999999999
+            ],
+            "time_error_s": {
+              "observed_count": 10,
+              "mean": 0.0,
+              "p95": 0.0
+            },
+            "response_latency_s": {
+              "observed_count": 10,
+              "mean": 3.4666666666666686,
+              "p95": 3.4666666666666686
+            },
+            "memory_accuracy": null,
+            "memory_choice_observed_count": 0,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "safety_observed_count": 10,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 10,
+              "mean": 28.437499999998703,
+              "p95": 28.437499999998707
+            },
+            "wall_duration_s": {
+              "observed_count": 10,
+              "mean": 485.45335819380705,
+              "p95": 547.641692795456
+            },
+            "failure_reasons": {}
+          }
+        ]
+      }
+    },
+    "delayed_cue_memory": {
+      "complete": true,
+      "expected_attempts": 50,
+      "attempts": 50,
+      "successes": 50,
+      "status_counts": {
+        "success": 50
+      },
+      "success_rate": 1.0,
+      "success_wilson95": [
+        0.9286524008666414,
+        1.0
+      ],
+      "time_error_s": {
+        "observed_count": 0,
+        "mean": null,
+        "p95": null
+      },
+      "response_latency_s": {
+        "observed_count": 0,
+        "mean": null,
+        "p95": null
+      },
+      "memory_accuracy": 1.0,
+      "memory_choice_observed_count": 50,
+      "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+      "safety_violation_rate": 0.0,
+      "safety_wilson95": [
+        6.938893903907228e-18,
+        0.07134759913335872
+      ],
+      "safety_observed_count": 50,
+      "safety_unknown_count": 0,
+      "sim_duration_s": {
+        "observed_count": 50,
+        "mean": 48.388833333344884,
+        "p95": 57.8875000000191
+      },
+      "wall_duration_s": {
+        "observed_count": 50,
+        "mean": 307.3499572626769,
+        "p95": 357.48887273614235
+      },
+      "failure_reasons": {},
+      "strata": {
+        "delay_s": [
+          {
+            "values": {
+              "delay_s": 3.0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 17,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 40.60563725490731,
+              "p95": 40.900833333338916
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 282.6624573459986,
+              "p95": 337.37870245103255
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "delay_s": 10.0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 17,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 47.46691176471669,
+              "p95": 47.90750000001116
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 305.90303831670076,
+              "p95": 357.7639165732311
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "delay_s": 20.0
+            },
+            "expected_attempts": 16,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 16,
+            "memory_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "attempts": 16,
+            "successes": 16,
+            "status_counts": {
+              "success": 16
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 16,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1936076805344365
+            ],
+            "safety_observed_count": 16,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 16,
+              "mean": 57.638020833352236,
+              "p95": 58.05000000001923
+            },
+            "wall_duration_s": {
+              "observed_count": 16,
+              "mean": 335.1177773042473,
+              "p95": 365.58915256353794
+            },
+            "failure_reasons": {}
+          }
+        ],
+        "cue_index": [
+          {
+            "values": {
+              "cue_index": 0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 17,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 48.07573529412895,
+              "p95": 57.917500000019125
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 308.18916648070615,
+              "p95": 357.7639165732311
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 1
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 17,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 49.01691176471792,
+              "p95": 57.767500000019005
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 302.9745675776435,
+              "p95": 354.0854845628026
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 2
+            },
+            "expected_attempts": 16,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 16,
+            "memory_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "attempts": 16,
+            "successes": 16,
+            "status_counts": {
+              "success": 16
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 16,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1936076805344365
+            ],
+            "safety_observed_count": 16,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 16,
+              "mean": 48.05416666667794,
+              "p95": 57.64166666668557
+            },
+            "wall_duration_s": {
+              "observed_count": 16,
+              "mean": 311.1071490088689,
+              "p95": 355.920924218226
+            },
+            "failure_reasons": {}
+          }
+        ],
+        "layout_index": [
+          {
+            "values": {
+              "layout_index": 0
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 17,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 50.263970588248334,
+              "p95": 57.8775000000191
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 306.55913869311405,
+              "p95": 364.11218155923996
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "layout_index": 1
+            },
+            "expected_attempts": 17,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 17,
+            "memory_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "attempts": 17,
+            "successes": 17,
+            "status_counts": {
+              "success": 17
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8156818649911483,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 17,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1843181350088518
+            ],
+            "safety_observed_count": 17,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 17,
+              "mean": 47.844362745109144,
+              "p95": 57.73083333335231
+            },
+            "wall_duration_s": {
+              "observed_count": 17,
+              "mean": 311.5797861971728,
+              "p95": 353.7675179824
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "layout_index": 2
+            },
+            "expected_attempts": 16,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 16,
+            "memory_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "attempts": 16,
+            "successes": 16,
+            "status_counts": {
+              "success": 16
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.8063923194655637,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 16,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.1936076805344365
+            ],
+            "safety_observed_count": 16,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 16,
+              "mean": 46.97500000001042,
+              "p95": 57.8875000000191
+            },
+            "wall_duration_s": {
+              "observed_count": 16,
+              "mean": 303.6960087499356,
+              "p95": 350.23101319075795
+            },
+            "failure_reasons": {}
+          }
+        ],
+        "cue_index+delay_s": [
+          {
+            "values": {
+              "cue_index": 0,
+              "delay_s": 3.0
+            },
+            "expected_attempts": 6,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 6,
+            "memory_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "attempts": 6,
+            "successes": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 6,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ],
+            "safety_observed_count": 6,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 6,
+              "mean": 40.562500000005315,
+              "p95": 40.800000000005504
+            },
+            "wall_duration_s": {
+              "observed_count": 6,
+              "mean": 287.34545470867306,
+              "p95": 341.57069680800487
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 0,
+              "delay_s": 10.0
+            },
+            "expected_attempts": 6,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 6,
+            "memory_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "attempts": 6,
+            "successes": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 6,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ],
+            "safety_observed_count": 6,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 6,
+              "mean": 47.49583333334417,
+              "p95": 47.875000000011134
+            },
+            "wall_duration_s": {
+              "observed_count": 6,
+              "mean": 312.90118720783113,
+              "p95": 360.9249093895196
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 0,
+              "delay_s": 20.0
+            },
+            "expected_attempts": 5,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 5,
+            "memory_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "attempts": 5,
+            "successes": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 5,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.43448246478317476
+            ],
+            "safety_observed_count": 5,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 5,
+              "mean": 57.78750000001902,
+              "p95": 58.0075000000192
+            },
+            "wall_duration_s": {
+              "observed_count": 5,
+              "mean": 327.5471957345959,
+              "p95": 334.83345689217094
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 1,
+              "delay_s": 3.0
+            },
+            "expected_attempts": 5,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 5,
+            "memory_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "attempts": 5,
+            "successes": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 5,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.43448246478317476
+            ],
+            "safety_observed_count": 5,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 5,
+              "mean": 40.56750000000532,
+              "p95": 40.89750000000558
+            },
+            "wall_duration_s": {
+              "observed_count": 5,
+              "mean": 267.78729790777436,
+              "p95": 279.57277774019167
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 1,
+              "delay_s": 10.0
+            },
+            "expected_attempts": 6,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 6,
+            "memory_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "attempts": 6,
+            "successes": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 6,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ],
+            "safety_observed_count": 6,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 6,
+              "mean": 47.512500000010846,
+              "p95": 47.887500000011144
+            },
+            "wall_duration_s": {
+              "observed_count": 6,
+              "mean": 302.006452799668,
+              "p95": 339.04578760299773
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 1,
+              "delay_s": 20.0
+            },
+            "expected_attempts": 6,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 6,
+            "memory_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "attempts": 6,
+            "successes": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 6,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ],
+            "safety_observed_count": 6,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 6,
+              "mean": 57.562500000018844,
+              "p95": 57.98750000001918
+            },
+            "wall_duration_s": {
+              "observed_count": 6,
+              "mean": 333.2654070805099,
+              "p95": 355.92336308353697
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 2,
+              "delay_s": 3.0
+            },
+            "expected_attempts": 6,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 6,
+            "memory_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "attempts": 6,
+            "successes": 6,
+            "status_counts": {
+              "success": 6
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.6096657120978346,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 6,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ],
+            "safety_observed_count": 6,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 6,
+              "mean": 40.680555555560964,
+              "p95": 40.85312500000555
+            },
+            "wall_duration_s": {
+              "observed_count": 6,
+              "mean": 290.37542618184426,
+              "p95": 335.1504054812831
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 2,
+              "delay_s": 10.0
+            },
+            "expected_attempts": 5,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 5,
+            "memory_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "attempts": 5,
+            "successes": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 5,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.43448246478317476
+            ],
+            "safety_observed_count": 5,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 5,
+              "mean": 47.37750000001074,
+              "p95": 47.47750000001082
+            },
+            "wall_duration_s": {
+              "observed_count": 5,
+              "mean": 302.18116226778363,
+              "p95": 331.54503338558135
+            },
+            "failure_reasons": {}
+          },
+          {
+            "values": {
+              "cue_index": 2,
+              "delay_s": 20.0
+            },
+            "expected_attempts": 5,
+            "missing_attempts": 0,
+            "complete": true,
+            "realized_variant_observed_count": 5,
+            "memory_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "attempts": 5,
+            "successes": 5,
+            "status_counts": {
+              "success": 5
+            },
+            "success_rate": 1.0,
+            "success_wilson95": [
+              0.5655175352168251,
+              1.0
+            ],
+            "time_error_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "response_latency_s": {
+              "observed_count": 0,
+              "mean": null,
+              "p95": null
+            },
+            "memory_accuracy": 1.0,
+            "memory_choice_observed_count": 5,
+            "memory_scope": "explicit selected-candidate correctness; missing choices count unsuccessful",
+            "safety_violation_rate": 0.0,
+            "safety_wilson95": [
+              0.0,
+              0.43448246478317476
+            ],
+            "safety_observed_count": 5,
+            "safety_unknown_count": 0,
+            "sim_duration_s": {
+              "observed_count": 5,
+              "mean": 57.57916666668552,
+              "p95": 57.64166666668557
+            },
+            "wall_duration_s": {
+              "observed_count": 5,
+              "mean": 344.9112031423836,
+              "p95": 379.25763938539893
+            },
+            "failure_reasons": {}
+          }
+        ]
+      }
+    }
+  },
+  "matched_development_bounds": {
+    "pour": {
+      "pairs": 10,
+      "both_success": 3,
+      "upper_only_success": 6,
+      "lower_only_success": 1,
+      "neither_success": 0,
+      "upper_successes": 9,
+      "lower_successes": 4,
+      "upper_wilson95": [
+        0.5958499732047615,
+        0.9821237869049271
+      ],
+      "lower_wilson95": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "paired_success_difference": 0.5,
+      "scope": "descriptive matched development comparison; not a held-out learned-policy effect",
+      "design_and_empirical_checks": {
+        "design": {
+          "p_max": 0.3333333333333333,
+          "derivation": "1/3 uniform durations",
+          "limit": 0.35,
+          "passed": true,
+          "scope": "optimal single fixed response under the declared uniform variant distribution; no cue access"
+        },
+        "empirical": {
+          "evaluated": true,
+          "successes": 4,
+          "trials": 10,
+          "p_null": 0.3333333333333333,
+          "one_sided_tail_probability": 0.44073566021439836,
+          "alpha": 0.05,
+          "passed": true,
+          "rule": "report if P[Binomial(10,p_max)>=observed successes]<0.05"
+        },
+        "review_required": false
+      }
+    },
+    "press": {
+      "pairs": 10,
+      "both_success": 4,
+      "upper_only_success": 6,
+      "lower_only_success": 0,
+      "neither_success": 0,
+      "upper_successes": 10,
+      "lower_successes": 4,
+      "upper_wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ],
+      "lower_wilson95": [
+        0.16818032970623614,
+        0.6873262302663417
+      ],
+      "paired_success_difference": 0.6,
+      "scope": "descriptive matched development comparison; not a held-out learned-policy effect",
+      "design_and_empirical_checks": {
+        "design": {
+          "p_max": 0.2,
+          "derivation": "3/(17-2)",
+          "limit": 0.35,
+          "passed": true,
+          "scope": "optimal single fixed response under the declared uniform variant distribution; no cue access"
+        },
+        "empirical": {
+          "evaluated": true,
+          "successes": 4,
+          "trials": 10,
+          "p_null": 0.2,
+          "one_sided_tail_probability": 0.12087388160000007,
+          "alpha": 0.05,
+          "passed": true,
+          "rule": "report if P[Binomial(10,p_max)>=observed successes]<0.05"
+        },
+        "review_required": false
+      }
+    },
+    "endpoint_stop": {
+      "pairs": 10,
+      "both_success": 3,
+      "upper_only_success": 7,
+      "lower_only_success": 0,
+      "neither_success": 0,
+      "upper_successes": 10,
+      "lower_successes": 3,
+      "upper_wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ],
+      "lower_wilson95": [
+        0.10779126740630099,
+        0.6032218525388546
+      ],
+      "paired_success_difference": 0.7,
+      "scope": "descriptive matched development comparison; not a held-out learned-policy effect",
+      "design_and_empirical_checks": {
+        "design": {
+          "p_max": 0.2,
+          "derivation": "1/(7-3+1) uniform counts",
+          "limit": 0.35,
+          "passed": true,
+          "scope": "optimal single fixed response under the declared uniform variant distribution; no cue access"
+        },
+        "empirical": {
+          "evaluated": true,
+          "successes": 3,
+          "trials": 10,
+          "p_null": 0.2,
+          "one_sided_tail_probability": 0.3222004736000002,
+          "alpha": 0.05,
+          "passed": true,
+          "rule": "report if P[Binomial(10,p_max)>=observed successes]<0.05"
+        },
+        "review_required": false
+      }
+    },
+    "delayed_cue_memory": {
+      "pairs": 10,
+      "both_success": 3,
+      "upper_only_success": 7,
+      "lower_only_success": 0,
+      "neither_success": 0,
+      "upper_successes": 10,
+      "lower_successes": 3,
+      "upper_wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ],
+      "lower_wilson95": [
+        0.10779126740630099,
+        0.6032218525388546
+      ],
+      "paired_success_difference": 0.7,
+      "scope": "descriptive matched development comparison; not a held-out learned-policy effect",
+      "design_and_empirical_checks": {
+        "design": {
+          "p_max": 0.3333333333333333,
+          "derivation": "1/3 uniform cue indices",
+          "limit": 0.35,
+          "passed": true,
+          "scope": "optimal single fixed response under the declared uniform variant distribution; no cue access"
+        },
+        "empirical": {
+          "evaluated": true,
+          "successes": 3,
+          "trials": 10,
+          "p_null": 0.3333333333333333,
+          "one_sided_tail_probability": 0.7008586089518877,
+          "alpha": 0.05,
+          "passed": true,
+          "rule": "report if P[Binomial(10,p_max)>=observed successes]<0.05"
+        },
+        "review_required": false
+      }
+    }
+  },
+  "limitations": [
+    "Errors stay in success denominators; unrun seeds are missing, never scored zero.",
+    "Strata use fixed planned assignments; realized-variant and measurement coverage are explicit.",
+    "Small matched development cohorts do not establish learned-policy generalization.",
+    "T3 partial results cannot support a full evaluation claim; T6 remains deferred.",
+    "This aggregate analysis is not a policy observation and does not select checkpoints."
+  ]
+}
