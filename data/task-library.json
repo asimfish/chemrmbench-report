@@ -115,18 +115,23 @@
             "memory_accuracy": null
           },
           "dp": {
-            "attempts": 0,
+            "attempts": 1,
             "successes": 0,
             "expected_attempts": 50,
             "complete": false,
-            "verifier_protocols": [],
+            "verifier_protocols": [
+              "measured-v1"
+            ],
             "runtime": {
-              "host_alias": null,
-              "recorded_host_attempts": 0,
+              "host_alias": "primary-local",
+              "recorded_host_attempts": 1,
               "missing_host_attempts": 0,
-              "distinct_recorded_hosts": 0
+              "distinct_recorded_hosts": 1
             },
-            "success_wilson95": null,
+            "success_wilson95": [
+              0.0,
+              0.7934506856227626
+            ],
             "time_error_s": {
               "mean": null,
               "p95": null,
@@ -265,8 +270,8 @@
             "memory_accuracy": null
           },
           "public_heuristic": {
-            "attempts": 3,
-            "successes": 3,
+            "attempts": 5,
+            "successes": 4,
             "expected_attempts": 50,
             "complete": false,
             "verifier_protocols": [
@@ -274,18 +279,18 @@
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 3,
+              "recorded_host_attempts": 5,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.4385029682449546,
-              1.0
+              0.37553462976252533,
+              0.9637758913675698
             ],
             "time_error_s": {
-              "mean": 2.6526928801710406e-12,
+              "mean": 2.3874235921539366e-12,
               "p95": 3.183231456205249e-12,
-              "observed_count": 3
+              "observed_count": 4
             },
             "response_latency_s": {
               "mean": null,
@@ -685,21 +690,21 @@
             "memory_accuracy": 0.3
           },
           "public_heuristic": {
-            "attempts": 26,
-            "successes": 26,
+            "attempts": 50,
+            "successes": 50,
             "expected_attempts": 50,
-            "complete": false,
+            "complete": true,
             "verifier_protocols": [
               "measured-v1"
             ],
             "runtime": {
               "host_alias": "primary-local",
-              "recorded_host_attempts": 26,
+              "recorded_host_attempts": 50,
               "missing_host_attempts": 0,
               "distinct_recorded_hosts": 1
             },
             "success_wilson95": [
-              0.8712710781407846,
+              0.9286524008666414,
               1.0
             ],
             "time_error_s": {
@@ -748,7 +753,7 @@
   "formal_training": [
     {
       "task_id": "pick_place",
-      "phase": "checkpoint_returned",
+      "phase": "evaluation_stopped_prefix",
       "attempt": 2,
       "prior_failed_attempts": 1,
       "attempts": 100,
@@ -989,11 +994,14 @@
         "training_speed_ratio": 0.9978427179201295
       }
     ],
-    "CPU_cores": 180,
-    "CPU_load_limit": 135.0,
+    "CPU_cores": 40,
+    "CPU_load_limit": 30.0,
     "training_baseline_steps_per_second": 2.396859005312538,
     "completed_waves": 2,
-    "colocation_paused": false
+    "colocation_paused": false,
+    "remote_connection": "unreachable",
+    "CPU_parallelism_measured": false,
+    "serial_wall_comparison_available": false
   },
   "current_t6": {
     "guidance": 9,
@@ -1164,7 +1172,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-22T03:14:58.189378+00:00",
+  "updated_at_utc": "2026-10-22T16:56:05.981034+00:00",
   "tasks": [
     {
       "number": "T2",
@@ -1746,7 +1754,7 @@
       "verified_dataset_attempts": 20,
       "qualification_attempts": 13,
       "qualification_safe_successes": 3,
-      "evaluation_attempts": 0,
+      "evaluation_attempts": 1,
       "evaluation_successes": 0,
       "ablation_attempts": 0,
       "ablation_successes": 0,

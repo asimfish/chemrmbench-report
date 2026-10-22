@@ -202,6 +202,8 @@ def training_expansion_projection():
 
 def throughput_projection():
     raw=read(ROOT/'GUIDANCE15_THROUGHPUT_STATUS.json',{})
+    review=read(ROOT/'GUIDANCE16_TRIAL_REVIEW.json',{})
+    CPU=review.get('CPU_admission',{})
     phases={'running_wave','wave_closed','waiting_memory','waiting_training_lease'}
     def number(value):return value if type(value) in (int,float) and math.isfinite(value) else None
     # Only approved numeric fields and fixed aliases leave the private report.
@@ -212,11 +214,16 @@ def throughput_projection():
             'phase':row.get('state') if row.get('state') in phases else 'unknown',
             'slots':number(row.get('slots')),'training_colocation_trial':row.get('training_colocation_trial') is True,
             'training_speed_ratio':number(row.get('training_speed_ratio'))})
+    cores=number(CPU.get('effective_cgroup_quota_cores',raw.get('cores')))
     return {'scope':'training_only_scheduling_not_a_benchmark_score','gpu_states':states,
-        'CPU_cores':number(raw.get('cores')),'CPU_load_limit':.75*raw['cores'] if type(raw.get('cores')) is int else None,
+        'CPU_cores':cores,'CPU_load_limit':.75*cores if cores is not None else None,
         'training_baseline_steps_per_second':number((raw.get('training_baseline') or {}).get('steps_per_second')),
         'completed_waves':len(raw.get('closed_waves',[])),
-        'colocation_paused':bool(raw.get('colocation_pauses'))}
+        'colocation_paused':bool(raw.get('colocation_pauses')),
+        'remote_connection':'unreachable' if CPU.get('state')=='measurement_pending_remote_SSH_unreachable' else 'not_checked',
+        'CPU_parallelism_measured':CPU.get('maximum_collection_processes_by_CPU') is not None,
+        'serial_wall_comparison_available':bool(review.get('trial')) and all(
+            r.get('serial_wall_baseline_available') is True for r in review['trial'])}
 
 
 def ssd_projection():
