@@ -934,15 +934,15 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 93,
+    "received_and_validated_attempts": 94,
     "target_new_attempts": 400,
-    "admitted_successes": 86,
+    "admitted_successes": 87,
     "by_task_status": [
       {
         "task_id": "endpoint_stop",
         "status": "success",
         "training_admitted": true,
-        "attempts": 2
+        "attempts": 3
       },
       {
         "task_id": "open_cabinet",
@@ -1007,6 +1007,13 @@
     "phase": "running",
     "task_id": "endpoint_stop",
     "GPU_alias": "primary-local-1",
+    "lanes": [
+      {
+        "phase": "running",
+        "task_id": "endpoint_stop",
+        "GPU_alias": "primary-local-1"
+      }
+    ],
     "purpose": "training_only",
     "seed_claims_required_before_remote_resume": true
   },
@@ -1179,7 +1186,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-22T17:10:04.834327+00:00",
+  "updated_at_utc": "2026-10-22T17:19:26.038808+00:00",
   "tasks": [
     {
       "number": "T2",

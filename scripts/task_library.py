@@ -212,12 +212,16 @@ def training_expansion_projection():
 
 
 def local_training_projection():
-    state=read(SSD/'training_expansion_fallback/progress.json',{})
+    root=SSD/'training_expansion_fallback'
+    sources=sorted(root.glob('gpu_?/progress.json')) or [root/'progress.json']
     allowed={'waiting_gpu_capacity','running','closed_one'}
-    return {'phase':state.get('state') if state.get('state') in allowed else 'not_running',
-        'task_id':state.get('task_id') if state.get('task_id') in {'open_cabinet','endpoint_stop'} else None,
-        'GPU_alias':'primary-local-'+str(state['gpu']) if str(state.get('gpu')) in {'0','1'} else None,
-        'purpose':'training_only','seed_claims_required_before_remote_resume':True}
+    lanes=[]
+    for source in sources:
+        state=read(source,{})
+        lanes.append({'phase':state.get('state') if state.get('state') in allowed else 'not_running',
+            'task_id':state.get('task_id') if state.get('task_id') in {'open_cabinet','endpoint_stop'} else None,
+            'GPU_alias':'primary-local-'+str(state['gpu']) if str(state.get('gpu')) in {'0','1'} else None})
+    return {**lanes[0],'lanes':lanes,'purpose':'training_only','seed_claims_required_before_remote_resume':True}
 
 
 def throughput_projection():
