@@ -382,6 +382,7 @@
       }
     ],
     "source_E2_acceptance_established": false,
+    "acceptance_declaration_is_original_experiment_snapshot": true,
     "exporter_does_not_decide_acceptance": true,
     "takeover_comparison": {
       "status": "MEASURED_CLOSED_PAIR",
@@ -445,5 +446,212 @@
       }
     },
     "E2_noise4_and_noise6": "NOT_REQUIRED_NO_E2_RUN_REPORTED"
+  },
+  "noise2_retest": {
+    "status": "CLOSED_RETEST_ORIGINAL_PRESERVED",
+    "full_experiment_complete": true,
+    "result": {
+      "experiment": "E2_noise2_full20_retest",
+      "status": "CLOSED_RETEST_ORIGINAL_PRESERVED",
+      "completed_physical_cases": 20,
+      "planned_denominator": 20,
+      "new_criterion_counts": {
+        "PASS": 19,
+        "FAIL": 1,
+        "INDETERMINATE": 0
+      },
+      "stored_old_successes": 18,
+      "motion_qualified_new_successes": 13,
+      "motion_joint_native_step_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 16
+      },
+      "wilson95": [
+        0.763868806553258,
+        0.9911185511992047
+      ],
+      "validation_queries_paid": 14000
+    },
+    "cumulative_accounting": {
+      "attempts": 40,
+      "task_successes": 22,
+      "physically_completed": 24,
+      "resource_interruptions": 16,
+      "validation_queries_paid": 16928,
+      "distinct_source_instances": 20,
+      "pooled_confidence_interval": null,
+      "scope": "Repeated same20 sources; accounting only, never40 independent task instances"
+    }
+  },
+  "E2_scoped_acceptance": {
+    "status": "E2_ACCEPTED_FOR_OFFLINE_RELABEL_AND_QUICK_FIT",
+    "root_scoped_acceptance": true,
+    "accepted_scope": "Offline E2 relabel and fixed M3/M4 seed31 learning probe only",
+    "lower_tolerance_m": 0.006,
+    "noise_pair_sigma_mm": [
+      2,
+      3
+    ],
+    "remaining_library_relabel_released": false,
+    "safety_certification": false,
+    "method_success_established": false,
+    "exporter_does_not_decide_acceptance": true
+  },
+  "quick_learning_pipeline": {
+    "status": "COMPLETE_E2_QUICK2_FIXED40K_CPU_NOT_NATIVE_EVALUATED",
+    "paid_relabel_queries": 168000,
+    "fixed_fits": [
+      {
+        "method": "M3",
+        "status": "G11_E2_FIXED40K_CPU_PASS_NOT_NATIVE_EVALUATED",
+        "training_updates": 40000,
+        "fixed40k_fit_complete": true
+      },
+      {
+        "method": "M4",
+        "status": "G11_E2_FIXED40K_CPU_PASS_NOT_NATIVE_EVALUATED",
+        "training_updates": 40000,
+        "fixed40k_fit_complete": true
+      }
+    ],
+    "total_training_updates": 80000,
+    "native_evaluation_established": false,
+    "scope": "Two fixed40k CPU fits; running or missing checkpoints are not completed student results"
+  },
+  "motion_qualified_comparisons": {
+    "noise2": {
+      "E1": 15,
+      "E2": 13,
+      "denominator": 20
+    },
+    "noise3": {
+      "E1": 1,
+      "E2": 5,
+      "denominator": 20
+    },
+    "C3_takeover": {
+      "E1": 46,
+      "E2": 49,
+      "denominator": 50
+    },
+    "definition": "Task PASS with all four frozen motion-limit counters zero; saturation counters excluded",
+    "does_not_establish_uniform_safe_robustness": true
+  },
+  "quick_evaluation": {
+    "status": "BOTH_FIXED_E2_N03_BANKS_CLOSED_RAW_AUDIT_PASS",
+    "complete": true,
+    "rows": [
+      {
+        "method": "M3",
+        "denominator": 50,
+        "new_criterion_counts": {
+          "PASS": 3,
+          "FAIL": 47,
+          "INDETERMINATE": 0
+        },
+        "new_successes": 3,
+        "old_successes": 0,
+        "new_wilson95": [
+          0.02061497034897397,
+          0.16217091688838173
+        ],
+        "old_wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "motion_qualified_new_successes": 1,
+        "stage_ever_counts": {
+          "grasp": 22,
+          "lift": 22,
+          "transport": 19,
+          "place": 2,
+          "release": 2
+        },
+        "motion_joint_native_step_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 105
+        },
+        "ge10_of50_new_criterion": false,
+        "query_count": 0,
+        "teacher_guard_invocations": 0,
+        "parameter_updates": 0,
+        "trained_rows": 0
+      },
+      {
+        "method": "M4",
+        "denominator": 50,
+        "new_criterion_counts": {
+          "PASS": 2,
+          "FAIL": 48,
+          "INDETERMINATE": 0
+        },
+        "new_successes": 2,
+        "old_successes": 0,
+        "new_wilson95": [
+          0.011038884327619805,
+          0.1346009068750702
+        ],
+        "old_wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "motion_qualified_new_successes": 0,
+        "stage_ever_counts": {
+          "grasp": 13,
+          "lift": 13,
+          "transport": 13,
+          "place": 2,
+          "release": 2
+        },
+        "motion_joint_native_step_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 42
+        },
+        "ge10_of50_new_criterion": false,
+        "query_count": 0,
+        "teacher_guard_invocations": 0,
+        "parameter_updates": 0,
+        "trained_rows": 0
+      }
+    ],
+    "earlier_reference": [
+      {
+        "method": "M3",
+        "denominator": 50,
+        "old_successes": 0,
+        "strict_new_successes": null,
+        "stage_ever_counts": {
+          "grasp": 26,
+          "lift": 26,
+          "transport": 26,
+          "place": 0,
+          "release": 0
+        },
+        "new_criterion_scope": "NA: earlier20Hz records cannot establish strict terminal120Hz criterion"
+      },
+      {
+        "method": "M4",
+        "denominator": 50,
+        "old_successes": 0,
+        "strict_new_successes": null,
+        "stage_ever_counts": {
+          "grasp": 20,
+          "lift": 20,
+          "transport": 19,
+          "place": 2,
+          "release": 1
+        },
+        "new_criterion_scope": "NA: earlier20Hz records cannot establish strict terminal120Hz criterion"
+      }
+    ],
+    "same50_sources_reused": true,
+    "no_pooled_confidence_interval": true,
+    "reporting_threshold_does_not_authorize_new_experiments": true
   }
 }
