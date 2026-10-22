@@ -934,9 +934,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 111,
+    "received_and_validated_attempts": 112,
     "target_new_attempts": 400,
-    "admitted_successes": 102,
+    "admitted_successes": 103,
     "by_task_status": [
       {
         "task_id": "endpoint_stop",
@@ -960,7 +960,7 @@
         "task_id": "open_cabinet",
         "status": "success",
         "training_admitted": true,
-        "attempts": 15
+        "attempts": 16
       },
       {
         "task_id": "pick_place",
@@ -993,25 +993,18 @@
     "gpu_states": [
       {
         "gpu_alias": "remote-rtx-0",
-        "phase": "wave_closed",
+        "phase": "running_wave",
         "slots": 1,
         "training_colocation_trial": false,
-        "training_speed_ratio": 1.0045516727349175
-      },
-      {
-        "gpu_alias": "remote-rtx-1",
-        "phase": "wave_closed",
-        "slots": 1,
-        "training_colocation_trial": true,
-        "training_speed_ratio": 0.9978427179201295
+        "training_speed_ratio": null
       }
     ],
     "CPU_cores": 40,
     "CPU_load_limit": 30.0,
-    "training_baseline_steps_per_second": 2.396859005312538,
-    "completed_waves": 2,
+    "training_baseline_steps_per_second": null,
+    "completed_waves": 0,
     "colocation_paused": false,
-    "remote_connection": "unreachable",
+    "remote_connection": "reachable",
     "CPU_parallelism_measured": false,
     "serial_wall_comparison_available": false
   },
@@ -1203,7 +1196,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-22T18:22:31.106534+00:00",
+  "updated_at_utc": "2026-10-22T18:25:31.557116+00:00",
   "tasks": [
     {
       "number": "T2",

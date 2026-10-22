@@ -55,10 +55,12 @@ async function refreshStats(){
    $('trainingExpansion').textContent+=' 正式DP：'+data.formal_training.map(t=>`${names[t.task_id]} ${phases[t.phase]||'状态待核对'}`+(t.attempts!==null?`，第${t.attempt}次进程，${t.successful_public_demonstrations}/${t.attempts}条可用演示，本次单卡上限${t.single_GPU_hour_cap===null?'待核对':t.single_GPU_hour_cap.toFixed(3)}小时，host=${t.execution_host_alias}`:'')+(t.prior_failed_attempts?`；保留${t.prior_failed_attempts}次初始化失败`:'')).join('；')+'。训练状态不代表评测成功率。';
   }
   if(data.throughput && data.throughput.gpu_states.length && $('trainingExpansion')){
-   const p=data.throughput, labels={running_wave:'正在采集',wave_closed:'本批已关闭',waiting_memory:'等待显存',waiting_training_lease:'等待训练释放'};
+   const p=data.throughput, labels={running_wave:'正在采集',wave_closed:'本批已关闭',waiting_memory:'等待显存',waiting_training_lease:'等待训练释放',waiting_CPU_profile:'等待首条CPU测量',waiting_CPU:'等待CPU预算'};
    $('trainingExpansion').textContent+=' 扩采调度：'+p.gpu_states.map(s=>`${s.gpu_alias} ${labels[s.phase]||'待核对'}`+(s.slots!==null?`，${s.slots}槽`:'' )+(s.training_colocation_trial?'（与训练同卡试运行）':'')+(s.training_speed_ratio!==null?`，训练步速比${s.training_speed_ratio.toFixed(3)}`:'')).join('；')+`。已关闭${p.completed_waves}个测量批次`+(p.colocation_paused?'；同卡采集因步速门禁暂停':'')+'。调度结果不计入基准得分。';
    if(p.CPU_cores!==null)$('trainingExpansion').textContent+=` 有效CPU配额${p.CPU_cores}核，预算${p.CPU_load_limit}核。`;
    if(p.remote_connection==='unreachable')$('trainingExpansion').textContent+=' 远程连接中断，远程扩采暂停；volc逐进程CPU测量和单进程耗时比较待补。';
+   if(p.remote_connection==='reachable')$('trainingExpansion').textContent+=' 远端连接已恢复；本机与远端按奇偶seed分工，训练数据分别记录host。';
+   if(p.remote_connection==='stale')$('trainingExpansion').textContent+=' 远端状态已过期，当前运行情况待复核。';
   }
   if(data.local_training && data.local_training.phase!=='not_running' && $('trainingExpansion')){
    const r=data.local_training,names={open_cabinet:'T5',endpoint_stop:'T7'},states={waiting_gpu_capacity:'等待显存',running:'正在采集',closed_one:'本条已关闭'};
