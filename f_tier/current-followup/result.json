@@ -1,6 +1,6 @@
 {
   "schema": "reproduction-followup-20261022-v1",
-  "updated_utc": "2026-10-22T20:35:46.307278+00:00",
+  "updated_utc": "2026-10-22T21:35:32.787747+00:00",
   "baseline_F_PASS": 34,
   "baseline_total": 36,
   "complete_original_reproduction": false,
@@ -82,8 +82,57 @@
         "scope": "原架刚体带载前置失败；未运行液体，不进入正式六例成功率分母"
       }
     ],
-    "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及 Flexiv 源 armature。移除与闭环连杆重复的 mimic 约束，保留两外驱动耦合。",
-    "remaining": "原试管架带载抓取、两机器人各三种新位姿的完整液体倾倒、负对照和视频仍待验收。旧 UR5e 3/3、Flexiv 1/3 失败记录保留。"
+    "verified_loaded_lift_prerequisites": [
+      {
+        "robot": "ur5e",
+        "scope": "同一六秒平滑抬升轨迹的刚体前置测试；尚非完整倾倒",
+        "minimum_loaded_lift_mm": 99.85735639929771,
+        "native_callbacks": 3230,
+        "native_seconds": 10.7666669273749,
+        "sustained_bilateral_contact": true,
+        "motion_exceedance_joint_steps": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "rack_or_neighbor_contact_ticks": 0,
+        "F_PASS": false
+      },
+      {
+        "robot": "flexiv",
+        "scope": "同一六秒平滑抬升轨迹的刚体前置测试；尚非完整倾倒",
+        "minimum_loaded_lift_mm": 99.84089061617851,
+        "native_callbacks": 3445,
+        "native_seconds": 11.48333361139521,
+        "sustained_bilateral_contact": true,
+        "motion_exceedance_joint_steps": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "rack_or_neighbor_contact_ticks": 0,
+        "F_PASS": false
+      }
+    ],
+    "failed_complete_rigid_prerequisite": {
+      "robot": "ur5e",
+      "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+      "native_callbacks": 5400,
+      "native_seconds": 18.000000435858965,
+      "phase": "tilt",
+      "motion_exceedance_joint_steps": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 0
+      },
+      "PBD_started": false,
+      "scope": "完整刚体前置在倾倒转段失败；不计作液体成功"
+    },
+    "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。",
+    "remaining": "完整刚体倾倒在转段时仍失败，正在修正全工具连续路径；尚未开始正式六例液体评测。两机器人各三种新位姿的液体倾倒、负对照和实际视频仍待验收。所有旧失败保留。"
   },
   "A06": {
     "status": "RUNNING",
@@ -129,14 +178,53 @@
       "limitations": "原默认参数及平滑显示粒子坐标；不是原始求解器位置或已标定的液体质量测量。"
     },
     "failed_tracking": {
-      "scope": "此前空瓶原速跟踪的独立只读诊断；并非含液完成结果",
+      "scope": "014 含液原速完整执行；原空瓶频率诊断另保留",
       "native_proxy_rows": 112,
       "source_motion_Hz_by_thirds": [
         5.135000000000004,
         5.470000000000004,
         5.980000000000005
       ],
-      "result": "原速视频跟踪未过冻结门槛。保留失败，不用程序圆轨迹替代。"
+      "result": "含液原速执行已完成抓取、旋摇和归还，但跟踪仍失败：TCP 平面 RMS 5.132 mm，瓶身 RMS 9.494 mm、95 分位 14.494 mm，四类运动超限为 0/0/0/4。保留冻结门槛与原失败。"
+    },
+    "original_time_execution": {
+      "scope": "014 含液原速完整执行，不是通过的示范",
+      "native_callbacks": 10500,
+      "native_seconds": 35.00000084750354,
+      "motion_exceedance_joint_steps": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 4
+      },
+      "tracking": {
+        "TCP_XY": {
+          "RMS_m": 0.005131592974066734,
+          "p95_m": 0.008089151047170161,
+          "max_m": 0.009490879252552986
+        },
+        "bottle_XY_relative": {
+          "RMS_m": 0.009494137018918991,
+          "p95_m": 0.014494075626134872,
+          "max_m": 0.0158689022064209
+        }
+      },
+      "A06_complete": false
+    },
+    "latest_static_grasp_diagnostic": {
+      "scope": "020 单次几何候选的四秒静持；失败，不是旋摇或 BC 通过",
+      "grasp_height_mm": 100.0,
+      "native_callbacks": 3240,
+      "native_seconds": 10.800000261515379,
+      "motion_exceedance_joint_steps": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 33
+      },
+      "new_training_labels": 0,
+      "new_parameter_updates": 0,
+      "A06_complete": false
     },
     "contact_controls": {
       "source_support_force_N": 0.7849100232124329,
@@ -148,7 +236,7 @@
       "negative_no_contact_pass": true,
       "scope": "新接触观测正负对照通过；不证明抓持、跟踪或 BC。旧三通道零读数尝试完整保留。"
     },
-    "remaining": "接触报告正负对照、含液抓持和原速轨迹跟踪、无旋摇负对照、真实训练及留出评测。尚无合格旋摇示范或 BC 结果。",
+    "remaining": "静态支撑／悬空接触对照及无平移旋摇对照均已实际执行。100 mm 抓位候选完成四秒静持，但仍有 33 个实际关节加速度超限点，未准入。静持时也发生滚转，现优先修复物理抓持；原速跟踪、训练及留出评测仍未通过。尚无合格旋摇示范，BC 更新数为零。",
     "BC_boundary": "计划的 BC 是接收视频参考目标和参考速度的条件跟踪器，配共享抓放 harness；不代表目标自由的运动生成或端到端视频策略。"
   },
   "figures": [
