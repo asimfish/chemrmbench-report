@@ -193,11 +193,31 @@ def training_expansion_projection():
         if row.get('status') not in {'success','fail','error'}:continue
         if type(row.get('attempts')) is not int or row['attempts']<0:continue
         counts[(row['task_id'],row['status'],row.get('training_admitted') is True)]+=row['attempts']
+    local_ledger=ROOT/'remote_training/guidance7_training_expansion/local_fallback_received.jsonl'
+    try:local_lines=local_ledger.read_text().splitlines(keepends=True)
+    except OSError:local_lines=[]
+    for line in local_lines:
+        if not line.endswith('\n'):continue
+        try:row=json.loads(line)
+        except ValueError:continue
+        if (row.get('task_id') not in {'open_cabinet','endpoint_stop'}
+                or row.get('status') not in {'success','fail','error'}
+                or row.get('sizes_match') is not True or row.get('nas_acceptance_passed') is not True):continue
+        counts[(row['task_id'],row['status'],row.get('training_admitted') is True)]+=1
     return {'purpose':'training_only','strict_V2_passed':False,'main_table_eligible':False,
         'received_and_validated_attempts':sum(counts.values()),'target_new_attempts':400,
         'admitted_successes':sum(n for (task,status,admitted),n in counts.items() if admitted and status=='success'),
         'by_task_status':[{'task_id':k[0],'status':k[1],'training_admitted':k[2],'attempts':n}
             for k,n in sorted(counts.items())]}
+
+
+def local_training_projection():
+    state=read(SSD/'training_expansion_fallback/progress.json',{})
+    allowed={'waiting_gpu_capacity','running','closed_one'}
+    return {'phase':state.get('state') if state.get('state') in allowed else 'not_running',
+        'task_id':state.get('task_id') if state.get('task_id') in {'open_cabinet','endpoint_stop'} else None,
+        'GPU_alias':'primary-local-'+str(state['gpu']) if str(state.get('gpu')) in {'0','1'} else None,
+        'purpose':'training_only','seed_claims_required_before_remote_resume':True}
 
 
 def throughput_projection():
@@ -471,6 +491,7 @@ def collect_task_library():
             'formal_training':formal_training_projection(),
             'evaluation_protocol':evaluation_projection(),'pipeline_pilot':pipeline_projection(),
             'training_expansion':training_expansion_projection(),'throughput':throughput_projection(),
+            'local_training':local_training_projection(),
             'current_t6':current_t6_projection(),
             'ssd_staging':ssd_projection(),
             'updated_at_utc':datetime.now(timezone.utc).isoformat(),

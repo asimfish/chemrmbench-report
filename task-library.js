@@ -58,7 +58,11 @@ async function refreshStats(){
    const p=data.throughput, labels={running_wave:'正在采集',wave_closed:'本批已关闭',waiting_memory:'等待显存',waiting_training_lease:'等待训练释放'};
    $('trainingExpansion').textContent+=' 扩采调度：'+p.gpu_states.map(s=>`${s.gpu_alias} ${labels[s.phase]||'待核对'}`+(s.slots!==null?`，${s.slots}槽`:'' )+(s.training_colocation_trial?'（与训练同卡试运行）':'')+(s.training_speed_ratio!==null?`，训练步速比${s.training_speed_ratio.toFixed(3)}`:'')).join('；')+`。已关闭${p.completed_waves}个测量批次`+(p.colocation_paused?'；同卡采集因步速门禁暂停':'')+'。调度结果不计入基准得分。';
    if(p.CPU_cores!==null)$('trainingExpansion').textContent+=` 有效CPU配额${p.CPU_cores}核，预算${p.CPU_load_limit}核。`;
-   if(p.remote_connection==='unreachable')$('trainingExpansion').textContent+=' 远程连接中断，扩采已停止；逐进程CPU测量和单进程耗时比较待补。';
+   if(p.remote_connection==='unreachable')$('trainingExpansion').textContent+=' 远程连接中断，远程扩采暂停；volc逐进程CPU测量和单进程耗时比较待补。';
+  }
+  if(data.local_training && data.local_training.phase!=='not_running' && $('trainingExpansion')){
+   const r=data.local_training,names={open_cabinet:'T5',endpoint_stop:'T7'},states={waiting_gpu_capacity:'等待显存',running:'正在采集',closed_one:'本条已关闭'};
+   $('trainingExpansion').textContent+=` 本机补采：${names[r.task_id]||'T5/T7'} ${states[r.phase]}，host=${r.GPU_alias||'primary-local'}。仅用于训练，入库前完成NAS大小校验和离线重算。`;
   }
   if(data.current_t6 && $('t6CurrentProgress')){
    const r=data.current_t6;$('t6CurrentProgress').textContent=`指导${r.guidance ?? 7} 全臂修复：${r.moving_colliders} 个机器人碰撞体，CPU 连续路径资格 ${r.cpu_passed?'3/3通过':'进行中'}${r.minimum_clearance_mm!==null?'，最小运动界后余量 '+r.minimum_clearance_mm.toFixed(2)+' mm（含1mm跟踪余量）':''}。搅拌器保持原位；原生资格 ${r.native_passed}/${r.native_required} 通过，已尝试 ${r.native_attempts} 条，原始力上限仍为 ${r.raw_force_limit_n} N。${r.native_all_passed?'已满足主批量前置资格。':'尚未满足主批量前置资格。'}`;
