@@ -1,11 +1,11 @@
 {
-  "schema": "reproduction-followup-20261023-v2",
-  "updated_utc": "2026-10-23T10:06:41.519143+00:00",
+  "schema": "reproduction-followup-20261023-v3",
+  "updated_utc": "2026-10-23T11:31:29.626210+00:00",
   "baseline_F_PASS": 34,
   "baseline_total": 36,
   "complete_original_reproduction": false,
   "frozen_v1_unchanged": true,
-  "summary": "34/36，A03 与 A06 均未完成。两机器人完整刚体流程已通过，但两次含液尝试均失败；A06 私有 5 rad/s² 测试运动指标通过、原速跟踪仍失败。冻结 v1 不变。",
+  "summary": "34/36，A03 与 A06 均未完成。新增空液体对照排除了 PBD 是早期关节越限的必要条件；A06 的求解器与轨迹接口对照分开报告，原速与实际运动门槛均保留。冻结 v1 不变。",
   "A03": {
     "status": "RUNNING",
     "rows": [
@@ -132,7 +132,105 @@
       "scope": "完整刚体前置在倾倒转段失败；不计作液体成功"
     },
     "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。连续路径将试管口保持在接收杯沿上方 249 mm 后，UR5e / Flexiv 均完成完整刚体流程，实际释放并静置一秒，四类运动超限为零。这是声明了较高倾倒位置与较慢路径的本地功能重构，不代表液体任务通过。",
-    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。",
+    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。",
+    "position_sampling_diagnostic": {
+      "scope": "单次 2.5 秒空液体预抓取对照；未测试碰指后的速度异常。",
+      "same_time_motion": {
+        "ZOH_empty002": {
+          "native_ticks": 3000,
+          "duration_s": 2.5000000605359674,
+          "actual_acceleration_gt15_joint_step_count_excluding_first": 521,
+          "actual_acceleration_abs_max_rad_s2": 30.144524574279785,
+          "actual_acceleration_abs_p95_rad_s2": 11.533570289611813,
+          "actual_acceleration_counts_by_substep0_to3": [
+            440,
+            0,
+            0,
+            81
+          ],
+          "actual_acceleration_counts_by_phase": {
+            "settle": 0,
+            "pregrasp": 385,
+            "approach": 136
+          },
+          "source_any_robot_rigid_nonzero_contact_ticks_gt0_01N_uncalibrated": 0,
+          "source_native_angular_speed_max_rad_s": 0.021708298474550247,
+          "reference_300Hz_q_sample_count": 750
+        },
+        "interpolated_empty003": {
+          "native_ticks": 3000,
+          "duration_s": 2.5000000605359674,
+          "actual_acceleration_gt15_joint_step_count_excluding_first": 0,
+          "actual_acceleration_abs_max_rad_s2": 2.132105827331543,
+          "actual_acceleration_abs_p95_rad_s2": 1.9061923027038574,
+          "actual_acceleration_counts_by_substep0_to3": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_acceleration_counts_by_phase": {
+            "settle": 0,
+            "pregrasp": 0,
+            "approach": 0
+          },
+          "source_any_robot_rigid_nonzero_contact_ticks_gt0_01N_uncalibrated": 0,
+          "source_native_angular_speed_max_rad_s": 0.021708298474550247,
+          "reference_300Hz_q_sample_count": 750
+        },
+        "original_PBD_ZOH": {
+          "native_ticks": 3000,
+          "duration_s": 2.5000000605359674,
+          "actual_acceleration_gt15_joint_step_count_excluding_first": 521,
+          "actual_acceleration_abs_max_rad_s2": 30.14509677886963,
+          "actual_acceleration_abs_p95_rad_s2": 11.533066034317011,
+          "actual_acceleration_counts_by_substep0_to3": [
+            440,
+            0,
+            0,
+            81
+          ],
+          "actual_acceleration_counts_by_phase": {
+            "settle": 0,
+            "pregrasp": 385,
+            "approach": 136
+          },
+          "source_any_robot_rigid_nonzero_contact_ticks_gt0_01N_uncalibrated": 0,
+          "source_native_angular_speed_max_rad_s": 0.02020815759897232,
+          "reference_300Hz_q_sample_count": 750
+        }
+      },
+      "native_emission_checks": {
+        "rows": 3000,
+        "sent_equals_requested_exact": true,
+        "all_native_velocity_targets_zero": true,
+        "full_target_shape": [
+          3000,
+          12
+        ],
+        "native1200_velocity_max_abs_rad_s": 0.6002426147460938,
+        "native1200_acceleration_max_abs_rad_s2": 7.89642333984375,
+        "native1200_velocity_gt0_601_count": 0,
+        "native1200_acceleration_gt2_02_count": 1202,
+        "strict_emitted_command_verdict": "FAIL",
+        "actual_motion_is_separate": true
+      },
+      "F_PASS": false,
+      "new_full_A03_trials": 0
+    },
+    "empty_fluid_diagnostic": {
+      "native_steps": 4239,
+      "native_seconds": 3.532500085537322,
+      "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 525
+      },
+      "original_full_trial_denominator_unchanged": 2,
+      "scope": "空液体诊断，不是完整任务；001 的零任务步报告器失败另行保留。不是求解器根因或修复结论。"
+    },
     "full_fluid_attempts": [
       {
         "id": "first-full",
@@ -295,7 +393,7 @@
       "negative_no_contact_pass": true,
       "scope": "新接触观测正负对照通过；不证明抓持、跟踪或 BC。旧三通道零读数尝试完整保留。"
     },
-    "remaining": "最新用户授权的私有命令上限 5 rad/s² 测试完成 35 秒／10500 物理步，命令速度、命令加速度、实际速度、实际加速度超限均为零；实际加速度峰值 13.41 rad/s²，125 个显示粒子中心全程留在理想瓶腔。但原速同时间 TCP RMS 5.166 mm、瓶身 RMS 10.867 mm，仍未通过 5 mm 门槛。瓶身相对 TCP 漂移 95 分位 12.22 mm，短稳定窗口未阻止后续滚转。独立把准备等待延长至 4.10 秒后，漂移降至 0.64 mm，但 TCP / 瓶身 RMS 仍为 5.166 / 5.155 mm，归还阶段有 3 个实际加速度超限点。随后位置＋速度参考隔离对照也失败：TCP RMS 5.659 mm，实际加速度超限 43 个关节×物理步；该变体不采纳为合格控制器。保留原速和全部实际运动门，不改变全局 ChemOPD。合格示范和 BC 更新仍为零。",
+    "remaining": "新增独立对照（单次原生诊断，非统计显著性结论）：030 仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 5.251 / 5.448 mm，实际加速度越限 2 个关节×物理步，归还未完成；031 仅将 TGS 速度迭代上限设为 1，TCP / 瓶身 RMS 5.659 / 5.952 mm，实际加速度越限 0 个关节×物理步，归还完成；032 仅按观测到的抓持变换计算归还目标，TCP / 瓶身 RMS 5.250 / 5.261 mm，实际加速度越限 3 个关节×物理步，归还完成；033 在 031 上仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 6.487 / 7.334 mm，实际加速度越限 0 个关节×物理步，归还完成；034 在 033 上仅补入已有视频参考速度，TCP / 瓶身 RMS 5.571 / 6.903 mm，实际加速度越限 0 个关节×物理步，归还完成。原视频时间戳独立重建核验与原记录一致；将目标篡改成实际位置，也不会改变独立评分。所有旧失败保留，合格示范与 BC 更新仍为零；未知相机来源、二维代理与尺度假设不变。",
     "rejected_position_velocity_reference": {
       "source_PTS_scale": 1,
       "TCP_RMS_mm": 5.6593953631818295,
@@ -328,7 +426,109 @@
       "BC_updates": 0,
       "A06_complete": false
     },
-    "BC_boundary": "计划的 BC 是接收视频参考目标和参考速度的条件跟踪器，配共享抓放 harness；不代表目标自由的运动生成或端到端视频策略。"
+    "BC_boundary": "计划的 BC 是接收视频参考目标和参考速度的条件跟踪器，配共享抓放 harness；不代表目标自由的运动生成或端到端视频策略。",
+    "closed_native_controls": [
+      {
+        "id": "030",
+        "change": "仅旁路视频 XY 的 G8 滤波",
+        "source_PTS_scale": 1,
+        "native_steps": 10500,
+        "TCP_RMS_mm": 5.250765125454629,
+        "bottle_RMS_mm": 5.447890907586624,
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 2
+        },
+        "actual_acceleration_peak_rad_s2": 16.501649856567383,
+        "physical_return": false,
+        "source_tracking_qualified": false,
+        "verified_demo_admissions": 0,
+        "BC_updates": 0,
+        "A06_complete": false
+      },
+      {
+        "id": "031",
+        "change": "仅将 TGS 速度迭代上限设为 1",
+        "source_PTS_scale": 1,
+        "native_steps": 10500,
+        "TCP_RMS_mm": 5.658910694212593,
+        "bottle_RMS_mm": 5.952336768340195,
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "actual_acceleration_peak_rad_s2": 10.30223274230957,
+        "physical_return": true,
+        "source_tracking_qualified": false,
+        "verified_demo_admissions": 0,
+        "BC_updates": 0,
+        "A06_complete": false
+      },
+      {
+        "id": "032",
+        "change": "仅按观测到的抓持变换计算归还目标",
+        "source_PTS_scale": 1,
+        "native_steps": 10500,
+        "TCP_RMS_mm": 5.250448195610322,
+        "bottle_RMS_mm": 5.261267717464133,
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 3
+        },
+        "actual_acceleration_peak_rad_s2": 19.401348114013672,
+        "physical_return": true,
+        "source_tracking_qualified": false,
+        "verified_demo_admissions": 0,
+        "BC_updates": 0,
+        "A06_complete": false
+      },
+      {
+        "id": "033",
+        "change": "在 031 上仅旁路视频 XY 的 G8 滤波",
+        "source_PTS_scale": 1,
+        "native_steps": 10500,
+        "TCP_RMS_mm": 6.486985218683958,
+        "bottle_RMS_mm": 7.333748211027094,
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "actual_acceleration_peak_rad_s2": 10.956066131591797,
+        "physical_return": true,
+        "source_tracking_qualified": false,
+        "verified_demo_admissions": 0,
+        "BC_updates": 0,
+        "A06_complete": false
+      },
+      {
+        "id": "034",
+        "change": "在 033 上仅补入已有视频参考速度",
+        "source_PTS_scale": 1,
+        "native_steps": 10500,
+        "TCP_RMS_mm": 5.570707452528167,
+        "bottle_RMS_mm": 6.902665260176848,
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "actual_acceleration_peak_rad_s2": 9.958057403564453,
+        "physical_return": true,
+        "source_tracking_qualified": false,
+        "verified_demo_admissions": 0,
+        "BC_updates": 0,
+        "A06_complete": false
+      }
+    ]
   },
   "figures": [
     {
@@ -346,6 +546,10 @@
     {
       "src": "a06-private-limit.png",
       "caption": "A06 同原速轨迹、同实际运动门：仅将私有命令加速度上限从 2.5 提至 5 rad/s²，TCP 跟踪未改善。数据为单轮闭环诊断，不是统计显著性结论。"
+    },
+    {
+      "src": "a06-reference-controls.png",
+      "caption": "A06 新增原生对照：原视频时间戳下的参考、实际 TCP 与相对瓶身轨迹。031、033、034 运动计数为零，但全部变体跟踪仍未达到冻结门槛；每个变体仅一例，不声称统计显著性。"
     }
   ],
   "videos": [
