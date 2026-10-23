@@ -775,13 +775,13 @@
     },
     {
       "task_id": "endpoint_stop",
-      "phase": "not_submitted",
-      "attempt": null,
+      "phase": "training_error",
+      "attempt": 1,
       "prior_failed_attempts": 0,
-      "attempts": null,
-      "successful_public_demonstrations": null,
-      "single_GPU_hour_cap": null,
-      "execution_host_alias": null,
+      "attempts": 100,
+      "successful_public_demonstrations": 99,
+      "single_GPU_hour_cap": 6.0,
+      "execution_host_alias": "remote-training",
       "native_evaluation_complete": false
     }
   ],
@@ -803,10 +803,10 @@
       },
       {
         "task_id": "endpoint_stop",
-        "state": "waiting_complete_NAS_cohort",
-        "attempts": null,
-        "exported_successes": null,
-        "archive_bytes": null
+        "state": "candidate_packaged_not_uploaded",
+        "attempts": 100,
+        "exported_successes": 99,
+        "archive_bytes": 799344640
       }
     ],
     "uploaded": false,
@@ -1230,7 +1230,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-23T00:12:10.923425+00:00",
+  "updated_at_utc": "2026-10-23T00:22:24.438795+00:00",
   "tasks": [
     {
       "number": "T2",
