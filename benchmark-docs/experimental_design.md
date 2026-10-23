@@ -262,8 +262,15 @@ method, units, raw measurements, transformation/calibration and uncertainty.
 
 Strict success is the conjunction of physical completion, process validity,
 temporal validity, safety and an acceptable result. An instrument or result
-quality gate that is not yet calibrated makes that new task **not admitted**;
-omit no gate simply to report a success.
+quality gate that is not yet defined and validated makes that new task **not
+admitted to its claimed evaluation track**; omit no gate simply to report a
+success. Fidelity is independent of scope: a complete virtual protocol can be
+an engineering benchmark with a declared model and independently checked
+analytical reference, without being calibrated chemistry. Label its result
+model-consistent; do not report it as experimental chemical accuracy. Reference
+data/analytical solutions can validate a model within a stated domain; a real
+calibration claim additionally needs appropriate empirical evidence. Comparing
+two outputs from the same unchecked generator is insufficient for either claim.
 The four selected core families are quantitative. A future qualitative protocol
 must instead define its appropriate scientific outcome; do not invent a
 concentration requirement for every possible chemistry experiment.
@@ -290,9 +297,11 @@ unsolved and is not re-opened by this design.
    early, late, missing, repeated, wrong-sample and wrong-order traces. In endpoint
    confirmation, a false interval resets the dwell; in gravimetry it is successive
    cycles, not dwell. Reject contradictory/infeasible contracts.
-2. **Process qualification:** compare volumes, mixing/signal evolution, temperature
-   response and measurement noise with independent source-matched observations.
-   Source-supported procedure and calibrated dynamics are separate gates.
+2. **Process qualification:** check volumes, mixing/signal evolution, temperature
+   response and measurement noise against an independently checked reference
+   appropriate to the stated fidelity. An analytical engineering model and
+   empirical chemical calibration are different tracks; retain applicability
+   limits and never promote one into the other.
 3. **Observation qualification:** demonstrate that public RGB/readbacks expose
    each required cue with usable timing. Paired observation/leakage tests are
    necessary for claims of memory dependence.
