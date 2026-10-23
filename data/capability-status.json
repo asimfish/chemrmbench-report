@@ -1,0 +1,165 @@
+{
+  "schema": "chemrmbench-capabilities-0.1",
+  "release_state": "candidate",
+  "native_tasks": [
+    {
+      "task_id": "pick_place",
+      "number": "T1",
+      "title": "Pick and place",
+      "axis": "basic",
+      "native_expert_batch_available": true,
+      "stage_count": 6,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    },
+    {
+      "task_id": "bottle_balance",
+      "number": "T2",
+      "title": "Bottle to balance and return",
+      "axis": "long_horizon",
+      "native_expert_batch_available": true,
+      "stage_count": 8,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    },
+    {
+      "task_id": "pour",
+      "number": "T3",
+      "title": "Timed pouring",
+      "axis": "duration",
+      "native_expert_batch_available": true,
+      "stage_count": 8,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    },
+    {
+      "task_id": "press",
+      "number": "T4-v2",
+      "title": "Cue-triggered button press",
+      "axis": "deadline",
+      "native_expert_batch_available": true,
+      "stage_count": 4,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    },
+    {
+      "task_id": "open_cabinet",
+      "number": "T5",
+      "title": "Open and release a passive door",
+      "axis": "basic",
+      "native_expert_batch_available": true,
+      "stage_count": 6,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    },
+    {
+      "task_id": "endpoint_stop",
+      "number": "T7",
+      "title": "Stop dosing after a visible endpoint",
+      "axis": "event_response",
+      "native_expert_batch_available": true,
+      "stage_count": 4,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    },
+    {
+      "task_id": "delayed_cue_memory",
+      "number": "T8",
+      "title": "Delayed visual cue selection",
+      "axis": "memory",
+      "native_expert_batch_available": true,
+      "stage_count": 8,
+      "stage_save_and_continue": "same_process",
+      "general_cold_restore": false
+    }
+  ],
+  "native_task_count": 7,
+  "active_timing_tasks": [
+    "pour",
+    "press",
+    "endpoint_stop"
+  ],
+  "designed_timing_tasks": [
+    "pour",
+    "press",
+    "timed_stirring",
+    "endpoint_stop"
+  ],
+  "delayed_memory_tasks": [
+    "delayed_cue_memory"
+  ],
+  "experimental_tasks": [
+    {
+      "task_id": "timed_stirring",
+      "number": "T6",
+      "state": "deferred_unqualified",
+      "reason": "native qualification stop-loss; not a supported v0.1 task"
+    }
+  ],
+  "long_task": {
+    "task_id": "bottle_balance",
+    "stage_count": 8,
+    "same_process_save_and_continue": true,
+    "full_registered_state_archive": true,
+    "arbitrary_stage_new_process_resume": false,
+    "general_cold_restore_claimed": false
+  },
+  "chemlab": {
+    "passive_assets_admitted": 10,
+    "robot_generalization_qualified": 0,
+    "asset_license": "CC-BY-NC-4.0",
+    "mass_calibrated": false,
+    "opening_candidates": [
+      {
+        "asset_id": "instrument.mt_xpr204e",
+        "state": "needs_explicit_contact_annotation"
+      },
+      {
+        "asset_id": "instrument.aqualab_4te",
+        "state": "needs_explicit_contact_annotation"
+      },
+      {
+        "asset_id": "instrument.binder_fd056",
+        "state": "ready_for_path_planning"
+      },
+      {
+        "asset_id": "instrument.hach_tl2300epa",
+        "state": "needs_explicit_contact_annotation"
+      },
+      {
+        "asset_id": "instrument.biotage_selekt",
+        "state": "ready_for_path_planning"
+      },
+      {
+        "asset_id": "instrument.genevac_mivac2",
+        "state": "needs_explicit_contact_annotation"
+      },
+      {
+        "asset_id": "instrument.thinky_are310s",
+        "state": "ready_for_path_planning"
+      },
+      {
+        "asset_id": "instrument.ossila_spincoater",
+        "state": "ready_for_path_planning"
+      },
+      {
+        "asset_id": "instrument.jasco_p4200",
+        "state": "needs_explicit_contact_annotation"
+      },
+      {
+        "asset_id": "instrument.microtrac_turbiscanlab",
+        "state": "needs_explicit_contact_annotation"
+      }
+    ],
+    "in_twin_scene_inspections": [
+      {
+        "asset_id": "instrument.ossila_spincoater",
+        "passed": true,
+        "opening_qualified": false,
+        "two_camera_frames_each": 41,
+        "raw_robot_peak_n": 0.0
+      }
+    ]
+  },
+  "updated_at_utc": "2026-10-23T09:15:10.612121+00:00"
+}
