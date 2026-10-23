@@ -1,11 +1,11 @@
 {
-  "schema": "reproduction-followup-20261023-v4",
-  "updated_utc": "2026-10-23T12:24:57.837803+00:00",
+  "schema": "reproduction-followup-20261023-v5",
+  "updated_utc": "2026-10-23T13:40:46.745443+00:00",
   "baseline_F_PASS": 34,
   "baseline_total": 36,
   "complete_original_reproduction": false,
   "frozen_v1_unchanged": true,
-  "summary": "34/36，A03 与 A06 均未完成。新增空液体对照排除了 PBD 是早期关节越限的必要条件；A06 的求解器与轨迹接口对照分开报告，原速与实际运动门槛均保留。冻结 v1 不变。",
+  "summary": "34/36，A03 与 A06 仍未完成。A06 的新原速执行通过 TCP 跟踪和全部运动门，瓶体跟踪仍因相对抓持漂移失败；A03 已将问题缩小到接触和闭环速度约束。冻结 v1 不变。",
   "A03": {
     "status": "RUNNING",
     "rows": [
@@ -132,7 +132,7 @@
       "scope": "完整刚体前置在倾倒转段失败；不计作液体成功"
     },
     "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。连续路径将试管口保持在接收杯沿上方 249 mm 后，UR5e / Flexiv 均完成完整刚体流程，实际释放并静置一秒，四类运动超限为零。这是声明了较高倾倒位置与较慢路径的本地功能重构，不代表液体任务通过。",
-    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。新的原生步参考生成在 5152 步上通过真实 float32 发出门，命令加速度峰值 1.717 rad/s²；但接触后仍出现 38 次实际加速度越限，并在 4.293 秒触发原物体速度保护，因此完整任务仍失败。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。原生发出目标的速度、加速度和位置边界已通过，但实际接触运动仍单独验收：004 原生 1200 Hz 有界 float32 位置参考，运行 4.293 秒，实际加速度越限 38 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；005 在 004 上仅将 TGS 速度迭代上限设为 1，运行 5.634 秒，实际加速度越限 10 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；006 在 005 上仅开启每次迭代施加外力，运行 4.464 秒，实际加速度越限 1 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED。004/005 在相同前 5152 步内的实际加速度越限为 38/4；两次完整诊断的时长不同，不以终止时的极值直接证明收敛或修复。006 仍触发原物体速度保护。本轮配置对照已停止，不再继续参数扫描；接触约束、模型与后端兼容性尚未区分，根因未确证。",
+    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。新的原生步参考生成在 5152 步上通过真实 float32 发出门，命令加速度峰值 1.717 rad/s²；但接触后仍出现 38 次实际加速度越限，并在 4.293 秒触发原物体速度保护，因此完整任务仍失败。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。原生发出目标的速度、加速度和位置边界已通过，但实际接触运动仍单独验收：004 原生 1200 Hz 有界 float32 位置参考，运行 4.293 秒，实际加速度越限 38 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；005 在 004 上仅将 TGS 速度迭代上限设为 1，运行 5.634 秒，实际加速度越限 10 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；006 在 005 上仅开启每次迭代施加外力，运行 4.464 秒，实际加速度越限 1 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED。004/005 在相同前 5152 步内的实际加速度越限为 38/4；两次完整诊断的时长不同，不以终止时的极值直接证明收敛或修复。006 仍触发原物体速度保护。本轮配置对照已停止，不再继续参数扫描；接触约束、模型与后端兼容性尚未区分，根因未确证。新增被动观测逐位复现 006：5357 步，原有 FK 调用前后刚体和关节状态均逐位相同，未添加 FK 调用。闭环锚点位置残差最大约 2.23 微米，而相对速度最大约 0.111 m/s；基于关节速度的独立重建也出现该速度残差。这排除了 getter 改写姿态的解释，但尚未确证动态失败根因。新的保持目标对照在相同前 4160 步后分支，完成 7200 步／6 秒且四类运动超限为零，未触发原物体速度保护。但物体报告角速度峰值仍达 14.196 rad/s，闭环速度残差也未消失。该结果只支持进一步区分持续运动与闭爪相互作用，不等于动态抓取或倾倒通过。此前因纹理下载耗时而超时的尝试保留：已核实至少 4160 步，最终门不可评分；没有从记录中删除。",
     "quantized_native_reference_004": {
       "native_steps": 5152,
       "native_seconds": 4.293333437293768,
@@ -531,7 +531,44 @@
         "return_position_error_mm": 0.11978415001181633,
         "F_PASS": false
       }
-    ]
+    ],
+    "structural_observation": {
+      "native_steps": 5357,
+      "matches006_state_stream_bitwise": true,
+      "existing_FK_calls": 5357,
+      "additional_FK_calls": 0,
+      "raw_state_before_after_FK_exact": true,
+      "excluded_loop_anchor_displacement_max_m": 2.229234949688754e-06,
+      "reported_anchor_relative_speed_max_m_s": 0.1109327964020439,
+      "qdot_FK_anchor_relative_speed_max_m_s": 0.11092708273449786,
+      "root_cause_identified": false,
+      "scope": "原生位置约束残差很小，但速度与位置差分不一致；qdot 的运动学重建也包含该速度残差。不能简单归因于 COM 速度读回，更不能据此宣称求解器错误。"
+    },
+    "hold_reference_counterfactual": {
+      "native_steps": 7200,
+      "native_seconds": 6.000000145286322,
+      "identical_prefix_native_steps": 4160,
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 0
+      },
+      "actual_acceleration_max_rad_s2": 12.43872083723545,
+      "source_angular_speed_max_rad_s": 14.195566040809522,
+      "loop_anchor_relative_speed_max_m_s": 0.0302740422760346,
+      "native_starts": 2,
+      "retained_interrupted_attempt": {
+        "task_steps_lower_bound": 4160,
+        "exact_final_tick": null,
+        "final_gates_scorable": false,
+        "cause": "Startup texture downloads and wall timeout"
+      },
+      "new_full_A03_trials": 0,
+      "F_PASS": false,
+      "root_cause_identified": false,
+      "scope": "闭爪边界后，仅保持最后已发出的机械臂目标，经原有 governor 减速；机械臂仍为动态刚体，无状态复位。未执行抬升或倾倒。"
+    }
   },
   "A06": {
     "status": "RUNNING",
@@ -635,7 +672,7 @@
       "negative_no_contact_pass": true,
       "scope": "新接触观测正负对照通过；不证明抓持、跟踪或 BC。旧三通道零读数尝试完整保留。"
     },
-    "remaining": "新增独立对照（单次原生诊断，非统计显著性结论）：030 仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 5.251 / 5.448 mm，实际加速度越限 2 个关节×物理步，归还未完成；031 仅将 TGS 速度迭代上限设为 1，TCP / 瓶身 RMS 5.659 / 5.952 mm，实际加速度越限 0 个关节×物理步，归还完成；032 仅按观测到的抓持变换计算归还目标，TCP / 瓶身 RMS 5.250 / 5.261 mm，实际加速度越限 3 个关节×物理步，归还完成；033 在 031 上仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 6.487 / 7.334 mm，实际加速度越限 0 个关节×物理步，归还完成；034 在 033 上仅补入已有视频参考速度，TCP / 瓶身 RMS 5.571 / 6.903 mm，实际加速度越限 0 个关节×物理步，归还完成。原视频时间戳独立重建核验与原记录一致；将目标篡改成实际位置，也不会改变独立评分。所有旧失败保留，合格示范与 BC 更新仍为零；未知相机来源、二维代理与尺度假设不变。追加静持对照：含 125 粒子时最后一秒最大相对漂移 2.996 mm / 2.144°；保持 GPU 路径、仅移除粒子后为 0.046 mm / 0.017°。这提示粒子参与残余角运动，具体耦合机制仍未知。旧“不旋摇”负例按自身零目标评分为 0.430 mm，按原视频独立评分为 5.427 mm 并被拒绝。下方新视频为失败状态的可核验重放，液体和玻璃视觉效果均未验收。",
+    "remaining": "最新 038 已自然完成 10500 步／35 秒、全部 75 个原视频时间戳样本：TCP RMS 3.244 mm、最大误差 6.188 mm，均通过原 5/10 mm 门。但瓶体 RMS 6.947 mm、95 分位 10.874 mm，仍未通过原 5/10 mm 门；相对 TCP 的抓持漂移 95 分位为 9.207 mm／4.544°。真实 SDK 发出目标已读回核验，四类运动超限均为零。抓取、抬升和物理归还完成，但不将机械流程完成视为合格示范。全部旧失败保留；合格示范与 BC 更新仍为零。相机来源未知、二维代理和尺度假设未改变。037 静持诊断的 3240 次原始粒子读回均未填充；显示坐标另存，不作为原始求解器证据。安装版本确有原始状态 API，其初始化与帧更新前提仍待验证；尚不能定位流体耦合根因。单一侧向抓取几何候选因非指尖表面提前接触而被拒绝，未启动新的抓取仿真。原作 MDL 材质对照尚未通过：运行中插入覆盖层使原生物理视图失效，未生成可验收的成对图像；正在改为初始化前预组合材质的方案。旧乳白玻璃视频继续标为未验收。",
     "rejected_position_velocity_reference": {
       "source_PTS_scale": 1,
       "TCP_RMS_mm": 5.6593953631818295,
@@ -838,6 +875,116 @@
       "liquid_rendered": false,
       "glass_visual_acceptance": "NOT_ACCEPTED_MILKY_FROSTED_APPEARANCE",
       "task_success": false
+    },
+    "planned_reference_038": {
+      "native_steps": 10500,
+      "native_seconds": 35.00000084750354,
+      "source_samples": 75,
+      "source_PTS_scale": 1,
+      "TCP_RMS_mm": 3.244227528963117,
+      "TCP_max_mm": 6.188042333699859,
+      "bottle_RMS_mm": 6.946914370685545,
+      "bottle_p95_mm": 10.873500665358643,
+      "original_gates": {
+        "TCP_RMS_5mm": true,
+        "TCP_max_10mm": true,
+        "bottle_RMS_5mm": false,
+        "bottle_p95_10mm": false
+      },
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 0
+      },
+      "actual_acceleration_max_rad_s2": 10.779972076416016,
+      "grasp_translation_p95_mm": 9.207199513912201,
+      "grasp_rotation_p95_deg": 4.543538236618042,
+      "physical_return": true,
+      "physical_return_XY_error_mm": 9.21878032386303,
+      "verified_demo_admissions": 0,
+      "BC_updates": 0,
+      "F_PASS": false,
+      "scope": "单次含未来视频参考的规划诊断；不是学得策略。使用历史 034 的线性化中心先验；034/038 的共享 GPU 不同，不声称逐位配对或统计显著性。"
+    },
+    "raw_particle_observation_037": {
+      "task_native_steps": 3240,
+      "raw_available_rows": 0,
+      "raw_missing_rows": 3240,
+      "display_positions_are_raw": false,
+      "raw_API_exists_but_this_sampling_path_unpopulated": true,
+      "immediate_sync_preserves_rigid_state": true,
+      "trajectory_equivalence_with035_proven": false,
+      "last_one_second_drift_mm": 4.82675377661511,
+      "last_one_second_rotation_deg": 3.5427773844908823,
+      "cause_identified": false
+    },
+    "frozen_attachment_algebra": {
+      "rows": [
+        {
+          "id": "034",
+          "actual_TCP_XY": {
+            "RMS_m": 0.005570707452528166,
+            "p95_m": 0.009347278148090115,
+            "max_m": 0.010799312500187905
+          },
+          "actual_bottle_XY": {
+            "RMS_m": 0.006902665260176847,
+            "p95_m": 0.01224761211522237,
+            "max_m": 0.014566389338661966
+          },
+          "frozen_attachment_bottle_XY": {
+            "RMS_m": 0.005742560651614116,
+            "p95_m": 0.00984353042369531,
+            "max_m": 0.011509875750659579
+          },
+          "actual_minus_frozen_attachment_XY": {
+            "RMS_m": 0.003126590142199412,
+            "p95_m": 0.004605201246541745,
+            "max_m": 0.005081191294983044
+          },
+          "source_tracking_qualified": false
+        },
+        {
+          "id": "038",
+          "actual_TCP_XY": {
+            "RMS_m": 0.003244227528963117,
+            "p95_m": 0.005698776301124924,
+            "max_m": 0.006188042333699859
+          },
+          "actual_bottle_XY": {
+            "RMS_m": 0.006946914370685546,
+            "p95_m": 0.010873500665358643,
+            "max_m": 0.013786812725931595
+          },
+          "frozen_attachment_bottle_XY": {
+            "RMS_m": 0.003198803529094284,
+            "p95_m": 0.005486348050511801,
+            "max_m": 0.006171710097995026
+          },
+          "actual_minus_frozen_attachment_XY": {
+            "RMS_m": 0.005035155373702275,
+            "p95_m": 0.008997189658687088,
+            "max_m": 0.009984294394315854
+          },
+          "source_tracking_qualified": false
+        }
+      ],
+      "new_physics_steps": 0,
+      "scope": "只把首次观测的抓持变换应用到已记录 TCP 姿态；不是物理干预，不证明更换抓持后仍有相同 TCP 运动。"
+    },
+    "side_grip_geometry": {
+      "status": "CPU_CANDIDATE_REJECTED",
+      "new_native_runs": 0,
+      "scope": "单一 85 mm 侧向抓取的 CPU 几何与可达性检查；非末端表面提前阻挡，候选已拒绝，未改动物理模型。"
+    },
+    "MDL_visual_comparison": {
+      "status": "CLOSED_NATIVE_OVERLAY_INVARIANCE_FAILURE",
+      "native_starts": 2,
+      "initialization_steps": 302,
+      "comparison_images_produced": 0,
+      "visual_acceptance": false,
+      "scope": "第一次场景创建前路径失败；第二次运行中加入 session 覆盖层导致原生物理视图失效。CPU USD 字段不变不能替代原生状态验收。两个失败均保留，没有补步或伪造对照图。"
     }
   },
   "figures": [
@@ -864,6 +1011,14 @@
     {
       "src": "a06-static-coupling.png",
       "caption": "A06 同一 TGS 设置下的含粒子／空粒子静持对照，阴影为最后一秒。空粒子角漂移明显减小；不能由此唯一定位流体力或求解器根因。两组仍不计作含液任务通过。"
+    },
+    {
+      "src": "a06-grasp-decomposition.png",
+      "caption": "034／038 的实际瓶体误差与冻结首次抓持变换的代数分解。虚线不运行物理、不是成功轨迹；用于区分 TCP 跟踪改善与尚未解决的瓶体相对运动。"
+    },
+    {
+      "src": "a03-hold-reference.png",
+      "caption": "A03 空粒子对照：相同前 4160 步后保持已发出目标，实际加速度和物体角速度峰值下降；虚线为持续运动版本终止时刻。保持目标版本没有抬升或倾倒，闭环速度残差仍存在。"
     }
   ],
   "videos": [
