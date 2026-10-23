@@ -1,11 +1,11 @@
 {
-  "schema": "reproduction-followup-20261023-v6",
-  "updated_utc": "2026-10-23T14:48:24.618080+00:00",
+  "schema": "reproduction-followup-20261023-v7",
+  "updated_utc": "2026-10-23T15:50:46.915274+00:00",
   "baseline_F_PASS": 34,
   "baseline_total": 36,
   "complete_original_reproduction": false,
   "frozen_v1_unchanged": true,
-  "summary": "34/36，A03 与 A06 仍未完成。A03 含液抬升完成但实际加速度有 7 次越限，严格判失败；A06 末端原速跟踪通过，瓶体跟踪仍失败，抓持漂移未解决。新增对照视频、RTX 材质实图及手机元数据纠错，冻结 v1 不变。",
+  "summary": "34/36，A03 与 A06 仍未完成。A03 含液抬升实际加速度门失败，单次同步柔顺性对照也未改善；A06 末端原速跟踪通过、瓶体仍失败。玻璃近景透视改善，液体可见性及碰撞关闭负对照均未形成确定证据。失败视频和实际渲染对照已保留，冻结 v1 不变。",
   "A03": {
     "status": "RUNNING",
     "rows": [
@@ -132,7 +132,7 @@
       "scope": "完整刚体前置在倾倒转段失败；不计作液体成功"
     },
     "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。连续路径将试管口保持在接收杯沿上方 249 mm 后，UR5e / Flexiv 均完成完整刚体流程，实际释放并静置一秒，四类运动超限为零。这是声明了较高倾倒位置与较慢路径的本地功能重构，不代表液体任务通过。",
-    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。新的原生步参考生成在 5152 步上通过真实 float32 发出门，命令加速度峰值 1.717 rad/s²；但接触后仍出现 38 次实际加速度越限，并在 4.293 秒触发原物体速度保护，因此完整任务仍失败。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。原生发出目标的速度、加速度和位置边界已通过，但实际接触运动仍单独验收：004 原生 1200 Hz 有界 float32 位置参考，运行 4.293 秒，实际加速度越限 38 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；005 在 004 上仅将 TGS 速度迭代上限设为 1，运行 5.634 秒，实际加速度越限 10 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；006 在 005 上仅开启每次迭代施加外力，运行 4.464 秒，实际加速度越限 1 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED。004/005 在相同前 5152 步内的实际加速度越限为 38/4；两次完整诊断的时长不同，不以终止时的极值直接证明收敛或修复。006 仍触发原物体速度保护。本轮配置对照已停止，不再继续参数扫描；接触约束、模型与后端兼容性尚未区分，根因未确证。新增被动观测逐位复现 006：5357 步，原有 FK 调用前后刚体和关节状态均逐位相同，未添加 FK 调用。闭环锚点位置残差最大约 2.23 微米，而相对速度最大约 0.111 m/s；基于关节速度的独立重建也出现该速度残差。这排除了 getter 改写姿态的解释，但尚未确证动态失败根因。新的保持目标对照在相同前 4160 步后分支，完成 7200 步／6 秒且四类运动超限为零，未触发原物体速度保护。但物体报告角速度峰值仍达 14.196 rad/s，闭环速度残差也未消失。该结果只支持进一步区分持续运动与闭爪相互作用，不等于动态抓取或倾倒通过。此前因纹理下载耗时而超时的尝试保留：已核实至少 4160 步，最终门不可评分；没有从记录中删除。后续空粒子接续已完成 13760 步／11.467 秒，静稳后完成原 6 秒抬升和 1 秒保持，最低抬升 99.729 mm，双指持续接触。真实 SDK 发出门与实际运动数值门全部通过；控制器虚拟参考的未发送重置断点另行记录。原完整刚体总评仍为 FAIL：没有倾倒、释放和归还，最终源报告静止门也失败；不以姿态差分替换该门。原 240 粒子含液对照已完成相同的 6 秒抬升及 1 秒保持，最低抬升 99.724 mm；688 个保存快照独立复算均为 240/240 留管。真实命令门通过，但实际关节加速度仍有 7 次越限：闭爪 2 次、抬升 5 次，峰值 17.293 rad/s²。闭爪两次发生于机械臂目标完全静止时，不能只归因于抬升轨迹；PBD 恢复后接触和反馈历史也已改变，尚未唯一定位根因。该前置严格判失败，完整含液分母仍为 0/2，34/36 的基线计数不变。对旧完整含液失败的 3953 帧逐帧重算与原账本一致：229 个显示点索引记录到出源后的首次向下口平面穿越，仅 12 个位于理想杯口内，径向距离中位数 68.9 mm。这提示优先核对瞄准路径，仍不能从显示点推断原始求解器穿壁。",
+    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。新的原生步参考生成在 5152 步上通过真实 float32 发出门，命令加速度峰值 1.717 rad/s²；但接触后仍出现 38 次实际加速度越限，并在 4.293 秒触发原物体速度保护，因此完整任务仍失败。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。原生发出目标的速度、加速度和位置边界已通过，但实际接触运动仍单独验收：004 原生 1200 Hz 有界 float32 位置参考，运行 4.293 秒，实际加速度越限 38 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；005 在 004 上仅将 TGS 速度迭代上限设为 1，运行 5.634 秒，实际加速度越限 10 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；006 在 005 上仅开启每次迭代施加外力，运行 4.464 秒，实际加速度越限 1 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED。004/005 在相同前 5152 步内的实际加速度越限为 38/4；两次完整诊断的时长不同，不以终止时的极值直接证明收敛或修复。006 仍触发原物体速度保护。本轮配置对照已停止，不再继续参数扫描；接触约束、模型与后端兼容性尚未区分，根因未确证。新增被动观测逐位复现 006：5357 步，原有 FK 调用前后刚体和关节状态均逐位相同，未添加 FK 调用。闭环锚点位置残差最大约 2.23 微米，而相对速度最大约 0.111 m/s；基于关节速度的独立重建也出现该速度残差。这排除了 getter 改写姿态的解释，但尚未确证动态失败根因。新的保持目标对照在相同前 4160 步后分支，完成 7200 步／6 秒且四类运动超限为零，未触发原物体速度保护。但物体报告角速度峰值仍达 14.196 rad/s，闭环速度残差也未消失。该结果只支持进一步区分持续运动与闭爪相互作用，不等于动态抓取或倾倒通过。此前因纹理下载耗时而超时的尝试保留：已核实至少 4160 步，最终门不可评分；没有从记录中删除。后续空粒子接续已完成 13760 步／11.467 秒，静稳后完成原 6 秒抬升和 1 秒保持，最低抬升 99.729 mm，双指持续接触。真实 SDK 发出门与实际运动数值门全部通过；控制器虚拟参考的未发送重置断点另行记录。原完整刚体总评仍为 FAIL：没有倾倒、释放和归还，最终源报告静止门也失败；不以姿态差分替换该门。原 240 粒子含液对照已完成相同的 6 秒抬升及 1 秒保持，最低抬升 99.724 mm；688 个保存快照独立复算均为 240/240 留管。真实命令门通过，但实际关节加速度仍有 7 次越限：闭爪 2 次、抬升 5 次，峰值 17.293 rad/s²。闭爪两次发生于机械臂目标完全静止时，不能只归因于抬升轨迹；PBD 恢复后接触和反馈历史也已改变，尚未唯一定位根因。该前置严格判失败，完整含液分母仍为 0/2，34/36 的基线计数不变。对旧完整含液失败的 3953 帧逐帧重算与原账本一致：229 个显示点索引记录到出源后的首次向下口平面穿越，仅 12 个位于理想杯口内，径向距离中位数 68.9 mm。这提示优先核对瞄准路径，仍不能从显示点推断原始求解器穿壁。有限同步柔顺性的单次反事实也失败：同前 6875 步实际加速度超限由 4 增到 5，源角速度达到 64.331 rad/s 而触发原保护。同步滞后虽明确改变，问题并未缓解；停止这条参数线，转查官方 2F-85 的物理表示及兼容性。",
     "quantized_native_reference_004": {
       "native_steps": 5152,
       "native_seconds": 4.293333437293768,
@@ -701,6 +701,88 @@
       "final_outside_both_count": 230,
       "crossing_radial_median_mm": 68.91273676873082,
       "scope": "旧失败完整尝试的显示粒子几何筛查，非新仿真。理想杯口和相邻帧线性插值不证明原始求解器穿壁，也不预测改路径后的真实转移率。"
+    },
+    "continuous_glass_display_comparison": {
+      "status": "CLOSED_DISPLAY_SEAM_REDUCTION_NATIVE_RIGID_ASSERTIONS_PASS",
+      "initialization_callbacks": 4,
+      "initialization_seconds": 0.0033333334140479565,
+      "new_task_physics_steps": 0,
+      "physical_collider_edits": 0,
+      "native_rigid_array_assertion_stages": 4,
+      "arrays_per_stage": 22,
+      "physical_USD_equal_all_stages": true,
+      "appearance": "PARTIAL",
+      "full_visual_acceptance": false,
+      "raw_particle_state_verified": false,
+      "scope": "同一原生初态、相机及光照下，只切换连续中空显示壳与原分段玻璃；原 33 碰撞体、质量与驱动保留。显示圆壳与原箱形壁包络相差至多约 0.235 mm，属于声明的本地显示近似。明显竖向拼缝减少，但玻璃仍厚且偏蓝；空杯的深色底部不是液体填充证据。",
+      "F_PASS": false
+    },
+    "finite_mimic_compliance_counterfactual": {
+      "status": "CLOSED_FAIL_NO_MITIGATION",
+      "native_steps": 6875,
+      "native_seconds": 5.729166805394925,
+      "termination": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+      "single_treatment": {
+        "outer_mimic_natural_angular_frequency_rad_s": 1200,
+        "damping_ratio": 1
+      },
+      "all_original_gates": {
+        "issued_v_gt0601_count": 0,
+        "issued_a_gt202_count": 0,
+        "issued_hard_bound_count": 0,
+        "actual_arm_hard_bound_count": 0,
+        "actual_a_gt15_joint_native_count": 5,
+        "actual_v_gt_model_plus001_count": 0,
+        "source_reported_omega_gt50_count": 1,
+        "source_reported_linear_gt5_count": 0,
+        "source_workspace_outside_count": 0,
+        "source_gate_velocity_matches_raw_COM_world_exact": true,
+        "finite_all_robot_and_object_states": true,
+        "finite_robot_source_pose_velocity": true,
+        "actual_a_max": 28.827452100813385,
+        "issued_v_max": 0.5247116088867188,
+        "issued_a_max": 1.7166137695313166
+      },
+      "same_native_steps_1_to6875": {
+        "hard": {
+          "actual_a_gt15_joint_native_count": 4,
+          "actual_a_max_rad_s2": 17.293260991573334,
+          "source_omega_max_rad_s": 35.105229913650405,
+          "excluded_anchor_position_max_m": [
+            2.4132302419262135e-06,
+            3.310536605826996e-06
+          ],
+          "excluded_relative_anchor_speed_max_m_s": [
+            0.0755558683341418,
+            0.08068763173567525
+          ],
+          "mimic_q_absmax_rad": 2.9385089874267578e-05,
+          "mimic_q_abs_p95_rad": 2.9265880584716797e-05,
+          "mimic_dq_absmax_rad_s": 0.1035463809967041
+        },
+        "compliant": {
+          "actual_a_gt15_joint_native_count": 5,
+          "actual_a_max_rad_s2": 28.827452100813385,
+          "source_omega_max_rad_s": 64.3308459470109,
+          "excluded_anchor_position_max_m": [
+            2.3960246440760594e-06,
+            2.6701282470705847e-06
+          ],
+          "excluded_relative_anchor_speed_max_m_s": [
+            0.07947633928210379,
+            0.09050493894022518
+          ],
+          "mimic_q_absmax_rad": 0.030400454998016357,
+          "mimic_q_abs_p95_rad": 0.02932906150817871,
+          "mimic_dq_absmax_rad_s": 0.615816593170166
+        }
+      },
+      "original_hard_full13760_actual_a_count_retained": 7,
+      "hold_completed": false,
+      "new_full_A03_trials": 0,
+      "F_PASS": false,
+      "root_cause_identified": false,
+      "scope": "单次有限柔顺性反事实，所有原门保留。同窗实际加速度超限 4→5，源角速度峰值 35.105→64.331 rad/s；明确改变了同步滞后但未缓解失败。不能将短程 5 次与原全程 7 次比较成改善。不再搜索频率，转查官方夹爪物理表示；完整含液仍 0/2。"
     }
   },
   "A06": {
@@ -1163,6 +1245,62 @@
       "same_source_file_frames_scale_motion_and_gates": true,
       "new_video_downloads": 0,
       "old_records_preserved": true
+    },
+    "initial_scene_closeup_comparison": {
+      "status": "CLOSED_LOCAL_GLASS_TRANSMISSION_PASS_LIQUID_UNRESOLVED",
+      "initialization_callbacks": 302,
+      "new_task_physics_steps": 0,
+      "projected_flask_height_pixels": 290.00794215891915,
+      "same_camera_rigid_readable_particles_and_clock": true,
+      "original125PBD_and_postprocessing_unchanged": true,
+      "glass_transmission_local_check": "PASS",
+      "liquid_visibility": "UNRESOLVED",
+      "raw_solver_particle_state_verified": false,
+      "full_visual_acceptance": false,
+      "source_is_saved034_replay": false,
+      "retained_first_attempt": "Camera tensor dtype error after original302-step initialization; no images; corrected only two input dtypes in second attempt",
+      "scope": "固定 290px 近景与无碰撞灰阶／彩色棋盘，原生初态下比较 PreviewSurface 和原作 N04 MDL。玻璃透射明显改善；底部暗层尚未与玻璃底分离，启用等值面不等于液面可见性通过。原速瓶体跟踪仍失败，零示范准入。",
+      "F_PASS": false
+    },
+    "static_particle_control_scope": {
+      "035_and036_grasp_height_m": 0.1,
+      "038_grasp_height_m": 0.085,
+      "035_and036_internal_command_acceleration_rad_s2": 2.45,
+      "038_internal_command_acceleration_rad_s2": 4.9,
+      "scope": "035/036 是同设置的满液／空瓶静态对照；它们与 038 的抓取高度和控制器设置不同，不将其直接当作 038 的逐位因果对照。"
+    },
+    "liquid_visibility_counterfactual": {
+      "status": "INCONCLUSIVE_LIQUID_RENDER_CONTRIBUTION_NOT_SEPARATED",
+      "original_initialization_callbacks": 302,
+      "new_task_physics_steps": 0,
+      "same_camera_fixed_exposure_and_measured_state": true,
+      "hidden_minus_visible_mean_absolute_RGB": 1.1458458458458458,
+      "restored_minus_visible_mean_absolute_RGB": 1.6626001001001,
+      "hidden_minus_visible_p95_RGB": 4,
+      "restored_minus_visible_p95_RGB": 6,
+      "raw_solver_state_verified": false,
+      "liquid_visual_acceptance": false,
+      "F_PASS": false,
+      "scope": "仅切换既有流体根节点显示并恢复，原 125PBD／等值面／材料／相机／固定曝光不变。隐藏差分弱于恢复波动，底部暗层仍保留；本次未分离出可识别的流体贡献，也不证明原生等值面没有渲染或根节点控制已传递到内部表示。停止该原生视觉试验线，保留未验收状态。"
+    },
+    "particle_to_rigid_contact_negative": {
+      "status": "CLOSED_INCONCLUSIVE_FLAG_EFFICACY",
+      "native_runs_started": 1,
+      "automatic_retries": 0,
+      "initialization_callbacks": 302,
+      "task_callbacks": 3240,
+      "hold_s": 4,
+      "particle_denominator": 125,
+      "schema_false_observations": 118,
+      "natural_fall_witness": false,
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 0
+      },
+      "F_PASS": false,
+      "scope": "沿用 035 的 100 mm 静态抓取，只将粒子对刚体碰撞属性置为 False。属性读回持续为 False，但 125 个显示点没有自然下落，因此未证明原生开关生效。漂移数值只作描述，不能用来判断粒子接触是否必要；本次保留为不确定结果，不追加开关修补。"
     }
   },
   "figures": [
@@ -1213,6 +1351,22 @@
     {
       "src": "a03-saved-flow-screening.png",
       "caption": "A03 旧失败轨迹筛查：所有 240 个索引保留为分母，完整显示首次向下穿越点及理想杯口。显示坐标、线性插值和理想圆柱均有局限；未增加仿真或改变原失败判定。"
+    },
+    {
+      "src": "a03-continuous-glass-comparison.png",
+      "caption": "A03 原生初态对照：左为逐块玻璃碰撞壁，右为连续中空显示壳。只改变渲染表示，刚体数组和物理字段断言通过，新增任务物理步为零。拼缝改善但玻璃仍厚蓝；不是液体任务或完整视觉验收。"
+    },
+    {
+      "src": "a06-initial-closeup-comparison.png",
+      "caption": "A06 新原生初态近景：左 PreviewSurface，右原作 N04 OmniGlass，同一相机、光照、125PBD 与棋盘。302 步初始化另计，其后任务物理步为零。右侧玻璃可透见棋盘，液面尚未独立验收；不是 034 运动回放或原速任务成功。"
+    },
+    {
+      "src": "a03-compliance-control.png",
+      "caption": "A03 单次同步柔顺性反事实：相同 6875 步比较，超限 4→5、源角速度峰值增大并触发原保护。处理改变了同步滞后，却未消除空间闭环速度残差；原失败和全部门保留，未达到保持阶段。"
+    },
+    {
+      "src": "a06-liquid-visibility-control.png",
+      "caption": "A06 液体显示与恢复对照：三张实际裁剪和固定 0..255 色阶热图。隐藏后的变化弱于恢复时自身波动，底部暗层仍在，因此液面可见性未验收。302 步初始化后新增任务物理步为零，未生成替代液面。"
     }
   ],
   "videos": [
@@ -1231,6 +1385,10 @@
     {
       "src": "a03-filled-lift.mp4",
       "caption": "A03 新原生记录：240 PBD 粒子抬升约 99.72 mm、保持 1 秒，172 帧／15fps／11.467 秒。实际加速度门失败，无倾倒、释放和归还，不是完整复现成功。"
+    },
+    {
+      "src": "a03-compliance-control.mp4",
+      "caption": "A03 失败记录：86 帧／15fps，在抬升期间触发原物体速度保护。没有完成 1 秒保持、倾倒或归还；有限柔顺性没有带来同窗改善。"
     }
   ]
 }
