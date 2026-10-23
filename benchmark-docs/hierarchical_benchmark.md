@@ -111,17 +111,17 @@ level; they are not 13 newly supported native experiments.
 
 | Theme | Genuine temporal/process feature | Candidate use |
 |---|---|---|
-| Indicator titration | Near-endpoint adaptive addition and persistent colour confirmation | L4 endpoint fragment; L5/L6 full content analysis |
+| Indicator titration | Near-endpoint adaptive addition and persistent colour confirmation | L4 endpoint fragment; L6 full analysis under this timed protocol |
 | Iodine clock | Measure the interval from mixing to colour change | L4 event recording; L6 trial series |
 | Orthophosphate Method 8114 | At 23°C, reaction wait then a bounded sample-reading window | L4 single sample; L6 multi-sample scheduling |
 | Free/total chlorine | Different method-specific development/read intervals | L4 method binding; L6 mixed-method batch |
 | BCA assay | Temperature-qualified incubation, cooling and a shared reading span | L4 single tube; L6 standards plus unknowns |
 | Recrystallization | Hot filtration, gradual cooling and observed nucleation | L4 subflow; L5/L6 purification protocol |
-| Gravimetry | Conditioned digestion and repeat drying/cooling/weighing to constant mass | L4 loop; L5/L6 analysis |
+| Gravimetry | Conditioned digestion and repeat drying/cooling/weighing to constant mass | L4 loop; L6 full analysis under this timed protocol |
 | Liquid-liquid extraction | Mix/vent cycles, emulsion resolution and interface-controlled drainage | L4 separation fragment; L5/L6 extraction |
 | Melting-point measurement | Switch to a controlled ramp near the measurement region | L2 ramp; L4/L6 measurement |
-| Aspirin back titration | Method-specific heating/cooling and a state-dependent check | L5/L6 content analysis |
-| Winkler dissolved oxygen | Sample preservation and a source-specific holding-time deadline | L5/L6 age-aware sample scheduling |
+| Aspirin back titration | Method-specific heating/cooling and a state-dependent check | L6 content analysis |
+| Winkler dissolved oxygen | Sample preservation and a source-specific holding-time deadline | L6 age-aware sample scheduling |
 | Actinometry | Instrument-specific cumulative exposure and applicability limits | Later exposure-control study |
 | Crystal-violet kinetics | Periodic timestamped absorbance acquisition | L4 time series; L6 multi-condition kinetics |
 
@@ -185,6 +185,11 @@ scientifically required timing from a score does not turn the resulting run
 into a valid chemical method. L5 can use intrinsically less time-sensitive
 protocols, while L6 reports genuine timing obligations. Across different
 experiments, level differences are descriptive, not paired causal effects.
+
+Not every method has a legitimate untimed counterpart. The selected indicator,
+sulfate-gravimetry, aspirin and preserved-sample Winkler procedures already
+contain explicit time obligations; their full forms belong in L6. Calling them
+L5 would require a different justified protocol, not deleting required timings.
 
 A prescribed fixed wait can be the correct policy for a standard method. The
 earlier 35% fixed-strategy ceiling is a gate for randomized diagnostic variants,
