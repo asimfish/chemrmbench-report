@@ -37,7 +37,7 @@
     const gallery = element('div');
     gallery.className = 'gallery-grid';
     for (const figure of data.figures) {
-      if (!/^[a-z-]+\.png$/.test(figure.src)) throw Error('无效图路径');
+      if (!/^[a-z0-9-]+\.png$/.test(figure.src)) throw Error('无效图路径');
       const card = element('figure');
       card.className = 'gallery-card';
       const image = element('img');
@@ -48,6 +48,18 @@
       gallery.append(card);
     }
     host.append(gallery);
+    for (const item of data.videos || []) {
+      if (!/^[a-z0-9-]+\.mp4$/.test(item.src)) throw Error('无效视频路径');
+      const card = element('figure');
+      const video = element('video');
+      video.src = 'f_tier/current-followup/' + item.src;
+      video.controls = true;
+      video.preload = 'metadata';
+      video.style.width = '100%';
+      video.setAttribute('aria-label', item.caption);
+      card.append(video, element('figcaption', item.caption));
+      host.append(card);
+    }
     const provenance = element('p');
     for (const [title, path] of [['可下载的结果快照', 'result.json'], ['图像及改编资产署名', 'ATTRIBUTION.txt']]) {
       const anchor = element('a', title);

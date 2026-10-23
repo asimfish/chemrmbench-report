@@ -1,11 +1,11 @@
 {
-  "schema": "reproduction-followup-20261022-v1",
-  "updated_utc": "2026-10-22T21:35:32.787747+00:00",
+  "schema": "reproduction-followup-20261023-v2",
+  "updated_utc": "2026-10-23T10:06:41.519143+00:00",
   "baseline_F_PASS": 34,
   "baseline_total": 36,
   "complete_original_reproduction": false,
   "frozen_v1_unchanged": true,
-  "summary": "34/36，A03 与 A06 均在运行。新结果为前置测试，尚未增加通过项；完整复现仍未完成。",
+  "summary": "34/36，A03 与 A06 均未完成。两机器人完整刚体流程已通过，但两次含液尝试均失败；A06 私有 5 rad/s² 测试运动指标通过、原速跟踪仍失败。冻结 v1 不变。",
   "A03": {
     "status": "RUNNING",
     "rows": [
@@ -131,8 +131,67 @@
       "PBD_started": false,
       "scope": "完整刚体前置在倾倒转段失败；不计作液体成功"
     },
-    "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。",
-    "remaining": "完整刚体倾倒在转段时仍失败，正在修正全工具连续路径；尚未开始正式六例液体评测。两机器人各三种新位姿的液体倾倒、负对照和实际视频仍待验收。所有旧失败保留。"
+    "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。连续路径将试管口保持在接收杯沿上方 249 mm 后，UR5e / Flexiv 均完成完整刚体流程，实际释放并静置一秒，四类运动超限为零。这是声明了较高倾倒位置与较慢路径的本地功能重构，不代表液体任务通过。",
+    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。",
+    "full_fluid_attempts": [
+      {
+        "id": "first-full",
+        "native_seconds": 65.87000159500167,
+        "particle_ledger": {
+          "count": 240,
+          "source": 0,
+          "receiver": 10,
+          "outside_both_cavities": 230,
+          "receiver_fraction": 0.041666666666666664,
+          "outside_fraction": 0.9583333333333334,
+          "scope": "Ideal cavity center classification on original smoothed display points; outside can include airborne points during pouring. Final settled fraction only, no raw-solver penetration or calibrated volume claim."
+        },
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "task_success": false
+      },
+      {
+        "id": "substepped-full",
+        "native_seconds": 5.194166792440228,
+        "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 540
+        },
+        "particle_ledger_at_stop": {
+          "count": 240,
+          "source": 240,
+          "receiver": 0,
+          "outside_both_cavities": 0,
+          "receiver_fraction": 0.0,
+          "outside_fraction": 0.0,
+          "scope": "Ideal cavity center classification on original smoothed display points; outside can include airborne points during pouring. Final settled fraction only, no raw-solver penetration or calibrated volume claim."
+        },
+        "task_success": false
+      }
+    ],
+    "complete_rigid_prerequisites": [
+      {
+        "robot": "ur5e",
+        "native_seconds": 65.87000159500167,
+        "rigid_verdict": "PASS",
+        "return_position_error_mm": 0.06329775134466259,
+        "F_PASS": false
+      },
+      {
+        "robot": "flexiv",
+        "native_seconds": 66.48666827660054,
+        "rigid_verdict": "PASS",
+        "return_position_error_mm": 0.11978415001181633,
+        "F_PASS": false
+      }
+    ]
   },
   "A06": {
     "status": "RUNNING",
@@ -236,7 +295,39 @@
       "negative_no_contact_pass": true,
       "scope": "新接触观测正负对照通过；不证明抓持、跟踪或 BC。旧三通道零读数尝试完整保留。"
     },
-    "remaining": "静态支撑／悬空接触对照及无平移旋摇对照均已实际执行。100 mm 抓位候选完成四秒静持，但仍有 33 个实际关节加速度超限点，未准入。静持时也发生滚转，现优先修复物理抓持；原速跟踪、训练及留出评测仍未通过。尚无合格旋摇示范，BC 更新数为零。",
+    "remaining": "最新用户授权的私有命令上限 5 rad/s² 测试完成 35 秒／10500 物理步，命令速度、命令加速度、实际速度、实际加速度超限均为零；实际加速度峰值 13.41 rad/s²，125 个显示粒子中心全程留在理想瓶腔。但原速同时间 TCP RMS 5.166 mm、瓶身 RMS 10.867 mm，仍未通过 5 mm 门槛。瓶身相对 TCP 漂移 95 分位 12.22 mm，短稳定窗口未阻止后续滚转。独立把准备等待延长至 4.10 秒后，漂移降至 0.64 mm，但 TCP / 瓶身 RMS 仍为 5.166 / 5.155 mm，归还阶段有 3 个实际加速度超限点。随后位置＋速度参考隔离对照也失败：TCP RMS 5.659 mm，实际加速度超限 43 个关节×物理步；该变体不采纳为合格控制器。保留原速和全部实际运动门，不改变全局 ChemOPD。合格示范和 BC 更新仍为零。",
+    "rejected_position_velocity_reference": {
+      "source_PTS_scale": 1,
+      "TCP_RMS_mm": 5.6593953631818295,
+      "bottle_RMS_mm": 5.698810331523418,
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 43
+      },
+      "A06_complete": false,
+      "verified_demonstrations_admitted": 0
+    },
+    "private5_originaltime": {
+      "user_authorized_private_command_limit_rad_s2": 5,
+      "source_PTS_scale": 1,
+      "native_steps": 10500,
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 0
+      },
+      "actual_acceleration_peak_rad_s2": 13.408519744873047,
+      "TCP_RMS_mm": 5.1662408358239205,
+      "bottle_RMS_mm": 10.867049296588368,
+      "actual_joint_4to8Hz_amplitude_over_reference": 0.14064932574984815,
+      "spectral_scope": "Descriptive Hann-windowed linearly detrended4-8Hz amplitude ratios, one75-policy-sample swirl per variant. Ratios do not uniquely identify a causal stage; closed-loop coupling/contact and correlated samples remain. No posthoc lag correction, no physics, no new labels.",
+      "verified_demonstrations_admitted": 0,
+      "BC_updates": 0,
+      "A06_complete": false
+    },
     "BC_boundary": "计划的 BC 是接收视频参考目标和参考速度的条件跟踪器，配共享抓放 harness；不代表目标自由的运动生成或端到端视频策略。"
   },
   "figures": [
@@ -247,6 +338,20 @@
     {
       "src": "tracking-response.png",
       "caption": "此前原速空瓶跟踪失败：参考与实际瓶身响应。周期信号的相关峰不唯一，不将其解释成确定的控制延迟。"
+    },
+    {
+      "src": "a03-liquid-failure.png",
+      "caption": "A03 完整含液尝试失败：以全部 240 粒子为分母，最终仅 10 个位于杯腔内。运动过程中腔外可含飞行粒子，不将其全部视为即时洒漏或原始求解器穿壁。"
+    },
+    {
+      "src": "a06-private-limit.png",
+      "caption": "A06 同原速轨迹、同实际运动门：仅将私有命令加速度上限从 2.5 提至 5 rad/s²，TCP 跟踪未改善。数据为单轮闭环诊断，不是统计显著性结论。"
+    }
+  ],
+  "videos": [
+    {
+      "src": "a03-liquid-failure.mp4",
+      "caption": "A03 实际原生渲染失败记录：989 帧、约 65.87 秒完整机械流程。液体最终 10/240 入杯，230/240 在两腔外；玻璃条纹和液面可见性也尚未通过视觉验收。"
     }
   ]
 }
