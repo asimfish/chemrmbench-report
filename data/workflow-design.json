@@ -1,0 +1,594 @@
+{
+  "schema": "chemrmbench-workflow-design-0.2",
+  "status": "design_candidate",
+  "families": {
+    "routing": {
+      "title": "样品识别与转运",
+      "question": "Can the robot select the indicated sample and initiate transfer at the right time?",
+      "remembered_fact": "selected sample among three identical candidates",
+      "timing": {
+        "kind": "deadline",
+        "start_event": "transfer_cue",
+        "stop_event": "selected_sample_grasp_contact",
+        "onset_range_s": [
+          2.0,
+          47.0
+        ],
+        "onset_reference": "retention_end",
+        "response_window_s": 10.0,
+        "calibration": "candidate; requires native reachability and public-observation qualification"
+      },
+      "asset_role": "SafeLab identical vessels; admitted ChemLab distractors only after collision admission",
+      "anchors": [
+        "pick_place",
+        "delayed_cue_memory",
+        "press"
+      ],
+      "blockers": [
+        "three-candidate transfer adapter",
+        "independent grasp-onset measurement",
+        "matched observation controls"
+      ]
+    },
+    "weighing": {
+      "title": "称量放置与归还",
+      "question": "Can the robot preserve sample identity and the requested balance residence interval through a round trip?",
+      "remembered_fact": "designated return slot among three visually identical empty slots",
+      "timing": {
+        "kind": "duration",
+        "start_event": "balance_placement_settled",
+        "stop_event": "balance_regrasp_contact",
+        "durations_s": [
+          2.0,
+          4.0,
+          6.0
+        ],
+        "tolerance_floor_s": 0.2,
+        "tolerance_fraction": 0.05,
+        "calibration": "candidate; not a calibrated mass measurement"
+      },
+      "asset_role": "Existing balance first; ChemLab balances are held-out fixtures only after robot qualification",
+      "anchors": [
+        "bottle_balance"
+      ],
+      "blockers": [
+        "return-slot layout without origin leakage",
+        "measured residence interval",
+        "same-process slot-aware expert"
+      ]
+    },
+    "dispensing": {
+      "title": "定时倾倒与接收",
+      "question": "Can the robot remember the recipient and maintain the requested pouring interval?",
+      "remembered_fact": "selected receiver among three identical vessels",
+      "timing": {
+        "kind": "duration",
+        "start_event": "tilt_start",
+        "stop_event": "tilt_end",
+        "durations_s": [
+          2.0,
+          4.0,
+          6.0
+        ],
+        "tolerance_floor_s": 0.2,
+        "tolerance_fraction": 0.05,
+        "calibration": "existing T3 engineering interval; receiver extension unqualified"
+      },
+      "asset_role": "SafeLab vessels; no claim that ChemLab appearance establishes fluid calibration",
+      "anchors": [
+        "pour",
+        "delayed_cue_memory"
+      ],
+      "blockers": [
+        "three-receiver collision admission",
+        "target-conditioned expert",
+        "matched observation controls"
+      ]
+    },
+    "endpoint": {
+      "title": "端点辨识与停止",
+      "question": "Can the robot remember which visible endpoint matters and stop without overshoot?",
+      "remembered_fact": "target endpoint colour shown in an earlier cue",
+      "timing": {
+        "kind": "event",
+        "start_event": "target_endpoint_visible",
+        "stop_event": "finish_button_contact",
+        "response_window_s": 5.0,
+        "target_ordinals": [
+          1,
+          2,
+          3
+        ],
+        "calibration": "candidate three-colour stream; original single-endpoint T7 remains unchanged"
+      },
+      "asset_role": "Existing button dosing apparatus; no simulated chemistry claim",
+      "anchors": [
+        "endpoint_stop",
+        "press"
+      ],
+      "blockers": [
+        "target-independent three-colour stream",
+        "colour visibility qualification",
+        "independent target-endpoint verifier"
+      ]
+    },
+    "instrument": {
+      "title": "仪器开合与驻留",
+      "question": "Can the robot operate the indicated articulated fixture and close it after the requested residence interval?",
+      "remembered_fact": "selected fixture or door among three admissible choices",
+      "timing": {
+        "kind": "duration",
+        "start_event": "door_open_threshold",
+        "stop_event": "door_closing_start",
+        "durations_s": [
+          2.0,
+          4.0,
+          6.0
+        ],
+        "tolerance_floor_s": 0.2,
+        "tolerance_fraction": 0.05,
+        "calibration": "candidate; opening and closing paths require native qualification"
+      },
+      "asset_role": "ChemLab articulated instruments form a separate held-out-object set; no training on held-out assets",
+      "anchors": [
+        "open_cabinet"
+      ],
+      "blockers": [
+        "qualified opening and closing expert",
+        "closing tolerance and contact contract",
+        "multiple-fixture layout"
+      ]
+    }
+  },
+  "diagnostic_templates": [
+    {
+      "template_id": "routing.M0_T0",
+      "family": "routing",
+      "title": "样品识别与转运",
+      "memory": false,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 6,
+      "anchors": [
+        "pick_place",
+        "delayed_cue_memory",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-candidate transfer adapter",
+        "independent grasp-onset measurement",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "routing.M1_T0",
+      "family": "routing",
+      "title": "样品识别与转运",
+      "memory": true,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 6,
+      "anchors": [
+        "pick_place",
+        "delayed_cue_memory",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-candidate transfer adapter",
+        "independent grasp-onset measurement",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "routing.M0_T1",
+      "family": "routing",
+      "title": "样品识别与转运",
+      "memory": false,
+      "timing": true,
+      "timing_kind": "deadline",
+      "constant_response_bound": 0.2222222222222222,
+      "semantic_nodes": 6,
+      "anchors": [
+        "pick_place",
+        "delayed_cue_memory",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-candidate transfer adapter",
+        "independent grasp-onset measurement",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "routing.M1_T1",
+      "family": "routing",
+      "title": "样品识别与转运",
+      "memory": true,
+      "timing": true,
+      "timing_kind": "deadline",
+      "constant_response_bound": 0.2222222222222222,
+      "semantic_nodes": 6,
+      "anchors": [
+        "pick_place",
+        "delayed_cue_memory",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-candidate transfer adapter",
+        "independent grasp-onset measurement",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "weighing.M0_T0",
+      "family": "weighing",
+      "title": "称量放置与归还",
+      "memory": false,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 10,
+      "anchors": [
+        "bottle_balance"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "return-slot layout without origin leakage",
+        "measured residence interval",
+        "same-process slot-aware expert"
+      ]
+    },
+    {
+      "template_id": "weighing.M1_T0",
+      "family": "weighing",
+      "title": "称量放置与归还",
+      "memory": true,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 10,
+      "anchors": [
+        "bottle_balance"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "return-slot layout without origin leakage",
+        "measured residence interval",
+        "same-process slot-aware expert"
+      ]
+    },
+    {
+      "template_id": "weighing.M0_T1",
+      "family": "weighing",
+      "title": "称量放置与归还",
+      "memory": false,
+      "timing": true,
+      "timing_kind": "duration",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 10,
+      "anchors": [
+        "bottle_balance"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "return-slot layout without origin leakage",
+        "measured residence interval",
+        "same-process slot-aware expert"
+      ]
+    },
+    {
+      "template_id": "weighing.M1_T1",
+      "family": "weighing",
+      "title": "称量放置与归还",
+      "memory": true,
+      "timing": true,
+      "timing_kind": "duration",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 10,
+      "anchors": [
+        "bottle_balance"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "return-slot layout without origin leakage",
+        "measured residence interval",
+        "same-process slot-aware expert"
+      ]
+    },
+    {
+      "template_id": "dispensing.M0_T0",
+      "family": "dispensing",
+      "title": "定时倾倒与接收",
+      "memory": false,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 9,
+      "anchors": [
+        "pour",
+        "delayed_cue_memory"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-receiver collision admission",
+        "target-conditioned expert",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "dispensing.M1_T0",
+      "family": "dispensing",
+      "title": "定时倾倒与接收",
+      "memory": true,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 9,
+      "anchors": [
+        "pour",
+        "delayed_cue_memory"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-receiver collision admission",
+        "target-conditioned expert",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "dispensing.M0_T1",
+      "family": "dispensing",
+      "title": "定时倾倒与接收",
+      "memory": false,
+      "timing": true,
+      "timing_kind": "duration",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 9,
+      "anchors": [
+        "pour",
+        "delayed_cue_memory"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-receiver collision admission",
+        "target-conditioned expert",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "dispensing.M1_T1",
+      "family": "dispensing",
+      "title": "定时倾倒与接收",
+      "memory": true,
+      "timing": true,
+      "timing_kind": "duration",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 9,
+      "anchors": [
+        "pour",
+        "delayed_cue_memory"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "three-receiver collision admission",
+        "target-conditioned expert",
+        "matched observation controls"
+      ]
+    },
+    {
+      "template_id": "endpoint.M0_T0",
+      "family": "endpoint",
+      "title": "端点辨识与停止",
+      "memory": false,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 5,
+      "anchors": [
+        "endpoint_stop",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "target-independent three-colour stream",
+        "colour visibility qualification",
+        "independent target-endpoint verifier"
+      ]
+    },
+    {
+      "template_id": "endpoint.M1_T0",
+      "family": "endpoint",
+      "title": "端点辨识与停止",
+      "memory": true,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 5,
+      "anchors": [
+        "endpoint_stop",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "target-independent three-colour stream",
+        "colour visibility qualification",
+        "independent target-endpoint verifier"
+      ]
+    },
+    {
+      "template_id": "endpoint.M0_T1",
+      "family": "endpoint",
+      "title": "端点辨识与停止",
+      "memory": false,
+      "timing": true,
+      "timing_kind": "event",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 5,
+      "anchors": [
+        "endpoint_stop",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "target-independent three-colour stream",
+        "colour visibility qualification",
+        "independent target-endpoint verifier"
+      ]
+    },
+    {
+      "template_id": "endpoint.M1_T1",
+      "family": "endpoint",
+      "title": "端点辨识与停止",
+      "memory": true,
+      "timing": true,
+      "timing_kind": "event",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 5,
+      "anchors": [
+        "endpoint_stop",
+        "press"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "target-independent three-colour stream",
+        "colour visibility qualification",
+        "independent target-endpoint verifier"
+      ]
+    },
+    {
+      "template_id": "instrument.M0_T0",
+      "family": "instrument",
+      "title": "仪器开合与驻留",
+      "memory": false,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 8,
+      "anchors": [
+        "open_cabinet"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "qualified opening and closing expert",
+        "closing tolerance and contact contract",
+        "multiple-fixture layout"
+      ]
+    },
+    {
+      "template_id": "instrument.M1_T0",
+      "family": "instrument",
+      "title": "仪器开合与驻留",
+      "memory": true,
+      "timing": false,
+      "timing_kind": null,
+      "constant_response_bound": null,
+      "semantic_nodes": 8,
+      "anchors": [
+        "open_cabinet"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "qualified opening and closing expert",
+        "closing tolerance and contact contract",
+        "multiple-fixture layout"
+      ]
+    },
+    {
+      "template_id": "instrument.M0_T1",
+      "family": "instrument",
+      "title": "仪器开合与驻留",
+      "memory": false,
+      "timing": true,
+      "timing_kind": "duration",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 8,
+      "anchors": [
+        "open_cabinet"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "qualified opening and closing expert",
+        "closing tolerance and contact contract",
+        "multiple-fixture layout"
+      ]
+    },
+    {
+      "template_id": "instrument.M1_T1",
+      "family": "instrument",
+      "title": "仪器开合与驻留",
+      "memory": true,
+      "timing": true,
+      "timing_kind": "duration",
+      "constant_response_bound": 0.3333333333333333,
+      "semantic_nodes": 8,
+      "anchors": [
+        "open_cabinet"
+      ],
+      "native_state": "design_only",
+      "blockers": [
+        "qualified opening and closing expert",
+        "closing tolerance and contact contract",
+        "multiple-fixture layout"
+      ]
+    }
+  ],
+  "long_protocols": [
+    {
+      "template_id": "long.select_weigh_return",
+      "title": "识别样品—称量—归还",
+      "memory_facts": 2,
+      "semantic_nodes": 16,
+      "native_state": "design_only",
+      "blockers": [
+        "cross-fragment physical-state adapter",
+        "measured boundary prerequisites",
+        "native continuous execution qualification"
+      ]
+    },
+    {
+      "template_id": "long.weigh_dispense_return",
+      "title": "称量—定时倾倒—归还",
+      "memory_facts": 2,
+      "semantic_nodes": 19,
+      "native_state": "design_only",
+      "blockers": [
+        "cross-fragment physical-state adapter",
+        "measured boundary prerequisites",
+        "native continuous execution qualification"
+      ]
+    },
+    {
+      "template_id": "long.select_endpoint_archive",
+      "title": "选样—端点停止—归档",
+      "memory_facts": 3,
+      "semantic_nodes": 17,
+      "native_state": "design_only",
+      "blockers": [
+        "cross-fragment physical-state adapter",
+        "measured boundary prerequisites",
+        "native continuous execution qualification"
+      ]
+    },
+    {
+      "template_id": "long.instrument_load_process_unload",
+      "title": "开门—装样—处理—取样—关门",
+      "memory_facts": 2,
+      "semantic_nodes": 19,
+      "native_state": "design_only",
+      "blockers": [
+        "cross-fragment physical-state adapter",
+        "measured boundary prerequisites",
+        "native continuous execution qualification"
+      ]
+    }
+  ],
+  "design_template_count": 24,
+  "native_tasks_added": 0,
+  "v0_1_modified": false
+}
