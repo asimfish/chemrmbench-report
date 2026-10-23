@@ -796,10 +796,10 @@
       },
       {
         "task_id": "open_cabinet",
-        "state": "waiting_complete_NAS_cohort",
-        "attempts": null,
-        "exported_successes": null,
-        "archive_bytes": null
+        "state": "candidate_packaged_not_uploaded",
+        "attempts": 100,
+        "exported_successes": 99,
+        "archive_bytes": 1735577600
       },
       {
         "task_id": "endpoint_stop",
@@ -961,9 +961,9 @@
     "purpose": "training_only",
     "strict_V2_passed": false,
     "main_table_eligible": false,
-    "received_and_validated_attempts": 236,
+    "received_and_validated_attempts": 239,
     "target_new_attempts": 400,
-    "admitted_successes": 227,
+    "admitted_successes": 230,
     "by_task_status": [
       {
         "task_id": "endpoint_stop",
@@ -975,7 +975,7 @@
         "task_id": "endpoint_stop",
         "status": "success",
         "training_admitted": true,
-        "attempts": 76
+        "attempts": 78
       },
       {
         "task_id": "open_cabinet",
@@ -987,7 +987,7 @@
         "task_id": "open_cabinet",
         "status": "success",
         "training_admitted": true,
-        "attempts": 78
+        "attempts": 79
       },
       {
         "task_id": "pick_place",
@@ -1027,7 +1027,7 @@
       },
       {
         "gpu_alias": "remote-rtx-1",
-        "phase": "running_wave",
+        "phase": "wave_closed",
         "slots": 1,
         "training_colocation_trial": false,
         "training_speed_ratio": null
@@ -1230,7 +1230,7 @@
     "T7_retained_valid_successes": 4,
     "T7_case1003_original_receipt_pending": false
   },
-  "updated_at_utc": "2026-10-22T23:51:49.477427+00:00",
+  "updated_at_utc": "2026-10-23T00:01:59.295856+00:00",
   "tasks": [
     {
       "number": "T2",
