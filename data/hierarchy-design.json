@@ -1,0 +1,265 @@
+{
+  "schema": "chemrmbench-hierarchy-design-1",
+  "status": "design_candidate",
+  "operation_unit": {
+    "definition": "One registered laboratory operation with declared entry state and an independently measured termination condition; internal IK phases are not extra operations.",
+    "examples": [
+      "pick",
+      "place",
+      "pour_from_held_vessel",
+      "press",
+      "open_fixture",
+      "close_fixture",
+      "measure_with_ready_instrument"
+    ],
+    "not_counted": [
+      "controller_waypoint",
+      "simulation_tick",
+      "passive_observation",
+      "passive_wait",
+      "archive_save"
+    ],
+    "repetition": "Repeated physical operations contribute their actual executed count; a loop may not be renamed as one atomic skill.",
+    "composition_horizon": "Core local combinations use 2-5 operations; 6-10 is a reported extension, not an automatic promotion to a complete experiment."
+  },
+  "levels": {
+    "L1": {
+      "title": "原子操作",
+      "structure": "atomic",
+      "timing": "absent",
+      "goal": "One physical or active measurement operation from an admitted ready state."
+    },
+    "L2": {
+      "title": "带时间要求的原子操作",
+      "structure": "atomic",
+      "timing": "required",
+      "goal": "Same atomic operation with a declared completion, duration, response or rate contract."
+    },
+    "L3": {
+      "title": "局部组合操作",
+      "structure": "local_composition",
+      "timing": "absent",
+      "goal": "Compose 2-5 semantic operations, with a separately reported 6-10-operation extension."
+    },
+    "L4": {
+      "title": "带过程时序或反应逻辑的组合操作",
+      "structure": "local_composition",
+      "timing": "or_process_guard",
+      "goal": "Couple a local combination to measured process conditions and/or explicit temporal relations."
+    },
+    "L5": {
+      "title": "完整实验协议",
+      "structure": "complete_protocol",
+      "timing": "absent",
+      "goal": "Complete preparation, execution, measurement, recording and safe shutdown within a source-defined experimental scope."
+    },
+    "L6": {
+      "title": "时间敏感的完整实验协议",
+      "structure": "complete_protocol",
+      "timing": "required",
+      "goal": "Complete the same declared experimental scope while satisfying source-conditioned temporal and process contracts."
+    }
+  },
+  "temporal_types": {
+    "deadline": {
+      "title": "完成时限",
+      "semantics": "t_complete - t_reference <= D",
+      "anchors": [
+        "reference_event",
+        "physical_completion"
+      ],
+      "existing_checker": "TDeadline"
+    },
+    "scheduled_window": {
+      "title": "指定时点或执行窗口",
+      "semantics": "a <= t_action - t_reference <= b",
+      "anchors": [
+        "observable_clock_origin",
+        "physical_action"
+      ],
+      "existing_checker": "TDuration gap plus premature-action guard"
+    },
+    "duration": {
+      "title": "持续或保持时长",
+      "semantics": "D_min <= t_stop - t_start <= D_max; qualifying process state must hold throughout when specified",
+      "anchors": [
+        "measured_active_start",
+        "measured_active_stop"
+      ],
+      "existing_checker": "TDuration; temperature/state qualification needs process instrumentation"
+    },
+    "event_response": {
+      "title": "状态触发后的响应窗口",
+      "semantics": "0 <= t_response - t_condition <= delta",
+      "anchors": [
+        "benchmark_measured_condition",
+        "physical_response"
+      ],
+      "existing_checker": "TEvent; forbid anticipatory response separately"
+    },
+    "rate": {
+      "title": "速率或变化率",
+      "semantics": "r_min <= dx/dt <= r_max over the measured active interval",
+      "anchors": [
+        "measured_active_start",
+        "measured_active_stop",
+        "sampled_process_variable"
+      ],
+      "existing_checker": "TRate with its sampling-coverage contract"
+    },
+    "relative_interval": {
+      "title": "操作先后与间隔",
+      "semantics": "a <= t_B - t_A <= b, with event identities and operation scope fixed",
+      "anchors": [
+        "operation_A_event",
+        "operation_B_event"
+      ],
+      "existing_checker": "TDuration gap plus explicit order guard"
+    },
+    "synchronization": {
+      "title": "并行同步与共享窗口",
+      "semantics": "Coupled per-sample intervals, cross-sample acquisition span and resource exclusion.",
+      "anchors": [
+        "sample_specific_events",
+        "acquisition_span",
+        "resource_occupancy"
+      ],
+      "existing_checker": "design_only; no generic native synchronization referee"
+    },
+    "cumulative_exposure": {
+      "title": "累计过程暴露或剂量",
+      "semantics": "Q = integral f(state(t)) dt; f and units must be protocol-specific",
+      "anchors": [
+        "qualified_process_samples",
+        "integration_interval"
+      ],
+      "existing_checker": "existing F0 thermal/dose surrogate only; not native chemistry calibration"
+    },
+    "persistence": {
+      "title": "连续稳定判据",
+      "semantics": "A predicate must remain true continuously for D; a false interval resets the dwell clock.",
+      "anchors": [
+        "predicate_on",
+        "predicate_off",
+        "qualified_confirmation"
+      ],
+      "existing_checker": "TEvent persistence; state predicates require instrumentation"
+    },
+    "periodic_sampling": {
+      "title": "周期采样",
+      "semantics": "Each required sample lies in its own declared window; missing samples cannot be hidden by an average rate.",
+      "anchors": [
+        "process_start",
+        "indexed_sample_events"
+      ],
+      "existing_checker": "design_only; TRate sampling coverage is not a complete periodic-acquisition referee"
+    }
+  },
+  "horizontal_axes": {
+    "memory": [
+      "fact_count",
+      "identity_binding",
+      "measurement_history",
+      "fact_acquisition_event",
+      "retention_delay",
+      "interfering_operations",
+      "context_reset"
+    ],
+    "observation": [
+      "public_visual_cues",
+      "instrument_readback",
+      "public_clock_access"
+    ],
+    "clock": [
+      "paused",
+      "latency_charged"
+    ],
+    "generalization": [
+      "object",
+      "environment",
+      "count",
+      "goal",
+      "composition",
+      "dependency",
+      "topology"
+    ],
+    "persistence": [
+      "same_process_continuation",
+      "archive_integrity",
+      "new_process_restoration"
+    ]
+  },
+  "legacy_tasks": {
+    "open_cabinet": {
+      "level": "L1",
+      "operations_min": 1,
+      "operations_max": 1,
+      "note": "Open is one semantic operation; approach and release are internal phases."
+    },
+    "press": {
+      "level": "L2",
+      "operations_min": 1,
+      "operations_max": 1,
+      "note": "T4-v2 timed press from the ready pose."
+    },
+    "pick_place": {
+      "level": "L3",
+      "operations_min": 2,
+      "operations_max": 2,
+      "note": "Pick then place; six archive stages are not six operations."
+    },
+    "bottle_balance": {
+      "level": "L3",
+      "operations_min": 4,
+      "operations_max": 4,
+      "note": "Pick-place-repick-return; eight archived stages are not a complete chemical experiment."
+    },
+    "delayed_cue_memory": {
+      "level": "L3",
+      "operations_min": 2,
+      "operations_max": 2,
+      "note": "Memory-conditioned pick-place; retention is not an extra manipulation."
+    },
+    "pour": {
+      "level": "L4",
+      "operations_min": 3,
+      "operations_max": 3,
+      "fidelity": "engineering_proxy",
+      "note": "Pick-pour-place with a duration constraint; no calibrated chemical reaction."
+    },
+    "endpoint_stop": {
+      "level": "L4",
+      "operations_min": 4,
+      "operations_max": 8,
+      "fidelity": "engineering_proxy",
+      "note": "Three to seven dose-button presses plus finish; the 6-8 range is a local-composition extension."
+    }
+  },
+  "legacy_tasks_by_level": {
+    "L1": [
+      "open_cabinet"
+    ],
+    "L2": [
+      "press"
+    ],
+    "L3": [
+      "pick_place",
+      "bottle_balance",
+      "delayed_cue_memory"
+    ],
+    "L4": [
+      "pour",
+      "endpoint_stop"
+    ],
+    "L5": [],
+    "L6": []
+  },
+  "qualification_boundary": {
+    "fixed_strategy_35_percent_gate": "applies only to the earlier randomized diagnostic controls; not every source-defined chemical method",
+    "prescribed_fixed_wait": "may be the correct strategy for a declared standard method",
+    "legacy_mapping_is_new_level_qualification": false,
+    "new_native_tasks": 0,
+    "calibrated_complete_experiments": 0,
+    "new_process_restore_claimed": false
+  }
+}

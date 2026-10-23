@@ -1,0 +1,695 @@
+{
+  "schema": "chemrmbench-chemistry-design-catalog-1",
+  "status": "source_grounded_design",
+  "chemistry_calibrated": false,
+  "native_tasks_added": 0,
+  "scope": "Protocol semantics and timing evidence, not executable chemical recipes or validated native experiments.",
+  "sources": {
+    "uw_titration": {
+      "title": "UW-Madison titration indicator module",
+      "url": "https://www2.chem.wisc.edu/deptfiles/genchem/lab/labdocs/modules/titrate/titrind.htm"
+    },
+    "iu_iodine": {
+      "title": "Indiana University East iodine clock laboratory",
+      "url": "https://iu.pressbooks.pub/iuegenchemlabs/chapter/kinetics-of-the-iodine-clock-reaction/"
+    },
+    "hach_8114": {
+      "title": "Hach Method 8114 DOC316.53.01116",
+      "url": "https://cdn.hach.com/7FYZVWYB/as/9wp6b7c89p2jrbhnvw9n5fnn/Phosphorus_Reactive_Orthophosphate_Molybdovanadate_Method_8114_Test_N_Tube_Vials_DOC3165301116"
+    },
+    "hach_free_total": {
+      "title": "Hach free and total chlorine kit protocol",
+      "url": "https://www.hach.com.tw/public/files/product/Fa96a76728bffde25cf.pdf"
+    },
+    "hach_total": {
+      "title": "Hach total chlorine DOC316.53.01487",
+      "url": "https://cdn.hach.com/7FYZVWYB/at/2xp7jwsxm8x8psk583fr29/DOC3165301487.pdf"
+    },
+    "thermo_bca": {
+      "title": "Thermo Pierce BCA MAN0011430 Rev D",
+      "url": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0011430_Pierce_BCA_Protein_Asy_UG.pdf"
+    },
+    "rose_recrystallization": {
+      "title": "Rose-Hulman recrystallization laboratory manual",
+      "url": "https://www.rose-hulman.edu/~brandt/OrganicLab/Lab_Manual_17_Recrystallization_Theory.pdf"
+    },
+    "csudh_gravimetry": {
+      "title": "CSUDH gravimetric sulfate analysis",
+      "url": "https://www2.csudh.edu/oliver/che230/labmanual/gravsulf.htm"
+    },
+    "osu_extraction": {
+      "title": "Oregon State separatory funnel technique",
+      "url": "https://sites.science.oregonstate.edu/~gablek/CH362/bare_sepfunnel.htm"
+    },
+    "harper_melting": {
+      "title": "Harper College instrument instructions",
+      "url": "https://dept.harpercollege.edu/chemistry/wachter/Labs/Instrument%20Instructions.pdf"
+    },
+    "njit_back_titration": {
+      "title": "NJIT aspirin tablet content lesson",
+      "url": "https://www.njit.edu/precollege/sites/njit.edu.precollege/files/lcms/docs/RET_2010_Aspirin_in_Tablets_Lesson.pdf"
+    },
+    "epa_winkler_archive": {
+      "title": "EPA archived monitoring handbook Table 5.2",
+      "url": "https://archive.epa.gov/water/archive/web/html/table52.html"
+    },
+    "actinometer_paper": {
+      "title": "Application Limits of the Ferrioxalate Actinometer",
+      "url": "https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/cptc.202100122"
+    },
+    "thermo_cv_kinetics": {
+      "title": "Thermo GENESYS crystal violet kinetics lesson FL54678",
+      "url": "https://assets.thermofisher.com/TFS-Assets/CAD/Application-Notes/FL54678-genesys-kinetics-general-chemistry-lesson-plan.pdf"
+    }
+  },
+  "cases": {
+    "indicator_titration": {
+      "title": "指示剂酸碱滴定与端点确认",
+      "priority": "P1",
+      "candidate_levels": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "uw_titration"
+      ],
+      "temporal_types": [
+        "rate",
+        "persistence",
+        "event_response"
+      ],
+      "source_rule": "Addition slows near the endpoint; confirmation uses a persistent final colour. This source does not prescribe a universal whole-titration deadline.",
+      "source_parameters": [
+        {
+          "id": "endpoint_persistence",
+          "value": 30,
+          "unit": "s",
+          "provenance": "source_protocol",
+          "source_id": "uw_titration",
+          "anchor": "final colour persists after mixing",
+          "conditions": "indicator procedure described in this teaching module; not all titrations"
+        }
+      ],
+      "logic": "Pause further addition when the candidate endpoint appears; confirm only after continuous persistence. If it fades, resume controlled addition; persistent overshoot is failure.",
+      "measurements": [
+        "mixed_bulk_colour",
+        "dose_volume",
+        "initial_and_final_reading"
+      ],
+      "memory": [
+        "previous_doses",
+        "initial_reading",
+        "sample_identity"
+      ],
+      "blockers": [
+        "mixed colour and dose process model",
+        "calibrated visual predicate",
+        "genuine flow-stop instrumentation"
+      ],
+      "caution": "The persistence interval is not permission to continue adding titrant; extra response seconds would be engineering thresholds."
+    },
+    "iodine_clock": {
+      "title": "碘钟反应与动力学记录",
+      "priority": "P1",
+      "candidate_levels": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "iu_iodine"
+      ],
+      "temporal_types": [
+        "event_response",
+        "synchronization"
+      ],
+      "source_rule": "Start timing at mixing and record the colour-change time, with temperature and trial conditions.",
+      "source_parameters": [],
+      "logic": "Measure an unknown induction interval; do not substitute a requested holding duration or an invented reaction-termination deadline.",
+      "measurements": [
+        "mixing_onset",
+        "colour_transition",
+        "sample_temperature"
+      ],
+      "memory": [
+        "trial_conditions",
+        "sample_identity",
+        "measured_induction_times"
+      ],
+      "blockers": [
+        "condition-dependent kinetic model",
+        "mixed-state visibility",
+        "timestamped measurement action"
+      ],
+      "caution": "Colour-change-to-recording tolerance is an instrument or benchmark parameter unless independently calibrated."
+    },
+    "orthophosphate_8114": {
+      "title": "正磷酸盐显色与限窗读数",
+      "priority": "P1",
+      "candidate_levels": [
+        "L4",
+        "L6"
+      ],
+      "source_ids": [
+        "hach_8114"
+      ],
+      "temporal_types": [
+        "duration",
+        "scheduled_window",
+        "relative_interval",
+        "synchronization"
+      ],
+      "source_rule": "The specified 23 C procedure uses a reaction wait followed by a finite reading window; blank and sample have distinct roles.",
+      "source_parameters": [
+        {
+          "id": "reaction_wait_23c",
+          "value": 7,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_8114",
+          "anchor": "instrument reaction timer starts after mixing",
+          "conditions": "Method 8114 at sample temperature 23 C"
+        },
+        {
+          "id": "read_window",
+          "value": 2,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_8114",
+          "anchor": "reaction timer expires",
+          "conditions": "prepared sample in Method 8114"
+        },
+        {
+          "id": "wait_13c_documented",
+          "value": 15,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_8114",
+          "anchor": "reaction timer starts after mixing",
+          "conditions": "documented 13 C alternative; temperature interference warning retained"
+        },
+        {
+          "id": "wait_33c_documented",
+          "value": 2,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_8114",
+          "anchor": "reaction timer starts after mixing",
+          "conditions": "documented 33 C alternative; temperature interference warning retained"
+        }
+      ],
+      "logic": "At the declared temperature wait for development, zero on the blank, then read the sample in its acquisition window.",
+      "measurements": [
+        "sample_temperature",
+        "mixing_completion",
+        "instrument_zero",
+        "sample_reading"
+      ],
+      "memory": [
+        "sample_identity",
+        "blank_identity",
+        "individual_timer_origin"
+      ],
+      "blockers": [
+        "qualified photometer asset and readback",
+        "temperature-conditioned signal model",
+        "sample-specific event identities"
+      ],
+      "caution": "The same method warns of negative bias below 18 C and positive bias above 25 C; do not claim its 13/33 C variants are equally accurate. First design uses 23 C only."
+    },
+    "dpd_chlorine": {
+      "title": "游离氯与总氯的不同读数时序",
+      "priority": "P2",
+      "candidate_levels": [
+        "L4",
+        "L6"
+      ],
+      "source_ids": [
+        "hach_free_total",
+        "hach_total"
+      ],
+      "temporal_types": [
+        "deadline",
+        "duration",
+        "scheduled_window",
+        "synchronization"
+      ],
+      "source_rule": "Free and total chlorine have different timing rules despite related colour chemistry.",
+      "source_parameters": [
+        {
+          "id": "free_read_deadline",
+          "value": 1,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_free_total",
+          "anchor": "reagent addition",
+          "conditions": "free chlorine kit procedure"
+        },
+        {
+          "id": "total_reaction_wait",
+          "value": 3,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_total",
+          "anchor": "reagent addition and mixing in specified method",
+          "conditions": "total chlorine method"
+        },
+        {
+          "id": "total_read_deadline",
+          "value": 6,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "hach_total",
+          "anchor": "reagent addition",
+          "conditions": "specified total chlorine method; not six minutes after waiting"
+        }
+      ],
+      "logic": "Bind the method label to each sample and schedule its own eligible reading interval.",
+      "measurements": [
+        "sample_method_label",
+        "reagent_addition",
+        "instrument_reading"
+      ],
+      "memory": [
+        "method_per_sample",
+        "timer_origins"
+      ],
+      "blockers": [
+        "method-specific signal model and interference checks",
+        "photometer readback"
+      ],
+      "caution": "Do not apply one shared waiting time to both methods."
+    },
+    "bca_assay": {
+      "title": "BCA显色孵育与批量同步读数",
+      "priority": "P3",
+      "candidate_levels": [
+        "L4",
+        "L6"
+      ],
+      "source_ids": [
+        "thermo_bca"
+      ],
+      "temporal_types": [
+        "duration",
+        "synchronization",
+        "relative_interval"
+      ],
+      "source_rule": "The standard test-tube method specifies incubation, cooling and a shared inter-tube reading span; colour continues developing.",
+      "source_parameters": [
+        {
+          "id": "standard_incubation",
+          "value": 30,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "thermo_bca",
+          "anchor": "incubation under prescribed condition",
+          "conditions": "standard test-tube procedure at 37 C",
+          "not enhanced or room-temperature variant": null
+        },
+        {
+          "id": "acquisition_span",
+          "value": 10,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "thermo_bca",
+          "anchor": "earliest to latest absorbance acquisition across the set",
+          "conditions": "test-tube procedure after cooling to room temperature"
+        }
+      ],
+      "logic": "Apply the same treatment to standards and unknowns, then obtain all readings within the cross-sample span.",
+      "measurements": [
+        "sample_temperature",
+        "incubation_interval",
+        "per_tube_absorbance"
+      ],
+      "memory": [
+        "sample_standard_identity",
+        "incubation_history",
+        "calibration_readings"
+      ],
+      "blockers": [
+        "sample temperature model",
+        "standards curve",
+        "batch-reading referee"
+      ],
+      "caution": "Ten minutes is an inter-sample acquisition span, not a per-sample deadline from reagent addition."
+    },
+    "recrystallization": {
+      "title": "重结晶、热过滤与分阶段冷却",
+      "priority": "P2",
+      "candidate_levels": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "rose_recrystallization"
+      ],
+      "temporal_types": [
+        "relative_interval",
+        "rate",
+        "event_response"
+      ],
+      "source_rule": "Use hot filtration when appropriate and cool gradually to room temperature before further chilling; observe crystallization.",
+      "source_parameters": [],
+      "logic": "Branch on insoluble material or absent crystals; preserve thermal and phase state between dissolution, filtration and cooling.",
+      "measurements": [
+        "temperature",
+        "insoluble_material",
+        "crystal_presence"
+      ],
+      "memory": [
+        "sample_identity",
+        "thermal_history",
+        "previous_nucleation_attempt"
+      ],
+      "blockers": [
+        "solubility and nucleation model",
+        "filtration and solid-state representation",
+        "transfer paths"
+      ],
+      "caution": "A universal cooling time or invented ten-second hot-filtration deadline is unsupported; purity and yield require separate validation."
+    },
+    "gravimetric_constant_mass": {
+      "title": "沉淀陈化、干燥与恒重判断",
+      "priority": "P2",
+      "candidate_levels": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "csudh_gravimetry"
+      ],
+      "temporal_types": [
+        "duration",
+        "relative_interval"
+      ],
+      "source_rule": "This sulfate method has a temperature-conditioned digestion interval and repeat heat-cool-weigh cycles until successive masses agree.",
+      "source_parameters": [
+        {
+          "id": "digestion_duration",
+          "value": 1,
+          "unit": "h",
+          "provenance": "source_protocol",
+          "source_id": "csudh_gravimetry",
+          "anchor": "digestion at the stated condition",
+          "conditions": "this sulfate method at approximately 90 C"
+        },
+        {
+          "id": "adjacent_mass_difference",
+          "value": 0.2,
+          "unit": "mg",
+          "provenance": "source_protocol",
+          "source_id": "csudh_gravimetry",
+          "anchor": "consecutive completed heat-cool-weigh cycles",
+          "conditions": "this gravimetric protocol; not a single balance stability reading"
+        }
+      ],
+      "logic": "Heat, cool and weigh again until the method's successive-mass criterion holds; retain all earlier measurements.",
+      "measurements": [
+        "temperature",
+        "sample_mass",
+        "completed_cycle_identity"
+      ],
+      "memory": [
+        "previous_mass",
+        "current_mass",
+        "sample_identity"
+      ],
+      "blockers": [
+        "drying and mass-loss model",
+        "oven control qualification",
+        "cooling-state and balance instrumentation"
+      ],
+      "caution": "Constant mass compares repeated processing cycles; a single still frame or a fixed waiting time cannot establish it."
+    },
+    "liquid_liquid_extraction": {
+      "title": "分液萃取与状态驱动分层",
+      "priority": "P3",
+      "candidate_levels": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "osu_extraction"
+      ],
+      "temporal_types": [
+        "event_response",
+        "relative_interval"
+      ],
+      "source_rule": "Mix and vent in cycles, allow separation, and use a clear phase boundary before separating the intended layer.",
+      "source_parameters": [],
+      "logic": "Resume settling if emulsion remains; stop drainage when the selected interface reaches the outlet region.",
+      "measurements": [
+        "phase_boundary",
+        "emulsion_state",
+        "pressure_or_vent_state"
+      ],
+      "memory": [
+        "layer_identity",
+        "extraction_cycle"
+      ],
+      "blockers": [
+        "two-phase and pressure model",
+        "stopcock and vent skills",
+        "phase classification"
+      ],
+      "caution": "Fixed venting seconds or universal settling duration are not supported by this source."
+    },
+    "melting_point": {
+      "title": "熔点测定与升温速率切换",
+      "priority": "P2",
+      "candidate_levels": [
+        "L2",
+        "L4",
+        "L6"
+      ],
+      "source_ids": [
+        "harper_melting"
+      ],
+      "temporal_types": [
+        "rate",
+        "event_response",
+        "relative_interval"
+      ],
+      "source_rule": "Slow the temperature ramp in the accurate measurement region and record initial and complete melting.",
+      "source_parameters": [
+        {
+          "id": "final_temperature_ramp",
+          "value": [
+            1,
+            2
+          ],
+          "unit": "C/min",
+          "provenance": "source_protocol",
+          "source_id": "harper_melting",
+          "anchor": "accurate measurement region near the expected melting point",
+          "conditions": "the specified apparatus and measurement procedure"
+        }
+      ],
+      "logic": "Change ramp regime as the sample approaches the measurement region; record both phase-transition temperatures.",
+      "measurements": [
+        "temperature_series",
+        "partial_melt",
+        "complete_melt"
+      ],
+      "memory": [
+        "sample_identity",
+        "initial_melt_reading"
+      ],
+      "blockers": [
+        "temperature and phase model",
+        "qualified heating control",
+        "apparatus readback"
+      ],
+      "caution": "Heater-on duration cannot substitute for measured sample-temperature slope."
+    },
+    "aspirin_back_titration": {
+      "title": "阿司匹林含量分析与回滴",
+      "priority": "P3",
+      "candidate_levels": [
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "njit_back_titration"
+      ],
+      "temporal_types": [
+        "duration",
+        "relative_interval",
+        "event_response"
+      ],
+      "source_rule": "This lesson specifies controlled water-bath heating, cooling and a state-dependent check before back titration.",
+      "source_parameters": [
+        {
+          "id": "bath_heating",
+          "value": 15,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "njit_back_titration",
+          "anchor": "controlled water-bath heating stage",
+          "conditions": "this aspirin-content lesson; avoid boiling"
+        },
+        {
+          "id": "cooling",
+          "value": 5,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "njit_back_titration",
+          "anchor": "removal from heating",
+          "conditions": "this specific lesson before checking and back titration"
+        }
+      ],
+      "logic": "Check the specified state after treatment and repeat the indicated preparation branch when necessary before back titration.",
+      "measurements": [
+        "bath_and_sample_condition",
+        "indicator_state",
+        "titration_readings"
+      ],
+      "memory": [
+        "sample_identity",
+        "dose_history",
+        "earlier_measurements"
+      ],
+      "blockers": [
+        "reaction and titration model",
+        "full preparation and shutdown scope"
+      ],
+      "caution": "Fifteen and five minutes are method-specific; not universal hydrolysis constants."
+    },
+    "winkler_dissolved_oxygen": {
+      "title": "Winkler溶解氧与样品有效期调度",
+      "priority": "P3",
+      "candidate_levels": [
+        "L5",
+        "L6"
+      ],
+      "source_ids": [
+        "epa_winkler_archive"
+      ],
+      "temporal_types": [
+        "deadline",
+        "synchronization"
+      ],
+      "source_rule": "The archived handbook describes field-fixed samples measured in the laboratory within a holding-time limit.",
+      "source_parameters": [
+        {
+          "id": "collection_to_measurement",
+          "value": 8,
+          "unit": "h",
+          "provenance": "source_protocol",
+          "source_id": "epa_winkler_archive",
+          "anchor": "sample collection",
+          "conditions": "this archived Winkler laboratory workflow with field fixation; not a current universal regulatory requirement"
+        }
+      ],
+      "logic": "Preserve sample identity and collection time; prioritize samples approaching their method-specific validity limit.",
+      "measurements": [
+        "collection_timestamp",
+        "fixation_state",
+        "measurement_completion"
+      ],
+      "memory": [
+        "sample_identity",
+        "collection_time",
+        "preservation_history"
+      ],
+      "blockers": [
+        "preservation and oxygen model",
+        "method-specific validity checks"
+      ],
+      "caution": "The source is archival. Eight hours cannot become eight seconds without an explicit engineering time transform."
+    },
+    "actinometry": {
+      "title": "光量计与累计有效照射",
+      "priority": "P3",
+      "candidate_levels": [
+        "L2",
+        "L4",
+        "L6"
+      ],
+      "source_ids": [
+        "actinometer_paper"
+      ],
+      "temporal_types": [
+        "cumulative_exposure",
+        "synchronization"
+      ],
+      "source_rule": "Exposure interpretation depends on photon flux, reaction conditions and measurement applicability.",
+      "source_parameters": [],
+      "logic": "Integrate a declared measured exposure model across pauses and occlusions, then compare with the instrument-specific response.",
+      "measurements": [
+        "irradiance_or_photon_flux",
+        "sample_exposure",
+        "analytical_response"
+      ],
+      "memory": [
+        "accumulated_exposure",
+        "prior_on_off_intervals"
+      ],
+      "blockers": [
+        "irradiance and photochemical response calibration",
+        "light-source and analytical instrumentation"
+      ],
+      "caution": "No universal light-dose-to-yield equation is claimed; do not replace cumulative dose with a dwell timer."
+    },
+    "crystal_violet_kinetics": {
+      "title": "结晶紫褪色动力学与周期采样",
+      "priority": "P2",
+      "candidate_levels": [
+        "L4",
+        "L6"
+      ],
+      "source_ids": [
+        "thermo_cv_kinetics"
+      ],
+      "temporal_types": [
+        "periodic_sampling",
+        "relative_interval",
+        "synchronization"
+      ],
+      "source_rule": "Record sample absorbance at a declared cadence over a reaction-time interval, retaining each acquisition timestamp.",
+      "source_parameters": [
+        {
+          "id": "acquisition_period",
+          "value": 30,
+          "unit": "s",
+          "provenance": "source_protocol",
+          "source_id": "thermo_cv_kinetics",
+          "anchor": "reaction initiation with indexed subsequent measurements",
+          "conditions": "GENESYS crystal-violet live-measurement lesson"
+        },
+        {
+          "id": "acquisition_duration",
+          "value": 5,
+          "unit": "min",
+          "provenance": "source_protocol",
+          "source_id": "thermo_cv_kinetics",
+          "anchor": "reaction initiation",
+          "conditions": "this lesson and its stated experimental conditions"
+        }
+      ],
+      "logic": "Track the full absorbance-time series and its actual timestamps; missed samples remain missing even if later readings look correct.",
+      "measurements": [
+        "reaction_start",
+        "timestamped_absorbance",
+        "sample_temperature"
+      ],
+      "memory": [
+        "sample_identity",
+        "previous_samples",
+        "trial_conditions"
+      ],
+      "blockers": [
+        "kinetic and optical signal model",
+        "periodic acquisition referee",
+        "qualified photometer"
+      ],
+      "caution": "Periodic acquisition is distinct from periodically switching a lamp or venting a funnel; timing jitter tolerance still needs an instrumentation contract."
+    }
+  }
+}

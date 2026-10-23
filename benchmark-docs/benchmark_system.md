@@ -1,5 +1,10 @@
 # ChemRMBench: one research question, controlled workflows
 
+The [six-level hierarchy](hierarchical_benchmark.md) now defines the primary
+task progression. This earlier family matrix remains the diagnostic-control
+layer; its routing-first roadmap is retained as historical planning and is
+superseded by the source-grounded process-contract frontier in that document.
+
 Design candidate, 23 October 2026. The seven-task v0.1 protocol, data and frozen
 split remain unchanged. The new 20 diagnostic specifications and four long
 protocols below are **designs**, with no newly qualified native tasks implied.

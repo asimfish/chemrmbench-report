@@ -40,5 +40,6 @@ if __name__ == '__main__':
     parser.add_argument('--site', type=Path, required=True)
     args = parser.parse_args()
     data = json.loads(args.inventory.read_text())
-    (args.site / 'system.html').write_text(render(data), encoding='utf-8')
+    # The matrix is now a diagnostic layer; never overwrite the six-level entry.
+    (args.site / 'workflow-matrix.html').write_text(render(data), encoding='utf-8')
     (args.site / 'data/workflow-design.json').write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
