@@ -1,7 +1,8 @@
 # ChemRMBench: one research question, controlled workflows
 
-The [six-level hierarchy](hierarchical_benchmark.md) now defines the primary
-task progression. This earlier family matrix remains the diagnostic-control
+The [protocol-family experimental design](experimental_design.md) now defines
+the primary organization, with [six compatible profiles](hierarchical_benchmark.md)
+over three task scopes. This earlier family matrix remains the diagnostic-control
 layer; its routing-first roadmap is retained as historical planning and is
 superseded by the source-grounded process-contract frontier in that document.
 

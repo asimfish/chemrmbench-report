@@ -1,6 +1,230 @@
 {
   "schema": "chemrmbench-hierarchy-design-1",
   "status": "design_candidate",
+  "primary_organization": {
+    "index": "protocol_family_by_task_scope",
+    "ordinal_difficulty_scale": false,
+    "document": "docs/experimental_design.md",
+    "compatibility": "L1-L6 remain reporting profiles; their classifier and frozen native verdicts are unchanged.",
+    "scopes": {
+      "atomic": {
+        "title": "原子操作",
+        "boundary": "One registered active skill from a qualified ready state."
+      },
+      "subprotocol": {
+        "title": "实验单元",
+        "boundary": "A reusable experimental output state; core non-looping compositions commonly use 2-5 skills."
+      },
+      "complete_protocol": {
+        "title": "完整实验",
+        "boundary": "Named sample-to-result scope including preparation, measurement, attributable result, record and safe shutdown."
+      }
+    },
+    "descriptors": {
+      "control_logic": [
+        "sequence",
+        "state_guard",
+        "branch",
+        "repeat_until"
+      ],
+      "memory": [
+        "identity_method_binding",
+        "historical_measurements",
+        "prospective_commitments",
+        "retained_procedural_facts"
+      ],
+      "batching": [
+        "sample_count",
+        "overlapping_samples",
+        "occupied_resources",
+        "concurrent_obligations"
+      ],
+      "complexity": [
+        "executed_skills",
+        "branch_decisions",
+        "loop_iterations",
+        "critical_path_depth",
+        "process_duration"
+      ],
+      "evidence": [
+        "source_grounded_design",
+        "calibrated_process",
+        "public_observation_qualified",
+        "robot_qualified",
+        "protocol_qualified"
+      ]
+    },
+    "temporal_questions": {
+      "validity_window": {
+        "title": "样品或操作是否仍在有效时窗",
+        "operators": [
+          "deadline",
+          "scheduled_window",
+          "relative_interval"
+        ],
+        "examples": [
+          "orthophosphate_8114",
+          "dpd_chlorine",
+          "winkler_dissolved_oxygen"
+        ]
+      },
+      "process_treatment": {
+        "title": "所需过程处理是否已经交付",
+        "operators": [
+          "duration",
+          "rate",
+          "cumulative_exposure"
+        ],
+        "examples": [
+          "bca_assay",
+          "melting_point",
+          "actinometry"
+        ]
+      },
+      "state_confirmation": {
+        "title": "可测状态是否发生并被正确确认",
+        "operators": [
+          "event_response",
+          "persistence"
+        ],
+        "examples": [
+          "indicator_titration",
+          "liquid_liquid_extraction"
+        ]
+      },
+      "time_resolved_measurement": {
+        "title": "是否正确测量了过程的时间演化",
+        "operators": [
+          "periodic_sampling",
+          "event_response"
+        ],
+        "examples": [
+          "iodine_clock",
+          "crystal_violet_kinetics"
+        ]
+      },
+      "coordination": {
+        "title": "多个有效过程能否协调执行",
+        "operators": [
+          "synchronization",
+          "relative_interval",
+          "scheduled_window"
+        ],
+        "examples": [
+          "orthophosphate_8114",
+          "bca_assay"
+        ]
+      }
+    },
+    "protocol_families": {
+      "endpoint_quantitation": {
+        "title": "滴定与端点定量",
+        "priority": "core",
+        "catalogue_cases": [
+          "indicator_titration",
+          "aspirin_back_titration"
+        ],
+        "subprotocol": "Incremental delivery, mixing, candidate confirmation and conditional continuation.",
+        "complete_output": "Measured-volume-based concentration or content with attributable initial and final readings.",
+        "distinguishing_pair": "Same current volume with different observed initial volumes, or transient versus persistent endpoint histories.",
+        "blockers": [
+          "calibrated mixing and endpoint model",
+          "measured delivery",
+          "analytical reference"
+        ]
+      },
+      "development_quantitation": {
+        "title": "显色与定量读数",
+        "priority": "core",
+        "catalogue_cases": [
+          "orthophosphate_8114",
+          "dpd_chlorine",
+          "bca_assay"
+        ],
+        "subprotocol": "Source-anchored development, blank zero and valid sample acquisition.",
+        "complete_output": "Sample-specific concentrations, standard check and valid identity/timer chain.",
+        "distinguishing_pair": "Same current observation/clock after different publicly observed per-sample start histories.",
+        "blockers": [
+          "qualified photometer",
+          "sample identity readback",
+          "independent optical/process calibration"
+        ]
+      },
+      "thermal_gravimetry": {
+        "title": "热处理与质量分析",
+        "priority": "core",
+        "catalogue_cases": [
+          "gravimetric_constant_mass"
+        ],
+        "subprotocol": "Treatment, desiccator cooling, weighing, adjacent-cycle comparison and conditional repetition.",
+        "complete_output": "A selected method's loss-on-drying or gravimetric result and complete mass history.",
+        "distinguishing_pair": "Same current mass and different publicly measured previous-cycle masses.",
+        "source_boundary": "Oven moisture determination and sulfate precipitation/filtration/ashing are different protocols; their constants cannot be mixed.",
+        "additional_source": "https://www.fao.org/4/v5380e/v5380e0a.htm",
+        "blockers": [
+          "fully specified method and convergence criterion",
+          "oven loading qualification",
+          "thermal/drying model",
+          "balance calibration"
+        ]
+      },
+      "reaction_kinetics": {
+        "title": "反应动力学测量",
+        "priority": "core",
+        "catalogue_cases": [
+          "crystal_violet_kinetics",
+          "iodine_clock"
+        ],
+        "subprotocol": "Initiation, measured transfer/acquisition delay and timestamped observation sequence.",
+        "complete_output": "An attributable time series and estimated kinetic quantity with model/uncertainty checks.",
+        "distinguishing_pair": "Similar final signals but different earlier trajectories and measured acquisition histories.",
+        "blockers": [
+          "qualified photometer",
+          "two-anchor acquisition contract",
+          "independent kinetics reference"
+        ]
+      },
+      "separation_purification": {
+        "title": "分离与纯化",
+        "priority": "later_extension",
+        "catalogue_cases": [
+          "liquid_liquid_extraction",
+          "recrystallization"
+        ],
+        "subprotocol": "Observed phase or nucleation transition with conditional continuation.",
+        "complete_output": "Recovery and independently assessed composition or purity.",
+        "distinguishing_pair": "Similar elapsed times with different observed separation or nucleation states.",
+        "blockers": [
+          "validated phase filtration or crystallization dynamics",
+          "composition or purity measurement"
+        ]
+      }
+    },
+    "study_contract": {
+      "comparisons": [
+        "composition",
+        "memory_support",
+        "timing_and_state_feedback",
+        "scheduling",
+        "closed_loop_recovery",
+        "generalization"
+      ],
+      "matched_unit": "Same sampled protocol instance and predeclared perturbation stream; batch is the independent unit when samples are coupled.",
+      "memory_proof": "Same current allowed observation and different correct decisions after different previously observable histories.",
+      "mandatory_chemical_timing_may_be_removed": false,
+      "fixed_wait_may_be_correct": true,
+      "attributable_scientific_result_required_for_complete_protocol": true,
+      "quantitative_result_required_for_core_families": true,
+      "new_native_tasks": 0,
+      "admission_gates": [
+        "contract",
+        "process",
+        "observation",
+        "robot",
+        "protocol"
+      ]
+    }
+  },
   "operation_unit": {
     "definition": "One registered laboratory operation with declared entry state and an independently measured termination condition; internal IK phases are not extra operations.",
     "examples": [

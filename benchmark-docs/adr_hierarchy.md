@@ -1,5 +1,18 @@
 # Decision: six capability profiles with orthogonal chemical timing operators
 
+Amended 23 October 2026: the primary organization is now protocol family ×
+three task scopes; see [experimental design](experimental_design.md). Six
+profiles remain compatible labels, not a total difficulty ordering. This
+revises organization and experiment design, not the existing classifier or
+any task verdict. Scientific time roles, process logic, memory and batching
+are independent descriptors. Complete protocols require attributable results.
+
+The alternatives were (A) further subdividing the six-level ladder, and (B)
+separating task scope from process/information requirements. Choose B: it
+allows nested experiments and interpretable comparisons without invalid
+untimed chemistry or arbitrary difficulty claims. Cost: no single tier number
+summarizes difficulty; report the coordinates and performance components.
+
 Status: implemented design schema; native chemical expansion remains unqualified.
 Date: 23 October 2026.
 

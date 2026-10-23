@@ -1,11 +1,16 @@
-# ChemRMBench: six levels and chemical time contracts
+# ChemRMBench: three task scopes and compatible chemical-time profiles
 
 Design revision, 23 October 2026. This document refines the earlier five-family
 matrix into a reported capability hierarchy. Old v0.1 tasks, verdicts, seed
 splits, videos and the 20 prototype M/T specifications remain unchanged.
 The new chemical cases are source-grounded designs, not native successes.
+The [revised experimental design](experimental_design.md) is now primary:
+protocol family × atomic/subprotocol/complete scope. It separates five scientific
+roles of time, control logic, memory and batching. The six labels below are
+compatible entry profiles, not a total ordering of difficulty. They must not
+force source methods into scientifically invalid untimed counterparts.
 
-## Why these levels
+## Why these compatible profiles
 
 [LabUtopia, Section 4.1](https://arxiv.org/html/2505.22634v2) reports atomic,
 short-horizon, generalizable short-horizon, long-horizon and mobile tasks.
@@ -47,7 +52,7 @@ Do not discard failed prefixes. This does not require the currently unsupported
 arbitrary-stage cold restoration. A standalone primitive is newly qualified
 only after its own ready-state and measurement protocol is checked.
 
-## Ten composable temporal types
+## Ten composable operators, below the scientific classification
 
 The types are not ten additional difficulty levels. A task can combine several.
 Every relation has an identified sample, operation and observable event origin.
@@ -143,9 +148,10 @@ Specific rules verified from primary sources:
    supplies a specific digestion condition and a 0.2mg successive-cycle mass
    criterion. Those numbers belong to that method, not every drying task.
 5. [Thermo's crystal-violet lesson](https://assets.thermofisher.com/TFS-Assets/CAD/Application-Notes/FL54678-genesys-kinetics-general-chemistry-lesson-plan.pdf)
-   calls for absorbance records every 30 seconds over 5 minutes from reaction
-   initiation. A benchmark must declare timestamp jitter and missing-data rules
-   separately.
+   records absorbance every 30 seconds after live acquisition begins, ending
+   five minutes after reaction initiation. Preserve both anchors and actual
+   timestamps; do not invent a reading at reaction time zero. Timestamp jitter
+   and missing-data rules need a separate instrumentation contract.
 6. The [archived EPA monitoring table](https://archive.epa.gov/water/archive/web/html/table52.html)
    describes an 8-hour collection-to-measurement bound for field-fixed Winkler
    samples measured in the laboratory. It is a specific archived reference,
