@@ -1,6 +1,6 @@
 {
-  "schema": "reproduction-followup-20261023-v3",
-  "updated_utc": "2026-10-23T11:31:29.626210+00:00",
+  "schema": "reproduction-followup-20261023-v4",
+  "updated_utc": "2026-10-23T12:24:57.837803+00:00",
   "baseline_F_PASS": 34,
   "baseline_total": 36,
   "complete_original_reproduction": false,
@@ -132,7 +132,249 @@
       "scope": "完整刚体前置在倾倒转段失败；不计作液体成功"
     },
     "changes": "迁到 Isaac Lab；恢复原型 2F-85 物理连杆、正确 TCP 变换及源 armature，移除重复 mimic。依据实际 CAD 和声明的本地密度 2700 kg/m³，补全缺失的外侧指节质量与惯量；不声称恢复作者原始动力学。最新刚体前置：UR5e / Flexiv 最低抬升分别为 99.86 / 99.84 mm，均持续双指接触、四类运动超限为零、未碰架或邻管。连续路径将试管口保持在接收杯沿上方 249 mm 后，UR5e / Flexiv 均完成完整刚体流程，实际释放并静置一秒，四类运动超限为零。这是声明了较高倾倒位置与较慢路径的本地功能重构，不代表液体任务通过。",
-    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。",
+    "remaining": "含液尝试 0/2：首轮完成机械流程，但仅 10/240 个显示粒子中心落在杯腔内，230/240 在两腔外；最终腔外计数作为洒漏代理，不能证明原始求解器穿壁。1200 Hz 物理静态短测虽 240/240 留管，完整子步版却在抬升时对象角速度发散而停止，实际关节加速度有 540 个超限点。新的空液体对照在 3.533 秒碰指阶段也触发原速度保护：前两阶段 385 + 136 个实际加速度越限与含液体版本相同，故 PBD 不是早期失败的必要条件。独立原生读回与封装逐步一致，214 次零物理步刷新也不改变状态；接触求解与目标采样机制仍需区分。随后仅将位置目标改为因果四子步插值，在同样 2.5 秒未碰指区间，实际加速度越限从 521 降至 0、峰值从 30.14 降至 2.13 rad/s²。但真实发送目标的原生命令加速度仍有 1202 次超过 2.02 rad/s²，峰值 7.90；该变体仍判失败，不能作为完整任务控制器。新的原生步参考生成在 5152 步上通过真实 float32 发出门，命令加速度峰值 1.717 rad/s²；但接触后仍出现 38 次实际加速度越限，并在 4.293 秒触发原物体速度保护，因此完整任务仍失败。液体、两机器人各三位姿和负对照仍未验收；不以静态通过替代完整成功。原生发出目标的速度、加速度和位置边界已通过，但实际接触运动仍单独验收：004 原生 1200 Hz 有界 float32 位置参考，运行 4.293 秒，实际加速度越限 38 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；005 在 004 上仅将 TGS 速度迭代上限设为 1，运行 5.634 秒，实际加速度越限 10 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED；006 在 005 上仅开启每次迭代施加外力，运行 4.464 秒，实际加速度越限 1 个关节×物理步，结束原因 NUMERICALLY_DIVERGED_OBJECT_SPEED。004/005 在相同前 5152 步内的实际加速度越限为 38/4；两次完整诊断的时长不同，不以终止时的极值直接证明收敛或修复。006 仍触发原物体速度保护。本轮配置对照已停止，不再继续参数扫描；接触约束、模型与后端兼容性尚未区分，根因未确证。",
+    "quantized_native_reference_004": {
+      "native_steps": 5152,
+      "native_seconds": 4.293333437293768,
+      "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+      "motion_counts": {
+        "command_velocity": 0,
+        "command_acceleration": 0,
+        "actual_velocity": 0,
+        "actual_acceleration": 38
+      },
+      "actual_native_command_gates": {
+        "native_emission_rows": 5152,
+        "arm_count": 6,
+        "full_DOF_count": 12,
+        "thresholds": {
+          "velocity_rad_s": 0.601,
+          "acceleration_rad_s2": 2.02
+        },
+        "counts_joint_x1200Hz_step": {
+          "emitted_position_velocity1200": 0,
+          "emitted_position_acceleration1200": 0,
+          "emitted_position_hard_bounds1200": 0
+        },
+        "velocity_max_abs_rad_s": 0.5247116088867188,
+        "acceleration_max_abs_rad_s2": 1.71661376953125,
+        "goal_lag_max_abs_per_joint_rad": [
+          0.015041157603263855,
+          0.025473713874816895,
+          0.08047807216644287,
+          0.09322094917297363,
+          6.949901580810547e-05,
+          0.075257807970047
+        ],
+        "goal_lag_norm_max_rad": 0.139069231231267,
+        "sent_equals_requested_all": true,
+        "native_velocity_targets_zero_all": true,
+        "after_step_readback_rows": 5152,
+        "verdict": "BOUNDED_DIAGNOSTIC_COMMAND_GATES_PASS",
+        "scope": "Actual native float32 issued target differences; original actual motor and source speed gates remain separate."
+      },
+      "scope": "真实发出门与实际接触运动分别检查；命令通过不等于任务通过。",
+      "F_PASS": false
+    },
+    "solver_configuration_controls": [
+      {
+        "id": "004",
+        "single_change": "原生 1200 Hz 有界 float32 位置参考",
+        "native_steps": 5152,
+        "native_seconds": 4.293333437293768,
+        "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 38
+        },
+        "actual_acceleration_max_rad_s2": 63.65348815917969,
+        "actual_native_command_gates": {
+          "native_emission_rows": 5152,
+          "arm_count": 6,
+          "full_DOF_count": 12,
+          "thresholds": {
+            "velocity_rad_s": 0.601,
+            "acceleration_rad_s2": 2.02
+          },
+          "counts_joint_x1200Hz_step": {
+            "emitted_position_velocity1200": 0,
+            "emitted_position_acceleration1200": 0,
+            "emitted_position_hard_bounds1200": 0
+          },
+          "velocity_max_abs_rad_s": 0.5247116088867188,
+          "acceleration_max_abs_rad_s2": 1.71661376953125,
+          "goal_lag_max_abs_per_joint_rad": [
+            0.015041157603263855,
+            0.025473713874816895,
+            0.08047807216644287,
+            0.09322094917297363,
+            6.949901580810547e-05,
+            0.075257807970047
+          ],
+          "goal_lag_norm_max_rad": 0.139069231231267,
+          "sent_equals_requested_all": true,
+          "native_velocity_targets_zero_all": true,
+          "after_step_readback_rows": 5152,
+          "verdict": "BOUNDED_DIAGNOSTIC_COMMAND_GATES_PASS",
+          "scope": "Actual native float32 issued target differences; original actual motor and source speed gates remain separate."
+        },
+        "scope": "空粒子刚体诊断；完整液体试验分母仍为 2；不是完整任务成功。",
+        "F_PASS": false
+      },
+      {
+        "id": "005",
+        "single_change": "在 004 上仅将 TGS 速度迭代上限设为 1",
+        "native_steps": 6761,
+        "native_seconds": 5.634166803094558,
+        "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 10
+        },
+        "actual_acceleration_max_rad_s2": 26.481525421142578,
+        "actual_native_command_gates": {
+          "native_emission_rows": 6761,
+          "arm_count": 6,
+          "full_DOF_count": 12,
+          "thresholds": {
+            "velocity_rad_s": 0.601,
+            "acceleration_rad_s2": 2.02
+          },
+          "counts_joint_x1200Hz_step": {
+            "emitted_position_velocity1200": 0,
+            "emitted_position_acceleration1200": 0,
+            "emitted_position_hard_bounds1200": 0
+          },
+          "velocity_max_abs_rad_s": 0.5247116088867188,
+          "acceleration_max_abs_rad_s2": 1.71661376953125,
+          "goal_lag_max_abs_per_joint_rad": [
+            0.015045318752527237,
+            0.025473713874816895,
+            0.08047807216644287,
+            0.09322094917297363,
+            6.937980651855469e-05,
+            0.075257807970047
+          ],
+          "goal_lag_norm_max_rad": 0.13906923142445501,
+          "sent_equals_requested_all": true,
+          "native_velocity_targets_zero_all": true,
+          "after_step_readback_rows": 6761,
+          "verdict": "BOUNDED_DIAGNOSTIC_COMMAND_GATES_PASS",
+          "scope": "Actual native float32 issued target differences; original actual motor and source speed gates remain separate."
+        },
+        "scope": "空粒子刚体诊断；完整液体试验分母仍为 2；不是完整任务成功。",
+        "F_PASS": false
+      },
+      {
+        "id": "006",
+        "single_change": "在 005 上仅开启每次迭代施加外力",
+        "native_steps": 5357,
+        "native_seconds": 4.464166774763726,
+        "failure": "NUMERICALLY_DIVERGED_OBJECT_SPEED",
+        "motion_counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 1
+        },
+        "actual_acceleration_max_rad_s2": 17.098604202270508,
+        "actual_native_command_gates": {
+          "native_emission_rows": 5357,
+          "arm_count": 6,
+          "full_DOF_count": 12,
+          "thresholds": {
+            "velocity_rad_s": 0.601,
+            "acceleration_rad_s2": 2.02
+          },
+          "counts_joint_x1200Hz_step": {
+            "emitted_position_velocity1200": 0,
+            "emitted_position_acceleration1200": 0,
+            "emitted_position_hard_bounds1200": 0
+          },
+          "velocity_max_abs_rad_s": 0.5247116088867188,
+          "acceleration_max_abs_rad_s2": 1.71661376953125,
+          "goal_lag_max_abs_per_joint_rad": [
+            0.01504339650273323,
+            0.025473475456237793,
+            0.08047807216644287,
+            0.09322094917297363,
+            0.00023686885833740234,
+            0.075257807970047
+          ],
+          "goal_lag_norm_max_rad": 0.1390692316460562,
+          "sent_equals_requested_all": true,
+          "native_velocity_targets_zero_all": true,
+          "after_step_readback_rows": 5357,
+          "verdict": "BOUNDED_DIAGNOSTIC_COMMAND_GATES_PASS",
+          "scope": "Actual native float32 issued target differences; original actual motor and source speed gates remain separate."
+        },
+        "scope": "空粒子刚体诊断；完整液体试验分母仍为 2；不是完整任务成功。",
+        "F_PASS": false
+      }
+    ],
+    "same_first5152ticks_004_005": {
+      "004": {
+        "ticks": 5152,
+        "seconds": 4.293333437293768,
+        "actual_a_gt15_count": 38,
+        "actual_a_max": 63.65349255502224,
+        "actual_a_gt15_by_phase": {
+          "settle": 0,
+          "pregrasp": 0,
+          "approach": 0,
+          "close": 38
+        },
+        "source_omega_max": 165.10836290784343,
+        "source_linear_max": 1.150113579667128,
+        "source_poseFDomega_max": 3.953000293161722,
+        "omega_minus_FD_max": 165.26855914412994,
+        "source_robot_contact_ticks": 333,
+        "first_source_robot_contact_tick": 4817,
+        "native_omega_at_tick5152": [
+          29.23566246032715,
+          26.881961822509766,
+          -160.26043701171875
+        ],
+        "poseFDomega_at_tick5152": [
+          0.03784376734420762,
+          -0.058163478387543786,
+          0.16217259777620371
+        ]
+      },
+      "005": {
+        "ticks": 5152,
+        "seconds": 4.293333437293768,
+        "actual_a_gt15_count": 4,
+        "actual_a_max": 26.481525599956512,
+        "actual_a_gt15_by_phase": {
+          "settle": 0,
+          "pregrasp": 0,
+          "approach": 0,
+          "close": 4
+        },
+        "source_omega_max": 17.419267813512583,
+        "source_linear_max": 0.18802501261234283,
+        "source_poseFDomega_max": 1.2885295246660409,
+        "omega_minus_FD_max": 17.541872347386576,
+        "source_robot_contact_ticks": 334,
+        "first_source_robot_contact_tick": 4817,
+        "native_omega_at_tick5152": [
+          -0.06038399040699005,
+          -0.23461852967739105,
+          -0.0003933966509066522
+        ],
+        "poseFDomega_at_tick5152": [
+          0.008099638922110155,
+          0.005546557116931877,
+          -0.005071092035124979
+        ]
+      }
+    },
+    "native_reference_initialization": "计时前将 SDK 默认零目标与实际静止 home 状态对齐；未改动物理状态或推进时钟。该零步边界单独记录，随后所有真实原生发出步全部计数。",
     "position_sampling_diagnostic": {
       "scope": "单次 2.5 秒空液体预抓取对照；未测试碰指后的速度异常。",
       "same_time_motion": {
@@ -393,7 +635,7 @@
       "negative_no_contact_pass": true,
       "scope": "新接触观测正负对照通过；不证明抓持、跟踪或 BC。旧三通道零读数尝试完整保留。"
     },
-    "remaining": "新增独立对照（单次原生诊断，非统计显著性结论）：030 仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 5.251 / 5.448 mm，实际加速度越限 2 个关节×物理步，归还未完成；031 仅将 TGS 速度迭代上限设为 1，TCP / 瓶身 RMS 5.659 / 5.952 mm，实际加速度越限 0 个关节×物理步，归还完成；032 仅按观测到的抓持变换计算归还目标，TCP / 瓶身 RMS 5.250 / 5.261 mm，实际加速度越限 3 个关节×物理步，归还完成；033 在 031 上仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 6.487 / 7.334 mm，实际加速度越限 0 个关节×物理步，归还完成；034 在 033 上仅补入已有视频参考速度，TCP / 瓶身 RMS 5.571 / 6.903 mm，实际加速度越限 0 个关节×物理步，归还完成。原视频时间戳独立重建核验与原记录一致；将目标篡改成实际位置，也不会改变独立评分。所有旧失败保留，合格示范与 BC 更新仍为零；未知相机来源、二维代理与尺度假设不变。",
+    "remaining": "新增独立对照（单次原生诊断，非统计显著性结论）：030 仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 5.251 / 5.448 mm，实际加速度越限 2 个关节×物理步，归还未完成；031 仅将 TGS 速度迭代上限设为 1，TCP / 瓶身 RMS 5.659 / 5.952 mm，实际加速度越限 0 个关节×物理步，归还完成；032 仅按观测到的抓持变换计算归还目标，TCP / 瓶身 RMS 5.250 / 5.261 mm，实际加速度越限 3 个关节×物理步，归还完成；033 在 031 上仅旁路视频 XY 的 G8 滤波，TCP / 瓶身 RMS 6.487 / 7.334 mm，实际加速度越限 0 个关节×物理步，归还完成；034 在 033 上仅补入已有视频参考速度，TCP / 瓶身 RMS 5.571 / 6.903 mm，实际加速度越限 0 个关节×物理步，归还完成。原视频时间戳独立重建核验与原记录一致；将目标篡改成实际位置，也不会改变独立评分。所有旧失败保留，合格示范与 BC 更新仍为零；未知相机来源、二维代理与尺度假设不变。追加静持对照：含 125 粒子时最后一秒最大相对漂移 2.996 mm / 2.144°；保持 GPU 路径、仅移除粒子后为 0.046 mm / 0.017°。这提示粒子参与残余角运动，具体耦合机制仍未知。旧“不旋摇”负例按自身零目标评分为 0.430 mm，按原视频独立评分为 5.427 mm 并被拒绝。下方新视频为失败状态的可核验重放，液体和玻璃视觉效果均未验收。",
     "rejected_position_velocity_reference": {
       "source_PTS_scale": 1,
       "TCP_RMS_mm": 5.6593953631818295,
@@ -528,7 +770,75 @@
         "BC_updates": 0,
         "A06_complete": false
       }
-    ]
+    ],
+    "static_particle_presence_control": {
+      "four_second_drift": [
+        {
+          "run": "attempt035_static100_TGS1",
+          "metrics": {
+            "available": true,
+            "rows": 1200,
+            "object_in_TCP_translation_drift_p95_m": 0.0042813628446310755,
+            "object_in_TCP_translation_drift_max_m": 0.005285116843879223,
+            "object_in_TCP_rotation_drift_p95_deg": 1.4166710495948782,
+            "object_in_TCP_rotation_drift_max_deg": 2.1716885566711426,
+            "bottle_Z_axis_tilt_p95_deg": 1.1258278489112847,
+            "bottle_Z_axis_tilt_max_deg": 1.6849309206008911,
+            "interpretation": "Measured bottle root rigid transform relative to actualTCP; descriptive slip/tilt evidence, not causal attribution. Video bottom-outline proxy is not roottranslation or COM."
+          }
+        },
+        {
+          "run": "attempt036_static100_TGS1_empty",
+          "metrics": {
+            "available": true,
+            "rows": 1200,
+            "object_in_TCP_translation_drift_p95_m": 0.0022668855264782904,
+            "object_in_TCP_translation_drift_max_m": 0.0022838881704956293,
+            "object_in_TCP_rotation_drift_p95_deg": 0.03872505128383636,
+            "object_in_TCP_rotation_drift_max_deg": 0.04642441123723984,
+            "bottle_Z_axis_tilt_p95_deg": 0.12361938394606106,
+            "bottle_Z_axis_tilt_max_deg": 0.15195107460021973,
+            "interpretation": "Measured bottle root rigid transform relative to actualTCP; descriptive slip/tilt evidence, not causal attribution. Video bottom-outline proxy is not roottranslation or COM."
+          }
+        }
+      ],
+      "final_one_second_windows": [
+        {
+          "run": "attempt035_static100_TGS1",
+          "maximum_relative_translation_mm": 2.995997667312622,
+          "maximum_relative_rotation_deg": 2.1438729763031006,
+          "duration_s": 1.0,
+          "pose_window_pass": false
+        },
+        {
+          "run": "attempt036_static100_TGS1_empty",
+          "maximum_relative_translation_mm": 0.04598026134772226,
+          "maximum_relative_rotation_deg": 0.01710553653538227,
+          "duration_s": 1.0,
+          "pose_window_pass": true
+        }
+      ],
+      "scope": "同一原生 GPU 路径，仅改变粒子是否存在；单次对照，不区分质量、压力、接触或内部求解阶段。含液抓持仍不准进入旋摇/BC。"
+    },
+    "source_oracle_real_negative": {
+      "old_self_target_TCP_RMS_mm": 0.42978706187568605,
+      "original_source_TCP_RMS_mm": 5.426565479426028,
+      "rejected": true,
+      "scope": "旧 noXY016 真实负例的离线重评分；不是 034 的配对负例，也没有重跑。"
+    },
+    "diagnostic_saved_state_replay": {
+      "frame_count": 699,
+      "fps": 20,
+      "duration_s": 34.95,
+      "swirl_rows_rendered": 75,
+      "new_native_physics_steps": 0,
+      "initialization_native_physics_callbacks": 302,
+      "FK_TCP_position_max_error_m": 8.024520884654677e-07,
+      "FK_TCP_rotation_max_error_rad": 1.2580675434592833e-06,
+      "liquid_rendered": false,
+      "glass_visual_acceptance": "NOT_ACCEPTED_MILKY_FROSTED_APPEARANCE",
+      "task_success": false
+    }
   },
   "figures": [
     {
@@ -550,12 +860,20 @@
     {
       "src": "a06-reference-controls.png",
       "caption": "A06 新增原生对照：原视频时间戳下的参考、实际 TCP 与相对瓶身轨迹。031、033、034 运动计数为零，但全部变体跟踪仍未达到冻结门槛；每个变体仅一例，不声称统计显著性。"
+    },
+    {
+      "src": "a06-static-coupling.png",
+      "caption": "A06 同一 TGS 设置下的含粒子／空粒子静持对照，阴影为最后一秒。空粒子角漂移明显减小；不能由此唯一定位流体力或求解器根因。两组仍不计作含液任务通过。"
     }
   ],
   "videos": [
     {
       "src": "a03-liquid-failure.mp4",
       "caption": "A03 实际原生渲染失败记录：989 帧、约 65.87 秒完整机械流程。液体最终 10/240 入杯，230/240 在两腔外；玻璃条纹和液面可见性也尚未通过视觉验收。"
+    },
+    {
+      "src": "a06-saved-state-diagnostic.mp4",
+      "caption": "A06 保存状态 RTX 诊断重放：699 帧、20Hz、34.95 秒，保留全部 75 个旋摇样本。重放新增物理步为零，初始化 302 步另计；原速跟踪失败，液体隐藏，乳白／磨砂玻璃外观未验收。不是新增物理成功或完成复现的演示。"
     }
   ]
 }
