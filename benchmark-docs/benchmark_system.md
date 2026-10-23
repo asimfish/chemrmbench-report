@@ -102,6 +102,11 @@ timing error, memory decision accuracy and safety violations beside success.
 
 The first three concatenate semantic fragments; this is a goal-graph
 specification, not proof that independently initialized controllers compose.
+All remembered slots must be disclosed once at protocol start. Later fragments
+replace cue presentation and retention setup with current-state observation and
+measured prerequisite checks; they may not re-display the answer. The native
+adapter must enforce and audit this observation schedule before making any
+long-horizon memory claim.
 An executor must check measured preconditions at each handoff, preserve the
 same object registry and simulation clock, and never reset between fragments.
 All completed and failed prefixes retain full state, events, action/video time
