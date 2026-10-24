@@ -1,0 +1,862 @@
+{
+  "schema": "A06_profile_video_motion_candidate_v1",
+  "status": "CLOSED",
+  "complete": true,
+  "actor": "phaseBC",
+  "seed": 2026102216,
+  "initial_source_xy_m": [
+    0.345,
+    -0.405
+  ],
+  "partition": "full",
+  "fluid": true,
+  "empty_cup": false,
+  "A06_complete": false,
+  "full_reference_complete": false,
+  "physical_lift_verified": true,
+  "swirl_complete": true,
+  "physical_return_verified": true,
+  "clock_valid": true,
+  "native_callbacks": 10500,
+  "native_s": 35.00000084750354,
+  "finite": true,
+  "wall_s": 216.80811326600087,
+  "external_reference_XY_only_G8_bypass": true,
+  "solver_diagnostic": {
+    "revision": "A06_021_external_each_iteration",
+    "only_physics_change": "enable_external_forces_every_iteration False to True",
+    "actual_native_USD_flag": true,
+    "not_original_default_equivalence": true,
+    "not_eligible_for_demonstration_admission": true,
+    "compatibility_revision": "A06_031_TGS_max_velocity_iterations1",
+    "additional_single_change": "scene max_velocity_iteration_count255->1",
+    "actual_scene_max_velocity_iterations": 1,
+    "source": "OmniPhysics107.3 SimulationControl recommendsaround1TGSvelocityiteration; not a provenrootcause"
+  },
+  "observed_settling": {
+    "window_endpoints": 301,
+    "window_native_duration_s": 1.0,
+    "relative_translation_max_m": 0.0002905857425369088,
+    "relative_rotation_max_rad": 0.0005356971298829425,
+    "all_bilateral": true,
+    "elapsed_s": 4.0
+  },
+  "diagnostic_only": true,
+  "lower_profile_s": 12.0,
+  "joint_command_acceleration_nominal_rad_s2": 5.0,
+  "verified_demonstrations_admitted": 0,
+  "candidate_revision": "A06_R1_attempt3_lower12s_phase_BC_student_on_034_C3_TGS1",
+  "harness_binding": {
+    "candidate_revision": "A06_R1_attempt3_lower12s_phase_BC_student_on_034_C3_TGS1",
+    "grasp_height_m": 0.085,
+    "time_scale": 1.0,
+    "vessel_geometry": "source_profile_flask_100mm_353convex_v1",
+    "controller": "A06_C3_300Hz_planner490_posvel_cartesianFF_v1",
+    "postprocessing": "G8_except_external_reference_XY_v1",
+    "finger_effort_limit_N": 20.0,
+    "down_orientation_wxyz": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "harness_protocol": null,
+  "grasp_height_m": 0.085,
+  "first_source_sample_definition": "The first full policy tick after successful301endpoint observed relative-pose settling is phase0 at source frame83; subsequent source time follows the explicitly bound time_scale.",
+  "stage_events": [
+    {
+      "event": "descend",
+      "tick": 4
+    },
+    {
+      "event": "close",
+      "tick": 27
+    },
+    {
+      "event": "lift",
+      "tick": 44,
+      "fingers": [
+        [
+          0.012374835088849068,
+          0.012370719574391842
+        ]
+      ],
+      "forces": [
+        [
+          19.77104377746582,
+          20.050392150878906,
+          2.7274155616760254
+        ]
+      ],
+      "radius_at_grasp_m": 0.00991886918701907
+    },
+    {
+      "event": "stabilize",
+      "tick": 58,
+      "lift_m": 0.09250383824110031
+    },
+    {
+      "event": "swirl_after_observed_settling",
+      "tick": 138,
+      "first_reference_tick": 139,
+      "first_reference_frame": 83,
+      "verifier": {
+        "window_endpoints": 301,
+        "window_native_duration_s": 1.0,
+        "relative_translation_max_m": 0.0002905857425369088,
+        "relative_rotation_max_rad": 0.0005356971298829425,
+        "all_bilateral": true,
+        "elapsed_s": 4.0
+      }
+    },
+    {
+      "event": "return_high",
+      "tick": 214
+    },
+    {
+      "event": "lower",
+      "tick": 218,
+      "translation_profile_s": 12.0,
+      "unchanged_final_target": [
+        0.3449999690055847,
+        -0.4050000011920929,
+        0.16500000655651093
+      ]
+    },
+    {
+      "event": "release",
+      "tick": 458
+    },
+    {
+      "event": "retreat",
+      "tick": 470
+    },
+    {
+      "event": "done",
+      "tick": 484
+    }
+  ],
+  "reference_motion": "/data/liyufeng/a06_runs/m02/motion.profile_scale.json",
+  "reference_assumptions": {
+    "vessel_diameter_m": null,
+    "training_median_visible_width_px": 264.0,
+    "metres_per_pixel": 0.000234192037470726,
+    "scale_source": "User-declared same100mm/427px profile height assumption",
+    "image_axes": "image+x -> world+x; image-y -> world+y",
+    "plane": "constant-height horizontal worldXY; video depth/perspective not reconstructed",
+    "orientation": "constant upright orientation, not measured6D",
+    "proxy": "visible lower-flask envelope bottom-edge midpoint, not COM",
+    "time_scale": 1.0,
+    "time_scale_interpretation": "1 preserves original source timing; other values explicit retiming, not recovered timing"
+  },
+  "source_frames": [
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194
+  ],
+  "swirl_rows": 75,
+  "swirl_tracking_RMS_m": 0.005903607700020075,
+  "swirl_tracking_max_m": 0.01112006139010191,
+  "swirl_bilateral_contact_fraction": 1.0,
+  "counts": {
+    "command_velocity": 0,
+    "command_acceleration": 0,
+    "actual_velocity": 0,
+    "actual_acceleration": 0
+  },
+  "motion_maxima": {
+    "command_velocity": 0.5259990692138672,
+    "command_acceleration": 4.935264587402352,
+    "actual_velocity": 0.5298642516136169,
+    "actual_acceleration": 9.540225982666016
+  },
+  "count_unit": "joint x physics300Hz step",
+  "scene": {
+    "scene_revision": "A06_034_external_reference_velocity_TGSmax1_v1",
+    "arm_velocity_reference": "Emitted_qref_finite_difference_from_C3_event; originalimplicitPD/gains/effortlimitsunchanged",
+    "contact_processing_explicitly_enabled_like_ContactSensor": true,
+    "vessel_asset": "/data/liyufeng/a06_runs/m05/project/f_tier/A06/profile_asset/source_profile_flask.usda",
+    "profile_assumptions": {
+      "axisymmetric": true,
+      "upright_axis": "Z",
+      "root_origin": "bottom center",
+      "height_m": 0.1,
+      "pixel_to_m_assumed": 0.000234192037470726,
+      "wall_thickness_m": 0.0015,
+      "floor_thickness_m": 0.002,
+      "mass_kg": 0.08,
+      "outer_profile_z_radius_m": [
+        [
+          0.0,
+          0.018149882903981264
+        ],
+        [
+          0.001405152224824356,
+          0.023653395784543327
+        ],
+        [
+          0.005152224824355972,
+          0.02763466042154567
+        ],
+        [
+          0.010772833723653397,
+          0.029625292740046837
+        ],
+        [
+          0.015456674473067915,
+          0.029039812646370025
+        ],
+        [
+          0.02505854800936768,
+          0.025995316159250586
+        ],
+        [
+          0.04028103044496487,
+          0.020843091334894613
+        ],
+        [
+          0.05667447306791569,
+          0.01522248243559719
+        ],
+        [
+          0.06721311475409836,
+          0.010772833723653397
+        ],
+        [
+          0.07072599531615925,
+          0.008899297423887589
+        ],
+        [
+          0.08711943793911008,
+          0.010070257611241218
+        ],
+        [
+          0.09648711943793911,
+          0.012060889929742389
+        ],
+        [
+          0.1,
+          0.013114754098360656
+        ]
+      ],
+      "inner_profile_z_radius_m": [
+        [
+          0.002,
+          0.02278542154566745
+        ],
+        [
+          0.005152224824355972,
+          0.026134660421545667
+        ],
+        [
+          0.010772833723653397,
+          0.028125292740046836
+        ],
+        [
+          0.015456674473067915,
+          0.027539812646370024
+        ],
+        [
+          0.02505854800936768,
+          0.024495316159250585
+        ],
+        [
+          0.04028103044496487,
+          0.019343091334894612
+        ],
+        [
+          0.05667447306791569,
+          0.01372248243559719
+        ],
+        [
+          0.06721311475409836,
+          0.009272833723653397
+        ],
+        [
+          0.07072599531615925,
+          0.007399297423887589
+        ],
+        [
+          0.08711943793911008,
+          0.008570257611241219
+        ],
+        [
+          0.09648711943793911,
+          0.01056088992974239
+        ],
+        [
+          0.1,
+          0.011614754098360656
+        ]
+      ],
+      "outer_diameter_max_m": 0.059250585480093675,
+      "inner_capacity_ideal_revolved_m3": 0.00010062464127851451,
+      "grasp_height_suggested_m": 0.06,
+      "grasp_outer_diameter_m": 0.02763674212854541
+    },
+    "fluid_original_defaults": {
+      "particle_contact_offset": 0.004,
+      "particle_mass": 1e-06,
+      "density": 1000,
+      "cohesion": 0.01,
+      "viscosity": 0.0091,
+      "surface_tension": 0.074,
+      "friction": 0.01,
+      "cfl_coefficient": 1.0,
+      "transparent": true,
+      "color_rgb": [
+        0.85,
+        0.92,
+        0.96
+      ]
+    },
+    "fluid_volume_grid_m": [
+      0.02,
+      0.02,
+      0.02
+    ],
+    "contact_reporting_runtime_attributes": {
+      "/World/Flask": {
+        "physxContactReport:threshold": 0.0,
+        "physxRigidBody:sleepThreshold": 0.0
+      },
+      "/World/Panda/panda_leftfinger": {
+        "physxContactReport:threshold": 0.0,
+        "physxRigidBody:sleepThreshold": 4.999999873689376e-05
+      },
+      "/World/Panda/panda_rightfinger": {
+        "physxContactReport:threshold": 0.0,
+        "physxRigidBody:sleepThreshold": 4.999999873689376e-05
+      },
+      "/World/Source": {
+        "physxContactReport:threshold": 0.0,
+        "physxRigidBody:sleepThreshold": null
+      }
+    },
+    "contact_sensor_count": 1,
+    "contact_filter_count": 3,
+    "contact_sensor_paths": [
+      "/World/Flask"
+    ],
+    "contact_filter_paths": [
+      [
+        "/World/Panda/panda_leftfinger",
+        "/World/Panda/panda_rightfinger",
+        "/World/Source"
+      ]
+    ],
+    "render_only_illumination": {
+      "type": "DomeLight",
+      "color": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "intensity": 3000.0,
+      "source": "Original MatterixBaseEnvCfg light"
+    },
+    "actual_render_translucency_enabled": true,
+    "scene_tensor_device": "cpu",
+    "particle_wrapper": "Original enable_particles CPU scene tensors + overwrite_gpu_setting(1)",
+    "private_A06_planner_rounding_margin": {
+      "planner_acceleration_rad_s2": 4.9,
+      "emitted_command_acceleration_nominal_bound_rad_s2": 5.0,
+      "unchanged_count_threshold_rad_s2": 5.01,
+      "formula": "2*float32_position_ULP/dt^2 <= .042915345 for abs(q)<4; .10 planner headroom. Not a bandwidth or hardware safety acceptance."
+    },
+    "original_mass_density_mismatch_retained": true,
+    "fluid_anisotropy_smoothing_isosurface_defaults_unchanged": true,
+    "source_support_contact": "native force3 columns left/right/source",
+    "controller_config": {
+      "policy_dt_s": 0.05,
+      "physics_dt_s": 0.0033333333333333335,
+      "action_translation_limit_m": 0.015,
+      "action_rotation_limit_rad": 0.1,
+      "damping": 0.01,
+      "rotation_weight_m_per_rad": 0.2,
+      "servo_horizon_s": 0.05,
+      "joint_command_speed_limit_rad_s": 0.7,
+      "joint_command_acceleration_limit_rad_s2": 4.9,
+      "joint_position_margin_rad": 0.001,
+      "tcp_offset_m": 0.1034,
+      "finger_open_m": 0.04,
+      "finger_speed_limit_m_s": 0.1
+    },
+    "native_object_joint_state_writes_after_initialization": 0,
+    "FD": {
+      "is_fixed_base": true,
+      "hand_body_index": 8,
+      "physx_jacobian_body_index": 7,
+      "root_quaternion_world_wxyz": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "hand_link_pose_world_wxyz": [
+        0.3500003218650818,
+        -0.39999985694885254,
+        0.40340039134025574,
+        -1.7607072777536814e-07,
+        1.0,
+        2.384185791015625e-07,
+        1.5334035197156481e-07
+      ],
+      "hand_com_pose_world_wxyz": [
+        0.35007524490356445,
+        -0.39879441261291504,
+        0.37943941354751587,
+        -0.01397261768579483,
+        0.9999022483825684,
+        0.00032329533132724464,
+        -9.389344086230267e-06
+      ],
+      "native_jacobian_world": [
+        [
+          -0.40000012516975403,
+          -0.02177928388118744,
+          -0.39946675300598145,
+          0.23078718781471252,
+          -0.09667181968688965,
+          0.13855448365211487,
+          4.496805061648956e-08
+        ],
+        [
+          0.3500003218650818,
+          -0.02479199320077896,
+          0.3495320975780487,
+          0.26377737522125244,
+          0.08459331095218658,
+          0.15833765268325806,
+          6.7907990342064295e-09
+        ],
+        [
+          1.5938867647946608e-07,
+          -0.5315065383911133,
+          -1.9357132259756327e-05,
+          0.4549306035041809,
+          -2.5574113493576078e-08,
+          0.0880001038312912,
+          6.827301224365812e-11
+        ],
+        [
+          3.948807716369629e-07,
+          -0.7512810230255127,
+          -0.012339994311332703,
+          0.752571165561676,
+          0.5521554946899414,
+          0.7525554895401001,
+          3.073364496231079e-07
+        ],
+        [
+          -7.450580596923828e-09,
+          0.6599825024604797,
+          -0.0140475332736969,
+          -0.6585110425949097,
+          0.6309939622879028,
+          -0.6585289239883423,
+          1.2665987014770508e-07
+        ],
+        [
+          0.9999998807907104,
+          1.7881393432617188e-07,
+          0.9998254776000977,
+          3.6347657442092896e-05,
+          -0.5449504256248474,
+          -8.940696716308594e-08,
+          -1.0
+        ]
+      ],
+      "central_difference_jacobian_world": [
+        [
+          -0.39996445525980473,
+          -0.02179137216831717,
+          -0.3994446507265548,
+          0.23074441918441435,
+          -0.09666629910767832,
+          0.13856925949506937,
+          1.4126166902883597e-06
+        ],
+        [
+          0.3499234593206113,
+          -0.024748370291149957,
+          0.3494723437635905,
+          0.2637183715573921,
+          0.08460544343555365,
+          0.1583083286855469,
+          -7.654978317894745e-06
+        ],
+        [
+          1.2292643430944494e-05,
+          -0.5315716981894036,
+          1.7423920667392068e-05,
+          0.45487799644608473,
+          1.7504584698402326e-05,
+          0.08798160553302736,
+          6.181702372209941e-08
+        ],
+        [
+          -5.441316345407379e-06,
+          -0.7512311631185079,
+          -0.012294358404358881,
+          0.7525288906463702,
+          0.5520602003327875,
+          0.752536351121886,
+          -7.384398970466813e-05
+        ],
+        [
+          -0.00012118352535935757,
+          0.6600889679360685,
+          -0.014083148914506407,
+          -0.6584462865791503,
+          0.6309455586679515,
+          -0.6584793954280628,
+          -1.3266692144096663e-05
+        ],
+        [
+          0.9998148950297978,
+          -8.608069470264463e-06,
+          0.999739105257329,
+          1.6680907845959715e-06,
+          -0.5448801642994069,
+          -2.862701098068768e-05,
+          -1.0000850069470024
+        ]
+      ],
+      "central_difference_float32_tcp_jacobian_world": [
+        [
+          -0.39996203780174255,
+          -0.021800396963953972,
+          -0.39945539832115173,
+          0.23074446618556976,
+          -0.09666382521390915,
+          0.1385807991027832,
+          0.0
+        ],
+        [
+          0.3499239385128021,
+          -0.024750826880335808,
+          0.3494769036769867,
+          0.2637207508087158,
+          0.0846087858080864,
+          0.1583099216222763,
+          -1.4901160284352954e-05
+        ],
+        [
+          1.4901160284352954e-05,
+          -0.5315691232681274,
+          1.4901160284352954e-05,
+          0.45487281680107117,
+          1.4901160284352954e-05,
+          0.08797644823789597,
+          0.0
+        ],
+        [
+          -5.441321263788268e-06,
+          -0.7512311339378357,
+          -0.012294357642531395,
+          0.7525287866592407,
+          0.5520601868629456,
+          0.7525362372398376,
+          -7.384399214060977e-05
+        ],
+        [
+          -0.00012118352606194094,
+          0.6600890159606934,
+          -0.014083148911595345,
+          -0.658446192741394,
+          0.6309455037117004,
+          -0.6584793329238892,
+          -1.3266692803881597e-05
+        ],
+        [
+          0.9998148083686829,
+          -8.608079951955006e-06,
+          0.9997391104698181,
+          1.6680984344930039e-06,
+          -0.5448801517486572,
+          -2.862699875549879e-05,
+          -1.0000848770141602
+        ]
+      ],
+      "float32_tcp_linear_max_error_m_per_rad": 9.149188554147258e-05,
+      "fd_arithmetic": "native float32 hand pose promoted to double before rotated TCP offset addition; original float32 TCP FD is preserved as a counterfactual",
+      "native_float32_x_ulp_m": 2.9802322387695312e-08,
+      "single_rounding_ulp_over_2epsilon_m_per_rad": 1.4901161193847656e-05,
+      "maximum_linear_column_error_m_per_rad": 8.98781989587153e-05,
+      "maximum_angular_column_error_rad_per_rad": 0.00022121806896364528,
+      "per_environment_maximum_linear_column_error_m_per_rad": [
+        8.98781989587153e-05
+      ],
+      "per_environment_maximum_angular_column_error_rad_per_rad": [
+        0.00022121806896364528
+      ],
+      "pre_measurement_joint_state_writes": 15,
+      "native_linear_jacobian_reference": "hand COM, corrected via measured COM -> hand link origin -> TCP"
+    }
+  },
+  "initial_particle_count": 125,
+  "teacher_label_rows_recorded": 0,
+  "new_parameter_updates": 0,
+  "no_planar_motion_negative": false,
+  "BC_scope": "Video-trajectory-conditioned translation controller receives target-minus-currentTCP and source-reference velocity, including unseen suffix. Source trajectory remains in harness. NOT independently generated motion, end-to-end video policy or target-free extrapolation; separate from ChemOPD41D. Grasp/return/rotation/grip remain common harness.",
+  "no_object_or_joint_state_writes_after_initialization": true,
+  "trajectory_metrics": {
+    "available": true,
+    "rows": 75,
+    "reference_frame_first": 83,
+    "reference_frame_last": 194,
+    "TCP_XY": {
+      "RMS_m": 0.005554945208132267,
+      "p95_m": 0.009315656870603562,
+      "max_m": 0.010656526312232018
+    },
+    "bottle_XY_relative": {
+      "RMS_m": 0.006692420691251755,
+      "p95_m": 0.01144933039322495,
+      "max_m": 0.013827233575284481
+    },
+    "reference_XY_range_m": [
+      0.01893588900566101,
+      0.007491260766983032
+    ],
+    "actual_TCP_XY_range_m": [
+      0.010736167430877686,
+      0.007362395524978638
+    ],
+    "actual_bottle_XY_range_m": [
+      0.012455612421035767,
+      0.0072934627532958984
+    ],
+    "descriptive_best_lag_s": 0.05,
+    "best_lag_centered_RMS_m": 0.003914381843060255,
+    "lag_candidates": [
+      {
+        "lag_s": -0.5,
+        "centered_RMS_m": 0.005662584211677313
+      },
+      {
+        "lag_s": -0.45,
+        "centered_RMS_m": 0.005910794250667095
+      },
+      {
+        "lag_s": -0.4,
+        "centered_RMS_m": 0.006533696781843901
+      },
+      {
+        "lag_s": -0.35000000000000003,
+        "centered_RMS_m": 0.0057616401463747025
+      },
+      {
+        "lag_s": -0.30000000000000004,
+        "centered_RMS_m": 0.005095711909234524
+      },
+      {
+        "lag_s": -0.25,
+        "centered_RMS_m": 0.006259546149522066
+      },
+      {
+        "lag_s": -0.2,
+        "centered_RMS_m": 0.006370658986270428
+      },
+      {
+        "lag_s": -0.15000000000000002,
+        "centered_RMS_m": 0.00482583325356245
+      },
+      {
+        "lag_s": -0.1,
+        "centered_RMS_m": 0.005140126682817936
+      },
+      {
+        "lag_s": -0.05,
+        "centered_RMS_m": 0.006519197486341
+      },
+      {
+        "lag_s": 0.0,
+        "centered_RMS_m": 0.00552934966981411
+      },
+      {
+        "lag_s": 0.05,
+        "centered_RMS_m": 0.003914381843060255
+      },
+      {
+        "lag_s": 0.1,
+        "centered_RMS_m": 0.00547489570453763
+      },
+      {
+        "lag_s": 0.15000000000000002,
+        "centered_RMS_m": 0.0062649305909872055
+      },
+      {
+        "lag_s": 0.2,
+        "centered_RMS_m": 0.004794446751475334
+      },
+      {
+        "lag_s": 0.25,
+        "centered_RMS_m": 0.004575931932777166
+      },
+      {
+        "lag_s": 0.30000000000000004,
+        "centered_RMS_m": 0.006243324372917414
+      },
+      {
+        "lag_s": 0.35000000000000003,
+        "centered_RMS_m": 0.00604991614818573
+      },
+      {
+        "lag_s": 0.4,
+        "centered_RMS_m": 0.004950815811753273
+      },
+      {
+        "lag_s": 0.45,
+        "centered_RMS_m": 0.005661069415509701
+      },
+      {
+        "lag_s": 0.5,
+        "centered_RMS_m": 0.006307017989456654
+      }
+    ],
+    "lag_scope": "Positive lag means actual response behind reference, search+-0.5s; may have multiple similar periodic peaks, not unique lag. Posthoc descriptive only, never replaces same-time error/clock or proves phase causality",
+    "source_scope": "2D lower-outline proxy mapped into declared horizontal plane and scale; bottle relative reference anchored to first observed swirl state"
+  },
+  "grasp_drift_metrics": {
+    "available": true,
+    "rows": 75,
+    "object_in_TCP_translation_drift_p95_m": 0.004124880349263549,
+    "object_in_TCP_translation_drift_max_m": 0.004324094392359257,
+    "object_in_TCP_rotation_drift_p95_deg": 1.742901337146759,
+    "object_in_TCP_rotation_drift_max_deg": 1.8915081024169922,
+    "bottle_Z_axis_tilt_p95_deg": 2.182943272590637,
+    "bottle_Z_axis_tilt_max_deg": 2.2457661628723145,
+    "interpretation": "Measured bottle root rigid transform relative to actualTCP; descriptive slip/tilt evidence, not causal attribution. Video bottom-outline proxy is not roottranslation or COM."
+  },
+  "particle_metrics": {
+    "particle_count": 125,
+    "observations": 350,
+    "particle_count_constant": true,
+    "all_finite": true,
+    "minimum_strict_ideal_cavity_fraction_all": 1.0,
+    "minimum_strict_ideal_cavity_fraction_swirl": 1.0,
+    "final_strict_ideal_cavity_fraction": 1.0,
+    "maximum_gross_outside_fraction": 0.0,
+    "swirl_local_centroid_XY_range_m": [
+      0.00974782208660616,
+      0.005243823204502516
+    ],
+    "swirl_local_particle_displacement_RMS_m": 0.015363669777915584,
+    "particle_mass_kg": 1e-06,
+    "configured_total_particle_mass_kg": 0.000125,
+    "bookkeeping": "Original particle_mass and density mismatch retained; not calibrated liquid mass/volume",
+    "observer": "Original get_current_pos_vel USD display-point API; smoothing may move points; ideal cavity/gross4mm band only, no raw-solver particle-rigid contact or zero-penetration claim"
+  }
+}

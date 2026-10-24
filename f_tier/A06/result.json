@@ -1,7 +1,7 @@
 {
   "id": "A06",
-  "status": "R1_PASS_RENDER_PENDING",
-  "F_PASS": false,
+  "status": "F_PASS",
+  "F_PASS": true,
   "tier": "F",
   "protocol": {
     "R1": "f_tier/A06/sim_pipeline/takeover_R1/R1_protocol.json",
@@ -144,10 +144,11 @@
     "Three R1 attempts, all retained: 1 FAIL 0/2 (copycat student: state-input feedback, amplitude 2.92); 2 FAIL 1/2 (one 17.1 rad/s2 joint-6 count at flask touchdown in the shared lowering harness); 3 PASS 2/2 with untrained 0/2 after one harness change (lowering 6 s -> 12 s). The two pass-set positions were used in all three attempts. Supplementary new positions: 1 success, 3 NO_RESULT (own GPU guard stops).",
     "R1 TCP-vs-video <=10 mm is not discriminative: the no-motion negative scores 5.43 mm and the student 5.55/5.59 mm, because the C3 executor realizes commands one 20 Hz tick late (~100 deg at 5.6 Hz). One-tick aligned: student 3.96/4.01 mm, x-corr 0.75/0.73; untrained 5.77 mm, x-corr -0.06. The trained-vs-untrained decision rests on amplitude ratio (0.73-0.74 vs 0.30).",
     "Fluid: original MATTERIX PBD defaults, 125 particles, smoothed display points; retention by ideal cavity bookkeeping, no calibrated mass/volume. One particle escaped during initialization in a supplementary run (inflates its RMS to 287 mm; 16.6 mm without it).",
-    "Open harness weakness: grasp-close joint-6 acceleration spikes (15.06-15.6 rad/s2 vs 15.0 counter) occurred in 2 of the C3 runs; not addressed."
+    "Open harness weakness: grasp-close joint-6 acceleration spikes (15.06-15.6 rad/s2 vs 15.0 counter) occurred in 2 of the C3 runs; not addressed.",
+    "Video: live RTX render (10 fps, 35 s, 720x544) of a separate uncounted run with the pass-set phaseBC configuration (render addendum); that run also meets R1 (TCP 5.555 mm, amplitude 0.733, counts 0). Limits: 10 fps is below Nyquist for the 5.6 Hz, ~10 mm swirl, so the swirl appears aliased/small; glass renders cloudy and liquid motion is not visually discernible (a fill line is visible at rest). Motion and fluid evidence rest on logged metrics and the separate data-plot video."
   ],
-  "video": null,
-  "video_kind": null,
+  "video": "f_tier/A06/video.mp4",
+  "video_kind": "live RTX render, separate uncounted run",
   "data_video": "f_tier/A06/data_video_R1_attempt3.mp4",
   "data_video_kind": "plots of logged arrays (TCP vs video reference, particles in flask frame); not a render",
   "evidence": {
@@ -155,10 +156,59 @@
     "independent_review_code": "f_tier/A06/sim_pipeline/takeover_R1/independent_review_r1.py",
     "lag": "f_tier/A06/sim_pipeline/takeover_R1/attempt3/descriptive_lag_analysis.json",
     "runs": "f_tier/A06/sim_pipeline/takeover_R1/attempt3/runs/",
-    "visual_review": null
+    "visual_review": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/A06/sim_pipeline/takeover_R1/attempt3/visual_review.json"
   },
-  "F_acceptance_review": null,
+  "F_acceptance_review": {
+    "passed": true,
+    "reviewer": "takeover agent (acting root since 2026-10-24); user may veto",
+    "decided_at_utc": "2026-10-24T22:38:00.505944+00:00",
+    "rule": "R1 (user-approved): 3/3 demos admitted, phaseBC 2/2, phaseUntrained 0/2; every launch counted",
+    "result": "attempt 3: phaseBC 2/2, untrained 0/2; runner, analyze_r1 and separate-code independent review agree on all runs; attempts 1-2 FAIL retained",
+    "visual": {
+      "id": "A06_R1_attempt3_render_visual_review",
+      "video": "f_tier/A06/video.mp4 (= takeover_R1/attempt3/runs/render_phaseBC_2026102216/video.mp4)",
+      "render_run_metrics": "render_phaseBC_2026102216 also meets R1: TCP vs video 5.555 mm, amplitude 0.733, particle displacement 15.4 mm, counts 0, retention 1.0; obs differ from the counted pass-set run by <=18 mm (run-to-run GPU physics)",
+      "video_properties": {
+        "frames": 350,
+        "fps": 10,
+        "duration_s": 35.0,
+        "resolution": [
+          720,
+          544
+        ],
+        "decoded_completely": true
+      },
+      "reviewer_producer": {
+        "who": "takeover agent (produced the run)",
+        "images": [
+          "render_contact_sheet.png",
+          "render_flask_crops.png",
+          "render_frame088.png",
+          "render_lowering_strip.png"
+        ],
+        "findings": [
+          "All stages visible: approach, neck grasp, lift, hold above support during swirl, lowering (flask z 0.172 -> 0.154 -> 0.111 -> 0.088 -> 0.081 -> 0.080 m across frames 105-228), release, retreat, flask upright on support at the end.",
+          "Flask held at the neck by both fingers through the swirl; no drop, tip or visible slip.",
+          "Glass renders cloudy/frosted while held; liquid motion is not discernible; a faint fill line is visible at rest (frame 349).",
+          "The ~10 mm, 5.6 Hz swirl is not visible: 10 fps is below Nyquist and the camera is wide."
+        ]
+      },
+      "reviewer_independent": {
+        "who": "fresh-context agent, images only, neutral questions, no access to metrics or expected outcome",
+        "accepted_as_complete_episode_video": true,
+        "summary": "Complete grasp-hold-place episode with the flask returned upright; no drop/tip/visible slip; no identifiable liquid; swirl not visible in stills; f0 render grain; frosted/speckled glass while held; finger-neck interpenetration cannot be ruled out at this resolution.",
+        "points_resolved_by_producer": {
+          "lowering_not_shown": "contact sheet skipped frames 150-229; lowering strip shows the descent (see heights above)",
+          "time_mismatch_with_data_plot": "the data-plot keyframe is the middle frame (1.85 s) of a 75-frame plot of the full 3.75 s swirl, not a 1.85 s swirl",
+          "lift_label_at_f22": "stage labels mark stage start; lift began at tick 44 (2.2 s), flask clears the support by f45"
+        }
+      },
+      "accepted": true,
+      "scope": "Accepted ONLY as a complete-episode simulation video (grasp, hold, place). It is NOT visual evidence of swirling or of liquid behaviour; those rest on the logged metrics (amplitude 0.733, particle displacement 15.5 mm vs 2.27 mm no-motion, retention 1.0) and the data-plot video.",
+      "improvement_option": "a close-up render at >=20 fps (render every tick) would make the swirl visible; not required by the R1 rule"
+    }
+  },
   "prior_result_snapshot": "f_tier/A06/result_pre_R1_20261024.json",
-  "prior_status": "RUNNING",
-  "updated_at_utc": "2026-10-24T22:15:14.810730+00:00"
+  "prior_status": "R1_PASS_RENDER_PENDING",
+  "updated_at_utc": "2026-10-24T22:38:00.505944+00:00"
 }
