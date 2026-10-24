@@ -1,0 +1,124 @@
+{
+  "id": "A03-fresh-pose-v2-objective-only-adapter",
+  "status": "FROZEN_BEFORE_PRECHECK_OR_NATIVE",
+  "frozen_utc": "2026-10-24T16:35:25.047884+00:00",
+  "author": "takeover agent (mentor) after executor handoff 2026-10-24",
+  "change_vs_A03_fresh_pose": "Robot-adapter IK only: non-initial least-squares objective position weight 4->20 (A04-hard objective_only_native_regression, natively validated on the previously failing Flexiv seed 56004). Physical acceptance unchanged (<=1 mm position, <=0.02 rad orientation); initial IK delegates to the original solver unchanged. Applied identically to both robots. Object-centric skill, task phases, fluid solver, world, thresholds unchanged.",
+  "code": {
+    "learner": "learner_v2.py (copy of fresh_pose/learner.py + wrapper block)",
+    "ik": "objective_solve.py + controller_factory.py (byte copies from f_tier/A04-hard/objective_only_native_regression)",
+    "task": "task.py (byte copy of fresh_pose/task.py)"
+  },
+  "environment": {
+    "python": "3.11.13 (uv cpython-3.11.13)",
+    "mujoco": "3.3.7",
+    "warp": "1.9.1",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "path": "/data/liyufeng/chemrm_envs/chem_fluids_r2",
+    "reason": "original /tmp/chem_fluids venv lost in TRX50 reboot 2026-10-23; rebuilt with recorded MuJoCo/Warp versions; numpy/scipy versions of the original env were not recorded",
+    "device": "CPU (CUDA_VISIBLE_DEVICES empty), as in A03 fresh_pose"
+  },
+  "groups": {
+    "environment_regression": {
+      "robot": "ur5e",
+      "seed": 73001,
+      "adapter": "ORIGINAL (A03V2_OBJECTIVE_IK=0)",
+      "pass_rule": "functional success AND final receiver/spill equal to stored fresh_pose ur5e/pose_73001 (1.0/0.0) AND |min loaded lift - 0.116532| <= 0.002 m",
+      "purpose": "validates the rebuilt environment; if it fails, all v2 results are reported as environment-unverified"
+    },
+    "flexiv_regression": {
+      "robot": "flexiv",
+      "seeds": [
+        73001,
+        73002
+      ],
+      "adapter": "FIXED",
+      "note": "previously failed poses (seen); reported separately, NOT counted for confirmation"
+    },
+    "confirmation": {
+      "robots": [
+        "ur5e",
+        "flexiv"
+      ],
+      "primary_seeds": [
+        73101,
+        73102,
+        73103
+      ],
+      "alternates_in_order": [
+        73104,
+        73105
+      ],
+      "adapter": "FIXED",
+      "pose_rule": "a primary seed is replaced by the next alternate ONLY if the zero-step precheck finds an invalid inter-object overlap for either robot; replacement recorded; never by outcome"
+    }
+  },
+  "source_poses": {
+    "73001": {
+      "xy_offset_m": [
+        -0.015,
+        -0.02
+      ],
+      "yaw_deg": -20
+    },
+    "73002": {
+      "xy_offset_m": [
+        0.015,
+        0.0
+      ],
+      "yaw_deg": 0
+    },
+    "73101": {
+      "xy_offset_m": [
+        0.02,
+        0.01
+      ],
+      "yaw_deg": -10
+    },
+    "73102": {
+      "xy_offset_m": [
+        -0.01,
+        0.015
+      ],
+      "yaw_deg": 15
+    },
+    "73103": {
+      "xy_offset_m": [
+        0.005,
+        -0.02
+      ],
+      "yaw_deg": -5
+    },
+    "73104": {
+      "xy_offset_m": [
+        -0.02,
+        -0.01
+      ],
+      "yaw_deg": 5
+    },
+    "73105": {
+      "xy_offset_m": [
+        0.01,
+        0.02
+      ],
+      "yaw_deg": -15
+    }
+  },
+  "local_A03_functional_thresholds": {
+    "complete_native_s": 23.0,
+    "minimum_loaded_hold_lift_m": 0.05,
+    "receiver_fraction_min": 0.5,
+    "spill_fraction_max": 0.1,
+    "scope_penetrations_max": 0
+  },
+  "acceptance": "A03 F_PASS iff BOTH robots achieve >=2/3 functional successes on the 3 confirmation poses with the same fixed adapter, and the environment regression passes. All started attempts stay in the denominator; no retries, no best-of.",
+  "attempt_accounting": "Every started native subprocess counts, including dispatch errors and incomplete runs.",
+  "differences": [
+    "CPU MuJoCo+Warp standalone (original Auto-Engineering stack family), not GRID/real robot",
+    "Coarse 240 particles; collision scope excludes robot/rack",
+    "Privileged cup/EE state, scripted pickup/return with object-frame feedback during pour",
+    "Circular tube: yaw changes grasp orientation/coordinates, not a non-symmetric vessel SO(3) test",
+    "Rebuilt Python environment (see environment)"
+  ]
+}

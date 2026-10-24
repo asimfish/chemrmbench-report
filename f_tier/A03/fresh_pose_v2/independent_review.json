@@ -1,0 +1,246 @@
+{
+  "schema": "A03_fresh_pose_v2_independent_review",
+  "reviewed_utc": "2026-10-24T17:05:28.615327+00:00",
+  "started": 9,
+  "closed": 9,
+  "all_runner_vs_independent_agree": true,
+  "environment_regression": {
+    "passed": true
+  },
+  "confirmation": {
+    "ur5e": {
+      "successes": 2,
+      "started": 3
+    },
+    "flexiv": {
+      "successes": 2,
+      "started": 3
+    }
+  },
+  "fixed_adapter_used_in_confirmation": true,
+  "same_skill_code_both_robots": "single learner_v2.py/task.py used for both robots; robot choice only selects adapter class/build",
+  "code_sha256": {
+    "learner_v2.py": "2b99520364b7a54765b46122dfe4c9a2ee3f33a61f6b1abc0b947f90d9765a44",
+    "task.py": "57deb639c977c386b017d7512456b2e29291d207668cd979b3c0590f0a68894c",
+    "robot_adapter.py": "dc3adcca46164db83743b57bd6ff63d2519700098ef303099bf4ab3215f5edd4",
+    "objective_solve.py": "35c505101f45cff740d6a702914e4914af6ab92a8a7675ad7cd80dd3f68d32fa",
+    "controller_factory.py": "69fcdc0a02e4cabc2920f0bce7ee5b120ad9e7253b92a06e727f887da2f605cd",
+    "objective_solve_equals_A04_validated": true
+  },
+  "runs": [
+    {
+      "robot": "flexiv",
+      "seed": 73001,
+      "group": "regression",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 10.700285168216434,
+        "loaded_lift_above_start_m": 0.11306147918681896,
+        "min_loaded_contacts": 20,
+        "final_receiver_fraction": 0.3875,
+        "final_spill_fraction": 0.45416666666666666,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "tilt"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 1,
+      "runner_functional_success": false,
+      "independent_functional_success": false,
+      "agree": true
+    },
+    {
+      "robot": "ur5e",
+      "seed": 73001,
+      "group": "envcheck",
+      "fixed_adapter": false,
+      "recomputed": {
+        "native_end_s": 23.001131852237837,
+        "loaded_lift_above_start_m": 0.11449217928699155,
+        "min_loaded_contacts": 20,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "released_settle"
+      },
+      "ik_solvers_used": [],
+      "ik_failures": 0,
+      "runner_functional_success": true,
+      "independent_functional_success": true,
+      "agree": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 73101,
+      "group": "confirm",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 15.821062822236556,
+        "loaded_lift_above_start_m": -0.0018317949817005198,
+        "min_loaded_contacts": 0,
+        "final_receiver_fraction": 0.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "return_above_source"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 1,
+      "runner_functional_success": false,
+      "independent_functional_success": false,
+      "agree": true
+    },
+    {
+      "robot": "ur5e",
+      "seed": 73101,
+      "group": "confirm",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 16.24000660067139,
+        "loaded_lift_above_start_m": -0.0019994676101754826,
+        "min_loaded_contacts": 0,
+        "final_receiver_fraction": 0.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "return_above_source"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 1,
+      "runner_functional_success": false,
+      "independent_functional_success": false,
+      "agree": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 73002,
+      "group": "regression",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 16.380153702526478,
+        "loaded_lift_above_start_m": -0.002044229496496282,
+        "min_loaded_contacts": 0,
+        "final_receiver_fraction": 0.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "return_above_source"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 1,
+      "runner_functional_success": false,
+      "independent_functional_success": false,
+      "agree": true
+    },
+    {
+      "robot": "ur5e",
+      "seed": 73102,
+      "group": "confirm",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 23.000629593875082,
+        "loaded_lift_above_start_m": 0.11447564642384825,
+        "min_loaded_contacts": 20,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "released_settle"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 0,
+      "runner_functional_success": true,
+      "independent_functional_success": true,
+      "agree": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 73102,
+      "group": "confirm",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 23.00038548251348,
+        "loaded_lift_above_start_m": 0.11248050962768358,
+        "min_loaded_contacts": 20,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "released_settle"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 0,
+      "runner_functional_success": true,
+      "independent_functional_success": true,
+      "agree": true
+    },
+    {
+      "robot": "ur5e",
+      "seed": 73103,
+      "group": "confirm",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 23.00131399063223,
+        "loaded_lift_above_start_m": 0.11448895721522497,
+        "min_loaded_contacts": 20,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "released_settle"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 0,
+      "runner_functional_success": true,
+      "independent_functional_success": true,
+      "agree": true
+    },
+    {
+      "robot": "flexiv",
+      "seed": 73103,
+      "group": "confirm",
+      "fixed_adapter": true,
+      "recomputed": {
+        "native_end_s": 23.001874470421626,
+        "loaded_lift_above_start_m": 0.11275150772703552,
+        "min_loaded_contacts": 20,
+        "final_receiver_fraction": 1.0,
+        "final_spill_fraction": 0.0,
+        "particle_total_final": 240,
+        "max_solid_penetration_particles": 0,
+        "last_phase": "released_settle"
+      },
+      "ik_solvers_used": [
+        "OBJECTIVE_ONLY20_ORIGINAL_LOCAL",
+        "ORIGINAL_INITIALIZER_DIRECT_UNCHANGED"
+      ],
+      "ik_failures": 0,
+      "runner_functional_success": true,
+      "independent_functional_success": true,
+      "agree": true
+    }
+  ],
+  "A03_acceptance_met": true
+}
