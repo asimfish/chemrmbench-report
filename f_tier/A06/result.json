@@ -1,28 +1,164 @@
 {
   "id": "A06",
-  "status": "BLOCKED",
+  "status": "R1_PASS_RENDER_PENDING",
   "F_PASS": false,
-  "blocker": "A real human phone-video input of flask/cup swirling has not been supplied or located with suitable provenance. No synthetic circular path or robot-only clip may replace the central video-to-motion mechanism.",
-  "resource_owner": "User/mentor supplies or approves suitable real human input; other F experiments continue",
-  "bounded_public_input_check": {
-    "checked_at_utc": "2026-10-19T13:14:40.515998+00:00",
-    "sources": [
-      {
-        "url": "https://huggingface.co/datasets/DynamicIntelligence/humanoid-robots-training-dataset",
-        "finding": "Actual iPhone13Pro hand/camera dataset, but published12-task README has no swirling/stirring task; no unrelated clips downloaded."
-      },
-      {
-        "url": "https://msiam.github.io/ivos/dataset/",
-        "finding": "Human stirring listed but human manipulation download remains ComingSoon; robot-only stirring is not human input."
-      },
-      {
-        "url": "https://www.generalrobotics.company/post/introducing-auto-engineering-for-robotics",
-        "finding": "Official description confirms single-person phone-video flask swirling mechanism; presentation clips do not establish a released raw input video."
-      }
-    ]
+  "tier": "F",
+  "protocol": {
+    "R1": "f_tier/A06/sim_pipeline/takeover_R1/R1_protocol.json",
+    "attempt2": "f_tier/A06/sim_pipeline/takeover_R1/attempt2/protocol.json",
+    "attempt3": "f_tier/A06/sim_pipeline/takeover_R1/attempt3/protocol.json"
   },
-  "minimum_input": "One real human swirling clip with source/provenance; camera motion and metric-scale ambiguities must be declared or calibrated; no credentials needed for local/public input.",
+  "metrics": {
+    "pass_set": {
+      "phaseBC_2026102216": {
+        "success": true,
+        "TCP_vs_video_RMS_mm": 5.555,
+        "amplitude_ratio": 0.733,
+        "particle_displacement_mm": 15.5,
+        "tilt_p95_deg": 2.43,
+        "retention": 1.0,
+        "counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "frozen_bottle_gate_pass": false,
+        "frozen_bottle_RMS_mm": 6.83
+      },
+      "phaseBC_2026102217": {
+        "success": true,
+        "TCP_vs_video_RMS_mm": 5.588,
+        "amplitude_ratio": 0.741,
+        "particle_displacement_mm": 17.03,
+        "tilt_p95_deg": 3.6,
+        "retention": 1.0,
+        "counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "frozen_bottle_gate_pass": false,
+        "frozen_bottle_RMS_mm": 7.24
+      },
+      "phaseUntrained_2026102216": {
+        "success": false,
+        "TCP_vs_video_RMS_mm": 5.835,
+        "amplitude_ratio": 0.3,
+        "particle_displacement_mm": 10.51,
+        "tilt_p95_deg": 0.77,
+        "retention": 1.0,
+        "counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "frozen_bottle_gate_pass": true,
+        "frozen_bottle_RMS_mm": 2.65
+      },
+      "phaseUntrained_2026102217": {
+        "success": false,
+        "TCP_vs_video_RMS_mm": 5.834,
+        "amplitude_ratio": 0.299,
+        "particle_displacement_mm": 10.38,
+        "tilt_p95_deg": 0.8,
+        "retention": 1.0,
+        "counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 1
+        },
+        "frozen_bottle_gate_pass": true,
+        "frozen_bottle_RMS_mm": 3.02
+      }
+    },
+    "supplementary": {
+      "supp_phaseBC_2026102218": {
+        "success": true,
+        "TCP_vs_video_RMS_mm": 5.557,
+        "amplitude_ratio": 0.731,
+        "particle_displacement_mm": 286.9,
+        "tilt_p95_deg": 3.19,
+        "retention": 0.992,
+        "counts": {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        "frozen_bottle_gate_pass": false,
+        "frozen_bottle_RMS_mm": 6.83
+      },
+      "supp_phaseBC_2026102219": "NO_RESULT (own GPU guard stopped launch and relaunch)",
+      "supp_phaseUntrained_2026102218": "NO_RESULT (own GPU guard stopped launch and relaunch)",
+      "supp_phaseUntrained_2026102219": "NO_RESULT (own GPU guard stopped launch and relaunch)"
+    },
+    "teacher_demos": "3/3 R1-admitted, TCP vs video 3.24-3.25 mm",
+    "negative_particle_displacement_mm": 2.273,
+    "descriptive_lag": {
+      "teacher_demo_2026102206_planned038": {
+        "RMS0_mm": 3.24,
+        "corr_x0": 0.82
+      },
+      "negative_2026102209_no_motion": {
+        "RMS0_mm": 5.43,
+        "corr_x0": -0.03,
+        "best_aligned_RMS_mm": 5.41
+      },
+      "phaseBC_2026102216_att3": {
+        "RMS0_mm": 5.55,
+        "corr_x0": 0.1,
+        "aligned_1tick_RMS_mm": 3.96,
+        "corr_x_aligned": 0.75,
+        "commanded_vs_video_mm": 0.0
+      },
+      "phaseBC_2026102217_att3": {
+        "RMS0_mm": 5.59,
+        "corr_x0": 0.09,
+        "aligned_1tick_RMS_mm": 4.01,
+        "corr_x_aligned": 0.73,
+        "commanded_vs_video_mm": 0.0
+      },
+      "phaseUntrained_2026102216_att3": {
+        "RMS0_mm": 5.83,
+        "corr_x0": -0.02,
+        "best_aligned_RMS_mm": 5.77,
+        "commanded_vs_video_mm": 6.22
+      }
+    }
+  },
+  "trials": {
+    "attempt1": "R1 attempt 1 FAIL: phaseBC 0/2 successes (2026102216 INFRA_STOP no result; 2026102217 physical ok + swirl evidence but TCP vs video 26.0 mm RMS, amplitude ratio 2.92); phaseUntrained 0/2 (as required)",
+    "attempt2": "R1 attempt 2 FAIL: phaseBC 1/2 (2026102217 SUCCESS; 2026102216 physical FAIL from one actual_acceleration count), phaseUntrained 0/2 (amplitude 0.30)",
+    "attempt3": "PASS: phaseBC 2/2, phaseUntrained 0/2",
+    "denominators_retained": true
+  },
+  "differences": [
+    "Input: real-human Wikimedia Commons titration clip (Maytouch L., CC-BY-SA-4.0), recording device UNKNOWN - not the original GRID phone capture; 2D lower-outline proxy with assumed 100 mm/427 px scale, horizontal plane, upright, constant height; no depth/6D reconstruction.",
+    "Gate: the original frozen A06 tracking gate (bottle base RMS<=5 mm/p95<=10 mm vs the 2D outline proxy) FAILS in every run (6.6-7.8 mm; neck-held flask swings ~5 deg). F is judged under the user-approved R1 gate (TCP-level fidelity, physical validity, swirl evidence vs a no-motion negative, amplitude ratio).",
+    "Teacher demos: planned joint-reference execution (CLOSED-038 path) at 3 positions; students: 034 C3 Cartesian controller on the identical 038 physics; grasp/lift/return/release are a shared scripted harness.",
+    "Student: phase-only open-loop swirl generator (MLP on Fourier K=24 phase features, 2000 updates, seed fixed, 3 demos). The 3 demos give identical (phase,label) rows, so it learns the teacher's video-derived command; it commands the video path exactly (0.00 mm). Feedback comes from the C3 executor; fresh-position generalization comes from the anchor-relative frame. Not an end-to-end visual policy; no time hold-out.",
+    "Three R1 attempts, all retained: 1 FAIL 0/2 (copycat student: state-input feedback, amplitude 2.92); 2 FAIL 1/2 (one 17.1 rad/s2 joint-6 count at flask touchdown in the shared lowering harness); 3 PASS 2/2 with untrained 0/2 after one harness change (lowering 6 s -> 12 s). The two pass-set positions were used in all three attempts. Supplementary new positions: 1 success, 3 NO_RESULT (own GPU guard stops).",
+    "R1 TCP-vs-video <=10 mm is not discriminative: the no-motion negative scores 5.43 mm and the student 5.55/5.59 mm, because the C3 executor realizes commands one 20 Hz tick late (~100 deg at 5.6 Hz). One-tick aligned: student 3.96/4.01 mm, x-corr 0.75/0.73; untrained 5.77 mm, x-corr -0.06. The trained-vs-untrained decision rests on amplitude ratio (0.73-0.74 vs 0.30).",
+    "Fluid: original MATTERIX PBD defaults, 125 particles, smoothed display points; retention by ideal cavity bookkeeping, no calibrated mass/volume. One particle escaped during initialization in a supplementary run (inflates its RMS to 287 mm; 16.6 mm without it).",
+    "Open harness weakness: grasp-close joint-6 acceleration spikes (15.06-15.6 rad/s2 vs 15.0 counter) occurred in 2 of the C3 runs; not addressed."
+  ],
   "video": null,
-  "new_native_runs": 0,
-  "full_reference_complete": false
+  "video_kind": null,
+  "data_video": "f_tier/A06/data_video_R1_attempt3.mp4",
+  "data_video_kind": "plots of logged arrays (TCP vs video reference, particles in flask frame); not a render",
+  "evidence": {
+    "closure": "f_tier/A06/sim_pipeline/takeover_R1/attempt3/R1_attempt3_closed.json",
+    "independent_review_code": "f_tier/A06/sim_pipeline/takeover_R1/independent_review_r1.py",
+    "lag": "f_tier/A06/sim_pipeline/takeover_R1/attempt3/descriptive_lag_analysis.json",
+    "runs": "f_tier/A06/sim_pipeline/takeover_R1/attempt3/runs/",
+    "visual_review": null
+  },
+  "F_acceptance_review": null,
+  "prior_result_snapshot": "f_tier/A06/result_pre_R1_20261024.json",
+  "prior_status": "RUNNING",
+  "updated_at_utc": "2026-10-24T22:15:14.810730+00:00"
 }

@@ -1,0 +1,5 @@
+{"run": "supp_phaseBC_2026102218", "finding": "Runner particle displacement RMS 286.9 mm is dominated by ONE particle (id 102) that was already outside the flask at the first observation (tick 0, approach): on the floor plane z=0.004 m, ~2.8 m away, sliding to ~31 m by the end. Escape happened during environment initialization/warmup, before any task motion.",
+ "retention": "runner strict cavity fraction 0.992 (124/125) for the whole episode incl. swirl; frozen rule >=0.95 satisfied",
+ "robust_check_descriptive_only": {"RMS_displacement_excluding_particle102_mm": 16.63, "per_particle_RMS_median_mm": 15.83, "per_particle_RMS_p90_mm": 22.35},
+ "effect_on_verdict": "none: supplementary run (not in the pass rule); swirl evidence also holds without the outlier (16.6 mm >= 4.55 mm)",
+ "comparison": "phaseBC_2026102216 (attempt 3): retention 1.0, max per-particle RMS 27.3 mm, no particle outside the flask"}

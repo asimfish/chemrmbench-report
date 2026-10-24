@@ -1,0 +1,312 @@
+{
+ "id": "A06_R1_attempt2_closed",
+ "closed_utc": "2026-10-24T20:56:53.945698+00:00",
+ "protocol": "m04/protocol.json",
+ "verdict": "R1 attempt 2 FAIL: phaseBC 1/2 (2026102217 SUCCESS; 2026102216 physical FAIL from one actual_acceleration count), phaseUntrained 0/2 (amplitude 0.30)",
+ "phaseBC_2026102216_failure": {
+  "tick": 340,
+  "stage": "lower (shared post-swirl placement harness, student not in control)",
+  "joint": 6,
+  "actual_acceleration_rad_s2": 17.078,
+  "counter_threshold": 15.0001,
+  "franka_joint6_documented_limit_rad_s2": 20.0,
+  "cause": "flask base touchdown on support (support contact force 0 -> 1.18 N at tick 340) during 6 s quintic lowering, ~6.6 mm/s at contact",
+  "context": "lower-stage peaks across 11 runs 9.9-12.4 except demo_2026102208 15.0 and this run 17.1; close-stage 15.6 in attempt-1 untrained_17"
+ },
+ "student_swirl_fidelity": "both positions within fidelity: TCP vs video 5.55/5.59 mm, amplitude 0.733/0.741, particle displacement 16.3/15.2 mm",
+ "independent_review": "separate-code recomputation agrees on TCP, amplitude, tilt, contact, particle displacement, raw==native q for all 4 runs",
+ "runs": {
+  "phaseBC_2026102216": {
+   "analyze_r1": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseBC_2026102216",
+    "actor": "phaseBC",
+    "seed": 2026102216,
+    "initial_source_xy_m": [
+     0.345,
+     -0.405
+    ],
+    "swirl_rows": 75,
+    "TCP_vs_video": {
+     "RMS_m": 0.005554456639709374,
+     "max_m": 0.010657739629915243
+    },
+    "bottle_vs_video": {
+     "RMS_m": 0.006992542202210314,
+     "p95_m": 0.012572819472362464
+    },
+    "amplitude_ratio": 0.7330941825611526,
+    "physical": {
+     "complete": true,
+     "clock_valid": true,
+     "finite": true,
+     "lift": true,
+     "swirl_complete": true,
+     "returned": true,
+     "contact": 1.0,
+     "counts": {
+      "command_velocity": 0,
+      "command_acceleration": 0,
+      "actual_velocity": 0,
+      "actual_acceleration": 1
+     },
+     "tilt_p95_deg": 3.316939425468445,
+     "retention_swirl": 1.0,
+     "particle_displacement_RMS_m": 0.01631292058270178
+    },
+    "frozen_gate_runner": {
+     "RMS_m": 0.006992569658905268,
+     "p95_m": 0.012572733871638772,
+     "max_m": 0.014242012985050678
+    },
+    "R1_physical_ok": false,
+    "R1_teacher_admitted": false,
+    "frozen_bottle_gate_pass": false,
+    "swirl_evidence": true,
+    "R1_student_success": false
+   },
+   "independent": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseBC_2026102216",
+    "actor": "phaseBC",
+    "seed": 2026102216,
+    "rows": 75,
+    "phase_vs_policy_time_max_s": 8.881784197001252e-16,
+    "TCP_vs_video_RMS_m": 0.005554456639709414,
+    "TCP_vs_video_max_m": 0.01065773962991536,
+    "amplitude_ratio": 0.7330941825611499,
+    "tilt_p95_deg": 3.3169227512741966,
+    "bilateral_contact_fraction": 1.0,
+    "raw_q_equals_native_300Hz": true,
+    "native_actual_acceleration_max": 17.07775115966797,
+    "runner_actual_acceleration_max": 17.07775115966797,
+    "particle_local_displacement_RMS_from_first_swirl_obs_m": 0.016312920582773775,
+    "runner_particle_displacement_RMS_m": 0.01631292058270178,
+    "runner_counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 1
+    },
+    "runner_retention_swirl": 1.0
+   }
+  },
+  "phaseBC_2026102217": {
+   "analyze_r1": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseBC_2026102217",
+    "actor": "phaseBC",
+    "seed": 2026102217,
+    "initial_source_xy_m": [
+     0.355,
+     -0.405
+    ],
+    "swirl_rows": 75,
+    "TCP_vs_video": {
+     "RMS_m": 0.005588214004414866,
+     "max_m": 0.0110016551295803
+    },
+    "bottle_vs_video": {
+     "RMS_m": 0.006657438987985294,
+     "p95_m": 0.010689464609139998
+    },
+    "amplitude_ratio": 0.7406545045578528,
+    "physical": {
+     "complete": true,
+     "clock_valid": true,
+     "finite": true,
+     "lift": true,
+     "swirl_complete": true,
+     "returned": true,
+     "contact": 1.0,
+     "counts": {
+      "command_velocity": 0,
+      "command_acceleration": 0,
+      "actual_velocity": 0,
+      "actual_acceleration": 0
+     },
+     "tilt_p95_deg": 1.8669105648994444,
+     "retention_swirl": 1.0,
+     "particle_displacement_RMS_m": 0.015176151392808925
+    },
+    "frozen_gate_runner": {
+     "RMS_m": 0.006647034082561731,
+     "p95_m": 0.01070575201883912,
+     "max_m": 0.01243174634873867
+    },
+    "R1_physical_ok": true,
+    "R1_teacher_admitted": false,
+    "frozen_bottle_gate_pass": false,
+    "swirl_evidence": true,
+    "R1_student_success": true
+   },
+   "independent": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseBC_2026102217",
+    "actor": "phaseBC",
+    "seed": 2026102217,
+    "rows": 75,
+    "phase_vs_policy_time_max_s": 8.881784197001252e-16,
+    "TCP_vs_video_RMS_m": 0.005588214004414862,
+    "TCP_vs_video_max_m": 0.011001655129580167,
+    "amplitude_ratio": 0.7406545045578524,
+    "tilt_p95_deg": 1.8669465179005151,
+    "bilateral_contact_fraction": 1.0,
+    "raw_q_equals_native_300Hz": true,
+    "native_actual_acceleration_max": 11.624532699584961,
+    "runner_actual_acceleration_max": 11.624532699584961,
+    "particle_local_displacement_RMS_from_first_swirl_obs_m": 0.015176151392655109,
+    "runner_particle_displacement_RMS_m": 0.015176151392808925,
+    "runner_counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 0
+    },
+    "runner_retention_swirl": 1.0
+   }
+  },
+  "phaseUntrained_2026102216": {
+   "analyze_r1": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseUntrained_2026102216",
+    "actor": "phaseUntrained",
+    "seed": 2026102216,
+    "initial_source_xy_m": [
+     0.345,
+     -0.405
+    ],
+    "swirl_rows": 75,
+    "TCP_vs_video": {
+     "RMS_m": 0.005834933898309115,
+     "max_m": 0.01171229779941114
+    },
+    "bottle_vs_video": {
+     "RMS_m": 0.005542391737930453,
+     "p95_m": 0.008954644563878626
+    },
+    "amplitude_ratio": 0.29976943542173284,
+    "physical": {
+     "complete": true,
+     "clock_valid": true,
+     "finite": true,
+     "lift": true,
+     "swirl_complete": true,
+     "returned": true,
+     "contact": 1.0,
+     "counts": {
+      "command_velocity": 0,
+      "command_acceleration": 0,
+      "actual_velocity": 0,
+      "actual_acceleration": 0
+     },
+     "tilt_p95_deg": 0.5816839635372162,
+     "retention_swirl": 1.0,
+     "particle_displacement_RMS_m": 0.010227822847681816
+    },
+    "frozen_gate_runner": {
+     "RMS_m": 0.0027682336512953043,
+     "p95_m": 0.0036177100613713265,
+     "max_m": 0.004542873241007328
+    },
+    "R1_physical_ok": true,
+    "R1_teacher_admitted": false,
+    "frozen_bottle_gate_pass": true,
+    "swirl_evidence": true,
+    "R1_student_success": false
+   },
+   "independent": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseUntrained_2026102216",
+    "actor": "phaseUntrained",
+    "seed": 2026102216,
+    "rows": 75,
+    "phase_vs_policy_time_max_s": 8.881784197001252e-16,
+    "TCP_vs_video_RMS_m": 0.005834933898309117,
+    "TCP_vs_video_max_m": 0.011712297799411098,
+    "amplitude_ratio": 0.29976943542173273,
+    "tilt_p95_deg": 0.5816858171071204,
+    "bilateral_contact_fraction": 1.0,
+    "raw_q_equals_native_300Hz": true,
+    "native_actual_acceleration_max": 10.412199020385742,
+    "runner_actual_acceleration_max": 10.412199020385742,
+    "particle_local_displacement_RMS_from_first_swirl_obs_m": 0.010227822847833653,
+    "runner_particle_displacement_RMS_m": 0.010227822847681816,
+    "runner_counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 0
+    },
+    "runner_retention_swirl": 1.0
+   }
+  },
+  "phaseUntrained_2026102217": {
+   "analyze_r1": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseUntrained_2026102217",
+    "actor": "phaseUntrained",
+    "seed": 2026102217,
+    "initial_source_xy_m": [
+     0.355,
+     -0.405
+    ],
+    "swirl_rows": 75,
+    "TCP_vs_video": {
+     "RMS_m": 0.005833789233637085,
+     "max_m": 0.011699953488625356
+    },
+    "bottle_vs_video": {
+     "RMS_m": 0.0054486001892123815,
+     "p95_m": 0.008546234196655969
+    },
+    "amplitude_ratio": 0.29916235512012607,
+    "physical": {
+     "complete": true,
+     "clock_valid": true,
+     "finite": true,
+     "lift": true,
+     "swirl_complete": true,
+     "returned": true,
+     "contact": 1.0,
+     "counts": {
+      "command_velocity": 0,
+      "command_acceleration": 0,
+      "actual_velocity": 0,
+      "actual_acceleration": 0
+     },
+     "tilt_p95_deg": 1.9733763456344604,
+     "retention_swirl": 1.0,
+     "particle_displacement_RMS_m": 0.011148670996429324
+    },
+    "frozen_gate_runner": {
+     "RMS_m": 0.002204721327871084,
+     "p95_m": 0.003448589076288044,
+     "max_m": 0.003925181459635496
+    },
+    "R1_physical_ok": true,
+    "R1_teacher_admitted": false,
+    "frozen_bottle_gate_pass": true,
+    "swirl_evidence": true,
+    "R1_student_success": false
+   },
+   "independent": {
+    "run": "/data/liyufeng/a06_runs/m04/phaseUntrained_2026102217",
+    "actor": "phaseUntrained",
+    "seed": 2026102217,
+    "rows": 75,
+    "phase_vs_policy_time_max_s": 1.3322676295501878e-15,
+    "TCP_vs_video_RMS_m": 0.0058337892336370895,
+    "TCP_vs_video_max_m": 0.011699953488625379,
+    "amplitude_ratio": 0.2991623551201268,
+    "tilt_p95_deg": 1.973401718412366,
+    "bilateral_contact_fraction": 1.0,
+    "raw_q_equals_native_300Hz": true,
+    "native_actual_acceleration_max": 11.383331298828125,
+    "runner_actual_acceleration_max": 11.383331298828125,
+    "particle_local_displacement_RMS_from_first_swirl_obs_m": 0.01114867099595186,
+    "runner_particle_displacement_RMS_m": 0.011148670996429324,
+    "runner_counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 0
+    },
+    "runner_retention_swirl": 1.0
+   }
+  }
+ }
+}

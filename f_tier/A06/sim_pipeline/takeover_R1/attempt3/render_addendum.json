@@ -1,0 +1,16 @@
+{
+ "id": "A06_R1_attempt3_render_addendum",
+ "frozen_utc": "2026-10-24T20:59:23.472258+00:00",
+ "frozen_before": "any attempt-3 result.json existed (asserted)",
+ "supersedes": "m04/render_addendum.json run: guard-stopped (shared GPU0 with an own M05 run), relaunched once, then OPERATOR_STOP by me to protect the attempt-3 pass-set run; no render result from it",
+ "job": "render_phaseBC_2026102216 on the M05 (attempt-3) project: pass-set args plus --render",
+ "schedule": "starts only after a06-m05-queue is inactive (no two own runs on one GPU)",
+ "unconditional": true,
+ "counting": "visual evidence only, NOT in the pass rule; R1 metrics recomputed and published; divergence from the non-render run reported",
+ "scheduling_amendment": {
+  "utc": "2026-10-24T21:48:42.136854+00:00",
+  "reason": "3 of 4 supplementary launches were own-guard stopped (other workstreams cycle GPU memory); render has no counted role",
+  "change": "render starts only after a06-m05-queue ends and a GPU shows >=14336 MiB free on 4 consecutive 30 s checks; admission 14336 MiB (was 9728); guard floor 4096 MiB unchanged; relaunch-once rule unchanged",
+  "outcome_independent": true
+ }
+}

@@ -1,0 +1,9 @@
+{"id": "A06_R1_attempt3_descriptive_lag_analysis", "role": "descriptive only; does not change any verdict",
+ "finding": "The trained phase-only student commands the video trajectory exactly (commanded-vs-video RMS 0.00 mm). The shared C3 executor realizes it one 20 Hz tick later: the frozen metric compares the pre-action TCP at tick i with the target commanded during tick i. At the 5.6 Hz swirl one tick is ~100 deg of phase, so the zero-lag TCP-vs-video RMS (5.55/5.59 mm) is no better than the no-motion negative (5.43 mm).",
+ "numbers": {
+  "teacher_demo_2026102206_planned038": {"RMS0_mm": 3.24, "corr_x0": 0.82},
+  "negative_2026102209_no_motion": {"RMS0_mm": 5.43, "corr_x0": -0.03, "best_aligned_RMS_mm": 5.41},
+  "phaseBC_2026102216_att3": {"RMS0_mm": 5.55, "corr_x0": 0.10, "aligned_1tick_RMS_mm": 3.96, "corr_x_aligned": 0.75, "commanded_vs_video_mm": 0.00},
+  "phaseBC_2026102217_att3": {"RMS0_mm": 5.59, "corr_x0": 0.09, "aligned_1tick_RMS_mm": 4.01, "corr_x_aligned": 0.73, "commanded_vs_video_mm": 0.00},
+  "phaseUntrained_2026102216_att3": {"RMS0_mm": 5.83, "corr_x0": -0.02, "best_aligned_RMS_mm": 5.77, "commanded_vs_video_mm": 6.22}},
+ "consequence_for_R1": "The R1 TCP-vs-video <=10 mm criterion does not discriminate motion from no motion. The discriminating R1 terms are amplitude ratio [0.6,1.4] (student 0.73-0.74, untrained 0.30, negative 0.016) and particle swirl evidence (>=2x negative). Declared as an R1 limitation; the frozen rule and verdict are unchanged."}

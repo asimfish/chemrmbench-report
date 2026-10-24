@@ -1,0 +1,45 @@
+{
+ "id": "A06_R1_attempt3_harness_lower12s",
+ "frozen_utc": "2026-10-24T20:56:53.946097+00:00",
+ "frozen_before": "any attempt-3 launch",
+ "parent_protocol": "takeover_R1/R1_protocol.json; gate, teacher admission, student_success unchanged",
+ "history": "attempt1 FAIL (copycat student), attempt2 FAIL 1/2 (harness touchdown acceleration count); both retained",
+ "single_change": "Shared C3 harness lowering profile 6 s -> 12 s quintic (same start/end targets); halves touchdown speed. 4 lines per runner: 2 behavior, 2 result labels (lower_profile_s, candidate_revision). Student, controller, swirl stage, grasp, release unchanged.",
+ "student": "UNCHANGED m04/bc_train/final_model.pt (no retraining)",
+ "reused": "m03 demos 3/3 admitted; m03 negative 2.273 mm (swirl stage unaffected by lowering change)",
+ "pass_set": {
+  "positions": [
+   [
+    2026102216,
+    0.345,
+    -0.405
+   ],
+   [
+    2026102217,
+    0.355,
+    -0.405
+   ]
+  ],
+  "source": "executor-predeclared (A06 protocol.json); third use of these positions, declared",
+  "rule": "phaseBC 2/2 R1 student successes AND phaseUntrained 0/2"
+ },
+ "supplementary_set": {
+  "positions": [
+   [
+    2026102218,
+    0.345,
+    -0.395
+   ],
+   [
+    2026102219,
+    0.35,
+    -0.405
+   ]
+  ],
+  "selection": "unused points of the 3x3 grid {.345,.35,.355}x{-.405,-.4,-.395} farthest from the demo centroid, one on each side of the centroid y (6.9-7.5 mm); declared before launch",
+  "counting": "phaseBC + phaseUntrained at each; reported with the same metrics, NOT in the pass rule"
+ },
+ "risk_declared": "close-stage contact spikes (15.6 in 1 of 8 C3 runs) are not addressed and can still fail a run",
+ "stop_rule": "attempt 3 is the last R1 attempt run without consulting the user",
+ "launch": "one queue, pass set first; admission/guard/INFRA_STOP rule as m04/protocol.json"
+}

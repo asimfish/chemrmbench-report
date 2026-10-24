@@ -1,0 +1,45 @@
+{
+ "id": "A06_R1_attempt2_phase_only_student",
+ "frozen_utc": "2026-10-24T20:25:42.759982+00:00",
+ "frozen_before": "training the attempt-2 student and before any attempt-2 evaluation launch",
+ "parent_protocol": "f_tier/A06/sim_pipeline/takeover_R1/R1_protocol.json (gate, teacher admission, student_success, F_PASS rule unchanged)",
+ "attempt1": "CLOSED FAIL, retained: m03/R1_attempt1_closed.json (phaseBC 0/2: 2026102216 INFRA_STOP, 2026102217 TCP vs video 26.0 mm, amplitude 2.92; phaseUntrained 0/2)",
+ "why_attempt2": "Diagnosis from attempt-1 training-side and executed-command data: labels are a pure function of phase; K=6 basis covers <=1.6 Hz while the swirl is 5.67 Hz dominant; the net fit by copying the TCP-anchor state input (d offset_x/d TCP_x median 1.32>1) -> closed-loop positive feedback. Not tuned to any evaluation metric threshold.",
+ "single_change": "Student inputs = phase clock only: p, sin/cos(2 pi k p), k=1..24 (DIM 49). TCP-anchor input removed. Architecture (MLP ->64->64->2 SiLU, 0.03 tanh), normalizer, Adam lr1e-3 batch64, 2000 updates, seed 2026102406, fixed final unchanged.",
+ "K_rule": "Smallest K in {6,12,18,24,32} whose least-squares Fourier fit of the full video reference has RMS<=1.5 mm on both the 0.05 s grid and a 2000-point fine grid (reference only): K=6 4.90, 12 4.83, 18 4.62, 24 0.91/1.03 mm -> K=24",
+ "feasibility_fit_pre_freeze": "Same MLP/training on the reference labels at the demo phase grid: train RMS 0.0 mm, fine-grid RMS 0.78 mm, amplitude 1.00 (training-side only)",
+ "reused_unchanged": {
+  "demos": "m03 demo_2026102206/07/08 (3/3 R1-admitted)",
+  "negative": "m03 negative_2026102209 displacement 2.273142 mm -> evidence threshold 4.546 mm",
+  "evaluation_positions": [
+   [
+    2026102216,
+    0.345,
+    -0.405
+   ],
+   [
+    2026102217,
+    0.355,
+    -0.405
+   ]
+  ],
+  "note": "Same executor-predeclared positions/seeds as attempt 1; attempt-1 outcomes at these positions are known and retained"
+ },
+ "actors": [
+  "phaseBC (attempt-2 checkpoint m04/bc_train/final_model.pt)",
+  "phaseUntrained (attempt-2 architecture, seed init)"
+ ],
+ "project": "m04/project = m02 project with only phase_policy.py replaced (runners byte-equal to M03)",
+ "launch": {
+  "admission": "GPU free>=9728 MiB, prefer GPU0 then GPU1",
+  "guard": "stop own unit if GPU free<4096 MiB",
+  "infra_stop_rule": "A run stopped by the own guard with no result.json is renamed *_infra_stop1, retained, and relaunched once; any other failure (crash, physics, metric) is final. All launches recorded in ledger.jsonl."
+ },
+ "A06_F_PASS_rule": "attempt-2 phaseBC 2/2 student successes AND attempt-2 phaseUntrained 0/2, with the 3/3 admitted demos; reported together with attempt-1 FAIL (2 attempts total)",
+ "declared_differences_added": [
+  "Student is an open-loop phase-indexed swirl generator; feedback comes from the shared C3 executor, not the student",
+  "With phase-only inputs the 3 demos give identical (phase,label) rows: the learned content is the teacher video-derived command trajectory; fresh-position generalization comes from the anchor-relative frame and shared harness",
+  "Second attempt after a diagnosed failure at the same evaluation positions"
+ ],
+ "frozen_bottle_gate": "still reported per run (expected FAIL)"
+}

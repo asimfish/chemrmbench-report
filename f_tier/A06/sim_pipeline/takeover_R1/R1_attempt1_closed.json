@@ -1,0 +1,220 @@
+{
+ "id": "A06_R1_attempt1_closed",
+ "closed_utc": "2026-10-24T20:24:53.721902+00:00",
+ "protocol": "f_tier/A06/sim_pipeline/takeover_R1/R1_protocol.json",
+ "demos": "3/3 R1-admitted (TCP vs video 3.24-3.25 mm RMS); negative particle displacement 2.273 mm",
+ "verdict": "R1 attempt 1 FAIL: phaseBC 0/2 successes (2026102216 INFRA_STOP no result; 2026102217 physical ok + swirl evidence but TCP vs video 26.0 mm RMS, amplitude ratio 2.92); phaseUntrained 0/2 (as required)",
+ "runs": {
+  "phaseBC_2026102216": {
+   "outcome": "INFRA_STOP_NO_RESULT",
+   "detail": "own GPU guard stopped unit at 2026-10-24T19:56:54Z (GPU1 free 3384 MiB < 4096); Kit aborted (ABRT) in stabilize stage, before swirl; no physics outcome"
+  },
+  "phaseBC_2026102217": {
+   "run": "/data/liyufeng/a06_runs/m03/phaseBC_2026102217",
+   "actor": "phaseBC",
+   "seed": 2026102217,
+   "initial_source_xy_m": [
+    0.355,
+    -0.405
+   ],
+   "swirl_rows": 75,
+   "TCP_vs_video": {
+    "RMS_m": 0.02603010694922742,
+    "max_m": 0.03916038430196022
+   },
+   "bottle_vs_video": {
+    "RMS_m": 0.02770887999140414,
+    "p95_m": 0.03887611854032556
+   },
+   "amplitude_ratio": 2.92356711570391,
+   "physical": {
+    "complete": true,
+    "clock_valid": true,
+    "finite": true,
+    "lift": true,
+    "swirl_complete": true,
+    "returned": true,
+    "contact": 1.0,
+    "counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 0
+    },
+    "tilt_p95_deg": 1.8207281351089477,
+    "retention_swirl": 1.0,
+    "particle_displacement_RMS_m": 0.020831327497350463
+   },
+   "frozen_gate_runner": {
+    "RMS_m": 0.005109687801450491,
+    "p95_m": 0.010639341082423917,
+    "max_m": 0.01644432358443737
+   },
+   "R1_physical_ok": true,
+   "R1_teacher_admitted": false,
+   "frozen_bottle_gate_pass": false,
+   "swirl_evidence": true,
+   "R1_student_success": false
+  },
+  "phaseUntrained_2026102216": {
+   "run": "/data/liyufeng/a06_runs/m03/phaseUntrained_2026102216",
+   "actor": "phaseUntrained",
+   "seed": 2026102216,
+   "initial_source_xy_m": [
+    0.345,
+    -0.405
+   ],
+   "swirl_rows": 75,
+   "TCP_vs_video": {
+    "RMS_m": 0.006343750304436295,
+    "max_m": 0.013878714760817073
+   },
+   "bottle_vs_video": {
+    "RMS_m": 0.006502937934485275,
+    "p95_m": 0.011665479209047097
+   },
+   "amplitude_ratio": 0.5251210099341762,
+   "physical": {
+    "complete": true,
+    "clock_valid": true,
+    "finite": true,
+    "lift": true,
+    "swirl_complete": true,
+    "returned": true,
+    "contact": 1.0,
+    "counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 0
+    },
+    "tilt_p95_deg": 0.5121659398078918,
+    "retention_swirl": 1.0,
+    "particle_displacement_RMS_m": 0.004521386872450661
+   },
+   "frozen_gate_runner": {
+    "RMS_m": 0.003152034245431423,
+    "p95_m": 0.00375847655814141,
+    "max_m": 0.0040315319783985615
+   },
+   "R1_physical_ok": true,
+   "R1_teacher_admitted": false,
+   "frozen_bottle_gate_pass": true,
+   "swirl_evidence": false,
+   "R1_student_success": false
+  },
+  "phaseUntrained_2026102217": {
+   "run": "/data/liyufeng/a06_runs/m03/phaseUntrained_2026102217",
+   "actor": "phaseUntrained",
+   "seed": 2026102217,
+   "initial_source_xy_m": [
+    0.355,
+    -0.405
+   ],
+   "swirl_rows": 75,
+   "TCP_vs_video": {
+    "RMS_m": 0.006347424697241208,
+    "max_m": 0.013889312762326512
+   },
+   "bottle_vs_video": {
+    "RMS_m": 0.006377092688357141,
+    "p95_m": 0.011332609467537495
+   },
+   "amplitude_ratio": 0.5257831025788691,
+   "physical": {
+    "complete": true,
+    "clock_valid": true,
+    "finite": true,
+    "lift": true,
+    "swirl_complete": true,
+    "returned": true,
+    "contact": 1.0,
+    "counts": {
+     "command_velocity": 0,
+     "command_acceleration": 0,
+     "actual_velocity": 0,
+     "actual_acceleration": 1
+    },
+    "tilt_p95_deg": 0.4889082759618759,
+    "retention_swirl": 1.0,
+    "particle_displacement_RMS_m": 0.004430767397665204
+   },
+   "frozen_gate_runner": {
+    "RMS_m": 0.0034431845415383577,
+    "p95_m": 0.00424373373389244,
+    "max_m": 0.004552870523184538
+   },
+   "R1_physical_ok": false,
+   "R1_teacher_admitted": false,
+   "frozen_bottle_gate_pass": true,
+   "swirl_evidence": false,
+   "R1_student_success": false
+  }
+ },
+ "diagnosis": {
+  "summary": "Causal confusion: labels are a pure function of phase, but the K=6 phase basis covers <=1.6 Hz while the video swirl is 5.67 Hz dominant; the net fit the labels by copying the 50x(TCP-anchor) state input. d(offset_x)/d(TCP_x) median 1.32 > 1 -> positive feedback in closed loop; commanded amplitude 3.0x/2.7x reference, C3 tracked the command (4.2 mm).",
+  "numbers": {
+   "demo_2026102206": {
+    "rows": 75,
+    "cmd_amp_ratio": [
+     1.0,
+     1.0
+    ],
+    "tcp_amp_ratio": [
+     0.681,
+     1.333
+    ],
+    "tcp_vs_cmd_RMS_mm": 3.244715975597501,
+    "cmd_vs_ref_RMS_mm": 1.238632647463657e-05,
+    "cmd_saturated_frac": 0.0,
+    "ref_max_abs_mm": [
+     10.19,
+     4.22
+    ]
+   },
+   "phaseBC_2026102217": {
+    "rows": 75,
+    "cmd_amp_ratio": [
+     3.003,
+     2.738
+    ],
+    "tcp_amp_ratio": [
+     3.059,
+     2.789
+    ],
+    "tcp_vs_cmd_RMS_mm": 4.192735534161329,
+    "cmd_vs_ref_RMS_mm": 25.963036464397796,
+    "cmd_saturated_frac": 0.0,
+    "ref_max_abs_mm": [
+     10.19,
+     4.22
+    ],
+    "policy_on_ideal_state_vs_ref_RMS_mm": 4.495245045469992,
+    "d_offset_d_state_eig_abs_median": 0.9830567836761475,
+    "d_offset_d_state_eig_abs_max": 2.143794298171997,
+    "d_offset_d_state_diag_median": [
+     1.3240000009536743,
+     0.1599999964237213
+    ]
+   },
+   "phaseUntrained_2026102216": {
+    "rows": 75,
+    "cmd_amp_ratio": [
+     0.18,
+     0.891
+    ],
+    "tcp_amp_ratio": [
+     0.191,
+     0.86
+    ],
+    "tcp_vs_cmd_RMS_mm": 0.7513428572565317,
+    "cmd_vs_ref_RMS_mm": 6.214610947782302,
+    "cmd_saturated_frac": 0.0,
+    "ref_max_abs_mm": [
+     10.19,
+     4.22
+    ]
+   }
+  }
+ }
+}

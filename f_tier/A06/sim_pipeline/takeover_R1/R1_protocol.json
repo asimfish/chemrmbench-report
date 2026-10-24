@@ -1,0 +1,81 @@
+{
+  "id": "A06_R1_takeover_protocol",
+  "frozen_utc": "2026-10-24T19:26:20.587356+00:00",
+  "user_approval": "User replied \"继续推进\" to the explicit R1 proposal (2026-10-24); interpreted as approval and stated to the user.",
+  "why_R1": "Frozen gate compares flask BASE to a 2D bottom-outline proxy (~2.5 mm manual discrepancy, assumed scale/upright). Neck-held flask swings ~5 deg (pendulum), moving the base ~7 mm; 038 and M01 both TCP 3.2-3.5 mm but base 6.9 mm. The gate is stricter than its reference.",
+  "frozen_gate_kept": "A06 acceptance.json bottle RMS<=5mm/p95<=10mm still evaluated and published for every run (expected FAIL).",
+  "scope": "Applies only to runs launched after this freeze (M03 onward); no re-scoring of old runs for acceptance.",
+  "teacher_admission": {
+    "physics": "lift, swirl complete, return, bilateral contact fraction 1.0, 4 motion counters 0, bottle tilt p95<=10 deg, min strict cavity fraction during swirl>=0.95, complete/clock/finite",
+    "tracking": "TCP vs VIDEO reference RMS<=5mm and max<=10mm (recomputed by analyze_r1.py)"
+  },
+  "demos": {
+    "runner": "CLOSED-038 planned execution, 14 modules byte-equal, partition=full",
+    "positions": [
+      [
+        2026102206,
+        0.35,
+        -0.4
+      ],
+      [
+        2026102207,
+        0.355,
+        -0.4
+      ],
+      [
+        2026102208,
+        0.35,
+        -0.395
+      ]
+    ]
+  },
+  "negative": {
+    "runner": "034 C3/TGS1 runner (phasebc copy), actor teacher, --no-swirl-motion, partition full",
+    "seed": 2026102209,
+    "position": [
+      0.35,
+      -0.4
+    ],
+    "purpose": "swirl-evidence baseline (particle displacement RMS)"
+  },
+  "BC": {
+    "policy": "PhasePolicy MLP 15->64->64->2 SiLU, output 0.03*tanh, inputs: phase p=t/duration + sin/cos(2pi k p) k=1..6 + 50*(TCP-anchor)xy; NO video reference at execution",
+    "labels": "video reference offset at each demo state",
+    "training": "exactly 3 R1-admitted demos, 2000 Adam updates lr1e-3 batch64 seed2026102406, fixed final, no selection",
+    "executor": "034 C3 controller on the 038 physics (velocityff env); student offset+own finite-difference velocity replace the video sample only in the swirl stage; grasp/lift/return harness shared"
+  },
+  "evaluation": {
+    "positions": [
+      [
+        2026102216,
+        0.345,
+        -0.405
+      ],
+      [
+        2026102217,
+        0.355,
+        -0.405
+      ]
+    ],
+    "source": "executor-predeclared fresh positions (A06 protocol.json)",
+    "actors": [
+      "phaseBC",
+      "phaseUntrained"
+    ],
+    "swirl_window": "full video window (time hold-out not meaningful for a phase-conditioned generator; declared)"
+  },
+  "student_success": {
+    "physics": "same as teacher physics",
+    "swirl_evidence": "particle displacement RMS >= 2x negative",
+    "fidelity": "TCP vs VIDEO RMS<=10mm (C3 executor floor ~5.2mm) and amplitude ratio std(TCP-anchor)/std(ref) in [0.6,1.4]"
+  },
+  "A06_F_PASS_rule": "3/3 demos R1-admitted AND 2/2 phaseBC held-out successes AND 0/2 phaseUntrained successes; every launch counted, no retries.",
+  "declared_differences": [
+    "Real human Commons video, not original GRID phone input",
+    "2D lower-outline proxy with assumed scale/upright/constant height",
+    "Phase-conditioned translation generator; grasp/lift/return/rotation/grip are shared scripted harness",
+    "Teacher via planned joint-reference execution, student via C3 Cartesian controller on identical physics",
+    "No time hold-out; held-out = fresh initial positions"
+  ],
+  "analysis": "analyze_r1.py validated on M01: TCP RMS 3.2454 mm equals runner value"
+}
