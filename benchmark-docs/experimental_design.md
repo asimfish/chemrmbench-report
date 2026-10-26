@@ -312,9 +312,9 @@ unsolved and is not re-opened by this design.
    public-observation controller can complete the protocol. Only then freeze
    new held-out model comparisons; no benchmark LLM/VLM calls are added here.
 
-The immediate frontier remains two small process/referee contracts: endpoint
-continuous confirmation and the 23°C phosphate acquisition window, with both
-physical-age and method-timer anchors declared. The moisture cycle follows the
+The first implementation slice comprises endpoint continuous confirmation and
+the 23°C phosphate acquisition window, with both physical-age and method-timer
+anchors declared. Their current qualification is recorded below. The moisture cycle follows the
 balance/oven chain, and kinetics reuses an actually qualified photometer rather
 than relabelling a turbidity meter. Four full protocols are the design target,
 not the immediate GPU queue.
@@ -324,3 +324,70 @@ chain for treatment, a balance for measurement, and an appropriate photometer
 for optical results. All current ten passive admissions remain passive; none
 is promoted by this document. Keep CC BY-NC attribution. No extra card is
 reserved until an executable, independently verifiable workload is ready.
+
+### 6.1 Status of the two first units (2026-10-26)
+
+Both units have passed contract qualification on CPU and robot qualification on
+the native A-Lab twin. They are two additional engineering subprotocols alongside
+the frozen seven-task v0.1 release scope. Neither has a
+calibrated process or a held-out model comparison.
+
+| Unit | Module | Source parameters | Public CPU controller | History-free / method-free controls |
+|---|---|---|---|---|
+| Titration endpoint confirmation | `chemrm.bench.process.titration` | 30 s persistence (UW) | 100% of 200 seeds | declare at first colour 0%; coarse until persistent 20.5%; fixed fine count 19.5% |
+| Development read window | `chemrm.bench.process.development` | 420 s timer, 120 s window (Hach 8114), process clock × 0.2 | 100% for 1, 2 and 4 samples (150 seeds each) | read immediately 0%; episode anchor 0%; no blank zero 0%; identity memory loss 46% (2 samples), 4.7% (4 samples) |
+
+The titration proxy keeps a transient tint and the persistent endpoint identical at any
+instant; only the observed history separates them. The development unit compresses the
+process clock only; robot and safety clocks retain their original time scale.
+The native two-sample development unit uses measured key contacts and vial poses;
+it has not validated reagent chemistry or public RGB control. The native titration scene
+reuses the qualified T7 stirrer keys (coarse = key 1, fine = key 2, declare = key 3).
+
+Titration robot qualification (`titration_endpoint`, host ubuntu-TRX50-AI-TOP, Isaac Sim
+5.0). The verifier re-derives every dose and the declaration from key contact impulses,
+replays the CPU referee and checks receiver contrast and safety; every collection passed
+offline recording acceptance.
+
+| Cohort | Seeds | Successes |
+|---|---|---|
+| Qualification (r4) | 5000–5002 | 3/3 |
+| Planned-path expert | 0–19 | 20/20 |
+| Matched no-persistence ablation (declare at first colour) | 0–9 | 0/10 |
+
+The analytic fixed-strategy bound for this unit is one fixed delivered volume:
+p_max = 0.2 mL / (8 − 4) mL = 0.05, so 0/10 is inside the predeclared ten-trial rule.
+The ablation pairs seed-for-seed with the expert (same hidden V_eq, criteria,
+instruction and task revision); peak raw contact force stayed at 12.3 N.
+
+Development robot qualification (`development_read`, same local host). The
+instrument is a declared derived DR6000 engineering fixture, with compliant keys.
+The verifier reconstructs ZERO, MIX/START and READ from measured contacts and
+vial poses, then runs the same independent sample referee.
+
+| Cohort | Seeds | Successes |
+|---|---|---|
+| Qualification (r7) | 5000–5002 | 3/3 |
+| Expert | 0–19 | 20/20 |
+| Matched read-on-load ablation | 0–9 | 0/10 |
+
+All 30 main/ablation recordings passed offline verdict replay, full two-camera
+video decode and input-boundary checks. All ten pairs have identical sampled
+parameters, instructions, revisions and criteria. Every main read occurs at
+91.475 seconds in the scaled [84,108]-second window; ablation reads occur at
+28.683–28.842 seconds and fail as early. Maximum raw force is 4.574N. Mean
+episode wall time is 1716.9 seconds for the main expert and 1449.7 for ablation.
+The complete cohorts and three qualification seeds have size-checked NAS copies.
+
+The ablation's expected success probability zero applies **only to reading on
+load**, not to an optimal fixed-wait policy. A prescribed fixed 90-second wait
+is a valid solution for an isolated sample. The 35% fixed-policy design ceiling
+is inapplicable to this method-bound control. This contrast establishes that
+early reads are rejected; it does not establish native visual memory or
+chemical accuracy. The earlier nominal 28.8-second estimate is rounded; the
+observed maximum is 28.842 seconds, still below the 84-second opening.
+
+The next frozen baseline step is T7 action evaluation from predeclared training
+seed 42 on held-out seeds 1000–1049. New process-unit public-observation/model
+evaluations require their own declared protocol; no held-out comparison or
+complete calibrated chemical experiment is claimed by these expert batches.

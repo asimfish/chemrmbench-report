@@ -190,6 +190,97 @@
     "temporal_types": 10,
     "source_grounded_experiment_themes": 13,
     "calibrated_complete_experiments": 0,
+    "robot_qualified_experiment_units": 2,
     "legacy_profile_mapping_is_new_qualification": false
-  }
+  },
+  "qualified_experiment_units": [
+    {
+      "unit_id": "titration_endpoint_confirmation",
+      "task_id": "titration_endpoint",
+      "scope": "subprotocol",
+      "fidelity": "engineering_proxy",
+      "chemistry_calibrated": false,
+      "robot_evidence": {
+        "qualification": {
+          "seeds": [
+            5000,
+            5002
+          ],
+          "successes": 3,
+          "attempts": 3,
+          "collection": "titration_qual_seeds5000_5002_r4"
+        },
+        "expert": {
+          "seeds": [
+            0,
+            19
+          ],
+          "successes": 20,
+          "attempts": 20,
+          "collection": "titration_main20_r1"
+        },
+        "ablation_no_timing": {
+          "seeds": [
+            0,
+            9
+          ],
+          "successes": 0,
+          "attempts": 10,
+          "p_max": 0.05,
+          "paired": true,
+          "collection": "titration_ablation10_r1"
+        },
+        "verifier": "measured-v1 titration_verifier (contact-derived doses, referee, receiver contrast, safety)",
+        "host": "ubuntu-TRX50-AI-TOP (Isaac Sim 5.0)"
+      }
+    },
+    {
+      "unit_id": "development_read_window",
+      "task_id": "development_read",
+      "scope": "subprotocol",
+      "fidelity": "engineering_proxy",
+      "chemistry_calibrated": false,
+      "robot_evidence": {
+        "qualification": {
+          "seeds": [
+            5000,
+            5002
+          ],
+          "successes": 3,
+          "attempts": 3,
+          "collection": "development_qual_seeds5000_5002_r7"
+        },
+        "expert": {
+          "seeds": [
+            0,
+            19
+          ],
+          "successes": 20,
+          "attempts": 20,
+          "collection": "development_main20_r1"
+        },
+        "ablation_no_timing": {
+          "seeds": [
+            0,
+            9
+          ],
+          "successes": 0,
+          "attempts": 10,
+          "p_max": 0.0,
+          "paired": true,
+          "collection": "development_ablation10_r1"
+        },
+        "ablation_scope": "Declared read-on-load controller only; not a bound on all fixed-wait policies.",
+        "read_window_s": [
+          84.0,
+          108.0
+        ],
+        "expert_development_s": 91.475,
+        "maximum_raw_force_n": 4.573524019635179,
+        "verifier": "measured-v1 development_verifier (contact-derived keys, vial poses, sample referee and safety)",
+        "recording_acceptance": "All 20 expert and 10 ablation trajectories replayed with complete video decode; NAS copy size-checked.",
+        "host": "ubuntu-TRX50-AI-TOP"
+      }
+    }
+  ]
 }
