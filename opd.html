@@ -43,7 +43,21 @@
       </div>
       <div class="unmeasured-note" id="student-safety" role="note"><strong>First matched28k point closed; effectiveness remains unestablished</strong><p>The first28k-label/task matched nominal point is complete: five methods/variants × three fixed seeds × two tasks ×50 episodes =1500 executions on the same100(task,source) instances. BC40, M3 and both ablations are0/50 in every row. M4standard N03 is[1,1,0]/50; N12 all0/50. The two successes retain actual-acceleration counts9/8, so every learned-method auxiliary motion-qualified count is0/50. Primary task SR/Wilson is unchanged; these observations do not establish effectiveness or significant improvement. The state-driven oracle independently completed50/50 per task (95% Wilson92.8652–100%). Auxiliary motion-qualified counts are49/50 N03 and50/50 N12; N03 source2545 retains one actual-acceleration joint/physics-step count, with other three counters0. Its70000 finalized validation calls supply0training rows,0NN forwards and0updates. This is one oracle run/task, not a three-learner-seed comparison or a28k-label learned baseline.</p></div>
       <div class="unmeasured-note" id="n12-safety" role="note"><strong>N12 qualification safety: NOT_ALL_PASSED</strong><p>The earlier qualification takeover set recorded two exceptions. Case09 recorded one actual-acceleration exceedance above the local 15.0001 rad/s² threshold; case49 recorded one command-acceleration exceedance above 2.51 rad/s². High-rate peak magnitudes and exact ticks are unavailable. The 41,811 geometry-feasibility candidates are not strict-safety passes or training admissions. All qualification data remain outside training. Separate new training-role collections and BC20 fits are reported below.</p></div>
-      <p class="snapshot" id="snapshot-status" data-snapshot="2026-10-21T20:57:30.242036Z">Snapshot 2026-10-21T20:57:30.242036Z · curated static report</p>
+      <p class="snapshot" id="snapshot-status" data-snapshot="2026-10-21T20:57:30.242036Z">Snapshot 2026-10-27T17:06Z · curated static report</p>
+    </section>
+
+
+    <section class="section" id="heldout-expert-validation" aria-labelledby="heldout-expert-title">
+      <p class="section-number">01A / INDEPENDENT EXPERT VALIDATION · 2026-10-27</p>
+      <h2 id="heldout-expert-title">New source seeds on the PRO6000 node.</h2>
+      <p class="section-lead">Before extending student comparisons, the C3 state-driven experts were rerun on independent source banks. These are native Isaac Lab / MATTERIX episodes with no parameter updates; they validate the expert baseline and do not claim student or OPD effectiveness.</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Independent heldout expert validation">
+        <table><caption>20 planned cases per task · all cases data-valid · 14,000 teacher queries per task · GPU0 only</caption><thead><tr><th scope="col">Task</th><th scope="col">Source seeds</th><th scope="col">Success / denominator</th><th scope="col">Terminal placement error</th><th scope="col">Limit counters</th></tr></thead><tbody>
+          <tr><th scope="row">N03</th><td>2026102800–2819</td><td><strong>20 / 20</strong></td><td>0.125–6.447 mm<br><span class="small">mean 1.655 mm</span></td><td>command v/a 0/0<br>actual v/a 0/0</td></tr>
+          <tr><th scope="row">N12</th><td>2026102700–2719</td><td><strong>20 / 20</strong></td><td>0.225–0.343 mm<br><span class="small">mean 0.291 mm</span></td><td>command v/a 0/0<br>actual v/a 0/0</td></tr>
+        </tbody></table>
+      </div>
+      <p class="small disclosure">Both banks were admitted with 97,250 MiB fresh free memory and an observed 3,620 MiB peak; GPU1 and external processes were untouched. The isolated <code>flatdict</code> source was loaded from <code>/dev/shm</code> without changing the shared Isaac wheel environment. N03 had one preserved pre-physics stale-GPU-identity attempt; N12 had three preserved pre-physics attempts (stale NVML/PCI, stale Torch UUID, then missing <code>flatdict</code>). None entered the denominator. <a href="data/heldout-expert-validation-20261027.json">Machine-readable evidence ↗</a></p>
     </section>
 
     <section class="section" id="evidence" aria-labelledby="evidence-title">

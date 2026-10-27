@@ -1,0 +1,173 @@
+{
+  "N03": {
+    "schema": "heldout_N03_native_validation_20261027_v1",
+    "updated_utc": "2026-10-27T17:06:35.204841+00:00",
+    "status": "CLOSED_PHYSICAL_EVALUATION",
+    "scope": "heldout_N03_nominal_20_cases_independent_pro6000",
+    "task": "N03",
+    "policy_source": "expert",
+    "controller_revision": "C3",
+    "casebank": "casebank.json",
+    "planned_denominator": 20,
+    "data_valid_count": 20,
+    "success_count": 20,
+    "success_rate": 1.0,
+    "query_count": 14000,
+    "teacher_query_budget": 14000,
+    "parameter_updates_during_evaluation": 0,
+    "no_failed_attempt_replacement": true,
+    "failure_type_counts": {
+      "none": 20
+    },
+    "metrics": {
+      "peak_lift_m": {
+        "mean": 0.14678466469049453,
+        "min": 0.14657336473464966,
+        "max": 0.1471245288848877
+      },
+      "max_terminal_placement_error_m": {
+        "mean": 0.001654946233611554,
+        "min": 0.0001247667387360707,
+        "max": 0.006447091232985258
+      }
+    },
+    "safety_counters": {
+      "joint_speed_saturations_total": 1243,
+      "joint_acceleration_saturations_total": 78160,
+      "command_velocity_exceedances_total": 0,
+      "command_acceleration_exceedances_total": 0,
+      "actual_velocity_exceedances_total": 0,
+      "actual_acceleration_exceedances_total": 0
+    },
+    "runtime": {
+      "gpu_index": 0,
+      "nvml_uuid": "GPU-9ae13e8a-17e6-f5b9-9b07-5352ebc90f17",
+      "torch_cuda_uuid": "9df759e8-7bad-0313-58a7-7a3e4d59f6d1",
+      "pci_bus_id": "00000000:62:00.0",
+      "admission_free_mib": 97250,
+      "observed_peak_mib": 3620,
+      "required_free_mib": 5430,
+      "isolation": "flatdict source on /dev/shm; shared Isaac wheel environment unchanged; GPU1 and external processes untouched"
+    },
+    "batch_runtime_s": [
+      {
+        "batch_start": 0,
+        "total_wall_s": 106.54666023980826,
+        "timed_wall_s": 93.63107531936839,
+        "query_budget_consumed": 11200,
+        "query_valid_count": 11200
+      },
+      {
+        "batch_start": 16,
+        "total_wall_s": 99.8072021738626,
+        "timed_wall_s": 91.14116036798805,
+        "query_budget_consumed": 2800,
+        "query_valid_count": 2800
+      }
+    ],
+    "preserved_infrastructure_failures": [
+      {
+        "attempt": "expert",
+        "reason": "stale NVML/PCI identity assertion before physics",
+        "output": "remote:.../heldout_N03/expert"
+      }
+    ],
+    "remote_result": "/personal_fast_storage/matterix_g7_pro6000_20261021/heldout_n03_20261027/phase2/measurements/reentrant/heldout_N03/expert_retry_gpu_identity/result.json",
+    "local_result": "f_tier/current_followup/heldout_n03_20261027/result.json",
+    "interpretation": "Independent held-out native expert validation completed 20/20 with all data-valid. This validates the C3 expert on a new N03 nominal source bank; it is not a student or OPD result.",
+    "video": null
+  },
+  "N12": {
+    "schema": "heldout_N12_native_validation_20261027_v1",
+    "updated_utc": "2026-10-27T16:57:48.035300+00:00",
+    "status": "CLOSED_PHYSICAL_EVALUATION",
+    "scope": "heldout_N12_nominal_20_cases_independent_pro6000",
+    "task": "N12",
+    "policy_source": "expert",
+    "controller_revision": "C3",
+    "casebank": "casebank.json",
+    "planned_denominator": 20,
+    "data_valid_count": 20,
+    "success_count": 20,
+    "success_rate": 1.0,
+    "query_count": 14000,
+    "teacher_query_budget": 14000,
+    "parameter_updates_during_evaluation": 0,
+    "no_failed_attempt_replacement": true,
+    "failure_type_counts": {
+      "null": 20
+    },
+    "metrics": {
+      "peak_lift_m": {
+        "mean": 0.14907753020524978,
+        "min": 0.14897598326206207,
+        "max": 0.1491611897945404
+      },
+      "max_terminal_placement_error_m": {
+        "mean": 0.000291068456863286,
+        "min": 0.00022490676201414317,
+        "max": 0.00034320278791710734
+      },
+      "minimum_terminal_insertion_depth_m": {
+        "mean": 0.024999961629509924,
+        "min": 0.024999909102916718,
+        "max": 0.025000356137752533
+      }
+    },
+    "safety_counters": {
+      "joint_speed_saturations_total": 1039,
+      "joint_acceleration_saturations_total": 70293,
+      "command_velocity_exceedances_total": 0,
+      "command_acceleration_exceedances_total": 0,
+      "actual_velocity_exceedances_total": 0,
+      "actual_acceleration_exceedances_total": 0
+    },
+    "runtime": {
+      "gpu_index": 0,
+      "nvml_uuid": "GPU-9ae13e8a-17e6-f5b9-9b07-5352ebc90f17",
+      "torch_cuda_uuid": "9df759e8-7bad-0313-58a7-7a3e4d59f6d1",
+      "pci_bus_id": "00000000:62:00.0",
+      "admission_free_mib": 97250,
+      "observed_peak_mib": 3620,
+      "required_free_mib": 5430,
+      "isolation": "flatdict source on /dev/shm; shared Isaac wheel environment unchanged; GPU1 and external processes untouched"
+    },
+    "batch_runtime_s": [
+      {
+        "batch_start": 0,
+        "total_wall_s": 82.43681041011587,
+        "timed_wall_s": 67.67320751585066,
+        "query_budget_consumed": 11200,
+        "query_valid_count": 11200
+      },
+      {
+        "batch_start": 16,
+        "total_wall_s": 73.93139549018815,
+        "timed_wall_s": 66.72485805116594,
+        "query_budget_consumed": 2800,
+        "query_valid_count": 2800
+      }
+    ],
+    "preserved_infrastructure_failures": [
+      {
+        "attempt": "expert",
+        "reason": "stale NVML/PCI identity assertion before physics",
+        "output": "remote:.../heldout_N12/expert"
+      },
+      {
+        "attempt": "expert_retry_gpu_identity",
+        "reason": "stale Torch CUDA UUID assertion before physics",
+        "output": "remote:.../expert_retry_gpu_identity"
+      },
+      {
+        "attempt": "expert_retry_cuda_uuid",
+        "reason": "ModuleNotFoundError: flatdict before physics",
+        "output": "remote:.../expert_retry_cuda_uuid"
+      }
+    ],
+    "remote_result": "/personal_fast_storage/matterix_g7_pro6000_20261021/heldout_n12_20261027/phase2/measurements/reentrant/heldout_N12/expert_retry_flatdict/result.json",
+    "local_result": "f_tier/current_followup/heldout_n12_20261027/result.json",
+    "interpretation": "Independent held-out native expert validation completed 20/20 with all data-valid. This validates the C3 expert on a new N12 nominal source bank; it is not a student or OPD result.",
+    "video": null
+  }
+}
