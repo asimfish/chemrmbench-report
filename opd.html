@@ -47,6 +47,26 @@
     </section>
 
 
+    <section class="section" id="reproduction-extension-20261028" aria-labelledby="reproduction-extension-title">
+      <p class="section-number">2026-10-28 / N17 + N18 REPRODUCTION EXTENSION</p>
+      <h2 id="reproduction-extension-title">Two more skills, tested beyond the original case.</h2>
+      <p class="section-lead">N17 loads a beaker into the local OT2 cup holder; N18 places a rigid vessel/load surrogate on a CPU mechanical scale. The legacy HSM scripts were ported to the PRO6000 node, compared with a phase-anchored planner on the same source bank, then tested on a new bank. All 120 positive episodes and two no-close controls remain recorded.</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="N17 N18 reproduction extension results"><table>
+        <caption>CPU PhysX · 20 cases per positive bank · no retries, case replacement, training labels or weight updates</caption>
+        <thead><tr><th scope="col">Task</th><th scope="col">Local HSM baseline</th><th scope="col">Anchored / same bank</th><th scope="col">Anchored / new bank</th><th scope="col">New-bank max error</th><th scope="col">No-close control</th></tr></thead>
+        <tbody><tr><th scope="row">N17 · OT2</th><td>18/20</td><td>20/20</td><td><strong>20/20</strong></td><td>placement 6.981 mm</td><td>Rejected 1/1<br>lift 4.58 mm</td></tr>
+        <tr><th scope="row">N18 · scale</th><td>19/20</td><td>20/20</td><td><strong>20/20</strong></td><td>placement 5.980 mm<br>mass 0.022%</td><td>Rejected 1/1<br>scale 0 g</td></tr></tbody></table></div>
+      <p class="small disclosure">The new source bank uses seeds 2026102800–2819, xy ±20 mm and yaw ±30°. Local gates remain placement ≤10 mm; N18 maximum terminal mass error ≤2%, measured on CPU with an empty tare. Each 20/20 bank has a descriptive Wilson 95% interval of 83.9–100%. Banks are not pooled. Historical TRX 16/20 results remain separate.</p>
+      <figure class="mechanism-figure"><img src="assets/reproduction-20261028/reliability_summary.png" alt="Per-bank success with Wilson intervals and all planned placement errors for N17 and N18. The new planner completed20/20 per task on a new source bank." style="width:100%;height:auto"><figcaption>Same-bank diagnosis and independently frozen source validation. <a href="assets/reproduction-20261028/reliability_summary.pdf">Figure PDF ↗</a></figcaption></figure>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <figure><video controls playsinline preload="metadata" poster="assets/reproduction-20261028/n17-terminal.png" style="width:100%"><source src="assets/reproduction-20261028/n17.mp4" type="video/mp4"></video><figcaption>N17 · prespecified first heldout case · 82 frames. Local OT2 holder and parked panels; original author automatic door mechanism is not reproduced.</figcaption></figure>
+        <figure><video controls playsinline preload="metadata" poster="assets/reproduction-20261028/n18-terminal.png" style="width:100%"><source src="assets/reproduction-20261028/n18.mp4" type="video/mp4"></video><figcaption>N18 · prespecified first heldout case · 57 frames. The 220 g load is a rigid surrogate, not simulated liquid. CPU scale values come from the recorded trace.</figcaption></figure>
+      </div>
+      <p class="small disclosure">Both videos replay exact saved native poses with RTX and original MATTERIX MDL glass on local vessel geometry: zero physics callbacks and no interpolation. The first N18 render completed its video but failed during annotator cleanup; that attempt remains retained, followed by a separate clean render.</p>
+      <div class="unmeasured-note" role="note"><strong>Functional success does not qualify motion.</strong><p>The phase-anchored planner reuses accepted local joint postures at fixed stations and seeds source IK from each phase's nominal posture. This is a disclosed controller change, not author-code identity. Legacy HSM command acceleration still peaks near 84 rad/s²; N17's new bank has a 301.8 rad/s² peak in the 120 Hz position-second-difference diagnostic during front alignment. This adapter is not the shared 8D C3 student controller. Motion qualification and C3 migration remain open; no learned-policy, safety or OPD benefit is claimed.</p></div>
+      <p><a href="data/reproduction-20261028.json">All per-case metrics, negative controls, motion diagnostics and declared differences ↗</a></p>
+    </section>
+
     <section class="section" id="heldout-expert-validation" aria-labelledby="heldout-expert-title">
       <p class="section-number">01A / INDEPENDENT EXPERT VALIDATION · 2026-10-27</p>
       <h2 id="heldout-expert-title">New source seeds on the PRO6000 node.</h2>

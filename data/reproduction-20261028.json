@@ -1,0 +1,2417 @@
+{
+  "schema": "n1718_reproduction_extension_20261028_v1",
+  "updated_utc": "2026-10-28T15:18:19.161729+00:00",
+  "status": "CLOSED_FUNCTIONAL_VALIDATION_MOTION_QUALIFICATION_OPEN",
+  "scope": "MATTERIX local functional reproduction and modified planner validation, not author-identity reproduction or learned policy/OPD effectiveness.",
+  "baseline_F_score_unchanged": {
+    "functional_F_PASS": 36,
+    "total": 36,
+    "full_original_reproduction": false,
+    "frozen_v1_commit": "43b9233 retained"
+  },
+  "intervention": "For fixed-station waypoints use accepted local nominal joint branch; for source-dependent waypoints seed IK with that phase nominal posture. No physics, geometry, HSM thresholds, servo gains, speed limit, horizon, mass or success gate changes.",
+  "design": {
+    "portable_baseline": "historical20 source cases per task on PRO6000 CPU PhysX; no controller change except portability.",
+    "anchored_diagnostic": "same20 sources/task; planner branch intervention only.",
+    "heldout_anchor": "new20 source seeds2026102800..2819/task; xy uniform\u00b120mm around(.35,-.40), yaw\u00b130deg, roll/pitch0; predeclared first-case replay.",
+    "no_close_negative": "one first-heldout-source episode/task; gripper remains open; full native path executed and physical gates must reject."
+  },
+  "all_native_positive_episodes": 120,
+  "all_native_negative_episodes": 2,
+  "failed_platform_positive_episodes_retained": 3,
+  "native_task_replacements": 0,
+  "new_training_rows": 0,
+  "parameter_updates": 0,
+  "results": {
+    "portable_baseline": {
+      "N17": {
+        "successes": 18,
+        "denominator": 20,
+        "wilson95": [
+          0.6989663547715128,
+          0.9721335187862319
+        ],
+        "native_clock": {
+          "callbacks": 2519,
+          "sum_dt_s": 20.991667761467397,
+          "issued_control_steps": 2519,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 0
+        },
+        "raw_trace_rows": 50380,
+        "gate_recomputation": "PASS",
+        "failures": [
+          {
+            "case": "N17_seed_2026102100",
+            "success": false,
+            "placement_error_mm": 139.0135530354315,
+            "lift_mm": 170.57667493820188,
+            "mass_error_percent": null,
+            "failed_gates": [
+              "released",
+              "run_complete",
+              "placement"
+            ]
+          },
+          {
+            "case": "N17_seed_2026102103",
+            "success": false,
+            "placement_error_mm": 138.65203136796518,
+            "lift_mm": 170.54284930229184,
+            "mass_error_percent": null,
+            "failed_gates": [
+              "released",
+              "run_complete",
+              "placement"
+            ]
+          }
+        ],
+        "placement_error_mm": {
+          "mean": 18.376613352757214,
+          "max": 139.0135530354315
+        },
+        "mass_error_percent_max": null,
+        "case_results": [
+          {
+            "case": "N17_seed_2026102100",
+            "success": false,
+            "placement_error_mm": 139.0135530354315,
+            "lift_mm": 170.57667493820188,
+            "mass_error_percent": null,
+            "failed_gates": [
+              "released",
+              "run_complete",
+              "placement"
+            ]
+          },
+          {
+            "case": "N17_seed_2026102101",
+            "success": true,
+            "placement_error_mm": 5.380043537290545,
+            "lift_mm": 172.12144851684567,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102102",
+            "success": true,
+            "placement_error_mm": 4.651712814070286,
+            "lift_mm": 289.8558211326599,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102103",
+            "success": false,
+            "placement_error_mm": 138.65203136796518,
+            "lift_mm": 170.54284930229184,
+            "mass_error_percent": null,
+            "failed_gates": [
+              "released",
+              "run_complete",
+              "placement"
+            ]
+          },
+          {
+            "case": "N17_seed_2026102104",
+            "success": true,
+            "placement_error_mm": 4.646217934446084,
+            "lift_mm": 171.4030337333679,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102105",
+            "success": true,
+            "placement_error_mm": 4.795320689026097,
+            "lift_mm": 171.2111663818359,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102106",
+            "success": true,
+            "placement_error_mm": 4.943412771699402,
+            "lift_mm": 171.52155756950376,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102107",
+            "success": true,
+            "placement_error_mm": 4.698311397249507,
+            "lift_mm": 171.44627690315244,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102108",
+            "success": true,
+            "placement_error_mm": 4.869303711982225,
+            "lift_mm": 171.80476903915402,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102109",
+            "success": true,
+            "placement_error_mm": 5.694382466436175,
+            "lift_mm": 172.11036205291745,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102110",
+            "success": true,
+            "placement_error_mm": 4.670850617891468,
+            "lift_mm": 172.22545862197873,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102111",
+            "success": true,
+            "placement_error_mm": 4.8820080196874,
+            "lift_mm": 174.79522347450254,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102112",
+            "success": true,
+            "placement_error_mm": 4.894886462003589,
+            "lift_mm": 171.47125124931333,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102113",
+            "success": true,
+            "placement_error_mm": 2.2151705692896373,
+            "lift_mm": 174.69270348548886,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102114",
+            "success": true,
+            "placement_error_mm": 5.293877691024519,
+            "lift_mm": 172.20745801925656,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102115",
+            "success": true,
+            "placement_error_mm": 4.700425435424617,
+            "lift_mm": 171.33806467056272,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102116",
+            "success": true,
+            "placement_error_mm": 6.254991732554716,
+            "lift_mm": 171.43823027610776,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102117",
+            "success": true,
+            "placement_error_mm": 7.896010440823819,
+            "lift_mm": 171.11871957778928,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102118",
+            "success": true,
+            "placement_error_mm": 4.74502119314557,
+            "lift_mm": 171.30480527877805,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102119",
+            "success": true,
+            "placement_error_mm": 4.63473516770192,
+            "lift_mm": 171.5568435192108,
+            "mass_error_percent": null,
+            "failed_gates": []
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N17_seed_2026102100",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7420635223388672,
+            "peak_position_second_difference_accel_rad_s2": 22.94769287109375
+          },
+          {
+            "case": "N17_seed_2026102101",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.2225008010864258,
+            "peak_position_second_difference_accel_rad_s2": 97.24960327148438
+          },
+          {
+            "case": "N17_seed_2026102102",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 2.609996795654297,
+            "peak_position_second_difference_accel_rad_s2": 227.47535705566406
+          },
+          {
+            "case": "N17_seed_2026102103",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 167.99994707107544,
+            "peak_position_difference_speed_rad_s": 0.746612548828125,
+            "peak_position_second_difference_accel_rad_s2": 21.869659423828125
+          },
+          {
+            "case": "N17_seed_2026102104",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7485437393188477,
+            "peak_position_second_difference_accel_rad_s2": 35.353660583496094
+          },
+          {
+            "case": "N17_seed_2026102105",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7006072998046875,
+            "peak_position_second_difference_accel_rad_s2": 10.36834716796875
+          },
+          {
+            "case": "N17_seed_2026102106",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6997776031494141,
+            "peak_position_second_difference_accel_rad_s2": 14.975738525390625
+          },
+          {
+            "case": "N17_seed_2026102107",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.9009361267089844,
+            "peak_position_second_difference_accel_rad_s2": 58.179473876953125
+          },
+          {
+            "case": "N17_seed_2026102108",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.9656667709350586,
+            "peak_position_second_difference_accel_rad_s2": 80.77011108398438
+          },
+          {
+            "case": "N17_seed_2026102109",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7566690444946289,
+            "peak_position_second_difference_accel_rad_s2": 62.35771179199219
+          },
+          {
+            "case": "N17_seed_2026102110",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.9939336776733398,
+            "peak_position_second_difference_accel_rad_s2": 77.30426788330078
+          },
+          {
+            "case": "N17_seed_2026102111",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7935386896133423,
+            "peak_position_second_difference_accel_rad_s2": 58.7069034576416
+          },
+          {
+            "case": "N17_seed_2026102112",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.575765609741211,
+            "peak_position_second_difference_accel_rad_s2": 203.71227264404297
+          },
+          {
+            "case": "N17_seed_2026102113",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7979750633239746,
+            "peak_position_second_difference_accel_rad_s2": 52.54490375518799
+          },
+          {
+            "case": "N17_seed_2026102114",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.859135627746582,
+            "peak_position_second_difference_accel_rad_s2": 209.45777893066406
+          },
+          {
+            "case": "N17_seed_2026102115",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6992912292480469,
+            "peak_position_second_difference_accel_rad_s2": 16.791915893554688
+          },
+          {
+            "case": "N17_seed_2026102116",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7256984710693359,
+            "peak_position_second_difference_accel_rad_s2": 37.925148010253906
+          },
+          {
+            "case": "N17_seed_2026102117",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.4539861679077148,
+            "peak_position_second_difference_accel_rad_s2": 157.19547271728516
+          },
+          {
+            "case": "N17_seed_2026102118",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7016658782958984,
+            "peak_position_second_difference_accel_rad_s2": 10.498809814453125
+          },
+          {
+            "case": "N17_seed_2026102119",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.8567619323730469,
+            "peak_position_second_difference_accel_rad_s2": 67.72384643554688
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      },
+      "N18": {
+        "successes": 19,
+        "denominator": 20,
+        "wilson95": [
+          0.763868806553258,
+          0.9911185511992047
+        ],
+        "native_clock": {
+          "callbacks": 1689,
+          "sum_dt_s": 14.075000734068453,
+          "issued_control_steps": 1689,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 240
+        },
+        "raw_trace_rows": 33780,
+        "gate_recomputation": "PASS",
+        "failures": [
+          {
+            "case": "N18_seed_2026102117",
+            "success": false,
+            "placement_error_mm": 21.467406066406546,
+            "lift_mm": 144.98726844787595,
+            "mass_error_percent": 0.004729737653071235,
+            "failed_gates": [
+              "placement"
+            ]
+          }
+        ],
+        "placement_error_mm": {
+          "mean": 6.196745774013277,
+          "max": 21.467406066406546
+        },
+        "mass_error_percent_max": 0.026133499909085242,
+        "case_results": [
+          {
+            "case": "N18_seed_2026102100",
+            "success": true,
+            "placement_error_mm": 6.032271749056799,
+            "lift_mm": 166.3169693946838,
+            "mass_error_percent": 0.008527179343654162,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102101",
+            "success": true,
+            "placement_error_mm": 5.856010203064041,
+            "lift_mm": 147.04410552978513,
+            "mass_error_percent": 0.00542018159681932,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102102",
+            "success": true,
+            "placement_error_mm": 5.651961463752299,
+            "lift_mm": 144.63566064834592,
+            "mass_error_percent": 0.008181957371786426,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102103",
+            "success": true,
+            "placement_error_mm": 5.1707444371982705,
+            "lift_mm": 144.40241277217862,
+            "mass_error_percent": 0.001139035868730714,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102104",
+            "success": true,
+            "placement_error_mm": 5.490506231598978,
+            "lift_mm": 144.3602871894836,
+            "mass_error_percent": 0.0105985111748858,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102105",
+            "success": true,
+            "placement_error_mm": 5.761142775129754,
+            "lift_mm": 144.20163452625272,
+            "mass_error_percent": 0.005765403568687054,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102106",
+            "success": true,
+            "placement_error_mm": 5.545122834759823,
+            "lift_mm": 144.6247977018356,
+            "mass_error_percent": 0.001139035868730714,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102107",
+            "success": true,
+            "placement_error_mm": 5.480789955836175,
+            "lift_mm": 144.61035847663877,
+            "mass_error_percent": 0.006455847512435139,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102108",
+            "success": true,
+            "placement_error_mm": 4.087940796159572,
+            "lift_mm": 144.63901340961453,
+            "mass_error_percent": 0.007491513428038343,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102109",
+            "success": true,
+            "placement_error_mm": 4.67885181414432,
+            "lift_mm": 144.22231733798978,
+            "mass_error_percent": 0.0033488497655876815,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102110",
+            "success": true,
+            "placement_error_mm": 6.088599167063677,
+            "lift_mm": 144.37493503093717,
+            "mass_error_percent": 0.001139035868730714,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102111",
+            "success": true,
+            "placement_error_mm": 6.821624940037933,
+            "lift_mm": 144.7802913188934,
+            "mass_error_percent": 0.008527179343654162,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102112",
+            "success": true,
+            "placement_error_mm": 5.537466089201718,
+            "lift_mm": 144.5821505784988,
+            "mass_error_percent": 0.007836735399918693,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102113",
+            "success": true,
+            "placement_error_mm": 4.570672057451099,
+            "lift_mm": 177.43037462234494,
+            "mass_error_percent": 0.004039293709335766,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102114",
+            "success": true,
+            "placement_error_mm": 5.788665164970589,
+            "lift_mm": 144.4749069213867,
+            "mass_error_percent": 0.0016227399062363932,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102115",
+            "success": true,
+            "placement_error_mm": 7.340230198990255,
+            "lift_mm": 152.71529376506803,
+            "mass_error_percent": 0.012669843006117438,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102116",
+            "success": true,
+            "placement_error_mm": 3.2423775555060366,
+            "lift_mm": 144.3007570505142,
+            "mass_error_percent": 0.00956284525926998,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102117",
+            "success": false,
+            "placement_error_mm": 21.467406066406546,
+            "lift_mm": 144.98726844787595,
+            "mass_error_percent": 0.004729737653071235,
+            "failed_gates": [
+              "placement"
+            ]
+          },
+          {
+            "case": "N18_seed_2026102118",
+            "success": true,
+            "placement_error_mm": 3.9752675936403636,
+            "lift_mm": 184.39610123634336,
+            "mass_error_percent": 0.005074959624951586,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102119",
+            "success": true,
+            "placement_error_mm": 5.3472643862972955,
+            "lift_mm": 144.12678599357602,
+            "mass_error_percent": 0.026133499909085242,
+            "failed_gates": []
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N18_seed_2026102100",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.699763298034668,
+            "peak_position_second_difference_accel_rad_s2": 4.279518127441406
+          },
+          {
+            "case": "N18_seed_2026102101",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 167.99983978271484,
+            "peak_position_difference_speed_rad_s": 0.6939411163330078,
+            "peak_position_second_difference_accel_rad_s2": 5.078601837158203
+          },
+          {
+            "case": "N18_seed_2026102102",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6966590881347656,
+            "peak_position_second_difference_accel_rad_s2": 3.714752197265625
+          },
+          {
+            "case": "N18_seed_2026102103",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7026922702789307,
+            "peak_position_second_difference_accel_rad_s2": 3.88641357421875
+          },
+          {
+            "case": "N18_seed_2026102104",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7124662399291992,
+            "peak_position_second_difference_accel_rad_s2": 3.8005828857421875
+          },
+          {
+            "case": "N18_seed_2026102105",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6984257698059082,
+            "peak_position_second_difference_accel_rad_s2": 13.241958618164062
+          },
+          {
+            "case": "N18_seed_2026102106",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6963443756103516,
+            "peak_position_second_difference_accel_rad_s2": 4.06494140625
+          },
+          {
+            "case": "N18_seed_2026102107",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6957435607910156,
+            "peak_position_second_difference_accel_rad_s2": 3.8349151611328125
+          },
+          {
+            "case": "N18_seed_2026102108",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6962013244628906,
+            "peak_position_second_difference_accel_rad_s2": 3.6357879638671875
+          },
+          {
+            "case": "N18_seed_2026102109",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6955647468566895,
+            "peak_position_second_difference_accel_rad_s2": 21.323776245117188
+          },
+          {
+            "case": "N18_seed_2026102110",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7121944427490234,
+            "peak_position_second_difference_accel_rad_s2": 3.7703342735767365
+          },
+          {
+            "case": "N18_seed_2026102111",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6970596313476562,
+            "peak_position_second_difference_accel_rad_s2": 5.005216598510742
+          },
+          {
+            "case": "N18_seed_2026102112",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6956291198730469,
+            "peak_position_second_difference_accel_rad_s2": 3.7456512451171875
+          },
+          {
+            "case": "N18_seed_2026102113",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7000386714935303,
+            "peak_position_second_difference_accel_rad_s2": 4.662322998046875
+          },
+          {
+            "case": "N18_seed_2026102114",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7127237319946289,
+            "peak_position_second_difference_accel_rad_s2": 3.84521484375
+          },
+          {
+            "case": "N18_seed_2026102115",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7120978832244873,
+            "peak_position_second_difference_accel_rad_s2": 4.706525802612305
+          },
+          {
+            "case": "N18_seed_2026102116",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6940841674804688,
+            "peak_position_second_difference_accel_rad_s2": 3.7319183349609375
+          },
+          {
+            "case": "N18_seed_2026102117",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7147121429443359,
+            "peak_position_second_difference_accel_rad_s2": 24.125289916992188
+          },
+          {
+            "case": "N18_seed_2026102118",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6988906860351562,
+            "peak_position_second_difference_accel_rad_s2": 4.595375061035156
+          },
+          {
+            "case": "N18_seed_2026102119",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 167.99983978271484,
+            "peak_position_difference_speed_rad_s": 0.696258544921875,
+            "peak_position_second_difference_accel_rad_s2": 5.095767974853516
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      }
+    },
+    "anchored_diagnostic": {
+      "N17": {
+        "successes": 20,
+        "denominator": 20,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "native_clock": {
+          "callbacks": 1930,
+          "sum_dt_s": 16.083334172144532,
+          "issued_control_steps": 1930,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 0
+        },
+        "raw_trace_rows": 38600,
+        "gate_recomputation": "PASS",
+        "failures": [],
+        "placement_error_mm": {
+          "mean": 5.390760321809627,
+          "max": 7.951543981371103
+        },
+        "mass_error_percent_max": null,
+        "case_results": [
+          {
+            "case": "N17_seed_2026102100",
+            "success": true,
+            "placement_error_mm": 5.216930314484029,
+            "lift_mm": 171.43706798553464,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102101",
+            "success": true,
+            "placement_error_mm": 5.010824037921524,
+            "lift_mm": 171.3288855552673,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102102",
+            "success": true,
+            "placement_error_mm": 5.327561413303538,
+            "lift_mm": 171.33889913558957,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102103",
+            "success": true,
+            "placement_error_mm": 6.155130495378635,
+            "lift_mm": 171.4330148696899,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102104",
+            "success": true,
+            "placement_error_mm": 4.951740554528849,
+            "lift_mm": 171.3710260391235,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102105",
+            "success": true,
+            "placement_error_mm": 4.680170044935961,
+            "lift_mm": 171.5115141868591,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102106",
+            "success": true,
+            "placement_error_mm": 5.029109553606346,
+            "lift_mm": 171.32486224174497,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102107",
+            "success": true,
+            "placement_error_mm": 5.3265248273617445,
+            "lift_mm": 171.55937671661374,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102108",
+            "success": true,
+            "placement_error_mm": 5.151596714975944,
+            "lift_mm": 171.41152739524838,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102109",
+            "success": true,
+            "placement_error_mm": 5.033608015831477,
+            "lift_mm": 171.43539905548093,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102110",
+            "success": true,
+            "placement_error_mm": 4.678682150976906,
+            "lift_mm": 171.38935446739194,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102111",
+            "success": true,
+            "placement_error_mm": 6.428945597366969,
+            "lift_mm": 171.42791867256162,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102112",
+            "success": true,
+            "placement_error_mm": 4.976576000046271,
+            "lift_mm": 171.38813257217404,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102113",
+            "success": true,
+            "placement_error_mm": 5.550572840125489,
+            "lift_mm": 171.58435106277463,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102114",
+            "success": true,
+            "placement_error_mm": 4.926371117370607,
+            "lift_mm": 171.52274966239926,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102115",
+            "success": true,
+            "placement_error_mm": 5.150656716149835,
+            "lift_mm": 171.3245642185211,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102116",
+            "success": true,
+            "placement_error_mm": 4.966528688438515,
+            "lift_mm": 171.36926770210263,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102117",
+            "success": true,
+            "placement_error_mm": 7.951543981371103,
+            "lift_mm": 171.31598114967343,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102118",
+            "success": true,
+            "placement_error_mm": 5.026179789759272,
+            "lift_mm": 171.39608979225156,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_seed_2026102119",
+            "success": true,
+            "placement_error_mm": 6.2759535822595245,
+            "lift_mm": 171.32894515991208,
+            "mass_error_percent": null,
+            "failed_gates": []
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N17_seed_2026102100",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.3912582397460938,
+            "peak_position_second_difference_accel_rad_s2": 122.66578674316406
+          },
+          {
+            "case": "N17_seed_2026102101",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.2061643600463867,
+            "peak_position_second_difference_accel_rad_s2": 102.75993347167969
+          },
+          {
+            "case": "N17_seed_2026102102",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 28.957557678222656
+          },
+          {
+            "case": "N17_seed_2026102103",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 2.4591636657714844,
+            "peak_position_second_difference_accel_rad_s2": 270.4061508178711
+          },
+          {
+            "case": "N17_seed_2026102104",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 25.86078643798828
+          },
+          {
+            "case": "N17_seed_2026102105",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7278585433959961,
+            "peak_position_second_difference_accel_rad_s2": 29.397010803222656
+          },
+          {
+            "case": "N17_seed_2026102106",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.3104057312011719,
+            "peak_position_second_difference_accel_rad_s2": 126.25865936279297
+          },
+          {
+            "case": "N17_seed_2026102107",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.8613681793212891,
+            "peak_position_second_difference_accel_rad_s2": 60.75611114501953
+          },
+          {
+            "case": "N17_seed_2026102108",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.9686565399169922,
+            "peak_position_second_difference_accel_rad_s2": 81.13059997558594
+          },
+          {
+            "case": "N17_seed_2026102109",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7716464996337891,
+            "peak_position_second_difference_accel_rad_s2": 63.99364471435547
+          },
+          {
+            "case": "N17_seed_2026102110",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 27.103614807128906
+          },
+          {
+            "case": "N17_seed_2026102111",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 14.81781005859375
+          },
+          {
+            "case": "N17_seed_2026102112",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.0654163360595703,
+            "peak_position_second_difference_accel_rad_s2": 116.43619537353516
+          },
+          {
+            "case": "N17_seed_2026102113",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 14.821243286132812
+          },
+          {
+            "case": "N17_seed_2026102114",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.4440155029296875,
+            "peak_position_second_difference_accel_rad_s2": 151.31607055664062
+          },
+          {
+            "case": "N17_seed_2026102115",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 14.834976196289062
+          },
+          {
+            "case": "N17_seed_2026102116",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.7374277114868164,
+            "peak_position_second_difference_accel_rad_s2": 206.2854766845703
+          },
+          {
+            "case": "N17_seed_2026102117",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.1854076385498047,
+            "peak_position_second_difference_accel_rad_s2": 120.25737762451172
+          },
+          {
+            "case": "N17_seed_2026102118",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.8898639678955078,
+            "peak_position_second_difference_accel_rad_s2": 75.91552734375
+          },
+          {
+            "case": "N17_seed_2026102119",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 2.224102020263672,
+            "peak_position_second_difference_accel_rad_s2": 249.25575256347656
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      },
+      "N18": {
+        "successes": 20,
+        "denominator": 20,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "native_clock": {
+          "callbacks": 1367,
+          "sum_dt_s": 11.391667260788381,
+          "issued_control_steps": 1367,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 240
+        },
+        "raw_trace_rows": 27340,
+        "gate_recomputation": "PASS",
+        "failures": [],
+        "placement_error_mm": {
+          "mean": 5.325208895855386,
+          "max": 5.7858166056742935
+        },
+        "mass_error_percent_max": 0.024752612021601686,
+        "case_results": [
+          {
+            "case": "N18_seed_2026102100",
+            "success": true,
+            "placement_error_mm": 5.5329476252977,
+            "lift_mm": 144.5780527591705,
+            "mass_error_percent": 0.0032103676999623524,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102101",
+            "success": true,
+            "placement_error_mm": 5.727303088120766,
+            "lift_mm": 144.49004650115964,
+            "mass_error_percent": 0.0039008116437104375,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102102",
+            "success": true,
+            "placement_error_mm": 5.686421007053883,
+            "lift_mm": 144.51010346412656,
+            "mass_error_percent": 0.0023131838499718623,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102103",
+            "success": true,
+            "placement_error_mm": 3.1663844590476935,
+            "lift_mm": 144.43556785583493,
+            "mass_error_percent": 0.001967961878104128,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102104",
+            "success": true,
+            "placement_error_mm": 5.571372468092471,
+            "lift_mm": 144.53705966472623,
+            "mass_error_percent": 0.015086396809204197,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102105",
+            "success": true,
+            "placement_error_mm": 5.5545314306247215,
+            "lift_mm": 144.4424223899841,
+            "mass_error_percent": 0.005074959624951586,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102106",
+            "success": true,
+            "placement_error_mm": 5.682492590345702,
+            "lift_mm": 144.45175051689145,
+            "mass_error_percent": 0.004246033615578172,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102107",
+            "success": true,
+            "placement_error_mm": 5.77528251483754,
+            "lift_mm": 144.66036677360532,
+            "mass_error_percent": 0.004384515681203501,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102108",
+            "success": true,
+            "placement_error_mm": 5.707742980665331,
+            "lift_mm": 144.591389298439,
+            "mass_error_percent": 0.007146291456170608,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102109",
+            "success": true,
+            "placement_error_mm": 5.691016654770138,
+            "lift_mm": 144.5758771896362,
+            "mass_error_percent": 0.024752612021601686,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102110",
+            "success": true,
+            "placement_error_mm": 4.671371793674178,
+            "lift_mm": 144.44987297058103,
+            "mass_error_percent": 0.00542018159681932,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102111",
+            "success": true,
+            "placement_error_mm": 5.508702929874482,
+            "lift_mm": 144.4983464479446,
+            "mass_error_percent": 0.0026584058218522126,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102112",
+            "success": true,
+            "placement_error_mm": 5.443412862638194,
+            "lift_mm": 144.5713025331497,
+            "mass_error_percent": 0.019574282443535207,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102113",
+            "success": true,
+            "placement_error_mm": 3.641145868606023,
+            "lift_mm": 144.41741824150083,
+            "mass_error_percent": 0.009217623287402247,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102114",
+            "success": true,
+            "placement_error_mm": 5.615625672235669,
+            "lift_mm": 144.60187971591947,
+            "mass_error_percent": 0.007836735399918693,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102115",
+            "success": true,
+            "placement_error_mm": 5.427926407697759,
+            "lift_mm": 144.43792223930356,
+            "mass_error_percent": 0.007146291456170608,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102116",
+            "success": true,
+            "placement_error_mm": 5.486048340246814,
+            "lift_mm": 144.49170053005216,
+            "mass_error_percent": 0.006801069484302873,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102117",
+            "success": true,
+            "placement_error_mm": 5.299698972328005,
+            "lift_mm": 144.61517155170438,
+            "mass_error_percent": 0.006110625540554789,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102118",
+            "success": true,
+            "placement_error_mm": 5.528933645276367,
+            "lift_mm": 144.55500066280362,
+            "mass_error_percent": 0.012324621034237088,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_seed_2026102119",
+            "success": true,
+            "placement_error_mm": 5.7858166056742935,
+            "lift_mm": 144.5216369628906,
+            "mass_error_percent": 0.008527179343654162,
+            "failed_gates": []
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N18_seed_2026102100",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960296630859375,
+            "peak_position_second_difference_accel_rad_s2": 3.618621826171875
+          },
+          {
+            "case": "N18_seed_2026102101",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6964015960693359,
+            "peak_position_second_difference_accel_rad_s2": 3.7353515625
+          },
+          {
+            "case": "N18_seed_2026102102",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960010528564453,
+            "peak_position_second_difference_accel_rad_s2": 3.7744712142739445
+          },
+          {
+            "case": "N18_seed_2026102103",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6964302062988281,
+            "peak_position_second_difference_accel_rad_s2": 3.9825439453125
+          },
+          {
+            "case": "N18_seed_2026102104",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6959438323974609,
+            "peak_position_second_difference_accel_rad_s2": 3.8280487060546875
+          },
+          {
+            "case": "N18_seed_2026102105",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6970310211181641,
+            "peak_position_second_difference_accel_rad_s2": 3.865814208984375
+          },
+          {
+            "case": "N18_seed_2026102106",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6956863403320312,
+            "peak_position_second_difference_accel_rad_s2": 3.7937164306640625
+          },
+          {
+            "case": "N18_seed_2026102107",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6962871551513672,
+            "peak_position_second_difference_accel_rad_s2": 3.975677490234375
+          },
+          {
+            "case": "N18_seed_2026102108",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6957149505615234,
+            "peak_position_second_difference_accel_rad_s2": 3.72161865234375
+          },
+          {
+            "case": "N18_seed_2026102109",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6955146789550781,
+            "peak_position_second_difference_accel_rad_s2": 3.742218017578125
+          },
+          {
+            "case": "N18_seed_2026102110",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6959438323974609,
+            "peak_position_second_difference_accel_rad_s2": 3.8726806640625
+          },
+          {
+            "case": "N18_seed_2026102111",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960868835449219,
+            "peak_position_second_difference_accel_rad_s2": 3.632354736328125
+          },
+          {
+            "case": "N18_seed_2026102112",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6957721710205078,
+            "peak_position_second_difference_accel_rad_s2": 3.838348388671875
+          },
+          {
+            "case": "N18_seed_2026102113",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6956291198730469,
+            "peak_position_second_difference_accel_rad_s2": 3.6975860595703125
+          },
+          {
+            "case": "N18_seed_2026102114",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6951713562011719,
+            "peak_position_second_difference_accel_rad_s2": 3.838348388671875
+          },
+          {
+            "case": "N18_seed_2026102115",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6962013244628906,
+            "peak_position_second_difference_accel_rad_s2": 3.69415283203125
+          },
+          {
+            "case": "N18_seed_2026102116",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6948566436767578,
+            "peak_position_second_difference_accel_rad_s2": 3.7662506103515625
+          },
+          {
+            "case": "N18_seed_2026102117",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.694427490234375,
+            "peak_position_second_difference_accel_rad_s2": 3.687286376953125
+          },
+          {
+            "case": "N18_seed_2026102118",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6951713562011719,
+            "peak_position_second_difference_accel_rad_s2": 3.7078857421875
+          },
+          {
+            "case": "N18_seed_2026102119",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6956291198730469,
+            "peak_position_second_difference_accel_rad_s2": 4.003143310546875
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      }
+    },
+    "heldout_anchor": {
+      "N17": {
+        "successes": 20,
+        "denominator": 20,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "native_clock": {
+          "callbacks": 1950,
+          "sum_dt_s": 16.250000847503543,
+          "issued_control_steps": 1950,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 0
+        },
+        "raw_trace_rows": 39000,
+        "gate_recomputation": "PASS",
+        "failures": [],
+        "placement_error_mm": {
+          "mean": 5.332741727461181,
+          "max": 6.981082285024407
+        },
+        "mass_error_percent_max": null,
+        "case_results": [
+          {
+            "case": "N17_heldout_seed_2026102800",
+            "success": true,
+            "placement_error_mm": 5.243387828389429,
+            "lift_mm": 171.41617655754087,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102801",
+            "success": true,
+            "placement_error_mm": 5.147820622184721,
+            "lift_mm": 171.35949254035947,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102802",
+            "success": true,
+            "placement_error_mm": 4.639046575827529,
+            "lift_mm": 171.4405846595764,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102803",
+            "success": true,
+            "placement_error_mm": 4.990310752871198,
+            "lift_mm": 171.3516545295715,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102804",
+            "success": true,
+            "placement_error_mm": 6.981082285024407,
+            "lift_mm": 171.43322348594663,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102805",
+            "success": true,
+            "placement_error_mm": 6.442965824979247,
+            "lift_mm": 171.40750408172605,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102806",
+            "success": true,
+            "placement_error_mm": 5.007154138948316,
+            "lift_mm": 171.37141346931455,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102807",
+            "success": true,
+            "placement_error_mm": 4.676998898167931,
+            "lift_mm": 171.41191482543942,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102808",
+            "success": true,
+            "placement_error_mm": 5.113636986625188,
+            "lift_mm": 171.41790509223935,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102809",
+            "success": true,
+            "placement_error_mm": 5.139787414490613,
+            "lift_mm": 171.3392865657806,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102810",
+            "success": true,
+            "placement_error_mm": 4.708471580673092,
+            "lift_mm": 171.5204548835754,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102811",
+            "success": true,
+            "placement_error_mm": 5.533363478706093,
+            "lift_mm": 171.38422846794126,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102812",
+            "success": true,
+            "placement_error_mm": 5.095439227988487,
+            "lift_mm": 171.43349170684812,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102813",
+            "success": true,
+            "placement_error_mm": 5.44179216515035,
+            "lift_mm": 171.461386680603,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102814",
+            "success": true,
+            "placement_error_mm": 5.897776405492747,
+            "lift_mm": 171.3042092323303,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102815",
+            "success": true,
+            "placement_error_mm": 6.599125807794144,
+            "lift_mm": 171.37573480606076,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102816",
+            "success": true,
+            "placement_error_mm": 4.956102332327324,
+            "lift_mm": 171.47694349288938,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102817",
+            "success": true,
+            "placement_error_mm": 4.926948420177612,
+            "lift_mm": 171.50918960571286,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102818",
+            "success": true,
+            "placement_error_mm": 5.100865508018709,
+            "lift_mm": 171.3470351696014,
+            "mass_error_percent": null,
+            "failed_gates": []
+          },
+          {
+            "case": "N17_heldout_seed_2026102819",
+            "success": true,
+            "placement_error_mm": 5.012758295386479,
+            "lift_mm": 171.32787227630612,
+            "mass_error_percent": null,
+            "failed_gates": []
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N17_heldout_seed_2026102800",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.3687992095947266,
+            "peak_position_second_difference_accel_rad_s2": 152.3632049560547
+          },
+          {
+            "case": "N17_heldout_seed_2026102801",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 19.43035125732422
+          },
+          {
+            "case": "N17_heldout_seed_2026102802",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 29.796981811523438
+          },
+          {
+            "case": "N17_heldout_seed_2026102803",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.5478992462158203,
+            "peak_position_second_difference_accel_rad_s2": 153.19232940673828
+          },
+          {
+            "case": "N17_heldout_seed_2026102804",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.5986967086791992,
+            "peak_position_second_difference_accel_rad_s2": 193.67523193359375
+          },
+          {
+            "case": "N17_heldout_seed_2026102805",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 55.65776824951172
+          },
+          {
+            "case": "N17_heldout_seed_2026102806",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.6041755676269531,
+            "peak_position_second_difference_accel_rad_s2": 146.59194946289062
+          },
+          {
+            "case": "N17_heldout_seed_2026102807",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.9348249435424805,
+            "peak_position_second_difference_accel_rad_s2": 65.76862335205078
+          },
+          {
+            "case": "N17_heldout_seed_2026102808",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.4303970336914062,
+            "peak_position_second_difference_accel_rad_s2": 175.00534057617188
+          },
+          {
+            "case": "N17_heldout_seed_2026102809",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 45.62244415283203
+          },
+          {
+            "case": "N17_heldout_seed_2026102810",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 2.3846054077148438,
+            "peak_position_second_difference_accel_rad_s2": 301.82361602783203
+          },
+          {
+            "case": "N17_heldout_seed_2026102811",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 14.879608154296875
+          },
+          {
+            "case": "N17_heldout_seed_2026102812",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 14.663314819335938
+          },
+          {
+            "case": "N17_heldout_seed_2026102813",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.057419776916504,
+            "peak_position_second_difference_accel_rad_s2": 138.93585205078125
+          },
+          {
+            "case": "N17_heldout_seed_2026102814",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.3137245178222656,
+            "peak_position_second_difference_accel_rad_s2": 113.3462905883789
+          },
+          {
+            "case": "N17_heldout_seed_2026102815",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 22.26104736328125
+          },
+          {
+            "case": "N17_heldout_seed_2026102816",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7474851608276367,
+            "peak_position_second_difference_accel_rad_s2": 58.81805419921875
+          },
+          {
+            "case": "N17_heldout_seed_2026102817",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014656066894531,
+            "peak_position_second_difference_accel_rad_s2": 14.889907836914062
+          },
+          {
+            "case": "N17_heldout_seed_2026102818",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.5283870697021484,
+            "peak_position_second_difference_accel_rad_s2": 173.7590789794922
+          },
+          {
+            "case": "N17_heldout_seed_2026102819",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.7014942169189453,
+            "peak_position_second_difference_accel_rad_s2": 14.728546142578125
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller.",
+        "motion_hotspots": [
+          {
+            "case": "N17_heldout_seed_2026102800",
+            "phase": "front_align",
+            "native_step": 596,
+            "native_s": 4.966666666666667,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -152.3632049560547,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102801",
+            "phase": "front_align",
+            "native_step": 572,
+            "native_s": 4.766666666666667,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 19.43035125732422,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102802",
+            "phase": "front_align",
+            "native_step": 548,
+            "native_s": 4.566666666666666,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 29.796981811523438,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102803",
+            "phase": "front_align",
+            "native_step": 571,
+            "native_s": 4.758333333333333,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -153.19232940673828,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102804",
+            "phase": "front_align",
+            "native_step": 609,
+            "native_s": 5.075,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -193.67523193359375,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102805",
+            "phase": "front_align",
+            "native_step": 549,
+            "native_s": 4.575,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 55.65776824951172,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102806",
+            "phase": "front_align",
+            "native_step": 569,
+            "native_s": 4.741666666666666,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 146.59194946289062,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102807",
+            "phase": "front_align",
+            "native_step": 577,
+            "native_s": 4.808333333333334,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 65.76862335205078,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102808",
+            "phase": "front_align",
+            "native_step": 606,
+            "native_s": 5.05,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -175.00534057617188,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102809",
+            "phase": "front_align",
+            "native_step": 593,
+            "native_s": 4.941666666666666,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -45.62244415283203,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102810",
+            "phase": "front_align",
+            "native_step": 627,
+            "native_s": 5.225,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -301.82361602783203,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102811",
+            "phase": "front_exit",
+            "native_step": 1414,
+            "native_s": 11.783333333333333,
+            "joint": 6,
+            "position_second_difference_accel_rad_s2": 14.879608154296875,
+            "released": true
+          },
+          {
+            "case": "N17_heldout_seed_2026102812",
+            "phase": "front_exit",
+            "native_step": 1411,
+            "native_s": 11.758333333333333,
+            "joint": 6,
+            "position_second_difference_accel_rad_s2": 14.663314819335938,
+            "released": true
+          },
+          {
+            "case": "N17_heldout_seed_2026102813",
+            "phase": "front_align",
+            "native_step": 625,
+            "native_s": 5.208333333333333,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -138.93585205078125,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102814",
+            "phase": "front_align",
+            "native_step": 558,
+            "native_s": 4.65,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 113.3462905883789,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102815",
+            "phase": "front_align",
+            "native_step": 572,
+            "native_s": 4.766666666666667,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 22.26104736328125,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102816",
+            "phase": "front_align",
+            "native_step": 550,
+            "native_s": 4.583333333333333,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": 58.81805419921875,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102817",
+            "phase": "front_exit",
+            "native_step": 1417,
+            "native_s": 11.808333333333334,
+            "joint": 6,
+            "position_second_difference_accel_rad_s2": 14.889907836914062,
+            "released": true
+          },
+          {
+            "case": "N17_heldout_seed_2026102818",
+            "phase": "front_align",
+            "native_step": 591,
+            "native_s": 4.925,
+            "joint": 7,
+            "position_second_difference_accel_rad_s2": -173.7590789794922,
+            "released": false
+          },
+          {
+            "case": "N17_heldout_seed_2026102819",
+            "phase": "front_exit",
+            "native_step": 1413,
+            "native_s": 11.775,
+            "joint": 6,
+            "position_second_difference_accel_rad_s2": 14.728546142578125,
+            "released": true
+          }
+        ]
+      },
+      "N18": {
+        "successes": 20,
+        "denominator": 20,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "native_clock": {
+          "callbacks": 1367,
+          "sum_dt_s": 11.391667260788381,
+          "issued_control_steps": 1367,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 240
+        },
+        "raw_trace_rows": 27340,
+        "gate_recomputation": "PASS",
+        "failures": [],
+        "placement_error_mm": {
+          "mean": 5.316839266509607,
+          "max": 5.9803632737100125
+        },
+        "mass_error_percent_max": 0.02199083624663458,
+        "case_results": [
+          {
+            "case": "N18_heldout_seed_2026102800",
+            "success": true,
+            "placement_error_mm": 5.679924186674321,
+            "lift_mm": 144.52312707900998,
+            "mass_error_percent": 0.0039008116437104375,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102801",
+            "success": true,
+            "placement_error_mm": 5.728292570893919,
+            "lift_mm": 144.4286388158798,
+            "mass_error_percent": 0.0032103676999623524,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102802",
+            "success": true,
+            "placement_error_mm": 5.815313502896532,
+            "lift_mm": 144.5669364929199,
+            "mass_error_percent": 0.0039008116437104375,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102803",
+            "success": true,
+            "placement_error_mm": 4.460922348574832,
+            "lift_mm": 144.41548109054563,
+            "mass_error_percent": 0.001139035868730714,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102804",
+            "success": true,
+            "placement_error_mm": 5.723718570560389,
+            "lift_mm": 144.58343207836148,
+            "mass_error_percent": 0.0021747017843465333,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102805",
+            "success": true,
+            "placement_error_mm": 5.740875296294811,
+            "lift_mm": 144.47420656681058,
+            "mass_error_percent": 0.0016227399062363932,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102806",
+            "success": true,
+            "placement_error_mm": 4.256322139697149,
+            "lift_mm": 144.48541224002835,
+            "mass_error_percent": 0.007836735399918693,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102807",
+            "success": true,
+            "placement_error_mm": 4.045141070141552,
+            "lift_mm": 144.46703910827634,
+            "mass_error_percent": 0.0025199237562142677,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102808",
+            "success": true,
+            "placement_error_mm": 5.655277128726424,
+            "lift_mm": 144.55126047134397,
+            "mass_error_percent": 0.003694071737455416,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102809",
+            "success": true,
+            "placement_error_mm": 5.636764286217165,
+            "lift_mm": 144.56729412078855,
+            "mass_error_percent": 0.007146291456170608,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102810",
+            "success": true,
+            "placement_error_mm": 5.9803632737100125,
+            "lift_mm": 144.54114258289334,
+            "mass_error_percent": 0.008872401315534512,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102811",
+            "success": true,
+            "placement_error_mm": 5.379049801219428,
+            "lift_mm": 144.47410225868222,
+            "mass_error_percent": 0.004729737653071235,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102812",
+            "success": true,
+            "placement_error_mm": 5.595344326149748,
+            "lift_mm": 144.51296448707578,
+            "mass_error_percent": 0.008872401315534512,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102813",
+            "success": true,
+            "placement_error_mm": 5.719888304538457,
+            "lift_mm": 144.61590170860288,
+            "mass_error_percent": 0.0032103676999623524,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102814",
+            "success": true,
+            "placement_error_mm": 5.641469604519561,
+            "lift_mm": 144.4656980037689,
+            "mass_error_percent": 0.014050730893600991,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102815",
+            "success": true,
+            "placement_error_mm": 5.666241232046557,
+            "lift_mm": 144.47071969509122,
+            "mass_error_percent": 0.02199083624663458,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102816",
+            "success": true,
+            "placement_error_mm": 5.482863782356977,
+            "lift_mm": 144.4678437709808,
+            "mass_error_percent": 0.003003627793719947,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102817",
+            "success": true,
+            "placement_error_mm": 5.4796706402055735,
+            "lift_mm": 144.46998953819272,
+            "mass_error_percent": 0.000587073990620574,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102818",
+            "success": true,
+            "placement_error_mm": 4.721388374078401,
+            "lift_mm": 144.39020872116086,
+            "mass_error_percent": 0.006801069484302873,
+            "failed_gates": []
+          },
+          {
+            "case": "N18_heldout_seed_2026102819",
+            "success": true,
+            "placement_error_mm": 3.927954890690328,
+            "lift_mm": 144.37843680381772,
+            "mass_error_percent": 0.008872401315534512,
+            "failed_gates": []
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N18_heldout_seed_2026102800",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960296630859375,
+            "peak_position_second_difference_accel_rad_s2": 3.8349151611328125
+          },
+          {
+            "case": "N18_heldout_seed_2026102801",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6957149505615234,
+            "peak_position_second_difference_accel_rad_s2": 3.6083221435546875
+          },
+          {
+            "case": "N18_heldout_seed_2026102802",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6952285766601562,
+            "peak_position_second_difference_accel_rad_s2": 3.618621826171875
+          },
+          {
+            "case": "N18_heldout_seed_2026102803",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6959152221679688,
+            "peak_position_second_difference_accel_rad_s2": 3.6838531494140625
+          },
+          {
+            "case": "N18_heldout_seed_2026102804",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.69580078125,
+            "peak_position_second_difference_accel_rad_s2": 4.194209631532431
+          },
+          {
+            "case": "N18_heldout_seed_2026102805",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6951141357421875,
+            "peak_position_second_difference_accel_rad_s2": 3.7078857421875
+          },
+          {
+            "case": "N18_heldout_seed_2026102806",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960582733154297,
+            "peak_position_second_difference_accel_rad_s2": 3.687286376953125
+          },
+          {
+            "case": "N18_heldout_seed_2026102807",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6951999664306641,
+            "peak_position_second_difference_accel_rad_s2": 3.74908447265625
+          },
+          {
+            "case": "N18_heldout_seed_2026102808",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6954288482666016,
+            "peak_position_second_difference_accel_rad_s2": 3.7937164306640625
+          },
+          {
+            "case": "N18_heldout_seed_2026102809",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6946849822998047,
+            "peak_position_second_difference_accel_rad_s2": 4.50439453125
+          },
+          {
+            "case": "N18_heldout_seed_2026102810",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6959438323974609,
+            "peak_position_second_difference_accel_rad_s2": 3.6563873291015625
+          },
+          {
+            "case": "N18_heldout_seed_2026102811",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6961727142333984,
+            "peak_position_second_difference_accel_rad_s2": 3.9035797119140625
+          },
+          {
+            "case": "N18_heldout_seed_2026102812",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6964588165283203,
+            "peak_position_second_difference_accel_rad_s2": 3.7044525146484375
+          },
+          {
+            "case": "N18_heldout_seed_2026102813",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960010528564453,
+            "peak_position_second_difference_accel_rad_s2": 4.3018341064453125
+          },
+          {
+            "case": "N18_heldout_seed_2026102814",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6962871551513672,
+            "peak_position_second_difference_accel_rad_s2": 3.7319183349609375
+          },
+          {
+            "case": "N18_heldout_seed_2026102815",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.696258544921875,
+            "peak_position_second_difference_accel_rad_s2": 3.7731170654296875
+          },
+          {
+            "case": "N18_heldout_seed_2026102816",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6951713562011719,
+            "peak_position_second_difference_accel_rad_s2": 3.797149658203125
+          },
+          {
+            "case": "N18_heldout_seed_2026102817",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6960010528564453,
+            "peak_position_second_difference_accel_rad_s2": 3.7937164306640625
+          },
+          {
+            "case": "N18_heldout_seed_2026102818",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6951427459716797,
+            "peak_position_second_difference_accel_rad_s2": 3.6495208740234375
+          },
+          {
+            "case": "N18_heldout_seed_2026102819",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.69580078125,
+            "peak_position_second_difference_accel_rad_s2": 3.879547119140625
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      }
+    },
+    "no_close_negative": {
+      "N17": {
+        "successes": 0,
+        "denominator": 1,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ],
+        "native_clock": {
+          "callbacks": 1919,
+          "sum_dt_s": 15.991667500697076,
+          "issued_control_steps": 1919,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 0
+        },
+        "raw_trace_rows": 1919,
+        "gate_recomputation": "PASS",
+        "failures": [
+          {
+            "case": "N17_heldout_seed_2026102800",
+            "success": false,
+            "placement_error_mm": 287.6536325662461,
+            "lift_mm": 4.5794454216957075,
+            "mass_error_percent": null,
+            "failed_gates": [
+              "lift",
+              "placement"
+            ]
+          }
+        ],
+        "placement_error_mm": {
+          "mean": 287.6536325662461,
+          "max": 287.6536325662461
+        },
+        "mass_error_percent_max": null,
+        "case_results": [
+          {
+            "case": "N17_heldout_seed_2026102800",
+            "success": false,
+            "placement_error_mm": 287.6536325662461,
+            "lift_mm": 4.5794454216957075,
+            "mass_error_percent": null,
+            "failed_gates": [
+              "lift",
+              "placement"
+            ]
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N17_heldout_seed_2026102800",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 1.4214849472045898,
+            "peak_position_second_difference_accel_rad_s2": 163.29288482666016
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      },
+      "N18": {
+        "successes": 0,
+        "denominator": 1,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ],
+        "native_clock": {
+          "callbacks": 1342,
+          "sum_dt_s": 11.183333916589618,
+          "issued_control_steps": 1342,
+          "dt_s": 0.008333333333333333,
+          "tare_native_steps": 240
+        },
+        "raw_trace_rows": 1342,
+        "gate_recomputation": "PASS",
+        "failures": [
+          {
+            "case": "N18_heldout_seed_2026102800",
+            "success": false,
+            "placement_error_mm": 365.6529927651913,
+            "lift_mm": 4.509372711181639,
+            "mass_error_percent": 100.0,
+            "failed_gates": [
+              "lift",
+              "placement",
+              "weighing"
+            ]
+          }
+        ],
+        "placement_error_mm": {
+          "mean": 365.6529927651913,
+          "max": 365.6529927651913
+        },
+        "mass_error_percent_max": 100.0,
+        "case_results": [
+          {
+            "case": "N18_heldout_seed_2026102800",
+            "success": false,
+            "placement_error_mm": 365.6529927651913,
+            "lift_mm": 4.509372711181639,
+            "mass_error_percent": 100.0,
+            "failed_gates": [
+              "lift",
+              "placement",
+              "weighing"
+            ]
+          }
+        ],
+        "motion_diagnostics": [
+          {
+            "case": "N18_heldout_seed_2026102800",
+            "peak_command_speed_rad_s": 0.7000064849853516,
+            "peak_command_accel_rad_s2": 84.00077819824219,
+            "peak_position_difference_speed_rad_s": 0.6959152221679688,
+            "peak_position_second_difference_accel_rad_s2": 3.570556640625
+          }
+        ],
+        "motion_scope": "Finite differences of recorded 120Hz joint positions/targets. Not direct velocity sensor data, no C3 or universal safety acceptance claim. This reproduction script uses the historical joint governor, not the C3 shared8D student controller."
+      }
+    }
+  },
+  "negative_controls_expected_rejection": {
+    "N17": {
+      "rejected": true,
+      "denominator": 1,
+      "metrics": {
+        "case": "N17_heldout_seed_2026102800",
+        "success": false,
+        "placement_error_mm": 287.6536325662461,
+        "lift_mm": 4.5794454216957075,
+        "mass_error_percent": null,
+        "failed_gates": [
+          "lift",
+          "placement"
+        ]
+      }
+    },
+    "N18": {
+      "rejected": true,
+      "denominator": 1,
+      "metrics": {
+        "case": "N18_heldout_seed_2026102800",
+        "success": false,
+        "placement_error_mm": 365.6529927651913,
+        "lift_mm": 4.509372711181639,
+        "mass_error_percent": 100.0,
+        "failed_gates": [
+          "lift",
+          "placement",
+          "weighing"
+        ]
+      }
+    }
+  },
+  "visuals": {
+    "N17": {
+      "case": "N17_heldout_seed_2026102800",
+      "frames": 82,
+      "physics_steps": 0,
+      "interpolation": false,
+      "renderer": "Isaac Sim RTX PathTracing",
+      "source": "/data/liyufeng/n1718_reproduction_20261028/evidence/heldout_anchor/N17/rtx_replay",
+      "video": "N17-video.mp4"
+    },
+    "N18": {
+      "case": "N18_heldout_seed_2026102800",
+      "frames": 57,
+      "physics_steps": 0,
+      "interpolation": false,
+      "renderer": "Isaac Sim RTX PathTracing",
+      "source": "/data/liyufeng/n1718_reproduction_20261028/evidence/heldout_anchor/N18/rtx_replay_clean",
+      "video": "N18-video.mp4"
+    }
+  },
+  "declared_differences": [
+    "Local hollow vessel geometry and Panda standard gripper substitute for author CAD/Robotiq. Arm gravity compensation uses disabled link gravity.",
+    "N17 uses a local cup holder at107.05mm and parked front service panels with their collisions. This does not reproduce the author automatic door mechanism or original loading geometry.",
+    "N18 uses a220g rigid lumped vessel/load surrogate and a CPU empty-tared mechanical spring scale, not a liquid experiment or the unknown author scale implementation.",
+    "Phase-anchored IK is a disclosed local planner change; it is not original author code identity.",
+    "Shared-load PRO6000 CPU simulation differs from the prior TRX run; historical16/20 results remain separate, not pooled or replaced.",
+    "Legacy HSM joint-drive adapter is not the shared8D C3 student controller. Functional gates do not imply motion acceptance. Command acceleration peaks~84rad/s2 in modified runs; N17 new-bank position-second-difference peak~301.8rad/s2 at front_align remains open. These are120Hz position-derived diagnostics, not direct velocity sensor measurements.",
+    "The branch intervention groups source IK seeding and fixed-station anchoring; this experiment does not isolate their separate effects.",
+    "20 cases/task is a small nominal validation. Wilson95 intervals are reported per bank; same-bank paired runs and different tasks are not pooled as independent scenes."
+  ],
+  "known_preserved_failures": [
+    "Original local baseline remains18/20 N17 and19/20 N18 on PRO6000; every failed case retained.",
+    "First N18 RTX replay finished57frames then failed in annotator detach with HydraTexture list; old log/video retained and separate clean render completed."
+  ],
+  "next_frontier": "Port N17/N18 skills to the common C3 8D controller and qualify command/actual motion before learning or joint Robot RSI claims. Preserve the functional planner results as a separate reproduction baseline."
+}
