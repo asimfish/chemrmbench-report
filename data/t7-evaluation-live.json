@@ -1,15 +1,37 @@
 {
-  "state": "validating",
+  "state": "stopped_retained_prefix",
   "attempts": 21,
   "successes": 0,
   "failures": 21,
   "errors": 0,
   "planned": 50,
-  "updated_at_utc": "2026-10-28T15:02:05.069898+00:00",
+  "updated_at_utc": "2026-10-28T15:04:20.966918+00:00",
   "training_seed": 42,
   "training_steps": 50000,
   "training_job": "job-vxpwp0kqb0uu",
   "training_loop_gpu_hours": 12.00624029049417,
   "source_commit": "077adbf3810b4405058f0567fa54cba59a9e3a7e",
-  "acceptance_passed": null
+  "acceptance_passed": false,
+  "public_process_qualification": {
+    "state": "running",
+    "tasks": {
+      "titration_endpoint": {
+        "attempts": 1,
+        "successes": 1,
+        "failures": 0,
+        "errors": 0,
+        "planned": 3,
+        "recording_integrity_passed": true
+      },
+      "development_read": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "errors": 0,
+        "planned": 3,
+        "recording_integrity_passed": null
+      }
+    },
+    "updated_at_utc": "2026-10-28T15:12:51.137616+00:00"
+  }
 }
