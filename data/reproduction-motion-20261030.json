@@ -1,0 +1,405 @@
+{
+  "status": "CLOSED_DIAGNOSTICS_CONTACT_QUALIFICATION_OPEN",
+  "updated_utc": "2026-10-30T18:49:27.045376+00:00",
+  "scope": "Native CPU PhysX diagnostics and common Action8/G8/C3 controller bridge for N17/N18. Not a reentrant expert, learned-policy evaluation, original-code identity or safe-deployment acceptance.",
+  "native_episodes": 14,
+  "independent_source_instances_per_task": 1,
+  "paired_world_origins_m": [
+    0,
+    14
+  ],
+  "all_attempts_retained": true,
+  "independent_audit": "PASS_INDEPENDENT_RECOMPUTATION",
+  "training_rows": 0,
+  "model_updates": 0,
+  "frozen_v1_unchanged": true,
+  "runs": [
+    {
+      "mode": "c3_bridge",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 0.9213580473240756,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.45674800872802734
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.2548478841781616
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 11.929763793945312
+            }
+          }
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 0.8625647607071684,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.45673370361328125
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.2548339366912842
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 10.908390045166016
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mode": "c3_bridge",
+      "task": "N18",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N18_c3_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 2.7924749759726804,
+          "max_mass_error_percent": 0.004384515681203501,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.41665077209472656
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.27783235907554626
+            },
+            "actual_acceleration": {
+              "count": 4,
+              "maximum": 27.558073043823242
+            }
+          }
+        },
+        {
+          "case": "N18_c3_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 2.6108688172395316,
+          "max_mass_error_percent": 0.00956284525926998,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.41665077209472656
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.27039051055908203
+            },
+            "actual_acceleration": {
+              "count": 8,
+              "maximum": 26.241151809692383
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mode": "exit_route",
+      "task": "N17",
+      "planned": 2,
+      "successes": 0,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": false,
+          "placement_mm": 38.73431545751876,
+          "max_mass_error_percent": null,
+          "motion": null
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": false,
+          "placement_mm": 38.22745799579709,
+          "max_mass_error_percent": null,
+          "motion": null
+        }
+      ]
+    },
+    {
+      "mode": "instrumented",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.756133641405081,
+          "max_mass_error_percent": null,
+          "motion": null
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.6674059188476935,
+          "max_mass_error_percent": null,
+          "motion": null
+        }
+      ]
+    },
+    {
+      "mode": "reverse_exit",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.796807656787565,
+          "max_mass_error_percent": null,
+          "motion": null
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.894012027268612,
+          "max_mass_error_percent": null,
+          "motion": null
+        }
+      ]
+    },
+    {
+      "mode": "route_only",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.723203535823583,
+          "max_mass_error_percent": null,
+          "motion": null
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.810334145616909,
+          "max_mass_error_percent": null,
+          "motion": null
+        }
+      ]
+    },
+    {
+      "mode": "soft_landing",
+      "task": "N18",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N18_c3_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.386972365162867,
+          "max_mass_error_percent": 0.00010336995312751087,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.41665077209472656
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.19455347955226898
+            },
+            "actual_acceleration": {
+              "count": 12,
+              "maximum": 23.57181739807129
+            }
+          }
+        },
+        {
+          "case": "N18_c3_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 4.777784152289588,
+          "max_mass_error_percent": 0.005074959624951586,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.41665077209472656
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.194529190659523
+            },
+            "actual_acceleration": {
+              "count": 6,
+              "maximum": 18.9089412689209
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "limits_unchanged": {
+    "command_speed_rad_s": 0.7001,
+    "command_acceleration_rad_s2": 2.51,
+    "actual_speed_rad_s": [
+      2.175,
+      2.175,
+      2.175,
+      2.175,
+      2.61,
+      2.61,
+      2.61
+    ],
+    "local_actual_acceleration_rad_s2": 15.0001,
+    "local_robot_OT2_contact_average_force_N": 0.1
+  },
+  "conclusions": [
+    "N17: original measured velocity-derived acceleration333.3/355.6rad/s\u00b2 and body/shield contacts establish actual collision, not just position-difference noise.",
+    "Manual route variants expose tradeoff: entry-only2/2 but exit collision, outward withdrawal0/2 drags vessel, reverse ingress2/2 but link6/body collision. Stop manual route search.",
+    "N17 common C3:2/2 task gates, all four movement counters0/0, placement0.921/0.863mm; link6/body average step-force peaks23.64/22.79N remain. Collision gate FAIL; no expanded reliability/learning run.",
+    "N18 common C3:2/2 task gates and scale error<0.01%, but actual-acceleration counts4/8 with peaks27.56/26.24rad/s\u00b2 during first support contact.",
+    "N18 one near-scale cap intervention (2mm/action within30mm) retains2/2 task gates, but actual-acceleration counts12/6, peaks23.57/18.91rad/s\u00b2. Gate FAIL; no further speed search or expanded reliability run."
+  ],
+  "scope_corrections": [
+    "Early diagnostic raw result files inherit20-world descriptions from the measurement helper. The frozen per-run protocol, actual traces and this audited ledger give the authoritative2-case denominator. Raw files are preserved.",
+    "N18 baseline contact callback had no tare/task epoch. Its step1 self-contact impulses cannot be assigned to the task. The soft-landing run adds explicit epochs:0 unexpected nonfinger task contacts; pre-task tare contacts remain separate.",
+    "Contact force is CPU PhysX summed contact impulse norm divided by1/120s, not a calibrated real robot sensor.",
+    "N18 scale uses existing empty-tared CPU mechanical displacement calibration and220g rigid load surrogate, not simulated liquid or an original author scale.",
+    "Original local vessel/Panda hand geometry, parked OT2 service panels and gravity compensation remain declared configuration differences."
+  ],
+  "next_frontier": [
+    "Full-arm collision-aware N17 plan plus actual common C3 replay; joint-plan collision checking alone is insufficient for redundant Cartesian control.",
+    "N18 state-derived, contact-aware final placement before reentrant/takeover validation; keep actual acceleration threshold unchanged.",
+    "No new student training until expert/control/contact gates pass."
+  ],
+  "N17_contacts": {
+    "instrumented": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 169.83151205763585,
+        "ot2_contact_steps": 115,
+        "max_native_velocity_acceleration_rad_s2": 333.3373099565506
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 169.30275857423834,
+        "ot2_contact_steps": 114,
+        "max_native_velocity_acceleration_rad_s2": 355.56830048561096
+      }
+    ],
+    "route_only": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 52.61526935901804,
+        "ot2_contact_steps": 78,
+        "max_native_velocity_acceleration_rad_s2": 29.313833713531494
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 55.25866992631129,
+        "ot2_contact_steps": 78,
+        "max_native_velocity_acceleration_rad_s2": 24.45956379175186
+      }
+    ],
+    "exit_route": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": false,
+        "max_ot2_contact_force_N": 0,
+        "ot2_contact_steps": 0,
+        "max_native_velocity_acceleration_rad_s2": 29.313833713531494
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": false,
+        "max_ot2_contact_force_N": 0,
+        "ot2_contact_steps": 0,
+        "max_native_velocity_acceleration_rad_s2": 32.95411974191666
+      }
+    ],
+    "reverse_exit": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 70.89882373809867,
+        "ot2_contact_steps": 68,
+        "max_native_velocity_acceleration_rad_s2": 29.313833713531494
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 71.77216529846244,
+        "ot2_contact_steps": 67,
+        "max_native_velocity_acceleration_rad_s2": 26.0528826713562
+      }
+    ],
+    "c3_bridge": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 23.63845727053009,
+        "ot2_contact_steps": 74,
+        "max_native_velocity_acceleration_rad_s2": 11.929764971137047
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 22.79257391600153,
+        "ot2_contact_steps": 74,
+        "max_native_velocity_acceleration_rad_s2": 10.908390283584595
+      }
+    ]
+  },
+  "native_video": "assets/reproduction-motion-20261030/n17-c3.mp4"
+}
