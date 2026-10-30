@@ -1,0 +1,51 @@
+{
+  "schema_version": "chemrmbench-process-progress-1",
+  "evaluation_suite": "process-eval-v1",
+  "seed_range": [
+    1000,
+    1049
+  ],
+  "clock_mode": "paused",
+  "verifier_protocol": "measured-v1",
+  "runtime": "single local runtime; one worker on each of two RTX5090 cards",
+  "source_commit": "397fd595de5affe315e747c658c578fd28fcf28a",
+  "qualification": {
+    "titration_endpoint": "3/3",
+    "development_read": "3/3",
+    "recordings_accepted": 6
+  },
+  "fidelity": "engineering_proxy",
+  "chemistry_calibrated": false,
+  "native_complete_experiments": 0,
+  "tasks": {
+    "titration_endpoint": {
+      "state": "running",
+      "attempts": 0,
+      "planned": 50,
+      "successes": 0,
+      "failures": 0,
+      "errors": 0,
+      "full_cohort_accepted": false,
+      "full_cohort_success_rate": null,
+      "maximum_raw_force_n": null,
+      "updated_at_utc": "2026-10-30T18:34:13.379186+00:00"
+    },
+    "development_read": {
+      "state": "running",
+      "attempts": 0,
+      "planned": 50,
+      "successes": 0,
+      "failures": 0,
+      "errors": 0,
+      "full_cohort_accepted": false,
+      "full_cohort_success_rate": null,
+      "maximum_raw_force_n": null,
+      "updated_at_utc": "2026-10-30T18:34:13.377672+00:00"
+    }
+  },
+  "completed_or_stopped": false,
+  "stop_rule": "group stops on first instrumentation error or physical safety violation; failures retained",
+  "training_gpu_hours_conservative": 22.612066682142114,
+  "new_training_jobs": 0,
+  "LLM_VLM_calls": 0
+}

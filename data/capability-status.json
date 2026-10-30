@@ -105,63 +105,12 @@
     "general_cold_restore_claimed": false
   },
   "chemlab": {
-    "passive_assets_admitted": 10,
+    "passive_assets_admitted": 11,
     "robot_generalization_qualified": 0,
     "asset_license": "CC-BY-NC-4.0",
-    "mass_calibrated": false,
-    "opening_candidates": [
-      {
-        "asset_id": "instrument.mt_xpr204e",
-        "state": "needs_explicit_contact_annotation"
-      },
-      {
-        "asset_id": "instrument.aqualab_4te",
-        "state": "needs_explicit_contact_annotation"
-      },
-      {
-        "asset_id": "instrument.binder_fd056",
-        "state": "ready_for_path_planning"
-      },
-      {
-        "asset_id": "instrument.hach_tl2300epa",
-        "state": "needs_explicit_contact_annotation"
-      },
-      {
-        "asset_id": "instrument.biotage_selekt",
-        "state": "ready_for_path_planning"
-      },
-      {
-        "asset_id": "instrument.genevac_mivac2",
-        "state": "needs_explicit_contact_annotation"
-      },
-      {
-        "asset_id": "instrument.thinky_are310s",
-        "state": "ready_for_path_planning"
-      },
-      {
-        "asset_id": "instrument.ossila_spincoater",
-        "state": "ready_for_path_planning"
-      },
-      {
-        "asset_id": "instrument.jasco_p4200",
-        "state": "needs_explicit_contact_annotation"
-      },
-      {
-        "asset_id": "instrument.microtrac_turbiscanlab",
-        "state": "needs_explicit_contact_annotation"
-      }
-    ],
-    "in_twin_scene_inspections": [
-      {
-        "asset_id": "instrument.ossila_spincoater",
-        "passed": true,
-        "opening_qualified": false,
-        "two_camera_frames_each": 41,
-        "raw_robot_peak_n": 0.0
-      }
-    ]
+    "mass_calibrated": false
   },
-  "updated_at_utc": "2026-10-23T09:15:10.612121+00:00",
+  "updated_at_utc": "2026-10-30T18:43:33.719304+00:00",
   "workflow_design": {
     "schema": "chemrmbench-workflow-design-0.2",
     "state": "design_candidate",
@@ -191,6 +140,7 @@
     "source_grounded_experiment_themes": 13,
     "calibrated_complete_experiments": 0,
     "robot_qualified_experiment_units": 2,
+    "native_public_qualification_passed_units": 2,
     "legacy_profile_mapping_is_new_qualification": false
   },
   "qualified_experiment_units": [
@@ -200,6 +150,12 @@
       "scope": "subprotocol",
       "fidelity": "engineering_proxy",
       "chemistry_calibrated": false,
+      "qualification": {
+        "cpu_contract": "passed",
+        "public_observation": "passed_native_qualification",
+        "robot": "passed",
+        "protocol": "not_applicable_subprotocol"
+      },
       "robot_evidence": {
         "qualification": {
           "seeds": [
@@ -230,6 +186,19 @@
           "paired": true,
           "collection": "titration_ablation10_r1"
         },
+        "public_observation_qualification": {
+          "seeds": [
+            6000,
+            6002
+          ],
+          "successes": 3,
+          "attempts": 3,
+          "maximum_raw_force_n": 12.59868814149788,
+          "policy": "public_rgb_titration_confirmation",
+          "policy_version": "public-rgb-dwell-certified-keys-1",
+          "recording_integrity_passed": true,
+          "heldout_evaluation_complete": false
+        },
         "verifier": "measured-v1 titration_verifier (contact-derived doses, referee, receiver contrast, safety)",
         "host": "ubuntu-TRX50-AI-TOP (Isaac Sim 5.0)"
       }
@@ -240,6 +209,12 @@
       "scope": "subprotocol",
       "fidelity": "engineering_proxy",
       "chemistry_calibrated": false,
+      "qualification": {
+        "cpu_contract": "passed",
+        "public_observation": "passed_native_qualification",
+        "robot": "passed",
+        "protocol": "not_applicable_subprotocol"
+      },
       "robot_evidence": {
         "qualification": {
           "seeds": [
@@ -270,6 +245,19 @@
           "paired": true,
           "collection": "development_ablation10_r1"
         },
+        "public_observation_qualification": {
+          "seeds": [
+            6000,
+            6002
+          ],
+          "successes": 3,
+          "attempts": 3,
+          "maximum_raw_force_n": 4.573524019635179,
+          "policy": "public_rgb_development_scheduler",
+          "policy_version": "public-lamps-own-key-history-hub-primitives-1",
+          "recording_integrity_passed": true,
+          "heldout_evaluation_complete": false
+        },
         "ablation_scope": "Declared read-on-load controller only; not a bound on all fixed-wait policies.",
         "read_window_s": [
           84.0,
@@ -281,6 +269,17 @@
         "recording_acceptance": "All 20 expert and 10 ablation trajectories replayed with complete video decode; NAS copy size-checked.",
         "host": "ubuntu-TRX50-AI-TOP"
       }
+    }
+  ],
+  "complete_protocol_contracts": [
+    {
+      "protocol_id": "development_prepare_to_record",
+      "scope": "complete_protocol",
+      "status": "cpu_contract_only",
+      "module": "chemrm.bench.process.full_development",
+      "native_qualified": false,
+      "chemistry_calibrated": false,
+      "documentation": "chemrm/bench/docs/complete_development_contract.md"
     }
   ]
 }

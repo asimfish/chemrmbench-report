@@ -496,7 +496,7 @@
       "note": "Coarse/fine delivery, transient versus persistent tint with identical instantaneous colour, 30 s persistence before declaration, overshoot and analytical error from delivered volume.",
       "qualification": {
         "cpu_contract": "passed",
-        "public_observation": "cpu_controller_only",
+        "public_observation": "passed_native_qualification",
         "robot": "passed",
         "protocol": "not_applicable_subprotocol"
       },
@@ -530,6 +530,19 @@
           "p_max": 0.05,
           "paired": true,
           "collection": "titration_ablation10_r1"
+        },
+        "public_observation_qualification": {
+          "seeds": [
+            6000,
+            6002
+          ],
+          "successes": 3,
+          "attempts": 3,
+          "maximum_raw_force_n": 12.59868814149788,
+          "policy": "public_rgb_titration_confirmation",
+          "policy_version": "public-rgb-dwell-certified-keys-1",
+          "recording_integrity_passed": true,
+          "heldout_evaluation_complete": false
         },
         "verifier": "measured-v1 titration_verifier (contact-derived doses, referee, receiver contrast, safety)",
         "host": "ubuntu-TRX50-AI-TOP (Isaac Sim 5.0)"
@@ -565,7 +578,7 @@
       "note": "Per-sample method-timer and physical-age anchors, blank zero before reads, one shared photometer, random public arrival order; late reads stay invalid even when numerically close.",
       "qualification": {
         "cpu_contract": "passed",
-        "public_observation": "cpu_controller_only",
+        "public_observation": "passed_native_qualification",
         "robot": "passed",
         "protocol": "not_applicable_subprotocol"
       },
@@ -599,6 +612,19 @@
           "p_max": 0.0,
           "paired": true,
           "collection": "development_ablation10_r1"
+        },
+        "public_observation_qualification": {
+          "seeds": [
+            6000,
+            6002
+          ],
+          "successes": 3,
+          "attempts": 3,
+          "maximum_raw_force_n": 4.573524019635179,
+          "policy": "public_rgb_development_scheduler",
+          "policy_version": "public-lamps-own-key-history-hub-primitives-1",
+          "recording_integrity_passed": true,
+          "heldout_evaluation_complete": false
         },
         "ablation_scope": "Declared read-on-load controller only; not a bound on all fixed-wait policies.",
         "read_window_s": [
