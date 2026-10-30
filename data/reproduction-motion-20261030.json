@@ -1,9 +1,12 @@
 {
   "status": "CLOSED_DIAGNOSTICS_CONTACT_QUALIFICATION_OPEN",
-  "updated_utc": "2026-10-30T18:49:27.045376+00:00",
-  "scope": "Native CPU PhysX diagnostics and common Action8/G8/C3 controller bridge for N17/N18. Not a reentrant expert, learned-policy evaluation, original-code identity or safe-deployment acceptance.",
-  "native_episodes": 14,
-  "independent_source_instances_per_task": 1,
+  "updated_utc": "2026-10-30T19:27:47.076384+00:00",
+  "scope": "42 native episodes:22 paired diagnostic episodes and20 independently seeded N17 qualification episodes, plus2 retained failed prephysics case-intents. Existing HSM expert bridge through common8D G8/C3; not reentrant/takeover, learned-policy, full original identity or deployment-safety acceptance.",
+  "native_episodes": 42,
+  "independent_source_instances_per_task": {
+    "N17": 21,
+    "N18": 1
+  },
   "paired_world_origins_m": [
     0,
     14
@@ -131,6 +134,122 @@
       ]
     },
     {
+      "mode": "contact_release_devicefix",
+      "task": "N18",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N18_c3_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 6.761067519416541,
+          "max_mass_error_percent": 0.001277517934368659,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.41665077209472656
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.19455347955226898
+            },
+            "actual_acceleration": {
+              "count": 6,
+              "maximum": 22.611644744873047
+            }
+          }
+        },
+        {
+          "case": "N18_c3_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 6.152436042595572,
+          "max_mass_error_percent": 0.004039293709335766,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.41665077209472656
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.194529190659523
+            },
+            "actual_acceleration": {
+              "count": 8,
+              "maximum": 20.914199829101562
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mode": "epoch_audit",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 1.1228222173343834,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4886484146118164
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025201201438904
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.522387504577637
+            }
+          }
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 1.0972379602110713,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4886770248413086
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40253135561943054
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.413519859313965
+            }
+          }
+        }
+      ]
+    },
+    {
       "mode": "exit_route",
       "task": "N17",
       "planned": 2,
@@ -175,6 +294,622 @@
           "placement_mm": 4.6674059188476935,
           "max_mass_error_percent": null,
           "motion": null
+        }
+      ]
+    },
+    {
+      "mode": "planned_both",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 1.1228222173343834,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4886484146118164
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025201201438904
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.522387504577637
+            }
+          }
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 1.0972379602110713,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4886770248413086
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40253135561943054
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.413519859313965
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mode": "planned_exit",
+      "task": "N17",
+      "planned": 2,
+      "successes": 2,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_hotspot_origin0_seed2026102810",
+          "task_success": true,
+          "placement_mm": 0.9213580473240756,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4887056350708008
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40253618359565735
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 11.929763793945312
+            }
+          }
+        },
+        {
+          "case": "N17_hotspot_origin14_seed2026102810",
+          "task_success": true,
+          "placement_mm": 0.8625647607071684,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4887056350708008
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40252774953842163
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 9.452370643615723
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mode": "qualification_0",
+      "task": "N17",
+      "planned": 10,
+      "successes": 10,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_qualification_seed2026103000",
+          "task_success": true,
+          "placement_mm": 0.7805431403881944,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48851966857910156
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40253692865371704
+            },
+            "actual_acceleration": {
+              "count": 7,
+              "maximum": 20.939186096191406
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103001",
+          "task_success": true,
+          "placement_mm": 0.6108458070411937,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48853397369384766
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025426506996155
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.906595230102539
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103002",
+          "task_success": true,
+          "placement_mm": 0.4985019942069463,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48853397369384766
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025534987449646
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.90556526184082
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103003",
+          "task_success": true,
+          "placement_mm": 1.2378385290591005,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48857688903808594
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025641083717346
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 13.544466018676758
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103004",
+          "task_success": true,
+          "placement_mm": 0.9686819027296703,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4886054992675781
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40251410007476807
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 9.90832233428955
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103005",
+          "task_success": true,
+          "placement_mm": 1.0203686377060812,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4884767532348633
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025755524635315
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 10.986506462097168
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103006",
+          "task_success": true,
+          "placement_mm": 1.7046110317003056,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4884767532348633
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025472402572632
+            },
+            "actual_acceleration": {
+              "count": 2,
+              "maximum": 16.345539093017578
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103007",
+          "task_success": true,
+          "placement_mm": 0.9423851976770786,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4884195327758789
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4026121497154236
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 11.447139739990234
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103008",
+          "task_success": true,
+          "placement_mm": 1.0251666830432886,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48850536346435547
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40257397294044495
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 12.030098915100098
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103009",
+          "task_success": true,
+          "placement_mm": 5.475197555429904,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4888772964477539
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40246111154556274
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 14.921865463256836
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mode": "qualification_1",
+      "task": "N17",
+      "planned": 10,
+      "successes": 10,
+      "returncode": 0,
+      "native_clock_passed": true,
+      "cases": [
+        {
+          "case": "N17_qualification_seed2026103010",
+          "task_success": true,
+          "placement_mm": 0.807248575915564,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48850536346435547
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025575816631317
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 14.743069648742676
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103011",
+          "task_success": true,
+          "placement_mm": 1.3096404716202257,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48853397369384766
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40255048871040344
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 14.894293785095215
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103012",
+          "task_success": true,
+          "placement_mm": 0.8897972972433269,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48854827880859375
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40257132053375244
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 9.615161895751953
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103013",
+          "task_success": true,
+          "placement_mm": 1.1784636343463344,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48854827880859375
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025175869464874
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 14.79088020324707
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103014",
+          "task_success": true,
+          "placement_mm": 1.4488883827120382,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4886484146118164
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025089740753174
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 10.783682823181152
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103015",
+          "task_success": true,
+          "placement_mm": 1.148771617563265,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4884481430053711
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025809168815613
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 13.933029174804688
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103016",
+          "task_success": true,
+          "placement_mm": 1.271109237199691,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4884767532348633
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40257206559181213
+            },
+            "actual_acceleration": {
+              "count": 2,
+              "maximum": 17.462787628173828
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103017",
+          "task_success": true,
+          "placement_mm": 0.8880717294173122,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48850536346435547
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.40255147218704224
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 14.568382263183594
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103018",
+          "task_success": true,
+          "placement_mm": 0.8703126155570432,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.48851966857910156
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025670289993286
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 14.452534675598145
+            }
+          }
+        },
+        {
+          "case": "N17_qualification_seed2026103019",
+          "task_success": true,
+          "placement_mm": 0.4245264117054139,
+          "max_mass_error_percent": null,
+          "motion": {
+            "command_velocity": {
+              "count": 0,
+              "maximum": 0.4884910583496094
+            },
+            "command_acceleration": {
+              "count": 0,
+              "maximum": 2.506256103515625
+            },
+            "actual_velocity": {
+              "count": 0,
+              "maximum": 0.4025801122188568
+            },
+            "actual_acceleration": {
+              "count": 0,
+              "maximum": 9.1542387008667
+            }
+          }
         }
       ]
     },
@@ -305,20 +1040,1230 @@
     "Manual route variants expose tradeoff: entry-only2/2 but exit collision, outward withdrawal0/2 drags vessel, reverse ingress2/2 but link6/body collision. Stop manual route search.",
     "N17 common C3:2/2 task gates, all four movement counters0/0, placement0.921/0.863mm; link6/body average step-force peaks23.64/22.79N remain. Collision gate FAIL; no expanded reliability/learning run.",
     "N18 common C3:2/2 task gates and scale error<0.01%, but actual-acceleration counts4/8 with peaks27.56/26.24rad/s\u00b2 during first support contact.",
-    "N18 one near-scale cap intervention (2mm/action within30mm) retains2/2 task gates, but actual-acceleration counts12/6, peaks23.57/18.91rad/s\u00b2. Gate FAIL; no further speed search or expanded reliability run."
+    "N18 one near-scale cap intervention (2mm/action within30mm) retains2/2 task gates, but actual-acceleration counts12/6, peaks23.57/18.91rad/s\u00b2. Gate FAIL; no further speed search or expanded reliability run.",
+    "Planned-exit native followup:2/2 task and all motion counters0; exit contacts removed, ingress contacts7.76/7.09N remain.",
+    "Both-plan native followup: 2/2 task successes; task+motion+contact qualifying cases=[True, True]. No independent-source reliability or reentrant acceptance inferred.",
+    "N17 new20-source bank:20/20 task,17/20 motion,18/20 OT2contact,15/20 allthree.3 actual-acceleration failures and2 contact failures retained; paired2/2 did not generalize to full qualification.",
+    "N18 contact-release manipulation not realized: commanded3mm versus actual opening gaps0.137/0.470mm, first support still grasp-coupled. Conditional physical task2/2 but movement0/2;2prephysicsfailed case-intents remain,2/4 allstarted task outcomes.",
+    "Epoch-labeled paired audit places8 large self-contact events in sim.reset,0unintended task contacts. This new temporal measurement does not retroassign legacy individual events."
   ],
   "scope_corrections": [
     "Early diagnostic raw result files inherit20-world descriptions from the measurement helper. The frozen per-run protocol, actual traces and this audited ledger give the authoritative2-case denominator. Raw files are preserved.",
     "N18 baseline contact callback had no tare/task epoch. Its step1 self-contact impulses cannot be assigned to the task. The soft-landing run adds explicit epochs:0 unexpected nonfinger task contacts; pre-task tare contacts remain separate.",
     "Contact force is CPU PhysX summed contact impulse norm divided by1/120s, not a calibrated real robot sensor.",
     "N18 scale uses existing empty-tared CPU mechanical displacement calibration and220g rigid load surrogate, not simulated liquid or an original author scale.",
-    "Original local vessel/Panda hand geometry, parked OT2 service panels and gravity compensation remain declared configuration differences."
+    "Original local vessel/Panda hand geometry, parked OT2 service panels and gravity compensation remain declared configuration differences.",
+    "Qualification protocols contain10 independently seeded worlds per batch (20 total); inherited all20 field names in raw initialization metadata are legacy names, not extra cases.",
+    "All N17 collision qualification numbers specifically refer to all robot-link/OT2 contacts with local0.1N impulse/dt gate. They are not a blanket self/world-collision or safety certification.",
+    "N18 corrected graphics bootstrap selectsCUDA1/PCI64, while before/after reset and tensors verifyCPUPhysX. The original wrong-device launch remains a2case failure before native initialization."
   ],
   "next_frontier": [
-    "Full-arm collision-aware N17 plan plus actual common C3 replay; joint-plan collision checking alone is insufficient for redundant Cartesian control.",
-    "N18 state-derived, contact-aware final placement before reentrant/takeover validation; keep actual acceleration threshold unchanged.",
-    "No new student training until expert/control/contact gates pass."
+    "N17: extend state-dependent collision planning to source approach/extraction/lift, not only fixed cabinet ingress/exit; repair3 loaded placement/release acceleration failures. Preserve this20-case bank as diagnostic after any tuning and use a new heldout bank.",
+    "N18: measure loaded TCP target-vs-actual error and delay; first achieve and verify physical clearance before testing contact uncoupling. Do not keep increasing nominal clearance or waive acceleration gates.",
+    "Reentrant N17/N18 experts and takeover validation remain required before new learning, recovery or RSI claims. Shared C3 and frozen v1 remain unchanged."
   ],
+  "planned_followups": [
+    {
+      "mode": "planned_exit",
+      "task_successes": 2,
+      "denominator": 2,
+      "native_motion_counts": [
+        {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        }
+      ],
+      "peak_contact_force_N": [
+        7.756335139274654,
+        7.09148481488233
+      ],
+      "contact_groups_by_case": [
+        [
+          {
+            "actors": [
+              "/World/Trial0/Panda/panda_link6",
+              "/World/Trial0/OT2/OT2/body"
+            ],
+            "phase": "translate",
+            "events_above_0p1N": 18,
+            "peak_force_N": 7.756335139274654,
+            "first_step": 2471,
+            "last_step": 2489
+          }
+        ],
+        [
+          {
+            "actors": [
+              "/World/Trial1/Panda/panda_link6",
+              "/World/Trial1/OT2/OT2/body"
+            ],
+            "phase": "translate",
+            "events_above_0p1N": 18,
+            "peak_force_N": 7.09148481488233,
+            "first_step": 2471,
+            "last_step": 2489
+          }
+        ]
+      ],
+      "full_task_motion_contact_qualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "planned_both",
+      "task_successes": 2,
+      "denominator": 2,
+      "native_motion_counts": [
+        {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        },
+        {
+          "command_velocity": 0,
+          "command_acceleration": 0,
+          "actual_velocity": 0,
+          "actual_acceleration": 0
+        }
+      ],
+      "peak_contact_force_N": [
+        0,
+        0
+      ],
+      "contact_groups_by_case": [
+        [],
+        []
+      ],
+      "full_task_motion_contact_qualified": [
+        true,
+        true
+      ]
+    }
+  ],
+  "planner_readiness": {
+    "source": "cuRobo0.7.8 d64c4b0",
+    "static_geometry": "27515 transformed vertices,25959 triangles,all measured contact colliders included",
+    "compatibility": "Warp1.16 public device_from_torch exposed under process-local old namespace; Torch/Warp GPU tensor roundtrip passed. Shared environments unmodified.",
+    "setup_failures_retained": 2,
+    "successful_planner_probes": 2,
+    "unloaded_exit_samples": 197,
+    "held_cup_ingress_samples": 132,
+    "held_cup_spheres": 4,
+    "joint_plan_directly_executed": false,
+    "native_followup_uses": "Native robot FK of planned joint samples,20Hz delta-pose G8/C3, no joint state writes."
+  },
+  "prephysics_failures": [
+    {
+      "mode": "contact_release",
+      "task": "N18",
+      "started_case_intents": 2,
+      "successes": 0,
+      "native_episodes": 0,
+      "reason": "AppLauncherCPUdevice requiredrenderer0; requestedrenderer1 rejected before app/native init. Correctedgraphicscuda1 withCPUphysics contract in separate attempt."
+    }
+  ],
+  "prephysics_failed_case_intents": 2,
+  "total_started_case_intents": 44,
+  "qualification": {
+    "scope": "Frozen paths on20 new physical source instances, seeds2026103000..3019; not pooled with paired diagnostics, not reentrant/takeover or learning acceptance.",
+    "denominator": 20,
+    "task_successes": 20,
+    "task_motion_OT2_qualified": 15,
+    "wilson95": [
+      0.5312991223812622,
+      0.8881382985923318
+    ],
+    "cases": [
+      {
+        "case": "N17_qualification_seed2026103000",
+        "task_success": true,
+        "placement_mm": 0.7805431403881944,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48851966857910156
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40253692865371704
+          },
+          "actual_acceleration": {
+            "count": 7,
+            "maximum": 20.939186096191406
+          }
+        },
+        "seed": 2026103000,
+        "source": {
+          "case": "N17_qualification_seed2026103000",
+          "seed": 2026103000,
+          "source_xy_m": [
+            0.3524707341435677,
+            -0.41088135949936183
+          ],
+          "source_yaw_deg": 24.505868265187125,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -6.3
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": false,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103001",
+        "task_success": true,
+        "placement_mm": 0.6108458070411937,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48853397369384766
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025426506996155
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 12.906595230102539
+          }
+        },
+        "seed": 2026103001,
+        "source": {
+          "case": "N17_qualification_seed2026103001",
+          "seed": 2026103001,
+          "source_xy_m": [
+            0.3524482842444477,
+            -0.3810749651296214
+          ],
+          "source_yaw_deg": 26.43453584407918,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -4.8999999999999995
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103002",
+        "task_success": true,
+        "placement_mm": 0.4985019942069463,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48853397369384766
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025534987449646
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 12.90556526184082
+          }
+        },
+        "seed": 2026103002,
+        "source": {
+          "case": "N17_qualification_seed2026103002",
+          "seed": 2026103002,
+          "source_xy_m": [
+            0.35283819396606914,
+            -0.3804805228070088
+          ],
+          "source_yaw_deg": -4.587987011404124,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -3.5
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103003",
+        "task_success": true,
+        "placement_mm": 1.2378385290591005,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48857688903808594
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025641083717346
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 13.544466018676758
+          }
+        },
+        "seed": 2026103003,
+        "source": {
+          "case": "N17_qualification_seed2026103003",
+          "seed": 2026103003,
+          "source_xy_m": [
+            0.35760722865202726,
+            -0.40243332279002686
+          ],
+          "source_yaw_deg": -24.73002736445333,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -2.0999999999999996
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103004",
+        "task_success": true,
+        "placement_mm": 0.9686819027296703,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4886054992675781
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40251410007476807
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 9.90832233428955
+          }
+        },
+        "seed": 2026103004,
+        "source": {
+          "case": "N17_qualification_seed2026103004",
+          "seed": 2026103004,
+          "source_xy_m": [
+            0.3659966379578311,
+            -0.39268661382533643
+          ],
+          "source_yaw_deg": -23.44604229932841,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -0.7
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103005",
+        "task_success": true,
+        "placement_mm": 1.0203686377060812,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4884767532348633
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025755524635315
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 10.986506462097168
+          }
+        },
+        "seed": 2026103005,
+        "source": {
+          "case": "N17_qualification_seed2026103005",
+          "seed": 2026103005,
+          "source_xy_m": [
+            0.3406455304553297,
+            -0.41816413604262936
+          ],
+          "source_yaw_deg": 19.483516652885122,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 0.7
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103006",
+        "task_success": true,
+        "placement_mm": 1.7046110317003056,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4884767532348633
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025472402572632
+          },
+          "actual_acceleration": {
+            "count": 2,
+            "maximum": 16.345539093017578
+          }
+        },
+        "seed": 2026103006,
+        "source": {
+          "case": "N17_qualification_seed2026103006",
+          "seed": 2026103006,
+          "source_xy_m": [
+            0.3459518318628359,
+            -0.41150740233635635
+          ],
+          "source_yaw_deg": -20.79117335062092,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 2.0999999999999996
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": false,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103007",
+        "task_success": true,
+        "placement_mm": 0.9423851976770786,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4884195327758789
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4026121497154236
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 11.447139739990234
+          }
+        },
+        "seed": 2026103007,
+        "source": {
+          "case": "N17_qualification_seed2026103007",
+          "seed": 2026103007,
+          "source_xy_m": [
+            0.3314469286247408,
+            -0.39498104017441577
+          ],
+          "source_yaw_deg": -17.321827868386855,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 3.5
+        },
+        "peak_robot_OT2_contact_N": 0.9865794759762002,
+        "robot_OT2_contact_events": 24,
+        "task_motion_OT2_qualified": false,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103008",
+        "task_success": true,
+        "placement_mm": 1.0251666830432886,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48850536346435547
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40257397294044495
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 12.030098915100098
+          }
+        },
+        "seed": 2026103008,
+        "source": {
+          "case": "N17_qualification_seed2026103008",
+          "seed": 2026103008,
+          "source_xy_m": [
+            0.34418534081936597,
+            -0.3811786642093093
+          ],
+          "source_yaw_deg": 22.104520605825243,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 4.8999999999999995
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103009",
+        "task_success": true,
+        "placement_mm": 5.475197555429904,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4888772964477539
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40246111154556274
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 14.921865463256836
+          }
+        },
+        "seed": 2026103009,
+        "source": {
+          "case": "N17_qualification_seed2026103009",
+          "seed": 2026103009,
+          "source_xy_m": [
+            0.3320858962779327,
+            -0.384387818525972
+          ],
+          "source_yaw_deg": 2.6608075090873555,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 6.3
+        },
+        "peak_robot_OT2_contact_N": 14.926823712846906,
+        "robot_OT2_contact_events": 888,
+        "task_motion_OT2_qualified": false,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103010",
+        "task_success": true,
+        "placement_mm": 0.807248575915564,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48850536346435547
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025575816631317
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 14.743069648742676
+          }
+        },
+        "seed": 2026103010,
+        "source": {
+          "case": "N17_qualification_seed2026103010",
+          "seed": 2026103010,
+          "source_xy_m": [
+            0.34618808525996997,
+            -0.39299981985500043
+          ],
+          "source_yaw_deg": -9.257569895040852,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -6.3
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103011",
+        "task_success": true,
+        "placement_mm": 1.3096404716202257,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48853397369384766
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40255048871040344
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 14.894293785095215
+          }
+        },
+        "seed": 2026103011,
+        "source": {
+          "case": "N17_qualification_seed2026103011",
+          "seed": 2026103011,
+          "source_xy_m": [
+            0.35411616737183893,
+            -0.41888398429140905
+          ],
+          "source_yaw_deg": 8.203770973383058,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -4.8999999999999995
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103012",
+        "task_success": true,
+        "placement_mm": 0.8897972972433269,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48854827880859375
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40257132053375244
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 9.615161895751953
+          }
+        },
+        "seed": 2026103012,
+        "source": {
+          "case": "N17_qualification_seed2026103012",
+          "seed": 2026103012,
+          "source_xy_m": [
+            0.3546465131859651,
+            -0.3904973178377888
+          ],
+          "source_yaw_deg": -14.177191904737912,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -3.5
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103013",
+        "task_success": true,
+        "placement_mm": 1.1784636343463344,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48854827880859375
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025175869464874
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 14.79088020324707
+          }
+        },
+        "seed": 2026103013,
+        "source": {
+          "case": "N17_qualification_seed2026103013",
+          "seed": 2026103013,
+          "source_xy_m": [
+            0.3585373701141987,
+            -0.4127899625142102
+          ],
+          "source_yaw_deg": -29.54812426314708,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -2.0999999999999996
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103014",
+        "task_success": true,
+        "placement_mm": 1.4488883827120382,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4886484146118164
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025089740753174
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 10.783682823181152
+          }
+        },
+        "seed": 2026103014,
+        "source": {
+          "case": "N17_qualification_seed2026103014",
+          "seed": 2026103014,
+          "source_xy_m": [
+            0.3693069082308461,
+            -0.3891260790241903
+          ],
+          "source_yaw_deg": -11.043313171362879,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": -0.7
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103015",
+        "task_success": true,
+        "placement_mm": 1.148771617563265,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4884481430053711
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025809168815613
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 13.933029174804688
+          }
+        },
+        "seed": 2026103015,
+        "source": {
+          "case": "N17_qualification_seed2026103015",
+          "seed": 2026103015,
+          "source_xy_m": [
+            0.33375660591837203,
+            -0.41002089843079514
+          ],
+          "source_yaw_deg": -20.03814103267875,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 0.7
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103016",
+        "task_success": true,
+        "placement_mm": 1.271109237199691,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4884767532348633
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40257206559181213
+          },
+          "actual_acceleration": {
+            "count": 2,
+            "maximum": 17.462787628173828
+          }
+        },
+        "seed": 2026103016,
+        "source": {
+          "case": "N17_qualification_seed2026103016",
+          "seed": 2026103016,
+          "source_xy_m": [
+            0.3434960721256563,
+            -0.4147626315956256
+          ],
+          "source_yaw_deg": 27.390744981957027,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 2.0999999999999996
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": false,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103017",
+        "task_success": true,
+        "placement_mm": 0.8880717294173122,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48850536346435547
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.40255147218704224
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 14.568382263183594
+          }
+        },
+        "seed": 2026103017,
+        "source": {
+          "case": "N17_qualification_seed2026103017",
+          "seed": 2026103017,
+          "source_xy_m": [
+            0.34716421107220896,
+            -0.390337525756533
+          ],
+          "source_yaw_deg": -5.912853371535405,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 3.5
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103018",
+        "task_success": true,
+        "placement_mm": 0.8703126155570432,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.48851966857910156
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025670289993286
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 14.452534675598145
+          }
+        },
+        "seed": 2026103018,
+        "source": {
+          "case": "N17_qualification_seed2026103018",
+          "seed": 2026103018,
+          "source_xy_m": [
+            0.34857583629246125,
+            -0.3986258847162716
+          ],
+          "source_yaw_deg": -17.34825059473932,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 4.8999999999999995
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      },
+      {
+        "case": "N17_qualification_seed2026103019",
+        "task_success": true,
+        "placement_mm": 0.4245264117054139,
+        "max_mass_error_percent": null,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.4884910583496094
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.4025801122188568
+          },
+          "actual_acceleration": {
+            "count": 0,
+            "maximum": 9.1542387008667
+          }
+        },
+        "seed": 2026103019,
+        "source": {
+          "case": "N17_qualification_seed2026103019",
+          "seed": 2026103019,
+          "source_xy_m": [
+            0.34053957511542615,
+            -0.38823279143282147
+          ],
+          "source_yaw_deg": 18.30503686139472,
+          "roll_pitch_deg": [
+            0,
+            0
+          ],
+          "world_shift_m": 6.3
+        },
+        "peak_robot_OT2_contact_N": 0,
+        "robot_OT2_contact_events": 0,
+        "task_motion_OT2_qualified": true,
+        "legacy_step1_self_contact_events_unassigned_to_task": 4
+      }
+    ],
+    "qualification_scope": "Unchanged task gates and4motion gates plus all robot-link/OT2contact impulse/dt<=local0.1N; this is not blanket collision/safety certification.",
+    "self_contact_scope": "Legacy step1 reports do not distinguish reset initialization from task. They are not removed or assigned to task; a separate logging-only epoch verification is required and reported.",
+    "original_thresholds_unchanged": true,
+    "failure_phase_summary": [
+      {
+        "case": "N17_qualification_seed2026103000",
+        "actual_acceleration_peak_phase": "release",
+        "OT2_contact_phases": {},
+        "peak_OT2_contact_N": 0,
+        "actual_acceleration_joint_step_count": 7,
+        "actual_acceleration_peak_rad_s2": 20.939186096191406
+      },
+      {
+        "case": "N17_qualification_seed2026103006",
+        "actual_acceleration_peak_phase": "release",
+        "OT2_contact_phases": {},
+        "peak_OT2_contact_N": 0,
+        "actual_acceleration_joint_step_count": 2,
+        "actual_acceleration_peak_rad_s2": 16.345539093017578
+      },
+      {
+        "case": "N17_qualification_seed2026103007",
+        "actual_acceleration_peak_phase": null,
+        "OT2_contact_phases": {
+          "close": 24
+        },
+        "peak_OT2_contact_N": 0.9865794759762002,
+        "actual_acceleration_joint_step_count": 0,
+        "actual_acceleration_peak_rad_s2": 11.447139739990234
+      },
+      {
+        "case": "N17_qualification_seed2026103009",
+        "actual_acceleration_peak_phase": null,
+        "OT2_contact_phases": {
+          "home": 20,
+          "approach": 193,
+          "insert": 153,
+          "close": 241,
+          "lift": 261,
+          "front_clear": 20
+        },
+        "peak_OT2_contact_N": 14.926823712846906,
+        "actual_acceleration_joint_step_count": 0,
+        "actual_acceleration_peak_rad_s2": 14.921865463256836
+      },
+      {
+        "case": "N17_qualification_seed2026103016",
+        "actual_acceleration_peak_phase": "release",
+        "OT2_contact_phases": {},
+        "peak_OT2_contact_N": 0,
+        "actual_acceleration_joint_step_count": 2,
+        "actual_acceleration_peak_rad_s2": 17.462787628173828
+      }
+    ],
+    "motion_qualified": 17,
+    "OT2_contact_qualified": 18,
+    "maximum_placement_mm": 5.475197555429904
+  },
+  "contact_release": {
+    "scope": "One failed prephysics2case process + one corrected2case physical pilot, all retained; not an independent-source bank.",
+    "started_case_intents": 4,
+    "prephysics_failed_case_intents": 2,
+    "conditional_physical_denominator": 2,
+    "conditional_physical_task_successes": 2,
+    "task_successes_over_all_started_case_intents": "2/4",
+    "motion_qualified": 0,
+    "cases": [
+      {
+        "case": "N18_c3_origin0_seed2026102810",
+        "task_success": true,
+        "placement_mm": 6.761067519416541,
+        "max_mass_error_percent": 0.001277517934368659,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.41665077209472656
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.19455347955226898
+          },
+          "actual_acceleration": {
+            "count": 6,
+            "maximum": 22.611644744873047
+          }
+        },
+        "commanded_clearance_mm": 3.0,
+        "actual_first_opening_gap_mm": 0.13688474893569502,
+        "first_support_native_step": 2408,
+        "first_support_bilateral_grasp": true,
+        "first_grasp_free_gap_mm": -0.00010907649994340574,
+        "manipulation_check": "FAIL_actual_clearance_not_realized_support_still_coupled"
+      },
+      {
+        "case": "N18_c3_origin14_seed2026102810",
+        "task_success": true,
+        "placement_mm": 6.152436042595572,
+        "max_mass_error_percent": 0.004039293709335766,
+        "motion": {
+          "command_velocity": {
+            "count": 0,
+            "maximum": 0.41665077209472656
+          },
+          "command_acceleration": {
+            "count": 0,
+            "maximum": 2.506256103515625
+          },
+          "actual_velocity": {
+            "count": 0,
+            "maximum": 0.194529190659523
+          },
+          "actual_acceleration": {
+            "count": 8,
+            "maximum": 20.914199829101562
+          }
+        },
+        "commanded_clearance_mm": 3.0,
+        "actual_first_opening_gap_mm": 0.46990334987639937,
+        "first_support_native_step": 2408,
+        "first_support_bilateral_grasp": true,
+        "first_grasp_free_gap_mm": -7.927417755571042e-05,
+        "manipulation_check": "FAIL_actual_clearance_not_realized_support_still_coupled"
+      }
+    ],
+    "conclusion": "Do not interpret as falsifying uncoupled placement: actual opening gaps0.137/0.470mm missed commanded3mm and first support remained bilateral-grasp coupled. Both actual-acceleration gates fail. Stop parameter search; diagnose loaded tracking and effect timing before next mechanism.",
+    "CPU_physics_verified": true
+  },
+  "contact_epoch_validation": {
+    "scope": "Logging-only exact-source paired native audit; cannot retroassign legacy ambiguousstep1 per-event timestamps.",
+    "unexpected_contacts_by_epoch": {
+      "sim_reset": 8
+    },
+    "task_unintended_contacts": 0,
+    "peak_by_epoch": {
+      "sim_reset": 74204.66619763337,
+      "task": 0
+    },
+    "events": {
+      "sim_reset": [
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial0/Panda/panda_hand",
+            "/World/Trial0/Panda/panda_link5"
+          ],
+          "force_N": 10044.106794539748
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial0/Panda/panda_link7",
+            "/World/Trial0/Panda/panda_link5"
+          ],
+          "force_N": 74204.66619763337
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial1/Panda/panda_hand",
+            "/World/Trial1/Panda/panda_link5"
+          ],
+          "force_N": 10044.088757167036
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial1/Panda/panda_link7",
+            "/World/Trial1/Panda/panda_link5"
+          ],
+          "force_N": 74202.05699239972
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial0/Panda/panda_hand",
+            "/World/Trial0/Panda/panda_link5"
+          ],
+          "force_N": 10813.401701589559
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial0/Panda/panda_link7",
+            "/World/Trial0/Panda/panda_link5"
+          ],
+          "force_N": 61270.12911483592
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial1/Panda/panda_hand",
+            "/World/Trial1/Panda/panda_link5"
+          ],
+          "force_N": 10813.447373314477
+        },
+        {
+          "step": 1,
+          "epoch_step": 0,
+          "actors": [
+            "/World/Trial1/Panda/panda_link7",
+            "/World/Trial1/Panda/panda_link5"
+          ],
+          "force_N": 61277.29085451922
+        }
+      ],
+      "task": []
+    }
+  },
   "N17_contacts": {
     "instrumented": [
       {
@@ -399,7 +2344,40 @@
         "ot2_contact_steps": 74,
         "max_native_velocity_acceleration_rad_s2": 10.908390283584595
       }
+    ],
+    "planned_exit": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 7.756335139274654,
+        "ot2_contact_steps": 18,
+        "max_native_velocity_acceleration_rad_s2": 11.929764971137047
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 7.09148481488233,
+        "ot2_contact_steps": 18,
+        "max_native_velocity_acceleration_rad_s2": 9.452371057122946
+      }
+    ],
+    "planned_both": [
+      {
+        "case": "N17_hotspot_origin0_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 0,
+        "ot2_contact_steps": 0,
+        "max_native_velocity_acceleration_rad_s2": 12.522388100624084
+      },
+      {
+        "case": "N17_hotspot_origin14_seed2026102810",
+        "task_success": true,
+        "max_ot2_contact_force_N": 0,
+        "ot2_contact_steps": 0,
+        "max_native_velocity_acceleration_rad_s2": 12.413520365953445
+      }
     ]
   },
-  "native_video": "assets/reproduction-motion-20261030/n17-c3.mp4"
+  "native_video": "assets/reproduction-motion-20261030/n17-c3.mp4",
+  "planned_video": "assets/reproduction-motion-20261030/n17-planned.mp4"
 }
