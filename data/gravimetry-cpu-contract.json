@@ -1,0 +1,58 @@
+{
+  "schema": "chemrmbench-gravimetry-cpu-contract-report-1",
+  "task_id": "gravimetric_constant_mass",
+  "fidelity": "engineering_proxy",
+  "chemistry_calibrated": false,
+  "time_scale": 0.01,
+  "source_protocol": "csudh_gravimetry",
+  "source_values": {
+    "treatment_s": 3600.0,
+    "adjacent_mass_difference_mg": 0.2
+  },
+  "controllers": {
+    "reference_expert": {
+      "seeds": 100,
+      "successes": 100,
+      "success_rate": 1.0,
+      "failure_kinds": {
+        "early_declaration": 0,
+        "cooling_insufficient": 0,
+        "rewet_timeout": 0,
+        "identity_mismatch": 0,
+        "missing_weigh": 0,
+        "extra_cycle": 0
+      },
+      "p_max": 1.0
+    },
+    "ablation_fixed_cycle_count": {
+      "seeds": 100,
+      "successes": 18,
+      "success_rate": 0.18,
+      "failure_kinds": {
+        "early_declaration": 82,
+        "cooling_insufficient": 0,
+        "rewet_timeout": 0,
+        "identity_mismatch": 0,
+        "missing_weigh": 0,
+        "extra_cycle": 0
+      },
+      "p_max": 0.2
+    },
+    "ablation_single_read_stability": {
+      "seeds": 100,
+      "successes": 0,
+      "success_rate": 0.0,
+      "failure_kinds": {
+        "early_declaration": 100,
+        "cooling_insufficient": 0,
+        "rewet_timeout": 0,
+        "identity_mismatch": 0,
+        "missing_weigh": 0,
+        "extra_cycle": 0
+      },
+      "p_max": 0.0
+    }
+  },
+  "native_robot_qualification": "pending",
+  "native_full_protocol_qualified": false
+}
