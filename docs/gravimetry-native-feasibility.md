@@ -9,6 +9,14 @@ SAGE-Mat/OpenLab delivery under
 kinematic replay and rendering, not a new chemistry or instrument-success
 claim; its furnace and balance objects therefore remain engineering assets.
 
+## Station-A scope and objects
+
+This round is restricted to `fr3_A`. The Station-A plan places the drying oven
+at `(1.68, 1.35)`, the dosing balance at `(2.23, 0.33)`, the authored
+`crucible_A0` at `(1.18, 0.30)`, and `vial_rack_a` at `(1.75, 0.015)`; the FR3
+base is `(1.75, 0.60)` with a 0.25 m pedestal. Station-B furnace/UR5e evidence
+is retained for later use and is not a qualification for this unit.
+
 ## Objects and roles
 
 The Station B plan contains `furnace_1`–`furnace_4`, `crucible_rack_1/2`,
@@ -38,6 +46,14 @@ station bottle-to-balance trajectory. It does not establish the gravimetry
 chain `load → heat → unload → cool → weigh → repeat`, nor does it provide a
 mass signal. We therefore reuse the assets as scene geometry only.
 
+The authored Station-A crucible is 70 mm across. The existing qualified vial
+top-grasp envelope is 40 mm, so a direct two-finger top grasp exceeds that
+contract by 30 mm and is rejected before IK. The CPU design therefore selects
+an engineering derivative: 38 mm outer diameter, 60 mm height, 4 mm rim and a
+6 mm rim grasp band. A 45 mm cooling-rack proxy and 41 mm balance-pan locator
+are defined around the same crucible identity. These dimensions are design
+parameters, not calibrated glassware.
+
 ## Required measured events
 
 The native verifier should derive events from state and contacts, never from an
@@ -48,8 +64,9 @@ expert phase label:
 2. `unload`: the crucible leaves the furnace, and the measured door state and
    crucible pose establish the operation completion.
 3. `desiccator_in` / `desiccator_out`: the crucible enters/leaves the cooling
-   rack; out is accepted only after the measured cooling-ready signal (initially
-   a declared engineering temperature proxy).
+   rack; out is accepted only after the measured temperature is within room
+   temperature ±2 °C. The maximum residence time before engineering rewet is
+   retained separately; no fixed lower cooling duration is treated as source.
 4. `weigh`: the crucible is seated on the balance, is stationary for the
    declared stability interval, and the balance adapter emits a numerical
    reading bound to the same crucible identity.
@@ -72,9 +89,9 @@ rack, balance and crucible payloads and check every FR3 link on the complete
 route: rack → furnace, furnace → transfer rack, transfer rack → balance, and
 return. Any path below 10 mm is rejected before Isaac starts.
 
-Missing adapters are: (a) a validated crucible-tong grasp and release
-primitive, (b) furnace-door interaction/latched-state readback, (c) cooling
-readiness/temperature proxy, (d) balance stability and numerical readback, and
+Missing adapters are: (a) a validated derivative-crucible grasp and release
+primitive, (b) furnace-door interaction/latched-state readback, (c) a cooling
+temperature sensor proxy, (d) balance stability and numerical readback, and
 (e) a measured sample-mass process model. None should be hidden inside a
 trajectory phase label.
 
@@ -89,15 +106,15 @@ load furnace → measured treatment interval → unload
 → compare the two readings → return crucible and leave instrument idle
 ```
 
-Use the existing P12 furnace/rack/crucible geometry and the Station A balance
-fixture, but keep the output as `engineering_proxy` until the balance and
-cooling adapters are independently qualified. The process clock may use the
-explicit gravimetry `time_scale`; robot and safety clocks remain unscaled.
+Use the Station-A oven, derivative crucible, cooling rack and balance locator,
+but keep the output as `engineering_proxy` until the balance and cooling
+adapters are independently qualified. The process clock may use the explicit
+gravimetry `time_scale`; robot and safety clocks remain unscaled.
 Admission requires three CPU full-arm certificates, then three native seeds,
 with raw force ≤25 N, no penetration >1 mm, complete measured events and
 offline/video acceptance. A successful first unit would still be a
 heat–cool–weigh process unit, not a calibrated chemical experiment.
 
-The CPU contract and its100-case witness/negative-control evidence live in
+The CPU contract and its 100-case witness/negative-control evidence live in
 `chemrm/bench/process/gravimetry.py`, `gravimetry_sim.py` and
 `tests/bench/test_gravimetry.py`. Native robot qualification remains pending.
