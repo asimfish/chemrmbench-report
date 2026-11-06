@@ -1,5 +1,5 @@
 {
-  "schema_version": "chemrmbench-process-progress-1",
+  "schema_version": "chemrmbench-process-progress-2",
   "evaluation_suite": "process-eval-v1",
   "seed_range": [
     1000,
@@ -7,16 +7,15 @@
   ],
   "clock_mode": "paused",
   "verifier_protocol": "measured-v1",
-  "runtime": "single local runtime; one worker on each of two RTX5090 cards",
-  "source_commit": "397fd595de5affe315e747c658c578fd28fcf28a",
+  "runtime": "single local runtime; public held-out results only",
+  "source_commit": "791b0f73d7c2eafa7040205e17276a544c9a4ed7",
+  "fidelity": "engineering_proxy",
+  "chemistry_calibrated": false,
   "qualification": {
     "titration_endpoint": "3/3",
     "development_read": "3/3",
     "recordings_accepted": 6
   },
-  "fidelity": "engineering_proxy",
-  "chemistry_calibrated": false,
-  "native_complete_experiments": 0,
   "tasks": {
     "titration_endpoint": {
       "state": "complete",
@@ -26,26 +25,44 @@
       "failures": 0,
       "errors": 0,
       "full_cohort_accepted": true,
+      "full_cohort_complete": true,
       "full_cohort_success_rate": 1.0,
-      "maximum_raw_force_n": 13.35610610079246,
-      "updated_at_utc": "2026-10-31T07:19:50.940856+00:00"
+      "wilson95": [
+        0.929,
+        1.0
+      ],
+      "safety_violations": 0,
+      "maximum_raw_force_n": 13.36,
+      "updated_at_utc": "2026-11-06T19:33:35.687389+00:00",
+      "collection": "titration_endpoint_public_eval50_20261030_r1"
     },
     "development_read": {
-      "state": "stopped_retained_prefix",
-      "attempts": 30,
+      "state": "complete50_union_accepted",
+      "attempts": 50,
       "planned": 50,
-      "successes": 29,
+      "successes": 49,
       "failures": 0,
       "errors": 1,
       "full_cohort_accepted": false,
+      "full_cohort_complete": true,
+      "union_acceptance": true,
       "full_cohort_success_rate": null,
-      "maximum_raw_force_n": 4.573524019635179,
-      "updated_at_utc": "2026-10-31T08:22:55.521564+00:00"
+      "wilson95": [
+        0.895,
+        0.996
+      ],
+      "safety_violations": 0,
+      "time_window_violations": 0,
+      "readings": 98,
+      "error_seed": 1029,
+      "error_class": "GPU_DEVICE_LOST",
+      "continuation_rule": "continue_known; per-seed continuation; no rerun",
+      "updated_at_utc": "2026-11-06T19:33:35.687389+00:00",
+      "collection": "continuation_20261105/HELDOUT50_MERGED_DEVELOPMENT_READ_PUBLIC.json"
     }
   },
-  "completed_or_stopped": true,
-  "stop_rule": "group stops on first instrumentation error or physical safety violation; failures retained",
-  "training_gpu_hours_conservative": 22.612066682142114,
+  "native_complete_experiments": 0,
   "new_training_jobs": 0,
-  "LLM_VLM_calls": 0
+  "LLM_VLM_calls": 0,
+  "note": "Engineering-proxy public-heuristic results; not learned-policy or chemistry-calibrated results."
 }
