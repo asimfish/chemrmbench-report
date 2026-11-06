@@ -496,7 +496,7 @@
       "note": "Coarse/fine delivery, transient versus persistent tint with identical instantaneous colour, 30 s persistence before declaration, overshoot and analytical error from delivered volume.",
       "qualification": {
         "cpu_contract": "passed",
-        "public_observation": "passed_native_qualification",
+        "public_observation": "completed_frozen_heldout_evaluation",
         "robot": "passed",
         "protocol": "not_applicable_subprotocol"
       },
@@ -542,7 +542,27 @@
           "policy": "public_rgb_titration_confirmation",
           "policy_version": "public-rgb-dwell-certified-keys-1",
           "recording_integrity_passed": true,
-          "heldout_evaluation_complete": false
+          "heldout_evaluation_complete": true
+        },
+        "public_observation_heldout": {
+          "seed_range": [
+            1000,
+            1049
+          ],
+          "successes": 50,
+          "attempts": 50,
+          "errors": 0,
+          "wilson95": [
+            0.929,
+            1.0
+          ],
+          "safety_violations": 0,
+          "force_peak_max_n": 13.36,
+          "collection": "titration_endpoint_public_eval50_20261030_r1",
+          "verifier_protocol": "measured-v1",
+          "fidelity": "engineering_proxy",
+          "learned_policy": false,
+          "chemistry_calibrated": false
         },
         "verifier": "measured-v1 titration_verifier (contact-derived doses, referee, receiver contrast, safety)",
         "host": "ubuntu-TRX50-AI-TOP (Isaac Sim 5.0)"
@@ -578,7 +598,7 @@
       "note": "Per-sample method-timer and physical-age anchors, blank zero before reads, one shared photometer, random public arrival order; late reads stay invalid even when numerically close.",
       "qualification": {
         "cpu_contract": "passed",
-        "public_observation": "passed_native_qualification",
+        "public_observation": "completed_frozen_heldout_evaluation",
         "robot": "passed",
         "protocol": "not_applicable_subprotocol"
       },
@@ -624,7 +644,33 @@
           "policy": "public_rgb_development_scheduler",
           "policy_version": "public-lamps-own-key-history-hub-primitives-1",
           "recording_integrity_passed": true,
-          "heldout_evaluation_complete": false
+          "heldout_evaluation_complete": true
+        },
+        "public_observation_heldout": {
+          "seed_range": [
+            1000,
+            1049
+          ],
+          "successes": 49,
+          "attempts": 50,
+          "errors": 1,
+          "wilson95": [
+            0.895,
+            0.996
+          ],
+          "safety_violations": 0,
+          "force_peak_max_n": 4.573524019635179,
+          "time_window_violations": 0,
+          "readings": 98,
+          "collection": "development_read_public_eval50_20261030_r1_plus_continuation_20261105",
+          "merged_report": "continuation_20261105/HELDOUT50_MERGED_DEVELOPMENT_READ_PUBLIC.json",
+          "error_seed": 1029,
+          "error_class": "GPU_DEVICE_LOST",
+          "continuation_rule": "continue_known_only_after_predeclared_worker_termination",
+          "verifier_protocol": "measured-v1",
+          "fidelity": "engineering_proxy",
+          "learned_policy": false,
+          "chemistry_calibrated": false
         },
         "ablation_scope": "Declared read-on-load controller only; not a bound on all fixed-wait policies.",
         "read_window_s": [
@@ -638,6 +684,65 @@
         "host": "ubuntu-TRX50-AI-TOP"
       },
       "evidence": "tests/bench/test_development_process.py"
+    },
+    "gravimetric_constant_mass": {
+      "family": "thermal_gravimetry",
+      "catalogue_case": "gravimetric_constant_mass",
+      "scope": "subprotocol",
+      "profile": "L4",
+      "temporal_question": [
+        "duration",
+        "relative_interval"
+      ],
+      "module": "chemrm.bench.process.gravimetry",
+      "fidelity": "engineering_proxy",
+      "chemistry_calibrated": false,
+      "source_parameters": [
+        "treatment_s",
+        "adjacent_mass_difference_mg",
+        "source_temperature_c"
+      ],
+      "engineering_parameters": [
+        "cooling_min_s",
+        "cooling_max_s",
+        "time_scale",
+        "mass_loss_model"
+      ],
+      "note": "Heat–cool–weigh cycles preserve crucible identity; constant mass is declared only from two consecutive measured readings within 0.2 mg. One balance-stability reading is insufficient.",
+      "qualification": {
+        "cpu_contract": "passed",
+        "public_observation": "not_started",
+        "robot": "pending",
+        "protocol": "pending"
+      },
+      "native_task": null,
+      "cpu_evidence": {
+        "reference_expert": {
+          "development_seeds": 100,
+          "successes": 100,
+          "attempts": 100
+        },
+        "ablation_fixed_cycle_count": {
+          "controller": "fixed_two_cycles",
+          "p_max": 0.2,
+          "derivation": "stable_cycle_2_of_5_uniform"
+        },
+        "ablation_single_read_stability": {
+          "controller": "one_reading_then_declare",
+          "p_max": 0.0,
+          "derivation": "adjacent_mass_pair_required"
+        },
+        "failure_categories": [
+          "early_declaration",
+          "cooling_insufficient",
+          "rewet_timeout",
+          "identity_mismatch",
+          "missing_weigh",
+          "extra_cycle"
+        ],
+        "archive_scope": "CPU measured-event replay only; no native physical restore claim"
+      },
+      "evidence": "tests/bench/test_gravimetry.py"
     }
   },
   "qualification_boundary": {
