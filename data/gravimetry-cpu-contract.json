@@ -1,12 +1,13 @@
 {
-  "schema": "chemrmbench-gravimetry-cpu-contract-report-1",
+  "schema": "chemrmbench-gravimetry-cpu-contract-report-2",
   "task_id": "gravimetric_constant_mass",
   "fidelity": "engineering_proxy",
   "chemistry_calibrated": false,
   "time_scale": 0.01,
   "source_protocol": "csudh_gravimetry",
   "source_values": {
-    "treatment_s": 3600.0,
+    "digestion_duration_h": 1.0,
+    "heating_per_cycle_s": 600.0,
     "adjacent_mass_difference_mg": 0.2
   },
   "controllers": {
@@ -54,5 +55,14 @@
     }
   },
   "native_robot_qualification": "pending",
-  "native_full_protocol_qualified": false
+  "native_full_protocol_qualified": false,
+  "cooling_rule": "measured room temperature 23 C +/- 2 C; upper rewet bound is engineering",
+  "native_layout_probe": "continuation_20261106/gravimetry_native_layout_probe_r1.json",
+  "derived_asset_contract": {
+    "outer_diameter_m": 0.038,
+    "height_m": 0.06,
+    "cooling_rack_inner_diameter_m": 0.045,
+    "balance_tray_inner_diameter_m": 0.041,
+    "native_qualified": false
+  }
 }
