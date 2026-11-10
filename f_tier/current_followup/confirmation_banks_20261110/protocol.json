@@ -1,0 +1,1084 @@
+{
+  "id": "O_confirmation_first_bank_N16_N19_N21_20261110",
+  "frozen_utc": "2026-11-10T09:56:32.617620+00:00",
+  "authority": "User continue experiments after StepA report; guidance13 StepB order/gates. N10 sampling decision deferred.",
+  "stage": "B_FIRST_THREE_BANKS",
+  "tasks": [
+    "N16",
+    "N19",
+    "N21"
+  ],
+  "new_seeds": {
+    "N16": [
+      2026111000,
+      2026111019
+    ],
+    "N19": [
+      2026111100,
+      2026111119
+    ],
+    "N21": [
+      2026111200,
+      2026111219
+    ]
+  },
+  "distribution": {
+    "source_xy_m": "+/-0.020 uniform independently around(.35,-.4), source/support moved together; target and robot mounts unchanged",
+    "source_yaw_deg": {
+      "N16": 30,
+      "N19": 10,
+      "N21": 30
+    },
+    "N19_yaw_scope": "Narrower declared10deg yaw family keeps the rack inside nominal80mm jaw opening; fixed expert orientation is unchanged. Not a30deg rack-yaw claim.",
+    "sampling": "stdlib random.Random(case seed), no result-based exclusions or seed replacement; newly specified prefixes do not overlap any recorded training or prior validation seed segments"
+  },
+  "episode_denominators": {
+    "per_task_positive": 20,
+    "per_task_negative": 20,
+    "per_task_physical_branches": 40,
+    "total_branches": 120,
+    "total_simulation_contexts": 60,
+    "counts": "Every launch/interrupt/prephysics failure logged. No automatic retry; incomplete fixed cases count as failures or missing evidence, never removed."
+  },
+  "physics": "Unchanged CPU PhysX120Hz, Panda native hand, original matterix_sm HSM, native joint drives/force/stiffness/geometry/materials and original max_seconds; no C3 or learning updates.",
+  "expert": "Original fixed-orientation geometric waypoint IK and HSM unchanged; no new planner/adapter correction, phase thresholds or recovery. Initial pose parameterization only.",
+  "gates": {
+    "common": {
+      "min_peak_lift_m": 0.05,
+      "max_terminal_mean_and_max_position_error_m": 0.01,
+      "terminal_native_steps": 120,
+      "terminal_gripper_contact_samples": 0,
+      "positive_and_negative_hsm_success": true,
+      "negative_peak_lift_m_strict_upper": 0.02
+    },
+    "N19": {
+      "sample_count": 8,
+      "sample_pocket_xy_error_m_strict_upper": 0.006,
+      "sample_local_z_error_m_strict_upper": 0.012,
+      "sample_local_z_reference_m": 0.036
+    },
+    "N21": {
+      "native_support_force_N_strict_lower": 0.01,
+      "terminal_support_fraction_min": 0.95
+    },
+    "provenance": "Accepted local result and independent review. Not original-paper thresholds. Strict terminal max-error reproduces accepted independent reviews, not just producer mean."
+  },
+  "unchanged_source_reviews": [
+    "f_tier/N16/result.json#F_acceptance_review",
+    "f_tier/N19/result.json#F_acceptance_review",
+    "f_tier/N21/result.json#F_acceptance_review"
+  ],
+  "source_changes": [
+    {
+      "id": "N16",
+      "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/w1_native_manipulation.py",
+      "original_sha256": "faebf54128054dd24c45304bc3d12a7a476dea60a181327c3a429c21526e8a04",
+      "executed_sha256": "52d5d3ea3b097ffb081f5ca3b5eece0e9d380ae1d00ac7654405fb034af28099",
+      "allowed_changes": [
+        "isolated output and case-spec input",
+        "initial source position and yaw",
+        "consistent initial sample rotation for N19",
+        "renderer disabled only; no physics stepping/rendering change"
+      ]
+    },
+    {
+      "id": "N19",
+      "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/w1_native_manipulation.py",
+      "original_sha256": "faebf54128054dd24c45304bc3d12a7a476dea60a181327c3a429c21526e8a04",
+      "executed_sha256": "52d5d3ea3b097ffb081f5ca3b5eece0e9d380ae1d00ac7654405fb034af28099",
+      "allowed_changes": [
+        "isolated output and case-spec input",
+        "initial source position and yaw",
+        "consistent initial sample rotation for N19",
+        "renderer disabled only; no physics stepping/rendering change"
+      ]
+    },
+    {
+      "id": "N21",
+      "source": "/mnt/nas/data/lyf/chem_mem/reproduction/matterix_paper_20261011/f_tier/n21_rack_manipulation.py",
+      "original_sha256": "e6c24262c3ffc58e8a79694cafb7261e414f02db9eaa298506871d6d396cbfa0",
+      "executed_sha256": "e5f5cb94ab81dc1e0cfc6add27922dc3e8da4171f846f992b10ed760c3fa2480",
+      "allowed_changes": [
+        "isolated output and case-spec input",
+        "initial source position and yaw",
+        "consistent initial sample rotation for N19",
+        "renderer disabled only; no physics stepping/rendering change"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "N16_2026111000",
+      "task": "N16",
+      "seed": 2026111000,
+      "source_position_m": [
+        0.35993043784290185,
+        -0.38400227908732787,
+        0.08
+      ],
+      "source_yaw_deg": 15.032253683907008,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111001",
+      "task": "N16",
+      "seed": 2026111001,
+      "source_position_m": [
+        0.35362454651850417,
+        -0.3961667045708978,
+        0.08
+      ],
+      "source_yaw_deg": -21.31342571339104,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111002",
+      "task": "N16",
+      "seed": 2026111002,
+      "source_position_m": [
+        0.3366571696357992,
+        -0.4006025124603825,
+        0.08
+      ],
+      "source_yaw_deg": 6.5109412238358075,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111003",
+      "task": "N16",
+      "seed": 2026111003,
+      "source_position_m": [
+        0.3582167858136954,
+        -0.38999214916599473,
+        0.08
+      ],
+      "source_yaw_deg": -10.66107157137553,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111004",
+      "task": "N16",
+      "seed": 2026111004,
+      "source_position_m": [
+        0.3524874316585778,
+        -0.4026599805502582,
+        0.08
+      ],
+      "source_yaw_deg": -23.904470996519798,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111005",
+      "task": "N16",
+      "seed": 2026111005,
+      "source_position_m": [
+        0.35179128458229836,
+        -0.39002304203551474,
+        0.08
+      ],
+      "source_yaw_deg": -23.149536786943756,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111006",
+      "task": "N16",
+      "seed": 2026111006,
+      "source_position_m": [
+        0.33077998605147063,
+        -0.40897801119427446,
+        0.08
+      ],
+      "source_yaw_deg": 4.990290504258802,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111007",
+      "task": "N16",
+      "seed": 2026111007,
+      "source_position_m": [
+        0.3495058858508823,
+        -0.41501727571946456,
+        0.08
+      ],
+      "source_yaw_deg": -0.9438413880582424,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111008",
+      "task": "N16",
+      "seed": 2026111008,
+      "source_position_m": [
+        0.36039714302099174,
+        -0.3926097156042879,
+        0.08
+      ],
+      "source_yaw_deg": -0.7809033807287236,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111009",
+      "task": "N16",
+      "seed": 2026111009,
+      "source_position_m": [
+        0.3353110394303849,
+        -0.38861223217385354,
+        0.08
+      ],
+      "source_yaw_deg": 0.7111192858701436,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111010",
+      "task": "N16",
+      "seed": 2026111010,
+      "source_position_m": [
+        0.330829766446112,
+        -0.38110031950575707,
+        0.08
+      ],
+      "source_yaw_deg": 25.939121941732807,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111011",
+      "task": "N16",
+      "seed": 2026111011,
+      "source_position_m": [
+        0.3560309357907168,
+        -0.39574496172348866,
+        0.08
+      ],
+      "source_yaw_deg": -13.46890823866471,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111012",
+      "task": "N16",
+      "seed": 2026111012,
+      "source_position_m": [
+        0.3430548481817833,
+        -0.40337864637984355,
+        0.08
+      ],
+      "source_yaw_deg": 6.411266621617493,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111013",
+      "task": "N16",
+      "seed": 2026111013,
+      "source_position_m": [
+        0.3388520631055745,
+        -0.39293375881879183,
+        0.08
+      ],
+      "source_yaw_deg": 6.122508559102066,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111014",
+      "task": "N16",
+      "seed": 2026111014,
+      "source_position_m": [
+        0.3622020660079053,
+        -0.4103310699818904,
+        0.08
+      ],
+      "source_yaw_deg": -28.94586476113447,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111015",
+      "task": "N16",
+      "seed": 2026111015,
+      "source_position_m": [
+        0.3697975202556626,
+        -0.4135205468683786,
+        0.08
+      ],
+      "source_yaw_deg": -5.589728189589618,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111016",
+      "task": "N16",
+      "seed": 2026111016,
+      "source_position_m": [
+        0.33127962432028196,
+        -0.40488367185881113,
+        0.08
+      ],
+      "source_yaw_deg": 3.2144938385848008,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111017",
+      "task": "N16",
+      "seed": 2026111017,
+      "source_position_m": [
+        0.3315634411425478,
+        -0.40016140260346333,
+        0.08
+      ],
+      "source_yaw_deg": -12.385029922162555,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111018",
+      "task": "N16",
+      "seed": 2026111018,
+      "source_position_m": [
+        0.3481787188869102,
+        -0.40650199315286517,
+        0.08
+      ],
+      "source_yaw_deg": -15.822292816748577,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N16_2026111019",
+      "task": "N16",
+      "seed": 2026111019,
+      "source_position_m": [
+        0.36927379974606206,
+        -0.40194414690435437,
+        0.08
+      ],
+      "source_yaw_deg": 17.872758877867746,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111100",
+      "task": "N19",
+      "seed": 2026111100,
+      "source_position_m": [
+        0.36989969443130577,
+        -0.390072646991267,
+        0.08
+      ],
+      "source_yaw_deg": 7.744067990403213,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111101",
+      "task": "N19",
+      "seed": 2026111101,
+      "source_position_m": [
+        0.3413481167088951,
+        -0.3800790395653025,
+        0.08
+      ],
+      "source_yaw_deg": 4.6254826650097325,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111102",
+      "task": "N19",
+      "seed": 2026111102,
+      "source_position_m": [
+        0.33094506410060914,
+        -0.4024560446677994,
+        0.08
+      ],
+      "source_yaw_deg": -3.898251419244236,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111103",
+      "task": "N19",
+      "seed": 2026111103,
+      "source_position_m": [
+        0.362030081233449,
+        -0.393490043874249,
+        0.08
+      ],
+      "source_yaw_deg": -6.774077219828978,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111104",
+      "task": "N19",
+      "seed": 2026111104,
+      "source_position_m": [
+        0.3605618014868416,
+        -0.39716993014290297,
+        0.08
+      ],
+      "source_yaw_deg": -7.05176054897181,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111105",
+      "task": "N19",
+      "seed": 2026111105,
+      "source_position_m": [
+        0.3632195886352907,
+        -0.38373405501347296,
+        0.08
+      ],
+      "source_yaw_deg": -6.794193438706493,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111106",
+      "task": "N19",
+      "seed": 2026111106,
+      "source_position_m": [
+        0.36829992305642034,
+        -0.40506173009526264,
+        0.08
+      ],
+      "source_yaw_deg": 3.8567745944409477,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111107",
+      "task": "N19",
+      "seed": 2026111107,
+      "source_position_m": [
+        0.35020770176200783,
+        -0.38282135304199955,
+        0.08
+      ],
+      "source_yaw_deg": 6.542440748785513,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111108",
+      "task": "N19",
+      "seed": 2026111108,
+      "source_position_m": [
+        0.3353032114966376,
+        -0.39336545922031846,
+        0.08
+      ],
+      "source_yaw_deg": -3.4961896393855563,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111109",
+      "task": "N19",
+      "seed": 2026111109,
+      "source_position_m": [
+        0.36509949518201884,
+        -0.4007387419645168,
+        0.08
+      ],
+      "source_yaw_deg": -5.15128936730862,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111110",
+      "task": "N19",
+      "seed": 2026111110,
+      "source_position_m": [
+        0.35845270323246226,
+        -0.40880320957804195,
+        0.08
+      ],
+      "source_yaw_deg": 9.896837821328038,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111111",
+      "task": "N19",
+      "seed": 2026111111,
+      "source_position_m": [
+        0.3683858700988286,
+        -0.3891732834584152,
+        0.08
+      ],
+      "source_yaw_deg": -2.3432992668527097,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111112",
+      "task": "N19",
+      "seed": 2026111112,
+      "source_position_m": [
+        0.35045788657125565,
+        -0.38283088230316004,
+        0.08
+      ],
+      "source_yaw_deg": 8.241818024638913,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111113",
+      "task": "N19",
+      "seed": 2026111113,
+      "source_position_m": [
+        0.3530343530545263,
+        -0.38546590772088457,
+        0.08
+      ],
+      "source_yaw_deg": -2.276673328139884,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111114",
+      "task": "N19",
+      "seed": 2026111114,
+      "source_position_m": [
+        0.36012662833240044,
+        -0.38306436893915424,
+        0.08
+      ],
+      "source_yaw_deg": 6.380179555751397,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111115",
+      "task": "N19",
+      "seed": 2026111115,
+      "source_position_m": [
+        0.3630370066532772,
+        -0.41609030795178026,
+        0.08
+      ],
+      "source_yaw_deg": -7.928984672668003,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111116",
+      "task": "N19",
+      "seed": 2026111116,
+      "source_position_m": [
+        0.3477291301180018,
+        -0.41037548028573834,
+        0.08
+      ],
+      "source_yaw_deg": 5.294523647981084,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111117",
+      "task": "N19",
+      "seed": 2026111117,
+      "source_position_m": [
+        0.3336112870280324,
+        -0.384034911481062,
+        0.08
+      ],
+      "source_yaw_deg": -0.8327607458123545,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111118",
+      "task": "N19",
+      "seed": 2026111118,
+      "source_position_m": [
+        0.3387107611094277,
+        -0.41515219544665266,
+        0.08
+      ],
+      "source_yaw_deg": -0.6358251617790174,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N19_2026111119",
+      "task": "N19",
+      "seed": 2026111119,
+      "source_position_m": [
+        0.33476829163552474,
+        -0.41390033035233553,
+        0.08
+      ],
+      "source_yaw_deg": -2.3332758595360703,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111200",
+      "task": "N21",
+      "seed": 2026111200,
+      "source_position_m": [
+        0.34252609810789797,
+        -0.3950594638728541,
+        0.08
+      ],
+      "source_yaw_deg": -27.206165933106988,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111201",
+      "task": "N21",
+      "seed": 2026111201,
+      "source_position_m": [
+        0.3482728575443644,
+        -0.4196368963406627,
+        0.08
+      ],
+      "source_yaw_deg": -21.754786769006834,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111202",
+      "task": "N21",
+      "seed": 2026111202,
+      "source_position_m": [
+        0.3568965986410596,
+        -0.40867981835373685,
+        0.08
+      ],
+      "source_yaw_deg": 10.84312426423611,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111203",
+      "task": "N21",
+      "seed": 2026111203,
+      "source_position_m": [
+        0.3420235131258155,
+        -0.40732660641171897,
+        0.08
+      ],
+      "source_yaw_deg": -10.739369154864946,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111204",
+      "task": "N21",
+      "seed": 2026111204,
+      "source_position_m": [
+        0.3461325894641291,
+        -0.38845863574497735,
+        0.08
+      ],
+      "source_yaw_deg": -15.950050762558805,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111205",
+      "task": "N21",
+      "seed": 2026111205,
+      "source_position_m": [
+        0.3332805339679004,
+        -0.4043868187066163,
+        0.08
+      ],
+      "source_yaw_deg": -27.66393306901922,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111206",
+      "task": "N21",
+      "seed": 2026111206,
+      "source_position_m": [
+        0.34363814694968225,
+        -0.4186909331332208,
+        0.08
+      ],
+      "source_yaw_deg": -15.74047953087739,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111207",
+      "task": "N21",
+      "seed": 2026111207,
+      "source_position_m": [
+        0.35344977656674087,
+        -0.4050397518576323,
+        0.08
+      ],
+      "source_yaw_deg": -17.49115585315245,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111208",
+      "task": "N21",
+      "seed": 2026111208,
+      "source_position_m": [
+        0.3600697274405411,
+        -0.4172452955295943,
+        0.08
+      ],
+      "source_yaw_deg": 10.740729125493111,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111209",
+      "task": "N21",
+      "seed": 2026111209,
+      "source_position_m": [
+        0.33385401608838816,
+        -0.3898363875875553,
+        0.08
+      ],
+      "source_yaw_deg": -19.426767063938307,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111210",
+      "task": "N21",
+      "seed": 2026111210,
+      "source_position_m": [
+        0.33470687860926557,
+        -0.39285590189634234,
+        0.08
+      ],
+      "source_yaw_deg": 18.845529764420846,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111211",
+      "task": "N21",
+      "seed": 2026111211,
+      "source_position_m": [
+        0.3608783389935027,
+        -0.38696184702328434,
+        0.08
+      ],
+      "source_yaw_deg": -26.58020819039048,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111212",
+      "task": "N21",
+      "seed": 2026111212,
+      "source_position_m": [
+        0.345406553320344,
+        -0.40523744460453537,
+        0.08
+      ],
+      "source_yaw_deg": -4.7347069947987706,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111213",
+      "task": "N21",
+      "seed": 2026111213,
+      "source_position_m": [
+        0.36832286469695985,
+        -0.3884433324726526,
+        0.08
+      ],
+      "source_yaw_deg": 18.812272128203475,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111214",
+      "task": "N21",
+      "seed": 2026111214,
+      "source_position_m": [
+        0.3301817402052191,
+        -0.40578547388323577,
+        0.08
+      ],
+      "source_yaw_deg": 19.272370277123557,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111215",
+      "task": "N21",
+      "seed": 2026111215,
+      "source_position_m": [
+        0.36635112812132353,
+        -0.4045406180804715,
+        0.08
+      ],
+      "source_yaw_deg": 14.255524395495883,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111216",
+      "task": "N21",
+      "seed": 2026111216,
+      "source_position_m": [
+        0.3371437829664613,
+        -0.387506536081796,
+        0.08
+      ],
+      "source_yaw_deg": 27.871432502041216,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111217",
+      "task": "N21",
+      "seed": 2026111217,
+      "source_position_m": [
+        0.35054689350073626,
+        -0.3827050712223108,
+        0.08
+      ],
+      "source_yaw_deg": 26.612830311062574,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111218",
+      "task": "N21",
+      "seed": 2026111218,
+      "source_position_m": [
+        0.335882108690397,
+        -0.4195455326775891,
+        0.08
+      ],
+      "source_yaw_deg": -21.774979079287675,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    },
+    {
+      "id": "N21_2026111219",
+      "task": "N21",
+      "seed": 2026111219,
+      "source_position_m": [
+        0.33364835683296995,
+        -0.4177246215468393,
+        0.08
+      ],
+      "source_yaw_deg": -17.401223435271888,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ],
+      "max_native_s": 35.0
+    }
+  ],
+  "execution": {
+    "preferred": "one Zenith4xPRO6000 low_priority region10",
+    "concurrency_max_per_gpu": 6,
+    "initial_memory_probe": "First formal N16 case, kept in denominator; measure peak memory before increasing concurrency. At least1.5x measured incremental peak free before launching additional workers. Sample every5s; stop own processes only below4GiB free.",
+    "output": "local job scratch per case, completed case copied to project/bucket asynchronously; local ledger authoritative",
+    "timeout_wall_s_per_context": 900
+  },
+  "limitations": [
+    "No original author hardware/CAD identity claim",
+    "N16/N21 axial symmetry makes yaw a weak visual/geometric perturbation",
+    "Fresh positions share the original local task family; no new class/task-space claim",
+    "No formal result is used to change this frozen protocol."
+  ]
+}

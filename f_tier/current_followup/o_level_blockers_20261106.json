@@ -1,0 +1,944 @@
+{
+  "schema": "original_consistency_blockers_v1",
+  "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+  "authority": "Guidance13/13b; Step A audited and user requested continued experiments. Step B independent banks follow unchanged local gates.",
+  "source_of_truth_scope": "This is the single current O-blocker list for all 36 N/A/V entries. F scoreboard O_level fields are a projection; functional F_PASS is separate from original identity.",
+  "classification": {
+    "a": "Original data, hardware or parameters unavailable; preserve declared differences, no further work in this stage.",
+    "b": "Independent confirmation of the accepted local function is missing and can be supplied by us; original differences still remain.",
+    "c": "Other: already-confirmed local function, motion qualification, scientific validity, visual fidelity or claim boundary; explicitly described per row."
+  },
+  "legacy_13_gate_provenance": {
+    "candidate": "SIMULATION_COVERAGE.json",
+    "item_count": 13,
+    "confidence": "most_likely_not_proven",
+    "interpretation": "13 workflow coverage entries, not a universal 13-predicate per-episode acceptance test.",
+    "basis": "Literal 13-gate occurs in historical F scoreboard O text. The known coverage file has 13 entries. No distinct named 13-gate ledger was identified in bounded reads of known files; no whole-NAS search was run.",
+    "unresolved": "No generation/source record has been identified proving what the old author of that phrase meant. The nine bank gates below come from accepted result/protocol/runner files, not that phrase."
+  },
+  "functional_F_PASS": 36,
+  "core_items": 36,
+  "original_reproduction_complete": false,
+  "counts": {
+    "a": 22,
+    "c": 11,
+    "b": 3
+  },
+  "pending_review": false,
+  "native_episodes_started_in_step_A": 0,
+  "reconciled_independent_confirmations": {
+    "N03": "Oct27 C3 20/20",
+    "N12": "Oct27 C3 20/20",
+    "N17": "Oct28 anchored functional holdouts20/20; Oct30 strict C3 qualification15/20",
+    "N18": "Oct28 anchored functional holdouts20/20; later C3 acceleration failures retained",
+    "N13": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N13_20261110/result.json"
+    },
+    "N14": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N14_20261110/result.json"
+    },
+    "N15": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N11_N15_20261110/N15/result.json"
+    },
+    "N19": {
+      "pass": 15,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_prepared_20261110/N19/result.json"
+    },
+    "N21": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_banks_20261110/N21/result.json"
+    },
+    "N23": {
+      "pass": 15,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N23_20261110/result.json"
+    }
+  },
+  "S7_S8_S9_readback": {
+    "evidence_paths": [
+      "phase2/analysis/takeover_t13_S7/study_protocol_S7.json",
+      "phase2/analysis/takeover_t13_S7/S7_closed.json",
+      "phase2/analysis/takeover_t13_S8S9/study_protocol_S8.json",
+      "phase2/analysis/takeover_t13_S8S9/S8S9_closed.json",
+      "phase2/analysis/takeover_t13_S8S9/pooled_10seeds.json"
+    ],
+    "scope": "N03 only; 10 training seeds, same 200 heldout poses, 56k labels. CPU sums recomputed from pooled arrays, not raw episode re-audit or statistical re-test.",
+    "recomputed_rates": {
+      "M1": {
+        "nominal_56k": {
+          "successes": 1443,
+          "denominator": 2000,
+          "percent_unrounded": 72.15
+        },
+        "offset": {
+          "successes": 1291,
+          "denominator": 2000,
+          "percent_unrounded": 64.55
+        },
+        "release": {
+          "successes": 450,
+          "denominator": 2000,
+          "percent_unrounded": 22.5
+        }
+      },
+      "M2": {
+        "nominal_56k": {
+          "successes": 1952,
+          "denominator": 2000,
+          "percent_unrounded": 97.6
+        },
+        "offset": {
+          "successes": 1950,
+          "denominator": 2000,
+          "percent_unrounded": 97.5
+        },
+        "release": {
+          "successes": 1248,
+          "denominator": 2000,
+          "percent_unrounded": 62.4
+        }
+      },
+      "M3": {
+        "nominal_56k": {
+          "successes": 1813,
+          "denominator": 2000,
+          "percent_unrounded": 90.65
+        },
+        "offset": {
+          "successes": 1809,
+          "denominator": 2000,
+          "percent_unrounded": 90.45
+        },
+        "release": {
+          "successes": 1628,
+          "denominator": 2000,
+          "percent_unrounded": 81.4
+        }
+      },
+      "M4": {
+        "nominal_56k": {
+          "successes": 1663,
+          "denominator": 2000,
+          "percent_unrounded": 83.15
+        },
+        "offset": {
+          "successes": 1659,
+          "denominator": 2000,
+          "percent_unrounded": 82.95
+        },
+        "release": {
+          "successes": 1333,
+          "denominator": 2000,
+          "percent_unrounded": 66.65
+        }
+      },
+      "M4_noSF": {
+        "nominal_56k": {
+          "successes": 1756,
+          "denominator": 2000,
+          "percent_unrounded": 87.8
+        },
+        "offset": {
+          "successes": 1751,
+          "denominator": 2000,
+          "percent_unrounded": 87.55
+        },
+        "release": {
+          "successes": 1575,
+          "denominator": 2000,
+          "percent_unrounded": 78.75
+        }
+      },
+      "M4_noRW": {
+        "nominal_56k": {
+          "successes": 1685,
+          "denominator": 2000,
+          "percent_unrounded": 84.25
+        },
+        "offset": {
+          "successes": 1676,
+          "denominator": 2000,
+          "percent_unrounded": 83.8
+        },
+        "release": {
+          "successes": 1521,
+          "denominator": 2000,
+          "percent_unrounded": 76.05
+        }
+      }
+    },
+    "reported_inference_not_recomputed": "DAgger>OPD one-sided paired p=.015 nominal/.019 offset; noRW release improvement +9.4pp pooled p=.037, new5 alone p=.26. Shared poses are not 2000 distinct heldout instances; no positive OPD efficacy conclusion."
+  },
+  "items": [
+    {
+      "id": "N01",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N01/result.json"
+      ],
+      "remaining_original_gap": "Whole-lab local assembly is functional; author metric layout, device internals and original hardware/configuration identities are not available for exact replication.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "F-tier static whole-lab assembly is closed. Original author metric layout, precise device internals, hardware identities and integrated dynamic workflows remain unestablished.",
+        "legacy_status": "OPEN",
+        "legacy_reason": "Four reconstructed workstations do not instantiate the whole published lab; A–F figure panels are not a specification of exactly six physical stations."
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N02",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N02/result.json"
+      ],
+      "remaining_original_gap": "Local glass FoundationPose 0/5 and opaque control 5/5 are known limits; oracle initialization and correlated single-instance images do not establish the original perception pipeline or generalization.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Official FoundationPose has executed on the observed MATTERIX beaker fixture. Original glass passes 0/5 local pose gates despite an oracle initial mask; opaque control passes 5/5. These are correlated frames of one static instance. Posthoc ideal-depth substitution diagnoses local depth sensitivity, not a perception repair or robot-level reproduction.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N03",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N03/result.json",
+        "f_tier/current_followup/heldout_n03_20261027/evidence_summary.json"
+      ],
+      "remaining_original_gap": "Independent C3 nominal expert 20/20 is available. Original Fig.6A trial-count/prose interpretation and perception-driven trial distribution are not matched; privileged-state validation is not perception replication.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Prose/caption count conflict unresolved. Existing 2 heat confirmations are not 12 perception-driven trials.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N04",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N04/result.json"
+      ],
+      "remaining_original_gap": "PhysX PBD functional pouring is available; original Fig.6B controller, trial distribution, physical hardware and private configuration are unavailable.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Original Fig6B controller/trial distribution and calibrated original hardware/private parameters unavailable; functional results do not establish original identity.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N05",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N05/result.json"
+      ],
+      "remaining_original_gap": "Continuous three-object OT2 setup and semantic pipetting are functional; author station calibration, controller and real aspiration/dispensing identities remain unavailable/unestablished.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "F-tier continuous three-object setup and OT2 semantic workflow is closed by the already completed208.5s native matched pair. Original exact CAD/controller, physical aspiration calibration and realFR3 deployment remain unestablished.",
+        "legacy_status": "PARTIAL",
+        "legacy_reason": "Physical plate placement now continues into the independently checked 105.5 s native pipetting workflow. Full station setup still lacks robot grasp/transport/placement of the tip rack and two-well reservoir; those are prepositioned. Their actual final poses must carry into the downstream OT2 sequence. Zero-shot real FR3/OT2 deployment remains a separate unexecuted claim. Complete setup R3 independently failed at70.5s on reservoir sustained grasp after plate placement. Strict64event CPU oracle passed19regressions; complete positive/negative physical pair remains open."
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N06",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N06/result.json"
+      ],
+      "remaining_original_gap": "Native 2000s contact/thermal/chemical integration is functional. Author parameters and CSV Cl/CCCl versus narrative HI/EtI identity remain unresolved; held-out time-split RMSE 9.48 C failed, so calibrated-curve fit is not predictive validation.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "The 2000 s native robot/contact/online-chemistry run has finished; scoped outcome is reported below. Original author chemistry parameters and the literal CSV Cl/CCCl versus narrative HI/EtI identity remain unresolved. Shadow controls are not independent physical trials.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N07",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N07/result.json"
+      ],
+      "remaining_original_gap": "Independent 40 C, 2000s/500000-step native run is complete, not a shadow; original chemical parameters remain unavailable. Native process exit was unobserved and launcher exit 143 is retained.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "A 40 C semantic shadow uses the same native contact history. This is not an independently executed 40 C physical trial, and the original author parameter set is still unavailable.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N08",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N08/result.json"
+      ],
+      "remaining_original_gap": "Two robot additions, conserved semantic mass and color-time traces are functional. Author kinetic parameters and 90s source CSV versus 250s text/concentration-unit identity remain unavailable/unresolved.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Source CSV 90 s versus text 250 s and concentration-unit typo remain unresolved; original kinetic parameters absent. A color animation alone is not chemistry reproduction.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N09",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N09/result.json",
+        "f_tier/N09/alternating/result.json"
+      ],
+      "remaining_original_gap": "Local scaling and alternating A/B timing exist; original RTX4090 machine/driver/runtime timing conditions differ. Local measurements cannot establish identical original performance.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "4090/driver/version-port timings cannot be called identical performance replication; performance work follows semantic correctness.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N10",
+      "blocker_type": "b",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N10/result.json",
+        "f_tier/N10/semantic_balance_guidance5.json",
+        "f_tier/N10/semantic_balance_guidance5.py",
+        "f_tier/N10/mortar_quantity_pair/result.json",
+        "f_tier/N10/mortar_quantity_pair/native_positive/result.json",
+        "f_tier/N10/mortar_quantity_pair/native_negative/result.json",
+        "f_tier/N10/mortar_quantity_pair/native_negative/video.mp4",
+        "f_tier/N10/light_balance_candidate/native_run/result.json",
+        "f_tier/N10/mortar_quantity_pair/pair.png"
+      ],
+      "remaining_original_gap": "Independent powder bank not started. Await scope choice: whole-bench SE2 variation with fixed relative geometry tests coordinate robustness only, while new relative layouts require a different planner. Semantic mass ledger is the accepted local weighing gate; physical force-scale failures remain diagnostics.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "granular manipulation has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Await explicit sampling-scope choice before native powder trials.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N10",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N11",
+      "blocker_type": "b",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N11/result.json",
+        "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json"
+      ],
+      "remaining_original_gap": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "bimanual beaker handoff has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Qualify the unchanged accepted expert on an available platform before new-pose trials; do not relax gates.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N11",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N12",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N12/result.json",
+        "f_tier/current_followup/heldout_n12_20261027/evidence_summary.json"
+      ],
+      "remaining_original_gap": "Independent C3 insertion expert 20/20 is already available; the old missing-confirmation reason is stale. Local hole/vial/Panda/perception configuration differs from the original demonstration.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "vial insertion has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N13",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N13/result.json",
+        "f_tier/current_followup/confirmation_N13_20261110/result.json"
+      ],
+      "remaining_original_gap": "Independent new-goal bank20/20 positive,20/20 blocked-goal negatives; maximum terminal error0.110mm, no hood contacts. Original laboratory CAD and controller/compensation implementation remain unmatched.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "fumehood constrained reach has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Confirmation bank closed; preserve all failures and declared original differences. No gate relaxation or O identity claim.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N13",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N14",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N14/result.json",
+        "f_tier/current_followup/confirmation_N14_20261110/result.json"
+      ],
+      "remaining_original_gap": "Independent new-source bank20/20 positive,20/20 blocked-route negatives; maximum placement7.90mm and grasp drift12.24mm. Constrained SE2 base does not reproduce mecanum wheel contacts or original laboratory hardware/layout.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "mobile cross-station transfer has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Confirmation bank closed; preserve all failures and declared original differences. No gate relaxation or O identity claim.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N14",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N15",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N15/result.json",
+        "f_tier/current_followup/confirmation_N11_N15_20261110/N15/result.json"
+      ],
+      "remaining_original_gap": "Independent new-fixture bank20/20 positive,20/20 closed negatives. Maximum plateau error0.226deg. Original device unavailable; linear observed-angle semantic flow is not measured hydraulics.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "washing device semantic coupling has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Confirmation bank closed; preserve all failures and declared original differences. No gate relaxation or O identity claim.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N15",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N16",
+      "blocker_type": "b",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N16/result.json",
+        "f_tier/current_followup/confirmation_banks_20261110/N16/result.json",
+        "f_tier/current_followup/confirmation_N16_cloud_20261110/result.json"
+      ],
+      "remaining_original_gap": "Prepared-plan cloud bank stopped for unknown reason after20 launch intents: one complete/pass,19 without complete retrieved data. Not a completed reliability estimate; retain all starts. Local nominal qualification failed16.51mm placement. Earlier free-IK diagnostics do not confirm the accepted prepared expert.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "funnel pick and place has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Clarify stop intent before resuming; keep all interrupted attempts and their denominators.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N16",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N17",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N17/result.json",
+        "f_tier/current_followup/n1718_reliability_20261028/result.json",
+        "f_tier/current_followup/n1718_reliability_20261028/audit_summary.json"
+      ],
+      "remaining_original_gap": "Independent anchored functional bank 20/20 is complete. C3 motion qualification is separate and incomplete: 15/20 strict joint/contact passes on Oct30. Original OT2 loading geometry/controller identity is not established.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "beaker into OT2 has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N18",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N18/result.json",
+        "f_tier/current_followup/n1718_reliability_20261028/result.json",
+        "f_tier/current_followup/n1718_reliability_20261028/audit_summary.json"
+      ],
+      "remaining_original_gap": "Independent anchored functional bank 20/20 is complete, including local CPU weighing. C3 loaded placement still violates actual acceleration gates; small commanded clearances were not physically realized. This is Step C, not missing functional confirmation.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "beaker on scale has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N19",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N19/result.json",
+        "f_tier/current_followup/confirmation_prepared_20261110/N19/result.json"
+      ],
+      "remaining_original_gap": "Independent prepared-anchor bank15/20 positive,20/20 no-close controls;19/20 retain all eight tubes. Five placement failures, one also fails sample retention. Earlier pre-physics cloud timeouts retained separately; original CAD/contents and platform equivalence remain differences.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "vial-rack transport has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Confirmation bank closed; preserve all failures and declared original differences. No gate relaxation or O identity claim.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N19",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N20",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N20/result.json"
+      ],
+      "remaining_original_gap": "Published qualitative three-object setup is functional with local 50mm receiving riser/front-row layout and grip overlay. Exact author rack-slot/contact/mass/friction setup is not established.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Published qualitative simulation function reproduced. The reconstructed receiving location uses a local50mm riser/support and front-row layout. This is not a claim of the author exact rack-slot geometry. Panda/Robotiq uses the declared parallel-grip overlay and local mass/friction/controller assumptions. The main real deployment usesFR3; the supplement explicitly identifiesPanda for the simulation insertion example. The six-well asset and added fixtures are declared reconstructed substitutes; equality of original CAD, layout and contact trajectories is not established.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N21",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N21/result.json",
+        "f_tier/current_followup/confirmation_banks_20261110/N21/result.json"
+      ],
+      "remaining_original_gap": "Independent new-source bank20/20 positive,20/20 no-close controls; maximum placement8.28mm and terminal support fraction1.0, including original independent-review force threshold. Original rack CAD, materials and drying kinetics remain unmatched.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "drying rack has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Confirmation bank closed; preserve all failures and declared original differences. No gate relaxation or O identity claim.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N21",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "N22",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N22/result.json"
+      ],
+      "remaining_original_gap": "Finite conservative semantic pipetting is functional. Original calibrated aspiration/dispense rates and implementation are unavailable; event-based parcels are not physical PBD aspiration.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Published qualitative simulation function reproduced. Finite conservative semantic parcels and instantaneous event transfers are used. This is notPBD fluid, a physical aspiration-rate model, calibrated real microlitres or original author implementation identity. Tips/reservoir geometry and recipe are declared local reconstructions. No mechanical force-fit attachment or measured pipette calibration is claimed. The current sequence isPython/CPU semantics alongside nativePhysX. It does not reproduce the paper PyTorch/GPU throughput results, which belong to a separate performance requirement.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "N23",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/N23/result.json",
+        "f_tier/current_followup/confirmation_N23_20261110/result.json"
+      ],
+      "remaining_original_gap": "Independent new-source bank15/20 positive; permanent-open negative blocks release and downstream movement. Three retreat-IK controller exceptions and two downstream workflow failures all count in20. Original coordination implementation, privileged guards and constrained mobile base remain differences.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "hierarchical multi-agent workflow has no complete independent confirmation in the 13-gate ledger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "Confirmation bank closed; preserve all failures and declared original differences. No gate relaxation or O identity claim.",
+      "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N23",
+      "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
+    },
+    {
+      "id": "A01",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A01/result.json"
+      ],
+      "remaining_original_gap": "Warp DFSPH/MuJoCo coupled functions exist. Dam-break refinement does not establish convergence to the experiment (8.04/11.15/14.52% errors); VOF comparison improves (11.17/9.19/6.28%) but is not a convergence proof. Original GRID harness identity also unavailable.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Independent Warp DFSPH numerical and coupled pouring-fixture tests have passed scoped checks. A bounded source check recovered pinned official GRID platform examples, but not the original Auto-Engineering four harness implementations or learned checkpoints. Robot-level coupling, fluid resolution/convergence and the complete fluid model remain under evaluation.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A02",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A02/result.json"
+      ],
+      "remaining_original_gap": "Loaded dual-Flexiv rack extraction, physical handoff and pouring are functional (236/240 receiver, 4/240 spill). Original GRID implementation, learned checkpoints and physical rack/calibration identities are unavailable.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "A repaired 23 s UR5e bench-source pickup/pour/return/release run passes 16 local gates with simulator-ground-truth return feedback. The earlier full run failed and remains recorded. Matched full controls and perturbed confirmation are separate; perception, rack extraction, learned transfer and original GRID equivalence remain open.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A03",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A03/result.json",
+        "f_tier/A03/fresh_pose_v2/protocol.json",
+        "f_tier/A03/fresh_pose_v2/independent_review.json",
+        "f_tier/A03/fresh_pose_v2/result.json",
+        "f_tier/A03/fresh_pose_v2/render.json",
+        "f_tier/A03/fresh_pose/result.json",
+        "f_tier/A03/isaac_migration/attempts.json",
+        "f_tier/A03/isaac_migration/asset85_cpu/continuous249_rigid_pair_result.json",
+        "f_tier/A03/isaac_migration/attempts/ur5e85_PBD_full249_case0/result.json",
+        "f_tier/A03/isaac_migration/attempts/ur5e85_substepped_full_case0/result.json",
+        "f_tier/A03/isaac_migration/analysis_substep_20261023/final_causal_findings.json",
+        "f_tier/A03/isaac_migration/analysis_substep_20261023/rigid1200_attempt003_closed_comparison.json",
+        "f_tier/A03/isaac_migration/analysis_substep_20261023/quantized_reference1200_native_closed_comparison.json",
+        "f_tier/A03/isaac_migration/analysis_substep_20261023/quantized_reference1200_tgs1_closed_comparison.json",
+        "f_tier/A03/isaac_migration/analysis_substep_20261023/quantized_reference1200_tgs1_extforce_closed_comparison.json",
+        "f_tier/A03/isaac_migration/analysis_substep_20261023/substep_contact_line_stop_review.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/closed_interpretation.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/qdot_gripper_tree_audit.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/hold_arm_administrative_retry_protocol.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/hold_arm_cached_closed_audit.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/hold_arm_matched_window_review.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/settle_resume_closed_comparison.json",
+        "f_tier/A03/isaac_migration/analysis_flow_20261023/result.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/filled_settle_resume_closed_comparison.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/compliant_mimic/closed_comparison.json",
+        "f_tier/A03/isaac_migration/visual_shell_20261023/manual_review.json",
+        "f_tier/A03/isaac_migration/structural_contact_20261023/topology_parallel85_administrative/closed_comparison.json",
+        "f_tier/A03/isaac_migration/analysis_flow_20261023/axis_flip_CPU/result.json",
+        "f_tier/A03/isaac_migration/panda_hand_candidate_CPU_20261023/runner_integration/closed_comparison.json",
+        "f_tier/A03/isaac_migration/panda_hand_candidate_CPU_20261023/runner_integration/flexiv_empty_closed/public_verified_summary.json"
+      ],
+      "remaining_original_gap": "Fresh-pose shared skill/adapter v2 has UR5e 2/3 and Flexiv 2/3; all nine starts including regressions retained. Source GRID implementation/hardware/perception identity remains unavailable, not absence of any transfer experiment.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Robot-specific scripted joint behaviors do not prove source cross-robot skill transfer.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A04",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A04/result.json"
+      ],
+      "remaining_original_gap": "BC/DAgger training and actual student-state labeling on both robots are complete. Original architecture, demonstrations, budgets and checkpoints are undisclosed. Saturated local task is not evidence of DAgger superiority; A04-hard is closed on this stack.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Original architecture/data/rollout counts undisclosed. Freeze local numbers and gates before experiments; hand-coded tracking is an expert baseline, not BC/DAgger.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A05",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A05/result.json",
+        "f_tier/A05/study2/independent_review.json"
+      ],
+      "remaining_original_gap": "Local visuomotor replacement completes 1/3 heldouts (old 0/3 retained), with negative controls. Original GELLO human demonstrations are unavailable; no robust-success or demonstrated visual-benefit claim.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Original GELLO dataset not available; synthetic expert demonstrations can unblock an explicitly adapted study but cannot satisfy original-human-data provenance.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A06",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A06/result.json",
+        "f_tier/A06/input_recovery/handoff.json",
+        "f_tier/A06/profile_asset/profile.json",
+        "f_tier/A06/sim_pipeline/runs/attempt001_empty/result.json",
+        "f_tier/A06/sim_pipeline/analysis/private5_originaltime/comparison.json",
+        "f_tier/A06/sim_pipeline/runs/attempt025_controller5_originaltime/result.json",
+        "f_tier/A06/sim_pipeline/analysis/private5_originaltime/velocityff_comparison.json",
+        "f_tier/A06/sim_pipeline/runs/attempt030_unfiltered_reference_originaltime/result.json",
+        "f_tier/A06/sim_pipeline/runs/attempt031_tgs_velocity1_originaltime/result.json",
+        "f_tier/A06/sim_pipeline/runs/attempt032_object_return_originaltime/result.json",
+        "f_tier/A06/sim_pipeline/runs/attempt033_reference_tgs1_originaltime/result.json",
+        "f_tier/A06/sim_pipeline/runs/attempt034_reference_velocity_originaltime/result.json",
+        "f_tier/A06/sim_pipeline/analysis/reference_clock/independent_source_regression.json",
+        "f_tier/A06/sim_pipeline/analysis/static018_020/coupling035_036.json",
+        "f_tier/A06/sim_pipeline/analysis/reference_clock/existing_noXY016_independent_negative.json",
+        "f_tier/A06/sim_pipeline/replay034/result.json",
+        "f_tier/A06/sim_pipeline/analysis/particle_coupling_20261023/result.json",
+        "f_tier/A06/sim_pipeline/planned_reference_20261023/closed_review.json",
+        "f_tier/A06/sim_pipeline/analysis/grasp_relative038/result.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/result.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/rtx_keyframe002/result.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/rtx_keyframe001/result.json",
+        "f_tier/A06/sim_pipeline/grasp_topology_20261023/result.json",
+        "f_tier/A06/sim_pipeline/grasp_topology_20261023/raw_readback_preflight/native040/result.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/rtx_keyframe003/result.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/manual_review.json",
+        "f_tier/A06/sim_pipeline/grasp_topology_20261023/rim_wrench035036/result.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/geometry_optics_audit.json",
+        "f_tier/A06/input_recovery/source_metadata_reconciliation.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/closeup_initial/manual_review.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/closeup_initial/liquid_visibility_control/manual_review.json",
+        "f_tier/A06/sim_pipeline/analysis/particle_coupling_20261023/nonparticle_contact_negative/result.json",
+        "f_tier/A06/sim_pipeline/analysis/particle_coupling_20261023/planned038_tgs255_cpu/result042.json",
+        "f_tier/A06/sim_pipeline/analysis/particle_coupling_20261023/planned038_height100_cpu/result043.json",
+        "f_tier/A06/sim_pipeline/visual_material_20261023/closeup_initial/liquid_visibility_control/geometry_readback/closed_review.json",
+        "f_tier/A06/sim_pipeline/planned_reference_20261023/learning_interface_cpu_audit.json",
+        "f_tier/A06/sim_pipeline/analysis/particle_coupling_20261023/shared_executor_port_CPU_20261023/rigid_point_J047_CPU_20261023/result.json",
+        "f_tier/A06/sim_pipeline/analysis/particle_coupling_20261023/shared_executor_port_CPU_20261023/trajectory_projection_CPU_20261023/CPU_result.json",
+        "f_tier/A06/sim_pipeline/takeover_R1/R1_protocol.json",
+        "f_tier/A06/sim_pipeline/takeover_R1/R1_attempt1_closed.json",
+        "f_tier/A06/sim_pipeline/takeover_R1/attempt2/R1_attempt2_closed.json",
+        "f_tier/A06/sim_pipeline/takeover_R1/attempt3/protocol.json",
+        "f_tier/A06/sim_pipeline/takeover_R1/attempt3/R1_attempt3_closed.json",
+        "f_tier/A06/sim_pipeline/takeover_R1/attempt3/descriptive_lag_analysis.json"
+      ],
+      "remaining_original_gap": "Real-human public video reconstruction, teacher execution and phase-student swirl were run. Original phone video/tracks are unavailable. User-approved R1 final pass is 2/2 at repeatedly used positions, not the original bottle-base gate (which fails); device unknown, 2D proxy and phase-only policy remain declared differences.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Original phone video/tracks unavailable; presentation clips are not automatically raw input. Direct programmed circles omit the central mechanism.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A07",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A07/result.json"
+      ],
+      "remaining_original_gap": "Injected calibration error and held-out repair are functional. Original hardware observations/calibration data are unavailable; reported source case values are not universal acceptance gates.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "These are reported hardware case-study values, not universal acceptance thresholds. Simulation injection is a separate validation.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A08",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A08/result.json"
+      ],
+      "remaining_original_gap": "Local timing fault injection and frequency/jitter repair are functional. Native and wall-clock timing are distinct; the source already addresses timing, so timing cannot be claimed as wholly absent from the reference.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "The reference already addresses control timing; our novelty cannot claim timing was entirely ignored.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A09",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A09/result.json"
+      ],
+      "remaining_original_gap": "Local depth/perception repair with retained negative is functional. Original image set and depth model identity are unpublished; local synthetic data are an explicitly adapted experiment.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Original image and depth-model identities not published; synthetic plane perturbation cannot reproduce the exact reported result.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A10",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A10/result.json"
+      ],
+      "remaining_original_gap": "Frozen trained RGB-D tracker is actually consumed causally (2300 frames, max error 3.963mm), with stale-image failure control. Original deployment sensor/model implementation is unavailable; simulated cadence is not real-time throughput.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Privileged ground-truth receiver coordinates alone do not implement the deployment mechanism.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A11",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A11/result.json"
+      ],
+      "remaining_original_gap": "Agent tool/failure/correction traces and matched rigid reuse exist (0/4 before, 4/4 after, unaffected UR5e unchanged). This does not establish the original full autonomous engineering loop, long-run retained experience or learned pouring reuse.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Manually assembling tasks and showing videos does not reproduce autonomous engineering or retained experience.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "A12",
+      "blocker_type": "a",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/A12/result.json"
+      ],
+      "remaining_original_gap": "Local reuse/cost traces are available. Original seed counts and controlled timing/cost protocol are undisclosed, so original speedup cannot be independently reproduced.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "No source seed count or controlled timing protocol. Current work cannot claim these speedups.",
+        "legacy_status": "OPEN"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    },
+    {
+      "id": "V01",
+      "blocker_type": "c",
+      "functional_status": "F_PASS",
+      "functional_evidence_paths": [
+        "f_tier/V01/result.json"
+      ],
+      "remaining_original_gap": "Source/local visual evidence exists with declared materials. Complete original layout, glass markings, material calibration and continuous-liquid appearance remain unmatched; no source image-similarity acceptance threshold exists.",
+      "original_identity_established": false,
+      "prior_O_level": {
+        "status": "BLOCKED",
+        "reason": "Glass corrected; full original layout/markings/material calibration and continuous liquid appearance remain open. No image-similarity acceptance threshold was specified by either source.",
+        "legacy_status": "PARTIAL"
+      },
+      "next_action": "No new simulation in Step A; retain this difference/limit. C3 N17/N18 work is deferred until after all nine banks.",
+      "confirmation_matrix_entry": null
+    }
+  ],
+  "local_extensions_excluded_from_36": [
+    "C01",
+    "A04-hard"
+  ],
+  "step_A_validation": {
+    "checked_at_utc": "2026-11-10T09:49:20.353199+00:00",
+    "coverage_historical_fields_preserved": true,
+    "F_fields_and_extensions_unchanged": true,
+    "old_O_reasons_preserved_in_projection": true,
+    "all_new_authoritative_reference_paths_exist": true,
+    "reference_files": 145,
+    "core_unique_items": 36,
+    "b_tasks": 9,
+    "planned_branch_episodes": 322,
+    "physics_or_training_executed": false,
+    "Zenith_operations_executed": false,
+    "statistical_tests_reexecuted": false,
+    "backup_source_timestamp": "2026-10-13T08:35:45.123856+00:00",
+    "runner_vs_reducer_scope_checked": true
+  },
+  "review_handoff": {
+    "state": "SIX_CONFIRMATION_BANKS_CLOSED_THREE_BLOCKED",
+    "completed_banks": [
+      "N13",
+      "N14",
+      "N15",
+      "N19",
+      "N21",
+      "N23"
+    ],
+    "running_banks": [],
+    "remaining_independent_banks": [
+      "N10",
+      "N11",
+      "N16"
+    ],
+    "pending_user_clarifications": [
+      "N16 deliberate cloud stop or permitted resumption",
+      "N10 whole-bench coordinate robustness scope"
+    ],
+    "original_identity_established": false
+  }
+}

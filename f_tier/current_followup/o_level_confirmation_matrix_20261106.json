@@ -1,0 +1,553 @@
+{
+  "schema": "original_consistency_independent_confirmation_matrix_v1",
+  "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+  "authority": "Guidance13 independent confirmation execution; historical Step A planning retained in fields and backups.",
+  "canonical_blocker_list": "f_tier/current_followup/o_level_blockers_20261106.json",
+  "task_count": 9,
+  "expected_native_episodes_minimum": 189,
+  "common_requirements": {
+    "freeze_before_run": true,
+    "new_positive_poses_per_task": 20,
+    "new_disjoint_seed_segment_required": true,
+    "original_local_expert_physics_and_gates_unchanged": true,
+    "negative_controls_per_task_minimum": 1,
+    "independent_recomputation_required": true,
+    "all_failed_and_interrupted_attempts_retained": true,
+    "step_A_native_steps": 0,
+    "step_A_jobs_created": 0,
+    "execution_after_approval": "Step B executed after user continuation: initial shared Zenith4PRO6000 banks, then separate measured local TRX50 CPU-PhysX runs when cloud nominal qualification failed. Platform changes were declared before fresh bank outcomes; no gates relaxed. Six banks closed; no native processes currently running.",
+    "not_an_O_identity_pass": "A successful bank supplies independent local functional evidence. All original hardware/data/CAD/semantic implementation differences remain declared.",
+    "step_A_execution_planning_snapshot": "Use one Zenith low-priority4-PRO6000 job with several independent banks, numeric CUDA_VISIBLE_DEVICES, 6-8 processes/GPU only after measured shared-resource admission; CPU PhysX retained for quantitative force gates. No execution configured or submitted by this audit."
+  },
+  "sampling_decision_for_review": "N10 currently supports fixed accepted path bundles and semantic pan geometry. A common bench SE2 transform avoids redesigning the expert but gives weaker relative-configuration coverage. Review this scope before B; changing relative source/cup geometry would require planner development and a new configuration-specific prerequisite.",
+  "items": [
+    {
+      "id": "N16",
+      "order": 1,
+      "status": "INTERRUPTED_BANK_STOP_REASON_UNKNOWN",
+      "acceptance_source": "f_tier/N16/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "lift",
+          "rule": "peak object lift >=0.05m"
+        },
+        {
+          "id": "placement",
+          "rule": "producer terminal-mean goal error <=0.01m; accepted independent review also recomputes terminal1s maximum error <=0.01m"
+        },
+        {
+          "id": "released",
+          "rule": "no gripper contact throughout terminal120 native steps (1s at120Hz)"
+        },
+        {
+          "id": "run_complete",
+          "rule": "original HSM success; all original failure/timeout outcomes remain in denominator"
+        },
+        {
+          "id": "negative_rejected",
+          "rule": "no-close negative peak lift <0.02m despite same nominal HSM path"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/w1_native_manipulation.py"
+      ],
+      "independent_recompute_paths": [],
+      "needs_new_parts": "Expose casebank source SE2 and isolated output selection (keep paired branches); recompute the existing geometric IK waypoints for each declared source without changing HSM/controller. Reuse the anchored legacy planning approach, not C3. Write an independent CPU reducer from the saved acceptance-review definition; no standalone N16/N19 reducer was identified in the bounded reads. w1_cpu_acceptance_recompute.py handles N12/N18 and must not be presented as N16/N19 verification.",
+      "negative_control": "no-close same-source negative",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N16/result.json#protocol",
+      "new_pose_axis": "initial source object SE2",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for accepted funnel pick/lift/place/release and no-close control. Local funnel CAD, hand and lumped contents remain declared differences.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "independent_review_reference": "f_tier/N16/result.json#F_acceptance_review",
+      "frozen_protocol": "f_tier/current_followup/confirmation_banks_20261110/protocol.json",
+      "job_id": "job-4221lbwdvv9w",
+      "confirmation_result": "f_tier/current_followup/confirmation_N16_cloud_20261110/result.json",
+      "diagnostic_result": "f_tier/current_followup/confirmation_banks_20261110/N16/result.json",
+      "new_protocol": "f_tier/current_followup/confirmation_prepared_20261110/protocol_local_route.json",
+      "observed_original_gap": "Prepared-plan cloud bank stopped for unknown reason after20 launch intents: one complete/pass,19 without complete retrieved data. Not a completed reliability estimate; retain all starts. Local nominal qualification failed16.51mm placement. Earlier free-IK diagnostics do not confirm the accepted prepared expert."
+    },
+    {
+      "id": "N19",
+      "order": 2,
+      "status": "INDEPENDENT_BANK_COMPLETE_WITH_FAILURES",
+      "acceptance_source": "f_tier/N19/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "lift",
+          "rule": "peak object lift >=0.05m"
+        },
+        {
+          "id": "placement",
+          "rule": "producer terminal-mean goal error <=0.01m; accepted independent review also recomputes terminal1s maximum error <=0.01m"
+        },
+        {
+          "id": "released",
+          "rule": "no gripper contact throughout terminal120 native steps (1s at120Hz)"
+        },
+        {
+          "id": "run_complete",
+          "rule": "original HSM success; all original failure/timeout outcomes remain in denominator"
+        },
+        {
+          "id": "negative_rejected",
+          "rule": "no-close negative peak lift <0.02m despite same nominal HSM path"
+        },
+        {
+          "id": "samples_retained",
+          "rule": "all8 independent tube centers within their own rack pocket: XY<0.006m and |localZ-0.036m|<0.012m for every terminal1s sample; report whole-episode retention diagnostics separately"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/w1_native_manipulation.py"
+      ],
+      "independent_recompute_paths": [],
+      "needs_new_parts": "Same casebank/output wrapper as N16; transform rack and eight initial independent sample poses together once at initialization; preserve masses, pocket geometry and no-attachment constraints. Write an independent CPU reducer from the saved acceptance-review definition; no standalone N16/N19 reducer was identified in the bounded reads. w1_cpu_acceptance_recompute.py handles N12/N18 and must not be presented as N16/N19 verification.",
+      "negative_control": "no-close rack negative",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N19/result.json#protocol",
+      "new_pose_axis": "initial source object SE2",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for rack transport with eight independent samples and unchanged pocket-retention gates. Source labware CAD and fluid contents remain declared differences.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "independent_review_reference": "f_tier/N19/result.json#F_acceptance_review",
+      "frozen_protocol": "f_tier/current_followup/confirmation_banks_20261110/protocol.json",
+      "job_id": "job-4221lbwdvv9w",
+      "diagnostic_result": "f_tier/current_followup/confirmation_banks_20261110/N19/result.json",
+      "new_protocol": "f_tier/current_followup/confirmation_prepared_20261110/protocol_local_route.json",
+      "confirmation_result": "f_tier/current_followup/confirmation_prepared_20261110/N19/result.json",
+      "observed_original_gap": "Independent prepared-anchor bank15/20 positive,20/20 no-close controls;19/20 retain all eight tubes. Five placement failures, one also fails sample retention. Earlier pre-physics cloud timeouts retained separately; original CAD/contents and platform equivalence remain differences."
+    },
+    {
+      "id": "N21",
+      "order": 3,
+      "status": "INDEPENDENT_BANK_ALL_GATES_PASSED",
+      "acceptance_source": "f_tier/N21/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "lift",
+          "rule": "peak object lift >=0.05m"
+        },
+        {
+          "id": "placement",
+          "rule": "producer terminal-mean goal error <=0.01m; accepted independent review also recomputes terminal1s maximum error <=0.01m"
+        },
+        {
+          "id": "released",
+          "rule": "no gripper contact throughout terminal120 native steps (1s at120Hz)"
+        },
+        {
+          "id": "run_complete",
+          "rule": "original HSM success; all original failure/timeout outcomes remain in denominator"
+        },
+        {
+          "id": "negative_rejected",
+          "rule": "no-close negative peak lift <0.02m despite same nominal HSM path"
+        },
+        {
+          "id": "native_rack_support",
+          "rule": "native rack support contact fraction >=0.95 during terminal1s"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/n21_rack_manipulation.py"
+      ],
+      "independent_recompute_paths": [
+        "f_tier/review_native_batch.py"
+      ],
+      "needs_new_parts": "Parameterize initial cup source SE2 and safe separate bank output; retain accepted160mm rear-peg rack geometry. Add per-case IK, not fixture redesign.",
+      "negative_control": "no-close same-source negative",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N21/result.json#protocol",
+      "new_pose_axis": "initial source object SE2",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for cup release on the accepted drying-rack geometry with native support. Original rack CAD and drying/evaporation kinetics are not reproduced.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "frozen_protocol": "f_tier/current_followup/confirmation_banks_20261110/protocol.json",
+      "job_id": "job-4221lbwdvv9w",
+      "confirmation_result": "f_tier/current_followup/confirmation_banks_20261110/N21/result.json",
+      "observed_original_gap": "Independent new-source bank20/20 positive,20/20 no-close controls; maximum placement8.28mm and terminal support fraction1.0, including original independent-review force threshold. Original rack CAD, materials and drying kinetics remain unmatched."
+    },
+    {
+      "id": "N11",
+      "order": 4,
+      "status": "NOMINAL_QUALIFICATION_FAILED_FRESH_BANK_NOT_STARTED",
+      "acceptance_source": "f_tier/N11/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "lift",
+          "rule": "peak lift >=0.05m"
+        },
+        {
+          "id": "receiver_only_hold",
+          "rule": "hold>=1.4s; maximum hold-position error<=0.01m; giver force=0; bilateral receiver contact fraction>=0.95"
+        },
+        {
+          "id": "placed_and_released",
+          "rule": "terminal goal error<=0.01m and both arms have zero terminal gripper contacts"
+        },
+        {
+          "id": "positive_hsms_complete",
+          "rule": "both original HSMs succeed, no attachments or runtime cup pose writes"
+        },
+        {
+          "id": "negative_rejected",
+          "rule": "receiver-no-close blocks giver release; release count0; retained-cup terminal Z>=0.24m in the unchanged fixture frame"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/n11_dual_handoff.py"
+      ],
+      "independent_recompute_paths": [
+        "f_tier/review_native_batch.py"
+      ],
+      "needs_new_parts": "Expose source pose and giver source IK while preserving accepted handoff geometry/guards. Add bank output selection and task-relative coordinates if fixtures are transformed; do not change the0.24m retention test implicitly.",
+      "negative_control": "receiver stays open; sender must retain cup",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N11/result.json#protocol",
+      "new_pose_axis": "initial source object SE2",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for the accepted two-Panda physical cup handoff with withheld-release negative. Original dual-arm hardware and labware identity remain declared differences.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "confirmation_result": "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json",
+      "observed_original_gap": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank."
+    },
+    {
+      "id": "N13",
+      "order": 5,
+      "status": "INDEPENDENT_BANK_ALL_GATES_PASSED",
+      "acceptance_source": "f_tier/N13/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "positive_native_target_within10mm",
+          "rule": "maximum native hand goal error in terminal120steps <=0.01m"
+        },
+        {
+          "id": "zero_unintended_hood_contacts",
+          "rule": "zero actual unintended robot/self/hood/world contact events; fixed base mount excluded, zero-point LOST kept separately"
+        },
+        {
+          "id": "blocked_goal_plan_rejected",
+          "rule": "official cuRobo rejects blocked goal"
+        },
+        {
+          "id": "blocked_goal_no_joint_command",
+          "rule": "all negative joint targets hold the initialized start; no unsafe execution of rejected plan"
+        },
+        {
+          "id": "native_physics_clock",
+          "rule": "570 issued native steps match callbacks at1/120s, per accepted runner"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/N13/plan.py",
+        "f_tier/N13/native.py"
+      ],
+      "independent_recompute_paths": [],
+      "needs_new_parts": "Expose20 declared hood-interior goal poses plus planner seeds; pass planner output/world paths to native runner, preserve planner robot/world models and native contact filter. Add task-specific independent reducer (historical review_completed records the N13 review; it is not a reusable raw bank reducer). No post-result feasibility filtering/replacement.",
+      "negative_control": "blocked-goal planner refusal and native hold-start",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N13/result.json#protocol",
+      "new_pose_axis": "hood target pose",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-goal bank for official cuRobo plus native hood-contact verification. Local cuboid hood and gravity-compensated Panda are declared differences.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "independent_review_reference": "f_tier/N13/result.json#F_acceptance_review",
+      "historical_acceptance_record_script": "f_tier/review_completed.py",
+      "confirmation_result": "f_tier/current_followup/confirmation_N13_20261110/result.json",
+      "observed_original_gap": "Independent new-goal bank20/20 positive,20/20 blocked-goal negatives; maximum terminal error0.110mm, no hood contacts. Original laboratory CAD and controller/compensation implementation remain unmatched.",
+      "frozen_protocol": "f_tier/current_followup/confirmation_N13_20261110/protocol.json"
+    },
+    {
+      "id": "N14",
+      "order": 6,
+      "status": "INDEPENDENT_BANK_ALL_GATES_PASSED",
+      "acceptance_source": "f_tier/N14/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "lift",
+          "rule": "payload lift>=0.05m"
+        },
+        {
+          "id": "arrival",
+          "rule": "base terminal goal error<=0.03m, payload placement error<=0.03m, original HSM success"
+        },
+        {
+          "id": "carried_payload",
+          "rule": "maximum payload-relative-grasp translation drift<=0.015m"
+        },
+        {
+          "id": "released_stable",
+          "rule": "terminal1s zero gripper-contact fraction and destination support fraction>=0.95"
+        },
+        {
+          "id": "blocked_control",
+          "rule": "guard rejects arrival; obstacle clearance>=0.02m; retained payload terminal Z>=0.77m in unchanged station frame; no obstacle contact"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/prepare_n14.py",
+        "f_tier/n14_mobile_transport.py"
+      ],
+      "independent_recompute_paths": [
+        "f_tier/review_pose_mobile.py"
+      ],
+      "needs_new_parts": "Expose source cup SE2/plan/output for20 fresh sources (keep paired worlds); preserve native constrained-planar base, mass/force limit and collision filters. Record coordinate transforms without weakening blocked guard.",
+      "negative_control": "physical route blocker; keep payload and reject arrival",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N14/result.json#protocol",
+      "new_pose_axis": "initial source object SE2",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for source KMR constrained-planar payload transport and blocked-route rejection. Mecanum wheel contact and original laboratory layout are not reproduced.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "confirmation_result": "f_tier/current_followup/confirmation_N14_20261110/result.json",
+      "observed_original_gap": "Independent new-source bank20/20 positive,20/20 blocked-route negatives; maximum placement7.90mm and grasp drift12.24mm. Constrained SE2 base does not reproduce mecanum wheel contacts or original laboratory hardware/layout.",
+      "frozen_protocol": "f_tier/current_followup/confirmation_N14_20261110/protocol.json"
+    },
+    {
+      "id": "N15",
+      "order": 7,
+      "status": "INDEPENDENT_BANK_ALL_GATES_PASSED",
+      "acceptance_source": "f_tier/N15/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "native_turn",
+          "rule": "measured passive-valve angle span>=60deg, contact actuation only"
+        },
+        {
+          "id": "flow_coupled",
+          "rule": "at least5 active plateaus and observed-angle/flow R2>=0.99"
+        },
+        {
+          "id": "angle_tracking",
+          "rule": "maximum plateau angle tracking error<=5deg"
+        },
+        {
+          "id": "closed_negative_zero",
+          "rule": "closed-valve negative maximum flow=0mL/s"
+        },
+        {
+          "id": "complete",
+          "rule": "original HSM complete; q=5*clip(angle_deg-0.5,0,89.5)/89.5 mL/s and native-dt volume ledger unchanged"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/n15_faucet_control.py"
+      ],
+      "independent_recompute_paths": [
+        "f_tier/review_completed.py"
+      ],
+      "needs_new_parts": "Expose valve/sink fixture SE2 and robot approach IK, bank output (retain paired worlds);20 new fixture poses with original angle command sequence. Preserve passive joint, linear flow equation and threshold semantics.",
+      "negative_control": "closed valve/no-turn negative, zero semantic flow",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 20,
+        "planned_total": 40,
+        "planned_native_world_initializations": 20,
+        "rationale": "Retain the original paired positive/negative worlds for every fresh case; no branch-removal refactor is required."
+      },
+      "configuration_anchor": "f_tier/N15/result.json#protocol",
+      "new_pose_axis": "valve/sink fixture pose",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for contact-actuated valve angle/semantic flow coupling. Linear semantic flow is not independently validated hydraulics or original device implementation.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "confirmation_result": "f_tier/current_followup/confirmation_N11_N15_20261110/N15/result.json",
+      "observed_original_gap": "Independent new-fixture bank20/20 positive,20/20 closed negatives. Maximum plateau error0.226deg. Original device unavailable; linear observed-angle semantic flow is not measured hydraulics."
+    },
+    {
+      "id": "N10",
+      "order": 8,
+      "status": "NOT_STARTED_PENDING_SAMPLING_SCOPE",
+      "acceptance_source": "f_tier/N10/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "quantity",
+          "rule": "strict cup-cavity particle mass>=0.0007kg; record old proxy count separately"
+        },
+        {
+          "id": "semantic_weighing",
+          "rule": "same physical pan XY footprint/upper column particle+object inventory, empty-pan+cup tare; semantic net versus strict cup mass relative error<=0.01; cup-external pan particles cannot be discarded"
+        },
+        {
+          "id": "negative_zero",
+          "rule": "no-scoop control true cup mass0 and semantic net0; use absolute error at zero reference"
+        },
+        {
+          "id": "native_integrity",
+          "rule": "accepted HSM/finite/mass-ledger/native-clock/no-runtime-state-write checks unchanged; retain capped source lane sequence and recording"
+        },
+        {
+          "id": "physical_scale_diagnostic",
+          "rule": "physical spring remains diagnostic only; retain original failed10% gate and42-82% powder under-read, no force recalibration from particle counts"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/N10/mortar_quantity_pair/native.py",
+        "f_tier/N10/mortar_quantity_pair/adapter.py",
+        "f_tier/N10/mortar_quantity_pair/control.py"
+      ],
+      "independent_recompute_paths": [
+        "f_tier/N10/semantic_balance_guidance5.py"
+      ],
+      "needs_new_parts": "Reuse the accepted mortar_quantity_pair package, NOT obsolete N10/native.py. Expose bank output/case config and common bench-scene SE2 transform (robot, source, cup/pan, registered paths and gravity-consistent yaw only); parameterize semantic reducer currently tied to saved files and world pan rectangle. Preserve particles/materials/lanes/count thresholds and all physical diagnostics. Rebuild equivalent path transforms only; freeze varying-pose definition before B.",
+      "negative_control": "source head raised120mm as accepted no-scoop; matched lane sequence, no outcome-based negative shortening",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 1,
+        "planned_total": 21,
+        "planned_native_world_initializations": 21,
+        "rationale": "Twenty positive independent episodes and at least one matched negative; all starts retained."
+      },
+      "configuration_anchor": "f_tier/N10/mortar_quantity_pair/configuration.json",
+      "new_pose_axis": "common powder bench scene SE2 (not independent object-relative offsets)",
+      "pose_scope_limit": "Common bench transforms test frame/initial-pose robustness only, not new scoop-to-source or cup-to-pan configurations.",
+      "residual_original_gap": "No independent 20-new-pose confirmation bank of the accepted scoop/pour plus semantic weighing function. Original powder/device implementation and physical powder force metrology remain declared differences.",
+      "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects."
+    },
+    {
+      "id": "N23",
+      "order": 9,
+      "status": "INDEPENDENT_BANK_COMPLETE_WITH_FAILURES",
+      "acceptance_source": "f_tier/N23/result.json",
+      "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
+      "gates": [
+        {
+          "id": "physical_handoff",
+          "rule": "receiver-only hold>=1.4s, giver max contact0, receiver bilateral contact fraction>=0.95; release requires both contacts>0.01N for10steps"
+        },
+        {
+          "id": "fault_recovery",
+          "rule": "exactly one forced-open receiver fault; sender retains payload, legal reclose/recovery; no mid-episode world or HSM reset"
+        },
+        {
+          "id": "guarded_workflow_handoff",
+          "rule": "exactly one intermediate support/retreat guard before KMR starts; support>=1s and>0.01N, receiver retreat>=0.25m"
+        },
+        {
+          "id": "mobile_transport",
+          "rule": "base travel>=0.97m; max grasp drift<=0.015m"
+        },
+        {
+          "id": "final_release",
+          "rule": "terminal1s max placement error<=0.03m, no gripper contact, support fraction>=0.95, KMR HSM success"
+        }
+      ],
+      "reusable_runner_paths": [
+        "f_tier/prepare_n23.py",
+        "f_tier/n23_nested_workflow.py"
+      ],
+      "independent_recompute_paths": [
+        "f_tier/review_nested.py"
+      ],
+      "needs_new_parts": "Expose source cup SE2 and initialization/plans/output paths; retain one-world clock and existing observed-pose KMR pickup adaptation. Add permanent receiver-no-close negative in which the same release guard blocks downstream handoff/mobile motion (new negative selector, no new recovery algorithm). Parameterize independent reducer paths.",
+      "negative_control": "permanently open receiver; reject sender release and all downstream workflow transitions",
+      "expected_native_episodes": {
+        "positive": 20,
+        "negative_minimum": 1,
+        "total_minimum": 21,
+        "counting": "one initialized physical task branch is one episode; if legacy paired branches cannot be separated without behavior changes, run20 paired cases=40 episodes and report every branch. Pre-physics failures/interruptions are retained separately, never replaced or erased.",
+        "planned_positive": 20,
+        "planned_negative": 1,
+        "planned_total": 21,
+        "planned_native_world_initializations": 21,
+        "rationale": "Twenty positive independent episodes and at least one matched negative; all starts retained."
+      },
+      "configuration_anchor": "f_tier/N23/result.json#protocol",
+      "new_pose_axis": "initial source object SE2",
+      "pose_scope_limit": "Ranges, seed block and exclusions must be frozen before any B launch; no outcome-based case replacement.",
+      "residual_original_gap": "No independent 20-new-pose bank for same-world two-arm plus KMR nested workflow with injected-fault recovery. Scripted coordination, privileged guards and constrained base remain declared differences.",
+      "negative_gate_note": "Permanent-open negative has not been run in this N23 runner; its safety expectations require reviewer approval before protocol freezing.",
+      "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
+      "confirmation_result": "f_tier/current_followup/confirmation_N23_20261110/result.json",
+      "observed_original_gap": "Independent new-source bank15/20 positive; permanent-open negative blocks release and downstream movement. Three retreat-IK controller exceptions and two downstream workflow failures all count in20. Original coordination implementation, privileged guards and constrained mobile base remain differences.",
+      "frozen_protocol": "f_tier/current_followup/confirmation_N23_20261110/protocol.json"
+    }
+  ],
+  "expected_native_episodes_planned": 322,
+  "episode_counting_note": "Planned322 branch-episodes: seven20-case paired banks=280, plus N10 and N23 at21 each. Minimum189 is only the protocol floor if branch isolation is separately approved. Simultaneously simulated positive/negative branches both count;20 paired scenes is40 episodes, not20."
+}

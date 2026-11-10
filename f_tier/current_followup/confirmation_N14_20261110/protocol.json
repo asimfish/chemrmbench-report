@@ -1,0 +1,364 @@
+{
+  "id": "N14_KMR_independent_source_bank_20261110",
+  "frozen_utc": "2026-11-10T11:20:10.389546+00:00",
+  "authority": "Guidance13 StepB next independent task banks; current user continue. Each task gated by its own nominal pair; no learning or gate relaxation.",
+  "stage": "B_FIRST_THREE_BANKS",
+  "tasks": [
+    "N14"
+  ],
+  "new_seeds": {
+    "N14": [
+      2026111800,
+      2026111819
+    ]
+  },
+  "distribution": "Source cup and pedestal xy+/-20mm,cup yaw+/-30deg; base route/destination/obstacle fixed. No rejection sampling or post-result replacement.",
+  "episode_denominators": {
+    "new_positive": 20,
+    "new_blocked_route": 20,
+    "nominal_controls": 2,
+    "total": 42
+  },
+  "physics": "Unchanged CPU PhysX120Hz, Panda native hand, original matterix_sm HSM, native joint drives/force/stiffness/geometry/materials and original max_seconds; no C3 or learning updates.",
+  "expert": "Original KMR HSM/native forces, same source-model FK and fixed station posture anchors; source pose adapter only. Constrained SE2 base, no wheel-contact claim.",
+  "gates": {
+    "frozen_before_native_execution_utc": "2026-10-19T11:53:41.830272+00:00",
+    "source_urdf": "assets/third_party/guided_tamp_kmr_r1/guided_tamp_benchmark/models/data/robots/kuka_kmr_iiwa/kuka_kmr_iiwa.urdf",
+    "scope": "Source constrained SE2 planar base joints+iiwa7+Panda hand; native force drives and real100g payload; no mecanum wheel contact claim.",
+    "source_cup_bottom_m": [
+      0.7,
+      -0.2,
+      0.72
+    ],
+    "goal_cup_bottom_m": [
+      0.7,
+      0.8,
+      0.72
+    ],
+    "base_goal_translation_m": [
+      0,
+      1,
+      0
+    ],
+    "local_gates": [
+      {
+        "id": "lift",
+        "minimum_lift_m": 0.05
+      },
+      {
+        "id": "arrival",
+        "base_goal_error_m": 0.03,
+        "payload_terminal_placement_error_m": 0.03
+      },
+      {
+        "id": "carried_payload",
+        "maximum_relative_grasp_translation_drift_m": 0.015
+      },
+      {
+        "id": "released_stable",
+        "terminal_duration_s": 1,
+        "gripper_contact_fraction": 0,
+        "destination_support_contact_fraction": 0.95
+      },
+      {
+        "id": "blocked_control",
+        "minimum_base_hull_obstacle_clearance_m": 0.02,
+        "must_reject_arrival": true,
+        "payload_retained": true
+      }
+    ],
+    "negative": "Same source pick and requested base goal, but known physical obstacle blocks route; privileged obstacle guard stops before contact, keeps payload held, and refuses arrival.",
+    "no_runtime_object_pose_writes": true,
+    "no_attachments": true
+  },
+  "unchanged_source_reviews": [
+    "f_tier/N14/result.json#F_acceptance_review"
+  ],
+  "source_changes": [
+    {
+      "original_sha256": "b79e711a3956db410686b1029ef9a6deded82217f00ab80d3b1a5a4b8c523aa0",
+      "executed_sha256": "523029d92e72e718aa6acbcaae522e80721063355ad976c36cefb54e157ba71c",
+      "changes": [
+        "isolated outputs; required input model/protocol/motion plan kept separate",
+        "source cup/support xy and initial yaw",
+        "source-side per-phase IK anchors; invariant lower/release/retreat use frozen nominal q",
+        "actual joint/body name metadata for independent FK"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "N14_2026111800",
+      "task": "N14",
+      "seed": 2026111800,
+      "source_position_m": [
+        0.7074680498506168,
+        -0.21013413687977786,
+        0.72
+      ],
+      "source_yaw_deg": -10.09142278145033,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111801",
+      "task": "N14",
+      "seed": 2026111801,
+      "source_position_m": [
+        0.7003499242286362,
+        -0.20585964699518755,
+        0.72
+      ],
+      "source_yaw_deg": -3.265690699030724,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111802",
+      "task": "N14",
+      "seed": 2026111802,
+      "source_position_m": [
+        0.7027885808405726,
+        -0.2148066014792438,
+        0.72
+      ],
+      "source_yaw_deg": -3.4495011580176858,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111803",
+      "task": "N14",
+      "seed": 2026111803,
+      "source_position_m": [
+        0.7100420881574845,
+        -0.20490664639240538,
+        0.72
+      ],
+      "source_yaw_deg": 4.825961054904923,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111804",
+      "task": "N14",
+      "seed": 2026111804,
+      "source_position_m": [
+        0.7168196698147183,
+        -0.18543493182827844,
+        0.72
+      ],
+      "source_yaw_deg": 15.017973547009092,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111805",
+      "task": "N14",
+      "seed": 2026111805,
+      "source_position_m": [
+        0.7102710278193035,
+        -0.21545512350078957,
+        0.72
+      ],
+      "source_yaw_deg": -2.6707208546402796,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111806",
+      "task": "N14",
+      "seed": 2026111806,
+      "source_position_m": [
+        0.7191526004766988,
+        -0.21595885681325766,
+        0.72
+      ],
+      "source_yaw_deg": 10.5113513438516,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111807",
+      "task": "N14",
+      "seed": 2026111807,
+      "source_position_m": [
+        0.6962142825719707,
+        -0.18352377350173757,
+        0.72
+      ],
+      "source_yaw_deg": -4.811635647329663,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111808",
+      "task": "N14",
+      "seed": 2026111808,
+      "source_position_m": [
+        0.6991978279949261,
+        -0.18461334213787456,
+        0.72
+      ],
+      "source_yaw_deg": -28.543139055963305,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111809",
+      "task": "N14",
+      "seed": 2026111809,
+      "source_position_m": [
+        0.686280795339589,
+        -0.1880971053567008,
+        0.72
+      ],
+      "source_yaw_deg": -25.142439404995663,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111810",
+      "task": "N14",
+      "seed": 2026111810,
+      "source_position_m": [
+        0.6836394878274018,
+        -0.2095882954259018,
+        0.72
+      ],
+      "source_yaw_deg": -0.5530840799836092,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111811",
+      "task": "N14",
+      "seed": 2026111811,
+      "source_position_m": [
+        0.709566691432149,
+        -0.2154022729180239,
+        0.72
+      ],
+      "source_yaw_deg": 29.016759618956755,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111812",
+      "task": "N14",
+      "seed": 2026111812,
+      "source_position_m": [
+        0.6948328255924613,
+        -0.20903900494689598,
+        0.72
+      ],
+      "source_yaw_deg": 16.353663015069756,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111813",
+      "task": "N14",
+      "seed": 2026111813,
+      "source_position_m": [
+        0.6825196667361887,
+        -0.21391794687347418,
+        0.72
+      ],
+      "source_yaw_deg": 9.429774817341901,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111814",
+      "task": "N14",
+      "seed": 2026111814,
+      "source_position_m": [
+        0.7016191771654753,
+        -0.20848858392313926,
+        0.72
+      ],
+      "source_yaw_deg": -10.023056911361998,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111815",
+      "task": "N14",
+      "seed": 2026111815,
+      "source_position_m": [
+        0.6823828832418344,
+        -0.19050950392614527,
+        0.72
+      ],
+      "source_yaw_deg": 3.0784058384897364,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111816",
+      "task": "N14",
+      "seed": 2026111816,
+      "source_position_m": [
+        0.7163879189437505,
+        -0.18753975099498532,
+        0.72
+      ],
+      "source_yaw_deg": -0.29087434075943364,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111817",
+      "task": "N14",
+      "seed": 2026111817,
+      "source_position_m": [
+        0.7168470894668193,
+        -0.2098271388188657,
+        0.72
+      ],
+      "source_yaw_deg": 11.761552940533697,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111818",
+      "task": "N14",
+      "seed": 2026111818,
+      "source_position_m": [
+        0.6836024954440887,
+        -0.21837386048744528,
+        0.72
+      ],
+      "source_yaw_deg": 2.152065732589776,
+      "max_native_s": 55
+    },
+    {
+      "id": "N14_2026111819",
+      "task": "N14",
+      "seed": 2026111819,
+      "source_position_m": [
+        0.6888515046960824,
+        -0.21618581649185206,
+        0.72
+      ],
+      "source_yaw_deg": 5.418378292701291,
+      "max_native_s": 55
+    }
+  ],
+  "execution": {
+    "platform": "TRX50 shared-load GPU0 graphics/CPU PhysX",
+    "max_native_processes": 6,
+    "force_gate_physics_device": "cpu",
+    "mandatory_nominal_controls_per_task": 1,
+    "qualification_failure": "block only that task fresh bank; retain all failed control data; other qualified task proceeds",
+    "no_threshold_adaptation_after_results": true,
+    "runtime_outputs": "local NVMe, per-case async archives; NAS copy after complete branches",
+    "native_concurrency": 4
+  },
+  "limitations": [
+    "Local source KMR planar joints and Panda hand; no mecanum wheels/real lidar.",
+    "No original hardware/CAD identity or fluid manipulation.",
+    "Shared-load CPU PhysX; actual arm/base/support contacts recorded."
+  ],
+  "controls": [
+    {
+      "id": "N14_nominal_precheck",
+      "task": "N14",
+      "kind": "nominal_precheck",
+      "source_position_m": [
+        0.7,
+        -0.2,
+        0.72
+      ],
+      "source_yaw_deg": 0.0,
+      "max_native_s": 55
+    }
+  ],
+  "mandatory_prechecks": "Each task independent: its nominal paired control must satisfy all original physical gates before any fresh cases of that task.",
+  "status": "FROZEN_BEFORE_NOMINAL_PHYSICS",
+  "independent_reducer_sha256": "3ce6f405472852e99b689ee84f9bd442c45fca9e87ae29e7fa6523ae0c8749be",
+  "independent_reducer_historical_FK_max_error_m": 4.7472902629203687e-07
+}

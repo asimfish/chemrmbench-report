@@ -1,0 +1,31 @@
+{
+  "case": "N11_nominal_precheck",
+  "task": "N11",
+  "positive_success": false,
+  "negative_success": true,
+  "pair_pass": false,
+  "complete": true,
+  "positive_gates": {
+    "native_clock": true,
+    "lift": true,
+    "receiver_only_hold": false,
+    "placed_released": false,
+    "HSMs_complete": true
+  },
+  "negative_gates": {
+    "withheld_release": true
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.2082970869541168,
+    "hold_duration_s": 1.5,
+    "hold_max_error_m": 0.015108969393046179,
+    "giver_max_contact_N": 0.0,
+    "receiver_bilateral_contact_fraction": 1.0,
+    "terminal_mean_placement_error_m": 0.016133882680352013,
+    "negative_min_terminal_z_m": 0.24753351509571075,
+    "negative_blocked_samples": 1448
+  },
+  "producer_gates_not_used": true,
+  "status": "NOMINAL_QUALIFICATION_FAILED_FRESH_BANK_NOT_STARTED",
+  "not_a_20_episode_estimate": true
+}

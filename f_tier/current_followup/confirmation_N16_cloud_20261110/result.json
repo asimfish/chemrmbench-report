@@ -1,0 +1,56 @@
+{
+  "task": "N16",
+  "status": "INTERRUPTED_BANK_STOP_REASON_UNKNOWN",
+  "planned_fixed_cases": 20,
+  "launch_intents": 20,
+  "complete_cases": 1,
+  "completed_positive_pass": 1,
+  "incomplete_or_unavailable_cases": 19,
+  "conservative_all_started_positive_pass": 1,
+  "conservative_all_started_denominator": 20,
+  "interpretation": "Not a completed controller reliability estimate: 19 launch intents have no complete retrieved native data after the cloud job stopped. No replacement or denominator exclusion.",
+  "job_id": "job-n2ise1todsqi",
+  "stop_reason": "UNKNOWN",
+  "protocol": "protocol.json",
+  "receipt": "stop_receipt.json",
+  "resumption": "Await user clarification whether stop was deliberate; no resumed job submitted.",
+  "earlier_missing_plan_diagnostics": "../confirmation_banks_20261110/N16/result.json",
+  "original_identity_established": false,
+  "F_status_changed": false,
+  "completed_case_independent_recomputation": {
+    "case": "N16_2026111300",
+    "task": "N16",
+    "complete": true,
+    "positive_success": true,
+    "negative_success": true,
+    "pair_pass": true,
+    "positive_gates": {
+      "clock_and_complete_terminal_window": true,
+      "lift": true,
+      "placement_mean": true,
+      "placement_maximum": true,
+      "released": true,
+      "positive_hsm_complete": true
+    },
+    "negative_gates": {
+      "no_close_lift_rejected": true,
+      "negative_hsm_complete": true
+    },
+    "metrics": {
+      "positive_peak_lift_m": 0.14670818865299223,
+      "negative_peak_lift_m": 0.0006393623352050765,
+      "terminal_max_error_m": 0.004400725321890027,
+      "terminal_mean_error_m": 0.004400364027604448,
+      "terminal_max_speed_m_s": 0.0016686592961445133,
+      "native_steps_per_branch": 1390
+    },
+    "producer_gate_diagnostic_only": {
+      "lift": true,
+      "placement": true,
+      "released": true,
+      "negative_rejected": true,
+      "run_complete": true
+    },
+    "producer_result_not_used_as_acceptance": true
+  }
+}

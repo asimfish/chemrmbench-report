@@ -1,0 +1,73 @@
+{
+  "schema": "independent_confirmation_progress_v1",
+  "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+  "F_core_pass": 36,
+  "F_core_total": 36,
+  "original_identity_complete": false,
+  "closed_banks": 6,
+  "planned_banks": 9,
+  "remaining_banks": [
+    "N10",
+    "N11",
+    "N16"
+  ],
+  "positive_results": {
+    "N13": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N13_20261110/result.json"
+    },
+    "N14": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N14_20261110/result.json"
+    },
+    "N15": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N11_N15_20261110/N15/result.json"
+    },
+    "N19": {
+      "pass": 15,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_prepared_20261110/N19/result.json"
+    },
+    "N21": {
+      "pass": 20,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_banks_20261110/N21/result.json"
+    },
+    "N23": {
+      "pass": 15,
+      "denominator": 20,
+      "result": "f_tier/current_followup/confirmation_N23_20261110/result.json"
+    }
+  },
+  "failure_accounting": {
+    "N19": "Five placement failures; one also fails eight-tube retention;19/20 retain samples. All20 complete.",
+    "N23": "Three controller IK exceptions plus two completed workflow failures. All20 count; no failed case replacement.",
+    "N16": "20 launch intents,one complete/pass,19 unavailable/incomplete after job STOPPED; not a controller reliability estimate."
+  },
+  "negative_controls": {
+    "N13": "20/20",
+    "N14": "20/20",
+    "N15": "20/20",
+    "N19": "20/20",
+    "N21": "20/20",
+    "N23": "1/1 permanent-open control"
+  },
+  "blockers": {
+    "N10": "Independent powder bank not started. Await scope choice: whole-bench SE2 variation with fixed relative geometry tests coordinate robustness only, while new relative layouts require a different planner. Semantic mass ledger is the accepted local weighing gate; physical force-scale failures remain diagnostics.",
+    "N11": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank.",
+    "N16": "Prepared-plan cloud bank stopped for unknown reason after20 launch intents: one complete/pass,19 without complete retrieved data. Not a completed reliability estimate; retain all starts. Local nominal qualification failed16.51mm placement. Earlier free-IK diagnostics do not confirm the accepted prepared expert."
+  },
+  "resource_limitations": {
+    "PRO6000": "2026-11-10 read-only probe: existing Isaac environment absent; /nix read-only, /dev/shm ~2.4GB free, /personal_fast_storage ~1.4GB free. External processes untouched.",
+    "cloud_N19": "Prepared-plan cloud nominal timed out before physics; same controller qualified and bank completed locally. Cause not established."
+  },
+  "scientific_boundary": "Independent recomputation is by separate raw-trace reducers, not an external human audit. New banks are local functional evidence, not original identity, C3 motion qualification or OPD benefits. Existing videos are historical nominal demonstrations, not new-bank footage; raw states/scenes retained for replay.",
+  "waiting_on_user": [
+    "N16 stop intent",
+    "N10 sampling-scope choice"
+  ]
+}

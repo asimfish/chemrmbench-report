@@ -1,0 +1,431 @@
+{
+  "id": "O_confirmation_prepared_contract_N16_N19_20261110_cloud_frozen_cache",
+  "frozen_utc": "2026-11-10T10:20:21.037859+00:00",
+  "authority": "Same authorized StepB, correction of missing prepared-expert dependency. Earlier N16 free-IK diagnostic and N19 timeout attempts retained, not pooled. No threshold/physics/HSM change.",
+  "stage": "B_FIRST_THREE_BANKS",
+  "tasks": [
+    "N16"
+  ],
+  "new_seeds": {
+    "N16": [
+      2026111300,
+      2026111319
+    ],
+    "N19": [
+      2026111400,
+      2026111419
+    ]
+  },
+  "distribution": {
+    "source_xy_m": "+/-0.020 uniform independently around(.35,-.4), source/support moved together; target and robot mounts unchanged",
+    "source_yaw_deg": {
+      "N16": 30,
+      "N19": 10,
+      "N21": 30
+    },
+    "N19_yaw_scope": "Narrower declared10deg yaw family keeps the rack inside nominal80mm jaw opening; fixed expert orientation is unchanged. Not a30deg rack-yaw claim.",
+    "sampling": "stdlib random.Random(case seed), no result-based exclusions or seed replacement; newly specified prefixes do not overlap any recorded training or prior validation seed segments"
+  },
+  "episode_denominators": {
+    "new_positive": 20,
+    "new_no_close": 20,
+    "new_physical_branches": 40,
+    "nominal_qualifiers": "reused recorded controls on this exact route, not resampled to obtain a pass",
+    "all_earlier_launches_preserved": true
+  },
+  "physics": "Unchanged CPU PhysX120Hz, Panda native hand, original matterix_sm HSM, native joint drives/force/stiffness/geometry/materials and original max_seconds; no C3 or learning updates.",
+  "expert": "Required frozen nominal phase posture anchors. Invariant station commands copied exactly; source-dependent geometric IK retargets each phase from its own nominal posture. This is a declared pose-input adapter, not exact source-code identity. Original HSM/drives/physics/gates remain unchanged.",
+  "gates": {
+    "common": {
+      "min_peak_lift_m": 0.05,
+      "max_terminal_mean_and_max_position_error_m": 0.01,
+      "terminal_native_steps": 120,
+      "terminal_gripper_contact_samples": 0,
+      "positive_and_negative_hsm_success": true,
+      "negative_peak_lift_m_strict_upper": 0.02
+    },
+    "N19": {
+      "sample_count": 8,
+      "sample_pocket_xy_error_m_strict_upper": 0.006,
+      "sample_local_z_error_m_strict_upper": 0.012,
+      "sample_local_z_reference_m": 0.036
+    },
+    "N21": {
+      "native_support_force_N_strict_lower": 0.01,
+      "terminal_support_fraction_min": 0.95
+    },
+    "provenance": "Accepted local result and independent review. Not original-paper thresholds. Strict terminal max-error reproduces accepted independent reviews, not just producer mean."
+  },
+  "unchanged_source_reviews": [
+    "f_tier/N16/result.json#F_acceptance_review",
+    "f_tier/N19/result.json#F_acceptance_review",
+    "f_tier/N21/result.json#F_acceptance_review"
+  ],
+  "source_changes": [
+    {
+      "task": "N16",
+      "nominal_plan_sha256": "976186b42a9885a8f32f42ee1dc3af9fb7c9fc7217a914ce5114ed4ea42d5b96",
+      "native_source_sha256": "38c8c759505011c8e8d350617af4fc308ffae0f5617a2acb8b5520d9a76e0e1c",
+      "zero_offset_all_phase_target_match": true,
+      "zero_offset_joint_commands_copied_exactly": true,
+      "planner": "same phase-anchor adapter already used for N17/N18 on Oct28; fixed goal commands preserved exactly, new source points solved from their own nominal posture",
+      "original_HSM_physics_and_gates_unchanged": true,
+      "new_adapter_scope_declared": true
+    },
+    {
+      "task": "N19",
+      "nominal_plan_sha256": "26569d74eb2b001d4e55fd28f4dfc6e2fa21e163eae0823c48a412c53daa0b39",
+      "native_source_sha256": "38c8c759505011c8e8d350617af4fc308ffae0f5617a2acb8b5520d9a76e0e1c",
+      "zero_offset_all_phase_target_match": true,
+      "zero_offset_joint_commands_copied_exactly": true,
+      "planner": "same phase-anchor adapter already used for N17/N18 on Oct28; fixed goal commands preserved exactly, new source points solved from their own nominal posture",
+      "original_HSM_physics_and_gates_unchanged": true,
+      "new_adapter_scope_declared": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "N16_2026111300",
+      "task": "N16",
+      "seed": 2026111300,
+      "source_position_m": [
+        0.3374270797612636,
+        -0.38148952848910966,
+        0.08
+      ],
+      "source_yaw_deg": 11.092130847453191,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111301",
+      "task": "N16",
+      "seed": 2026111301,
+      "source_position_m": [
+        0.35774456963012563,
+        -0.4116143744872617,
+        0.08
+      ],
+      "source_yaw_deg": -17.54922045983122,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111302",
+      "task": "N16",
+      "seed": 2026111302,
+      "source_position_m": [
+        0.3693336891289468,
+        -0.4126164552221075,
+        0.08
+      ],
+      "source_yaw_deg": -6.703526026701823,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111303",
+      "task": "N16",
+      "seed": 2026111303,
+      "source_position_m": [
+        0.3615660976958875,
+        -0.4044020289784935,
+        0.08
+      ],
+      "source_yaw_deg": -12.952555248535177,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111304",
+      "task": "N16",
+      "seed": 2026111304,
+      "source_position_m": [
+        0.3366086997815148,
+        -0.3806176747652187,
+        0.08
+      ],
+      "source_yaw_deg": -29.679012818422766,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111305",
+      "task": "N16",
+      "seed": 2026111305,
+      "source_position_m": [
+        0.33166377944790215,
+        -0.3990037620998179,
+        0.08
+      ],
+      "source_yaw_deg": -19.50715288992848,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111306",
+      "task": "N16",
+      "seed": 2026111306,
+      "source_position_m": [
+        0.36419775382274333,
+        -0.4095684041818939,
+        0.08
+      ],
+      "source_yaw_deg": -17.71568736269511,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111307",
+      "task": "N16",
+      "seed": 2026111307,
+      "source_position_m": [
+        0.36945101630000204,
+        -0.40742241532224244,
+        0.08
+      ],
+      "source_yaw_deg": -17.216274091432513,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111308",
+      "task": "N16",
+      "seed": 2026111308,
+      "source_position_m": [
+        0.348979484772303,
+        -0.4165278938993716,
+        0.08
+      ],
+      "source_yaw_deg": -4.920622842987562,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111309",
+      "task": "N16",
+      "seed": 2026111309,
+      "source_position_m": [
+        0.3658434927912512,
+        -0.4180497587837106,
+        0.08
+      ],
+      "source_yaw_deg": -21.475330992854566,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111310",
+      "task": "N16",
+      "seed": 2026111310,
+      "source_position_m": [
+        0.36291525294911775,
+        -0.4003601385737994,
+        0.08
+      ],
+      "source_yaw_deg": -6.076951715113694,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111311",
+      "task": "N16",
+      "seed": 2026111311,
+      "source_position_m": [
+        0.366928782152926,
+        -0.40969003849260255,
+        0.08
+      ],
+      "source_yaw_deg": -7.888156664020126,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111312",
+      "task": "N16",
+      "seed": 2026111312,
+      "source_position_m": [
+        0.3582317781363668,
+        -0.38525494698284696,
+        0.08
+      ],
+      "source_yaw_deg": -3.9912941398307638,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111313",
+      "task": "N16",
+      "seed": 2026111313,
+      "source_position_m": [
+        0.3483452095642397,
+        -0.4026526044869957,
+        0.08
+      ],
+      "source_yaw_deg": -8.785879120335295,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111314",
+      "task": "N16",
+      "seed": 2026111314,
+      "source_position_m": [
+        0.36358866030012293,
+        -0.4010903761678948,
+        0.08
+      ],
+      "source_yaw_deg": -0.2103715742359249,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111315",
+      "task": "N16",
+      "seed": 2026111315,
+      "source_position_m": [
+        0.34449174162648166,
+        -0.4037256378933784,
+        0.08
+      ],
+      "source_yaw_deg": 10.506717620420083,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111316",
+      "task": "N16",
+      "seed": 2026111316,
+      "source_position_m": [
+        0.348746079651532,
+        -0.4164156070299801,
+        0.08
+      ],
+      "source_yaw_deg": 5.396828595324521,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111317",
+      "task": "N16",
+      "seed": 2026111317,
+      "source_position_m": [
+        0.361123866453928,
+        -0.382702532124864,
+        0.08
+      ],
+      "source_yaw_deg": 10.44695144899029,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111318",
+      "task": "N16",
+      "seed": 2026111318,
+      "source_position_m": [
+        0.33154754180684354,
+        -0.40926535777113404,
+        0.08
+      ],
+      "source_yaw_deg": 9.084109515190299,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    },
+    {
+      "id": "N16_2026111319",
+      "task": "N16",
+      "seed": 2026111319,
+      "source_position_m": [
+        0.3323141053846089,
+        -0.3972828976032733,
+        0.08
+      ],
+      "source_yaw_deg": 8.788083625461482,
+      "max_native_s": 35.0,
+      "paired_branches": [
+        "positive",
+        "no_close"
+      ]
+    }
+  ],
+  "execution": {
+    "preferred": "cloud_frozen_cache",
+    "concurrency_max_per_gpu": 6,
+    "initial_memory_probe": "First formal N16 case, kept in denominator; measure peak memory before increasing concurrency. At least1.5x measured incremental peak free before launching additional workers. Sample every5s; stop own processes only below4GiB free.",
+    "output": "local job scratch per case, completed case copied to project/bucket asynchronously; local ledger authoritative",
+    "timeout_wall_s_per_context": 900
+  },
+  "limitations": [
+    "No original author hardware/CAD identity claim",
+    "N16/N21 axial symmetry makes yaw a weak visual/geometric perturbation",
+    "Fresh positions share the original local task family; no new class/task-space claim",
+    "No formal result is used to change this frozen protocol."
+  ],
+  "controls": [],
+  "mandatory_prechecks": "Previously recorded passing nominal paired control on this route, re-audited before any fresh state starts.",
+  "route_amendment": {
+    "frozen_utc": "2026-11-10T10:43:19.719107+00:00",
+    "reason": "Same cases assigned to a platform on which the unchanged task already passed nominal physical gates. Cloud N19 times out; local N16 fails16.5mm placement. These failures remain. No fresh pose result has been observed.",
+    "same_unvisited_case_seeds": true,
+    "no_success_gate_change": true,
+    "qualification_reference": "recovered/N16_nominal_precheck/result.json",
+    "claim_boundary": "Local functional confirmation on declared platform; no cross-platform physics equivalence claim."
+  }
+}

@@ -1,0 +1,888 @@
+{
+  "task": "N19",
+  "status": "INDEPENDENT_BANK_COMPLETE_WITH_FAILURES",
+  "platform": "TRX50 shared-load GPU0 graphics; CPU PhysX;6 native processes maximum",
+  "protocol": "../protocol_N19_local.json",
+  "positive_pass": 15,
+  "positive_denominator": 20,
+  "positive_wilson95": [
+    0.531299122381256,
+    0.8881382985923343
+  ],
+  "negative_gate_pass": 20,
+  "negative_denominator": 20,
+  "all_samples_retained_episodes": 19,
+  "failure_summary": [
+    {
+      "case": "N19_2026111400",
+      "failed_gates": [
+        "placement_mean",
+        "placement_maximum"
+      ],
+      "terminal_error_mm": 10.294339352090786
+    },
+    {
+      "case": "N19_2026111403",
+      "failed_gates": [
+        "placement_mean",
+        "placement_maximum",
+        "all_eight_samples_retained"
+      ],
+      "terminal_error_mm": 11.595762545222362
+    },
+    {
+      "case": "N19_2026111410",
+      "failed_gates": [
+        "placement_mean",
+        "placement_maximum"
+      ],
+      "terminal_error_mm": 13.081554951971126
+    },
+    {
+      "case": "N19_2026111413",
+      "failed_gates": [
+        "placement_mean",
+        "placement_maximum"
+      ],
+      "terminal_error_mm": 10.395768628030257
+    },
+    {
+      "case": "N19_2026111414",
+      "failed_gates": [
+        "placement_mean",
+        "placement_maximum"
+      ],
+      "terminal_error_mm": 11.453407507097246
+    }
+  ],
+  "physical_branches": 40,
+  "incomplete_or_excluded": 0,
+  "original_HSM_physics_and_gates_unchanged": true,
+  "declared_adapter": "Nominal per-phase posture anchors preserve fixed targets; source-phase geometric retargeting, as predeclared. Not original source-code identity.",
+  "no_original_identity_claim": true,
+  "F_status_changed": false,
+  "earlier_cloud_timeouts_preserved": "../platform_diagnosis.json",
+  "not_pooled_with_prior_diagnostics": true,
+  "cases": [
+    {
+      "case": "N19_2026111400",
+      "task": "N19",
+      "complete": true,
+      "positive_success": false,
+      "negative_success": true,
+      "pair_pass": false,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": false,
+        "placement_maximum": false,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14438181936740874,
+        "negative_peak_lift_m": 2.1886825561506784e-06,
+        "terminal_max_error_m": 0.010294339352090785,
+        "terminal_mean_error_m": 0.010294205716412529,
+        "terminal_max_speed_m_s": 0.001175783398050619,
+        "native_steps_per_branch": 1420,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0010158421403479087,
+        "max_pocket_z_m": 8.279822246576307e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": false,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111401",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.1449431163072586,
+        "negative_peak_lift_m": 3.246665000913862e-06,
+        "terminal_max_error_m": 0.0053305815319165594,
+        "terminal_mean_error_m": 0.00532990516262948,
+        "terminal_max_speed_m_s": 0.001191537628158464,
+        "native_steps_per_branch": 1412,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0009133952652869573,
+        "max_pocket_z_m": 9.81340511983786e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111402",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.1447786521911621,
+        "negative_peak_lift_m": 0.0001190137863159163,
+        "terminal_max_error_m": 0.002616307409490221,
+        "terminal_mean_error_m": 0.0026161746552760155,
+        "terminal_max_speed_m_s": 0.0006571279391152981,
+        "native_steps_per_branch": 1420,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011291336054224904,
+        "max_pocket_z_m": 5.652344189574499e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111403",
+      "task": "N19",
+      "complete": true,
+      "positive_success": false,
+      "negative_success": true,
+      "pair_pass": false,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": false,
+        "placement_maximum": false,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": false
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.1447691750526428,
+        "negative_peak_lift_m": 0.00010581135749816728,
+        "terminal_max_error_m": 0.011595762545222363,
+        "terminal_mean_error_m": 0.011595652897257686,
+        "terminal_max_speed_m_s": 0.0006962559780589404,
+        "native_steps_per_branch": 1410,
+        "min_retained_samples": 7,
+        "max_pocket_xy_m": 0.035661935079370044,
+        "max_pocket_z_m": 0.11000029162969657
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": false,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": false
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111404",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14503009438514708,
+        "negative_peak_lift_m": 5.781650543046357e-08,
+        "terminal_max_error_m": 0.009898768657329915,
+        "terminal_mean_error_m": 0.009898667318351012,
+        "terminal_max_speed_m_s": 0.0006806464884589076,
+        "native_steps_per_branch": 1424,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011889222701285712,
+        "max_pocket_z_m": 7.452556058454296e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111405",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.1441477221250534,
+        "negative_peak_lift_m": 2.447336912154985e-05,
+        "terminal_max_error_m": 0.007152512286442045,
+        "terminal_mean_error_m": 0.007152300465424724,
+        "terminal_max_speed_m_s": 0.0010857497080052488,
+        "native_steps_per_branch": 1419,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.001161145105855215,
+        "max_pocket_z_m": 7.876196047446049e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111406",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14488842904567717,
+        "negative_peak_lift_m": 1.2209713459013227e-05,
+        "terminal_max_error_m": 0.00996130657705146,
+        "terminal_mean_error_m": 0.009961048508483155,
+        "terminal_max_speed_m_s": 0.000968309834499986,
+        "native_steps_per_branch": 1424,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0009142092476684785,
+        "max_pocket_z_m": 8.165199996967853e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111407",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.144898025393486,
+        "negative_peak_lift_m": 2.5898218154740693e-07,
+        "terminal_max_error_m": 0.004810898619417149,
+        "terminal_mean_error_m": 0.004810397489246598,
+        "terminal_max_speed_m_s": 0.0010791245504260668,
+        "native_steps_per_branch": 1410,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0009368574031650372,
+        "max_pocket_z_m": 8.648697898613888e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111408",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14470265626907347,
+        "negative_peak_lift_m": 4.4524669647050263e-07,
+        "terminal_max_error_m": 0.005748032604159919,
+        "terminal_mean_error_m": 0.005747529470248127,
+        "terminal_max_speed_m_s": 0.0005117288033159533,
+        "native_steps_per_branch": 1420,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0009770853957087391,
+        "max_pocket_z_m": 5.717936514201827e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111409",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.144898025393486,
+        "negative_peak_lift_m": 8.103251457197702e-07,
+        "terminal_max_error_m": 0.007086662610975332,
+        "terminal_mean_error_m": 0.007086372722035674,
+        "terminal_max_speed_m_s": 0.0010512799913398661,
+        "native_steps_per_branch": 1419,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011911430560359098,
+        "max_pocket_z_m": 1.1502634014726176e-06
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111410",
+      "task": "N19",
+      "complete": true,
+      "positive_success": false,
+      "negative_success": true,
+      "pair_pass": false,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": false,
+        "placement_maximum": false,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14502401471138,
+        "negative_peak_lift_m": 5.781650543046357e-08,
+        "terminal_max_error_m": 0.013081554951971127,
+        "terminal_mean_error_m": 0.013081425088830052,
+        "terminal_max_speed_m_s": 0.0011410685535269065,
+        "native_steps_per_branch": 1418,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.00103834029026935,
+        "max_pocket_z_m": 9.056723533559796e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": false,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111411",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14487071156501768,
+        "negative_peak_lift_m": 1.632243394851518e-05,
+        "terminal_max_error_m": 0.004644141047190916,
+        "terminal_mean_error_m": 0.004643664445250644,
+        "terminal_max_speed_m_s": 0.0011094748128904785,
+        "native_steps_per_branch": 1410,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0010745063582739288,
+        "max_pocket_z_m": 7.816043709057974e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111412",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14497734427452086,
+        "negative_peak_lift_m": 4.6653747558592085e-05,
+        "terminal_max_error_m": 0.009999496995362218,
+        "terminal_mean_error_m": 0.009999305747637315,
+        "terminal_max_speed_m_s": 0.0010750545086179828,
+        "native_steps_per_branch": 1409,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.000923869244778732,
+        "max_pocket_z_m": 9.017277904435628e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111413",
+      "task": "N19",
+      "complete": true,
+      "positive_success": false,
+      "negative_success": true,
+      "pair_pass": false,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": false,
+        "placement_maximum": false,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14479374706745146,
+        "negative_peak_lift_m": 2.5166273117063764e-05,
+        "terminal_max_error_m": 0.010395768628030258,
+        "terminal_mean_error_m": 0.010395637063314886,
+        "terminal_max_speed_m_s": 0.0008283689034312525,
+        "native_steps_per_branch": 1413,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011731845160394814,
+        "max_pocket_z_m": 7.51277130645045e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": false,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111414",
+      "task": "N19",
+      "complete": true,
+      "positive_success": false,
+      "negative_success": true,
+      "pair_pass": false,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": false,
+        "placement_maximum": false,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14491729259490965,
+        "negative_peak_lift_m": 2.2662878036497358e-05,
+        "terminal_max_error_m": 0.011453407507097247,
+        "terminal_mean_error_m": 0.011453257851001845,
+        "terminal_max_speed_m_s": 0.0006678472083554467,
+        "native_steps_per_branch": 1408,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0012262512878765952,
+        "max_pocket_z_m": 8.715675286763425e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": false,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111415",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14485716640949248,
+        "negative_peak_lift_m": 2.2670328617094282e-05,
+        "terminal_max_error_m": 0.004321452206261689,
+        "terminal_mean_error_m": 0.004321273420759742,
+        "terminal_max_speed_m_s": 0.0009501702718065904,
+        "native_steps_per_branch": 1416,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0010829880385328202,
+        "max_pocket_z_m": 7.014141320677014e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111416",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14485601902008055,
+        "negative_peak_lift_m": 2.2408366203291452e-06,
+        "terminal_max_error_m": 0.008892565939806762,
+        "terminal_mean_error_m": 0.008892323343690868,
+        "terminal_max_speed_m_s": 0.0010325845857156628,
+        "native_steps_per_branch": 1418,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0009047284519912741,
+        "max_pocket_z_m": 9.68662194122949e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111417",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14472527623176573,
+        "negative_peak_lift_m": 0.00030629158020019365,
+        "terminal_max_error_m": 0.004004743395854405,
+        "terminal_mean_error_m": 0.004004644779385546,
+        "terminal_max_speed_m_s": 0.000717443063266479,
+        "native_steps_per_branch": 1407,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011585475100377865,
+        "max_pocket_z_m": 6.575379514761615e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111418",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.1449159812927246,
+        "negative_peak_lift_m": 5.272030830366647e-07,
+        "terminal_max_error_m": 0.004645161369658049,
+        "terminal_mean_error_m": 0.0046448467361296115,
+        "terminal_max_speed_m_s": 0.0009918683942456694,
+        "native_steps_per_branch": 1419,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011343551054250486,
+        "max_pocket_z_m": 9.184144528218141e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    },
+    {
+      "case": "N19_2026111419",
+      "task": "N19",
+      "complete": true,
+      "positive_success": true,
+      "negative_success": true,
+      "pair_pass": true,
+      "positive_gates": {
+        "clock_and_complete_terminal_window": true,
+        "lift": true,
+        "placement_mean": true,
+        "placement_maximum": true,
+        "released": true,
+        "positive_hsm_complete": true,
+        "all_eight_samples_retained": true
+      },
+      "negative_gates": {
+        "no_close_lift_rejected": true,
+        "negative_hsm_complete": true
+      },
+      "metrics": {
+        "positive_peak_lift_m": 0.14479839622974394,
+        "negative_peak_lift_m": 2.46149301528914e-05,
+        "terminal_max_error_m": 0.006707609808153993,
+        "terminal_mean_error_m": 0.006707207551118053,
+        "terminal_max_speed_m_s": 0.0012693671025722328,
+        "native_steps_per_branch": 1408,
+        "min_retained_samples": 8,
+        "max_pocket_xy_m": 0.0011552187015240818,
+        "max_pocket_z_m": 9.645703678978768e-07
+      },
+      "producer_gate_diagnostic_only": {
+        "lift": true,
+        "placement": true,
+        "released": true,
+        "negative_rejected": true,
+        "run_complete": true,
+        "samples_retained": true
+      },
+      "producer_result_not_used_as_acceptance": true
+    }
+  ]
+}

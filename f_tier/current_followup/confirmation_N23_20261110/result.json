@@ -1,0 +1,550 @@
+{
+  "task": "N23",
+  "positive_pass": 15,
+  "positive_denominator": 20,
+  "positive_wilson95": [
+    0.531299122381256,
+    0.8881382985923343
+  ],
+  "negative_control": {
+    "case": "N23_permanent_open_negative",
+    "negative": true,
+    "complete": true,
+    "pass": true,
+    "gates": {
+      "native_clock": true,
+      "permanent_fault": true,
+      "no_release_or_downstream": true,
+      "sender_retains": true
+    },
+    "metrics": {
+      "persistent_fault_duration_s": 5.0,
+      "sender_bilateral_fraction": 1.0,
+      "receiver_verification_events": 0,
+      "mobile_started": false,
+      "minimum_terminal_cup_z_m": 0.8873200416564941
+    },
+    "no_producer_gates_or_drift_used": true
+  },
+  "incomplete_counted_as_failure": 3,
+  "cases": [
+    {
+      "case": "N23_2026111900",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999861419200897,
+        "maximum_mobile_grasp_drift_m": 0.012139794069405263,
+        "maximum_FK_error_m": 4.911421865278907e-07,
+        "terminal_placement_max_error_m": 0.005175125292303788,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111901",
+      "negative": false,
+      "complete": false,
+      "pass": false,
+      "failure": "missing_or_incomplete_native_attempt"
+    },
+    {
+      "case": "N23_2026111902",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999867379665375,
+        "maximum_mobile_grasp_drift_m": 0.008318569163850447,
+        "maximum_FK_error_m": 4.3229730447696064e-07,
+        "terminal_placement_max_error_m": 0.0052224884375510665,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111903",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.999986857175827,
+        "maximum_mobile_grasp_drift_m": 0.009726310952705616,
+        "maximum_FK_error_m": 4.812296979410757e-07,
+        "terminal_placement_max_error_m": 0.009693630121543182,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111904",
+      "negative": false,
+      "complete": true,
+      "pass": false,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": false,
+        "mobile_transport": false,
+        "final_release": false
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.0,
+        "maximum_mobile_grasp_drift_m": null,
+        "maximum_FK_error_m": 0.0,
+        "terminal_placement_max_error_m": 0.9986031459008863,
+        "terminal_support_fraction": 0.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111905",
+      "negative": false,
+      "complete": true,
+      "pass": false,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": false,
+        "mobile_transport": false,
+        "final_release": false
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.0,
+        "maximum_mobile_grasp_drift_m": null,
+        "maximum_FK_error_m": 0.0,
+        "terminal_placement_max_error_m": 0.9986616484254642,
+        "terminal_support_fraction": 0.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111906",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.999986857175827,
+        "maximum_mobile_grasp_drift_m": 0.00857620689529157,
+        "maximum_FK_error_m": 4.866269626653882e-07,
+        "terminal_placement_max_error_m": 0.00951122884771874,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111907",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.999986857175827,
+        "maximum_mobile_grasp_drift_m": 0.009578586397390636,
+        "maximum_FK_error_m": 4.788585793434249e-07,
+        "terminal_placement_max_error_m": 0.005812647659285168,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111908",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.4916666666666667,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999867379665375,
+        "maximum_mobile_grasp_drift_m": 0.007401890664986113,
+        "maximum_FK_error_m": 4.193282937282773e-07,
+        "terminal_placement_max_error_m": 0.006525935271629075,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111909",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999862611293793,
+        "maximum_mobile_grasp_drift_m": 0.011798636016069461,
+        "maximum_FK_error_m": 4.786070154074489e-07,
+        "terminal_placement_max_error_m": 0.006654074310428112,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111910",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999866187572479,
+        "maximum_mobile_grasp_drift_m": 0.01065862611991561,
+        "maximum_FK_error_m": 4.610091364945372e-07,
+        "terminal_placement_max_error_m": 0.006264169672860155,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111911",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999864995479584,
+        "maximum_mobile_grasp_drift_m": 0.008266263569848716,
+        "maximum_FK_error_m": 5.558992278574663e-07,
+        "terminal_placement_max_error_m": 0.005850212143116635,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111912",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999859035015106,
+        "maximum_mobile_grasp_drift_m": 0.011415980455706059,
+        "maximum_FK_error_m": 4.766631317037545e-07,
+        "terminal_placement_max_error_m": 0.0056615510648643725,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111913",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999854266643524,
+        "maximum_mobile_grasp_drift_m": 0.010196393844511818,
+        "maximum_FK_error_m": 4.4535995081530546e-07,
+        "terminal_placement_max_error_m": 0.005760205100576703,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111914",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999860227108002,
+        "maximum_mobile_grasp_drift_m": 0.011254537155222772,
+        "maximum_FK_error_m": 4.3938493394284186e-07,
+        "terminal_placement_max_error_m": 0.00518970269642495,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111915",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.4916666666666667,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.999985545873642,
+        "maximum_mobile_grasp_drift_m": 0.010347482467654176,
+        "maximum_FK_error_m": 4.6779329843140164e-07,
+        "terminal_placement_max_error_m": 0.008338071182909572,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111916",
+      "negative": false,
+      "complete": false,
+      "pass": false,
+      "failure": "missing_or_incomplete_native_attempt"
+    },
+    {
+      "case": "N23_2026111917",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.4916666666666667,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999864995479584,
+        "maximum_mobile_grasp_drift_m": 0.008123379227312925,
+        "maximum_FK_error_m": 5.346148123519379e-07,
+        "terminal_placement_max_error_m": 0.006366534640566874,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111918",
+      "negative": false,
+      "complete": true,
+      "pass": true,
+      "gates": {
+        "native_clock": true,
+        "physical_handoff": true,
+        "fault_recovery": true,
+        "observed_intermediate_guard": true,
+        "mobile_transport": true,
+        "final_release": true
+      },
+      "metrics": {
+        "receiver_hold_s": 1.5,
+        "giver_hold_max_force_N": 0.0,
+        "receiver_hold_bilateral_fraction": 1.0,
+        "base_travel_m": 0.9999864995479584,
+        "maximum_mobile_grasp_drift_m": 0.008730754711827639,
+        "maximum_FK_error_m": 4.920702984109866e-07,
+        "terminal_placement_max_error_m": 0.00584751021193923,
+        "terminal_support_fraction": 1.0,
+        "recovery_time_s": 2.0
+      },
+      "no_producer_gates_or_drift_used": true
+    },
+    {
+      "case": "N23_2026111919",
+      "negative": false,
+      "complete": false,
+      "pass": false,
+      "failure": "missing_or_incomplete_native_attempt"
+    }
+  ],
+  "original_identity_established": false,
+  "F_status_changed": false,
+  "status": "INDEPENDENT_BANK_COMPLETE_WITH_FAILURES",
+  "all20_launches_in_denominator": true,
+  "controller_exceptions_counted_as_failures": true,
+  "failure_details": [
+    {
+      "case": "N23_2026111901",
+      "failure_type": "receiver_retreat_IK_assertion",
+      "exit_code": 1,
+      "complete_result": false,
+      "failed_gates": []
+    },
+    {
+      "case": "N23_2026111904",
+      "failure_type": "workflow_did_not_reach_mobile_transfer",
+      "exit_code": 0,
+      "complete_result": true,
+      "failed_gates": [
+        "observed_intermediate_guard",
+        "mobile_transport",
+        "final_release"
+      ]
+    },
+    {
+      "case": "N23_2026111905",
+      "failure_type": "workflow_did_not_reach_mobile_transfer",
+      "exit_code": 0,
+      "complete_result": true,
+      "failed_gates": [
+        "observed_intermediate_guard",
+        "mobile_transport",
+        "final_release"
+      ]
+    },
+    {
+      "case": "N23_2026111916",
+      "failure_type": "receiver_retreat_IK_assertion",
+      "exit_code": 1,
+      "complete_result": false,
+      "failed_gates": []
+    },
+    {
+      "case": "N23_2026111919",
+      "failure_type": "receiver_retreat_IK_assertion",
+      "exit_code": 1,
+      "complete_result": false,
+      "failed_gates": []
+    }
+  ],
+  "source_HSM_positive_physics_gates_unchanged": true,
+  "declared_source_pose_adapter": true,
+  "scope": "Same-world scripted two-Panda plus constrained KMR, physical guards and original2s recovery; no LLM/policy or author-layout identity.",
+  "negative_scope": "Permanent-open branch aborts after5native seconds with sender retaining payload; positive controller not changed.",
+  "no_failed_case_replacement": true
+}
