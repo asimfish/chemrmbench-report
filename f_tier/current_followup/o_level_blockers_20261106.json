@@ -1,6 +1,6 @@
 {
   "schema": "original_consistency_blockers_v1",
-  "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+  "updated_at_utc": "2026-11-10T12:21:58.127740+00:00",
   "authority": "Guidance13/13b; Step A audited and user requested continued experiments. Step B independent banks follow unchanged local gates.",
   "source_of_truth_scope": "This is the single current O-blocker list for all 36 N/A/V entries. F scoreboard O_level fields are a projection; functional F_PASS is separate from original identity.",
   "classification": {
@@ -21,8 +21,8 @@
   "original_reproduction_complete": false,
   "counts": {
     "a": 22,
-    "c": 11,
-    "b": 3
+    "c": 12,
+    "b": 2
   },
   "pending_review": false,
   "native_episodes_started_in_step_A": 0,
@@ -60,6 +60,12 @@
       "pass": 15,
       "denominator": 20,
       "result": "f_tier/current_followup/confirmation_N23_20261110/result.json"
+    },
+    "N11": {
+      "pass": 2,
+      "denominator": 20,
+      "negative_pass": 20,
+      "result": "f_tier/current_followup/confirmation_N11_original_runtime_20261110/result.json"
     }
   },
   "S7_S8_S9_readback": {
@@ -363,20 +369,21 @@
     },
     {
       "id": "N11",
-      "blocker_type": "b",
+      "blocker_type": "c",
       "functional_status": "F_PASS",
       "functional_evidence_paths": [
         "f_tier/N11/result.json",
-        "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json"
+        "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json",
+        "f_tier/current_followup/confirmation_N11_original_runtime_20261110/result.json"
       ],
-      "remaining_original_gap": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank.",
+      "remaining_original_gap": "Independent fresh-source bank completed on restored accepted runtime:2/20 positive,20/20 blocked-release controls; all20 native pairs complete/exit0. Hold gate9/20 and final placement2/20 show poor source-pose robustness despite exact nominal reproduction. Original implementation differences remain; gates were not relaxed.",
       "original_identity_established": false,
       "prior_O_level": {
         "status": "BLOCKED",
         "reason": "bimanual beaker handoff has no complete independent confirmation in the 13-gate ledger.",
         "legacy_status": "OPEN"
       },
-      "next_action": "Qualify the unchanged accepted expert on an available platform before new-pose trials; do not relax gates.",
+      "next_action": "Report weak new-source robustness; do not silently repair accepted expert or relax10mm gates. Independent bank is complete, original identity is not.",
       "confirmation_matrix_entry": "f_tier/current_followup/o_level_confirmation_matrix_20261106.json#N11",
       "scope_warning": "Closing the local independent bank does not erase original CAD/hardware/model differences and is not an O_PASS."
     },
@@ -920,8 +927,9 @@
     "runner_vs_reducer_scope_checked": true
   },
   "review_handoff": {
-    "state": "SIX_CONFIRMATION_BANKS_CLOSED_THREE_BLOCKED",
+    "state": "SEVEN_CONFIRMATION_BANKS_CLOSED_TWO_PENDING_USER_INPUT",
     "completed_banks": [
+      "N11",
       "N13",
       "N14",
       "N15",
@@ -932,7 +940,6 @@
     "running_banks": [],
     "remaining_independent_banks": [
       "N10",
-      "N11",
       "N16"
     ],
     "pending_user_clarifications": [

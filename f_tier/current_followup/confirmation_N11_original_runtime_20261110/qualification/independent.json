@@ -1,0 +1,33 @@
+{
+  "case": "N11_nominal_precheck",
+  "task": "N11",
+  "positive_success": true,
+  "negative_success": true,
+  "pair_pass": true,
+  "complete": true,
+  "positive_gates": {
+    "native_clock": true,
+    "lift": true,
+    "receiver_only_hold": true,
+    "placed_released": true,
+    "HSMs_complete": true
+  },
+  "negative_gates": {
+    "withheld_release": true
+  },
+  "metrics": {
+    "positive_peak_lift_m": 0.20380766510963438,
+    "hold_duration_s": 1.5,
+    "hold_max_error_m": 0.0084051630106905,
+    "giver_max_contact_N": 0.0,
+    "receiver_bilateral_contact_fraction": 1.0,
+    "terminal_mean_placement_error_m": 0.008304827404478242,
+    "negative_min_terminal_z_m": 0.24803930521011353,
+    "negative_blocked_samples": 1423
+  },
+  "producer_gates_not_used": true,
+  "runtime_qualification": true,
+  "postprocess_first_attempt": "ModuleNotFoundError:recompute_base; fixed reducer import path without rerunning physics",
+  "native_exit_code": "not_durably_recorded_before_postprocess_exception",
+  "protocol": "protocol.json"
+}

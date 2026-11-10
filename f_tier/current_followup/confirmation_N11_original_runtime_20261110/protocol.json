@@ -1,0 +1,363 @@
+{
+  "id": "N11-independent-original-runtime-20261110",
+  "frozen_utc": "2026-11-10T10:53:02.690719+00:00",
+  "authority": "Guidance13 StepB next independent task banks; current user continue. Each task gated by its own nominal pair; no learning or gate relaxation.",
+  "stage": "B_FIRST_THREE_BANKS",
+  "tasks": [
+    "N11",
+    "N15"
+  ],
+  "new_seeds": {
+    "N11": [
+      2026111500,
+      2026111519
+    ],
+    "N15": [
+      2026111600,
+      2026111619
+    ]
+  },
+  "distribution": {
+    "N11": "source cup/support xy +/-20mm, cup yaw+/-30deg; fixed handoff and goal remain unchanged; retarget giver source phases from their accepted nominal joint postures only",
+    "N15": "washing fixture xy +/-20mm, yaw0; all static fixtures and valve world joint translated together; robot mount fixed, original IK and angle commands unchanged"
+  },
+  "episode_denominators": {
+    "fresh_positive_per_task": 20,
+    "fresh_negative_per_task": 20,
+    "qualification_branch_episodes": 4,
+    "total_planned_branch_episodes": 84
+  },
+  "physics": "Unchanged CPU PhysX120Hz, Panda native hand, original matterix_sm HSM, native joint drives/force/stiffness/geometry/materials and original max_seconds; no C3 or learning updates.",
+  "expert": "Original HSM/drives. N11 accepted nominal plan preserved for fixed handoff and receiver; only giver source phases geometrically retargeted from their phase anchors. N15 original IK/angle sequence with fixture translation only.",
+  "gates": {
+    "N11": {
+      "positive": "Giver lifts cup; receiver closes; giver releases and withdraws; receiver holds1.5s then places and releases",
+      "negative": "Same paths but receiver fingers stay open; actual dual-finger contact verifier blocks sender release and retains the payload",
+      "local_thresholds": {
+        "lift_m": 0.05,
+        "receiver_hold_error_m": 0.01,
+        "receiver_hold_s": 1.4,
+        "final_placement_m": 0.01,
+        "negative_sender_release_count": 0
+      },
+      "runtime_object_pose_writes": false,
+      "attachment_constraints": false,
+      "physics_device": "cpu"
+    },
+    "N15": {
+      "physics": "CPU native PhysX; passive revolute valve moved by Panda finger contact",
+      "flow_model": "Local semantic q=5*clip(angle_deg-.5,0,89.5)/89.5 mL/s; volume ledger integrates observed q against native dt. No CFD claim.",
+      "runtime_object_pose_writes": false,
+      "attachments": false,
+      "local_thresholds": {
+        "angle_span_deg": 60,
+        "plateaus": 5,
+        "angle_flow_r2": 0.99,
+        "angle_error_deg": 5,
+        "closed_flow_ml_s": 0
+      }
+    }
+  },
+  "unchanged_source_reviews": [
+    "f_tier/N11/result.json#F_acceptance_review",
+    "f_tier/N15/result.json#F_acceptance_review"
+  ],
+  "source_changes": [
+    {
+      "task": "N11",
+      "original_source_sha256": "6f026526627d6b0409a2621aa36fdfd72dec85fbc8417a884ad719783149941c",
+      "executed_source_sha256": "8206123a235637d616b9136d495151ebacdd22294ca26ffadc672cff4b1f7d32",
+      "physics_HSM_gates_unchanged": true
+    },
+    {
+      "task": "N15",
+      "original_source_sha256": "0a07d9332185efa1a1bf7e1c35c687977c99136a2ff0a168853b296229cc9e8e",
+      "executed_source_sha256": "af7a68d11d0b8f2ec332befa7d648a0c104f3d99ad74a40cd0b870c71f5ca131",
+      "physics_HSM_gates_unchanged": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "N11_2026111500",
+      "task": "N11",
+      "seed": 2026111500,
+      "source_position_m": [
+        0.34034685157444,
+        -0.3821605847476319,
+        0.08
+      ],
+      "source_yaw_deg": -0.5962994848558907,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111501",
+      "task": "N11",
+      "seed": 2026111501,
+      "source_position_m": [
+        0.35657292642458793,
+        -0.4123489446709205,
+        0.08
+      ],
+      "source_yaw_deg": 6.666650926959285,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111502",
+      "task": "N11",
+      "seed": 2026111502,
+      "source_position_m": [
+        0.33133970699882004,
+        -0.4115740303627731,
+        0.08
+      ],
+      "source_yaw_deg": 13.086236734306965,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111503",
+      "task": "N11",
+      "seed": 2026111503,
+      "source_position_m": [
+        0.3602369690851917,
+        -0.39803340358585976,
+        0.08
+      ],
+      "source_yaw_deg": -14.131548016228447,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111504",
+      "task": "N11",
+      "seed": 2026111504,
+      "source_position_m": [
+        0.3564142950901411,
+        -0.4048687326987738,
+        0.08
+      ],
+      "source_yaw_deg": -0.0020535504960115247,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111505",
+      "task": "N11",
+      "seed": 2026111505,
+      "source_position_m": [
+        0.3643388127629139,
+        -0.39100293541344805,
+        0.08
+      ],
+      "source_yaw_deg": 12.178401284733852,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111506",
+      "task": "N11",
+      "seed": 2026111506,
+      "source_position_m": [
+        0.3494977979989896,
+        -0.4057830660549208,
+        0.08
+      ],
+      "source_yaw_deg": -19.390627594342497,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111507",
+      "task": "N11",
+      "seed": 2026111507,
+      "source_position_m": [
+        0.35883887532978803,
+        -0.4152959991355925,
+        0.08
+      ],
+      "source_yaw_deg": 25.6379195723937,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111508",
+      "task": "N11",
+      "seed": 2026111508,
+      "source_position_m": [
+        0.36028793916775526,
+        -0.39995170439880123,
+        0.08
+      ],
+      "source_yaw_deg": -22.01025280476736,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111509",
+      "task": "N11",
+      "seed": 2026111509,
+      "source_position_m": [
+        0.3686594347236988,
+        -0.4157483995278798,
+        0.08
+      ],
+      "source_yaw_deg": -10.681188683879537,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111510",
+      "task": "N11",
+      "seed": 2026111510,
+      "source_position_m": [
+        0.36343217542868317,
+        -0.4174489878358411,
+        0.08
+      ],
+      "source_yaw_deg": 2.4549943668335956,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111511",
+      "task": "N11",
+      "seed": 2026111511,
+      "source_position_m": [
+        0.34287486086734026,
+        -0.41162389996832693,
+        0.08
+      ],
+      "source_yaw_deg": -20.91132292383737,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111512",
+      "task": "N11",
+      "seed": 2026111512,
+      "source_position_m": [
+        0.33785676085087774,
+        -0.4118825512608974,
+        0.08
+      ],
+      "source_yaw_deg": 15.83830944374867,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111513",
+      "task": "N11",
+      "seed": 2026111513,
+      "source_position_m": [
+        0.36330972089850555,
+        -0.41950378334800176,
+        0.08
+      ],
+      "source_yaw_deg": -10.581570571329962,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111514",
+      "task": "N11",
+      "seed": 2026111514,
+      "source_position_m": [
+        0.3440049179304453,
+        -0.40378243779883854,
+        0.08
+      ],
+      "source_yaw_deg": 2.5191911995071194,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111515",
+      "task": "N11",
+      "seed": 2026111515,
+      "source_position_m": [
+        0.34415723774678997,
+        -0.41485705297011566,
+        0.08
+      ],
+      "source_yaw_deg": -8.46526199637401,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111516",
+      "task": "N11",
+      "seed": 2026111516,
+      "source_position_m": [
+        0.34311246059856726,
+        -0.39508072370169783,
+        0.08
+      ],
+      "source_yaw_deg": 19.29414180806178,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111517",
+      "task": "N11",
+      "seed": 2026111517,
+      "source_position_m": [
+        0.3506395065516817,
+        -0.41744594299134113,
+        0.08
+      ],
+      "source_yaw_deg": 14.81830387719679,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111518",
+      "task": "N11",
+      "seed": 2026111518,
+      "source_position_m": [
+        0.3364592871410919,
+        -0.3901641133566588,
+        0.08
+      ],
+      "source_yaw_deg": -20.59379055669293,
+      "max_native_s": 55
+    },
+    {
+      "id": "N11_2026111519",
+      "task": "N11",
+      "seed": 2026111519,
+      "source_position_m": [
+        0.3680579463038924,
+        -0.40153501643086836,
+        0.08
+      ],
+      "source_yaw_deg": -28.53176342142825,
+      "max_native_s": 55
+    }
+  ],
+  "execution": {
+    "platform": "TRX50 shared-load GPU0 graphics/CPU PhysX",
+    "max_native_processes": 6,
+    "force_gate_physics_device": "cpu",
+    "mandatory_nominal_controls_per_task": 1,
+    "qualification_failure": "block only that task fresh bank; retain all failed control data; other qualified task proceeds",
+    "no_threshold_adaptation_after_results": true,
+    "runtime_outputs": "local NVMe, per-case async archives; NAS copy after complete branches"
+  },
+  "limitations": [
+    "Local reconstructed hardware/CAD and privileged semantic observations remain declared differences.",
+    "N11 source geometric retargeting preserves accepted fixed handoff/receiver path; not exact author controller identity.",
+    "N15 angle-flow R2 checks declared linear semantic coupling, not physical hydraulics.",
+    "Shared-load TRX50 CPU PhysX; GPU0 route only, external GPU1 processes untouched."
+  ],
+  "controls": [],
+  "mandatory_prechecks": "Each task independent: its nominal paired control must satisfy all original physical gates before any fresh cases of that task.",
+  "status": "FROZEN_BEFORE_NOMINAL_CONTROLS",
+  "independent_reducer_sha256": "8516a02eff2b59641e82252a8a47b36f3b123b622643ea0be6c6e27fb76692f9",
+  "dispatch_amendment": {
+    "frozen_utc": "2026-11-10T10:54:33.887981+00:00",
+    "cause": "Original N11/N15 CLIs accept max-seconds only (N11 also out-subdir); the generic N16 CLI flags caused argparse rejection before simulator startup.",
+    "previous_attempts": "runs/ledger.jsonl and runs/cases/*/native.log preserved; no fresh pose started and zero physics in failed controls.",
+    "change": "Pass only the supported max-seconds flag. No native source/controller/physics/gate/data changes.",
+    "fresh_case_set_unchanged": true
+  },
+  "frozen_at_utc": "2026-11-10T12:15:12.531755+00:00",
+  "runtime_qualification": {
+    "result": "original_runtime_nominal/independent.json",
+    "positive_and_negative_pass": true,
+    "native_exit_code": "not durably recorded before postprocess import failure; full raw clock/contacts/HSM independently verified",
+    "old_failed_nominal_preserved": "runs_dispatch_fixed/cases/N11_nominal_precheck",
+    "acceptance_unchanged": true
+  },
+  "platform_amendment_before_new_poses": {
+    "python": "/home/liyufeng/venvs/gpt-policy-robolab51/bin/python",
+    "isaaclab": "2.3.2.post1 installed package; safeduo source checkout not injected",
+    "CUDA_VISIBLE_DEVICES": "",
+    "physics": "original CPU PhysX120Hz",
+    "all20_original_fixed_seeds_unchanged": true,
+    "shared_resource_policy": "One formal case is retained as memory probe; subsequent concurrency<=6, GPU0 observed free>=1.5x measured peak and>=6GiB to start; own processes stop below4GiB; external processes untouched."
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+  "updated_at_utc": "2026-11-10T12:21:58.127740+00:00",
   "rows": [
     {
       "id": "N01",
@@ -522,7 +522,8 @@
       "status": "F_PASS",
       "evidence_paths": [
         "f_tier/N11/result.json",
-        "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json"
+        "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json",
+        "f_tier/current_followup/confirmation_N11_original_runtime_20261110/result.json"
       ],
       "video": "f_tier/N11/video.mp4",
       "declared_differences": [
@@ -533,8 +534,8 @@
       ],
       "O_level": {
         "status": "BLOCKED",
-        "blocker_type": "b",
-        "reason": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank.",
+        "blocker_type": "c",
+        "reason": "Independent fresh-source bank completed on restored accepted runtime:2/20 positive,20/20 blocked-release controls; all20 native pairs complete/exit0. Hold gate9/20 and final placement2/20 show poor source-pose robustness despite exact nominal reproduction. Original implementation differences remain; gates were not relaxed.",
         "canonical_source": "f_tier/current_followup/o_level_blockers_20261106.json#N11",
         "pre_guidance13": {
           "status": "BLOCKED",
@@ -1671,7 +1672,8 @@
     "A06于2026-10-24按用户批准的R1门第3次尝试通过F：训练后相位学生在2个预声明位置2/2、未训练对照0/2；第1次（状态复制反馈）0/2、第2次（放下触地加速度计数）1/2均保留；原冻结瓶底轨迹门全部失败；输入为设备未知的公开真人视频，非手机原始采集；TCP≤10mm对无运动也成立（5.43mm），区分依赖幅值比0.73对0.30。",
     "CPU液体任务的墙钟开销约为实时的60倍；单个GPU桥接案例扣除资源暂停后约快1.5倍，不能作为总体吞吐保证。",
     "早期SIGTERM发送来源仍未查清，不能宣称最终修复；后来记录PID/starttime、退出码、阶段进度并采用独立运行与定向资源管理，中断不从分母剔除。",
-    "A05新留出1/3、旧评测0/3；F仅验证存在完整功能，不是稳健策略。配对RGB和遮蔽RGB均失败，不能证明视觉收益；成功episode的子进程退出码未知，316保存状态独立复核完整物理过程。"
+    "A05新留出1/3、旧评测0/3；F仅验证存在完整功能，不是稳健策略。配对RGB和遮蔽RGB均失败，不能证明视觉收益；成功episode的子进程退出码未知，316保存状态独立复核完整物理过程。",
+    "N11新增20个源位姿仅2/20通过，负对照20/20；原接受运行环境恢复后名义误差可精确复现，但不能推断新位姿鲁棒性。保持10mm门，所有失败与先前名义失败保留。"
   ],
   "baseline_freeze": {
     "version": "v1",
@@ -1697,15 +1699,14 @@
   },
   "independent_confirmation": {
     "schema": "independent_confirmation_progress_v1",
-    "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+    "updated_at_utc": "2026-11-10T12:21:58.127740+00:00",
     "F_core_pass": 36,
     "F_core_total": 36,
     "original_identity_complete": false,
-    "closed_banks": 6,
+    "closed_banks": 7,
     "planned_banks": 9,
     "remaining_banks": [
       "N10",
-      "N11",
       "N16"
     ],
     "positive_results": {
@@ -1738,12 +1739,18 @@
         "pass": 15,
         "denominator": 20,
         "result": "f_tier/current_followup/confirmation_N23_20261110/result.json"
+      },
+      "N11": {
+        "pass": 2,
+        "denominator": 20,
+        "result": "f_tier/current_followup/confirmation_N11_original_runtime_20261110/result.json"
       }
     },
     "failure_accounting": {
       "N19": "Five placement failures; one also fails eight-tube retention;19/20 retain samples. All20 complete.",
       "N23": "Three controller IK exceptions plus two completed workflow failures. All20 count; no failed case replacement.",
-      "N16": "20 launch intents,one complete/pass,19 unavailable/incomplete after job STOPPED; not a controller reliability estimate."
+      "N16": "20 launch intents,one complete/pass,19 unavailable/incomplete after job STOPPED; not a controller reliability estimate.",
+      "N11": "18 failures retained; hold gate9/20,placement2/20,HSM completion19/20. All20 positive/negative pairs complete and native exit0."
     },
     "negative_controls": {
       "N13": "20/20",
@@ -1751,11 +1758,11 @@
       "N15": "20/20",
       "N19": "20/20",
       "N21": "20/20",
-      "N23": "1/1 permanent-open control"
+      "N23": "1/1 permanent-open control",
+      "N11": "20/20"
     },
     "blockers": {
       "N10": "Independent powder bank not started. Await scope choice: whole-bench SE2 variation with fixed relative geometry tests coordinate robustness only, while new relative layouts require a different planner. Semantic mass ledger is the accepted local weighing gate; physical force-scale failures remain diagnostics.",
-      "N11": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank.",
       "N16": "Prepared-plan cloud bank stopped for unknown reason after20 launch intents: one complete/pass,19 without complete retrieved data. Not a completed reliability estimate; retain all starts. Local nominal qualification failed16.51mm placement. Earlier free-IK diagnostics do not confirm the accepted prepared expert."
     },
     "resource_limitations": {
@@ -1766,6 +1773,8 @@
     "waiting_on_user": [
       "N16 stop intent",
       "N10 sampling-scope choice"
-    ]
+    ],
+    "runtime_resolution_N11": "Accepted installed Oct19 runtime restored; exact nominal metrics. Underlying single-component cause not established. Earlier failed nominal and qualification postprocess import error retained.",
+    "previous_six_bank_publication_commit": "06c15b5a3964bed48c3946a3bdf6a4042da9377e"
   }
 }

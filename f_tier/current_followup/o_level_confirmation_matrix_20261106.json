@@ -1,6 +1,6 @@
 {
   "schema": "original_consistency_independent_confirmation_matrix_v1",
-  "updated_at_utc": "2026-11-10T11:56:51.337901+00:00",
+  "updated_at_utc": "2026-11-10T12:21:58.127740+00:00",
   "authority": "Guidance13 independent confirmation execution; historical Step A planning retained in fields and backups.",
   "canonical_blocker_list": "f_tier/current_followup/o_level_blockers_20261106.json",
   "task_count": 9,
@@ -208,7 +208,7 @@
     {
       "id": "N11",
       "order": 4,
-      "status": "NOMINAL_QUALIFICATION_FAILED_FRESH_BANK_NOT_STARTED",
+      "status": "INDEPENDENT_BANK_COMPLETE_WITH_FAILURES",
       "acceptance_source": "f_tier/N11/result.json",
       "accepted_threshold_scope": "existing local functional gates, not original-paper thresholds; no C3 motion gate added or waived",
       "gates": [
@@ -258,8 +258,9 @@
       "residual_original_gap": "No independent 20-new-pose bank for the accepted two-Panda physical cup handoff with withheld-release negative. Original dual-arm hardware and labware identity remain declared differences.",
       "negative_gate_note": "Reuse accepted negative logic; do not infer rejection from positive gate failure alone.",
       "independent_recompute_execution_scope": "Existing review scripts are reference sources, not bank-ready commands: several write canonical F evidence at top level. Extract/parameterize read-only metric computation into isolated bank outputs; never execute their acceptance/publishing side effects.",
-      "confirmation_result": "f_tier/current_followup/confirmation_N11_N15_20261110/N11/result.json",
-      "observed_original_gap": "Fresh bank not started: nominal qualification hold15.109mm and placement16.134mm exceed unchanged10mm gates; blocked-release negative passes. Preserve old F evidence and failed qualification; establish a qualified platform before fresh bank."
+      "confirmation_result": "f_tier/current_followup/confirmation_N11_original_runtime_20261110/result.json",
+      "observed_original_gap": "Independent fresh-source bank completed on restored accepted runtime:2/20 positive,20/20 blocked-release controls; all20 native pairs complete/exit0. Hold gate9/20 and final placement2/20 show poor source-pose robustness despite exact nominal reproduction. Original implementation differences remain; gates were not relaxed.",
+      "frozen_protocol": "f_tier/current_followup/confirmation_N11_original_runtime_20261110/protocol.json"
     },
     {
       "id": "N13",
